@@ -717,23 +717,24 @@
     }
 
     async function loadData() {
-      try {
-        const res = await fetch('./data/vietlott_summary.json');
-        if (res.ok) {
-          appData = await res.json();
-          onDataReady();
-          return;
-        }
-      } catch (err) {}
+      const ts = Date.now();
+      const urls = [
+        './data/vietlott_summary.json?v=' + ts,
+        './docs/data/vietlott_summary.json?v=' + ts,
+        'docs/data/vietlott_summary.json?v=' + ts,
+        'data/vietlott_summary.json?v=' + ts
+      ];
 
-      try {
-        const res = await fetch('./docs/data/vietlott_summary.json');
-        if (res.ok) {
-          appData = await res.json();
-          onDataReady();
-          return;
-        }
-      } catch (e) {}
+      for (const url of urls) {
+        try {
+          const res = await fetch(url, { cache: 'no-store' });
+          if (res.ok) {
+            appData = await res.json();
+            onDataReady();
+            return;
+          }
+        } catch (err) {}
+      }
 
       if (window.location.protocol === 'file:') {
         document.getElementById('fileNotice').classList.remove('hidden');

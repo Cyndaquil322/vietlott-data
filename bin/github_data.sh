@@ -41,8 +41,9 @@ echo "=== 2. GENERATING README STATS & WEB DATA ==="
 python src/render_readme.py || true
 python src/vietlott/render_web_data.py
 
-# Sync index.html to root
+# Sync index.html and json to root
 cp -f docs/index.html index.html || true
+cp -f docs/data/vietlott_summary.json data/vietlott_summary.json || true
 
 echo "=== 3. COMMITTING AND PUSHING UPDATES ==="
 if [ -d ".git" ]; then
