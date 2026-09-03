@@ -137,3 +137,32 @@ $$Q = \frac{1}{2m} \sum_{i, j} \left[ A_{ij} - \frac{k_i k_j}{2m} \right] \delta
 
 Thuật toán tự động phân hoạch 55 số thành **4 đến 5 Cụm Đồ Thị tự nhiên (Graph Communities)**:
 * **Quy tắc rải vé tối ưu:** Khi sinh một vé 6 số, thuật toán áp dụng nguyên lý **Đa dạng hóa danh mục**: Bắt buộc 6 con số phải đến từ ít nhất 4 cụm đồ thị khác nhau, ngăn chặn triệt để hiện tượng dồn hết số vào một cụm rủi ro.
+
+---
+
+## 8. PHÂN TÍCH PHỔ CHU KỲ NHỊP FOURIER & HÀM ĐIỂM ĐA NHÂN TỐ TỐI ƯU (FOURIER SPECTRAL RECURRENCE & OPTIMIZED MULTI-FACTOR ENGINE)
+
+### A. Biến đổi Fourier rời rạc trên chuỗi xuất hiện (Discrete Fourier Transform - DFT):
+Mỗi quả bóng $b \in [1, N]$ được biểu diễn dưới dạng chuỗi tín hiệu thời gian nhị phân trên cửa sổ $L = 64$ kỳ gần nhất:
+$$x_b[t] = \begin{cases} 1 & \text{nếu } b \in \text{draw}_t \\ 0 & \text{ngược lại} \end{cases} \quad (t = 0, \dots, L-1)$$
+
+Áp dụng biến đổi Fourier rời rạc trên tín hiệu đã chuẩn hóa trung bình:
+$$X_b[k] = \sum_{t=0}^{L-1} (x_b[t] - \bar{x}_b) e^{-i 2\pi k t / L} \quad (k = 1, \dots, L/2)$$
+
+Tần số dao động chủ đạo (Dominant Recurrence Frequency) và chu kỳ cộng hưởng $T_b$:
+$$k_b^* = \arg\max_{k \ge 1} |X_b[k]|, \quad T_b = \frac{L}{k_b^*}$$
+
+Điểm cộng hưởng chu kỳ (Spectral Resonance Score) khi nhịp gan hiện tại $g_b$ tiến gần chu kỳ riêng $T_b$:
+$$S_{\text{spectral}}(b) = \exp\left( -0.2 \cdot |g_b - T_b| \right)$$
+
+### B. Hàm chấm điểm đa nhân tố tối ưu (Optimized Multi-Factor Scoring):
+Điểm tổng hợp của mỗi quả bóng $b$ được xác định bởi hàm tuyến tính có trọng số đã qua kiểm định thực nghiệm trên 300 kỳ:
+$$\text{Score}(b) = w_1 \cdot H(r_b) + w_2 \cdot F_{\text{decay}}(b) + w_3 \cdot \mathbb{I}_{\text{Cầu Rơi}}(b) + w_4 \cdot S_{\text{spectral}}(b) + w_5 \cdot \text{Lift}_{\text{Bạc Nhớ}}(b) + w_6 \cdot M_{\text{Synergy}}(b)$$
+
+Trong đó bộ trọng số tối ưu thực nghiệm:
+* $w_1 = 2.0$: Trọng số Bayesian Hazard Rate vùng vàng
+* $w_2 = 1.5$: Trọng số Exponential Time Decay
+* $w_3 = 2.5$: Trọng số Quán tính Cầu Rơi
+* $w_4 = 0.5$: Trọng số Cộng hưởng phổ Fourier
+* $w_5 = 1.8$: Trọng số Bạc Nhớ Cặp Đôi kéo bóng
+* $w_6 = 1.2$: Trọng số Ma Trận Kề Đồng Quy

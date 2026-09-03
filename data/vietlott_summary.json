@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-09-04 02:50:35",
+    "generated_at": "2026-09-04 03:04:59",
     "generator": "vietlott-data automated pipeline",
     "version": "2.0.0"
   },
@@ -3112,14 +3112,14 @@
             "drawId": "01394",
             "date": "Kỳ Kế Tiếp",
             "predicted": [
-              5,
               8,
+              9,
               29,
+              38,
               40,
-              45,
-              46
+              45
             ],
-            "special": 9,
+            "special": 16,
             "actual": null,
             "matched": [],
             "matchCount": 0,
@@ -3135,13 +3135,13 @@
             "date": "2026-09-03",
             "predicted": [
               1,
-              22,
-              33,
-              38,
+              18,
+              20,
               40,
-              41
+              44,
+              49
             ],
-            "special": 5,
+            "special": 41,
             "actual": [
               8,
               9,
@@ -3164,11 +3164,11 @@
             "drawId": "01392",
             "date": "2026-09-01",
             "predicted": [
-              8,
-              18,
-              27,
+              7,
+              9,
               29,
-              41,
+              34,
+              44,
               45
             ],
             "special": 5,
@@ -3182,7 +3182,7 @@
               45
             ],
             "matched": [
-              41
+              44
             ],
             "matchCount": 1,
             "specMatched": false,
@@ -3196,14 +3196,14 @@
             "drawId": "01391",
             "date": "2026-08-29",
             "predicted": [
-              5,
+              3,
               9,
-              21,
-              39,
+              27,
               41,
-              44
+              44,
+              45
             ],
-            "special": 18,
+            "special": 1,
             "actual": [
               5,
               10,
@@ -3214,7 +3214,7 @@
               24
             ],
             "matched": [
-              5
+              45
             ],
             "matchCount": 1,
             "specMatched": false,
@@ -3228,11 +3228,11 @@
             "drawId": "01390",
             "date": "2026-08-27",
             "predicted": [
-              13,
+              2,
               14,
-              16,
-              23,
-              41,
+              22,
+              29,
+              45,
               55
             ],
             "special": 18,
@@ -3258,11 +3258,11 @@
             "drawId": "01389",
             "date": "2026-08-25",
             "predicted": [
-              2,
-              16,
+              8,
+              14,
               18,
-              25,
-              45,
+              33,
+              38,
               55
             ],
             "special": 9,
@@ -3290,12 +3290,12 @@
             "drawId": "01388",
             "date": "2026-08-22",
             "predicted": [
-              5,
-              14,
-              22,
-              40,
-              41,
-              45
+              9,
+              16,
+              18,
+              29,
+              50,
+              55
             ],
             "special": 39,
             "actual": [
@@ -3307,8 +3307,11 @@
               36,
               8
             ],
-            "matched": [],
-            "matchCount": 0,
+            "matched": [
+              9,
+              18
+            ],
+            "matchCount": 2,
             "specMatched": false,
             "cost": 10000,
             "payout": 0,
@@ -3321,11 +3324,11 @@
             "date": "2026-08-20",
             "predicted": [
               2,
-              18,
-              20,
-              33,
+              5,
+              16,
               40,
-              50
+              45,
+              55
             ],
             "special": 41,
             "actual": [
@@ -3352,12 +3355,12 @@
             "drawId": "01386",
             "date": "2026-08-18",
             "predicted": [
-              2,
-              25,
+              8,
+              22,
               27,
-              40,
-              41,
-              45
+              30,
+              39,
+              40
             ],
             "special": 16,
             "actual": [
@@ -3369,10 +3372,8 @@
               48,
               30
             ],
-            "matched": [
-              41
-            ],
-            "matchCount": 1,
+            "matched": [],
+            "matchCount": 0,
             "specMatched": false,
             "cost": 10000,
             "payout": 0,
@@ -3384,12 +3385,12 @@
             "drawId": "01385",
             "date": "2026-08-15",
             "predicted": [
-              9,
+              8,
+              16,
               20,
-              23,
-              24,
-              29,
-              55
+              39,
+              41,
+              46
             ],
             "special": 5,
             "actual": [
@@ -3402,9 +3403,10 @@
               2
             ],
             "matched": [
+              16,
               20
             ],
-            "matchCount": 1,
+            "matchCount": 2,
             "specMatched": false,
             "cost": 10000,
             "payout": 0,
@@ -3416,7 +3418,7 @@
             "drawId": "01384",
             "date": "2026-08-13",
             "predicted": [
-              7,
+              1,
               14,
               22,
               23,
@@ -3451,7 +3453,7 @@
               28,
               38,
               40,
-              49
+              53
             ],
             "special": 33,
             "actual": [
@@ -3476,12 +3478,12 @@
             "drawId": "01382",
             "date": "2026-08-08",
             "predicted": [
-              8,
-              11,
+              1,
+              16,
               23,
-              24,
-              49,
-              53
+              28,
+              41,
+              51
             ],
             "special": 55,
             "actual": [
@@ -3506,14 +3508,14 @@
             "drawId": "01381",
             "date": "2026-08-06",
             "predicted": [
-              5,
-              8,
+              11,
+              16,
               22,
-              23,
-              53,
-              55
+              39,
+              40,
+              42
             ],
-            "special": 39,
+            "special": 14,
             "actual": [
               14,
               18,
@@ -3523,11 +3525,8 @@
               55,
               1
             ],
-            "matched": [
-              23,
-              55
-            ],
-            "matchCount": 2,
+            "matched": [],
+            "matchCount": 0,
             "specMatched": false,
             "cost": 10000,
             "payout": 0,
@@ -3541,12 +3540,12 @@
             "predicted": [
               2,
               5,
-              14,
+              23,
               39,
-              53,
-              55
+              49,
+              53
             ],
-            "special": 8,
+            "special": 16,
             "actual": [
               14,
               39,
@@ -3557,10 +3556,9 @@
               31
             ],
             "matched": [
-              14,
               39
             ],
-            "matchCount": 2,
+            "matchCount": 1,
             "specMatched": false,
             "cost": 10000,
             "payout": 0,
@@ -3572,14 +3570,14 @@
             "drawId": "01379",
             "date": "2026-08-01",
             "predicted": [
-              7,
-              16,
-              20,
-              28,
-              45,
-              55
+              2,
+              12,
+              32,
+              39,
+              41,
+              45
             ],
-            "special": 8,
+            "special": 28,
             "actual": [
               11,
               14,
@@ -3589,11 +3587,8 @@
               55,
               39
             ],
-            "matched": [
-              16,
-              55
-            ],
-            "matchCount": 2,
+            "matched": [],
+            "matchCount": 0,
             "specMatched": false,
             "cost": 10000,
             "payout": 0,
@@ -3605,11 +3600,11 @@
             "drawId": "01378",
             "date": "2026-07-30",
             "predicted": [
-              1,
+              9,
               16,
-              20,
-              32,
-              45,
+              27,
+              28,
+              33,
               55
             ],
             "special": 22,
@@ -3622,8 +3617,10 @@
               49,
               51
             ],
-            "matched": [],
-            "matchCount": 0,
+            "matched": [
+              28
+            ],
+            "matchCount": 1,
             "specMatched": false,
             "cost": 10000,
             "payout": 0,
@@ -3636,13 +3633,13 @@
             "date": "2026-07-28",
             "predicted": [
               5,
-              9,
-              24,
-              33,
-              45,
-              53
+              13,
+              22,
+              37,
+              40,
+              50
             ],
-            "special": 8,
+            "special": 33,
             "actual": [
               7,
               22,
@@ -3652,8 +3649,10 @@
               44,
               48
             ],
-            "matched": [],
-            "matchCount": 0,
+            "matched": [
+              22
+            ],
+            "matchCount": 1,
             "specMatched": false,
             "cost": 10000,
             "payout": 0,
@@ -3665,12 +3664,12 @@
             "drawId": "01376",
             "date": "2026-07-25",
             "predicted": [
+              3,
               8,
-              22,
+              23,
               24,
-              33,
-              41,
-              45
+              53,
+              55
             ],
             "special": 1,
             "actual": [
@@ -3682,10 +3681,8 @@
               50,
               48
             ],
-            "matched": [
-              33
-            ],
-            "matchCount": 1,
+            "matched": [],
+            "matchCount": 0,
             "specMatched": false,
             "cost": 10000,
             "payout": 0,
@@ -3699,10 +3696,10 @@
             "predicted": [
               8,
               11,
-              23,
+              24,
               34,
               39,
-              53
+              48
             ],
             "special": 22,
             "actual": [
@@ -3729,12 +3726,12 @@
             "drawId": "01374",
             "date": "2026-07-21",
             "predicted": [
-              2,
-              17,
+              8,
+              20,
               22,
+              25,
               33,
-              34,
-              55
+              54
             ],
             "special": 41,
             "actual": [
@@ -3747,9 +3744,10 @@
               13
             ],
             "matched": [
+              8,
               22
             ],
-            "matchCount": 1,
+            "matchCount": 2,
             "specMatched": false,
             "cost": 10000,
             "payout": 0,
@@ -3760,14 +3758,14 @@
         ],
         "kpis": {
           "total_draws": 200,
-          "hit_3_plus": 1,
+          "hit_3_plus": 0,
           "hit_4_plus": 0,
           "hit_5_plus": 0,
           "total_cost": 2000000,
-          "total_payout": 50000,
-          "net_profit": -1950000,
-          "avg_matched": 0.6,
-          "win_rate_pct": 0.5
+          "total_payout": 0,
+          "net_profit": -2000000,
+          "avg_matched": 0.56,
+          "win_rate_pct": 0.0
         }
       },
       "bao7_backtest_data": {
@@ -3776,15 +3774,15 @@
             "drawId": "01394",
             "date": "Kỳ Kế Tiếp",
             "predicted": [
+              5,
               8,
-              9,
               16,
               29,
-              40,
+              41,
               45,
-              55
+              46
             ],
-            "special": 5,
+            "special": 9,
             "actual": null,
             "matched": [],
             "matchCount": 0,
@@ -3799,15 +3797,15 @@
             "drawId": "01393",
             "date": "2026-09-03",
             "predicted": [
+              1,
               3,
-              16,
-              18,
-              22,
+              5,
+              29,
+              39,
               40,
-              41,
-              49
+              45
             ],
-            "special": 5,
+            "special": 41,
             "actual": [
               8,
               9,
@@ -3817,10 +3815,8 @@
               47,
               11
             ],
-            "matched": [
-              16
-            ],
-            "matchCount": 1,
+            "matched": [],
+            "matchCount": 0,
             "specMatched": false,
             "cost": 70000,
             "payout": 0,
@@ -3833,14 +3829,14 @@
             "date": "2026-09-01",
             "predicted": [
               5,
-              9,
+              10,
               18,
               29,
-              39,
+              41,
               44,
               45
             ],
-            "special": 8,
+            "special": 15,
             "actual": [
               1,
               17,
@@ -3851,9 +3847,10 @@
               45
             ],
             "matched": [
+              41,
               44
             ],
-            "matchCount": 1,
+            "matchCount": 2,
             "specMatched": false,
             "cost": 70000,
             "payout": 0,
@@ -3865,15 +3862,15 @@
             "drawId": "01391",
             "date": "2026-08-29",
             "predicted": [
-              7,
-              8,
-              18,
-              22,
-              39,
-              40,
+              1,
+              9,
+              21,
+              26,
+              38,
+              44,
               45
             ],
-            "special": 5,
+            "special": 3,
             "actual": [
               5,
               10,
@@ -3899,12 +3896,12 @@
             "date": "2026-08-27",
             "predicted": [
               7,
-              8,
-              9,
-              33,
-              39,
-              45,
-              55
+              13,
+              14,
+              29,
+              31,
+              41,
+              45
             ],
             "special": 18,
             "actual": [
@@ -3929,12 +3926,12 @@
             "drawId": "01389",
             "date": "2026-08-25",
             "predicted": [
-              5,
               8,
-              27,
-              29,
-              33,
-              40,
+              19,
+              20,
+              22,
+              36,
+              41,
               45
             ],
             "special": 18,
@@ -3947,11 +3944,8 @@
               40,
               14
             ],
-            "matched": [
-              5,
-              40
-            ],
-            "matchCount": 2,
+            "matched": [],
+            "matchCount": 0,
             "specMatched": false,
             "cost": 70000,
             "payout": 0,
@@ -3963,10 +3957,10 @@
             "drawId": "01388",
             "date": "2026-08-22",
             "predicted": [
-              5,
-              14,
-              16,
-              22,
+              9,
+              18,
+              20,
+              23,
               38,
               39,
               51
@@ -3981,8 +3975,11 @@
               36,
               8
             ],
-            "matched": [],
-            "matchCount": 0,
+            "matched": [
+              9,
+              18
+            ],
+            "matchCount": 2,
             "specMatched": false,
             "cost": 70000,
             "payout": 0,
@@ -3995,12 +3992,12 @@
             "date": "2026-08-20",
             "predicted": [
               3,
-              5,
-              8,
-              33,
+              14,
+              23,
+              27,
+              38,
               39,
-              48,
-              55
+              45
             ],
             "special": 41,
             "actual": [
@@ -4013,7 +4010,7 @@
               47
             ],
             "matched": [
-              8,
+              38,
               39
             ],
             "matchCount": 2,
@@ -4028,15 +4025,15 @@
             "drawId": "01386",
             "date": "2026-08-18",
             "predicted": [
-              8,
-              16,
-              20,
-              27,
+              2,
+              7,
+              23,
+              28,
               40,
               41,
-              50
+              55
             ],
-            "special": 5,
+            "special": 16,
             "actual": [
               3,
               15,
@@ -4061,13 +4058,13 @@
             "drawId": "01385",
             "date": "2026-08-15",
             "predicted": [
-              1,
-              14,
-              16,
-              33,
-              40,
-              44,
-              45
+              7,
+              20,
+              22,
+              23,
+              27,
+              45,
+              55
             ],
             "special": 5,
             "actual": [
@@ -4080,9 +4077,10 @@
               2
             ],
             "matched": [
-              16
+              20,
+              27
             ],
-            "matchCount": 1,
+            "matchCount": 2,
             "specMatched": false,
             "cost": 70000,
             "payout": 0,
@@ -4095,12 +4093,12 @@
             "date": "2026-08-13",
             "predicted": [
               1,
-              14,
-              16,
-              22,
+              8,
+              19,
               41,
+              44,
               45,
-              55
+              50
             ],
             "special": 39,
             "actual": [
@@ -4127,13 +4125,13 @@
             "drawId": "01383",
             "date": "2026-08-11",
             "predicted": [
-              8,
-              11,
-              24,
+              5,
+              14,
+              29,
+              32,
               33,
-              38,
               39,
-              45
+              44
             ],
             "special": 40,
             "actual": [
@@ -4160,12 +4158,12 @@
             "drawId": "01382",
             "date": "2026-08-08",
             "predicted": [
-              2,
+              8,
               16,
               23,
-              24,
-              33,
-              49,
+              28,
+              32,
+              35,
               53
             ],
             "special": 55,
@@ -4178,10 +4176,8 @@
               45,
               37
             ],
-            "matched": [
-              33
-            ],
-            "matchCount": 1,
+            "matched": [],
+            "matchCount": 0,
             "specMatched": false,
             "cost": 70000,
             "payout": 0,
@@ -4193,15 +4189,15 @@
             "drawId": "01381",
             "date": "2026-08-06",
             "predicted": [
-              2,
+              1,
               5,
-              14,
-              39,
-              41,
-              49,
+              22,
+              28,
+              40,
+              42,
               55
             ],
-            "special": 8,
+            "special": 39,
             "actual": [
               14,
               18,
@@ -4212,10 +4208,9 @@
               1
             ],
             "matched": [
-              14,
               55
             ],
-            "matchCount": 2,
+            "matchCount": 1,
             "specMatched": false,
             "cost": 70000,
             "payout": 0,
@@ -4227,15 +4222,15 @@
             "drawId": "01380",
             "date": "2026-08-04",
             "predicted": [
-              9,
-              11,
-              16,
-              22,
-              45,
-              49,
-              53
+              2,
+              7,
+              8,
+              24,
+              44,
+              53,
+              55
             ],
-            "special": 8,
+            "special": 16,
             "actual": [
               14,
               39,
@@ -4258,15 +4253,15 @@
             "drawId": "01379",
             "date": "2026-08-01",
             "predicted": [
-              5,
               7,
-              8,
+              12,
+              13,
+              28,
               32,
-              43,
-              49,
-              53
+              45,
+              55
             ],
-            "special": 22,
+            "special": 24,
             "actual": [
               11,
               14,
@@ -4277,7 +4272,7 @@
               39
             ],
             "matched": [
-              49
+              55
             ],
             "matchCount": 1,
             "specMatched": false,
@@ -4291,15 +4286,15 @@
             "drawId": "01378",
             "date": "2026-07-30",
             "predicted": [
-              5,
-              9,
+              1,
+              13,
               22,
               23,
-              33,
+              39,
               53,
               55
             ],
-            "special": 8,
+            "special": 41,
             "actual": [
               2,
               12,
@@ -4322,15 +4317,15 @@
             "drawId": "01377",
             "date": "2026-07-28",
             "predicted": [
-              9,
-              13,
-              23,
+              1,
+              22,
               24,
+              28,
               39,
-              41,
+              40,
               48
             ],
-            "special": 8,
+            "special": 33,
             "actual": [
               7,
               22,
@@ -4341,10 +4336,9 @@
               48
             ],
             "matched": [
-              23,
-              41
+              22
             ],
-            "matchCount": 2,
+            "matchCount": 1,
             "specMatched": false,
             "cost": 70000,
             "payout": 0,
@@ -4358,11 +4352,11 @@
             "predicted": [
               5,
               13,
-              17,
-              38,
-              39,
-              40,
-              45
+              24,
+              28,
+              41,
+              48,
+              53
             ],
             "special": 8,
             "actual": [
@@ -4389,13 +4383,13 @@
             "drawId": "01375",
             "date": "2026-07-23",
             "predicted": [
-              1,
+              5,
+              13,
               20,
-              23,
-              24,
-              33,
-              41,
-              53
+              25,
+              39,
+              45,
+              48
             ],
             "special": 8,
             "actual": [
@@ -4407,10 +4401,8 @@
               55,
               36
             ],
-            "matched": [
-              1
-            ],
-            "matchCount": 1,
+            "matched": [],
+            "matchCount": 0,
             "specMatched": false,
             "cost": 70000,
             "payout": 0,
@@ -4423,12 +4415,12 @@
             "date": "2026-07-21",
             "predicted": [
               2,
-              5,
-              13,
+              17,
+              20,
+              28,
               32,
               34,
-              39,
-              55
+              54
             ],
             "special": 22,
             "actual": [
@@ -4441,10 +4433,9 @@
               13
             ],
             "matched": [
-              32,
-              39
+              32
             ],
-            "matchCount": 2,
+            "matchCount": 1,
             "specMatched": false,
             "cost": 70000,
             "payout": 0,
@@ -4455,13 +4446,13 @@
         ],
         "kpis": {
           "total_draws": 200,
-          "hit_3_plus": 3,
-          "hit_4_plus": 0,
+          "hit_3_plus": 4,
+          "hit_4_plus": 1,
           "hit_5_plus": 0,
           "total_cost": 14000000,
-          "total_payout": 600000,
-          "net_profit": -13400000,
-          "win_rate_pct": 1.5
+          "total_payout": 2300000,
+          "net_profit": -11700000,
+          "win_rate_pct": 2.0
         }
       },
       "wheeling_strategy": {
@@ -4472,13 +4463,13 @@
           9,
           16,
           18,
-          29,
-          38,
           39,
-          40,
           41,
+          42,
           44,
           45,
+          46,
+          47,
           55
         ],
         "core_pool_size": 14,
@@ -4491,14 +4482,14 @@
               5,
               9,
               18,
-              39,
-              44
+              42,
+              46
             ],
-            "sum": 116,
-            "ac": 9,
-            "odds": 4,
-            "evens": 2,
-            "distinctTails": 5
+            "sum": 121,
+            "ac": 6,
+            "odds": 3,
+            "evens": 3,
+            "distinctTails": 6
           },
           {
             "id": "wheel_2",
@@ -4507,15 +4498,15 @@
               5,
               8,
               16,
-              29,
-              40,
-              45
+              39,
+              44,
+              47
             ],
-            "sum": 143,
-            "ac": 8,
+            "sum": 159,
+            "ac": 6,
             "odds": 3,
             "evens": 3,
-            "distinctTails": 5
+            "distinctTails": 6
           },
           {
             "id": "wheel_3",
@@ -4524,14 +4515,14 @@
               8,
               9,
               18,
-              38,
               41,
+              45,
               55
             ],
-            "sum": 169,
-            "ac": 10,
-            "odds": 3,
-            "evens": 3,
+            "sum": 176,
+            "ac": 8,
+            "odds": 4,
+            "evens": 2,
             "distinctTails": 4
           },
           {
@@ -4540,15 +4531,15 @@
             "numbers": [
               1,
               16,
-              29,
               39,
-              44,
+              42,
+              46,
               55
             ],
-            "sum": 184,
-            "ac": 8,
-            "odds": 4,
-            "evens": 2,
+            "sum": 199,
+            "ac": 10,
+            "odds": 3,
+            "evens": 3,
             "distinctTails": 5
           },
           {
@@ -4557,16 +4548,16 @@
             "numbers": [
               5,
               18,
-              38,
-              40,
               41,
-              45
+              44,
+              45,
+              47
             ],
-            "sum": 187,
-            "ac": 10,
-            "odds": 3,
-            "evens": 3,
-            "distinctTails": 4
+            "sum": 200,
+            "ac": 9,
+            "odds": 4,
+            "evens": 2,
+            "distinctTails": 5
           },
           {
             "id": "wheel_6",
@@ -4575,20 +4566,20 @@
               1,
               8,
               16,
-              38,
-              40,
-              44
+              41,
+              44,
+              46
             ],
-            "sum": 147,
+            "sum": 156,
             "ac": 10,
-            "odds": 1,
-            "evens": 5,
-            "distinctTails": 5
+            "odds": 2,
+            "evens": 4,
+            "distinctTails": 4
           }
         ],
         "special_recommendation": [
-          2,
-          7
+          29,
+          40
         ],
         "guarantee_statement": "Cam kết bảo hiểm phủ tổ hợp C(v, k, 3): Chỉ cần 4 số trong tập hạt nhân nổ, chắc chắn có ít nhất 1 vé trúng giải Ba hoặc giải Nhì!",
         "total_cost": 60000,
@@ -9545,10 +9536,10 @@
             "predicted": [
               7,
               11,
-              17,
-              29,
+              16,
               31,
-              45
+              33,
+              41
             ],
             "special": null,
             "actual": null,
@@ -9566,11 +9557,11 @@
             "date": "2026-09-02",
             "predicted": [
               6,
-              13,
-              16,
-              22,
-              35,
-              36
+              7,
+              12,
+              31,
+              43,
+              45
             ],
             "special": null,
             "actual": [
@@ -9580,189 +9571,6 @@
               29,
               35,
               44
-            ],
-            "matched": [
-              6,
-              35
-            ],
-            "matchCount": 2,
-            "specMatched": false,
-            "cost": 10000,
-            "payout": 0,
-            "netProfit": -10000,
-            "prizeDetail": "Không trúng",
-            "status": "completed"
-          },
-          {
-            "drawId": "01556",
-            "date": "2026-08-30",
-            "predicted": [
-              7,
-              16,
-              17,
-              31,
-              35,
-              38
-            ],
-            "special": null,
-            "actual": [
-              1,
-              3,
-              12,
-              15,
-              37,
-              45
-            ],
-            "matched": [],
-            "matchCount": 0,
-            "specMatched": false,
-            "cost": 10000,
-            "payout": 0,
-            "netProfit": -10000,
-            "prizeDetail": "Không trúng",
-            "status": "completed"
-          },
-          {
-            "drawId": "01555",
-            "date": "2026-08-28",
-            "predicted": [
-              6,
-              9,
-              15,
-              22,
-              41,
-              45
-            ],
-            "special": null,
-            "actual": [
-              3,
-              13,
-              15,
-              22,
-              36,
-              39
-            ],
-            "matched": [
-              15,
-              22
-            ],
-            "matchCount": 2,
-            "specMatched": false,
-            "cost": 10000,
-            "payout": 0,
-            "netProfit": -10000,
-            "prizeDetail": "Không trúng",
-            "status": "completed"
-          },
-          {
-            "drawId": "01554",
-            "date": "2026-08-26",
-            "predicted": [
-              7,
-              13,
-              15,
-              22,
-              43,
-              44
-            ],
-            "special": null,
-            "actual": [
-              3,
-              10,
-              11,
-              16,
-              33,
-              40
-            ],
-            "matched": [],
-            "matchCount": 0,
-            "specMatched": false,
-            "cost": 10000,
-            "payout": 0,
-            "netProfit": -10000,
-            "prizeDetail": "Không trúng",
-            "status": "completed"
-          },
-          {
-            "drawId": "01553",
-            "date": "2026-08-23",
-            "predicted": [
-              2,
-              15,
-              16,
-              22,
-              38,
-              43
-            ],
-            "special": null,
-            "actual": [
-              4,
-              16,
-              17,
-              22,
-              32,
-              39
-            ],
-            "matched": [
-              16,
-              22
-            ],
-            "matchCount": 2,
-            "specMatched": false,
-            "cost": 10000,
-            "payout": 0,
-            "netProfit": -10000,
-            "prizeDetail": "Không trúng",
-            "status": "completed"
-          },
-          {
-            "drawId": "01552",
-            "date": "2026-08-21",
-            "predicted": [
-              2,
-              13,
-              15,
-              19,
-              41,
-              44
-            ],
-            "special": null,
-            "actual": [
-              7,
-              26,
-              31,
-              38,
-              43,
-              45
-            ],
-            "matched": [],
-            "matchCount": 0,
-            "specMatched": false,
-            "cost": 10000,
-            "payout": 0,
-            "netProfit": -10000,
-            "prizeDetail": "Không trúng",
-            "status": "completed"
-          },
-          {
-            "drawId": "01551",
-            "date": "2026-08-19",
-            "predicted": [
-              3,
-              6,
-              22,
-              30,
-              31,
-              44
-            ],
-            "special": null,
-            "actual": [
-              6,
-              15,
-              18,
-              33,
-              40,
-              43
             ],
             "matched": [
               6
@@ -9776,484 +9584,15 @@
             "status": "completed"
           },
           {
-            "drawId": "01550",
-            "date": "2026-08-16",
-            "predicted": [
-              2,
-              11,
-              13,
-              31,
-              35,
-              41
-            ],
-            "special": null,
-            "actual": [
-              6,
-              7,
-              15,
-              19,
-              36,
-              41
-            ],
-            "matched": [
-              41
-            ],
-            "matchCount": 1,
-            "specMatched": false,
-            "cost": 10000,
-            "payout": 0,
-            "netProfit": -10000,
-            "prizeDetail": "Không trúng",
-            "status": "completed"
-          },
-          {
-            "drawId": "01549",
-            "date": "2026-08-14",
-            "predicted": [
-              3,
-              20,
-              22,
-              30,
-              31,
-              35
-            ],
-            "special": null,
-            "actual": [
-              7,
-              9,
-              13,
-              31,
-              35,
-              44
-            ],
-            "matched": [
-              31,
-              35
-            ],
-            "matchCount": 2,
-            "specMatched": false,
-            "cost": 10000,
-            "payout": 0,
-            "netProfit": -10000,
-            "prizeDetail": "Không trúng",
-            "status": "completed"
-          },
-          {
-            "drawId": "01548",
-            "date": "2026-08-12",
-            "predicted": [
-              3,
-              6,
-              13,
-              30,
-              43,
-              45
-            ],
-            "special": null,
-            "actual": [
-              15,
-              17,
-              22,
-              29,
-              33,
-              40
-            ],
-            "matched": [],
-            "matchCount": 0,
-            "specMatched": false,
-            "cost": 10000,
-            "payout": 0,
-            "netProfit": -10000,
-            "prizeDetail": "Không trúng",
-            "status": "completed"
-          },
-          {
-            "drawId": "01547",
-            "date": "2026-08-09",
-            "predicted": [
-              2,
-              3,
-              24,
-              28,
-              36,
-              43
-            ],
-            "special": null,
-            "actual": [
-              3,
-              17,
-              20,
-              27,
-              31,
-              35
-            ],
-            "matched": [
-              3
-            ],
-            "matchCount": 1,
-            "specMatched": false,
-            "cost": 10000,
-            "payout": 0,
-            "netProfit": -10000,
-            "prizeDetail": "Không trúng",
-            "status": "completed"
-          },
-          {
-            "drawId": "01546",
-            "date": "2026-08-07",
-            "predicted": [
-              6,
-              11,
-              12,
-              24,
-              41,
-              45
-            ],
-            "special": null,
-            "actual": [
-              2,
-              8,
-              19,
-              30,
-              36,
-              43
-            ],
-            "matched": [],
-            "matchCount": 0,
-            "specMatched": false,
-            "cost": 10000,
-            "payout": 0,
-            "netProfit": -10000,
-            "prizeDetail": "Không trúng",
-            "status": "completed"
-          },
-          {
-            "drawId": "01545",
-            "date": "2026-08-05",
-            "predicted": [
-              11,
-              13,
-              16,
-              22,
-              37,
-              44
-            ],
-            "special": null,
-            "actual": [
-              2,
-              6,
-              11,
-              16,
-              28,
-              39
-            ],
-            "matched": [
-              11,
-              16
-            ],
-            "matchCount": 2,
-            "specMatched": false,
-            "cost": 10000,
-            "payout": 0,
-            "netProfit": -10000,
-            "prizeDetail": "Không trúng",
-            "status": "completed"
-          },
-          {
-            "drawId": "01544",
-            "date": "2026-08-02",
-            "predicted": [
-              14,
-              16,
-              17,
-              22,
-              32,
-              41
-            ],
-            "special": null,
-            "actual": [
-              3,
-              12,
-              20,
-              25,
-              27,
-              37
-            ],
-            "matched": [],
-            "matchCount": 0,
-            "specMatched": false,
-            "cost": 10000,
-            "payout": 0,
-            "netProfit": -10000,
-            "prizeDetail": "Không trúng",
-            "status": "completed"
-          },
-          {
-            "drawId": "01543",
-            "date": "2026-07-31",
-            "predicted": [
-              9,
-              11,
-              16,
-              17,
-              41,
-              45
-            ],
-            "special": null,
-            "actual": [
-              6,
-              16,
-              24,
-              25,
-              38,
-              43
-            ],
-            "matched": [
-              16
-            ],
-            "matchCount": 1,
-            "specMatched": false,
-            "cost": 10000,
-            "payout": 0,
-            "netProfit": -10000,
-            "prizeDetail": "Không trúng",
-            "status": "completed"
-          },
-          {
-            "drawId": "01542",
-            "date": "2026-07-29",
-            "predicted": [
-              11,
-              13,
-              14,
-              22,
-              29,
-              42
-            ],
-            "special": null,
-            "actual": [
-              2,
-              6,
-              21,
-              31,
-              36,
-              45
-            ],
-            "matched": [],
-            "matchCount": 0,
-            "specMatched": false,
-            "cost": 10000,
-            "payout": 0,
-            "netProfit": -10000,
-            "prizeDetail": "Không trúng",
-            "status": "completed"
-          },
-          {
-            "drawId": "01541",
-            "date": "2026-07-26",
-            "predicted": [
-              9,
-              11,
-              17,
-              29,
-              38,
-              39
-            ],
-            "special": null,
-            "actual": [
-              13,
-              16,
-              27,
-              33,
-              41,
-              44
-            ],
-            "matched": [],
-            "matchCount": 0,
-            "specMatched": false,
-            "cost": 10000,
-            "payout": 0,
-            "netProfit": -10000,
-            "prizeDetail": "Không trúng",
-            "status": "completed"
-          },
-          {
-            "drawId": "01540",
-            "date": "2026-07-24",
-            "predicted": [
-              3,
-              14,
-              26,
-              29,
-              30,
-              36
-            ],
-            "special": null,
-            "actual": [
-              12,
-              16,
-              36,
-              38,
-              41,
-              45
-            ],
-            "matched": [
-              36
-            ],
-            "matchCount": 1,
-            "specMatched": false,
-            "cost": 10000,
-            "payout": 0,
-            "netProfit": -10000,
-            "prizeDetail": "Không trúng",
-            "status": "completed"
-          },
-          {
-            "drawId": "01539",
-            "date": "2026-07-22",
-            "predicted": [
-              6,
-              17,
-              22,
-              29,
-              30,
-              32
-            ],
-            "special": null,
-            "actual": [
-              3,
-              32,
-              33,
-              34,
-              39,
-              43
-            ],
-            "matched": [
-              32
-            ],
-            "matchCount": 1,
-            "specMatched": false,
-            "cost": 10000,
-            "payout": 0,
-            "netProfit": -10000,
-            "prizeDetail": "Không trúng",
-            "status": "completed"
-          },
-          {
-            "drawId": "01538",
-            "date": "2026-07-19",
-            "predicted": [
-              6,
-              9,
-              17,
-              22,
-              37,
-              44
-            ],
-            "special": null,
-            "actual": [
-              12,
-              22,
-              24,
-              26,
-              31,
-              37
-            ],
-            "matched": [
-              22,
-              37
-            ],
-            "matchCount": 2,
-            "specMatched": false,
-            "cost": 10000,
-            "payout": 0,
-            "netProfit": -10000,
-            "prizeDetail": "Không trúng",
-            "status": "completed"
-          }
-        ],
-        "kpis": {
-          "total_draws": 200,
-          "hit_3_plus": 7,
-          "hit_4_plus": 2,
-          "hit_5_plus": 0,
-          "total_cost": 2000000,
-          "total_payout": 750000,
-          "net_profit": -1250000,
-          "avg_matched": 0.85,
-          "win_rate_pct": 3.5
-        }
-      },
-      "bao7_backtest_data": {
-        "records": [
-          {
-            "drawId": "01558",
-            "date": "Kỳ Kế Tiếp",
-            "predicted": [
-              6,
-              7,
-              11,
-              22,
-              33,
-              36,
-              45
-            ],
-            "special": null,
-            "actual": null,
-            "matched": [],
-            "matchCount": 0,
-            "specMatched": false,
-            "cost": 70000,
-            "payout": 0,
-            "netProfit": 0,
-            "prizeDetail": "Đang chờ quay",
-            "status": "pending"
-          },
-          {
-            "drawId": "01557",
-            "date": "2026-09-02",
-            "predicted": [
-              3,
-              6,
-              9,
-              22,
-              39,
-              43,
-              44
-            ],
-            "special": null,
-            "actual": [
-              6,
-              9,
-              27,
-              29,
-              35,
-              44
-            ],
-            "matched": [
-              6,
-              9,
-              44
-            ],
-            "matchCount": 3,
-            "specMatched": false,
-            "cost": 70000,
-            "payout": 120000,
-            "netProfit": 50000,
-            "prizeDetail": "4 Giải Ba (30k)",
-            "status": "completed"
-          },
-          {
             "drawId": "01556",
             "date": "2026-08-30",
             "predicted": [
-              2,
-              11,
-              15,
-              17,
+              6,
+              7,
+              16,
               33,
-              41,
-              44
+              36,
+              38
             ],
             "special": null,
             "actual": [
@@ -10264,14 +9603,12 @@
               37,
               45
             ],
-            "matched": [
-              15
-            ],
-            "matchCount": 1,
+            "matched": [],
+            "matchCount": 0,
             "specMatched": false,
-            "cost": 70000,
+            "cost": 10000,
             "payout": 0,
-            "netProfit": -70000,
+            "netProfit": -10000,
             "prizeDetail": "Không trúng",
             "status": "completed"
           },
@@ -10279,13 +9616,12 @@
             "drawId": "01555",
             "date": "2026-08-28",
             "predicted": [
-              6,
-              13,
-              15,
-              17,
-              30,
-              35,
-              36
+              7,
+              10,
+              22,
+              31,
+              33,
+              39
             ],
             "special": null,
             "actual": [
@@ -10297,29 +9633,27 @@
               39
             ],
             "matched": [
-              13,
-              15,
-              36
+              22,
+              39
             ],
-            "matchCount": 3,
+            "matchCount": 2,
             "specMatched": false,
-            "cost": 70000,
-            "payout": 120000,
-            "netProfit": 50000,
-            "prizeDetail": "4 Giải Ba (30k)",
+            "cost": 10000,
+            "payout": 0,
+            "netProfit": -10000,
+            "prizeDetail": "Không trúng",
             "status": "completed"
           },
           {
             "drawId": "01554",
             "date": "2026-08-26",
             "predicted": [
-              3,
-              7,
-              17,
-              22,
-              33,
-              35,
-              44
+              4,
+              13,
+              15,
+              30,
+              31,
+              43
             ],
             "special": null,
             "actual": [
@@ -10330,15 +9664,12 @@
               33,
               40
             ],
-            "matched": [
-              3,
-              33
-            ],
-            "matchCount": 2,
+            "matched": [],
+            "matchCount": 0,
             "specMatched": false,
-            "cost": 70000,
+            "cost": 10000,
             "payout": 0,
-            "netProfit": -70000,
+            "netProfit": -10000,
             "prizeDetail": "Không trúng",
             "status": "completed"
           },
@@ -10346,13 +9677,12 @@
             "drawId": "01553",
             "date": "2026-08-23",
             "predicted": [
-              2,
+              3,
               7,
-              17,
-              30,
-              31,
-              36,
-              38
+              13,
+              26,
+              41,
+              44
             ],
             "special": null,
             "actual": [
@@ -10363,14 +9693,12 @@
               32,
               39
             ],
-            "matched": [
-              17
-            ],
-            "matchCount": 1,
+            "matched": [],
+            "matchCount": 0,
             "specMatched": false,
-            "cost": 70000,
+            "cost": 10000,
             "payout": 0,
-            "netProfit": -70000,
+            "netProfit": -10000,
             "prizeDetail": "Không trúng",
             "status": "completed"
           },
@@ -10378,12 +9706,11 @@
             "drawId": "01552",
             "date": "2026-08-21",
             "predicted": [
-              2,
-              3,
-              7,
+              9,
+              16,
               20,
-              33,
-              41,
+              22,
+              30,
               44
             ],
             "special": null,
@@ -10395,14 +9722,12 @@
               43,
               45
             ],
-            "matched": [
-              7
-            ],
-            "matchCount": 1,
+            "matched": [],
+            "matchCount": 0,
             "specMatched": false,
-            "cost": 70000,
+            "cost": 10000,
             "payout": 0,
-            "netProfit": -70000,
+            "netProfit": -10000,
             "prizeDetail": "Không trúng",
             "status": "completed"
           },
@@ -10410,13 +9735,12 @@
             "drawId": "01551",
             "date": "2026-08-19",
             "predicted": [
-              2,
-              9,
-              11,
-              19,
+              6,
+              7,
+              16,
+              33,
               35,
-              41,
-              45
+              41
             ],
             "special": null,
             "actual": [
@@ -10427,12 +9751,15 @@
               40,
               43
             ],
-            "matched": [],
-            "matchCount": 0,
+            "matched": [
+              6,
+              33
+            ],
+            "matchCount": 2,
             "specMatched": false,
-            "cost": 70000,
+            "cost": 10000,
             "payout": 0,
-            "netProfit": -70000,
+            "netProfit": -10000,
             "prizeDetail": "Không trúng",
             "status": "completed"
           },
@@ -10440,13 +9767,12 @@
             "drawId": "01550",
             "date": "2026-08-16",
             "predicted": [
-              3,
-              9,
-              13,
+              2,
+              7,
               20,
-              39,
-              41,
-              44
+              31,
+              35,
+              43
             ],
             "special": null,
             "actual": [
@@ -10458,13 +9784,13 @@
               41
             ],
             "matched": [
-              41
+              7
             ],
             "matchCount": 1,
             "specMatched": false,
-            "cost": 70000,
+            "cost": 10000,
             "payout": 0,
-            "netProfit": -70000,
+            "netProfit": -10000,
             "prizeDetail": "Không trúng",
             "status": "completed"
           },
@@ -10475,8 +9801,7 @@
               2,
               11,
               16,
-              27,
-              29,
+              31,
               37,
               39
             ],
@@ -10489,12 +9814,14 @@
               35,
               44
             ],
-            "matched": [],
-            "matchCount": 0,
+            "matched": [
+              31
+            ],
+            "matchCount": 1,
             "specMatched": false,
-            "cost": 70000,
+            "cost": 10000,
             "payout": 0,
-            "netProfit": -70000,
+            "netProfit": -10000,
             "prizeDetail": "Không trúng",
             "status": "completed"
           },
@@ -10505,9 +9832,8 @@
               2,
               11,
               13,
-              17,
-              30,
-              44,
+              27,
+              35,
               45
             ],
             "special": null,
@@ -10519,14 +9845,12 @@
               33,
               40
             ],
-            "matched": [
-              17
-            ],
-            "matchCount": 1,
+            "matched": [],
+            "matchCount": 0,
             "specMatched": false,
-            "cost": 70000,
+            "cost": 10000,
             "payout": 0,
-            "netProfit": -70000,
+            "netProfit": -10000,
             "prizeDetail": "Không trúng",
             "status": "completed"
           },
@@ -10534,12 +9858,11 @@
             "drawId": "01547",
             "date": "2026-08-09",
             "predicted": [
-              9,
-              12,
-              16,
+              2,
+              8,
               19,
               24,
-              38,
+              37,
               44
             ],
             "special": null,
@@ -10554,9 +9877,9 @@
             "matched": [],
             "matchCount": 0,
             "specMatched": false,
-            "cost": 70000,
+            "cost": 10000,
             "payout": 0,
-            "netProfit": -70000,
+            "netProfit": -10000,
             "prizeDetail": "Không trúng",
             "status": "completed"
           },
@@ -10565,12 +9888,11 @@
             "date": "2026-08-07",
             "predicted": [
               9,
-              11,
-              13,
-              22,
+              12,
+              16,
               31,
-              38,
-              39
+              36,
+              37
             ],
             "special": null,
             "actual": [
@@ -10581,12 +9903,14 @@
               36,
               43
             ],
-            "matched": [],
-            "matchCount": 0,
+            "matched": [
+              36
+            ],
+            "matchCount": 1,
             "specMatched": false,
-            "cost": 70000,
+            "cost": 10000,
             "payout": 0,
-            "netProfit": -70000,
+            "netProfit": -10000,
             "prizeDetail": "Không trúng",
             "status": "completed"
           },
@@ -10597,9 +9921,8 @@
               9,
               11,
               12,
-              20,
-              24,
-              30,
+              25,
+              37,
               44
             ],
             "special": null,
@@ -10616,6 +9939,671 @@
             ],
             "matchCount": 1,
             "specMatched": false,
+            "cost": 10000,
+            "payout": 0,
+            "netProfit": -10000,
+            "prizeDetail": "Không trúng",
+            "status": "completed"
+          },
+          {
+            "drawId": "01544",
+            "date": "2026-08-02",
+            "predicted": [
+              11,
+              13,
+              16,
+              25,
+              31,
+              41
+            ],
+            "special": null,
+            "actual": [
+              3,
+              12,
+              20,
+              25,
+              27,
+              37
+            ],
+            "matched": [
+              25
+            ],
+            "matchCount": 1,
+            "specMatched": false,
+            "cost": 10000,
+            "payout": 0,
+            "netProfit": -10000,
+            "prizeDetail": "Không trúng",
+            "status": "completed"
+          },
+          {
+            "drawId": "01543",
+            "date": "2026-07-31",
+            "predicted": [
+              2,
+              14,
+              16,
+              22,
+              41,
+              45
+            ],
+            "special": null,
+            "actual": [
+              6,
+              16,
+              24,
+              25,
+              38,
+              43
+            ],
+            "matched": [
+              16
+            ],
+            "matchCount": 1,
+            "specMatched": false,
+            "cost": 10000,
+            "payout": 0,
+            "netProfit": -10000,
+            "prizeDetail": "Không trúng",
+            "status": "completed"
+          },
+          {
+            "drawId": "01542",
+            "date": "2026-07-29",
+            "predicted": [
+              9,
+              11,
+              14,
+              30,
+              36,
+              37
+            ],
+            "special": null,
+            "actual": [
+              2,
+              6,
+              21,
+              31,
+              36,
+              45
+            ],
+            "matched": [
+              36
+            ],
+            "matchCount": 1,
+            "specMatched": false,
+            "cost": 10000,
+            "payout": 0,
+            "netProfit": -10000,
+            "prizeDetail": "Không trúng",
+            "status": "completed"
+          },
+          {
+            "drawId": "01541",
+            "date": "2026-07-26",
+            "predicted": [
+              12,
+              14,
+              17,
+              30,
+              37,
+              38
+            ],
+            "special": null,
+            "actual": [
+              13,
+              16,
+              27,
+              33,
+              41,
+              44
+            ],
+            "matched": [],
+            "matchCount": 0,
+            "specMatched": false,
+            "cost": 10000,
+            "payout": 0,
+            "netProfit": -10000,
+            "prizeDetail": "Không trúng",
+            "status": "completed"
+          },
+          {
+            "drawId": "01540",
+            "date": "2026-07-24",
+            "predicted": [
+              11,
+              14,
+              16,
+              31,
+              43,
+              44
+            ],
+            "special": null,
+            "actual": [
+              12,
+              16,
+              36,
+              38,
+              41,
+              45
+            ],
+            "matched": [
+              16
+            ],
+            "matchCount": 1,
+            "specMatched": false,
+            "cost": 10000,
+            "payout": 0,
+            "netProfit": -10000,
+            "prizeDetail": "Không trúng",
+            "status": "completed"
+          },
+          {
+            "drawId": "01539",
+            "date": "2026-07-22",
+            "predicted": [
+              6,
+              9,
+              17,
+              26,
+              32,
+              44
+            ],
+            "special": null,
+            "actual": [
+              3,
+              32,
+              33,
+              34,
+              39,
+              43
+            ],
+            "matched": [
+              32
+            ],
+            "matchCount": 1,
+            "specMatched": false,
+            "cost": 10000,
+            "payout": 0,
+            "netProfit": -10000,
+            "prizeDetail": "Không trúng",
+            "status": "completed"
+          },
+          {
+            "drawId": "01538",
+            "date": "2026-07-19",
+            "predicted": [
+              9,
+              11,
+              18,
+              26,
+              31,
+              42
+            ],
+            "special": null,
+            "actual": [
+              12,
+              22,
+              24,
+              26,
+              31,
+              37
+            ],
+            "matched": [
+              26,
+              31
+            ],
+            "matchCount": 2,
+            "specMatched": false,
+            "cost": 10000,
+            "payout": 0,
+            "netProfit": -10000,
+            "prizeDetail": "Không trúng",
+            "status": "completed"
+          }
+        ],
+        "kpis": {
+          "total_draws": 200,
+          "hit_3_plus": 4,
+          "hit_4_plus": 0,
+          "hit_5_plus": 0,
+          "total_cost": 2000000,
+          "total_payout": 120000,
+          "net_profit": -1880000,
+          "avg_matched": 0.79,
+          "win_rate_pct": 2.0
+        }
+      },
+      "bao7_backtest_data": {
+        "records": [
+          {
+            "drawId": "01558",
+            "date": "Kỳ Kế Tiếp",
+            "predicted": [
+              6,
+              11,
+              16,
+              22,
+              35,
+              36,
+              43
+            ],
+            "special": null,
+            "actual": null,
+            "matched": [],
+            "matchCount": 0,
+            "specMatched": false,
+            "cost": 70000,
+            "payout": 0,
+            "netProfit": 0,
+            "prizeDetail": "Đang chờ quay",
+            "status": "pending"
+          },
+          {
+            "drawId": "01557",
+            "date": "2026-09-02",
+            "predicted": [
+              3,
+              6,
+              12,
+              31,
+              39,
+              43,
+              44
+            ],
+            "special": null,
+            "actual": [
+              6,
+              9,
+              27,
+              29,
+              35,
+              44
+            ],
+            "matched": [
+              6,
+              44
+            ],
+            "matchCount": 2,
+            "specMatched": false,
+            "cost": 70000,
+            "payout": 0,
+            "netProfit": -70000,
+            "prizeDetail": "Không trúng",
+            "status": "completed"
+          },
+          {
+            "drawId": "01556",
+            "date": "2026-08-30",
+            "predicted": [
+              6,
+              9,
+              11,
+              17,
+              30,
+              43,
+              44
+            ],
+            "special": null,
+            "actual": [
+              1,
+              3,
+              12,
+              15,
+              37,
+              45
+            ],
+            "matched": [],
+            "matchCount": 0,
+            "specMatched": false,
+            "cost": 70000,
+            "payout": 0,
+            "netProfit": -70000,
+            "prizeDetail": "Không trúng",
+            "status": "completed"
+          },
+          {
+            "drawId": "01555",
+            "date": "2026-08-28",
+            "predicted": [
+              6,
+              9,
+              13,
+              15,
+              33,
+              41,
+              44
+            ],
+            "special": null,
+            "actual": [
+              3,
+              13,
+              15,
+              22,
+              36,
+              39
+            ],
+            "matched": [
+              13,
+              15
+            ],
+            "matchCount": 2,
+            "specMatched": false,
+            "cost": 70000,
+            "payout": 0,
+            "netProfit": -70000,
+            "prizeDetail": "Không trúng",
+            "status": "completed"
+          },
+          {
+            "drawId": "01554",
+            "date": "2026-08-26",
+            "predicted": [
+              4,
+              7,
+              13,
+              15,
+              32,
+              39,
+              44
+            ],
+            "special": null,
+            "actual": [
+              3,
+              10,
+              11,
+              16,
+              33,
+              40
+            ],
+            "matched": [],
+            "matchCount": 0,
+            "specMatched": false,
+            "cost": 70000,
+            "payout": 0,
+            "netProfit": -70000,
+            "prizeDetail": "Không trúng",
+            "status": "completed"
+          },
+          {
+            "drawId": "01553",
+            "date": "2026-08-23",
+            "predicted": [
+              3,
+              9,
+              13,
+              26,
+              31,
+              38,
+              41
+            ],
+            "special": null,
+            "actual": [
+              4,
+              16,
+              17,
+              22,
+              32,
+              39
+            ],
+            "matched": [],
+            "matchCount": 0,
+            "specMatched": false,
+            "cost": 70000,
+            "payout": 0,
+            "netProfit": -70000,
+            "prizeDetail": "Không trúng",
+            "status": "completed"
+          },
+          {
+            "drawId": "01552",
+            "date": "2026-08-21",
+            "predicted": [
+              3,
+              13,
+              16,
+              20,
+              36,
+              37,
+              45
+            ],
+            "special": null,
+            "actual": [
+              7,
+              26,
+              31,
+              38,
+              43,
+              45
+            ],
+            "matched": [
+              45
+            ],
+            "matchCount": 1,
+            "specMatched": false,
+            "cost": 70000,
+            "payout": 0,
+            "netProfit": -70000,
+            "prizeDetail": "Không trúng",
+            "status": "completed"
+          },
+          {
+            "drawId": "01551",
+            "date": "2026-08-19",
+            "predicted": [
+              2,
+              9,
+              15,
+              19,
+              33,
+              35,
+              44
+            ],
+            "special": null,
+            "actual": [
+              6,
+              15,
+              18,
+              33,
+              40,
+              43
+            ],
+            "matched": [
+              15,
+              33
+            ],
+            "matchCount": 2,
+            "specMatched": false,
+            "cost": 70000,
+            "payout": 0,
+            "netProfit": -70000,
+            "prizeDetail": "Không trúng",
+            "status": "completed"
+          },
+          {
+            "drawId": "01550",
+            "date": "2026-08-16",
+            "predicted": [
+              2,
+              6,
+              9,
+              22,
+              35,
+              37,
+              43
+            ],
+            "special": null,
+            "actual": [
+              6,
+              7,
+              15,
+              19,
+              36,
+              41
+            ],
+            "matched": [
+              6
+            ],
+            "matchCount": 1,
+            "specMatched": false,
+            "cost": 70000,
+            "payout": 0,
+            "netProfit": -70000,
+            "prizeDetail": "Không trúng",
+            "status": "completed"
+          },
+          {
+            "drawId": "01549",
+            "date": "2026-08-14",
+            "predicted": [
+              9,
+              15,
+              17,
+              20,
+              27,
+              40,
+              44
+            ],
+            "special": null,
+            "actual": [
+              7,
+              9,
+              13,
+              31,
+              35,
+              44
+            ],
+            "matched": [
+              9,
+              44
+            ],
+            "matchCount": 2,
+            "specMatched": false,
+            "cost": 70000,
+            "payout": 0,
+            "netProfit": -70000,
+            "prizeDetail": "Không trúng",
+            "status": "completed"
+          },
+          {
+            "drawId": "01548",
+            "date": "2026-08-12",
+            "predicted": [
+              2,
+              9,
+              11,
+              13,
+              27,
+              44,
+              45
+            ],
+            "special": null,
+            "actual": [
+              15,
+              17,
+              22,
+              29,
+              33,
+              40
+            ],
+            "matched": [],
+            "matchCount": 0,
+            "specMatched": false,
+            "cost": 70000,
+            "payout": 0,
+            "netProfit": -70000,
+            "prizeDetail": "Không trúng",
+            "status": "completed"
+          },
+          {
+            "drawId": "01547",
+            "date": "2026-08-09",
+            "predicted": [
+              2,
+              11,
+              12,
+              19,
+              30,
+              41,
+              43
+            ],
+            "special": null,
+            "actual": [
+              3,
+              17,
+              20,
+              27,
+              31,
+              35
+            ],
+            "matched": [],
+            "matchCount": 0,
+            "specMatched": false,
+            "cost": 70000,
+            "payout": 0,
+            "netProfit": -70000,
+            "prizeDetail": "Không trúng",
+            "status": "completed"
+          },
+          {
+            "drawId": "01546",
+            "date": "2026-08-07",
+            "predicted": [
+              2,
+              9,
+              12,
+              30,
+              39,
+              44,
+              45
+            ],
+            "special": null,
+            "actual": [
+              2,
+              8,
+              19,
+              30,
+              36,
+              43
+            ],
+            "matched": [
+              2,
+              30
+            ],
+            "matchCount": 2,
+            "specMatched": false,
+            "cost": 70000,
+            "payout": 0,
+            "netProfit": -70000,
+            "prizeDetail": "Không trúng",
+            "status": "completed"
+          },
+          {
+            "drawId": "01545",
+            "date": "2026-08-05",
+            "predicted": [
+              6,
+              9,
+              22,
+              26,
+              27,
+              38,
+              45
+            ],
+            "special": null,
+            "actual": [
+              2,
+              6,
+              11,
+              16,
+              28,
+              39
+            ],
+            "matched": [
+              6
+            ],
+            "matchCount": 1,
+            "specMatched": false,
             "cost": 70000,
             "payout": 0,
             "netProfit": -70000,
@@ -10626,13 +10614,13 @@
             "drawId": "01544",
             "date": "2026-08-02",
             "predicted": [
+              9,
               11,
-              13,
-              14,
-              17,
-              31,
-              39,
-              44
+              22,
+              30,
+              35,
+              36,
+              45
             ],
             "special": null,
             "actual": [
@@ -10656,13 +10644,13 @@
             "drawId": "01543",
             "date": "2026-07-31",
             "predicted": [
+              6,
               9,
-              14,
+              11,
               16,
-              17,
-              26,
-              39,
-              41
+              32,
+              33,
+              44
             ],
             "special": null,
             "actual": [
@@ -10674,9 +10662,10 @@
               43
             ],
             "matched": [
+              6,
               16
             ],
-            "matchCount": 1,
+            "matchCount": 2,
             "specMatched": false,
             "cost": 70000,
             "payout": 0,
@@ -10688,13 +10677,13 @@
             "drawId": "01542",
             "date": "2026-07-29",
             "predicted": [
-              6,
-              11,
               13,
               14,
-              39,
-              41,
-              45
+              17,
+              22,
+              31,
+              33,
+              41
             ],
             "special": null,
             "actual": [
@@ -10706,10 +10695,9 @@
               45
             ],
             "matched": [
-              6,
-              45
+              31
             ],
-            "matchCount": 2,
+            "matchCount": 1,
             "specMatched": false,
             "cost": 70000,
             "payout": 0,
@@ -10721,13 +10709,13 @@
             "drawId": "01541",
             "date": "2026-07-26",
             "predicted": [
-              6,
-              12,
+              9,
+              14,
               16,
-              29,
-              30,
+              17,
               31,
-              38
+              32,
+              42
             ],
             "special": null,
             "actual": [
@@ -10753,13 +10741,13 @@
             "drawId": "01540",
             "date": "2026-07-24",
             "predicted": [
-              3,
-              6,
+              11,
               14,
               16,
-              37,
-              42,
-              43
+              26,
+              30,
+              31,
+              39
             ],
             "special": null,
             "actual": [
@@ -10785,11 +10773,11 @@
             "drawId": "01539",
             "date": "2026-07-22",
             "predicted": [
-              6,
+              9,
               11,
               16,
-              20,
-              22,
+              17,
+              26,
               42,
               45
             ],
@@ -10815,13 +10803,13 @@
             "drawId": "01538",
             "date": "2026-07-19",
             "predicted": [
-              6,
               11,
-              17,
+              14,
+              22,
               30,
               31,
-              39,
-              42
+              35,
+              37
             ],
             "special": null,
             "actual": [
@@ -10833,26 +10821,28 @@
               37
             ],
             "matched": [
-              31
+              22,
+              31,
+              37
             ],
-            "matchCount": 1,
+            "matchCount": 3,
             "specMatched": false,
             "cost": 70000,
-            "payout": 0,
-            "netProfit": -70000,
-            "prizeDetail": "Không trúng",
+            "payout": 120000,
+            "netProfit": 50000,
+            "prizeDetail": "4 Giải Ba (30k)",
             "status": "completed"
           }
         ],
         "kpis": {
           "total_draws": 200,
-          "hit_3_plus": 13,
-          "hit_4_plus": 0,
+          "hit_3_plus": 15,
+          "hit_4_plus": 1,
           "hit_5_plus": 0,
           "total_cost": 14000000,
-          "total_payout": 1560000,
-          "net_profit": -12440000,
-          "win_rate_pct": 6.5
+          "total_payout": 2700000,
+          "net_profit": -11300000,
+          "win_rate_pct": 7.5
         }
       },
       "wheeling_strategy": {
@@ -10862,10 +10852,10 @@
           9,
           15,
           16,
-          17,
           22,
+          27,
+          29,
           31,
-          33,
           35,
           36,
           39,
@@ -10881,15 +10871,15 @@
               3,
               6,
               15,
-              17,
-              33,
+              22,
+              31,
               39
             ],
-            "sum": 113,
-            "ac": 10,
-            "odds": 5,
-            "evens": 1,
-            "distinctTails": 5
+            "sum": 116,
+            "ac": 8,
+            "odds": 4,
+            "evens": 2,
+            "distinctTails": 6
           },
           {
             "id": "wheel_2",
@@ -10898,14 +10888,14 @@
               6,
               9,
               16,
-              22,
+              27,
               35,
               44
             ],
-            "sum": 132,
-            "ac": 9,
-            "odds": 2,
-            "evens": 4,
+            "sum": 137,
+            "ac": 10,
+            "odds": 3,
+            "evens": 3,
             "distinctTails": 5
           },
           {
@@ -10914,16 +10904,16 @@
             "numbers": [
               9,
               15,
-              17,
-              31,
+              22,
+              29,
               36,
               45
             ],
-            "sum": 153,
-            "ac": 9,
-            "odds": 5,
-            "evens": 1,
-            "distinctTails": 5
+            "sum": 156,
+            "ac": 7,
+            "odds": 4,
+            "evens": 2,
+            "distinctTails": 4
           },
           {
             "id": "wheel_4",
@@ -10931,32 +10921,32 @@
             "numbers": [
               3,
               16,
-              22,
-              33,
+              27,
+              31,
               39,
               45
             ],
-            "sum": 158,
-            "ac": 6,
-            "odds": 4,
-            "evens": 2,
-            "distinctTails": 5
+            "sum": 161,
+            "ac": 10,
+            "odds": 5,
+            "evens": 1,
+            "distinctTails": 6
           },
           {
             "id": "wheel_5",
             "ticketIndex": 5,
             "numbers": [
               6,
-              17,
-              31,
+              22,
+              29,
               35,
               36,
               44
             ],
-            "sum": 169,
-            "ac": 10,
-            "odds": 3,
-            "evens": 3,
+            "sum": 172,
+            "ac": 9,
+            "odds": 2,
+            "evens": 4,
             "distinctTails": 5
           },
           {
@@ -10966,15 +10956,15 @@
               3,
               9,
               16,
-              31,
+              29,
               35,
               39
             ],
-            "sum": 133,
-            "ac": 9,
+            "sum": 131,
+            "ac": 7,
             "odds": 5,
             "evens": 1,
-            "distinctTails": 5
+            "distinctTails": 4
           }
         ],
         "special_recommendation": [],
@@ -15400,11 +15390,11 @@
             "drawId": "00865",
             "date": "Kỳ Kế Tiếp",
             "predicted": [
-              6,
               9,
-              21,
-              26,
-              27
+              15,
+              17,
+              20,
+              30
             ],
             "special": 9,
             "actual": null,
@@ -15421,11 +15411,11 @@
             "drawId": "00864",
             "date": "2026-09-03",
             "predicted": [
-              7,
+              1,
               9,
-              18,
-              26,
-              30
+              23,
+              24,
+              34
             ],
             "special": 9,
             "actual": [
@@ -15437,9 +15427,10 @@
               3
             ],
             "matched": [
-              7
+              23,
+              24
             ],
-            "matchCount": 1,
+            "matchCount": 2,
             "specMatched": false,
             "cost": 10000,
             "payout": 0,
@@ -15451,10 +15442,10 @@
             "drawId": "00863",
             "date": "2026-09-03",
             "predicted": [
-              3,
+              7,
+              11,
               12,
-              13,
-              27,
+              26,
               33
             ],
             "special": 9,
@@ -15479,10 +15470,10 @@
             "drawId": "00862",
             "date": "2026-09-02",
             "predicted": [
-              7,
+              2,
               9,
-              12,
-              27,
+              15,
+              30,
               33
             ],
             "special": 9,
@@ -15495,10 +15486,9 @@
               12
             ],
             "matched": [
-              7,
               9
             ],
-            "matchCount": 2,
+            "matchCount": 1,
             "specMatched": false,
             "cost": 10000,
             "payout": 0,
@@ -15510,11 +15500,11 @@
             "drawId": "00861",
             "date": "2026-09-02",
             "predicted": [
-              6,
-              13,
-              17,
-              22,
-              30
+              3,
+              4,
+              21,
+              26,
+              35
             ],
             "special": 7,
             "actual": [
@@ -15525,8 +15515,10 @@
               29,
               6
             ],
-            "matched": [],
-            "matchCount": 0,
+            "matched": [
+              26
+            ],
+            "matchCount": 1,
             "specMatched": false,
             "cost": 10000,
             "payout": 0,
@@ -15539,10 +15531,10 @@
             "date": "2026-09-01",
             "predicted": [
               1,
-              3,
-              22,
-              28,
-              35
+              17,
+              18,
+              27,
+              30
             ],
             "special": 7,
             "actual": [
@@ -15553,11 +15545,8 @@
               22,
               9
             ],
-            "matched": [
-              3,
-              22
-            ],
-            "matchCount": 2,
+            "matched": [],
+            "matchCount": 0,
             "specMatched": false,
             "cost": 10000,
             "payout": 0,
@@ -15570,10 +15559,10 @@
             "date": "2026-09-01",
             "predicted": [
               3,
-              18,
-              21,
-              22,
-              28
+              12,
+              13,
+              27,
+              33
             ],
             "special": 7,
             "actual": [
@@ -15585,7 +15574,7 @@
               12
             ],
             "matched": [
-              18
+              27
             ],
             "matchCount": 1,
             "specMatched": false,
@@ -15599,11 +15588,11 @@
             "drawId": "00858",
             "date": "2026-08-31",
             "predicted": [
-              3,
-              12,
-              17,
-              28,
-              30
+              4,
+              15,
+              18,
+              19,
+              35
             ],
             "special": 7,
             "actual": [
@@ -15614,10 +15603,8 @@
               28,
               12
             ],
-            "matched": [
-              28
-            ],
-            "matchCount": 1,
+            "matched": [],
+            "matchCount": 0,
             "specMatched": false,
             "cost": 10000,
             "payout": 0,
@@ -15629,11 +15616,11 @@
             "drawId": "00857",
             "date": "2026-08-31",
             "predicted": [
-              2,
-              8,
-              12,
-              30,
-              35
+              7,
+              9,
+              20,
+              28,
+              34
             ],
             "special": 7,
             "actual": [
@@ -15657,11 +15644,11 @@
             "drawId": "00856",
             "date": "2026-08-30",
             "predicted": [
-              7,
-              10,
-              17,
-              26,
-              30
+              8,
+              16,
+              19,
+              20,
+              26
             ],
             "special": 7,
             "actual": [
@@ -15673,16 +15660,14 @@
               10
             ],
             "matched": [
-              17,
-              26,
-              30
+              26
             ],
-            "matchCount": 3,
+            "matchCount": 1,
             "specMatched": false,
             "cost": 10000,
-            "payout": 30000,
-            "netProfit": 20000,
-            "prizeDetail": "Giải Năm (30k)",
+            "payout": 0,
+            "netProfit": -10000,
+            "prizeDetail": "Không trúng",
             "status": "completed"
           },
           {
@@ -15690,10 +15675,10 @@
             "date": "2026-08-30",
             "predicted": [
               7,
-              8,
-              12,
-              30,
-              33
+              9,
+              10,
+              28,
+              34
             ],
             "special": 7,
             "actual": [
@@ -15705,7 +15690,7 @@
               7
             ],
             "matched": [
-              12
+              28
             ],
             "matchCount": 1,
             "specMatched": true,
@@ -15719,11 +15704,11 @@
             "drawId": "00854",
             "date": "2026-08-29",
             "predicted": [
-              2,
-              8,
-              15,
-              30,
-              34
+              9,
+              10,
+              16,
+              26,
+              30
             ],
             "special": 7,
             "actual": [
@@ -15747,10 +15732,10 @@
             "drawId": "00853",
             "date": "2026-08-29",
             "predicted": [
-              9,
-              10,
-              17,
-              19,
+              1,
+              8,
+              11,
+              33,
               35
             ],
             "special": 7,
@@ -15775,11 +15760,11 @@
             "drawId": "00852",
             "date": "2026-08-28",
             "predicted": [
-              10,
+              1,
+              9,
               13,
-              15,
-              22,
-              30
+              33,
+              34
             ],
             "special": 7,
             "actual": [
@@ -15790,8 +15775,10 @@
               34,
               9
             ],
-            "matched": [],
-            "matchCount": 0,
+            "matched": [
+              34
+            ],
+            "matchCount": 1,
             "specMatched": false,
             "cost": 10000,
             "payout": 0,
@@ -15831,10 +15818,10 @@
             "drawId": "00850",
             "date": "2026-08-27",
             "predicted": [
-              1,
-              15,
-              20,
-              21,
+              9,
+              10,
+              12,
+              26,
               33
             ],
             "special": 7,
@@ -15847,26 +15834,27 @@
               2
             ],
             "matched": [
-              21,
+              9,
+              10,
               33
             ],
-            "matchCount": 2,
+            "matchCount": 3,
             "specMatched": false,
             "cost": 10000,
-            "payout": 0,
-            "netProfit": -10000,
-            "prizeDetail": "Không trúng",
+            "payout": 30000,
+            "netProfit": 20000,
+            "prizeDetail": "Giải Năm (30k)",
             "status": "completed"
           },
           {
             "drawId": "00849",
             "date": "2026-08-27",
             "predicted": [
-              9,
-              10,
-              13,
-              25,
-              33
+              1,
+              3,
+              21,
+              30,
+              34
             ],
             "special": 7,
             "actual": [
@@ -15878,9 +15866,10 @@
               6
             ],
             "matched": [
-              33
+              1,
+              3
             ],
-            "matchCount": 1,
+            "matchCount": 2,
             "specMatched": false,
             "cost": 10000,
             "payout": 0,
@@ -15892,11 +15881,11 @@
             "drawId": "00848",
             "date": "2026-08-26",
             "predicted": [
-              8,
+              12,
               13,
               15,
-              19,
-              35
+              23,
+              28
             ],
             "special": 7,
             "actual": [
@@ -15907,27 +15896,24 @@
               35,
               7
             ],
-            "matched": [
-              19,
-              35
-            ],
-            "matchCount": 2,
+            "matched": [],
+            "matchCount": 0,
             "specMatched": true,
             "cost": 10000,
-            "payout": 0,
-            "netProfit": -10000,
-            "prizeDetail": "Không trúng",
+            "payout": 10000,
+            "netProfit": 0,
+            "prizeDetail": "Giải KK (10k)",
             "status": "completed"
           },
           {
             "drawId": "00847",
             "date": "2026-08-26",
             "predicted": [
+              3,
               8,
-              9,
-              20,
-              23,
-              30
+              15,
+              31,
+              33
             ],
             "special": 7,
             "actual": [
@@ -15939,7 +15925,7 @@
               7
             ],
             "matched": [
-              30
+              3
             ],
             "matchCount": 1,
             "specMatched": true,
@@ -15953,11 +15939,11 @@
             "drawId": "00846",
             "date": "2026-08-25",
             "predicted": [
-              9,
+              2,
               13,
               16,
               26,
-              28
+              33
             ],
             "special": 9,
             "actual": [
@@ -15969,27 +15955,26 @@
               7
             ],
             "matched": [
-              9,
               13,
               16
             ],
-            "matchCount": 3,
+            "matchCount": 2,
             "specMatched": false,
             "cost": 10000,
-            "payout": 30000,
-            "netProfit": 20000,
-            "prizeDetail": "Giải Năm (30k)",
+            "payout": 0,
+            "netProfit": -10000,
+            "prizeDetail": "Không trúng",
             "status": "completed"
           },
           {
             "drawId": "00845",
             "date": "2026-08-25",
             "predicted": [
-              2,
-              7,
-              19,
-              30,
-              33
+              1,
+              12,
+              15,
+              28,
+              34
             ],
             "special": 9,
             "actual": [
@@ -16012,14 +15997,14 @@
         ],
         "kpis": {
           "total_draws": 200,
-          "hit_3_plus": 3,
+          "hit_3_plus": 4,
           "hit_4_plus": 0,
           "hit_5_plus": 0,
           "total_cost": 2000000,
-          "total_payout": 150000,
-          "net_profit": -1850000,
-          "avg_matched": 0.73,
-          "win_rate_pct": 1.5
+          "total_payout": 170000,
+          "net_profit": -1830000,
+          "avg_matched": 0.81,
+          "win_rate_pct": 2.0
         }
       },
       "bao7_backtest_data": {
@@ -16028,11 +16013,11 @@
             "drawId": "00865",
             "date": "Kỳ Kế Tiếp",
             "predicted": [
-              3,
               7,
-              20,
-              22,
-              27,
+              11,
+              12,
+              18,
+              28,
               30
             ],
             "special": 9,
@@ -16050,12 +16035,12 @@
             "drawId": "00864",
             "date": "2026-09-03",
             "predicted": [
-              6,
-              9,
-              11,
+              3,
+              7,
               20,
-              24,
-              30
+              22,
+              23,
+              28
             ],
             "special": 9,
             "actual": [
@@ -16067,9 +16052,10 @@
               3
             ],
             "matched": [
-              24
+              7,
+              23
             ],
-            "matchCount": 1,
+            "matchCount": 2,
             "specMatched": false,
             "cost": 60000,
             "payout": 0,
@@ -16082,11 +16068,11 @@
             "date": "2026-09-03",
             "predicted": [
               1,
-              9,
-              15,
-              27,
+              7,
+              18,
+              20,
               28,
-              30
+              33
             ],
             "special": 9,
             "actual": [
@@ -16097,11 +16083,8 @@
               30,
               12
             ],
-            "matched": [
-              15,
-              30
-            ],
-            "matchCount": 2,
+            "matched": [],
+            "matchCount": 0,
             "specMatched": false,
             "cost": 60000,
             "payout": 0,
@@ -16113,12 +16096,12 @@
             "drawId": "00862",
             "date": "2026-09-02",
             "predicted": [
-              2,
-              4,
-              15,
+              1,
+              9,
+              12,
               21,
-              29,
-              33
+              27,
+              28
             ],
             "special": 9,
             "actual": [
@@ -16129,8 +16112,10 @@
               32,
               12
             ],
-            "matched": [],
-            "matchCount": 0,
+            "matched": [
+              9
+            ],
+            "matchCount": 1,
             "specMatched": false,
             "cost": 60000,
             "payout": 0,
@@ -16142,12 +16127,12 @@
             "drawId": "00861",
             "date": "2026-09-02",
             "predicted": [
-              1,
-              3,
+              2,
+              11,
               12,
+              15,
               27,
-              30,
-              35
+              33
             ],
             "special": 7,
             "actual": [
@@ -16158,8 +16143,10 @@
               29,
               6
             ],
-            "matched": [],
-            "matchCount": 0,
+            "matched": [
+              11
+            ],
+            "matchCount": 1,
             "specMatched": false,
             "cost": 60000,
             "payout": 0,
@@ -16171,11 +16158,11 @@
             "drawId": "00860",
             "date": "2026-09-01",
             "predicted": [
-              1,
               3,
+              11,
+              12,
               15,
-              22,
-              30,
+              28,
               35
             ],
             "special": 7,
@@ -16189,15 +16176,14 @@
             ],
             "matched": [
               3,
-              15,
-              22
+              15
             ],
-            "matchCount": 3,
+            "matchCount": 2,
             "specMatched": false,
             "cost": 60000,
-            "payout": 90000,
-            "netProfit": 30000,
-            "prizeDetail": "3 Giải Năm (30k)",
+            "payout": 0,
+            "netProfit": -60000,
+            "prizeDetail": "Không trúng",
             "status": "completed"
           },
           {
@@ -16206,10 +16192,10 @@
             "predicted": [
               2,
               3,
-              11,
-              22,
-              28,
-              35
+              13,
+              27,
+              30,
+              34
             ],
             "special": 7,
             "actual": [
@@ -16218,6 +16204,38 @@
               20,
               27,
               34,
+              12
+            ],
+            "matched": [
+              27,
+              34
+            ],
+            "matchCount": 2,
+            "specMatched": false,
+            "cost": 60000,
+            "payout": 0,
+            "netProfit": -60000,
+            "prizeDetail": "Không trúng",
+            "status": "completed"
+          },
+          {
+            "drawId": "00858",
+            "date": "2026-08-31",
+            "predicted": [
+              2,
+              9,
+              13,
+              21,
+              26,
+              35
+            ],
+            "special": 7,
+            "actual": [
+              1,
+              5,
+              25,
+              27,
+              28,
               12
             ],
             "matched": [],
@@ -16230,46 +16248,15 @@
             "status": "completed"
           },
           {
-            "drawId": "00858",
-            "date": "2026-08-31",
-            "predicted": [
-              1,
-              9,
-              13,
-              26,
-              33,
-              35
-            ],
-            "special": 7,
-            "actual": [
-              1,
-              5,
-              25,
-              27,
-              28,
-              12
-            ],
-            "matched": [
-              1
-            ],
-            "matchCount": 1,
-            "specMatched": false,
-            "cost": 60000,
-            "payout": 0,
-            "netProfit": -60000,
-            "prizeDetail": "Không trúng",
-            "status": "completed"
-          },
-          {
             "drawId": "00857",
             "date": "2026-08-31",
             "predicted": [
               1,
-              2,
               13,
-              28,
-              30,
-              34
+              15,
+              16,
+              22,
+              35
             ],
             "special": 7,
             "actual": [
@@ -16295,12 +16282,12 @@
             "drawId": "00856",
             "date": "2026-08-30",
             "predicted": [
-              1,
-              3,
-              20,
-              21,
-              26,
-              33
+              4,
+              7,
+              9,
+              13,
+              28,
+              35
             ],
             "special": 7,
             "actual": [
@@ -16312,7 +16299,7 @@
               10
             ],
             "matched": [
-              26
+              13
             ],
             "matchCount": 1,
             "specMatched": false,
@@ -16327,7 +16314,7 @@
             "date": "2026-08-30",
             "predicted": [
               1,
-              2,
+              8,
               16,
               22,
               26,
@@ -16342,26 +16329,24 @@
               28,
               7
             ],
-            "matched": [
-              2
-            ],
-            "matchCount": 1,
+            "matched": [],
+            "matchCount": 0,
             "specMatched": true,
             "cost": 60000,
-            "payout": 0,
-            "netProfit": -60000,
-            "prizeDetail": "Không trúng",
+            "payout": 60000,
+            "netProfit": 0,
+            "prizeDetail": "6 Giải KK (10k)",
             "status": "completed"
           },
           {
             "drawId": "00854",
             "date": "2026-08-29",
             "predicted": [
-              2,
-              10,
-              13,
+              1,
+              3,
+              8,
               22,
-              28,
+              34,
               35
             ],
             "special": 7,
@@ -16387,11 +16372,11 @@
             "date": "2026-08-29",
             "predicted": [
               8,
-              12,
-              13,
-              19,
-              21,
-              35
+              11,
+              15,
+              16,
+              26,
+              28
             ],
             "special": 7,
             "actual": [
@@ -16402,8 +16387,10 @@
               34,
               8
             ],
-            "matched": [],
-            "matchCount": 0,
+            "matched": [
+              26
+            ],
+            "matchCount": 1,
             "specMatched": false,
             "cost": 60000,
             "payout": 0,
@@ -16415,12 +16402,12 @@
             "drawId": "00852",
             "date": "2026-08-28",
             "predicted": [
-              3,
-              10,
+              2,
               13,
+              19,
+              21,
               22,
-              26,
-              30
+              34
             ],
             "special": 7,
             "actual": [
@@ -16431,8 +16418,10 @@
               34,
               9
             ],
-            "matched": [],
-            "matchCount": 0,
+            "matched": [
+              34
+            ],
+            "matchCount": 1,
             "specMatched": false,
             "cost": 60000,
             "payout": 0,
@@ -16444,11 +16433,11 @@
             "drawId": "00851",
             "date": "2026-08-28",
             "predicted": [
-              1,
               2,
               8,
+              13,
               16,
-              33,
+              34,
               35
             ],
             "special": 7,
@@ -16473,12 +16462,12 @@
             "drawId": "00850",
             "date": "2026-08-27",
             "predicted": [
-              1,
-              15,
+              8,
+              10,
+              11,
               16,
-              21,
-              23,
-              34
+              26,
+              35
             ],
             "special": 7,
             "actual": [
@@ -16490,10 +16479,9 @@
               2
             ],
             "matched": [
-              21,
-              34
+              10
             ],
-            "matchCount": 2,
+            "matchCount": 1,
             "specMatched": false,
             "cost": 60000,
             "payout": 0,
@@ -16505,12 +16493,12 @@
             "drawId": "00849",
             "date": "2026-08-27",
             "predicted": [
-              3,
-              7,
+              9,
+              10,
+              13,
               19,
-              22,
-              28,
-              30
+              26,
+              34
             ],
             "special": 7,
             "actual": [
@@ -16521,10 +16509,8 @@
               33,
               6
             ],
-            "matched": [
-              3
-            ],
-            "matchCount": 1,
+            "matched": [],
+            "matchCount": 0,
             "specMatched": false,
             "cost": 60000,
             "payout": 0,
@@ -16536,12 +16522,12 @@
             "drawId": "00848",
             "date": "2026-08-26",
             "predicted": [
-              2,
               3,
-              7,
+              8,
+              21,
               23,
-              33,
-              35
+              24,
+              33
             ],
             "special": 7,
             "actual": [
@@ -16553,10 +16539,9 @@
               7
             ],
             "matched": [
-              3,
-              35
+              3
             ],
-            "matchCount": 2,
+            "matchCount": 1,
             "specMatched": true,
             "cost": 60000,
             "payout": 0,
@@ -16568,11 +16553,11 @@
             "drawId": "00847",
             "date": "2026-08-26",
             "predicted": [
-              1,
               2,
+              3,
               13,
-              26,
-              31,
+              20,
+              28,
               34
             ],
             "special": 7,
@@ -16585,7 +16570,7 @@
               7
             ],
             "matched": [
-              26
+              3
             ],
             "matchCount": 1,
             "specMatched": true,
@@ -16599,12 +16584,12 @@
             "drawId": "00846",
             "date": "2026-08-25",
             "predicted": [
-              3,
-              7,
-              20,
-              21,
-              23,
-              31
+              1,
+              2,
+              22,
+              24,
+              28,
+              35
             ],
             "special": 9,
             "actual": [
@@ -16628,12 +16613,12 @@
             "drawId": "00845",
             "date": "2026-08-25",
             "predicted": [
-              2,
-              7,
-              15,
-              16,
+              1,
+              9,
+              19,
+              21,
               26,
-              33
+              32
             ],
             "special": 9,
             "actual": [
@@ -16644,10 +16629,8 @@
               31,
               5
             ],
-            "matched": [
-              16
-            ],
-            "matchCount": 1,
+            "matched": [],
+            "matchCount": 0,
             "specMatched": false,
             "cost": 60000,
             "payout": 0,
@@ -16658,29 +16641,29 @@
         ],
         "kpis": {
           "total_draws": 200,
-          "hit_3_plus": 6,
-          "hit_4_plus": 2,
+          "hit_3_plus": 4,
+          "hit_4_plus": 1,
           "hit_5_plus": 0,
           "total_cost": 12000000,
-          "total_payout": 740000,
-          "net_profit": -11260000,
-          "win_rate_pct": 3.0
+          "total_payout": 730000,
+          "net_profit": -11270000,
+          "win_rate_pct": 2.0
         }
       },
       "wheeling_strategy": {
         "core_pool": [
-          2,
           3,
           7,
           9,
           11,
           13,
           15,
+          17,
           18,
-          26,
+          23,
+          24,
           27,
-          28,
-          34
+          28
         ],
         "core_pool_size": 12,
         "tickets": [
@@ -16688,96 +16671,96 @@
             "id": "wheel_1",
             "ticketIndex": 1,
             "numbers": [
-              2,
               3,
-              9,
-              13,
-              26
+              7,
+              11,
+              15,
+              23
             ],
-            "sum": 53,
-            "ac": 6,
-            "odds": 3,
-            "evens": 2,
+            "sum": 59,
+            "ac": 1,
+            "odds": 5,
+            "evens": 0,
             "distinctTails": 4
           },
           {
             "id": "wheel_2",
             "ticketIndex": 2,
             "numbers": [
-              3,
               7,
-              11,
-              15,
-              27
+              9,
+              13,
+              17,
+              24
             ],
-            "sum": 63,
-            "ac": 2,
-            "odds": 5,
-            "evens": 0,
+            "sum": 70,
+            "ac": 5,
+            "odds": 4,
+            "evens": 1,
             "distinctTails": 4
           },
           {
             "id": "wheel_3",
             "ticketIndex": 3,
             "numbers": [
-              7,
               9,
-              13,
+              11,
+              15,
               18,
-              28
+              27
             ],
-            "sum": 75,
-            "ac": 6,
-            "odds": 3,
-            "evens": 2,
-            "distinctTails": 4
+            "sum": 80,
+            "ac": 5,
+            "odds": 4,
+            "evens": 1,
+            "distinctTails": 5
           },
           {
             "id": "wheel_4",
             "ticketIndex": 4,
             "numbers": [
-              2,
-              11,
-              15,
-              26,
-              34
+              3,
+              13,
+              17,
+              23,
+              28
             ],
-            "sum": 88,
-            "ac": 6,
-            "odds": 2,
-            "evens": 3,
-            "distinctTails": 5
+            "sum": 84,
+            "ac": 5,
+            "odds": 4,
+            "evens": 1,
+            "distinctTails": 3
           },
           {
             "id": "wheel_5",
             "ticketIndex": 5,
             "numbers": [
-              3,
-              13,
+              7,
+              15,
               18,
-              27,
-              34
+              24,
+              28
             ],
-            "sum": 95,
+            "sum": 92,
             "ac": 6,
-            "odds": 3,
-            "evens": 2,
+            "odds": 2,
+            "evens": 3,
             "distinctTails": 4
           },
           {
             "id": "wheel_6",
             "ticketIndex": 6,
             "numbers": [
-              2,
-              7,
-              15,
+              3,
+              9,
+              17,
               18,
-              28
+              27
             ],
-            "sum": 70,
+            "sum": 74,
             "ac": 5,
-            "odds": 2,
-            "evens": 3,
+            "odds": 4,
+            "evens": 1,
             "distinctTails": 4
           }
         ],
