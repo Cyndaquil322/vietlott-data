@@ -3490,7 +3490,13 @@ function getStoredPredictions(productKey) {
       if (stored) {
         try {
           const parsed = JSON.parse(stored);
-          if (Array.isArray(parsed) && parsed.length >= 8) return parsed;
+          if (Array.isArray(parsed) && parsed.length >= 8) {
+            if (productKey === 'power_535' && parsed[0] && parseInt(parsed[0].drawId) < 800) {
+              localStorage.removeItem(storageKey);
+            } else {
+              return parsed;
+            }
+          }
         } catch (e) {}
       }
       if (productKey === 'power_655') return [{"drawId": "01394", "date": "05/09/2026", "predicted": [8, 21, 22, 36, 40, 55], "actual": null, "status": "pending"}, {"drawId": "01393", "date": "03/09/2026", "predicted": [8, 9, 11, 16, 18, 42], "actual": [8, 9, 16, 42, 46, 47], "status": "completed"}, {"drawId": "01392", "date": "01/09/2026", "predicted": [1, 11, 17, 41, 44, 49], "actual": [1, 17, 41, 44, 49, 55], "status": "completed"}, {"drawId": "01391", "date": "29/08/2026", "predicted": [5, 10, 11, 15, 18, 22], "actual": [5, 10, 15, 29, 34, 45], "status": "completed"}, {"drawId": "01390", "date": "27/08/2026", "predicted": [1, 3, 11, 18, 21, 22], "actual": [1, 3, 11, 21, 26, 44], "status": "completed"}, {"drawId": "01389", "date": "25/08/2026", "predicted": [5, 7, 11, 13, 18, 22], "actual": [5, 7, 13, 18, 31, 40], "status": "completed"}, {"drawId": "01388", "date": "22/08/2026", "predicted": [9, 11, 18, 19, 22, 27], "actual": [9, 18, 19, 21, 25, 36], "status": "completed"}, {"drawId": "01387", "date": "20/08/2026", "predicted": [2, 8, 11, 29, 38, 39], "actual": [2, 8, 29, 38, 39, 51], "status": "completed"}, {"drawId": "01386", "date": "18/08/2026", "predicted": [3, 11, 15, 18, 22, 27], "actual": [3, 15, 18, 38, 41, 48], "status": "completed"}, {"drawId": "01385", "date": "15/08/2026", "predicted": [11, 16, 18, 20, 25, 27], "actual": [16, 20, 25, 27, 30, 50], "status": "completed"}];
@@ -3846,22 +3852,63 @@ function getStoredPredictions(productKey) {
         return;
       }
 
+      const is535 = currentProductKey === 'power_535';
+      const is655 = currentProductKey === 'power_655';
+      const mainCount = is535 ? 5 : 6;
+
       tbody.innerHTML = list.map(item => {
         const isPending = !item.actual;
-        let matchCount = 0;
+        let matchMain = 0;
+        let matchSpecial = false;
         let prizeBadge = '';
 
         if (!isPending) {
-          const actualSet = new Set(item.actual);
-          matchCount = item.predicted.filter(n => actualSet.has(n)).length;
-          if (matchCount === 6) prizeBadge = '<span class="text-amber-400 font-bold">🏆 TRÚNG JACKPOT 1!</span>';
-          else if (matchCount === 5) prizeBadge = '<span class="text-rose-400 font-bold">🥈 TRÚNG GIẢI NHẤT (40tr)</span>';
-          else if (matchCount === 4) prizeBadge = '<span class="text-emerald-400 font-bold">🥉 TRÚNG GIẢI NHÌ (500k)</span>';
-          else if (matchCount === 3) prizeBadge = '<span class="text-blue-400 font-bold">🎖️ TRÚNG GIẢI BA (50k)</span>';
-          else prizeBadge = '<span class="text-slate-500">Không trúng thưởng</span>';
+          const predMain = item.predicted.slice(0, mainCount);
+          const actualMain = item.actual.slice(0, mainCount);
+          const actualMainSet = new Set(actualMain);
+          matchMain = predMain.filter(n => actualMainSet.has(n)).length;
+
+          if (is535 || is655) {
+            const predSpec = item.predicted[mainCount];
+            const actualSpec = item.actual[mainCount];
+            matchSpecial = predSpec !== undefined && actualSpec !== undefined && predSpec === actualSpec;
+          }
+
+          if (is535) {
+            if (matchMain === 5 && matchSpecial) prizeBadge = '<span class="text-amber-400 font-bold">🏆 JACKPOT (5 chính + ĐB)!</span>';
+            else if (matchMain === 5) prizeBadge = '<span class="text-rose-400 font-bold">🥈 Giải Nhất (40tr)</span>';
+            else if (matchMain === 4 && matchSpecial) prizeBadge = '<span class="text-emerald-400 font-bold">🥉 Giải Nhì (500k + ĐB)</span>';
+            else if (matchMain === 4) prizeBadge = '<span class="text-emerald-400 font-bold">🥉 Giải Ba (50k)</span>';
+            else if (matchMain === 3 && matchSpecial) prizeBadge = '<span class="text-blue-400 font-bold">🎖️ Giải Tư (50k)</span>';
+            else if (matchMain === 3) prizeBadge = '<span class="text-blue-400 font-bold">🎖️ Giải Năm (30k)</span>';
+            else if (matchSpecial) prizeBadge = '<span class="text-amber-300 font-bold">⭐ Giải KK (10k - trúng ĐB)</span>';
+            else prizeBadge = '<span class="text-slate-500">Không trúng thưởng</span>';
+          } else if (is655) {
+            if (matchMain === 6 && matchSpecial) prizeBadge = '<span class="text-amber-400 font-bold">🏆 JACKPOT 1 + JP2!</span>';
+            else if (matchMain === 6) prizeBadge = '<span class="text-amber-400 font-bold">🏆 JACKPOT 1!</span>';
+            else if (matchMain === 5 && matchSpecial) prizeBadge = '<span class="text-amber-300 font-bold">💎 JACKPOT 2!</span>';
+            else if (matchMain === 5) prizeBadge = '<span class="text-rose-400 font-bold">🥈 Giải Nhất (40tr)</span>';
+            else if (matchMain === 4) prizeBadge = '<span class="text-emerald-400 font-bold">🥉 Giải Nhì (500k)</span>';
+            else if (matchMain === 3) prizeBadge = '<span class="text-blue-400 font-bold">🎖️ Giải Ba (50k)</span>';
+            else prizeBadge = '<span class="text-slate-500">Không trúng thưởng</span>';
+          } else {
+            // Mega 6/45
+            if (matchMain === 6) prizeBadge = '<span class="text-amber-400 font-bold">🏆 JACKPOT!</span>';
+            else if (matchMain === 5) prizeBadge = '<span class="text-rose-400 font-bold">🥈 Giải Nhất (10tr)</span>';
+            else if (matchMain === 4) prizeBadge = '<span class="text-emerald-400 font-bold">🥉 Giải Nhì (300k)</span>';
+            else if (matchMain === 3) prizeBadge = '<span class="text-blue-400 font-bold">🎖️ Giải Ba (30k)</span>';
+            else prizeBadge = '<span class="text-slate-500">Không trúng thưởng</span>';
+          }
         } else {
           prizeBadge = '<span class="text-amber-400 font-sans font-bold">⏳ Đang chờ mở thưởng</span>';
         }
+
+        const matchDisplay = isPending ? '--' : (
+          (is535 || is655)
+            ? `${matchMain} chính${matchSpecial ? ' + ĐB' : ''}`
+            : `${matchMain} số`
+        );
+        const matchCls = (!isPending && matchMain >= 3) ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' : 'bg-slate-800 text-slate-400';
 
         return `
           <tr class="hover:bg-slate-800/40 transition">
@@ -3875,8 +3922,8 @@ function getStoredPredictions(productKey) {
             </td>
             <td class="py-3 px-4 text-center">
               ${isPending ? '<span class="text-slate-500">--</span>' : `
-                <span class="px-2 py-0.5 rounded-full text-xs font-bold ${matchCount >= 3 ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' : 'bg-slate-800 text-slate-400'}">
-                  Trúng ${matchCount} số
+                <span class="px-2 py-0.5 rounded-full text-xs font-bold ${matchCls}">
+                  ${matchDisplay}
                 </span>
               `}
             </td>
@@ -4443,7 +4490,13 @@ function getStoredBao7Predictions(productKey) {
       if (stored) {
         try {
           const parsed = JSON.parse(stored);
-          if (Array.isArray(parsed) && parsed.length >= 8) return parsed;
+          if (Array.isArray(parsed) && parsed.length >= 8) {
+            if (productKey === 'power_535' && parsed[0] && parseInt(parsed[0].drawId) < 800) {
+              localStorage.removeItem(storageKey);
+            } else {
+              return parsed;
+            }
+          }
         } catch (e) {}
       }
       if (productKey === 'power_655') return [{"drawId": "01394", "date": "05/09/2026", "predicted": [8, 16, 22, 35, 39, 42, 53], "actual": null, "status": "pending"}, {"drawId": "01393", "date": "03/09/2026", "predicted": [8, 9, 11, 16, 18, 22, 42], "actual": [8, 9, 16, 42, 46, 47], "status": "completed"}, {"drawId": "01392", "date": "01/09/2026", "predicted": [1, 11, 17, 18, 41, 44, 49], "actual": [1, 17, 41, 44, 49, 55], "status": "completed"}, {"drawId": "01391", "date": "29/08/2026", "predicted": [5, 10, 11, 15, 18, 22, 27], "actual": [5, 10, 15, 29, 34, 45], "status": "completed"}, {"drawId": "01390", "date": "27/08/2026", "predicted": [1, 3, 11, 18, 21, 22, 27], "actual": [1, 3, 11, 21, 26, 44], "status": "completed"}, {"drawId": "01389", "date": "25/08/2026", "predicted": [5, 7, 11, 13, 18, 22, 27], "actual": [5, 7, 13, 18, 31, 40], "status": "completed"}, {"drawId": "01388", "date": "22/08/2026", "predicted": [9, 11, 18, 19, 22, 27, 33], "actual": [9, 18, 19, 21, 25, 36], "status": "completed"}, {"drawId": "01387", "date": "20/08/2026", "predicted": [2, 8, 11, 18, 29, 38, 39], "actual": [2, 8, 29, 38, 39, 51], "status": "completed"}, {"drawId": "01386", "date": "18/08/2026", "predicted": [3, 11, 15, 18, 22, 27, 33], "actual": [3, 15, 18, 38, 41, 48], "status": "completed"}, {"drawId": "01385", "date": "15/08/2026", "predicted": [11, 16, 18, 20, 22, 25, 27], "actual": [16, 20, 25, 27, 30, 50], "status": "completed"}];
@@ -4462,15 +4515,36 @@ function getStoredBao7Predictions(productKey) {
         return;
       }
 
+      const is535 = currentProductKey === 'power_535';
+      const is655 = currentProductKey === 'power_655';
+
       tbody.innerHTML = list.map(item => {
         const isPending = !item.actual;
         let matchCount = 0;
+        let matchSpecial = false;
         let prizeDesc = '';
         let profitDesc = '';
 
         if (!isPending) {
-          const actualSet = new Set(item.actual);
-          matchCount = item.predicted.filter(n => actualSet.has(n)).length;
+          // For 5/35: actual is [c1,c2,c3,c4,c5,db], predicted (bao6) is [n1..n6,db]
+          // For 6/55: actual is [c1..c6,db], predicted (bao7) is [n1..n7]
+          // For 6/45: actual is [c1..c6], predicted (bao7) is [n1..n7]
+          const actualMainCount = is535 ? 5 : 6;
+          const actualMain = item.actual.slice(0, actualMainCount);
+          const actualMainSet = new Set(actualMain);
+
+          if (is535) {
+            // Bao 6: predicted has 6 main numbers + 1 special
+            const predMain = item.predicted.slice(0, 6);
+            matchCount = predMain.filter(n => actualMainSet.has(n)).length;
+            const predSpec = item.predicted[6];
+            const actualSpec = item.actual[5];
+            matchSpecial = predSpec !== undefined && actualSpec !== undefined && predSpec === actualSpec;
+          } else {
+            // 6/55 or 6/45: predicted has 7 main numbers
+            const predMain = item.predicted.slice(0, 7);
+            matchCount = predMain.filter(n => actualMainSet.has(n)).length;
+          }
 
           if (currentProductKey === 'power_655') {
             const hasSpecial = item.specialBall && item.predicted.includes(item.specialBall);
@@ -4515,16 +4589,28 @@ function getStoredBao7Predictions(productKey) {
               profitDesc = '<span class="text-rose-400">-70.000 VNĐ</span>';
             }
           } else {
-            // Power 5/35
-            if (matchCount === 5) {
-              prizeDesc = '<span class="text-amber-400 font-bold">🏆 1 ĐỘC ĐẮC + 5 GIẢI NHẤT</span>';
+            // Power 5/35 Bao 6 (6 số chính + 1 đặc biệt, vốn 60.000đ)
+            if (matchCount === 5 && matchSpecial) {
+              prizeDesc = '<span class="text-amber-400 font-bold">🏆 1 ĐỘC ĐẮC + 5 GIẢI NHÌ</span>';
               profitDesc = '<span class="text-amber-400 font-bold">Jackpot (6+ Tỷ)</span>';
+            } else if (matchCount === 5) {
+              prizeDesc = '<span class="text-rose-400 font-bold">1 Giải Nhất (40tr) + 5 Giải Ba</span>';
+              profitDesc = '<span class="text-emerald-400 font-bold">+40.190.000 VNĐ</span>';
+            } else if (matchCount === 4 && matchSpecial) {
+              prizeDesc = '<span class="text-emerald-400 font-bold">2 Giải Nhì (1tr) + 4 Giải Tư</span>';
+              profitDesc = '<span class="text-emerald-400 font-bold">+1.140.000 VNĐ</span>';
             } else if (matchCount === 4) {
-              prizeDesc = '<span class="text-emerald-400 font-bold">2 Giải Nhì + 4 Giải Bốn</span>';
-              profitDesc = '<span class="text-emerald-400 font-bold">Lời Vốn Nhiều Lần</span>';
+              prizeDesc = '<span class="text-blue-400 font-bold">2 Giải Ba (2 x 50k)</span>';
+              profitDesc = '<span class="text-emerald-400 font-bold">+40.000 VNĐ</span>';
+            } else if (matchCount === 3 && matchSpecial) {
+              prizeDesc = '<span class="text-emerald-400 font-bold">3 Giải Tư (150k) + 3 Giải KK</span>';
+              profitDesc = '<span class="text-emerald-400 font-bold">+120.000 VNĐ</span>';
             } else if (matchCount === 3) {
-              prizeDesc = '<span class="text-blue-400 font-bold">3 Giải Bốn + 3 Giải Sáu</span>';
-              profitDesc = '<span class="text-emerald-400 font-bold">Lời Vốn (+90.000đ)</span>';
+              prizeDesc = '<span class="text-blue-400 font-bold">3 Giải Năm (3 x 30k)</span>';
+              profitDesc = '<span class="text-emerald-400 font-bold">+30.000 VNĐ</span>';
+            } else if (matchSpecial) {
+              prizeDesc = '<span class="text-amber-300 font-bold">⭐ 6 Giải KK (Trúng Cầu ĐB)</span>';
+              profitDesc = '<span class="text-emerald-400 font-bold">60.000đ (Hòa Vốn 100%)</span>';
             } else {
               prizeDesc = '<span class="text-slate-500">Không trúng</span>';
               profitDesc = '<span class="text-rose-400">-60.000 VNĐ</span>';
@@ -4532,14 +4618,14 @@ function getStoredBao7Predictions(productKey) {
           }
         } else {
           prizeDesc = '<span class="text-amber-400 animate-pulse font-sans">⏳ Đang chờ mở thưởng</span>';
-          profitDesc = '<span class="text-slate-500">Đã chi 70.000đ</span>';
+          profitDesc = `<span class="text-slate-500">Đã chi ${is535 ? '60.000đ' : '70.000đ'}</span>`;
         }
 
         return `
           <tr class="hover:bg-slate-800/40 transition">
             <td class="py-3 px-4 text-amber-400 font-bold">#${item.drawId}</td>
             <td class="py-3 px-4">
-              ${renderBallsWithSpecial(item.predicted, item.actual, false, currentProductKey)}
+              ${renderBallsWithSpecial(item.predicted, item.actual, true, currentProductKey)}
             </td>
             <td class="py-3 px-4">
               ${renderActualBallsWithSpecial(item.actual, currentProductKey)}
@@ -4563,13 +4649,17 @@ function getStoredBao7Predictions(productKey) {
       const storageKey = `vietlott_bao7_history_${currentProductKey}`;
       const list = getStoredBao7Predictions(currentProductKey);
 
+      const toSaveNums = (currentProductKey === 'power_535' && currentBao7Ticket.special)
+        ? [...currentBao7Ticket.numbers, currentBao7Ticket.special]
+        : currentBao7Ticket.numbers;
+
       const existingIdx = list.findIndex(item => item.drawId === nextId);
       if (existingIdx !== -1) {
-        list[existingIdx].predicted = currentBao7Ticket.numbers;
+        list[existingIdx].predicted = toSaveNums;
       } else {
         list.unshift({
           drawId: nextId,
-          predicted: currentBao7Ticket.numbers,
+          predicted: toSaveNums,
           actual: null,
           status: 'pending'
         });
