@@ -404,11 +404,11 @@
           <div>
             <h4 class="text-base font-bold text-white flex items-center gap-2">
               <span class="w-6 h-6 rounded-full bg-gradient-to-tr from-amber-400 to-yellow-600 flex items-center justify-center text-slate-950 font-black text-xs shadow-md shadow-amber-500/30">★</span>
-              <span>SOI CẦU BÓNG ĐẶC BIỆT (CẦU VÀNG 01 - 12)</span>
+              <span id="specialBallTrackerTitle">SOI CẦU BÓNG ĐẶC BIỆT</span>
               <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">100 Kỳ Gần Nhất</span>
             </h4>
-            <p class="text-xs text-slate-400 mt-1">
-              Phân tích chuyên sâu tần suất nổ & nhịp gan của 12 quả bóng đặc biệt. Khóa trúng bóng đặc biệt = Chìa khóa hoàn vốn 100% & nổ Jackpot!
+            <p id="specialBallTrackerDesc" class="text-xs text-slate-400 mt-1">
+              Phân tích chuyên sâu tần suất nổ & nhịp gan của quả cầu vàng đặc biệt.
             </p>
           </div>
           <div id="specialBallTopPickBadge" class="px-3 py-1.5 rounded-xl bg-slate-950 border border-amber-500/40 text-xs font-mono text-amber-300 flex items-center gap-2">
@@ -3737,8 +3737,10 @@ function getStoredPredictions(productKey) {
     }
 
     // ==========================================
-    // 2. SPECIAL BALL TRACKER (CẦU VÀNG 01 - 12)
+    // 2. SPECIAL BALL TRACKER (01 - 12 CHO 5/35 & 01 - 55 CHO 6/55)
     // ==========================================
+    let specialBall655Tab = 'top'; // 'top' or 'all'
+
     function renderSpecialBallTracker(product) {
       const section = document.getElementById('specialBallTrackerSection');
       if (!section) return;
@@ -3749,11 +3751,28 @@ function getStoredPredictions(productKey) {
       }
       section.classList.remove('hidden');
 
+      const is535 = currentProductKey === 'power_535';
+      const maxVal = is535 ? 12 : 55;
+      const specIndex = is535 ? 5 : 6;
       const history = product?.history || [];
-      const specIndex = currentProductKey === 'power_535' ? 5 : 6;
-      
+
+      // Update Header Text
+      const titleEl = document.getElementById('specialBallTrackerTitle');
+      const descEl = document.getElementById('specialBallTrackerDesc');
+      if (titleEl) {
+        titleEl.textContent = is535 
+          ? 'SOI CẦU BÓNG ĐẶC BIỆT (CẦU VÀNG 01 - 12)'
+          : 'SOI CẦU CẦU VÀNG JACKPOT 2 (01 - 55)';
+      }
+      if (descEl) {
+        descEl.textContent = is535
+          ? 'Phân tích chuyên sâu tần suất nổ & nhịp gan của 12 quả bóng đặc biệt. Khóa trúng bóng đặc biệt = Chìa khóa bảo hiểm hòa vốn 100% & nổ Jackpot Độc Đắc!'
+          : 'Phân tích tần suất nổ & nhịp gan của quả bóng thứ 7 (Cầu Vàng quyết định nổ Jackpot 2 từ 3,5 Tỷ đến hàng trăm Tỷ). Quay từ 49 bóng còn lại trong tập 01 - 55!';
+      }
+
+      // Calculate stats for 1..maxVal
       const stats = {};
-      for (let i = 1; i <= 12; i++) {
+      for (let i = 1; i <= maxVal; i++) {
         stats[i] = { num: i, freq: 0, lastSeen: -1, gap: history.length };
       }
 
@@ -3771,55 +3790,134 @@ function getStoredPredictions(productKey) {
         }
       });
 
-      const grid = document.getElementById('specialBallsGrid');
-      const insightBox = document.getElementById('specialBallInsightBox');
-      const top3Text = document.getElementById('specialBallTop3Text');
-
       const statList = Object.values(stats);
       const sortedPicks = [...statList].sort((a, b) => {
-        const scoreA = a.freq * 2 - Math.abs(a.gap - 8);
-        const scoreB = b.freq * 2 - Math.abs(b.gap - 8);
+        const scoreA = a.freq * 2.5 - Math.abs(a.gap - (is535 ? 8 : 25));
+        const scoreB = b.freq * 2.5 - Math.abs(b.gap - (is535 ? 8 : 25));
         return scoreB - scoreA;
       });
 
-      const top3 = sortedPicks.slice(0, 3).map(x => String(x.num).padStart(2, '0'));
-      if (top3Text) top3Text.textContent = top3.join('  •  ');
+      const topCount = is535 ? 3 : 6;
+      const topPicks = sortedPicks.slice(0, topCount).map(x => String(x.num).padStart(2, '0'));
+      const top3Text = document.getElementById('specialBallTop3Text');
+      if (top3Text) top3Text.textContent = topPicks.join('  •  ');
+
+      const grid = document.getElementById('specialBallsGrid');
+      const insightBox = document.getElementById('specialBallInsightBox');
 
       if (grid) {
-        grid.innerHTML = statList.map(item => {
-          const isTop = top3.includes(String(item.num).padStart(2, '0'));
-          const isHot = item.freq >= 10;
-          const isCold = item.gap >= 12;
-          const isJustHit = item.gap === 0;
+        if (is535) {
+          // Render all 12 cards for Power 5/35
+          grid.className = 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3';
+          grid.innerHTML = statList.map(item => {
+            const isTop = topPicks.includes(String(item.num).padStart(2, '0'));
+            const isHot = item.freq >= 10;
+            const isCold = item.gap >= 12;
+            const isJustHit = item.gap === 0;
 
-          let tagCls = 'bg-slate-800 text-slate-400 border-slate-700';
-          let tagText = `Gan ${item.gap} kỳ`;
-          if (isJustHit) {
-            tagCls = 'bg-rose-500/20 text-rose-300 border-rose-500/40 font-bold';
-            tagText = 'Vừa Nổ Kỳ Này 🔥';
-          } else if (isHot) {
-            tagCls = 'bg-amber-500/20 text-amber-300 border-amber-500/40 font-bold';
-            tagText = `Cực Nóng (${item.freq} lần) ⚡`;
-          } else if (isCold) {
-            tagCls = 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40 font-bold';
-            tagText = `Cầu Gan (${item.gap} kỳ) ❄️`;
-          }
+            let tagCls = 'bg-slate-800 text-slate-400 border-slate-700';
+            let tagText = `Gan ${item.gap} kỳ`;
+            if (isJustHit) {
+              tagCls = 'bg-rose-500/20 text-rose-300 border-rose-500/40 font-bold';
+              tagText = 'Vừa Nổ Kỳ Này 🔥';
+            } else if (isHot) {
+              tagCls = 'bg-amber-500/20 text-amber-300 border-amber-500/40 font-bold';
+              tagText = `Cực Nóng (${item.freq} lần) ⚡`;
+            } else if (isCold) {
+              tagCls = 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40 font-bold';
+              tagText = `Cầu Gan (${item.gap} kỳ) ❄️`;
+            }
 
-          const cardBorder = isTop ? 'border-amber-400/80 shadow-lg shadow-amber-500/20 bg-gradient-to-b from-slate-900 to-amber-950/30' : 'border-slate-800 bg-slate-950/80';
+            const cardBorder = isTop ? 'border-amber-400/80 shadow-lg shadow-amber-500/20 bg-gradient-to-b from-slate-900 to-amber-950/30' : 'border-slate-800 bg-slate-950/80';
 
-          return `
-            <div class="rounded-xl border ${cardBorder} p-3 flex flex-col items-center justify-between text-center relative group transition hover:scale-105">
-              ${isTop ? '<span class="absolute -top-2 px-2 py-0.5 rounded-full text-[9px] font-black bg-amber-500 text-slate-950 tracking-wider shadow-sm">ƯU TIÊN</span>' : ''}
-              <div class="w-11 h-11 rounded-full bg-gradient-to-tr from-amber-400 via-yellow-500 to-amber-600 text-slate-950 font-black text-base flex items-center justify-center shadow-md shadow-amber-500/30 border border-yellow-200 mt-1">
-                ${String(item.num).padStart(2, '0')}
+            return `
+              <div class="rounded-xl border ${cardBorder} p-3 flex flex-col items-center justify-between text-center relative group transition hover:scale-105 cursor-pointer" onclick="applyTopSpecialBallToTicket('${String(item.num).padStart(2, '0')}')">
+                ${isTop ? '<span class="absolute -top-2 px-2 py-0.5 rounded-full text-[9px] font-black bg-amber-500 text-slate-950 tracking-wider shadow-sm">ƯU TIÊN</span>' : ''}
+                <div class="w-11 h-11 rounded-full bg-gradient-to-tr from-amber-400 via-yellow-500 to-amber-600 text-slate-950 font-black text-base flex items-center justify-center shadow-md shadow-amber-500/30 border border-yellow-200 mt-1">
+                  ${String(item.num).padStart(2, '0')}
+                </div>
+                <div class="mt-2 space-y-0.5 w-full">
+                  <div class="text-[11px] font-bold text-slate-300">Xuất hiện: <span class="text-amber-400 font-bold">${item.freq} lần</span></div>
+                  <div class="px-1.5 py-0.5 rounded text-[10px] border ${tagCls} mt-1">${tagText}</div>
+                </div>
               </div>
-              <div class="mt-2 space-y-0.5">
-                <div class="text-[11px] font-bold text-slate-300">Xuất hiện: <span class="text-amber-400 font-bold">${item.freq} lần</span></div>
-                <div class="px-1.5 py-0.5 rounded text-[10px] border ${tagCls} mt-1">${tagText}</div>
+            `;
+          }).join('');
+        } else {
+          // Render for Power 6/55: Top 6 Sáng Giá Nhất + Ma Trận 55 Bóng Thu Gọn
+          grid.className = 'space-y-4';
+          
+          const topCardsHtml = sortedPicks.slice(0, 6).map(item => {
+            const isJustHit = item.gap === 0;
+            const tagCls = isJustHit ? 'bg-rose-500/20 text-rose-300 border-rose-500/40' : 'bg-amber-500/20 text-amber-300 border-amber-500/40';
+            const tagText = isJustHit ? 'Vừa Nổ Kỳ Trước 🔥' : `Gan ${item.gap} kỳ (${item.freq} lần nổ)`;
+
+            return `
+              <div class="rounded-xl border border-amber-400/60 bg-gradient-to-b from-slate-900 to-amber-950/20 p-3 flex flex-col items-center justify-between text-center relative transition hover:scale-105 shadow-md shadow-amber-950/40 cursor-pointer" onclick="applyTopSpecialBallToTicket('${String(item.num).padStart(2, '0')}')">
+                <span class="absolute -top-2 px-2 py-0.5 rounded-full text-[9px] font-black bg-amber-500 text-slate-950 tracking-wider shadow-sm">TOP CẦU VÀNG</span>
+                <div class="w-11 h-11 rounded-full bg-gradient-to-tr from-amber-400 via-yellow-500 to-amber-600 text-slate-950 font-black text-base flex items-center justify-center shadow-md shadow-amber-500/30 border border-yellow-200 mt-1">
+                  ${String(item.num).padStart(2, '0')}
+                </div>
+                <div class="mt-2 space-y-0.5 w-full">
+                  <div class="text-[11px] font-bold text-slate-300">Nổ: <strong class="text-amber-400">${item.freq} lần</strong></div>
+                  <div class="px-1.5 py-0.5 rounded text-[10px] border ${tagCls} mt-1">${tagText}</div>
+                </div>
+              </div>
+            `;
+          }).join('');
+
+          // 55 Balls Compact Matrix
+          const matrixHtml = statList.map(item => {
+            const isTop = topPicks.includes(String(item.num).padStart(2, '0'));
+            const isJustHit = item.gap === 0;
+            const isCold = item.gap >= 35;
+            
+            let btnBg = 'bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-600';
+            if (isJustHit) btnBg = 'bg-rose-950/80 border-rose-500 text-rose-300 font-black shadow-sm';
+            else if (isTop) btnBg = 'bg-amber-950/80 border-amber-400 text-amber-300 font-black shadow-sm';
+            else if (isCold) btnBg = 'bg-slate-950 border-cyan-500/50 text-cyan-300';
+
+            return `
+              <button onclick="applyTopSpecialBallToTicket('${String(item.num).padStart(2, '0')}')" 
+                class="px-2 py-1.5 rounded-lg border text-xs font-mono flex flex-col items-center justify-center transition active:scale-95 ${btnBg}"
+                title="Bóng ${String(item.num).padStart(2, '0')}: Xuất hiện ${item.freq} lần, Gan ${item.gap} kỳ. Bấm để chọn làm Cầu Vàng!">
+                <span class="font-bold">${String(item.num).padStart(2, '0')}</span>
+                <span class="text-[9px] opacity-70">${item.freq}l - g${item.gap}</span>
+              </button>
+            `;
+          }).join('');
+
+          grid.innerHTML = `
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
+                  <i data-lucide="award" class="w-3.5 h-3.5 text-amber-400"></i> Top 6 Cầu Vàng Sáng Giá Nhất (Điểm Rơi Chu Kỳ 100 Kỳ)
+                </span>
+                <span class="text-[11px] text-slate-500">Bấm thẻ để chọn</span>
+              </div>
+              <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
+                ${topCardsHtml}
+              </div>
+            </div>
+
+            <div class="pt-2 border-t border-slate-800/80">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                <span class="text-xs font-bold text-slate-300 flex items-center gap-1.5">
+                  <i data-lucide="grid" class="w-3.5 h-3.5 text-slate-400"></i>
+                  Ma Trận Toàn Bộ 55 Cầu Vàng (01 - 55) & Tần Suất Nổ
+                </span>
+                <div class="flex items-center gap-3 text-[10px] text-slate-400">
+                  <span class="flex items-center gap-1"><span class="w-2 h-2 rounded bg-amber-400"></span> Top Nóng</span>
+                  <span class="flex items-center gap-1"><span class="w-2 h-2 rounded bg-rose-500"></span> Vừa nổ</span>
+                  <span class="flex items-center gap-1"><span class="w-2 h-2 rounded bg-cyan-400"></span> Cầu Gan</span>
+                </div>
+              </div>
+              <div class="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-11 gap-1.5 bg-slate-950 p-3 rounded-xl border border-slate-800/80">
+                ${matrixHtml}
               </div>
             </div>
           `;
-        }).join('');
+        }
       }
 
       if (insightBox) {
@@ -3827,29 +3925,22 @@ function getStoredPredictions(productKey) {
           <div class="flex items-start gap-2.5">
             <i data-lucide="lightbulb" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i>
             <div>
-              <span class="font-bold text-amber-300">Chiến lược chốt Cầu Vàng:</span>
+              <span class="font-bold text-amber-300">${is535 ? 'Chiến lược Cầu Vàng 5/35:' : 'Chiến lược Cầu Vàng Jackpot 2 (6/55):'}</span>
               <span class="text-slate-300 ml-1">
-                Bộ ba cầu vàng sáng nhất kỳ này là <strong class="text-white font-mono font-bold">${top3.join(', ')}</strong>. 
-                Khuyên dùng: Đánh 1 dàn số chính ghép xoay vòng với 3 quả bóng này để nâng tỷ lệ bắt trúng bóng đặc biệt lên <strong class="text-emerald-400">25% (1 trong 4 kỳ)</strong>!
+                ${is535 
+                  ? `Bộ ba cầu vàng sáng nhất kỳ này là <strong class="text-white font-mono font-bold">${topPicks.join(', ')}</strong>. Khuyên dùng: Đánh dàn số chính ghép xoay vòng với 3 bóng này để nâng tỷ lệ bắt trúng bóng đặc biệt lên <strong class="text-emerald-400">25%</strong>!`
+                  : `Top cầu vàng có nhịp rơi đẹp nhất kỳ này là <strong class="text-white font-mono font-bold">${topPicks.join(', ')}</strong>. Khuyên dùng: Chọn 1 trong các bóng này để nuôi giải Jackpot 2 (khởi điểm 3,5 Tỷ đồng)!`
+                }
               </span>
             </div>
           </div>
-          <button onclick="applyTopSpecialBallToTicket('${top3[0]}')" class="px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs whitespace-nowrap shadow-sm transition">
-            Chọn Cầu Vàng [${top3[0]}]
+          <button onclick="applyTopSpecialBallToTicket('${topPicks[0]}')" class="px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs whitespace-nowrap shadow-sm transition flex-shrink-0">
+            Chọn Cầu Vàng [${topPicks[0]}]
           </button>
         `;
       }
 
       lucide.createIcons();
-    }
-
-    function applyTopSpecialBallToTicket(ballStr) {
-      const num = parseInt(ballStr);
-      if (currentBao7Ticket) {
-        currentBao7Ticket.special = num;
-        renderBao7View(appData?.products?.[currentProductKey]);
-        alert(`Đã áp dụng quả Cầu Vàng [${ballStr}] vào Chiến Lược Bao!`);
-      }
     }
 
     // ========================================================
