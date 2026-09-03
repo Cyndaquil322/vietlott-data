@@ -239,9 +239,13 @@
               <div class="text-xs text-slate-400">Tổng kỳ quay</div>
               <div id="heroTotalDraws" class="text-xl font-bold font-mono text-amber-400">1,217</div>
             </div>
-            <div class="text-center px-3">
+            <div class="text-center px-3 border-r border-slate-800">
               <div class="text-xs text-slate-400">Kỳ đầu tiên</div>
               <div id="heroFirstDate" class="text-xs font-mono text-slate-300 mt-1">2017-08-01</div>
+            </div>
+            <div class="text-center px-3" id="heroSumSnapshotWrap">
+              <div class="text-xs text-slate-400">Tổng kỳ này</div>
+              <div id="heroSumVal" class="text-xl font-bold font-mono text-emerald-400 mt-0.5">--</div>
             </div>
           </div>
         </div>
@@ -436,6 +440,67 @@
             <canvas id="sumChart"></canvas>
           </div>
         </div>
+
+        <!-- Stock-like Sum Time Series Line Chart -->
+        <div class="bg-slate-950/80 p-5 rounded-xl border border-slate-800 space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                <i data-lucide="trending-up" class="w-4 h-4 text-emerald-400"></i>
+                BIỂU ĐỒ XU HƯỚNG TỔNG GIẢI THEO THỜI GIAN (PHONG CÁCH CHỨNG KHOÁN)
+              </h4>
+              <p class="text-xs text-slate-400 mt-0.5">
+                Biến thiên tổng giải qua từng kỳ quay, đường trung bình động MA5 và dải dao động chuẩn (Mean ± 1σ)
+              </p>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs text-slate-400">Hiển thị:</span>
+              <div class="inline-flex rounded-lg bg-slate-900 p-1 border border-slate-800 text-xs">
+                <button onclick="setSumTrendRange(30)" id="btnSumTrend30" class="px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition font-mono">30 kỳ</button>
+                <button onclick="setSumTrendRange(50)" id="btnSumTrend50" class="px-2.5 py-1 rounded-md bg-emerald-600 text-white font-bold transition font-mono">50 kỳ</button>
+                <button onclick="setSumTrendRange(100)" id="btnSumTrend100" class="px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition font-mono">100 kỳ</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 text-xs text-slate-400 border-b border-slate-800/80 pb-3">
+            <span class="flex items-center gap-1.5 font-mono">
+              <span class="w-3 h-0.5 bg-emerald-400 inline-block"></span>
+              <span>Tổng giải kỳ quay</span>
+            </span>
+            <span class="flex items-center gap-1.5 font-mono">
+              <span class="w-3 h-0.5 bg-amber-400 inline-block border-dashed border-b-2"></span>
+              <span>Đường trung bình động MA5</span>
+            </span>
+            <span class="flex items-center gap-1.5 font-mono">
+              <span class="w-3 h-0.5 bg-cyan-400/80 inline-block"></span>
+              <span>Kỳ vọng toán học (Mean)</span>
+            </span>
+            <span class="flex items-center gap-1.5 font-mono">
+              <span class="w-3 h-2 bg-slate-700/30 inline-block border border-slate-600/40"></span>
+              <span>Dải dao động chuẩn (±1 Std Dev)</span>
+            </span>
+          </div>
+
+          <div class="h-72 sm:h-80 w-full">
+            <canvas id="sumTrendChart"></canvas>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs font-mono">
+            <div class="bg-slate-900 p-3 rounded-lg border border-slate-800 flex justify-between items-center">
+              <span class="text-slate-400">Kỳ mới nhất (#<span id="trendLatestId">--</span>):</span>
+              <span id="trendLatestSum" class="font-bold text-white text-sm">--</span>
+            </div>
+            <div class="bg-slate-900 p-3 rounded-lg border border-slate-800 flex justify-between items-center">
+              <span class="text-slate-400">Chỉ báo MA5:</span>
+              <span id="trendMa5" class="font-bold text-amber-400 text-sm">--</span>
+            </div>
+            <div class="bg-slate-900 p-3 rounded-lg border border-slate-800 flex justify-between items-center">
+              <span class="text-slate-400">Tín hiệu đảo chiều:</span>
+              <span id="trendSignal" class="font-bold text-emerald-400 text-sm">Cân Bằng 🟢</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -618,8 +683,22 @@
               <!-- Rendered by JS -->
             </div>
           </div>
-          <div class="h-64">
-            <canvas id="spanChart"></canvas>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="bg-slate-950/60 p-4 rounded-xl border border-slate-800 space-y-2">
+              <span class="text-xs font-bold text-slate-300 uppercase tracking-wider block">Phân Bố Tần Suất Biên Độ (Histogram)</span>
+              <div class="h-60 sm:h-64">
+                <canvas id="spanChart"></canvas>
+              </div>
+            </div>
+            <div class="bg-slate-950/60 p-4 rounded-xl border border-slate-800 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-slate-300 uppercase tracking-wider block">Xu Hướng Biên Độ 30 Kỳ Gần Nhất (Trend)</span>
+                <span class="text-[10px] text-cyan-400 font-mono">Đo co hẹp & bung nở</span>
+              </div>
+              <div class="h-60 sm:h-64">
+                <canvas id="spanTrendChart"></canvas>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -956,9 +1035,15 @@
       }
 
       // Re-trigger charts on tab view
-      if (viewName === 'sum') renderSumChart();
+      if (viewName === 'sum') {
+        renderSumChart();
+        renderSumTrendChart();
+      }
       if (viewName === 'patterns') renderDecadeChart();
-      if (viewName === 'positional') renderSpanChart();
+      if (viewName === 'positional') {
+        renderSpanChart();
+        renderSpanTrendChart();
+      }
       if (viewName === 'ac-delta') renderAcChart();
       if (viewName === 'digits-ev') renderTailDivChart();
       lucide.createIcons();
@@ -1104,6 +1189,17 @@
       const container = document.getElementById('heroBallsContainer');
       const legend = document.getElementById('ballLegend');
       legend.innerHTML = '';
+
+      const sumEl = document.getElementById('heroSumVal');
+      const sumSnapshotWrap = document.getElementById('heroSumSnapshotWrap');
+      if (product.type === 'lotto' && latest && Array.isArray(latest.result)) {
+        const mainCount = product.balls || 6;
+        const sumVal = latest.result.slice(0, mainCount).reduce((a, b) => a + b, 0);
+        if (sumEl) sumEl.textContent = sumVal;
+        if (sumSnapshotWrap) sumSnapshotWrap.classList.remove('hidden');
+      } else {
+        if (sumSnapshotWrap) sumSnapshotWrap.classList.add('hidden');
+      }
 
       if (product.type === 'lotto') {
         const res = latest.result || [];
@@ -1463,6 +1559,7 @@
       `;
 
       renderSumChart();
+      renderSumTrendChart();
     }
 
     function renderSumChart() {
@@ -1506,6 +1603,207 @@
           scales: {
             x: { ticks: { color: '#94a3b8' }, grid: { display: false } },
             y: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(51, 65, 85, 0.3)' } }
+          }
+        }
+      });
+    }
+
+    // --- STOCK-LIKE SUM TREND TIME-SERIES (MA5 + BANDS) ---
+    let sumTrendChartInstance = null;
+    let currentSumTrendRange = 50;
+
+    function setSumTrendRange(range) {
+      currentSumTrendRange = range;
+      ['30', '50', '100'].forEach(r => {
+        const btn = document.getElementById(`btnSumTrend${r}`);
+        if (btn) {
+          if (parseInt(r) === range) {
+            btn.className = 'px-2.5 py-1 rounded-md bg-emerald-600 text-white font-bold transition font-mono';
+          } else {
+            btn.className = 'px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition font-mono';
+          }
+        }
+      });
+      renderSumTrendChart();
+    }
+
+    function renderSumTrendChart() {
+      const product = appData?.products?.[currentProductKey];
+      if (!product || !product.history || !product.history.length) return;
+      const canvas = document.getElementById('sumTrendChart');
+      if (!canvas) return;
+
+      const numBalls = product.balls || 6;
+      const rawRecords = product.history.slice(0, currentSumTrendRange).reverse();
+      if (!rawRecords.length) return;
+
+      const labels = [];
+      const sumValues = [];
+      const dates = [];
+
+      rawRecords.forEach(r => {
+        labels.push(`#${r.id}`);
+        dates.push(r.date || '');
+        const res = (r.result || []).slice(0, numBalls);
+        const s = res.reduce((a, b) => a + b, 0);
+        sumValues.push(s);
+      });
+
+      const ma5Values = [];
+      for (let i = 0; i < sumValues.length; i++) {
+        if (i < 4) {
+          const slice = sumValues.slice(0, i + 1);
+          ma5Values.push(Math.round(slice.reduce((a, b) => a + b, 0) / slice.length));
+        } else {
+          const slice = sumValues.slice(i - 4, i + 1);
+          ma5Values.push(Math.round(slice.reduce((a, b) => a + b, 0) / 5));
+        }
+      }
+
+      const mean = product.sum_stats?.avg_sum || Math.round(sumValues.reduce((a, b) => a + b, 0) / sumValues.length);
+      const stdDev = product.sum_stats?.std_dev || 37;
+      const upperBand = Math.round(mean + stdDev);
+      const lowerBand = Math.round(mean - stdDev);
+
+      const meanLine = Array(sumValues.length).fill(mean);
+      const upperLine = Array(sumValues.length).fill(upperBand);
+      const lowerLine = Array(sumValues.length).fill(lowerBand);
+
+      const latestSum = sumValues[sumValues.length - 1];
+      const latestMa5 = ma5Values[ma5Values.length - 1];
+      const latestRecord = rawRecords[rawRecords.length - 1];
+
+      const idEl = document.getElementById('trendLatestId');
+      if (idEl) idEl.textContent = latestRecord.id || '--';
+
+      const sumEl = document.getElementById('trendLatestSum');
+      if (sumEl) sumEl.textContent = `${latestSum}`;
+
+      const ma5El = document.getElementById('trendMa5');
+      if (ma5El) ma5El.textContent = `${latestMa5}`;
+
+      const signalEl = document.getElementById('trendSignal');
+      if (signalEl) {
+        if (latestSum > upperBand) {
+          signalEl.textContent = 'Quá Cao 🔻 (Xu hướng giảm ở kỳ tới)';
+          signalEl.className = 'font-bold text-rose-400 text-xs';
+        } else if (latestSum < lowerBand) {
+          signalEl.textContent = 'Quá Thấp 🔺 (Xu hướng tăng ở kỳ tới)';
+          signalEl.className = 'font-bold text-cyan-400 text-xs';
+        } else {
+          signalEl.textContent = 'Cân Bằng 🟢 (Trong dải an toàn)';
+          signalEl.className = 'font-bold text-emerald-400 text-xs';
+        }
+      }
+
+      if (sumTrendChartInstance) sumTrendChartInstance.destroy();
+
+      const ctx = canvas.getContext('2d');
+      const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+      gradient.addColorStop(0, 'rgba(16, 185, 129, 0.35)');
+      gradient.addColorStop(1, 'rgba(16, 185, 129, 0.0)');
+
+      sumTrendChartInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: 'Tổng giải kỳ quay',
+              data: sumValues,
+              borderColor: 'rgb(16, 185, 129)',
+              backgroundColor: gradient,
+              borderWidth: 2,
+              fill: true,
+              tension: 0.25,
+              pointRadius: sumValues.length > 50 ? 2 : 3.5,
+              pointHoverRadius: 6,
+              pointBackgroundColor: 'rgb(16, 185, 129)',
+              order: 1
+            },
+            {
+              label: 'Đường MA5',
+              data: ma5Values,
+              borderColor: 'rgb(245, 158, 11)',
+              borderWidth: 2,
+              borderDash: [5, 4],
+              fill: false,
+              tension: 0.35,
+              pointRadius: 0,
+              order: 2
+            },
+            {
+              label: 'Kỳ vọng (Mean)',
+              data: meanLine,
+              borderColor: 'rgba(6, 182, 212, 0.7)',
+              borderWidth: 1.5,
+              borderDash: [3, 3],
+              fill: false,
+              pointRadius: 0,
+              order: 3
+            },
+            {
+              label: 'Dải trần (+1σ)',
+              data: upperLine,
+              borderColor: 'rgba(244, 63, 94, 0.4)',
+              borderWidth: 1,
+              borderDash: [2, 2],
+              fill: false,
+              pointRadius: 0,
+              order: 4
+            },
+            {
+              label: 'Dải sàn (-1σ)',
+              data: lowerLine,
+              borderColor: 'rgba(59, 130, 246, 0.4)',
+              borderWidth: 1,
+              borderDash: [2, 2],
+              fill: false,
+              pointRadius: 0,
+              order: 5
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: {
+            mode: 'index',
+            intersect: false
+          },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: 'rgba(15, 23, 42, 0.95)',
+              titleColor: '#f8fafc',
+              bodyColor: '#cbd5e1',
+              borderColor: '#334155',
+              borderWidth: 1,
+              padding: 10,
+              callbacks: {
+                title: (items) => {
+                  const idx = items[0].dataIndex;
+                  return `Kỳ quay ${labels[idx]} (${dates[idx]})`;
+                },
+                label: (item) => {
+                  return ` ${item.dataset.label}: ${item.raw}`;
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: { color: 'rgba(51, 65, 85, 0.2)' },
+              ticks: {
+                color: '#94a3b8',
+                font: { size: 10 },
+                maxTicksLimit: 14
+              }
+            },
+            y: {
+              grid: { color: 'rgba(51, 65, 85, 0.25)' },
+              ticks: { color: '#94a3b8', font: { size: 10 } }
+            }
           }
         }
       });
@@ -2027,6 +2325,7 @@
           <span class="bg-slate-950 px-2.5 py-1 rounded-lg border border-slate-800 text-slate-300">Max: <strong class="text-white">${s.max}</strong></span>
         `;
         renderSpanChart();
+        renderSpanTrendChart();
       }
     }
 
@@ -2069,6 +2368,87 @@
           scales: {
             x: { grid: { color: 'rgba(51, 65, 85, 0.3)' }, ticks: { color: '#94a3b8', font: { size: 11 } } },
             y: { grid: { color: 'rgba(51, 65, 85, 0.3)' }, ticks: { color: '#94a3b8', font: { size: 11 } } }
+          }
+        }
+      });
+    }
+
+    let spanTrendChartInstance = null;
+    function renderSpanTrendChart() {
+      const product = appData?.products?.[currentProductKey];
+      if (!product || !product.history || !product.history.length) return;
+      const canvas = document.getElementById('spanTrendChart');
+      if (!canvas) return;
+
+      const numBalls = product.balls || 6;
+      const rawRecords = product.history.slice(0, 30).reverse();
+      if (!rawRecords.length) return;
+
+      const labels = [];
+      const spanValues = [];
+
+      rawRecords.forEach(r => {
+        labels.push(`#${r.id}`);
+        const res = (r.result || []).slice(0, numBalls).sort((a, b) => a - b);
+        if (res.length === numBalls) {
+          spanValues.push(res[res.length - 1] - res[0]);
+        } else {
+          spanValues.push(0);
+        }
+      });
+
+      const avgSpan = product.positional_stats?.span_stats?.avg || 40;
+      const avgLine = Array(spanValues.length).fill(avgSpan);
+
+      if (spanTrendChartInstance) spanTrendChartInstance.destroy();
+
+      const ctx = canvas.getContext('2d');
+      const gradient = ctx.createLinearGradient(0, 0, 0, 250);
+      gradient.addColorStop(0, 'rgba(6, 182, 212, 0.35)');
+      gradient.addColorStop(1, 'rgba(6, 182, 212, 0.0)');
+
+      spanTrendChartInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: 'Biên độ (Span)',
+              data: spanValues,
+              borderColor: 'rgb(6, 182, 212)',
+              backgroundColor: gradient,
+              borderWidth: 2,
+              fill: true,
+              tension: 0.25,
+              pointRadius: 3,
+              pointBackgroundColor: 'rgb(6, 182, 212)'
+            },
+            {
+              label: 'Biên độ trung bình',
+              data: avgLine,
+              borderColor: 'rgba(245, 158, 11, 0.7)',
+              borderWidth: 1.5,
+              borderDash: [4, 4],
+              fill: false,
+              pointRadius: 0
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: (ctx) => ` ${ctx.dataset.label}: ${ctx.raw}`
+              }
+            }
+          },
+          scales: {
+            x: { grid: { color: 'rgba(51, 65, 85, 0.2)' }, ticks: { color: '#94a3b8', font: { size: 10 }, maxTicksLimit: 8 } },
+            y: { grid: { color: 'rgba(51, 65, 85, 0.25)' }, ticks: { color: '#94a3b8', font: { size: 10 } } }
           }
         }
       });
