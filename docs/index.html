@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="vi" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vietlott Live Explorer - Tra cứu & Phân tích Xổ số Trực quan</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Be Vietnam Pro"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              red: '#e11d48',
+              gold: '#f59e0b',
+              blue: '#2563eb',
+              dark: '#0f172a',
+              card: '#1e293b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <style>
+    /* 3D Lotto Ball Styles */
+    .lotto-ball {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      font-weight: 700;
+      box-shadow: inset -3px -3px 6px rgba(0, 0, 0, 0.45), inset 3px 3px 6px rgba(255, 255, 255, 0.4), 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: all 0.2s ease-in-out;
+      user-select: none;
+    }
+    .lotto-ball:hover {
+      transform: translateY(-2px) scale(1.05);
+    }
+    .ball-red {
+      background: radial-gradient(circle at 35% 35%, #ff4d6d, #c9184a, #800f2f);
+      color: #ffffff;
+    }
+    .ball-gold {
+      background: radial-gradient(circle at 35% 35%, #fde047, #eab308, #a16207);
+      color: #ffffff;
+      border: 2px solid #fef08a;
+    }
+    .ball-blue {
+      background: radial-gradient(circle at 35% 35%, #60a5fa, #2563eb, #1e3a8a);
+      color: #ffffff;
+    }
+    .ball-green {
+      background: radial-gradient(circle at 35% 35%, #4ade80, #16a34a, #14532d);
+      color: #ffffff;
+    }
+    .ball-purple {
+      background: radial-gradient(circle at 35% 35%, #c084fc, #9333ea, #581c87);
+      color: #ffffff;
+    }
+    .ball-matched {
+      ring: 4px solid #10b981;
+      animation: pulseMatch 1.5s infinite;
+    }
+    @keyframes pulseMatch {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      50% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+    }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1e293b;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #475569;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #64748b;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-full flex flex-col font-sans selection:bg-rose-500 selection:text-white">
+
+  <!-- Header -->
+  <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-rose-600 to-amber-500 flex items-center justify-center shadow-lg shadow-rose-900/30">
+            <i data-lucide="sparkles" class="w-5 h-5 text-white"></i>
+          </div>
+          <div>
+            <h1 class="text-xl font-bold bg-gradient-to-r from-rose-400 via-amber-300 to-rose-300 bg-clip-text text-transparent">
+              VIETLOTT LIVE EXPLORER
+            </h1>
+            <p class="text-xs text-slate-400">Trực quan hóa kết quả & Phân tích xác suất</p>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-3">
+          <div id="statusBadge" class="hidden sm:flex items-center space-x-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-xs text-slate-300">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span id="updateTimeText">Đang tải dữ liệu...</span>
+          </div>
+
+          <a href="https://github.com" target="_blank" id="githubLink" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition">
+            <i data-lucide="github" class="w-5 h-5"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="flex space-x-1 sm:space-x-2 overflow-x-auto pb-3 pt-1 scrollbar-none" id="productTabs">
+        <!-- Generated by JS -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+
+    <!-- Offline / File Protocol Notice Banner (Auto-hidden if JSON loads successfully) -->
+    <div id="fileNotice" class="hidden p-4 rounded-xl bg-amber-950/60 border border-amber-800 text-amber-200 text-sm">
+      <div class="flex items-start space-x-3">
+        <i data-lucide="alert-triangle" class="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5"></i>
+        <div class="flex-1">
+          <p class="font-semibold text-amber-300">Đang mở trực tiếp qua giao thức file://</p>
+          <p class="text-xs mt-1 text-amber-400/80">Trình duyệt chặn đọc file JSON cục bộ vì lý do bảo mật. Vui lòng chạy qua web server (VD: <code>python -m http.server 8000</code> hoặc đưa lên GitHub Pages) hoặc chọn file JSON thủ công:</p>
+          <div class="mt-2 flex items-center space-x-2">
+            <input type="file" id="manualJsonInput" accept=".json" class="text-xs file:mr-2 file:py-1 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-amber-600 file:text-white hover:file:bg-amber-500 cursor-pointer">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Card: Latest Draw -->
+    <section id="heroCard" class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-850 to-slate-900 border border-slate-800 shadow-2xl p-6 sm:p-8">
+      <div class="absolute -right-16 -top-16 w-64 h-64 bg-rose-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -left-16 -bottom-16 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+        <div>
+          <div class="flex items-center space-x-2">
+            <span id="heroGameBadge" class="px-3 py-1 rounded-full text-xs font-semibold bg-rose-500/20 text-rose-300 border border-rose-500/30">
+              Power 6/55
+            </span>
+            <span id="heroDrawId" class="text-sm font-mono text-slate-400">Kỳ quay: #01217</span>
+            <span class="text-slate-600">•</span>
+            <span id="heroDrawDate" class="text-sm text-slate-400">17/07/2025</span>
+          </div>
+
+          <h2 id="heroGameName" class="text-2xl sm:text-3xl font-extrabold text-white mt-2">
+            KẾT QUẢ QUAY THƯỞNG MỚI NHẤT
+          </h2>
+          <p id="heroGameDesc" class="text-sm text-slate-400 mt-1 max-w-2xl">
+            Chọn 6 số từ 1 đến 55. Trúng Jackpot 1 khởi điểm 30 Tỷ VNĐ.
+          </p>
+        </div>
+
+        <!-- Right: Stats snapshot -->
+        <div class="flex items-center gap-4 bg-slate-950/60 p-4 rounded-xl border border-slate-800/80">
+          <div class="text-center px-3 border-r border-slate-800">
+            <div class="text-xs text-slate-400">Tổng kỳ quay</div>
+            <div id="heroTotalDraws" class="text-xl font-bold font-mono text-amber-400">1,217</div>
+          </div>
+          <div class="text-center px-3">
+            <div class="text-xs text-slate-400">Kỳ đầu tiên</div>
+            <div id="heroFirstDate" class="text-xs font-mono text-slate-300 mt-1">2017-08-01</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Balls Container -->
+      <div class="mt-8 pt-6 border-t border-slate-800/80">
+        <div class="text-xs font-medium uppercase tracking-wider text-slate-400 mb-4 flex items-center justify-between">
+          <span>DÃY SỐ TRÚNG THƯỞNG</span>
+          <span id="ballLegend" class="text-xs lowercase text-slate-400"></span>
+        </div>
+        <div id="heroBallsContainer" class="flex flex-wrap items-center gap-3 sm:gap-4">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Ticket Checker (Dò Vé Số Nhanh) -->
+    <section class="rounded-2xl bg-slate-900 border border-slate-800 p-6 shadow-xl">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-slate-800 pb-4">
+        <div>
+          <h3 class="text-lg font-bold text-white flex items-center gap-2">
+            <i data-lucide="ticket" class="w-5 h-5 text-rose-400"></i>
+            CÔNG CỤ DÒ VÉ TỰ ĐỘNG
+          </h3>
+          <p class="text-xs text-slate-400 mt-0.5">Nhập dãy số của bạn để tự động so khớp với kỳ quay hiện tại hoặc kỳ tùy chọn</p>
+        </div>
+
+        <!-- Select Draw to Compare -->
+        <div class="flex items-center space-x-2">
+          <label for="compareDrawSelect" class="text-xs text-slate-400 whitespace-nowrap">So khớp với kỳ:</label>
+          <select id="compareDrawSelect" class="bg-slate-800 border border-slate-700 text-slate-200 text-xs rounded-lg px-3 py-2 focus:ring-rose-500 focus:border-rose-500">
+            <!-- Populated by JS -->
+          </select>
+        </div>
+      </div>
+
+      <div class="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- Input Area -->
+        <div class="lg:col-span-7 space-y-3">
+          <label class="block text-xs font-medium text-slate-300">
+            Nhập dãy số của bạn (cách nhau bằng dấu phẩy, khoảng trắng hoặc dấu gạch ngang):
+          </label>
+          <div class="flex gap-2">
+            <input type="text" id="ticketInput" placeholder="Ví dụ: 13, 18, 33, 40, 48, 54" 
+              class="flex-1 bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white font-mono text-sm focus:outline-none focus:ring-2 focus:ring-rose-500">
+            <button id="btnCheckTicket" class="px-5 py-3 rounded-xl bg-gradient-to-r from-rose-600 to-rose-500 hover:from-rose-500 hover:to-rose-400 text-white font-semibold text-sm shadow-lg shadow-rose-900/30 flex items-center gap-2 transition active:scale-95">
+              <i data-lucide="search" class="w-4 h-4"></i>
+              <span>Dò Vé</span>
+            </button>
+            <button id="btnRandomTicket" title="Tạo số ngẫu nhiên để thử" class="p-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 transition">
+              <i data-lucide="dice-5" class="w-5 h-5"></i>
+            </button>
+          </div>
+          <p class="text-[11px] text-slate-400">💡 Mẹo: Bấm nút xúc xắc để tạo nhanh bộ số ngẫu nhiên và thử tính năng dò vé.</p>
+        </div>
+
+        <!-- Result Box -->
+        <div class="lg:col-span-5 bg-slate-950/80 rounded-xl border border-slate-800 p-4 flex flex-col justify-center min-h-[100px]" id="ticketResultBox">
+          <div class="text-center text-slate-400 text-sm">
+            <i data-lucide="help-circle" class="w-6 h-6 mx-auto mb-1 text-slate-400"></i>
+            Chưa có vé nào được dò. Hãy nhập số và bấm <strong>Dò Vé</strong>!
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Analytics & Charts Grid -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-6" id="analyticsSection">
+      
+      <!-- Hot & Cold Numbers -->
+      <div class="lg:col-span-5 space-y-6">
+        <!-- Hot Numbers -->
+        <div class="rounded-2xl bg-slate-900 border border-slate-800 p-5 shadow-xl">
+          <div class="flex items-center justify-between mb-4">
+            <h4 class="text-sm font-bold text-white flex items-center gap-2">
+              <i data-lucide="flame" class="w-4 h-4 text-rose-500"></i>
+              TOP 10 SỐ VỀ NHIỀU NHẤT (HOT)
+            </h4>
+            <span class="text-[11px] text-slate-400">Toàn thời gian</span>
+          </div>
+          <div id="hotNumbersList" class="space-y-2.5">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Cold Numbers -->
+        <div class="rounded-2xl bg-slate-900 border border-slate-800 p-5 shadow-xl">
+          <div class="flex items-center justify-between mb-4">
+            <h4 class="text-sm font-bold text-white flex items-center gap-2">
+              <i data-lucide="snowflake" class="w-4 h-4 text-cyan-400"></i>
+              TOP 10 SỐ "GAN" ÍT VỀ NHẤT (COLD)
+            </h4>
+            <span class="text-[11px] text-slate-400">Toàn thời gian</span>
+          </div>
+          <div id="coldNumbersList" class="space-y-2.5">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Area -->
+      <div class="lg:col-span-7 space-y-6">
+        <!-- Frequency Chart -->
+        <div class="rounded-2xl bg-slate-900 border border-slate-800 p-5 shadow-xl">
+          <div class="flex items-center justify-between mb-4">
+            <h4 class="text-sm font-bold text-white flex items-center gap-2">
+              <i data-lucide="bar-chart-2" class="w-4 h-4 text-amber-400"></i>
+              BIỂU ĐỒ PHÂN BỐ TẦN SUẤT XUẤT HIỆN
+            </h4>
+            <span class="text-[11px] text-slate-400">Tất cả các số</span>
+          </div>
+          <div class="h-64 sm:h-72 w-full">
+            <canvas id="frequencyChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Sub Stats: Even/Odd or Special Distributions -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="distributionCards">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+    </section>
+
+    <!-- History Table (Tra Cứu Lịch Sử) -->
+    <section class="rounded-2xl bg-slate-900 border border-slate-800 shadow-xl overflow-hidden">
+      <div class="p-6 border-b border-slate-800 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <h3 class="text-lg font-bold text-white flex items-center gap-2">
+            <i data-lucide="history" class="w-5 h-5 text-indigo-400"></i>
+            LỊCH SỬ KẾT QUẢ QUAY THƯỞNG
+          </h3>
+          <p class="text-xs text-slate-400 mt-0.5">Danh sách các kỳ quay gần nhất được cập nhật tự động</p>
+        </div>
+
+        <!-- Table Filters -->
+        <div class="flex flex-wrap items-center gap-2">
+          <div class="relative">
+            <i data-lucide="search" class="w-4 h-4 text-slate-500 absolute left-3 top-2.5"></i>
+            <input type="text" id="historySearch" placeholder="Tìm theo ID kỳ hoặc ngày..." 
+              class="bg-slate-950 border border-slate-700 text-xs rounded-lg pl-9 pr-3 py-2 text-white focus:outline-none focus:ring-1 focus:ring-rose-500">
+          </div>
+          <select id="pageSizeSelect" class="bg-slate-950 border border-slate-700 text-slate-300 text-xs rounded-lg px-3 py-2 focus:ring-rose-500">
+            <option value="10">10 kỳ/trang</option>
+            <option value="25" selected>25 kỳ/trang</option>
+            <option value="50">50 kỳ/trang</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-slate-800 bg-slate-950/60 text-xs font-semibold uppercase text-slate-400 tracking-wider">
+              <th class="py-3 px-4">Ngày quay</th>
+              <th class="py-3 px-4">Kỳ quay</th>
+              <th class="py-3 px-4">Kết quả trúng thưởng</th>
+              <th class="py-3 px-4 text-right">Thao tác</th>
+            </tr>
+          </thead>
+          <tbody id="historyTableBody" class="divide-y divide-slate-800/60 text-sm">
+            <!-- Rendered by JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="p-4 border-t border-slate-800 bg-slate-950/40 flex items-center justify-between text-xs text-slate-400">
+        <div id="paginationInfo">Hiển thị 1 - 25</div>
+        <div class="flex items-center space-x-2">
+          <button id="btnPrevPage" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white disabled:opacity-40 disabled:cursor-not-allowed transition">
+            Trước
+          </button>
+          <span id="pageNumberDisplay" class="font-mono px-2 text-slate-300">1 / 1</span>
+          <button id="btnNextPage" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white disabled:opacity-40 disabled:cursor-not-allowed transition">
+            Sau
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 bg-slate-950 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 space-y-2">
+      <p>🎰 Hệ thống thu thập và phân tích dữ liệu Vietlott tự động qua GitHub Actions & GitHub Pages.</p>
+      <p class="text-slate-600">Dữ liệu được lấy trực tiếp từ trang chính thức vietlott.vn. Dự án phục vụ mục đích nghiên cứu thống kê và giáo dục.</p>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript Application Logic -->
+  <script>
+    // State
+    let appData = null;
+    let currentProductKey = 'power_655';
+    let currentPage = 1;
+    let pageSize = 25;
+    let freqChart = null;
+
+    const PRODUCT_LIST = [
+      { key: 'power_655', label: 'Power 6/55', icon: 'zap' },
+      { key: 'power_645', label: 'Mega 6/45', icon: 'award' },
+      { key: 'power_535', label: 'Power 5/35', icon: 'star' },
+      { key: 'keno', label: 'Keno', icon: 'grid' },
+      { key: 'bingo18', label: 'Bingo 18', icon: 'dice-3' },
+      { key: '3d', label: 'Max 3D', icon: 'layers' },
+      { key: '3d_pro', label: 'Max 3D Pro', icon: 'box' },
+    ];
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', async () => {
+      lucide.createIcons();
+      renderTabs();
+      setupEventListeners();
+      await loadData();
+    });
+
+    function renderTabs() {
+      const container = document.getElementById('productTabs');
+      container.innerHTML = PRODUCT_LIST.map(p => `
+        <button onclick="switchProduct('${p.key}')" id="tab-${p.key}" 
+          class="flex items-center space-x-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition whitespace-nowrap ${
+            p.key === currentProductKey 
+              ? 'bg-rose-600 text-white shadow-lg shadow-rose-900/30' 
+              : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white'
+          }">
+          <i data-lucide="${p.icon}" class="w-4 h-4"></i>
+          <span>${p.label}</span>
+        </button>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    function switchProduct(key) {
+      currentProductKey = key;
+      currentPage = 1;
+      renderTabs();
+      renderCurrentProduct();
+    }
+
+    async function loadData() {
+      // 1. Try fetching from relative path (works on GitHub Pages / Web servers)
+      try {
+        const res = await fetch('./data/vietlott_summary.json');
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        appData = await res.json();
+        onDataReady();
+        return;
+      } catch (err) {
+        console.warn("Could not fetch ./data/vietlott_summary.json. Testing fallback paths...", err);
+      }
+
+      // 2. Try docs/data/vietlott_summary.json
+      try {
+        const res = await fetch('./docs/data/vietlott_summary.json');
+        if (res.ok) {
+          appData = await res.json();
+          onDataReady();
+          return;
+        }
+      } catch (e) {}
+
+      // 3. Fallback notice for file:// protocol
+      if (window.location.protocol === 'file:') {
+        document.getElementById('fileNotice').classList.remove('hidden');
+      }
+    }
+
+    function onDataReady() {
+      if (!appData) return;
+      document.getElementById('fileNotice').classList.add('hidden');
+      if (appData.meta && appData.meta.generated_at) {
+        document.getElementById('updateTimeText').textContent = `Cập nhật: ${appData.meta.generated_at}`;
+      }
+      renderCurrentProduct();
+    }
+
+    // Manual File Upload handler (if run on file://)
+    document.getElementById('manualJsonInput').addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        try {
+          appData = JSON.parse(event.target.result);
+          onDataReady();
+        } catch (err) {
+          alert("Lỗi đọc file JSON: " + err.message);
+        }
+      };
+      reader.readAsText(file);
+    });
+
+    function setupEventListeners() {
+      document.getElementById('btnCheckTicket').addEventListener('click', checkTicket);
+      document.getElementById('btnRandomTicket').addEventListener('click', generateRandomTicket);
+      document.getElementById('historySearch').addEventListener('input', () => {
+        currentPage = 1;
+        renderHistoryTable();
+      });
+      document.getElementById('pageSizeSelect').addEventListener('change', (e) => {
+        pageSize = parseInt(e.target.value);
+        currentPage = 1;
+        renderHistoryTable();
+      });
+      document.getElementById('btnPrevPage').addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          renderHistoryTable();
+        }
+      });
+      document.getElementById('btnNextPage').addEventListener('click', () => {
+        currentPage++;
+        renderHistoryTable();
+      });
+      document.getElementById('compareDrawSelect').addEventListener('change', checkTicket);
+    }
+
+    function renderCurrentProduct() {
+      if (!appData || !appData.products || !appData.products[currentProductKey]) return;
+      const product = appData.products[currentProductKey];
+
+      // 1. Hero Card
+      renderHero(product);
+
+      // 2. Ticket Checker Options
+      populateDrawSelect(product.history || []);
+
+      // 3. Hot & Cold Numbers
+      renderHotCold(product);
+
+      // 4. Chart
+      renderChart(product);
+
+      // 5. Distribution cards
+      renderDistributions(product);
+
+      // 6. History Table
+      renderHistoryTable();
+    }
+
+    function renderHero(product) {
+      document.getElementById('heroGameBadge').textContent = product.name;
+      document.getElementById('heroGameDesc').textContent = product.description;
+      document.getElementById('heroTotalDraws').textContent = (product.total_draws || 0).toLocaleString();
+      document.getElementById('heroFirstDate').textContent = product.first_draw || 'N/A';
+
+      const latest = product.latest;
+      if (!latest) {
+        document.getElementById('heroBallsContainer').innerHTML = `<p class="text-slate-500">Chưa có kết quả.</p>`;
+        return;
+      }
+
+      document.getElementById('heroDrawId').textContent = `Kỳ quay: #${latest.id || 'N/A'}`;
+      document.getElementById('heroDrawDate').textContent = latest.date || '';
+
+      const container = document.getElementById('heroBallsContainer');
+      const legend = document.getElementById('ballLegend');
+      legend.innerHTML = '';
+
+      if (product.type === 'lotto') {
+        // Power 6/55, 6/45, 5/35
+        const res = latest.result || [];
+        const mainCount = product.balls || 6;
+        const mainBalls = res.slice(0, mainCount);
+        const specialBall = (product.has_special && res.length > mainCount) ? res[mainCount] : null;
+
+        let ballsHtml = mainBalls.map(num => `
+          <div class="lotto-ball ball-red w-12 h-12 sm:w-14 sm:h-14 text-lg sm:text-xl font-mono">
+            ${String(num).padStart(2, '0')}
+          </div>
+        `).join('');
+
+        if (specialBall !== null) {
+          ballsHtml += `
+            <div class="flex items-center text-slate-600 font-bold text-xl px-1">+</div>
+            <div class="relative group">
+              <div class="lotto-ball ball-gold w-12 h-12 sm:w-14 sm:h-14 text-lg sm:text-xl font-mono">
+                ${String(specialBall).padStart(2, '0')}
+              </div>
+              <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-[10px] font-bold text-amber-400 uppercase tracking-widest whitespace-nowrap bg-amber-950/80 px-2 py-0.5 rounded border border-amber-800/60">Jackpot 2</span>
+            </div>
+          `;
+          legend.innerHTML = `🔴 Bóng chính | 🟡 Bóng Jackpot 2`;
+        }
+
+        container.innerHTML = ballsHtml;
+
+      } else if (product.type === 'keno') {
+        // Keno: 20 balls
+        const res = latest.result || [];
+        container.innerHTML = `
+          <div class="grid grid-cols-5 sm:grid-cols-10 gap-2 w-full">
+            ${res.map(num => `
+              <div class="lotto-ball ball-blue w-9 h-9 sm:w-11 sm:h-11 text-xs sm:text-sm font-mono mx-auto">
+                ${String(num).padStart(2, '0')}
+              </div>
+            `).join('')}
+          </div>
+          <div class="flex flex-wrap items-center gap-3 mt-4 text-xs">
+            ${latest.big_small ? `<span class="px-3 py-1 rounded-full bg-slate-800 text-indigo-300 border border-slate-700 font-semibold">Tài/Xỉu: ${latest.big_small}</span>` : ''}
+            ${latest.odd_even ? `<span class="px-3 py-1 rounded-full bg-slate-800 text-rose-300 border border-slate-700 font-semibold">Chẵn/Lẻ: ${latest.odd_even}</span>` : ''}
+          </div>
+        `;
+
+      } else if (product.type === 'bingo18') {
+        // Bingo 18: 3 numbers (dice style)
+        const res = latest.result || [];
+        container.innerHTML = `
+          <div class="flex items-center space-x-4">
+            ${res.map(num => `
+              <div class="lotto-ball ball-purple w-14 h-14 sm:w-16 sm:h-16 text-2xl font-mono">
+                ${num}
+              </div>
+            `).join('')}
+            <div class="flex flex-col justify-center pl-4 border-l border-slate-800">
+              <span class="text-xs text-slate-400">Tổng điểm:</span>
+              <span class="text-2xl font-bold font-mono text-amber-400">${latest.total || res.reduce((a, b) => a + b, 0)}</span>
+              <span class="text-xs text-rose-400 mt-0.5">${latest.large_small || ''}</span>
+            </div>
+          </div>
+        `;
+
+      } else if (product.type === '3d') {
+        // Max 3D / 3D Pro
+        const res = latest.result || {};
+        container.innerHTML = `
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
+            ${Object.entries(res).map(([prizeName, nums]) => `
+              <div class="bg-slate-950/90 rounded-xl p-3 border border-slate-800">
+                <div class="text-[11px] uppercase font-bold text-amber-400 tracking-wider mb-2">${prizeName}</div>
+                <div class="flex flex-wrap gap-1.5">
+                  ${(Array.isArray(nums) ? nums : [nums]).map(n => `
+                    <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-200 font-mono text-sm font-semibold tracking-wider border border-slate-700">
+                      ${n}
+                    </span>
+                  `).join('')}
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      }
+    }
+
+    function populateDrawSelect(history) {
+      const select = document.getElementById('compareDrawSelect');
+      select.innerHTML = history.slice(0, 50).map((draw, idx) => `
+        <option value="${idx}">Kỳ #${draw.id} (${draw.date})</option>
+      `).join('');
+    }
+
+    function generateRandomTicket() {
+      const product = appData.products[currentProductKey];
+      if (!product) return;
+
+      if (product.type === 'lotto') {
+        const count = product.balls || 6;
+        const max = product.max_number || 55;
+        const numbers = new Set();
+        while (numbers.size < count) {
+          numbers.add(Math.floor(Math.random() * max) + 1);
+        }
+        const sorted = Array.from(numbers).sort((a, b) => a - b);
+        document.getElementById('ticketInput').value = sorted.join(', ');
+      } else if (product.type === 'bingo18') {
+        const dice = [1, 2, 3].map(() => Math.floor(Math.random() * 6) + 1);
+        document.getElementById('ticketInput').value = dice.join(', ');
+      } else if (product.type === '3d') {
+        const num1 = String(Math.floor(Math.random() * 1000)).padStart(3, '0');
+        const num2 = String(Math.floor(Math.random() * 1000)).padStart(3, '0');
+        document.getElementById('ticketInput').value = `${num1}, ${num2}`;
+      } else if (product.type === 'keno') {
+        const numbers = new Set();
+        while (numbers.size < 6) {
+          numbers.add(Math.floor(Math.random() * 80) + 1);
+        }
+        document.getElementById('ticketInput').value = Array.from(numbers).sort((a, b) => a - b).join(', ');
+      }
+      checkTicket();
+    }
+
+    function checkTicket() {
+      const inputStr = document.getElementById('ticketInput').value.trim();
+      const resultBox = document.getElementById('ticketResultBox');
+      if (!inputStr) {
+        resultBox.innerHTML = `<div class="text-slate-400 text-sm text-center">Vui lòng nhập số vé để dò!</div>`;
+        return;
+      }
+
+      const product = appData.products[currentProductKey];
+      const select = document.getElementById('compareDrawSelect');
+      const selectedIndex = parseInt(select.value) || 0;
+      const draw = (product.history && product.history[selectedIndex]) || product.latest;
+      if (!draw) return;
+
+      // Extract user numbers
+      const userNumbers = inputStr.split(/[\s,;-]+/).filter(Boolean).map(n => parseInt(n)).filter(n => !isNaN(n));
+      const drawResult = draw.result || [];
+
+      if (product.type === 'lotto') {
+        const mainCount = product.balls || 6;
+        const mainDrawBalls = drawResult.slice(0, mainCount);
+        const specialBall = (product.has_special && drawResult.length > mainCount) ? drawResult[mainCount] : null;
+
+        const matchedMain = userNumbers.filter(n => mainDrawBalls.includes(n));
+        const matchedSpecial = specialBall && userNumbers.includes(specialBall);
+
+        let prizeName = 'Không trúng giải';
+        let isWin = false;
+        let prizeColor = 'text-slate-400';
+
+        if (product.name === 'Power 6/55') {
+          if (matchedMain.length === 6) { prizeName = '🏆 TRÚNG JACKPOT 1 (Khởi điểm 30 TỶ)'; isWin = true; prizeColor = 'text-amber-400 font-extrabold'; }
+          else if (matchedMain.length === 5 && matchedSpecial) { prizeName = '💎 TRÚNG JACKPOT 2 (Khởi điểm 3 TỶ)'; isWin = true; prizeColor = 'text-amber-300 font-bold'; }
+          else if (matchedMain.length === 5) { prizeName = '⭐ TRÚNG GIẢI NHẤT (40.000.000đ)'; isWin = true; prizeColor = 'text-emerald-400 font-bold'; }
+          else if (matchedMain.length === 4) { prizeName = '🎉 TRÚNG GIẢI NHÌ (500.000đ)'; isWin = true; prizeColor = 'text-emerald-400'; }
+          else if (matchedMain.length === 3) { prizeName = '🎯 TRÚNG GIẢI BA (50.000đ)'; isWin = true; prizeColor = 'text-emerald-400'; }
+        } else if (product.name === 'Mega 6/45') {
+          if (matchedMain.length === 6) { prizeName = '🏆 TRÚNG JACKPOT (Khởi điểm 12 TỶ)'; isWin = true; prizeColor = 'text-amber-400 font-extrabold'; }
+          else if (matchedMain.length === 5) { prizeName = '⭐ TRÚNG GIẢI NHẤT (10.000.000đ)'; isWin = true; prizeColor = 'text-emerald-400 font-bold'; }
+          else if (matchedMain.length === 4) { prizeName = '🎉 TRÚNG GIẢI NHÌ (300.000đ)'; isWin = true; prizeColor = 'text-emerald-400'; }
+          else if (matchedMain.length === 3) { prizeName = '🎯 TRÚNG GIẢI BA (30.000đ)'; isWin = true; prizeColor = 'text-emerald-400'; }
+        } else {
+          if (matchedMain.length >= 3) { prizeName = `🎯 Trùng ${matchedMain.length} số!`; isWin = true; prizeColor = 'text-emerald-400 font-bold'; }
+        }
+
+        if (isWin) {
+          confetti({ particleCount: 80, spread: 60, origin: { y: 0.6 } });
+        }
+
+        resultBox.innerHTML = `
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs text-slate-400">Kết quả đối chiếu (Kỳ #${draw.id}):</span>
+              <span class="text-xs font-mono text-slate-300">Trùng <strong>${matchedMain.length}</strong> số</span>
+            </div>
+            <div class="text-base sm:text-lg ${prizeColor}">${prizeName}</div>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              ${userNumbers.map(n => {
+                const isMatch = mainDrawBalls.includes(n);
+                const isSpec = n === specialBall;
+                let cls = 'bg-slate-800 text-slate-400 border-slate-700';
+                if (isMatch) cls = 'bg-rose-600 text-white border-rose-400 font-bold shadow-md shadow-rose-900/40';
+                else if (isSpec) cls = 'bg-amber-500 text-white border-amber-300 font-bold';
+                return `<span class="px-2 py-0.5 rounded text-xs font-mono border ${cls}">${n}</span>`;
+              }).join('')}
+            </div>
+          </div>
+        `;
+      } else {
+        // General matching for other games
+        resultBox.innerHTML = `
+          <div class="text-slate-300 text-sm">
+            Đã nhập: <strong>${userNumbers.join(', ')}</strong>.<br>
+            Vui lòng đối chiếu với bảng kết quả của kỳ #${draw.id} ở trên.
+          </div>
+        `;
+      }
+    }
+
+    function renderHotCold(product) {
+      const hotContainer = document.getElementById('hotNumbersList');
+      const coldContainer = document.getElementById('coldNumbersList');
+
+      const hot = product.hot_numbers || [];
+      const cold = product.cold_numbers || [];
+
+      if (!hot.length) {
+        hotContainer.innerHTML = '<p class="text-xs text-slate-500">Chưa có dữ liệu thống kê.</p>';
+        coldContainer.innerHTML = '<p class="text-xs text-slate-500">Chưa có dữ liệu thống kê.</p>';
+        return;
+      }
+
+      const maxCount = hot[0] ? hot[0].count : 1;
+
+      hotContainer.innerHTML = hot.map(item => `
+        <div class="flex items-center justify-between text-xs">
+          <div class="flex items-center space-x-2.5">
+            <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 font-mono font-bold flex items-center justify-center text-[11px] border border-rose-500/30">
+              ${item.number}
+            </span>
+            <span class="text-slate-300 font-medium">Xuất hiện ${item.count} lần</span>
+          </div>
+          <div class="flex items-center space-x-2 w-32">
+            <div class="flex-1 bg-slate-800 h-2 rounded-full overflow-hidden">
+              <div class="bg-gradient-to-r from-rose-500 to-amber-400 h-full rounded-full" style="width: ${(item.count / maxCount) * 100}%"></div>
+            </div>
+            <span class="font-mono text-slate-400 w-10 text-right">${item.pct || ''}%</span>
+          </div>
+        </div>
+      `).join('');
+
+      coldContainer.innerHTML = cold.map(item => `
+        <div class="flex items-center justify-between text-xs">
+          <div class="flex items-center space-x-2.5">
+            <span class="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 font-mono font-bold flex items-center justify-center text-[11px] border border-cyan-500/30">
+              ${item.number}
+            </span>
+            <span class="text-slate-300 font-medium">Xuất hiện ${item.count} lần</span>
+          </div>
+          <div class="flex items-center space-x-2 w-32">
+            <div class="flex-1 bg-slate-800 h-2 rounded-full overflow-hidden">
+              <div class="bg-cyan-500 h-full rounded-full" style="width: ${(item.count / maxCount) * 100}%"></div>
+            </div>
+            <span class="font-mono text-slate-400 w-10 text-right">${item.pct || ''}%</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderChart(product) {
+      const ctx = document.getElementById('frequencyChart').getContext('2d');
+      const freq = product.frequency || [];
+
+      if (!freq.length) return;
+
+      const labels = freq.map(f => f.number);
+      const data = freq.map(f => f.count);
+
+      if (freqChart) {
+        freqChart.destroy();
+      }
+
+      freqChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Số lần về',
+            data: data,
+            backgroundColor: 'rgba(244, 63, 94, 0.75)',
+            hoverBackgroundColor: 'rgba(251, 113, 133, 1)',
+            borderRadius: 4,
+            borderSkipped: false
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#0f172a',
+              titleColor: '#f1f5f9',
+              bodyColor: '#cbd5e1',
+              borderColor: '#334155',
+              borderWidth: 1,
+              callbacks: {
+                label: (ctx) => `Số lần xuất hiện: ${ctx.raw}`
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: { color: '#64748b', font: { size: 10 } }
+            },
+            y: {
+              grid: { color: 'rgba(51, 65, 85, 0.4)' },
+              ticks: { color: '#64748b', font: { size: 10 } }
+            }
+          }
+        }
+      });
+    }
+
+    function renderDistributions(product) {
+      const container = document.getElementById('distributionCards');
+      container.innerHTML = '';
+
+      if (product.odd_even) {
+        container.innerHTML += `
+          <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 flex items-center justify-between shadow">
+            <div>
+              <div class="text-xs text-slate-400">Tỷ lệ Chẵn / Lẻ (50 kỳ gần nhất)</div>
+              <div class="text-sm font-bold text-white mt-1">
+                Lẻ: <span class="text-rose-400">${product.odd_even.odd_pct}%</span> | 
+                Chẵn: <span class="text-blue-400">${product.odd_even.even_pct}%</span>
+              </div>
+            </div>
+            <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center">
+              <i data-lucide="pie-chart" class="w-5 h-5 text-amber-400"></i>
+            </div>
+          </div>
+        `;
+      }
+
+      if (product.type === 'bingo18' && product.size_distribution) {
+        const sizes = Object.entries(product.size_distribution).map(([k, v]) => `${k}: ${v}`).join(' | ');
+        container.innerHTML += `
+          <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 flex items-center justify-between shadow">
+            <div>
+              <div class="text-xs text-slate-400">Phân bố Lớn / Nhỏ (Bingo 18)</div>
+              <div class="text-sm font-bold text-amber-400 mt-1">${sizes}</div>
+            </div>
+            <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center">
+              <i data-lucide="scale" class="w-5 h-5 text-purple-400"></i>
+            </div>
+          </div>
+        `;
+      }
+
+      lucide.createIcons();
+    }
+
+    function renderHistoryTable() {
+      const product = appData.products[currentProductKey];
+      if (!product || !product.history) return;
+
+      const filter = document.getElementById('historySearch').value.toLowerCase().trim();
+      let records = product.history;
+
+      if (filter) {
+        records = records.filter(r => 
+          (r.id && String(r.id).toLowerCase().includes(filter)) ||
+          (r.date && r.date.includes(filter))
+        );
+      }
+
+      const totalRecords = records.length;
+      const totalPages = Math.ceil(totalRecords / pageSize) || 1;
+      if (currentPage > totalPages) currentPage = totalPages;
+      if (currentPage < 1) currentPage = 1;
+
+      const startIdx = (currentPage - 1) * pageSize;
+      const endIdx = Math.min(startIdx + pageSize, totalRecords);
+      const pageRecords = records.slice(startIdx, endIdx);
+
+      // Pagination Controls
+      document.getElementById('paginationInfo').textContent = totalRecords 
+        ? `Hiển thị ${startIdx + 1} - ${endIdx} trong tổng số ${totalRecords} kỳ`
+        : `Không tìm thấy kỳ quay nào`;
+      document.getElementById('pageNumberDisplay').textContent = `${currentPage} / ${totalPages}`;
+      document.getElementById('btnPrevPage').disabled = (currentPage <= 1);
+      document.getElementById('btnNextPage').disabled = (currentPage >= totalPages);
+
+      const tbody = document.getElementById('historyTableBody');
+      if (!pageRecords.length) {
+        tbody.innerHTML = `<tr><td colspan="4" class="py-8 text-center text-slate-500">Không có dữ liệu phù hợp</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = pageRecords.map(row => {
+        let resultHtml = '';
+        const res = row.result;
+
+        if (product.type === 'lotto' && Array.isArray(res)) {
+          const mainCount = product.balls || 6;
+          const mainBalls = res.slice(0, mainCount);
+          const spec = (product.has_special && res.length > mainCount) ? res[mainCount] : null;
+
+          resultHtml = `
+            <div class="flex items-center space-x-1.5">
+              ${mainBalls.map(n => `
+                <span class="w-7 h-7 rounded-full bg-rose-600/90 text-white font-mono text-xs font-bold flex items-center justify-center shadow-sm">
+                  ${String(n).padStart(2, '0')}
+                </span>
+              `).join('')}
+              ${spec !== null ? `
+                <span class="text-slate-600 px-0.5">+</span>
+                <span class="w-7 h-7 rounded-full bg-amber-500 text-white font-mono text-xs font-bold flex items-center justify-center border border-amber-300 shadow-sm" title="Jackpot 2">
+                  ${String(spec).padStart(2, '0')}
+                </span>
+              ` : ''}
+            </div>
+          `;
+        } else if (product.type === 'keno' && Array.isArray(res)) {
+          resultHtml = `
+            <div class="flex flex-wrap gap-1 max-w-xl">
+              ${res.map(n => `<span class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs font-mono">${n}</span>`).join('')}
+            </div>
+          `;
+        } else if (product.type === 'bingo18' && Array.isArray(res)) {
+          resultHtml = `
+            <div class="flex items-center space-x-2">
+              <span class="font-mono text-purple-400 font-bold text-sm">[${res.join(' - ')}]</span>
+              <span class="text-xs text-slate-400">Tổng: ${row.total || ''} (${row.large_small || ''})</span>
+            </div>
+          `;
+        } else if (product.type === '3d' && typeof res === 'object') {
+          const specialPrize = (res && res['Giải Đặc biệt']) ? res['Giải Đặc biệt'].join(' - ') : JSON.stringify(res);
+          resultHtml = `<span class="font-mono text-xs text-amber-300">Đặc biệt: <strong>${specialPrize}</strong></span>`;
+        }
+
+        return `
+          <tr class="hover:bg-slate-800/40 transition">
+            <td class="py-3 px-4 font-mono text-xs text-slate-300">${row.date || ''}</td>
+            <td class="py-3 px-4 font-mono text-xs text-amber-400 font-semibold">#${row.id || ''}</td>
+            <td class="py-3 px-4">${resultHtml}</td>
+            <td class="py-3 px-4 text-right">
+              <button onclick="inspectDraw('${row.id}')" class="text-xs text-indigo-400 hover:text-indigo-300 font-medium hover:underline">
+                Xem kỳ này
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function inspectDraw(drawId) {
+      const product = appData.products[currentProductKey];
+      if (!product || !product.history) return;
+      const foundIdx = product.history.findIndex(r => String(r.id) === String(drawId));
+      if (foundIdx !== -1) {
+        document.getElementById('compareDrawSelect').value = foundIdx;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        checkTicket();
+      }
+    }
+  </script>
+</body>
+</html>

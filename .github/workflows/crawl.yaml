@@ -1,0 +1,40 @@
+name: Vietlott Daily Crawler & Web Deploy
+
+on:
+  workflow_dispatch: # Allows manual trigger from GitHub UI
+  schedule:
+    # Runs at 12:00 UTC (19:00 VN time, after Vietlott 18:30 daily draw)
+    - cron: '0 12 * * *'
+    # Runs at 05:00 UTC (12:00 VN noon time for midday Keno & Bingo draws)
+    - cron: '0 5 * * *'
+
+# Grant permission to commit and push updates back to the repo
+permissions:
+  contents: write
+
+jobs:
+  crawl_and_update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Crawler & Update Data Pipeline
+        run: |
+          chmod +x ./bin/github_data.sh
+          bash ./bin/github_data.sh
