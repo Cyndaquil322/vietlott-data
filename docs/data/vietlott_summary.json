@@ -1,8 +1,8 @@
 {
   "meta": {
-    "generated_at": "2026-09-03 15:16:23",
+    "generated_at": "2026-09-03 22:39:20",
     "generator": "vietlott-data automated pipeline",
-    "version": "1.0.0"
+    "version": "2.0.0"
   },
   "products": {
     "power_655": {
@@ -1636,6 +1636,530 @@
           "pct": 9.94
         }
       ],
+      "top_overdue": [
+        {
+          "number": 35,
+          "current_gap": 49,
+          "max_gap": 49,
+          "avg_gap": 9.9,
+          "appearances": 123,
+          "heat_ratio": 4.95
+        },
+        {
+          "number": 25,
+          "current_gap": 31,
+          "max_gap": 49,
+          "avg_gap": 9.9,
+          "appearances": 123,
+          "heat_ratio": 3.13
+        },
+        {
+          "number": 28,
+          "current_gap": 29,
+          "max_gap": 67,
+          "avg_gap": 11.2,
+          "appearances": 109,
+          "heat_ratio": 2.59
+        },
+        {
+          "number": 4,
+          "current_gap": 22,
+          "max_gap": 58,
+          "avg_gap": 10.9,
+          "appearances": 112,
+          "heat_ratio": 2.02
+        },
+        {
+          "number": 38,
+          "current_gap": 19,
+          "max_gap": 57,
+          "avg_gap": 9.5,
+          "appearances": 128,
+          "heat_ratio": 2.0
+        },
+        {
+          "number": 37,
+          "current_gap": 18,
+          "max_gap": 55,
+          "avg_gap": 10.3,
+          "appearances": 118,
+          "heat_ratio": 1.75
+        },
+        {
+          "number": 49,
+          "current_gap": 18,
+          "max_gap": 38,
+          "avg_gap": 8.9,
+          "appearances": 137,
+          "heat_ratio": 2.02
+        },
+        {
+          "number": 17,
+          "current_gap": 17,
+          "max_gap": 55,
+          "avg_gap": 9.8,
+          "appearances": 124,
+          "heat_ratio": 1.73
+        },
+        {
+          "number": 46,
+          "current_gap": 17,
+          "max_gap": 40,
+          "avg_gap": 8.9,
+          "appearances": 136,
+          "heat_ratio": 1.91
+        },
+        {
+          "number": 21,
+          "current_gap": 16,
+          "max_gap": 58,
+          "avg_gap": 9.3,
+          "appearances": 131,
+          "heat_ratio": 1.72
+        }
+      ],
+      "gap_analysis": [
+        {
+          "number": 1,
+          "current_gap": 9,
+          "max_gap": 46,
+          "avg_gap": 8.6,
+          "appearances": 141,
+          "heat_ratio": 1.05
+        },
+        {
+          "number": 2,
+          "current_gap": 2,
+          "max_gap": 34,
+          "avg_gap": 10.2,
+          "appearances": 119,
+          "heat_ratio": 0.2
+        },
+        {
+          "number": 3,
+          "current_gap": 5,
+          "max_gap": 53,
+          "avg_gap": 8.4,
+          "appearances": 145,
+          "heat_ratio": 0.6
+        },
+        {
+          "number": 4,
+          "current_gap": 22,
+          "max_gap": 58,
+          "avg_gap": 10.9,
+          "appearances": 112,
+          "heat_ratio": 2.02
+        },
+        {
+          "number": 5,
+          "current_gap": 12,
+          "max_gap": 65,
+          "avg_gap": 9.4,
+          "appearances": 130,
+          "heat_ratio": 1.28
+        },
+        {
+          "number": 6,
+          "current_gap": 11,
+          "max_gap": 57,
+          "avg_gap": 10.1,
+          "appearances": 120,
+          "heat_ratio": 1.09
+        },
+        {
+          "number": 7,
+          "current_gap": 13,
+          "max_gap": 49,
+          "avg_gap": 10.6,
+          "appearances": 115,
+          "heat_ratio": 1.23
+        },
+        {
+          "number": 8,
+          "current_gap": 8,
+          "max_gap": 42,
+          "avg_gap": 8.7,
+          "appearances": 140,
+          "heat_ratio": 0.92
+        },
+        {
+          "number": 9,
+          "current_gap": 10,
+          "max_gap": 33,
+          "avg_gap": 8.8,
+          "appearances": 138,
+          "heat_ratio": 1.14
+        },
+        {
+          "number": 10,
+          "current_gap": 11,
+          "max_gap": 38,
+          "avg_gap": 9.7,
+          "appearances": 125,
+          "heat_ratio": 1.13
+        },
+        {
+          "number": 11,
+          "current_gap": 7,
+          "max_gap": 46,
+          "avg_gap": 8.5,
+          "appearances": 143,
+          "heat_ratio": 0.82
+        },
+        {
+          "number": 12,
+          "current_gap": 3,
+          "max_gap": 32,
+          "avg_gap": 8.5,
+          "appearances": 143,
+          "heat_ratio": 0.35
+        },
+        {
+          "number": 13,
+          "current_gap": 0,
+          "max_gap": 58,
+          "avg_gap": 9.2,
+          "appearances": 132,
+          "heat_ratio": 0.0
+        },
+        {
+          "number": 14,
+          "current_gap": 7,
+          "max_gap": 37,
+          "avg_gap": 9.7,
+          "appearances": 125,
+          "heat_ratio": 0.72
+        },
+        {
+          "number": 15,
+          "current_gap": 5,
+          "max_gap": 42,
+          "avg_gap": 10.3,
+          "appearances": 118,
+          "heat_ratio": 0.49
+        },
+        {
+          "number": 16,
+          "current_gap": 9,
+          "max_gap": 43,
+          "avg_gap": 10.2,
+          "appearances": 119,
+          "heat_ratio": 0.88
+        },
+        {
+          "number": 17,
+          "current_gap": 17,
+          "max_gap": 55,
+          "avg_gap": 9.8,
+          "appearances": 124,
+          "heat_ratio": 1.73
+        },
+        {
+          "number": 18,
+          "current_gap": 0,
+          "max_gap": 70,
+          "avg_gap": 8.6,
+          "appearances": 142,
+          "heat_ratio": 0.0
+        },
+        {
+          "number": 19,
+          "current_gap": 6,
+          "max_gap": 48,
+          "avg_gap": 9.5,
+          "appearances": 128,
+          "heat_ratio": 0.63
+        },
+        {
+          "number": 20,
+          "current_gap": 8,
+          "max_gap": 47,
+          "avg_gap": 9.0,
+          "appearances": 135,
+          "heat_ratio": 0.89
+        },
+        {
+          "number": 21,
+          "current_gap": 16,
+          "max_gap": 58,
+          "avg_gap": 9.3,
+          "appearances": 131,
+          "heat_ratio": 1.72
+        },
+        {
+          "number": 22,
+          "current_gap": 5,
+          "max_gap": 47,
+          "avg_gap": 8.2,
+          "appearances": 148,
+          "heat_ratio": 0.61
+        },
+        {
+          "number": 23,
+          "current_gap": 4,
+          "max_gap": 47,
+          "avg_gap": 8.5,
+          "appearances": 143,
+          "heat_ratio": 0.47
+        },
+        {
+          "number": 24,
+          "current_gap": 4,
+          "max_gap": 41,
+          "avg_gap": 8.9,
+          "appearances": 136,
+          "heat_ratio": 0.45
+        },
+        {
+          "number": 25,
+          "current_gap": 31,
+          "max_gap": 49,
+          "avg_gap": 9.9,
+          "appearances": 123,
+          "heat_ratio": 3.13
+        },
+        {
+          "number": 26,
+          "current_gap": 1,
+          "max_gap": 45,
+          "avg_gap": 9.7,
+          "appearances": 126,
+          "heat_ratio": 0.1
+        },
+        {
+          "number": 27,
+          "current_gap": 7,
+          "max_gap": 51,
+          "avg_gap": 10.0,
+          "appearances": 122,
+          "heat_ratio": 0.7
+        },
+        {
+          "number": 28,
+          "current_gap": 29,
+          "max_gap": 67,
+          "avg_gap": 11.2,
+          "appearances": 109,
+          "heat_ratio": 2.59
+        },
+        {
+          "number": 29,
+          "current_gap": 6,
+          "max_gap": 67,
+          "avg_gap": 8.3,
+          "appearances": 146,
+          "heat_ratio": 0.72
+        },
+        {
+          "number": 30,
+          "current_gap": 10,
+          "max_gap": 36,
+          "avg_gap": 10.1,
+          "appearances": 120,
+          "heat_ratio": 0.99
+        },
+        {
+          "number": 31,
+          "current_gap": 1,
+          "max_gap": 41,
+          "avg_gap": 9.4,
+          "appearances": 130,
+          "heat_ratio": 0.11
+        },
+        {
+          "number": 32,
+          "current_gap": 1,
+          "max_gap": 47,
+          "avg_gap": 8.4,
+          "appearances": 145,
+          "heat_ratio": 0.12
+        },
+        {
+          "number": 33,
+          "current_gap": 0,
+          "max_gap": 36,
+          "avg_gap": 8.8,
+          "appearances": 138,
+          "heat_ratio": 0.0
+        },
+        {
+          "number": 34,
+          "current_gap": 2,
+          "max_gap": 41,
+          "avg_gap": 8.3,
+          "appearances": 146,
+          "heat_ratio": 0.24
+        },
+        {
+          "number": 35,
+          "current_gap": 49,
+          "max_gap": 49,
+          "avg_gap": 9.9,
+          "appearances": 123,
+          "heat_ratio": 4.95
+        },
+        {
+          "number": 36,
+          "current_gap": 1,
+          "max_gap": 47,
+          "avg_gap": 10.1,
+          "appearances": 121,
+          "heat_ratio": 0.1
+        },
+        {
+          "number": 37,
+          "current_gap": 18,
+          "max_gap": 55,
+          "avg_gap": 10.3,
+          "appearances": 118,
+          "heat_ratio": 1.75
+        },
+        {
+          "number": 38,
+          "current_gap": 19,
+          "max_gap": 57,
+          "avg_gap": 9.5,
+          "appearances": 128,
+          "heat_ratio": 2.0
+        },
+        {
+          "number": 39,
+          "current_gap": 2,
+          "max_gap": 56,
+          "avg_gap": 9.4,
+          "appearances": 130,
+          "heat_ratio": 0.21
+        },
+        {
+          "number": 40,
+          "current_gap": 0,
+          "max_gap": 68,
+          "avg_gap": 8.8,
+          "appearances": 139,
+          "heat_ratio": 0.0
+        },
+        {
+          "number": 41,
+          "current_gap": 2,
+          "max_gap": 36,
+          "avg_gap": 7.8,
+          "appearances": 156,
+          "heat_ratio": 0.26
+        },
+        {
+          "number": 42,
+          "current_gap": 3,
+          "max_gap": 44,
+          "avg_gap": 8.6,
+          "appearances": 142,
+          "heat_ratio": 0.35
+        },
+        {
+          "number": 43,
+          "current_gap": 11,
+          "max_gap": 30,
+          "avg_gap": 8.5,
+          "appearances": 143,
+          "heat_ratio": 1.29
+        },
+        {
+          "number": 44,
+          "current_gap": 3,
+          "max_gap": 38,
+          "avg_gap": 8.6,
+          "appearances": 142,
+          "heat_ratio": 0.35
+        },
+        {
+          "number": 45,
+          "current_gap": 2,
+          "max_gap": 37,
+          "avg_gap": 9.4,
+          "appearances": 129,
+          "heat_ratio": 0.21
+        },
+        {
+          "number": 46,
+          "current_gap": 17,
+          "max_gap": 40,
+          "avg_gap": 8.9,
+          "appearances": 136,
+          "heat_ratio": 1.91
+        },
+        {
+          "number": 47,
+          "current_gap": 12,
+          "max_gap": 31,
+          "avg_gap": 8.5,
+          "appearances": 143,
+          "heat_ratio": 1.41
+        },
+        {
+          "number": 48,
+          "current_gap": 0,
+          "max_gap": 44,
+          "avg_gap": 8.6,
+          "appearances": 142,
+          "heat_ratio": 0.0
+        },
+        {
+          "number": 49,
+          "current_gap": 18,
+          "max_gap": 38,
+          "avg_gap": 8.9,
+          "appearances": 137,
+          "heat_ratio": 2.02
+        },
+        {
+          "number": 50,
+          "current_gap": 4,
+          "max_gap": 53,
+          "avg_gap": 9.6,
+          "appearances": 127,
+          "heat_ratio": 0.42
+        },
+        {
+          "number": 51,
+          "current_gap": 5,
+          "max_gap": 32,
+          "avg_gap": 7.9,
+          "appearances": 155,
+          "heat_ratio": 0.63
+        },
+        {
+          "number": 52,
+          "current_gap": 2,
+          "max_gap": 39,
+          "avg_gap": 9.0,
+          "appearances": 135,
+          "heat_ratio": 0.22
+        },
+        {
+          "number": 53,
+          "current_gap": 0,
+          "max_gap": 34,
+          "avg_gap": 8.7,
+          "appearances": 140,
+          "heat_ratio": 0.0
+        },
+        {
+          "number": 54,
+          "current_gap": 6,
+          "max_gap": 43,
+          "avg_gap": 9.7,
+          "appearances": 126,
+          "heat_ratio": 0.62
+        },
+        {
+          "number": 55,
+          "current_gap": 5,
+          "max_gap": 51,
+          "avg_gap": 9.2,
+          "appearances": 133,
+          "heat_ratio": 0.54
+        }
+      ],
       "frequency": [
         {
           "number": 1,
@@ -1913,6 +2437,297 @@
           "pct": 10.93
         }
       ],
+      "top_pairs": [
+        {
+          "pair": [
+            3,
+            41
+          ],
+          "count": 27,
+          "pct": 2.22
+        },
+        {
+          "pair": [
+            12,
+            44
+          ],
+          "count": 25,
+          "pct": 2.05
+        },
+        {
+          "pair": [
+            9,
+            54
+          ],
+          "count": 25,
+          "pct": 2.05
+        },
+        {
+          "pair": [
+            42,
+            51
+          ],
+          "count": 25,
+          "pct": 2.05
+        },
+        {
+          "pair": [
+            32,
+            51
+          ],
+          "count": 24,
+          "pct": 1.97
+        },
+        {
+          "pair": [
+            24,
+            41
+          ],
+          "count": 23,
+          "pct": 1.89
+        },
+        {
+          "pair": [
+            11,
+            22
+          ],
+          "count": 23,
+          "pct": 1.89
+        },
+        {
+          "pair": [
+            20,
+            51
+          ],
+          "count": 22,
+          "pct": 1.81
+        },
+        {
+          "pair": [
+            32,
+            33
+          ],
+          "count": 22,
+          "pct": 1.81
+        },
+        {
+          "pair": [
+            12,
+            48
+          ],
+          "count": 22,
+          "pct": 1.81
+        },
+        {
+          "pair": [
+            12,
+            51
+          ],
+          "count": 22,
+          "pct": 1.81
+        },
+        {
+          "pair": [
+            23,
+            44
+          ],
+          "count": 22,
+          "pct": 1.81
+        },
+        {
+          "pair": [
+            12,
+            52
+          ],
+          "count": 22,
+          "pct": 1.81
+        },
+        {
+          "pair": [
+            3,
+            9
+          ],
+          "count": 22,
+          "pct": 1.81
+        },
+        {
+          "pair": [
+            12,
+            33
+          ],
+          "count": 22,
+          "pct": 1.81
+        }
+      ],
+      "top_triples": [
+        {
+          "triple": [
+            11,
+            22,
+            28
+          ],
+          "count": 7,
+          "pct": 0.58
+        },
+        {
+          "triple": [
+            21,
+            29,
+            41
+          ],
+          "count": 7,
+          "pct": 0.58
+        },
+        {
+          "triple": [
+            12,
+            33,
+            40
+          ],
+          "count": 7,
+          "pct": 0.58
+        },
+        {
+          "triple": [
+            12,
+            43,
+            51
+          ],
+          "count": 6,
+          "pct": 0.49
+        },
+        {
+          "triple": [
+            34,
+            40,
+            49
+          ],
+          "count": 6,
+          "pct": 0.49
+        },
+        {
+          "triple": [
+            12,
+            33,
+            44
+          ],
+          "count": 6,
+          "pct": 0.49
+        },
+        {
+          "triple": [
+            3,
+            44,
+            54
+          ],
+          "count": 6,
+          "pct": 0.49
+        },
+        {
+          "triple": [
+            5,
+            43,
+            53
+          ],
+          "count": 6,
+          "pct": 0.49
+        },
+        {
+          "triple": [
+            9,
+            13,
+            54
+          ],
+          "count": 6,
+          "pct": 0.49
+        },
+        {
+          "triple": [
+            36,
+            42,
+            43
+          ],
+          "count": 6,
+          "pct": 0.49
+        }
+      ],
+      "sum_stats": {
+        "avg_sum": 170.1,
+        "median_sum": 172,
+        "min_sum": 52,
+        "max_sum": 288,
+        "std_dev": 37.6,
+        "safe_zone": "132 - 207",
+        "distribution": [
+          {
+            "range": "< 120",
+            "count": 116,
+            "pct": 9.5
+          },
+          {
+            "range": "120 - 139",
+            "count": 145,
+            "pct": 11.9
+          },
+          {
+            "range": "140 - 159",
+            "count": 209,
+            "pct": 17.2
+          },
+          {
+            "range": "160 - 179",
+            "count": 244,
+            "pct": 20.0
+          },
+          {
+            "range": "180 - 199",
+            "count": 231,
+            "pct": 19.0
+          },
+          {
+            "range": ">= 200",
+            "count": 272,
+            "pct": 22.4
+          }
+        ]
+      },
+      "patterns": {
+        "consecutive_pct": 43.8,
+        "repeat_from_prev_pct": 50.8,
+        "avg_repeat_per_draw": 0.66,
+        "decade_distribution": [
+          {
+            "decade": "00-09",
+            "count": 1160,
+            "pct": 15.9
+          },
+          {
+            "decade": "10-19",
+            "count": 1299,
+            "pct": 17.8
+          },
+          {
+            "decade": "20-29",
+            "count": 1319,
+            "pct": 18.1
+          },
+          {
+            "decade": "30-39",
+            "count": 1299,
+            "pct": 17.8
+          },
+          {
+            "decade": "40-49",
+            "count": 1409,
+            "pct": 19.3
+          },
+          {
+            "decade": "50-55",
+            "count": 816,
+            "pct": 11.2
+          }
+        ]
+      },
       "odd_even": {
         "odd_pct": 52.7,
         "even_pct": 47.3
@@ -3448,6 +4263,450 @@
           "pct": 12.51
         }
       ],
+      "top_overdue": [
+        {
+          "number": 38,
+          "current_gap": 44,
+          "max_gap": 70,
+          "avg_gap": 8.8,
+          "appearances": 134,
+          "heat_ratio": 5.0
+        },
+        {
+          "number": 3,
+          "current_gap": 32,
+          "max_gap": 70,
+          "avg_gap": 8.3,
+          "appearances": 142,
+          "heat_ratio": 3.86
+        },
+        {
+          "number": 40,
+          "current_gap": 29,
+          "max_gap": 40,
+          "avg_gap": 7.8,
+          "appearances": 151,
+          "heat_ratio": 3.72
+        },
+        {
+          "number": 4,
+          "current_gap": 20,
+          "max_gap": 40,
+          "avg_gap": 7.1,
+          "appearances": 167,
+          "heat_ratio": 2.82
+        },
+        {
+          "number": 31,
+          "current_gap": 16,
+          "max_gap": 30,
+          "avg_gap": 7.7,
+          "appearances": 154,
+          "heat_ratio": 2.08
+        },
+        {
+          "number": 37,
+          "current_gap": 16,
+          "max_gap": 27,
+          "avg_gap": 7.0,
+          "appearances": 169,
+          "heat_ratio": 2.29
+        },
+        {
+          "number": 15,
+          "current_gap": 13,
+          "max_gap": 34,
+          "avg_gap": 8.1,
+          "appearances": 146,
+          "heat_ratio": 1.6
+        },
+        {
+          "number": 2,
+          "current_gap": 11,
+          "max_gap": 47,
+          "avg_gap": 8.3,
+          "appearances": 143,
+          "heat_ratio": 1.33
+        },
+        {
+          "number": 18,
+          "current_gap": 11,
+          "max_gap": 35,
+          "avg_gap": 7.5,
+          "appearances": 157,
+          "heat_ratio": 1.47
+        },
+        {
+          "number": 1,
+          "current_gap": 10,
+          "max_gap": 60,
+          "avg_gap": 7.4,
+          "appearances": 159,
+          "heat_ratio": 1.35
+        }
+      ],
+      "gap_analysis": [
+        {
+          "number": 1,
+          "current_gap": 10,
+          "max_gap": 60,
+          "avg_gap": 7.4,
+          "appearances": 159,
+          "heat_ratio": 1.35
+        },
+        {
+          "number": 2,
+          "current_gap": 11,
+          "max_gap": 47,
+          "avg_gap": 8.3,
+          "appearances": 143,
+          "heat_ratio": 1.33
+        },
+        {
+          "number": 3,
+          "current_gap": 32,
+          "max_gap": 70,
+          "avg_gap": 8.3,
+          "appearances": 142,
+          "heat_ratio": 3.86
+        },
+        {
+          "number": 4,
+          "current_gap": 20,
+          "max_gap": 40,
+          "avg_gap": 7.1,
+          "appearances": 167,
+          "heat_ratio": 2.82
+        },
+        {
+          "number": 5,
+          "current_gap": 4,
+          "max_gap": 34,
+          "avg_gap": 7.4,
+          "appearances": 159,
+          "heat_ratio": 0.54
+        },
+        {
+          "number": 6,
+          "current_gap": 0,
+          "max_gap": 36,
+          "avg_gap": 7.6,
+          "appearances": 156,
+          "heat_ratio": 0.0
+        },
+        {
+          "number": 7,
+          "current_gap": 3,
+          "max_gap": 45,
+          "avg_gap": 6.8,
+          "appearances": 174,
+          "heat_ratio": 0.44
+        },
+        {
+          "number": 8,
+          "current_gap": 3,
+          "max_gap": 37,
+          "avg_gap": 7.5,
+          "appearances": 158,
+          "heat_ratio": 0.4
+        },
+        {
+          "number": 9,
+          "current_gap": 1,
+          "max_gap": 51,
+          "avg_gap": 7.9,
+          "appearances": 149,
+          "heat_ratio": 0.13
+        },
+        {
+          "number": 10,
+          "current_gap": 7,
+          "max_gap": 46,
+          "avg_gap": 6.7,
+          "appearances": 177,
+          "heat_ratio": 1.04
+        },
+        {
+          "number": 11,
+          "current_gap": 0,
+          "max_gap": 51,
+          "avg_gap": 7.3,
+          "appearances": 163,
+          "heat_ratio": 0.0
+        },
+        {
+          "number": 12,
+          "current_gap": 6,
+          "max_gap": 42,
+          "avg_gap": 8.3,
+          "appearances": 143,
+          "heat_ratio": 0.72
+        },
+        {
+          "number": 13,
+          "current_gap": 4,
+          "max_gap": 29,
+          "avg_gap": 7.4,
+          "appearances": 160,
+          "heat_ratio": 0.54
+        },
+        {
+          "number": 14,
+          "current_gap": 0,
+          "max_gap": 47,
+          "avg_gap": 7.6,
+          "appearances": 156,
+          "heat_ratio": 0.0
+        },
+        {
+          "number": 15,
+          "current_gap": 13,
+          "max_gap": 34,
+          "avg_gap": 8.1,
+          "appearances": 146,
+          "heat_ratio": 1.6
+        },
+        {
+          "number": 16,
+          "current_gap": 6,
+          "max_gap": 37,
+          "avg_gap": 7.5,
+          "appearances": 158,
+          "heat_ratio": 0.8
+        },
+        {
+          "number": 17,
+          "current_gap": 1,
+          "max_gap": 41,
+          "avg_gap": 8.8,
+          "appearances": 135,
+          "heat_ratio": 0.11
+        },
+        {
+          "number": 18,
+          "current_gap": 11,
+          "max_gap": 35,
+          "avg_gap": 7.5,
+          "appearances": 157,
+          "heat_ratio": 1.47
+        },
+        {
+          "number": 19,
+          "current_gap": 0,
+          "max_gap": 35,
+          "avg_gap": 6.6,
+          "appearances": 180,
+          "heat_ratio": 0.0
+        },
+        {
+          "number": 20,
+          "current_gap": 2,
+          "max_gap": 34,
+          "avg_gap": 7.2,
+          "appearances": 165,
+          "heat_ratio": 0.28
+        },
+        {
+          "number": 21,
+          "current_gap": 0,
+          "max_gap": 31,
+          "avg_gap": 8.0,
+          "appearances": 148,
+          "heat_ratio": 0.0
+        },
+        {
+          "number": 22,
+          "current_gap": 1,
+          "max_gap": 33,
+          "avg_gap": 6.8,
+          "appearances": 175,
+          "heat_ratio": 0.15
+        },
+        {
+          "number": 23,
+          "current_gap": 4,
+          "max_gap": 33,
+          "avg_gap": 7.4,
+          "appearances": 159,
+          "heat_ratio": 0.54
+        },
+        {
+          "number": 24,
+          "current_gap": 2,
+          "max_gap": 30,
+          "avg_gap": 6.7,
+          "appearances": 176,
+          "heat_ratio": 0.3
+        },
+        {
+          "number": 25,
+          "current_gap": 7,
+          "max_gap": 43,
+          "avg_gap": 7.4,
+          "appearances": 160,
+          "heat_ratio": 0.95
+        },
+        {
+          "number": 26,
+          "current_gap": 7,
+          "max_gap": 38,
+          "avg_gap": 7.5,
+          "appearances": 157,
+          "heat_ratio": 0.93
+        },
+        {
+          "number": 27,
+          "current_gap": 1,
+          "max_gap": 39,
+          "avg_gap": 7.2,
+          "appearances": 165,
+          "heat_ratio": 0.14
+        },
+        {
+          "number": 28,
+          "current_gap": 6,
+          "max_gap": 35,
+          "avg_gap": 7.1,
+          "appearances": 166,
+          "heat_ratio": 0.85
+        },
+        {
+          "number": 29,
+          "current_gap": 5,
+          "max_gap": 33,
+          "avg_gap": 7.3,
+          "appearances": 162,
+          "heat_ratio": 0.68
+        },
+        {
+          "number": 30,
+          "current_gap": 3,
+          "max_gap": 64,
+          "avg_gap": 7.3,
+          "appearances": 163,
+          "heat_ratio": 0.41
+        },
+        {
+          "number": 31,
+          "current_gap": 16,
+          "max_gap": 30,
+          "avg_gap": 7.7,
+          "appearances": 154,
+          "heat_ratio": 2.08
+        },
+        {
+          "number": 32,
+          "current_gap": 3,
+          "max_gap": 33,
+          "avg_gap": 8.4,
+          "appearances": 141,
+          "heat_ratio": 0.36
+        },
+        {
+          "number": 33,
+          "current_gap": 3,
+          "max_gap": 29,
+          "avg_gap": 7.3,
+          "appearances": 162,
+          "heat_ratio": 0.41
+        },
+        {
+          "number": 34,
+          "current_gap": 6,
+          "max_gap": 34,
+          "avg_gap": 7.3,
+          "appearances": 163,
+          "heat_ratio": 0.82
+        },
+        {
+          "number": 35,
+          "current_gap": 1,
+          "max_gap": 44,
+          "avg_gap": 7.5,
+          "appearances": 158,
+          "heat_ratio": 0.13
+        },
+        {
+          "number": 36,
+          "current_gap": 1,
+          "max_gap": 33,
+          "avg_gap": 8.1,
+          "appearances": 146,
+          "heat_ratio": 0.12
+        },
+        {
+          "number": 37,
+          "current_gap": 16,
+          "max_gap": 27,
+          "avg_gap": 7.0,
+          "appearances": 169,
+          "heat_ratio": 2.29
+        },
+        {
+          "number": 38,
+          "current_gap": 44,
+          "max_gap": 70,
+          "avg_gap": 8.8,
+          "appearances": 134,
+          "heat_ratio": 5.0
+        },
+        {
+          "number": 39,
+          "current_gap": 9,
+          "max_gap": 38,
+          "avg_gap": 8.0,
+          "appearances": 147,
+          "heat_ratio": 1.12
+        },
+        {
+          "number": 40,
+          "current_gap": 29,
+          "max_gap": 40,
+          "avg_gap": 7.8,
+          "appearances": 151,
+          "heat_ratio": 3.72
+        },
+        {
+          "number": 41,
+          "current_gap": 5,
+          "max_gap": 40,
+          "avg_gap": 7.0,
+          "appearances": 169,
+          "heat_ratio": 0.71
+        },
+        {
+          "number": 42,
+          "current_gap": 0,
+          "max_gap": 46,
+          "avg_gap": 8.0,
+          "appearances": 148,
+          "heat_ratio": 0.0
+        },
+        {
+          "number": 43,
+          "current_gap": 2,
+          "max_gap": 45,
+          "avg_gap": 7.9,
+          "appearances": 149,
+          "heat_ratio": 0.25
+        },
+        {
+          "number": 44,
+          "current_gap": 3,
+          "max_gap": 37,
+          "avg_gap": 6.9,
+          "appearances": 171,
+          "heat_ratio": 0.43
+        },
+        {
+          "number": 45,
+          "current_gap": 2,
+          "max_gap": 39,
+          "avg_gap": 7.5,
+          "appearances": 158,
+          "heat_ratio": 0.27
+        }
+      ],
       "frequency": [
         {
           "number": 1,
@@ -3675,6 +4934,292 @@
           "pct": 13.36
         }
       ],
+      "top_pairs": [
+        {
+          "pair": [
+            10,
+            22
+          ],
+          "count": 32,
+          "pct": 2.7
+        },
+        {
+          "pair": [
+            25,
+            39
+          ],
+          "count": 30,
+          "pct": 2.54
+        },
+        {
+          "pair": [
+            19,
+            24
+          ],
+          "count": 30,
+          "pct": 2.54
+        },
+        {
+          "pair": [
+            1,
+            13
+          ],
+          "count": 30,
+          "pct": 2.54
+        },
+        {
+          "pair": [
+            18,
+            24
+          ],
+          "count": 29,
+          "pct": 2.45
+        },
+        {
+          "pair": [
+            14,
+            19
+          ],
+          "count": 29,
+          "pct": 2.45
+        },
+        {
+          "pair": [
+            13,
+            20
+          ],
+          "count": 29,
+          "pct": 2.45
+        },
+        {
+          "pair": [
+            6,
+            39
+          ],
+          "count": 29,
+          "pct": 2.45
+        },
+        {
+          "pair": [
+            25,
+            35
+          ],
+          "count": 29,
+          "pct": 2.45
+        },
+        {
+          "pair": [
+            4,
+            37
+          ],
+          "count": 29,
+          "pct": 2.45
+        },
+        {
+          "pair": [
+            22,
+            44
+          ],
+          "count": 28,
+          "pct": 2.37
+        },
+        {
+          "pair": [
+            18,
+            29
+          ],
+          "count": 28,
+          "pct": 2.37
+        },
+        {
+          "pair": [
+            6,
+            44
+          ],
+          "count": 28,
+          "pct": 2.37
+        },
+        {
+          "pair": [
+            23,
+            25
+          ],
+          "count": 27,
+          "pct": 2.28
+        },
+        {
+          "pair": [
+            19,
+            30
+          ],
+          "count": 27,
+          "pct": 2.28
+        }
+      ],
+      "top_triples": [
+        {
+          "triple": [
+            10,
+            13,
+            22
+          ],
+          "count": 8,
+          "pct": 0.68
+        },
+        {
+          "triple": [
+            4,
+            25,
+            39
+          ],
+          "count": 8,
+          "pct": 0.68
+        },
+        {
+          "triple": [
+            10,
+            22,
+            43
+          ],
+          "count": 8,
+          "pct": 0.68
+        },
+        {
+          "triple": [
+            11,
+            26,
+            28
+          ],
+          "count": 8,
+          "pct": 0.68
+        },
+        {
+          "triple": [
+            25,
+            35,
+            39
+          ],
+          "count": 8,
+          "pct": 0.68
+        },
+        {
+          "triple": [
+            10,
+            22,
+            36
+          ],
+          "count": 8,
+          "pct": 0.68
+        },
+        {
+          "triple": [
+            9,
+            14,
+            41
+          ],
+          "count": 8,
+          "pct": 0.68
+        },
+        {
+          "triple": [
+            12,
+            23,
+            34
+          ],
+          "count": 7,
+          "pct": 0.59
+        },
+        {
+          "triple": [
+            8,
+            29,
+            39
+          ],
+          "count": 7,
+          "pct": 0.59
+        },
+        {
+          "triple": [
+            19,
+            30,
+            42
+          ],
+          "count": 7,
+          "pct": 0.59
+        }
+      ],
+      "sum_stats": {
+        "avg_sum": 137.8,
+        "median_sum": 138,
+        "min_sum": 47,
+        "max_sum": 234,
+        "std_dev": 29.1,
+        "safe_zone": "108 - 166",
+        "distribution": [
+          {
+            "range": "< 100",
+            "count": 109,
+            "pct": 9.2
+          },
+          {
+            "range": "100 - 119",
+            "count": 203,
+            "pct": 17.2
+          },
+          {
+            "range": "120 - 139",
+            "count": 317,
+            "pct": 26.8
+          },
+          {
+            "range": "140 - 159",
+            "count": 279,
+            "pct": 23.6
+          },
+          {
+            "range": "160 - 179",
+            "count": 181,
+            "pct": 15.3
+          },
+          {
+            "range": ">= 180",
+            "count": 94,
+            "pct": 7.9
+          }
+        ]
+      },
+      "patterns": {
+        "consecutive_pct": 51.1,
+        "repeat_from_prev_pct": 59.0,
+        "avg_repeat_per_draw": 0.8,
+        "decade_distribution": [
+          {
+            "decade": "00-09",
+            "count": 1407,
+            "pct": 19.8
+          },
+          {
+            "decade": "10-19",
+            "count": 1575,
+            "pct": 22.2
+          },
+          {
+            "decade": "20-29",
+            "count": 1633,
+            "pct": 23.0
+          },
+          {
+            "decade": "30-39",
+            "count": 1537,
+            "pct": 21.7
+          },
+          {
+            "decade": "40-49",
+            "count": 946,
+            "pct": 13.3
+          }
+        ]
+      },
       "odd_even": {
         "odd_pct": 50.3,
         "even_pct": 49.7
@@ -4076,6 +5621,370 @@
           "pct": 10.53
         }
       ],
+      "top_overdue": [
+        {
+          "number": 4,
+          "current_gap": 19,
+          "max_gap": 19,
+          "avg_gap": 19,
+          "appearances": 0,
+          "heat_ratio": 1.0
+        },
+        {
+          "number": 21,
+          "current_gap": 19,
+          "max_gap": 19,
+          "avg_gap": 19,
+          "appearances": 0,
+          "heat_ratio": 1.0
+        },
+        {
+          "number": 26,
+          "current_gap": 19,
+          "max_gap": 19,
+          "avg_gap": 19,
+          "appearances": 0,
+          "heat_ratio": 1.0
+        },
+        {
+          "number": 2,
+          "current_gap": 16,
+          "max_gap": 16,
+          "avg_gap": 19.0,
+          "appearances": 1,
+          "heat_ratio": 0.84
+        },
+        {
+          "number": 16,
+          "current_gap": 16,
+          "max_gap": 16,
+          "avg_gap": 9.5,
+          "appearances": 2,
+          "heat_ratio": 1.68
+        },
+        {
+          "number": 9,
+          "current_gap": 11,
+          "max_gap": 11,
+          "avg_gap": 9.5,
+          "appearances": 2,
+          "heat_ratio": 1.16
+        },
+        {
+          "number": 35,
+          "current_gap": 10,
+          "max_gap": 10,
+          "avg_gap": 6.3,
+          "appearances": 3,
+          "heat_ratio": 1.59
+        },
+        {
+          "number": 30,
+          "current_gap": 9,
+          "max_gap": 9,
+          "avg_gap": 9.5,
+          "appearances": 2,
+          "heat_ratio": 0.95
+        },
+        {
+          "number": 33,
+          "current_gap": 9,
+          "max_gap": 9,
+          "avg_gap": 6.3,
+          "appearances": 3,
+          "heat_ratio": 1.43
+        },
+        {
+          "number": 24,
+          "current_gap": 8,
+          "max_gap": 8,
+          "avg_gap": 6.3,
+          "appearances": 3,
+          "heat_ratio": 1.27
+        }
+      ],
+      "gap_analysis": [
+        {
+          "number": 1,
+          "current_gap": 2,
+          "max_gap": 5,
+          "avg_gap": 4.8,
+          "appearances": 4,
+          "heat_ratio": 0.42
+        },
+        {
+          "number": 2,
+          "current_gap": 16,
+          "max_gap": 16,
+          "avg_gap": 19.0,
+          "appearances": 1,
+          "heat_ratio": 0.84
+        },
+        {
+          "number": 3,
+          "current_gap": 4,
+          "max_gap": 10,
+          "avg_gap": 4.8,
+          "appearances": 4,
+          "heat_ratio": 0.83
+        },
+        {
+          "number": 4,
+          "current_gap": 19,
+          "max_gap": 19,
+          "avg_gap": 19,
+          "appearances": 0,
+          "heat_ratio": 1.0
+        },
+        {
+          "number": 5,
+          "current_gap": 6,
+          "max_gap": 6,
+          "avg_gap": 9.5,
+          "appearances": 2,
+          "heat_ratio": 0.63
+        },
+        {
+          "number": 6,
+          "current_gap": 1,
+          "max_gap": 13,
+          "avg_gap": 6.3,
+          "appearances": 3,
+          "heat_ratio": 0.16
+        },
+        {
+          "number": 7,
+          "current_gap": 1,
+          "max_gap": 9,
+          "avg_gap": 4.8,
+          "appearances": 4,
+          "heat_ratio": 0.21
+        },
+        {
+          "number": 8,
+          "current_gap": 2,
+          "max_gap": 13,
+          "avg_gap": 9.5,
+          "appearances": 2,
+          "heat_ratio": 0.21
+        },
+        {
+          "number": 9,
+          "current_gap": 11,
+          "max_gap": 11,
+          "avg_gap": 9.5,
+          "appearances": 2,
+          "heat_ratio": 1.16
+        },
+        {
+          "number": 10,
+          "current_gap": 1,
+          "max_gap": 8,
+          "avg_gap": 4.8,
+          "appearances": 4,
+          "heat_ratio": 0.21
+        },
+        {
+          "number": 11,
+          "current_gap": 4,
+          "max_gap": 7,
+          "avg_gap": 9.5,
+          "appearances": 2,
+          "heat_ratio": 0.42
+        },
+        {
+          "number": 12,
+          "current_gap": 4,
+          "max_gap": 10,
+          "avg_gap": 6.3,
+          "appearances": 3,
+          "heat_ratio": 0.63
+        },
+        {
+          "number": 13,
+          "current_gap": 3,
+          "max_gap": 6,
+          "avg_gap": 4.8,
+          "appearances": 4,
+          "heat_ratio": 0.62
+        },
+        {
+          "number": 14,
+          "current_gap": 0,
+          "max_gap": 10,
+          "avg_gap": 4.8,
+          "appearances": 4,
+          "heat_ratio": 0.0
+        },
+        {
+          "number": 15,
+          "current_gap": 0,
+          "max_gap": 12,
+          "avg_gap": 9.5,
+          "appearances": 2,
+          "heat_ratio": 0.0
+        },
+        {
+          "number": 16,
+          "current_gap": 16,
+          "max_gap": 16,
+          "avg_gap": 9.5,
+          "appearances": 2,
+          "heat_ratio": 1.68
+        },
+        {
+          "number": 17,
+          "current_gap": 0,
+          "max_gap": 18,
+          "avg_gap": 19.0,
+          "appearances": 1,
+          "heat_ratio": 0.0
+        },
+        {
+          "number": 18,
+          "current_gap": 7,
+          "max_gap": 7,
+          "avg_gap": 4.8,
+          "appearances": 4,
+          "heat_ratio": 1.46
+        },
+        {
+          "number": 19,
+          "current_gap": 2,
+          "max_gap": 12,
+          "avg_gap": 6.3,
+          "appearances": 3,
+          "heat_ratio": 0.32
+        },
+        {
+          "number": 20,
+          "current_gap": 7,
+          "max_gap": 7,
+          "avg_gap": 6.3,
+          "appearances": 3,
+          "heat_ratio": 1.11
+        },
+        {
+          "number": 21,
+          "current_gap": 19,
+          "max_gap": 19,
+          "avg_gap": 19,
+          "appearances": 0,
+          "heat_ratio": 1.0
+        },
+        {
+          "number": 22,
+          "current_gap": 1,
+          "max_gap": 17,
+          "avg_gap": 19.0,
+          "appearances": 1,
+          "heat_ratio": 0.05
+        },
+        {
+          "number": 23,
+          "current_gap": 2,
+          "max_gap": 3,
+          "avg_gap": 3.8,
+          "appearances": 5,
+          "heat_ratio": 0.53
+        },
+        {
+          "number": 24,
+          "current_gap": 8,
+          "max_gap": 8,
+          "avg_gap": 6.3,
+          "appearances": 3,
+          "heat_ratio": 1.27
+        },
+        {
+          "number": 25,
+          "current_gap": 5,
+          "max_gap": 8,
+          "avg_gap": 6.3,
+          "appearances": 3,
+          "heat_ratio": 0.79
+        },
+        {
+          "number": 26,
+          "current_gap": 19,
+          "max_gap": 19,
+          "avg_gap": 19,
+          "appearances": 0,
+          "heat_ratio": 1.0
+        },
+        {
+          "number": 27,
+          "current_gap": 4,
+          "max_gap": 6,
+          "avg_gap": 3.8,
+          "appearances": 5,
+          "heat_ratio": 1.05
+        },
+        {
+          "number": 28,
+          "current_gap": 0,
+          "max_gap": 6,
+          "avg_gap": 4.8,
+          "appearances": 4,
+          "heat_ratio": 0.0
+        },
+        {
+          "number": 29,
+          "current_gap": 3,
+          "max_gap": 7,
+          "avg_gap": 4.8,
+          "appearances": 4,
+          "heat_ratio": 0.62
+        },
+        {
+          "number": 30,
+          "current_gap": 9,
+          "max_gap": 9,
+          "avg_gap": 9.5,
+          "appearances": 2,
+          "heat_ratio": 0.95
+        },
+        {
+          "number": 31,
+          "current_gap": 0,
+          "max_gap": 18,
+          "avg_gap": 19.0,
+          "appearances": 1,
+          "heat_ratio": 0.0
+        },
+        {
+          "number": 32,
+          "current_gap": 4,
+          "max_gap": 8,
+          "avg_gap": 9.5,
+          "appearances": 2,
+          "heat_ratio": 0.42
+        },
+        {
+          "number": 33,
+          "current_gap": 9,
+          "max_gap": 9,
+          "avg_gap": 6.3,
+          "appearances": 3,
+          "heat_ratio": 1.43
+        },
+        {
+          "number": 34,
+          "current_gap": 1,
+          "max_gap": 5,
+          "avg_gap": 3.8,
+          "appearances": 5,
+          "heat_ratio": 0.26
+        },
+        {
+          "number": 35,
+          "current_gap": 10,
+          "max_gap": 10,
+          "avg_gap": 6.3,
+          "appearances": 3,
+          "heat_ratio": 1.59
+        }
+      ],
       "frequency": [
         {
           "number": 1,
@@ -4253,6 +6162,282 @@
           "pct": 15.79
         }
       ],
+      "top_pairs": [
+        {
+          "pair": [
+            7,
+            10
+          ],
+          "count": 3,
+          "pct": 15.79
+        },
+        {
+          "pair": [
+            18,
+            25
+          ],
+          "count": 2,
+          "pct": 10.53
+        },
+        {
+          "pair": [
+            8,
+            23
+          ],
+          "count": 2,
+          "pct": 10.53
+        },
+        {
+          "pair": [
+            23,
+            24
+          ],
+          "count": 2,
+          "pct": 10.53
+        },
+        {
+          "pair": [
+            1,
+            27
+          ],
+          "count": 2,
+          "pct": 10.53
+        },
+        {
+          "pair": [
+            12,
+            27
+          ],
+          "count": 2,
+          "pct": 10.53
+        },
+        {
+          "pair": [
+            13,
+            27
+          ],
+          "count": 2,
+          "pct": 10.53
+        },
+        {
+          "pair": [
+            13,
+            28
+          ],
+          "count": 2,
+          "pct": 10.53
+        },
+        {
+          "pair": [
+            5,
+            34
+          ],
+          "count": 2,
+          "pct": 10.53
+        },
+        {
+          "pair": [
+            18,
+            20
+          ],
+          "count": 2,
+          "pct": 10.53
+        },
+        {
+          "pair": [
+            18,
+            34
+          ],
+          "count": 2,
+          "pct": 10.53
+        },
+        {
+          "pair": [
+            20,
+            34
+          ],
+          "count": 2,
+          "pct": 10.53
+        },
+        {
+          "pair": [
+            27,
+            35
+          ],
+          "count": 2,
+          "pct": 10.53
+        },
+        {
+          "pair": [
+            11,
+            27
+          ],
+          "count": 2,
+          "pct": 10.53
+        },
+        {
+          "pair": [
+            10,
+            24
+          ],
+          "count": 2,
+          "pct": 10.53
+        }
+      ],
+      "top_triples": [
+        {
+          "triple": [
+            18,
+            20,
+            34
+          ],
+          "count": 2,
+          "pct": 10.53
+        },
+        {
+          "triple": [
+            7,
+            9,
+            10
+          ],
+          "count": 1,
+          "pct": 5.26
+        },
+        {
+          "triple": [
+            7,
+            9,
+            16
+          ],
+          "count": 1,
+          "pct": 5.26
+        },
+        {
+          "triple": [
+            7,
+            9,
+            19
+          ],
+          "count": 1,
+          "pct": 5.26
+        },
+        {
+          "triple": [
+            7,
+            10,
+            16
+          ],
+          "count": 1,
+          "pct": 5.26
+        },
+        {
+          "triple": [
+            7,
+            10,
+            19
+          ],
+          "count": 1,
+          "pct": 5.26
+        },
+        {
+          "triple": [
+            7,
+            16,
+            19
+          ],
+          "count": 1,
+          "pct": 5.26
+        },
+        {
+          "triple": [
+            9,
+            10,
+            16
+          ],
+          "count": 1,
+          "pct": 5.26
+        },
+        {
+          "triple": [
+            9,
+            10,
+            19
+          ],
+          "count": 1,
+          "pct": 5.26
+        },
+        {
+          "triple": [
+            9,
+            16,
+            19
+          ],
+          "count": 1,
+          "pct": 5.26
+        }
+      ],
+      "sum_stats": {
+        "avg_sum": 92.5,
+        "median_sum": 89,
+        "min_sum": 45,
+        "max_sum": 162,
+        "std_dev": 25.5,
+        "safe_zone": "67 - 118",
+        "distribution": [
+          {
+            "range": "< 60",
+            "count": 1,
+            "pct": 5.3
+          },
+          {
+            "range": "60 - 79",
+            "count": 5,
+            "pct": 26.3
+          },
+          {
+            "range": "80 - 99",
+            "count": 5,
+            "pct": 26.3
+          },
+          {
+            "range": "100 - 119",
+            "count": 6,
+            "pct": 31.6
+          },
+          {
+            "range": ">= 120",
+            "count": 2,
+            "pct": 10.5
+          }
+        ]
+      },
+      "patterns": {
+        "consecutive_pct": 52.6,
+        "repeat_from_prev_pct": 55.6,
+        "avg_repeat_per_draw": 0.72,
+        "decade_distribution": [
+          {
+            "decade": "00-09",
+            "count": 22,
+            "pct": 23.2
+          },
+          {
+            "decade": "10-19",
+            "count": 29,
+            "pct": 30.5
+          },
+          {
+            "decade": "20-29",
+            "count": 28,
+            "pct": 29.5
+          },
+          {
+            "decade": "30-39",
+            "count": 16,
+            "pct": 16.8
+          }
+        ]
+      },
       "odd_even": {
         "odd_pct": 54.7,
         "even_pct": 45.3
@@ -7300,6 +9485,88 @@
           "pct": 23.4
         }
       ],
+      "top_overdue": [
+        {
+          "number": 9,
+          "current_gap": 14,
+          "max_gap": 18,
+          "avg_gap": 4.3,
+          "appearances": 235,
+          "heat_ratio": 3.26
+        },
+        {
+          "number": 16,
+          "current_gap": 12,
+          "max_gap": 23,
+          "avg_gap": 4.0,
+          "appearances": 251,
+          "heat_ratio": 3.0
+        },
+        {
+          "number": 10,
+          "current_gap": 11,
+          "max_gap": 17,
+          "avg_gap": 4.2,
+          "appearances": 238,
+          "heat_ratio": 2.62
+        },
+        {
+          "number": 50,
+          "current_gap": 9,
+          "max_gap": 25,
+          "avg_gap": 4.3,
+          "appearances": 231,
+          "heat_ratio": 2.09
+        },
+        {
+          "number": 1,
+          "current_gap": 8,
+          "max_gap": 18,
+          "avg_gap": 4.0,
+          "appearances": 247,
+          "heat_ratio": 2.0
+        },
+        {
+          "number": 3,
+          "current_gap": 8,
+          "max_gap": 24,
+          "avg_gap": 3.9,
+          "appearances": 256,
+          "heat_ratio": 2.05
+        },
+        {
+          "number": 14,
+          "current_gap": 7,
+          "max_gap": 17,
+          "avg_gap": 4.1,
+          "appearances": 242,
+          "heat_ratio": 1.71
+        },
+        {
+          "number": 33,
+          "current_gap": 7,
+          "max_gap": 21,
+          "avg_gap": 4.0,
+          "appearances": 247,
+          "heat_ratio": 1.75
+        },
+        {
+          "number": 34,
+          "current_gap": 6,
+          "max_gap": 25,
+          "avg_gap": 4.3,
+          "appearances": 230,
+          "heat_ratio": 1.4
+        },
+        {
+          "number": 45,
+          "current_gap": 6,
+          "max_gap": 17,
+          "avg_gap": 3.8,
+          "appearances": 265,
+          "heat_ratio": 1.58
+        }
+      ],
       "frequency": [
         {
           "number": 1,
@@ -9063,6 +11330,56 @@
         {
           "number": 6,
           "count": 521
+        }
+      ],
+      "gap_analysis": [
+        {
+          "number": 1,
+          "current_gap": 4,
+          "max_gap": 11,
+          "avg_gap": 2.4,
+          "appearances": 416,
+          "heat_ratio": 1.67
+        },
+        {
+          "number": 2,
+          "current_gap": 0,
+          "max_gap": 12,
+          "avg_gap": 2.3,
+          "appearances": 430,
+          "heat_ratio": 0.0
+        },
+        {
+          "number": 3,
+          "current_gap": 0,
+          "max_gap": 10,
+          "avg_gap": 2.5,
+          "appearances": 393,
+          "heat_ratio": 0.0
+        },
+        {
+          "number": 4,
+          "current_gap": 2,
+          "max_gap": 11,
+          "avg_gap": 2.3,
+          "appearances": 429,
+          "heat_ratio": 0.87
+        },
+        {
+          "number": 5,
+          "current_gap": 1,
+          "max_gap": 11,
+          "avg_gap": 2.4,
+          "appearances": 412,
+          "heat_ratio": 0.42
+        },
+        {
+          "number": 6,
+          "current_gap": 0,
+          "max_gap": 10,
+          "avg_gap": 2.3,
+          "appearances": 428,
+          "heat_ratio": 0.0
         }
       ],
       "sum_distribution": [
