@@ -4039,7 +4039,20 @@ function getStoredPredictions(productKey) {
 
       localStorage.setItem(storageKey, JSON.stringify(list));
       renderPredictionHistory(product);
-      alert(`Đã lưu Bộ Số Vàng #${nextId} vào Lịch sử dự đoán thành công!`);
+      
+      const gameLabel = currentProductKey === 'power_655' ? 'Power 6/55' : currentProductKey === 'power_645' ? 'Mega 6/45' : 'Power 5/35';
+      const toSaveNums = (currentProductKey === 'power_535' && topTicket.special)
+        ? [...topTicket.numbers, topTicket.special]
+        : topTicket.numbers;
+
+      saveTicketToNotebook({
+        game: currentProductKey,
+        gameName: gameLabel,
+        drawId: nextId,
+        type: 'ensemble',
+        numbers: toSaveNums,
+        cost: 10000
+      });
     }
 
     function saveSingleGoldenTicket(ticketStr, score) {
@@ -4411,7 +4424,7 @@ function getStoredPredictions(productKey) {
                   <button onclick="navigator.clipboard.writeText('${smsSyntax}').then(() => alert('Đã chép: ' + '${smsSyntax}'))" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs flex items-center gap-1 transition">
                     <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy SMS
                   </button>
-                  <button onclick="window.location.href = 'sms:9969?body=' + encodeURIComponent('${smsSyntax}')" class="px-2.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-1 transition shadow-sm">
+                  <button onclick="openSmsUrl('${smsSyntax}')" class="px-2.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-1 transition shadow-sm">
                     <i data-lucide="send" class="w-3.5 h-3.5"></i> Gửi 9969
                   </button>
                 ` : ''}
@@ -4466,16 +4479,20 @@ ${syntax}
       });
     }
 
+    function openSmsUrl(syntax) {
+      if (!syntax) return;
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      const separator = isIOS ? '&' : '?';
+      window.location.href = `sms:9969${separator}body=${encodeURIComponent(syntax)}`;
+    }
+
     function openBao7SmsApp() {
       const syntax = getBao7SmsSyntax();
       if (!syntax) {
         alert('Cú pháp SMS chuẩn hiện áp dụng cho Power 6/55 và Mega 6/45.');
         return;
       }
-      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-      const separator = isIOS ? '&' : '?';
-      const url = `sms:9969${separator}body=${encodeURIComponent(syntax)}`;
-      window.location.href = url;
+      openSmsUrl(syntax);
     }
 
     function copyEnsembleSms(ticketNumbersStr, prodKey = currentProductKey) {
