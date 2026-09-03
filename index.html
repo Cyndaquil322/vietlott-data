@@ -1188,6 +1188,40 @@
             </div>
           </div>
 
+          
+            <!-- Vietlott SMS 9969 Quick Action Box -->
+            <div id="baoSmsBox" class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-2.5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-slate-200 flex items-center gap-1.5">
+                  <i data-lucide="message-square" class="w-4 h-4 text-emerald-400"></i>
+                  <span>Cú Pháp Đặt Vé Vietlott SMS (Gửi 9969):</span>
+                </span>
+                <span class="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Miễn phí SMS</span>
+              </div>
+              
+              <div class="flex items-center gap-2 bg-slate-900 border border-slate-800 rounded-lg p-2.5 font-mono text-xs">
+                <span class="text-slate-500 select-none font-bold">SMS:</span>
+                <span id="baoSmsSyntaxDisplay" class="flex-1 font-bold text-amber-300 tracking-wider select-all overflow-x-auto whitespace-nowrap scrollbar-none">
+                  655 K1 B7 S 08 16 22 35 39 42 53
+                </span>
+                <button onclick="copyBao7SmsSyntax()" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-emerald-400 hover:text-white font-bold text-xs flex items-center gap-1 transition active:scale-95 whitespace-nowrap" title="Sao chép cú pháp SMS">
+                  <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                  <span>Copy</span>
+                </button>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2 pt-1">
+                <button onclick="copyBao7SmsSyntax()" class="py-2 px-3 rounded-lg bg-emerald-600/90 hover:bg-emerald-600 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition active:scale-95 shadow-sm">
+                  <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                  <span>Copy Cú Pháp SMS</span>
+                </button>
+                <button onclick="openBao7SmsApp()" class="py-2 px-3 rounded-lg bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition active:scale-95 shadow-md shadow-rose-950/40">
+                  <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                  <span>Mở SMS Gửi 9969</span>
+                </button>
+              </div>
+            </div>
+
           <div class="flex gap-2 pt-3 border-t border-slate-800">
             <button id="btnSaveBao7Prediction" class="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs shadow-lg shadow-emerald-950/40 flex items-center justify-center gap-1.5 transition active:scale-95">
               <i data-lucide="bookmark-plus" class="w-4 h-4"></i>
@@ -3427,6 +3461,12 @@
                 <button onclick="applyGoldenTicketToSim('${t.numbers.join(', ')}')" class="py-1.5 px-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-yellow-400 text-xs font-semibold transition" title="Nuôi bộ số này">
                   Nuôi số
                 </button>
+                ${(currentProductKey === 'power_655' || currentProductKey === 'power_645') ? `
+                  <button onclick="copyEnsembleSms('${t.numbers.join(', ')}')" class="py-1.5 px-2.5 rounded-lg bg-emerald-600/80 hover:bg-emerald-600 text-white text-xs font-bold flex items-center gap-1 transition" title="Copy cú pháp SMS 9969">
+                    <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+                    <span>SMS 9969</span>
+                  </button>
+                ` : ''}
               </div>
               <button onclick="saveSingleGoldenTicket('${t.numbers.join(', ')}${t.special ? ' + ' + t.special : ''}', ${t.score})" class="w-full py-1.5 rounded-lg bg-indigo-600/80 hover:bg-indigo-600 text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition">
                 <i data-lucide="bookmark" class="w-3.5 h-3.5"></i>
@@ -3911,6 +3951,91 @@ function getStoredPredictions(productKey) {
     // --- 13. BAO 7 STRATEGY & MULTI-PRODUCT ADAPTER ---
     let currentBao7Ticket = null;
 
+    
+    // ==========================================
+    // 4. VIETLOTT SMS 9969 SYNTAX LOGIC (6/55 & 6/45)
+    // ==========================================
+    function getBao7SmsSyntax() {
+      if (!currentBao7Ticket || !currentBao7Ticket.numbers) return '';
+      const nums = currentBao7Ticket.numbers.map(n => String(n).padStart(2, '0')).slice(0, 7).join(' ');
+      if (currentProductKey === 'power_655') {
+        return `655 K1 B7 S ${nums}`;
+      }
+      if (currentProductKey === 'power_645') {
+        return `645 K1 B7 S ${nums}`;
+      }
+      return '';
+    }
+
+    function copyBao7SmsSyntax() {
+      const syntax = getBao7SmsSyntax();
+      if (!syntax) {
+        alert('Cú pháp SMS chuẩn hiện áp dụng cho Power 6/55 và Mega 6/45.');
+        return;
+      }
+      navigator.clipboard.writeText(syntax).then(() => {
+        alert(`ĐÃ SAO CHÉP CÚ PHÁP SMS:
+
+${syntax}
+
+👉 Bạn chỉ cần dán (Paste) vào tin nhắn gửi tới 9969 để đặt vé ngay!`);
+      }).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = syntax;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        alert(`ĐÃ SAO CHÉP CÚ PHÁP SMS:
+
+${syntax}
+
+👉 Bạn chỉ cần dán (Paste) vào tin nhắn gửi tới 9969 để đặt vé ngay!`);
+      });
+    }
+
+    function openBao7SmsApp() {
+      const syntax = getBao7SmsSyntax();
+      if (!syntax) {
+        alert('Cú pháp SMS chuẩn hiện áp dụng cho Power 6/55 và Mega 6/45.');
+        return;
+      }
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      const separator = isIOS ? '&' : '?';
+      const url = `sms:9969${separator}body=${encodeURIComponent(syntax)}`;
+      window.location.href = url;
+    }
+
+    function copyEnsembleSms(ticketNumbersStr, prodKey = currentProductKey) {
+      if (prodKey !== 'power_655' && prodKey !== 'power_645') {
+        alert('Cú pháp SMS chuẩn hiện áp dụng cho Power 6/55 và Mega 6/45.');
+        return;
+      }
+      const nums = ticketNumbersStr.split(/[\s,]+/).map(n => String(parseInt(n)).padStart(2, '0')).slice(0, 6).join(' ');
+      const prefix = prodKey === 'power_655' ? '655' : '645';
+      const syntax = `${prefix} K1 S ${nums}`;
+      
+      navigator.clipboard.writeText(syntax).then(() => {
+        alert(`ĐÃ SAO CHÉP CÚ PHÁP SMS:
+
+${syntax}
+
+👉 Gửi tin nhắn tới 9969 để đặt vé!`);
+      }).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = syntax;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        alert(`ĐÃ SAO CHÉP CÚ PHÁP SMS:
+
+${syntax}
+
+👉 Gửi tin nhắn tới 9969 để đặt vé!`);
+      });
+    }
+
     function renderBao7View(product) {
       if (!product) return;
 
@@ -4227,6 +4352,16 @@ function getStoredPredictions(productKey) {
           `;
         }
         ballsContainer.innerHTML = ballsHtml;
+      }
+
+      
+      const smsBox = document.getElementById('baoSmsBox');
+      const smsDisplay = document.getElementById('baoSmsSyntaxDisplay');
+      if (currentProductKey === 'power_655' || currentProductKey === 'power_645') {
+        if (smsBox) smsBox.classList.remove('hidden');
+        if (smsDisplay) smsDisplay.textContent = getBao7SmsSyntax();
+      } else {
+        if (smsBox) smsBox.classList.add('hidden');
       }
 
       if (checklistContainer) {
