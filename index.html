@@ -3140,6 +3140,8 @@
           }
         }
       });
+    }
+
     // --- 12. ENSEMBLE PREDICTOR & PREDICTION HISTORY ---
     let currentEnsembleTickets = [];
 
@@ -3541,6 +3543,9 @@
       document.getElementById('simStrategySelect').value = 'fixed_ticket';
       document.getElementById('simCustomTicketWrap').classList.remove('hidden');
       switchView('simulator');
+      runSimulation();
+    }
+
     // --- 13. BAO 7 STRATEGY & MULTI-PRODUCT ADAPTER ---
     let currentBao7Ticket = null;
 
