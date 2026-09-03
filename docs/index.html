@@ -1309,6 +1309,8 @@
     }
 
     function switchProduct(key) {
+      currentBao7Ticket = null;
+      currentEnsembleTickets = [];
       currentProductKey = key;
       currentPage = 1;
       renderGameTabs();
@@ -1345,6 +1347,8 @@
       }
       if (viewName === 'ac-delta') renderAcChart();
       if (viewName === 'digits-ev') renderTailDivChart();
+      if (viewName === 'bao7') renderBao7View(appData?.products?.[currentProductKey]);
+      if (viewName === 'ensemble') renderEnsembleView(appData?.products?.[currentProductKey]);
       lucide.createIcons();
     }
 
@@ -3367,7 +3371,7 @@
     }
 
 function getStoredPredictions(productKey) {
-      const storageKey = ietlott_prediction_history_;
+      const storageKey = 'vietlott_prediction_history_' + productKey;
       const stored = localStorage.getItem(storageKey);
       if (stored) {
         try {
@@ -3846,7 +3850,7 @@ function getStoredPredictions(productKey) {
     }
 
 function getStoredBao7Predictions(productKey) {
-      const storageKey = ietlott_bao7_history_;
+      const storageKey = 'vietlott_bao7_history_' + productKey;
       const stored = localStorage.getItem(storageKey);
       if (stored) {
         try {
