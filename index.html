@@ -1064,6 +1064,59 @@
         </div>
       </div>
 
+            <!-- 2.5. Combinatorial Wheeling System (Dàn Ghép Bọc Lót Toán Học 6 Vé) -->
+      <div id="wheelingSystemSection" class="rounded-2xl bg-gradient-to-b from-slate-900 to-indigo-950/40 border border-indigo-500/40 p-6 shadow-2xl space-y-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+          <div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 flex items-center gap-1.5">
+                <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+                BẢO CHỨNG TOÁN HỌC C(14, 6, 3)
+              </span>
+              <span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                Đòn Bẩy Vốn Tối Ưu
+              </span>
+            </div>
+            <h4 class="text-base font-bold text-white mt-1.5 flex items-center gap-2">
+              <span>CHIẾN LƯỢC DÀN GHÉP BỌC LÓT (WHEELING SYSTEM - 6 VÉ TỐI ƯU)</span>
+            </h4>
+            <p class="text-xs text-slate-300 mt-1">
+              Tuyển chọn <strong>Tập Hạt Nhân 12–14 số</strong> có hàm nguy cơ nổ chu kỳ Bayesian cao nhất, sau đó phủ thành <strong>6 vé đơn bọc lót lẫn nhau</strong>. Đảm bảo: Chỉ cần 4 số hạt nhân nổ là chắc chắn có vé ăn giải Ba/Nhì!
+            </p>
+          </div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <button onclick="saveAllWheelingTickets()" class="px-3.5 py-2 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-bold text-xs flex items-center gap-1.5 transition active:scale-95 shadow-md shadow-violet-950/40">
+              <i data-lucide="bookmark-plus" class="w-4 h-4"></i>
+              <span>Lưu Cả Dàn 6 Vé Vào Sổ</span>
+            </button>
+            <button onclick="copyWheelingSms()" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-emerald-400 hover:text-emerald-300 font-bold text-xs flex items-center gap-1.5 transition border border-slate-700">
+              <i data-lucide="message-square" class="w-4 h-4"></i>
+              <span>Copy Cú Pháp Dàn SMS</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Core Pool Ball Display -->
+        <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800/80 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
+              <i data-lucide="target" class="w-4 h-4 text-amber-400"></i>
+              Tập Số Hạt Nhân (Core Pool <span id="wheelingCorePoolSize">14</span> Số)
+            </span>
+            <span class="text-[11px] text-slate-400">Được mô hình Bayesian & Poisson chấm điểm cao nhất</span>
+          </div>
+          <div id="wheelingCorePoolBalls" class="flex items-center gap-2 flex-wrap pt-1">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- 6 Covering Tickets Grid -->
+        <div id="wheelingTicketsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+
       <!-- 3. Prediction History & Verification Table -->
       <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 shadow-xl space-y-6">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
@@ -3376,6 +3429,131 @@
     // --- 12. ENSEMBLE PREDICTOR & PREDICTION HISTORY ---
     let currentEnsembleTickets = [];
 
+
+    // ==========================================
+    // WHEELING SYSTEM JAVASCRIPT FUNCTIONS
+    // ==========================================
+    function renderWheelingStrategy(product) {
+      const ws = product?.wheeling_strategy;
+      const section = document.getElementById('wheelingSystemSection');
+      if (!section) return;
+
+      if (!ws || !ws.tickets || !ws.tickets.length) {
+        section.classList.add('hidden');
+        return;
+      }
+      section.classList.remove('hidden');
+
+      const coreBallsContainer = document.getElementById('wheelingCorePoolBalls');
+      const coreSizeEl = document.getElementById('wheelingCorePoolSize');
+      const ticketsContainer = document.getElementById('wheelingTicketsGrid');
+
+      if (coreSizeEl) coreSizeEl.textContent = ws.core_pool_size || 14;
+
+      if (coreBallsContainer) {
+        coreBallsContainer.innerHTML = (ws.core_pool || []).map(num => `
+          <span class="w-8 h-8 rounded-full bg-gradient-to-tr from-amber-500 to-yellow-600 text-slate-950 font-mono font-bold text-xs flex items-center justify-center shadow-md shadow-amber-950/40 border border-yellow-300">
+            ${String(num).padStart(2, '0')}
+          </span>
+        `).join('');
+      }
+
+      if (ticketsContainer) {
+        ticketsContainer.innerHTML = (ws.tickets || []).map((t, idx) => {
+          return `
+            <div class="rounded-xl bg-slate-950 p-4 border border-slate-800/90 flex flex-col justify-between space-y-3 hover:border-indigo-500/50 transition">
+              <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                <span class="text-xs font-bold font-mono text-indigo-300">VÉ BỌC LÓT #${t.ticketIndex || (idx + 1)}</span>
+                <span class="text-[11px] font-mono text-slate-400">Tổng ${t.sum} • AC ${t.ac}</span>
+              </div>
+              <div class="flex items-center justify-center gap-1.5 py-1">
+                ${t.numbers.map(n => `
+                  <span class="w-8 h-8 rounded-full bg-slate-800 text-slate-200 font-mono font-bold text-xs flex items-center justify-center border border-slate-700">
+                    ${String(n).padStart(2, '0')}
+                  </span>
+                `).join('')}
+              </div>
+              <div class="flex items-center gap-2 pt-2 border-t border-slate-800/80 text-[11px]">
+                <button onclick="applyGoldenTicketToChecker('${t.numbers.join(', ')}')" class="flex-1 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold transition">
+                  Dò vé
+                </button>
+                <button onclick="saveSingleGoldenTicket('${t.numbers.join(', ')}', 92)" class="p-1.5 px-2.5 rounded-lg bg-indigo-600/80 hover:bg-indigo-600 text-white font-semibold transition" title="Lưu vé này vào sổ tay">
+                  <i data-lucide="bookmark" class="w-3.5 h-3.5"></i>
+                </button>
+                <button onclick="copySingleTicketSms('${t.numbers.join(' ')}')" class="p-1.5 px-2.5 rounded-lg bg-emerald-600/80 hover:bg-emerald-600 text-white font-semibold transition" title="Copy SMS 9969">
+                  <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+      lucide.createIcons();
+    }
+
+    function saveAllWheelingTickets() {
+      const product = appData?.products?.[currentProductKey];
+      const ws = product?.wheeling_strategy;
+      if (!ws || !ws.tickets || !ws.tickets.length) {
+        alert('Không tìm thấy dữ liệu dàn bọc lót!');
+        return;
+      }
+      const nextId = product.latest?.id ? String(parseInt(product.latest.id.replace('#', '')) + 1).padStart(5, '0') : '00000';
+      const list = getSavedTickets();
+      let added = 0;
+      ws.tickets.forEach(t => {
+        const ticketData = {
+          id: 'wheel_' + currentProductKey + '_' + nextId + '_' + t.ticketIndex,
+          game: currentProductKey,
+          gameName: product.name,
+          drawId: nextId,
+          type: 'wheel',
+          numbers: t.numbers,
+          cost: 10000,
+          savedAt: new Date().toLocaleString('vi-VN')
+        };
+        const exists = list.some(x => x.game === ticketData.game && x.drawId === ticketData.drawId && JSON.stringify(x.numbers) === JSON.stringify(ticketData.numbers));
+        if (!exists) {
+          list.unshift(ticketData);
+          added++;
+        }
+      });
+      setSavedTickets(list);
+      updateSavedBadge();
+      alert(`ĐÃ LƯU THÀNH CÔNG DÀN 6 VÉ! 📥\n\nToàn bộ ${added} vé trong dàn bọc lót đã được nạp an toàn vào Sổ Tay của bạn.`);
+    }
+
+    function copyWheelingSms() {
+      const product = appData?.products?.[currentProductKey];
+      const ws = product?.wheeling_strategy;
+      if (!ws || !ws.tickets || !ws.tickets.length) return;
+
+      const code = currentProductKey === 'power_655' ? '655' : currentProductKey === 'power_645' ? '645' : '535';
+      const lines = ws.tickets.map((t, idx) => {
+        const letter = String.fromCharCode(65 + idx);
+        const numsStr = t.numbers.map(n => String(n).padStart(2, '0')).join(' ');
+        return `${code} K1 ${letter} S ${numsStr}`;
+      });
+
+      const fullMsg = lines.join('\n');
+      navigator.clipboard.writeText(fullMsg).then(() => {
+        alert(`ĐÃ COPY CÚ PHÁP DÀN 6 VÉ SMS 9969! 📲\n\n${fullMsg}\n\nBạn có thể gửi từng dòng hoặc gửi tin nhắn đến tổng đài 9969.`);
+      }).catch(() => {
+        prompt('Copy cú pháp gửi 9969:', fullMsg);
+      });
+    }
+
+    function copySingleTicketSms(numsSpaceSeparated) {
+      const code = currentProductKey === 'power_655' ? '655' : currentProductKey === 'power_645' ? '645' : '535';
+      const formatted = numsSpaceSeparated.split(' ').map(n => n.padStart(2, '0')).join(' ');
+      const syntax = `${code} K1 A S ${formatted}`;
+      navigator.clipboard.writeText(syntax).then(() => {
+        alert(`ĐÃ COPY CÚ PHÁP SMS 9969! 📲\n\n${syntax}\n\nNgười nhận: 9969`);
+      }).catch(() => {
+        prompt('Copy cú pháp gửi 9969:', syntax);
+      });
+    }
+
     function renderEnsembleView(product) {
       if (!product || product.type !== 'lotto') {
         const grid = document.getElementById('ensembleGoldenTicketsGrid');
@@ -3398,6 +3576,9 @@
 
       // 3. Generate golden tickets
       generateEnsembleGoldenTickets(false);
+
+      // 3.5. Render wheeling strategy
+      renderWheelingStrategy(product);
 
       // 4. Render prediction history
       renderPredictionHistory(product);

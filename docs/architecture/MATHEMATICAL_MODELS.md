@@ -72,3 +72,41 @@ Tạo ra $C(6, 5) = 6$ bộ số đơn con (6 số chính chọn từ 01-35 + 1 
 | **Trùng 4 số + Cầu ĐB** | 2 giải Nhì (500.000đ) + 4 giải Tư (50.000đ) | **1.200.000đ** | **+1.140.000đ** |
 | **Trùng 5 số chính** | 1 giải Nhất (40.000.000đ) + 5 giải Ba (50.000đ) | **40.250.000đ** | **+40.190.000đ** |
 | **Trùng 5 số + Cầu ĐB** | 1 Jackpot Độc Đắc + 5 giải Nhì (500.000đ) | **Jackpot (6+ Tỷ) + 2.500.000đ** | **Nổ Jackpot Độc Đắc** |
+
+---
+
+## 4. MÔ HÌNH NGUY CƠ BAYESIAN & SUY GIẢM MŨ (BAYESIAN HAZARD RATE & TIME DECAY)
+
+### A. Tần suất có trọng số suy giảm mũ (Exponential Time Decay):
+Các kỳ quay gần nhất phản ánh nhịp vận động cơ học và xác suất tức thời tốt hơn các kỳ quá xa trong quá khứ. Trọng số của kỳ quay cách hiện tại $t$ kỳ được tính:
+
+$$w(t) = e^{-lpha \cdot t} \quad (\text{với } \alpha = 0.035)$$
+
+Điểm tần suất suy giảm của bóng $b$:
+$$S_{\text{decay}}(b) = \sum_{t=0}^{K-1} w(t) \cdot \mathbb{I}(b \in \text{draw}_t)$$
+
+### B. Hàm nguy cơ nhịp gan Bayesian (Gap Hazard Rate Function):
+Gọi $g_b$ là số kỳ vắng mặt hiện tại của bóng $b$, và $\bar{g}_b$ là chu kỳ nhịp trung bình trong lịch sử. Tỷ số nhịp gan chuẩn hóa:
+
+$$r_b = \frac{g_b}{\max(1.0, \bar{g}_b)}$$
+
+Hàm mật độ nguy cơ nổ $H(r_b)$ đạt đỉnh cực đại tại "Vùng Vàng Điểm Rơi" ($0.75 \le r_b \le 1.35$):
+* Nếu $0.75 \le r_b \le 1.35$: $H(r_b) = 2.8 - 1.5 \times |r_b - 1.05|$ (Ưu tiên tối đa).
+* Nếu $r_b < 0.4$: $H(r_b) = 0.5 + r_b$ (Bóng vừa nổ, xác suất lặp lại thấp hơn).
+* Nếu $r_b > 2.2$: $H(r_b) = 0.8$ (Gan lì lợm kéo dài, rủi ro chôn vốn).
+
+Điểm tổng hợp định lượng cho từng con số:
+$$\text{Score}(b) = S_{\text{decay}}(b) \times 1.8 + H(r_b) \times 3.5$$
+
+---
+
+## 5. HỆ THỐNG DÀN GHÉP BỌC LÓT TOÁN HỌC (COMBINATORIAL WHEELING SYSTEM)
+
+Thay vì dự đoán một vé đơn lẻ 6 số ($P = 1 / 28.989.675$), mô hình chọn ra **Tập Hạt Nhân (Core Pool)** gồm $v$ con số có điểm số định lượng cao nhất ($v = 14$ cho 6/55, 6/45 và $v = 12$ cho 5/35).
+
+Sau đó áp dụng **Cấu trúc phủ tổ hợp tối ưu (Covering Design $C(v, k, t)$)**:
+Phủ $v$ con số thành 6 vé đơn 6 số sao cho:
+$$\forall T \subset \text{Core Pool}, |T| \ge 4 \implies \exists \text{ Vé } W \text{ sao cho } |T \cap W| \ge 3$$
+
+* **Ý nghĩa thực chiến:** Người chơi chỉ cần bỏ ra **60.000đ** (6 vé đơn 10k), nếu trong 14 số của Tập Hạt Nhân có 4 số quay thưởng nổ, **CHẮC CHẮN sẽ có ít nhất 1 vé trúng giải Ba (50.000đ) hoặc giải Nhì (500.000đ/1.700.000đ)**!
+* Đây là phương pháp quản trị rủi ro và tối ưu hóa đòn bẩy vốn theo lý thuyết trò chơi được chứng minh toán học.

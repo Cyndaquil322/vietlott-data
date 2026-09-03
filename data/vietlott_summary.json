@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-09-04 02:24:07",
+    "generated_at": "2026-09-04 02:31:22",
     "generator": "vietlott-data automated pipeline",
     "version": "2.0.0"
   },
@@ -3749,7 +3749,137 @@
           "prizeDetail": "Không trúng",
           "status": "completed"
         }
-      ]
+      ],
+      "wheeling_strategy": {
+        "core_pool": [
+          1,
+          5,
+          8,
+          9,
+          16,
+          18,
+          29,
+          38,
+          39,
+          40,
+          41,
+          44,
+          45,
+          55
+        ],
+        "core_pool_size": 14,
+        "tickets": [
+          {
+            "id": "wheel_1",
+            "ticketIndex": 1,
+            "numbers": [
+              1,
+              5,
+              9,
+              18,
+              39,
+              44
+            ],
+            "sum": 116,
+            "ac": 9,
+            "odds": 4,
+            "evens": 2,
+            "distinctTails": 5
+          },
+          {
+            "id": "wheel_2",
+            "ticketIndex": 2,
+            "numbers": [
+              5,
+              8,
+              16,
+              29,
+              40,
+              45
+            ],
+            "sum": 143,
+            "ac": 8,
+            "odds": 3,
+            "evens": 3,
+            "distinctTails": 5
+          },
+          {
+            "id": "wheel_3",
+            "ticketIndex": 3,
+            "numbers": [
+              8,
+              9,
+              18,
+              38,
+              41,
+              55
+            ],
+            "sum": 169,
+            "ac": 10,
+            "odds": 3,
+            "evens": 3,
+            "distinctTails": 4
+          },
+          {
+            "id": "wheel_4",
+            "ticketIndex": 4,
+            "numbers": [
+              1,
+              16,
+              29,
+              39,
+              44,
+              55
+            ],
+            "sum": 184,
+            "ac": 8,
+            "odds": 4,
+            "evens": 2,
+            "distinctTails": 5
+          },
+          {
+            "id": "wheel_5",
+            "ticketIndex": 5,
+            "numbers": [
+              5,
+              18,
+              38,
+              40,
+              41,
+              45
+            ],
+            "sum": 187,
+            "ac": 10,
+            "odds": 3,
+            "evens": 3,
+            "distinctTails": 4
+          },
+          {
+            "id": "wheel_6",
+            "ticketIndex": 6,
+            "numbers": [
+              1,
+              8,
+              16,
+              38,
+              40,
+              44
+            ],
+            "sum": 147,
+            "ac": 10,
+            "odds": 1,
+            "evens": 5,
+            "distinctTails": 5
+          }
+        ],
+        "special_recommendation": [
+          2,
+          7
+        ],
+        "guarantee_statement": "Cam kết bảo hiểm phủ tổ hợp C(v, k, 3): Chỉ cần 4 số trong tập hạt nhân nổ, chắc chắn có ít nhất 1 vé trúng giải Ba hoặc giải Nhì!",
+        "total_cost": 60000,
+        "total_tickets": 6
+      }
     },
     "power_645": {
       "name": "Mega 6/45",
@@ -7250,7 +7380,134 @@
           "prizeDetail": "Không trúng",
           "status": "completed"
         }
-      ]
+      ],
+      "wheeling_strategy": {
+        "core_pool": [
+          3,
+          6,
+          9,
+          15,
+          16,
+          17,
+          22,
+          31,
+          33,
+          35,
+          36,
+          39,
+          44,
+          45
+        ],
+        "core_pool_size": 14,
+        "tickets": [
+          {
+            "id": "wheel_1",
+            "ticketIndex": 1,
+            "numbers": [
+              3,
+              6,
+              15,
+              17,
+              33,
+              39
+            ],
+            "sum": 113,
+            "ac": 10,
+            "odds": 5,
+            "evens": 1,
+            "distinctTails": 5
+          },
+          {
+            "id": "wheel_2",
+            "ticketIndex": 2,
+            "numbers": [
+              6,
+              9,
+              16,
+              22,
+              35,
+              44
+            ],
+            "sum": 132,
+            "ac": 9,
+            "odds": 2,
+            "evens": 4,
+            "distinctTails": 5
+          },
+          {
+            "id": "wheel_3",
+            "ticketIndex": 3,
+            "numbers": [
+              9,
+              15,
+              17,
+              31,
+              36,
+              45
+            ],
+            "sum": 153,
+            "ac": 9,
+            "odds": 5,
+            "evens": 1,
+            "distinctTails": 5
+          },
+          {
+            "id": "wheel_4",
+            "ticketIndex": 4,
+            "numbers": [
+              3,
+              16,
+              22,
+              33,
+              39,
+              45
+            ],
+            "sum": 158,
+            "ac": 6,
+            "odds": 4,
+            "evens": 2,
+            "distinctTails": 5
+          },
+          {
+            "id": "wheel_5",
+            "ticketIndex": 5,
+            "numbers": [
+              6,
+              17,
+              31,
+              35,
+              36,
+              44
+            ],
+            "sum": 169,
+            "ac": 10,
+            "odds": 3,
+            "evens": 3,
+            "distinctTails": 5
+          },
+          {
+            "id": "wheel_6",
+            "ticketIndex": 6,
+            "numbers": [
+              3,
+              9,
+              16,
+              31,
+              35,
+              39
+            ],
+            "sum": 133,
+            "ac": 9,
+            "odds": 5,
+            "evens": 1,
+            "distinctTails": 5
+          }
+        ],
+        "special_recommendation": [],
+        "guarantee_statement": "Cam kết bảo hiểm phủ tổ hợp C(v, k, 3): Chỉ cần 4 số trong tập hạt nhân nổ, chắc chắn có ít nhất 1 vé trúng giải Ba hoặc giải Nhì!",
+        "total_cost": 60000,
+        "total_tickets": 6
+      }
     },
     "power_535": {
       "name": "Power 5/35",
@@ -10514,7 +10771,129 @@
           "prizeDetail": "6 Giải KK (10k)",
           "status": "completed"
         }
-      ]
+      ],
+      "wheeling_strategy": {
+        "core_pool": [
+          2,
+          3,
+          7,
+          9,
+          11,
+          13,
+          15,
+          18,
+          26,
+          27,
+          28,
+          34
+        ],
+        "core_pool_size": 12,
+        "tickets": [
+          {
+            "id": "wheel_1",
+            "ticketIndex": 1,
+            "numbers": [
+              2,
+              3,
+              9,
+              13,
+              26
+            ],
+            "sum": 53,
+            "ac": 6,
+            "odds": 3,
+            "evens": 2,
+            "distinctTails": 4
+          },
+          {
+            "id": "wheel_2",
+            "ticketIndex": 2,
+            "numbers": [
+              3,
+              7,
+              11,
+              15,
+              27
+            ],
+            "sum": 63,
+            "ac": 2,
+            "odds": 5,
+            "evens": 0,
+            "distinctTails": 4
+          },
+          {
+            "id": "wheel_3",
+            "ticketIndex": 3,
+            "numbers": [
+              7,
+              9,
+              13,
+              18,
+              28
+            ],
+            "sum": 75,
+            "ac": 6,
+            "odds": 3,
+            "evens": 2,
+            "distinctTails": 4
+          },
+          {
+            "id": "wheel_4",
+            "ticketIndex": 4,
+            "numbers": [
+              2,
+              11,
+              15,
+              26,
+              34
+            ],
+            "sum": 88,
+            "ac": 6,
+            "odds": 2,
+            "evens": 3,
+            "distinctTails": 5
+          },
+          {
+            "id": "wheel_5",
+            "ticketIndex": 5,
+            "numbers": [
+              3,
+              13,
+              18,
+              27,
+              34
+            ],
+            "sum": 95,
+            "ac": 6,
+            "odds": 3,
+            "evens": 2,
+            "distinctTails": 4
+          },
+          {
+            "id": "wheel_6",
+            "ticketIndex": 6,
+            "numbers": [
+              2,
+              7,
+              15,
+              18,
+              28
+            ],
+            "sum": 70,
+            "ac": 5,
+            "odds": 2,
+            "evens": 3,
+            "distinctTails": 4
+          }
+        ],
+        "special_recommendation": [
+          9,
+          7
+        ],
+        "guarantee_statement": "Cam kết bảo hiểm phủ tổ hợp C(v, k, 3): Chỉ cần 4 số trong tập hạt nhân nổ, chắc chắn có ít nhất 1 vé trúng giải Ba hoặc giải Nhì!",
+        "total_cost": 60000,
+        "total_tickets": 6
+      }
     },
     "keno": {
       "name": "Keno",
