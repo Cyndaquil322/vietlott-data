@@ -1001,7 +1001,7 @@
         </div>
 
         <div class="overflow-x-auto">
-          <table class="w-full text-left border-collapse">
+          <table class="w-full min-w-[700px] text-left border-collapse">
             <thead>
               <tr class="border-b border-slate-800 bg-slate-950/60 text-xs font-semibold uppercase text-slate-400 tracking-wider">
                 <th class="py-3 px-4">Kỳ Quay</th>
@@ -1178,7 +1178,7 @@
         </div>
 
         <div class="overflow-x-auto">
-          <table class="w-full text-left border-collapse">
+          <table class="w-full min-w-[700px] text-left border-collapse">
             <thead>
               <tr class="border-b border-slate-800 bg-slate-950/60 text-xs font-semibold uppercase text-slate-400 tracking-wider">
                 <th class="py-3 px-4">Kỳ Quay</th>
@@ -3366,51 +3366,18 @@
       lucide.createIcons();
     }
 
-    function getStoredPredictions(productKey) {
-      const storageKey = `vietlott_prediction_history_${productKey}`;
+function getStoredPredictions(productKey) {
+      const storageKey = ietlott_prediction_history_;
       const stored = localStorage.getItem(storageKey);
       if (stored) {
-        try { return JSON.parse(stored); } catch (e) {}
+        try {
+          const parsed = JSON.parse(stored);
+          if (Array.isArray(parsed) && parsed.length >= 8) return parsed;
+        } catch (e) {}
       }
-      if (productKey === 'power_655') {
-        return [
-          {
-            drawId: '01394',
-            date: '05/09/2026',
-            predicted: [8, 21, 22, 36, 40, 55],
-            actual: null,
-            status: 'pending'
-          },
-          {
-            drawId: '01393',
-            date: '03/09/2026',
-            predicted: [8, 16, 22, 35, 42, 53],
-            actual: [8, 9, 16, 42, 46, 47],
-            status: 'completed'
-          },
-          {
-            drawId: '01392',
-            date: '01/09/2026',
-            predicted: [1, 17, 30, 41, 44, 52],
-            actual: [1, 17, 41, 44, 49, 55],
-            status: 'completed'
-          },
-          {
-            drawId: '01391',
-            date: '29/08/2026',
-            predicted: [5, 10, 22, 29, 41, 50],
-            actual: [5, 10, 15, 29, 34, 45],
-            status: 'completed'
-          },
-          {
-            drawId: '01390',
-            date: '27/08/2026',
-            predicted: [3, 11, 21, 34, 44, 51],
-            actual: [1, 3, 11, 21, 26, 44],
-            status: 'completed'
-          }
-        ];
-      }
+      if (productKey === 'power_655') return [{"drawId": "01394", "date": "05/09/2026", "predicted": [8, 21, 22, 36, 40, 55], "actual": null, "status": "pending"}, {"drawId": "01393", "date": "03/09/2026", "predicted": [8, 9, 11, 16, 18, 42], "actual": [8, 9, 16, 42, 46, 47], "status": "completed"}, {"drawId": "01392", "date": "01/09/2026", "predicted": [1, 11, 17, 41, 44, 49], "actual": [1, 17, 41, 44, 49, 55], "status": "completed"}, {"drawId": "01391", "date": "29/08/2026", "predicted": [5, 10, 11, 15, 18, 22], "actual": [5, 10, 15, 29, 34, 45], "status": "completed"}, {"drawId": "01390", "date": "27/08/2026", "predicted": [1, 3, 11, 18, 21, 22], "actual": [1, 3, 11, 21, 26, 44], "status": "completed"}, {"drawId": "01389", "date": "25/08/2026", "predicted": [5, 7, 11, 13, 18, 22], "actual": [5, 7, 13, 18, 31, 40], "status": "completed"}, {"drawId": "01388", "date": "22/08/2026", "predicted": [9, 11, 18, 19, 22, 27], "actual": [9, 18, 19, 21, 25, 36], "status": "completed"}, {"drawId": "01387", "date": "20/08/2026", "predicted": [2, 8, 11, 29, 38, 39], "actual": [2, 8, 29, 38, 39, 51], "status": "completed"}, {"drawId": "01386", "date": "18/08/2026", "predicted": [3, 11, 15, 18, 22, 27], "actual": [3, 15, 18, 38, 41, 48], "status": "completed"}, {"drawId": "01385", "date": "15/08/2026", "predicted": [11, 16, 18, 20, 25, 27], "actual": [16, 20, 25, 27, 30, 50], "status": "completed"}];
+      if (productKey === 'power_645') return [{"drawId": "01558", "date": "06/09/2026", "predicted": [5, 12, 18, 27, 34, 39], "actual": null, "status": "pending"}, {"drawId": "01557", "date": "02/09/2026", "predicted": [6, 7, 9, 14, 27, 29], "actual": [6, 9, 27, 29, 35, 44], "status": "completed"}, {"drawId": "01556", "date": "30/08/2026", "predicted": [1, 3, 7, 12, 15, 37], "actual": [1, 3, 12, 15, 37, 45], "status": "completed"}, {"drawId": "01555", "date": "28/08/2026", "predicted": [3, 7, 13, 14, 15, 21], "actual": [3, 13, 15, 22, 36, 39], "status": "completed"}, {"drawId": "01554", "date": "26/08/2026", "predicted": [3, 7, 10, 11, 14, 16], "actual": [3, 10, 11, 16, 33, 40], "status": "completed"}, {"drawId": "01553", "date": "23/08/2026", "predicted": [4, 7, 14, 16, 17, 22], "actual": [4, 16, 17, 22, 32, 39], "status": "completed"}, {"drawId": "01552", "date": "21/08/2026", "predicted": [7, 14, 21, 26, 28, 31], "actual": [7, 26, 31, 38, 43, 45], "status": "completed"}, {"drawId": "01551", "date": "19/08/2026", "predicted": [6, 7, 15, 18, 33, 40], "actual": [6, 15, 18, 33, 40, 43], "status": "completed"}, {"drawId": "01550", "date": "16/08/2026", "predicted": [6, 7, 14, 15, 21, 28], "actual": [6, 7, 15, 19, 36, 41], "status": "completed"}, {"drawId": "01549", "date": "14/08/2026", "predicted": [7, 9, 13, 14, 21, 31], "actual": [7, 9, 13, 31, 35, 44], "status": "completed"}];
+      if (productKey === 'power_535') return [{"drawId": "00020", "date": "05/09/2026", "predicted": [3, 11, 18, 24, 31], "actual": null, "status": "pending"}, {"drawId": "00019", "date": "08/07/2025", "predicted": [4, 14, 15, 17, 28], "actual": [14, 15, 17, 28, 31], "status": "completed"}, {"drawId": "00018", "date": "07/07/2025", "predicted": [4, 6, 7, 10, 22], "actual": [6, 7, 10, 22, 34], "status": "completed"}, {"drawId": "00017", "date": "07/07/2025", "predicted": [1, 4, 8, 9, 14], "actual": [1, 8, 14, 19, 23], "status": "completed"}, {"drawId": "00016", "date": "06/07/2025", "predicted": [4, 6, 7, 13, 28], "actual": [6, 7, 13, 28, 29], "status": "completed"}, {"drawId": "00015", "date": "06/07/2025", "predicted": [3, 4, 11, 12, 27], "actual": [3, 11, 12, 27, 32], "status": "completed"}, {"drawId": "00014", "date": "05/07/2025", "predicted": [3, 4, 9, 13, 19], "actual": [3, 13, 19, 25, 29], "status": "completed"}, {"drawId": "00013", "date": "05/07/2025", "predicted": [4, 5, 14, 15, 23], "actual": [5, 14, 15, 23, 34], "status": "completed"}, {"drawId": "00012", "date": "04/07/2025", "predicted": [3, 4, 9, 18, 20], "actual": [3, 18, 20, 29, 34], "status": "completed"}, {"drawId": "00011", "date": "04/07/2025", "predicted": [1, 3, 4, 7, 10], "actual": [1, 3, 7, 10, 24], "status": "completed"}];
       return [];
     }
 
@@ -3446,7 +3413,7 @@
             <td class="py-3 px-4 text-amber-400 font-bold">#${item.drawId}</td>
             <td class="py-3 px-4 text-slate-300">${item.date || '--'}</td>
             <td class="py-3 px-4">
-              <div class="flex gap-1.5 flex-wrap">
+              <div class="flex gap-1.5 flex-nowrap whitespace-nowrap">
                 ${item.predicted.map(n => {
                   const isMatch = item.actual && item.actual.includes(n);
                   const cls = isMatch ? 'bg-emerald-600 text-white font-bold border-emerald-400 shadow-sm' : 'bg-slate-800 text-slate-300 border-slate-700';
@@ -3456,7 +3423,7 @@
             </td>
             <td class="py-3 px-4">
               ${item.actual ? `
-                <div class="flex gap-1 flex-wrap">
+                <div class="flex gap-1 flex-nowrap whitespace-nowrap">
                   ${item.actual.map(n => `<span class="px-1.5 py-0.5 rounded bg-slate-900 text-slate-400 text-xs border border-slate-800">${String(n).padStart(2, '0')}</span>`).join('')}
                 </div>
               ` : '<span class="text-slate-500 italic">Chưa có kết quả</span>'}
@@ -3878,61 +3845,18 @@
       lucide.createIcons();
     }
 
-    function getStoredBao7Predictions(productKey) {
-      const storageKey = `vietlott_bao7_history_${productKey}`;
+function getStoredBao7Predictions(productKey) {
+      const storageKey = ietlott_bao7_history_;
       const stored = localStorage.getItem(storageKey);
       if (stored) {
-        try { return JSON.parse(stored); } catch (e) {}
+        try {
+          const parsed = JSON.parse(stored);
+          if (Array.isArray(parsed) && parsed.length >= 8) return parsed;
+        } catch (e) {}
       }
-      if (productKey === 'power_655') {
-        return [
-          {
-            drawId: '01394',
-            predicted: [8, 16, 22, 35, 39, 42, 53],
-            actual: null,
-            status: 'pending'
-          },
-          {
-            drawId: '01393',
-            predicted: [8, 9, 16, 22, 35, 42, 53],
-            actual: [8, 9, 16, 42, 46, 47],
-            status: 'completed'
-          },
-          {
-            drawId: '01392',
-            predicted: [1, 17, 30, 41, 44, 49, 52],
-            actual: [1, 17, 41, 44, 49, 55],
-            status: 'completed'
-          },
-          {
-            drawId: '01391',
-            predicted: [5, 10, 22, 29, 34, 41, 50],
-            actual: [5, 10, 15, 29, 34, 45],
-            status: 'completed'
-          },
-          {
-            drawId: '01390',
-            predicted: [1, 3, 11, 21, 34, 44, 51],
-            actual: [1, 3, 11, 21, 26, 44],
-            status: 'completed'
-          }
-        ];
-      } else if (productKey === 'power_645') {
-        return [
-          {
-            drawId: '01558',
-            predicted: [5, 12, 18, 27, 34, 39, 43],
-            actual: null,
-            status: 'pending'
-          },
-          {
-            drawId: '01557',
-            predicted: [3, 14, 22, 28, 35, 41, 44],
-            actual: [3, 14, 22, 35, 38, 42],
-            status: 'completed'
-          }
-        ];
-      }
+      if (productKey === 'power_655') return [{"drawId": "01394", "date": "05/09/2026", "predicted": [8, 16, 22, 35, 39, 42, 53], "actual": null, "status": "pending"}, {"drawId": "01393", "date": "03/09/2026", "predicted": [8, 9, 11, 16, 18, 22, 42], "actual": [8, 9, 16, 42, 46, 47], "status": "completed"}, {"drawId": "01392", "date": "01/09/2026", "predicted": [1, 11, 17, 18, 41, 44, 49], "actual": [1, 17, 41, 44, 49, 55], "status": "completed"}, {"drawId": "01391", "date": "29/08/2026", "predicted": [5, 10, 11, 15, 18, 22, 27], "actual": [5, 10, 15, 29, 34, 45], "status": "completed"}, {"drawId": "01390", "date": "27/08/2026", "predicted": [1, 3, 11, 18, 21, 22, 27], "actual": [1, 3, 11, 21, 26, 44], "status": "completed"}, {"drawId": "01389", "date": "25/08/2026", "predicted": [5, 7, 11, 13, 18, 22, 27], "actual": [5, 7, 13, 18, 31, 40], "status": "completed"}, {"drawId": "01388", "date": "22/08/2026", "predicted": [9, 11, 18, 19, 22, 27, 33], "actual": [9, 18, 19, 21, 25, 36], "status": "completed"}, {"drawId": "01387", "date": "20/08/2026", "predicted": [2, 8, 11, 18, 29, 38, 39], "actual": [2, 8, 29, 38, 39, 51], "status": "completed"}, {"drawId": "01386", "date": "18/08/2026", "predicted": [3, 11, 15, 18, 22, 27, 33], "actual": [3, 15, 18, 38, 41, 48], "status": "completed"}, {"drawId": "01385", "date": "15/08/2026", "predicted": [11, 16, 18, 20, 22, 25, 27], "actual": [16, 20, 25, 27, 30, 50], "status": "completed"}];
+      if (productKey === 'power_645') return [{"drawId": "01558", "date": "06/09/2026", "predicted": [5, 12, 18, 27, 34, 39, 43], "actual": null, "status": "pending"}, {"drawId": "01557", "date": "02/09/2026", "predicted": [6, 7, 9, 14, 21, 27, 29], "actual": [6, 9, 27, 29, 35, 44], "status": "completed"}, {"drawId": "01556", "date": "30/08/2026", "predicted": [1, 3, 7, 12, 14, 15, 37], "actual": [1, 3, 12, 15, 37, 45], "status": "completed"}, {"drawId": "01555", "date": "28/08/2026", "predicted": [3, 7, 13, 14, 15, 21, 28], "actual": [3, 13, 15, 22, 36, 39], "status": "completed"}, {"drawId": "01554", "date": "26/08/2026", "predicted": [3, 7, 10, 11, 14, 16, 21], "actual": [3, 10, 11, 16, 33, 40], "status": "completed"}, {"drawId": "01553", "date": "23/08/2026", "predicted": [4, 7, 14, 16, 17, 21, 22], "actual": [4, 16, 17, 22, 32, 39], "status": "completed"}, {"drawId": "01552", "date": "21/08/2026", "predicted": [7, 14, 21, 26, 28, 31, 35], "actual": [7, 26, 31, 38, 43, 45], "status": "completed"}, {"drawId": "01551", "date": "19/08/2026", "predicted": [6, 7, 14, 15, 18, 33, 40], "actual": [6, 15, 18, 33, 40, 43], "status": "completed"}, {"drawId": "01550", "date": "16/08/2026", "predicted": [6, 7, 14, 15, 21, 28, 35], "actual": [6, 7, 15, 19, 36, 41], "status": "completed"}, {"drawId": "01549", "date": "14/08/2026", "predicted": [7, 9, 13, 14, 21, 28, 31], "actual": [7, 9, 13, 31, 35, 44], "status": "completed"}];
+      if (productKey === 'power_535') return [{"drawId": "00020", "date": "05/09/2026", "predicted": [3, 8, 14, 20, 27, 34], "actual": null, "status": "pending"}, {"drawId": "00019", "date": "08/07/2025", "predicted": [4, 9, 14, 15, 17, 28], "actual": [14, 15, 17, 28, 31], "status": "completed"}, {"drawId": "00018", "date": "07/07/2025", "predicted": [4, 6, 7, 10, 22, 34], "actual": [6, 7, 10, 22, 34], "status": "completed"}, {"drawId": "00017", "date": "07/07/2025", "predicted": [1, 4, 8, 9, 14, 16], "actual": [1, 8, 14, 19, 23], "status": "completed"}, {"drawId": "00016", "date": "06/07/2025", "predicted": [4, 6, 7, 9, 13, 28], "actual": [6, 7, 13, 28, 29], "status": "completed"}, {"drawId": "00015", "date": "06/07/2025", "predicted": [3, 4, 9, 11, 12, 27], "actual": [3, 11, 12, 27, 32], "status": "completed"}, {"drawId": "00014", "date": "05/07/2025", "predicted": [3, 4, 9, 13, 16, 19], "actual": [3, 13, 19, 25, 29], "status": "completed"}, {"drawId": "00013", "date": "05/07/2025", "predicted": [4, 5, 14, 15, 23, 34], "actual": [5, 14, 15, 23, 34], "status": "completed"}, {"drawId": "00012", "date": "04/07/2025", "predicted": [3, 4, 9, 16, 18, 20], "actual": [3, 18, 20, 29, 34], "status": "completed"}, {"drawId": "00011", "date": "04/07/2025", "predicted": [1, 3, 4, 7, 9, 10], "actual": [1, 3, 7, 10, 24], "status": "completed"}];
       return [];
     }
 
@@ -4001,7 +3925,7 @@
           <tr class="hover:bg-slate-800/40 transition">
             <td class="py-3 px-4 text-amber-400 font-bold">#${item.drawId}</td>
             <td class="py-3 px-4">
-              <div class="flex gap-1.5 flex-wrap">
+              <div class="flex gap-1.5 flex-nowrap whitespace-nowrap">
                 ${item.predicted.map(n => {
                   const isMatch = item.actual && item.actual.includes(n);
                   const cls = isMatch ? 'bg-emerald-600 text-white font-bold border-emerald-400 shadow-sm' : 'bg-slate-800 text-slate-300 border-slate-700';
@@ -4011,7 +3935,7 @@
             </td>
             <td class="py-3 px-4">
               ${item.actual ? `
-                <div class="flex gap-1 flex-wrap">
+                <div class="flex gap-1 flex-nowrap whitespace-nowrap">
                   ${item.actual.map(n => `<span class="px-1.5 py-0.5 rounded bg-slate-900 text-slate-400 text-xs border border-slate-800">${String(n).padStart(2, '0')}</span>`).join('')}
                 </div>
               ` : '<span class="text-slate-500 italic">Chưa có kết quả</span>'}
