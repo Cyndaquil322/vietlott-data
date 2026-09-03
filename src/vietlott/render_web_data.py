@@ -977,6 +977,100 @@ def calculate_walk_forward_bao7_backtest(records: List[Dict], product_key: str, 
     return [pending_record] + list(reversed(backtest_results))
 
 
+
+def calculate_bac_nho_and_cau_roi(records: List[Dict], max_val: int, num_balls: int, window: int = 200) -> Dict[str, Any]:
+    """
+    Phân tích Cầu Rơi & Bạc Nhớ thực chiến trên 200 kỳ thật 100%:
+    1. Radar Cầu Rơi: Phân tích 6 số vừa nổ, chọn bóng có nhịp rơi đẹp nhất.
+    2. Bạc Nhớ Chuyển Tiếp: Quét luật A -> B có độ nâng (Lift) cao nhất dựa trên kết quả kỳ trước.
+    """
+    if len(records) < 20:
+        return {}
+
+    sample = records[-window:] if len(records) >= window else records
+    total_transitions = len(sample) - 1
+    
+    # 1. Thống kê Cầu Rơi trên cửa sổ mẫu
+    repeat_counts = Counter()
+    ball_repeat_history = Counter() # Số lần từng bóng rơi liên tiếp
+    
+    for i in range(total_transitions):
+        prev = set(sample[i].get("result", [])[:num_balls])
+        cur = set(sample[i+1].get("result", [])[:num_balls])
+        common = prev.intersection(cur)
+        repeat_counts[len(common)] += 1
+        for b in common:
+            ball_repeat_history[b] += 1
+            
+    r0 = repeat_counts[0]
+    r1 = repeat_counts[1]
+    r2 = repeat_counts[2]
+    has_repeat_pct = round((total_transitions - r0) / max(1, total_transitions) * 100, 1)
+    repeat_1_pct = round(r1 / max(1, total_transitions) * 100, 1)
+    repeat_2_pct = round(r2 / max(1, total_transitions) * 100, 1)
+    
+    # Đánh giá 6 số của kỳ vừa nổ nhất để chọn Cầu Rơi
+    latest_draw = sample[-1]
+    latest_balls = latest_draw.get("result", [])[:num_balls]
+    
+    cau_roi_candidates = []
+    for b in latest_balls:
+        # Số lần bóng này đã từng rơi lại trong quá khứ
+        past_repeats = ball_repeat_history[b]
+        # Tính điểm nhịp rơi
+        cau_roi_candidates.append({
+            "number": b,
+            "past_repeats": past_repeats,
+            "repeat_tendency_score": round(past_repeats * 1.5 + (1.0 if past_repeats >= 3 else 0.5), 2)
+        })
+    cau_roi_candidates.sort(key=lambda x: x["repeat_tendency_score"], reverse=True)
+    top_cau_roi = cau_roi_candidates[:2]
+    
+    # 2. Bạc Nhớ Chuyển Tiếp (Lag-1 Transitions)
+    transitions = Counter()
+    appearances = Counter()
+    
+    for i in range(total_transitions):
+        prev_res = sample[i].get("result", [])[:num_balls]
+        cur_res = sample[i+1].get("result", [])[:num_balls]
+        for p in prev_res:
+            appearances[p] += 1
+            for c in cur_res:
+                transitions[(p, c)] += 1
+                
+    # Tìm các luật Bạc Nhớ được kích hoạt bởi 6 số của kỳ vừa nổ
+    triggered_rules = []
+    latest_set = set(latest_balls)
+    
+    for (p, c), cnt in transitions.items():
+        if p in latest_set and cnt >= 4: # Xuất hiện ít nhất 4 lần trong 200 kỳ
+            prob = cnt / max(1, appearances[p])
+            base_prob = (sum(1 for h in sample if c in h.get("result", [])[:num_balls])) / len(sample)
+            lift = prob / max(0.01, base_prob)
+            if lift >= 1.6 and prob >= 0.25:
+                triggered_rules.append({
+                    "from_number": p,
+                    "to_number": c,
+                    "count": cnt,
+                    "appearances": appearances[p],
+                    "probability_pct": round(prob * 100, 1),
+                    "lift": round(lift, 2)
+                })
+                
+    triggered_rules.sort(key=lambda x: (x["lift"], x["count"]), reverse=True)
+    
+    return {
+        "window_draws": len(sample),
+        "has_repeat_pct": has_repeat_pct,
+        "repeat_1_pct": repeat_1_pct,
+        "repeat_2_pct": repeat_2_pct,
+        "latest_balls": latest_balls,
+        "cau_roi_analysis": cau_roi_candidates,
+        "top_cau_roi": top_cau_roi,
+        "triggered_bac_nho": triggered_rules[:10]
+    }
+
+
 def process_power(records: List[Dict], max_val: int, num_balls: int, has_special: bool = False) -> Dict[str, Any]:
     """Process Power 655, 645, 535 with full analytics."""
     if not records:
@@ -1068,7 +1162,8 @@ def process_power(records: List[Dict], max_val: int, num_balls: int, has_special
         },
         "backtest_history": calculate_walk_forward_backtest(records, "power_535" if max_val==35 else ("power_645" if max_val==45 else "power_655"), max_val, num_balls, is_two_matrix=(max_val==35)),
         "bao7_backtest_history": calculate_walk_forward_bao7_backtest(records, "power_535" if max_val==35 else ("power_645" if max_val==45 else "power_655"), max_val, num_balls, is_two_matrix=(max_val==35)),
-        "wheeling_strategy": generate_wheeling_strategy(records, "power_535" if max_val==35 else ("power_645" if max_val==45 else "power_655"), max_val, num_balls, is_two_matrix=(max_val==35))
+        "wheeling_strategy": generate_wheeling_strategy(records, "power_535" if max_val==35 else ("power_645" if max_val==45 else "power_655"), max_val, num_balls, is_two_matrix=(max_val==35)),
+        "bac_nho_analytics": calculate_bac_nho_and_cau_roi(records, max_val, num_balls, window=200)
     }
 
 

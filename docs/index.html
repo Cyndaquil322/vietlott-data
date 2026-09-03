@@ -1049,6 +1049,66 @@
         </div>
       </div>
 
+            <!-- 1.5. SOI CẦU BẠC NHỚ & CẦU RƠI THỰC CHIẾN (200 KỲ THẬT) -->
+      <div id="bacNhoSection" class="rounded-2xl bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 border border-emerald-500/30 p-6 shadow-2xl space-y-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+          <div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 flex items-center gap-1.5">
+                <i data-lucide="zap" class="w-3.5 h-3.5"></i>
+                SOI CẦU DÂN GIAN & BẠC NHỚ THỰC CHIẾN
+              </span>
+              <span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                200 Kỳ Thật 100%
+              </span>
+            </div>
+            <h4 class="text-base font-bold text-white mt-1.5 flex items-center gap-2">
+              <span>RADAR BẮT CẦU RƠI & BẢNG BẠC NHỚ GỌI TÊN KỲ NÀY</span>
+            </h4>
+            <p class="text-xs text-slate-300 mt-1">
+              Khai thác 2 quy luật dân gian đã được chứng minh qua 200 kỳ: <strong>Cầu Rơi</strong> (lặp lại từ kỳ trước với tỷ lệ >50%) và <strong>Bạc Nhớ</strong> (số nổ kỳ trước kéo theo số kỳ này với chỉ số Lift cao gấp 2-7 lần ngẫu nhiên).
+            </p>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="px-3.5 py-2 rounded-xl bg-slate-950 border border-emerald-500/40 text-center">
+              <span class="text-[10px] text-slate-400 block uppercase font-mono">Tỷ lệ kỳ có Cầu Rơi:</span>
+              <span id="bacNhoRepeatRate" class="text-emerald-400 font-black text-sm font-mono">--%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <!-- Left: Radar Cầu Rơi -->
+          <div class="lg:col-span-5 bg-slate-950/80 rounded-xl border border-slate-800 p-4 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+                <i data-lucide="crosshair" class="w-4 h-4"></i>
+                Radar Bắt Cầu Rơi (6 Số Vừa Nổ)
+              </span>
+              <span class="text-[11px] text-slate-500">Khuyên chọn 1 bóng lót</span>
+            </div>
+            <div id="cauRoiBallsContainer" class="grid grid-cols-3 sm:grid-cols-6 lg:grid-cols-3 gap-2 pt-1">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+
+          <!-- Right: Bảng Bạc Nhớ Kích Hoạt -->
+          <div class="lg:col-span-7 bg-slate-950/80 rounded-xl border border-slate-800 p-4 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
+                <i data-lucide="flame" class="w-4 h-4 text-amber-400"></i>
+                Bạc Nhớ Kéo Số (Kích hoạt bởi kỳ trước)
+              </span>
+              <span class="text-[11px] text-slate-500">Lift > 1.6x ngẫu nhiên</span>
+            </div>
+            <div id="bacNhoRulesContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-[190px] overflow-y-auto pr-1">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+
       <!-- 2. Master Predictions (Top 3 Golden Tickets for Next Draw) -->
       <div class="space-y-4">
         <div class="flex items-center justify-between">
@@ -3554,6 +3614,79 @@
       });
     }
 
+
+    // ==========================================
+    // BAC NHO & CAU ROI JAVASCRIPT FUNCTIONS
+    // ==========================================
+    function renderBacNhoAnalytics(product) {
+      const bn = product?.bac_nho_analytics;
+      const section = document.getElementById('bacNhoSection');
+      if (!section) return;
+
+      if (!bn || !bn.cau_roi_analysis || !bn.cau_roi_analysis.length) {
+        section.classList.add('hidden');
+        return;
+      }
+      section.classList.remove('hidden');
+
+      const rateEl = document.getElementById('bacNhoRepeatRate');
+      if (rateEl) rateEl.textContent = `${bn.has_repeat_pct}% (200 kỳ)`;
+
+      // Render Cau Roi Balls
+      const cauRoiContainer = document.getElementById('cauRoiBallsContainer');
+      const topNumbers = (bn.top_cau_roi || []).map(x => x.number);
+
+      if (cauRoiContainer) {
+        cauRoiContainer.innerHTML = (bn.cau_roi_analysis || []).map(item => {
+          const isTop = topNumbers.includes(item.number);
+          const bgCls = isTop 
+            ? 'border-emerald-400/80 bg-gradient-to-b from-slate-900 to-emerald-950/40 text-emerald-300 shadow-md shadow-emerald-950/40' 
+            : 'border-slate-800 bg-slate-900 text-slate-300';
+
+          return `
+            <div class="rounded-xl border ${bgCls} p-2.5 flex flex-col items-center justify-between text-center relative transition hover:scale-105 cursor-pointer" 
+              onclick="applyGoldenTicketToChecker('${item.number}')" title="Bóng ${item.number} đã từng rơi lại ${item.past_repeats} lần trong 200 kỳ">
+              ${isTop ? '<span class="absolute -top-1.5 px-1.5 py-0.2 rounded-full text-[8px] font-black bg-emerald-500 text-slate-950 tracking-wider">KHUYÊN CHỌN</span>' : ''}
+              <span class="w-8 h-8 rounded-full bg-slate-800 text-white font-mono font-bold text-xs flex items-center justify-center border border-slate-700 mt-1">
+                ${String(item.number).padStart(2, '0')}
+              </span>
+              <div class="text-[10px] text-slate-400 mt-1">
+                Từng rơi: <strong class="text-emerald-400">${item.past_repeats} lần</strong>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      // Render Bac Nho Rules
+      const rulesContainer = document.getElementById('bacNhoRulesContainer');
+      if (rulesContainer) {
+        if (!bn.triggered_bac_nho || !bn.triggered_bac_nho.length) {
+          rulesContainer.innerHTML = `<p class="text-xs text-slate-500 col-span-full py-4 text-center">Chưa có cặp bạc nhớ nào vượt ngưỡng Lift 1.6x ở kỳ này.</p>`;
+        } else {
+          rulesContainer.innerHTML = bn.triggered_bac_nho.map(rule => `
+            <div class="rounded-lg bg-slate-900 p-2.5 border border-slate-800 flex items-center justify-between hover:border-amber-500/40 transition">
+              <div class="flex items-center gap-2">
+                <span class="w-7 h-7 rounded-full bg-slate-800 text-slate-300 font-mono font-bold text-xs flex items-center justify-center border border-slate-700">
+                  ${String(rule.from_number).padStart(2, '0')}
+                </span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-amber-400"></i>
+                <span class="w-7 h-7 rounded-full bg-amber-500/20 text-amber-300 font-mono font-bold text-xs flex items-center justify-center border border-amber-500/40">
+                  ${String(rule.to_number).padStart(2, '0')}
+                </span>
+              </div>
+              <div class="text-right text-[11px] font-mono">
+                <div class="text-amber-400 font-bold">${rule.count} lần • ${rule.probability_pct}%</div>
+                <div class="text-[9px] text-slate-400">Lift ${rule.lift}x ngẫu nhiên</div>
+              </div>
+            </div>
+          `).join('');
+        }
+      }
+
+      lucide.createIcons();
+    }
+
     function renderEnsembleView(product) {
       if (!product || product.type !== 'lotto') {
         const grid = document.getElementById('ensembleGoldenTicketsGrid');
@@ -3576,6 +3709,9 @@
 
       // 3. Generate golden tickets
       generateEnsembleGoldenTickets(false);
+
+      // 3.2. Render Bac Nho & Cau Roi
+      renderBacNhoAnalytics(product);
 
       // 3.5. Render wheeling strategy
       renderWheelingStrategy(product);
