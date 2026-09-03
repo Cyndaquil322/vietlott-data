@@ -1522,16 +1522,18 @@
         `).join('');
 
         if (specialBall !== null) {
+          const is535 = currentProductKey === 'power_535';
+          const badgeText = is535 ? 'Số Đặc Biệt (01-12)' : 'Jackpot 2';
           ballsHtml += `
             <div class="flex items-center text-slate-600 font-bold text-xl px-1">+</div>
             <div class="relative group">
               <div class="lotto-ball ball-gold w-12 h-12 sm:w-14 sm:h-14 text-lg sm:text-xl font-mono">
                 ${String(specialBall).padStart(2, '0')}
               </div>
-              <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-[10px] font-bold text-amber-400 uppercase tracking-widest whitespace-nowrap bg-amber-950/80 px-2 py-0.5 rounded border border-amber-800/60">Jackpot 2</span>
+              <span class="absolute -top-7 left-1/2 -translate-x-1/2 text-[10px] font-bold text-amber-400 uppercase tracking-widest whitespace-nowrap bg-amber-950/80 px-2 py-0.5 rounded border border-amber-800/60">${badgeText}</span>
             </div>
           `;
-          legend.innerHTML = `🔴 Bóng chính | 🟡 Bóng Jackpot 2`;
+          legend.innerHTML = is535 ? `🔴 5 Số chính (01 - 35) | 🟡 Số đặc biệt (01 - 12)` : `🔴 Bóng chính | 🟡 Bóng Jackpot 2`;
         }
         container.innerHTML = ballsHtml;
 
@@ -1599,7 +1601,13 @@
       while (numbers.size < count) {
         numbers.add(Math.floor(Math.random() * max) + 1);
       }
-      document.getElementById('ticketInput').value = Array.from(numbers).sort((a, b) => a - b).join(', ');
+      const sorted = Array.from(numbers).sort((a, b) => a - b);
+      if (currentProductKey === 'power_535') {
+        const special = Math.floor(Math.random() * 12) + 1;
+        document.getElementById('ticketInput').value = `${sorted.join(', ')} + ${special}`;
+      } else {
+        document.getElementById('ticketInput').value = sorted.join(', ');
+      }
       checkTicket();
     }
 
@@ -1617,7 +1625,7 @@
       const draw = (product.history && product.history[selectedIndex]) || product.latest;
       if (!draw) return;
 
-      const userNumbers = inputStr.split(/[\s,;-]+/).filter(Boolean).map(n => parseInt(n)).filter(n => !isNaN(n));
+      const userNumbers = inputStr.split(/[\s,;+-]+/).filter(Boolean).map(n => parseInt(n)).filter(n => !isNaN(n));
       const drawResult = draw.result || [];
 
       if (product.type === 'lotto') {
@@ -1632,17 +1640,26 @@
         let isWin = false;
         let prizeColor = 'text-slate-400';
 
-        if (product.name === 'Power 6/55') {
+        if (product.name === 'Power 6/55' || currentProductKey === 'power_655') {
           if (matchedMain.length === 6) { prizeName = '🏆 TRÚNG JACKPOT 1 (Khởi điểm 30 TỶ)'; isWin = true; prizeColor = 'text-amber-400 font-extrabold'; }
           else if (matchedMain.length === 5 && matchedSpecial) { prizeName = '💎 TRÚNG JACKPOT 2 (Khởi điểm 3 TỶ)'; isWin = true; prizeColor = 'text-amber-300 font-bold'; }
           else if (matchedMain.length === 5) { prizeName = '⭐ TRÚNG GIẢI NHẤT (40.000.000đ)'; isWin = true; prizeColor = 'text-emerald-400 font-bold'; }
           else if (matchedMain.length === 4) { prizeName = '🎉 TRÚNG GIẢI NHÌ (500.000đ)'; isWin = true; prizeColor = 'text-emerald-400'; }
           else if (matchedMain.length === 3) { prizeName = '🎯 TRÚNG GIẢI BA (50.000đ)'; isWin = true; prizeColor = 'text-emerald-400'; }
-        } else if (product.name === 'Mega 6/45') {
+        } else if (product.name === 'Mega 6/45' || currentProductKey === 'power_645') {
           if (matchedMain.length === 6) { prizeName = '🏆 TRÚNG JACKPOT (Khởi điểm 12 TỶ)'; isWin = true; prizeColor = 'text-amber-400 font-extrabold'; }
           else if (matchedMain.length === 5) { prizeName = '⭐ TRÚNG GIẢI NHẤT (10.000.000đ)'; isWin = true; prizeColor = 'text-emerald-400 font-bold'; }
           else if (matchedMain.length === 4) { prizeName = '🎉 TRÚNG GIẢI NHÌ (300.000đ)'; isWin = true; prizeColor = 'text-emerald-400'; }
           else if (matchedMain.length === 3) { prizeName = '🎯 TRÚNG GIẢI BA (30.000đ)'; isWin = true; prizeColor = 'text-emerald-400'; }
+        } else if (product.name === 'Power 5/35' || currentProductKey === 'power_535') {
+          if (matchedMain.length === 5 && matchedSpecial) { prizeName = '🏆 TRÚNG GIẢI ĐỘC ĐẮC / JACKPOT (Từ 6 TỶ)'; isWin = true; prizeColor = 'text-amber-400 font-extrabold'; }
+          else if (matchedMain.length === 5) { prizeName = '⭐ TRÚNG GIẢI NHẤT (Khởi điểm 40.000.000đ)'; isWin = true; prizeColor = 'text-emerald-400 font-bold'; }
+          else if (matchedMain.length === 4 && matchedSpecial) { prizeName = '💎 TRÚNG GIẢI NHÌ (4 số chính + Số đặc biệt)'; isWin = true; prizeColor = 'text-emerald-400 font-bold'; }
+          else if (matchedMain.length === 4) { prizeName = '🎉 TRÚNG GIẢI BA (4 số chính)'; isWin = true; prizeColor = 'text-emerald-400'; }
+          else if (matchedMain.length === 3 && matchedSpecial) { prizeName = '🎯 TRÚNG GIẢI BỐN (3 số chính + Số đặc biệt)'; isWin = true; prizeColor = 'text-emerald-400'; }
+          else if (matchedMain.length === 3) { prizeName = '🎖️ TRÚNG GIẢI NĂM (3 số chính)'; isWin = true; prizeColor = 'text-emerald-400'; }
+          else if (matchedMain.length === 2 && matchedSpecial) { prizeName = '🎈 TRÚNG GIẢI SÁU (2 số chính + Số đặc biệt)'; isWin = true; prizeColor = 'text-blue-400'; }
+          else if (matchedMain.length === 1 && matchedSpecial) { prizeName = '✨ TRÚNG GIẢI BẢY (1 số chính + Số đặc biệt)'; isWin = true; prizeColor = 'text-slate-300'; }
         } else {
           if (matchedMain.length >= 3) { prizeName = `🎯 Trùng ${matchedMain.length} số!`; isWin = true; prizeColor = 'text-emerald-400 font-bold'; }
         }
@@ -2262,8 +2279,10 @@
 
         const ticketStr = ticket.join(',');
         if (!generatedTickets.some(t => t.numbers.join(',') === ticketStr)) {
+          const spec = currentProductKey === 'power_535' ? (Math.floor(Math.random() * 12) + 1) : null;
           generatedTickets.push({
             numbers: ticket,
+            special: spec,
             sum: s,
             oddCount: oddCount,
             evenCount: count - oddCount
@@ -2278,13 +2297,20 @@
             <span class="font-bold text-pink-400">Gợi ý #${idx + 1}</span>
             <span class="text-slate-400">Tổng: <strong>${t.sum}</strong> (${t.oddCount} Lẻ - ${t.evenCount} Chẵn)</span>
           </div>
-          <div class="flex flex-wrap gap-2">
+          <div class="flex flex-wrap items-center gap-2">
             ${t.numbers.map(n => `
               <span class="lotto-ball ball-red w-10 h-10 text-sm font-mono">${String(n).padStart(2, '0')}</span>
             `).join('')}
+            ${t.special ? `
+              <span class="text-slate-500 font-bold px-1">+</span>
+              <div class="relative group">
+                <span class="lotto-ball ball-gold w-10 h-10 text-sm font-mono">${String(t.special).padStart(2, '0')}</span>
+                <span class="absolute -top-6 left-1/2 -translate-x-1/2 text-[9px] font-bold text-amber-400 whitespace-nowrap bg-slate-900 px-1.5 py-0.5 rounded border border-amber-800">Đặc biệt</span>
+              </div>
+            ` : ''}
           </div>
           <div class="flex items-center gap-2 pt-1">
-            <button onclick="applySmartTicket('${t.numbers.join(', ')}')" class="flex-1 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition">
+            <button onclick="applySmartTicket('${t.numbers.join(', ')}${t.special ? ' + ' + t.special : ''}')" class="flex-1 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition">
               Nạp sang Dò Vé
             </button>
             <button onclick="applyToSimulator('${t.numbers.join(', ')}')" class="py-1.5 px-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-yellow-400 text-xs font-semibold transition" title="Nạp vào Giả lập">
@@ -3202,32 +3228,41 @@
             }
           }
           const ac = diffs.size - (numBalls - 1);
-          if (ac < 7) continue;
+          const acMin = numBalls === 5 ? 5 : 7;
+          if (ac < acMin) continue;
 
-          // 4. Markov check (at least 2 numbers from markov top)
+          // 4. Markov check
           const markovMatches = sorted.filter(n => markovSet.has(n));
-          if (markovMatches.length < 2) continue;
+          const minMarkov = numBalls === 5 ? 1 : 2;
+          if (markovMatches.length < minMarkov) continue;
 
           // 5. Odd/Even balance
           const odds = sorted.filter(n => n % 2 !== 0).length;
-          if (odds < 2 || odds > 4) continue;
+          if (numBalls === 5) {
+            if (odds !== 2 && odds !== 3) continue;
+          } else {
+            if (odds < 2 || odds > 4) continue;
+          }
 
-          // 6. Ending digit diversity (at least 5 distinct tails)
+          // 6. Ending digit diversity
           const tails = new Set(sorted.map(n => n % 10));
-          if (tails.size < 5) continue;
+          const minTails = numBalls === 5 ? 4 : 5;
+          if (tails.size < minTails) continue;
 
-          // 7. Delta steps: at least 3 delta <= 5
+          // 7. Delta steps
           let smallDeltas = 0;
           for (let i = 1; i < numBalls; i++) {
             if (sorted[i] - sorted[i - 1] <= 5) smallDeltas++;
           }
-          if (smallDeltas < 3) continue;
+          const minDeltas = numBalls === 5 ? 2 : 3;
+          if (smallDeltas < minDeltas) continue;
 
-          // Calculate composite score (90 - 99%)
-          const score = Math.min(99, 88 + posOk * 1.5 + markovMatches.length * 2 + (ac >= 8 ? 2 : 0));
+          const spec = currentProductKey === 'power_535' ? (Math.floor(Math.random() * 12) + 1) : null;
+          const score = Math.min(99, 88 + posOk * 1.5 + markovMatches.length * 2 + (ac >= (numBalls === 5 ? 6 : 8) ? 2 : 0));
 
           golden.push({
             numbers: sorted,
+            special: spec,
             sum: sumVal,
             ac: ac,
             odds: odds,
@@ -3265,23 +3300,32 @@
               </div>
 
               <!-- Ball row -->
-              <div class="flex justify-center flex-wrap gap-2 py-2">
+              <div class="flex justify-center items-center flex-wrap gap-2 py-2">
                 ${t.numbers.map(n => `
                   <span class="w-10 h-10 rounded-full bg-gradient-to-br from-rose-600 to-red-700 text-white font-mono font-bold text-sm flex items-center justify-center shadow-lg shadow-rose-950/60">
                     ${String(n).padStart(2, '0')}
                   </span>
                 `).join('')}
+                ${t.special ? `
+                  <span class="text-slate-500 font-bold px-1">+</span>
+                  <div class="relative group">
+                    <span class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-400 to-yellow-600 text-white font-mono font-bold text-sm flex items-center justify-center shadow-lg shadow-amber-950/60 border border-yellow-300">
+                      ${String(t.special).padStart(2, '0')}
+                    </span>
+                    <span class="absolute -top-6 left-1/2 -translate-x-1/2 text-[9px] font-bold text-amber-400 whitespace-nowrap bg-slate-900 px-1.5 py-0.5 rounded border border-amber-800">Đặc biệt</span>
+                  </div>
+                ` : ''}
               </div>
 
               <!-- Criteria checklist -->
               <div class="space-y-1.5 pt-2 border-t border-slate-800 text-[11px] text-slate-400 font-mono">
                 <div class="flex justify-between">
-                  <span>Tổng điểm:</span>
+                  <span>Tổng điểm chính:</span>
                   <span class="text-emerald-400 font-bold">${t.sum} (Chuẩn an toàn)</span>
                 </div>
                 <div class="flex justify-between">
                   <span>Độ phức tạp AC:</span>
-                  <span class="text-orange-400 font-bold">AC = ${t.ac} / 10 (Chuẩn ngẫu nhiên)</span>
+                  <span class="text-orange-400 font-bold">AC = ${t.ac} (Chuẩn ngẫu nhiên)</span>
                 </div>
                 <div class="flex justify-between">
                   <span>Cơ cấu Lẻ - Chẵn:</span>
@@ -3301,14 +3345,14 @@
             <!-- Action buttons -->
             <div class="pt-3 border-t border-slate-800/80 flex flex-col gap-2">
               <div class="flex gap-2">
-                <button onclick="applyGoldenTicketToChecker('${t.numbers.join(', ')}')" class="flex-1 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition">
+                <button onclick="applyGoldenTicketToChecker('${t.numbers.join(', ')}${t.special ? ' + ' + t.special : ''}')" class="flex-1 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition">
                   Nạp sang Dò Vé
                 </button>
                 <button onclick="applyGoldenTicketToSim('${t.numbers.join(', ')}')" class="py-1.5 px-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-yellow-400 text-xs font-semibold transition" title="Nuôi bộ số này">
                   Nuôi số
                 </button>
               </div>
-              <button onclick="saveSingleGoldenTicket('${t.numbers.join(', ')}', ${t.score})" class="w-full py-1.5 rounded-lg bg-indigo-600/80 hover:bg-indigo-600 text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+              <button onclick="saveSingleGoldenTicket('${t.numbers.join(', ')}${t.special ? ' + ' + t.special : ''}', ${t.score})" class="w-full py-1.5 rounded-lg bg-indigo-600/80 hover:bg-indigo-600 text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition">
                 <i data-lucide="bookmark" class="w-3.5 h-3.5"></i>
                 <span>Lưu Bộ Số Này Vào Lịch Sử</span>
               </button>
@@ -3576,27 +3620,31 @@
           `;
         }
       } else if (currentProductKey === 'power_535') {
-        if (titleEl) titleEl.innerHTML = `<i data-lucide="layers" class="w-5 h-5 text-emerald-400"></i> CHIẾN LƯỢC BAO 6 / BAO 7 (POWER 5/35)`;
-        if (descEl) descEl.textContent = `Loại hình chọn 5 số: Chơi Bao 6 gồm 6 vé đơn (60k) hoặc Bao 7 (210k) tăng tối đa cơ hội trúng giải.`;
-        if (costBadge) costBadge.textContent = `Vốn: 60.000đ - 70.000đ`;
-        if (sumRangeEl) sumRangeEl.textContent = `90 - 145`;
+        if (titleEl) titleEl.innerHTML = `<i data-lucide="layers" class="w-5 h-5 text-emerald-400"></i> CHIẾN LƯỢC BAO 6 CHÍNH (POWER 5/35) - VỐN 60K`;
+        if (descEl) descEl.textContent = `Lotto 5/35 gồm 5 số chính (01 - 35) + 1 số đặc biệt (01 - 12). Chơi Bao 6 gồm 6 số chính + 1 số đặc biệt = 6 vé đơn (60.000đ), chỉ cần trúng 3 số chính là có lãi ngay!`;
+        if (costBadge) costBadge.textContent = `Vốn đầu tư: 60.000 VNĐ (6 vé đơn)`;
+        if (sumRangeEl) sumRangeEl.textContent = `85 - 145`;
         if (antiCrowdEl) antiCrowdEl.textContent = `1 - 2 số ≥ 25`;
         if (oddEvenEl) oddEvenEl.textContent = `3L - 3C / 4L - 2C`;
-        if (tailsEl) tailsEl.textContent = `≥ 4 Đuôi`;
-        if (breakdownCostEl) breakdownCostEl.textContent = `6 - 7 vé đơn`;
+        if (tailsEl) tailsEl.textContent = `≥ 4 Đuôi Phân Biệt`;
+        if (breakdownCostEl) breakdownCostEl.textContent = `6 vé x 10k = 60.000đ`;
         if (payoutEl) {
           payoutEl.innerHTML = `
             <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex justify-between items-center">
-              <span>Trúng 3 số:</span>
-              <span class="text-blue-400 font-bold">Ăn nhiều giải Ba (Lời vốn)</span>
+              <span>Trúng 3 chính + 1 đặc biệt:</span>
+              <span class="text-blue-400 font-bold">3 Giải Bốn + 3 Giải Sáu (Lời vốn)</span>
             </div>
             <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex justify-between items-center">
-              <span>Trúng 4 số:</span>
-              <span class="text-emerald-400 font-bold">Ăn nhiều giải Nhì + giải Ba</span>
+              <span>Trúng 4 chính + 1 đặc biệt:</span>
+              <span class="text-emerald-400 font-bold">2 Giải Nhì + 4 Giải Bốn</span>
+            </div>
+            <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex justify-between items-center">
+              <span>Trúng 5 chính + 0 đặc biệt:</span>
+              <span class="text-rose-400 font-bold">1 Giải Nhất (40tr) + 5 Giải Ba</span>
             </div>
             <div class="p-2.5 rounded-lg bg-slate-900 border border-amber-500/40 flex justify-between items-center text-amber-300 font-bold">
-              <span>Trúng 5 số:</span>
-              <span>1 Giải Nhất + Nhiều Giải Phụ!</span>
+              <span>Trúng 5 chính + 1 đặc biệt:</span>
+              <span>1 ĐỘC ĐẮC (JACKPOT 6+ TỶ) + 5 Giải Nhì!</span>
             </div>
           `;
         }
@@ -3673,16 +3721,18 @@
           // Odd / even
           const odds = sorted.filter(n => n % 2 !== 0).length;
           if (targetBalls === 7 && odds !== 3 && odds !== 4) continue;
+          if (targetBalls === 6 && odds !== 3 && odds !== 2 && odds !== 4) continue;
 
-          // Big numbers >= 32
+          // Big numbers >= 32 (or 25 for 535)
           const bigCount = sorted.filter(n => n >= bigMin).length;
           if (bigCount < minBigs || bigCount > maxBigs) continue;
 
           // Distinct tails
           const tails = new Set(sorted.map(n => n % 10));
           if (tails.size < 5 && targetBalls === 7) continue;
+          if (tails.size < 4 && targetBalls === 6) continue;
 
-          // AC7
+          // AC
           const diffs = new Set();
           for (let i = 0; i < sorted.length; i++) {
             for (let j = i + 1; j < sorted.length; j++) {
@@ -3690,13 +3740,15 @@
             }
           }
           const ac = diffs.size - (targetBalls - 1);
-          if (ac < 8) continue;
+          if (ac < (is535 ? 6 : 8)) continue;
 
           const markovMatches = sorted.filter(n => markovSet.has(n));
           const score = Math.min(99, 88 + markovMatches.length * 2 + (ac >= 10 ? 3 : 0));
+          const spec = is535 ? (Math.floor(Math.random() * 12) + 1) : null;
 
           bestTicket = {
             numbers: sorted,
+            special: spec,
             sum: sumVal,
             ac: ac,
             odds: odds,
@@ -3710,14 +3762,15 @@
         }
 
         currentBao7Ticket = bestTicket || {
-          numbers: isMega ? [5, 12, 18, 27, 34, 39, 43] : [8, 16, 22, 35, 39, 42, 53],
-          sum: isMega ? 178 : 215,
-          ac: 10,
-          odds: 4,
+          numbers: isMega ? [5, 12, 18, 27, 34, 39, 43] : is535 ? [3, 8, 14, 20, 27, 34] : [8, 16, 22, 35, 39, 42, 53],
+          special: is535 ? 7 : null,
+          sum: isMega ? 178 : is535 ? 106 : 215,
+          ac: is535 ? 8 : 10,
+          odds: is535 ? 3 : 4,
           evens: 3,
-          bigCount: isMega ? 3 : 4,
-          distinctTails: 6,
-          markovMatches: isMega ? [18, 34] : [22, 42],
+          bigCount: isMega ? 3 : is535 ? 2 : 4,
+          distinctTails: is535 ? 5 : 6,
+          markovMatches: isMega ? [18, 34] : is535 ? [14, 27] : [22, 42],
           score: 96
         };
       }
@@ -3730,7 +3783,7 @@
       if (scoreBadge) scoreBadge.textContent = `${t.score}% Thỏa Mãn`;
 
       if (ballsContainer) {
-        ballsContainer.innerHTML = t.numbers.map(n => {
+        let ballsHtml = t.numbers.map(n => {
           const isLocked = uniqueLocked.includes(n);
           const ringCls = isLocked ? 'ring-4 ring-amber-400' : '';
           return `
@@ -3742,12 +3795,25 @@
             </div>
           `;
         }).join('');
+
+        if (t.special) {
+          ballsHtml += `
+            <div class="flex items-center text-slate-500 font-bold text-xl px-1">+</div>
+            <div class="flex flex-col items-center">
+              <span class="w-11 h-11 rounded-full bg-gradient-to-br from-amber-400 to-yellow-600 text-white font-mono font-bold text-base flex items-center justify-center shadow-lg shadow-amber-950/60 border border-yellow-300">
+                ${String(t.special).padStart(2, '0')}
+              </span>
+              <span class="text-[9px] text-amber-400 font-bold mt-1">ĐẶC BIỆT</span>
+            </div>
+          `;
+        }
+        ballsContainer.innerHTML = ballsHtml;
       }
 
       if (checklistContainer) {
         checklistContainer.innerHTML = `
           <div class="flex justify-between">
-            <span>Tổng điểm 7 số:</span>
+            <span>Tổng điểm ${targetBalls} số:</span>
             <span class="text-emerald-400 font-bold">${t.sum} (Trong dải ${minSum} - ${maxSum})</span>
           </div>
           <div class="flex justify-between">
@@ -3769,7 +3835,7 @@
         `;
       }
 
-      // Generate 7 breakdown tickets (C(7, 6) = 7 tickets, omit 1 number at each index)
+      // Generate breakdown tickets (omit 1 number at each index)
       const breakdownList = document.getElementById('bao7TicketsBreakdownList');
       if (breakdownList) {
         const tickets = [];
@@ -3783,15 +3849,21 @@
               <span class="w-6 h-6 rounded-full bg-slate-800 text-slate-300 text-xs font-mono font-bold flex items-center justify-center">
                 #${idx + 1}
               </span>
-              <div class="flex gap-1.5 flex-wrap font-mono text-xs">
+              <div class="flex items-center gap-1.5 flex-wrap font-mono text-xs">
                 ${subTicket.map(n => `
                   <span class="px-1.5 py-0.5 rounded bg-slate-900 text-slate-200 border border-slate-700 font-bold">
                     ${String(n).padStart(2, '0')}
                   </span>
                 `).join('')}
+                ${t.special ? `
+                  <span class="text-slate-500 font-bold">+</span>
+                  <span class="px-1.5 py-0.5 rounded bg-amber-950/80 text-amber-300 border border-amber-800 font-bold">
+                    ${String(t.special).padStart(2, '0')}
+                  </span>
+                ` : ''}
               </div>
             </div>
-            <button onclick="applyGoldenTicketToChecker('${subTicket.join(', ')}')" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-[10px] rounded font-semibold transition">
+            <button onclick="applyGoldenTicketToChecker('${subTicket.join(', ')}${t.special ? ' + ' + t.special : ''}')" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-[10px] rounded font-semibold transition">
               Dò vé
             </button>
           </div>
