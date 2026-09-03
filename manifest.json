@@ -1,24 +1,24 @@
 {
-  "name": "Vietlott Analytics Hub - Soi Cầu & Thống Kê Xổ Số",
+  "name": "Vietlott Analytics Hub",
   "short_name": "Vietlott Hub",
-  "description": "Trung tâm Thống kê & Phân tích Dữ liệu Xổ số Chuyên sâu Vietlott (Power 6/55, Mega 6/45, Power 5/35)",
+  "description": "Trung tâm Thống kê & Phân tích Dữ liệu Xổ số Vietlott",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#020617",
-  "theme_color": "#e11d48",
+  "theme_color": "#020617",
   "icons": [
     {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192' width='192' height='192'%3E%3Crect width='192' height='192' rx='42' fill='%23e11d48'/%3E%3Ccircle cx='96' cy='96' r='60' fill='%23ffffff'/%3E%3Ctext x='96' y='112' font-family='sans-serif' font-size='48' font-weight='900' fill='%23e11d48' text-anchor='middle'%3EVL%3C/text%3E%3C/svg%3E",
+      "src": "./icon-192.png",
       "sizes": "192x192",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='512' height='512'%3E%3Crect width='512' height='512' rx='112' fill='%23e11d48'/%3E%3Ccircle cx='256' cy='256' r='160' fill='%23ffffff'/%3E%3Ctext x='256' y='300' font-family='sans-serif' font-size='128' font-weight='900' fill='%23e11d48' text-anchor='middle'%3EVL%3C/text%3E%3C/svg%3E",
+      "src": "./icon-512.png",
       "sizes": "512x512",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ]
