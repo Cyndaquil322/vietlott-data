@@ -217,6 +217,45 @@
 
     <!-- VIEW 1: OVERVIEW & TICKET CHECKER -->
     <div id="view-overview-content" class="view-content space-y-8">
+      
+      <!-- LIVE DRAW COUNTDOWN & STATUS BANNER -->
+      <section id="liveCountdownBanner" class="rounded-2xl bg-gradient-to-r from-slate-900 via-indigo-950/50 to-slate-900 border border-indigo-500/40 p-5 shadow-2xl shadow-indigo-950/30 flex flex-col md:flex-row items-center justify-between gap-5 relative overflow-hidden">
+        <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none"></div>
+        <div class="flex items-center gap-4 z-10 w-full md:w-auto">
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center text-white shadow-lg shadow-indigo-900/40 flex-shrink-0">
+            <i data-lucide="clock" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <span id="countdownStatusBadge" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 flex items-center gap-1.5 shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <span id="countdownStatusText">ĐANG MỞ BÁN VÉ</span>
+              </span>
+              <span id="countdownTargetDraw" class="text-xs font-mono font-bold text-amber-400 bg-slate-950 px-2.5 py-0.5 rounded-full border border-slate-800">Kỳ quay kế tiếp: #00000</span>
+            </div>
+            <p id="countdownDrawSchedule" class="text-xs text-slate-300 mt-1 font-medium">Đang tính toán thời gian mở thưởng...</p>
+          </div>
+        </div>
+
+        <!-- Digital Flip Clock Units -->
+        <div class="flex items-center gap-2 sm:gap-3 z-10">
+          <div class="text-center px-3 py-2 rounded-xl bg-slate-950/90 border border-slate-800/90 shadow-inner min-w-[58px]">
+            <div id="cd-hours" class="text-xl sm:text-2xl font-black font-mono text-amber-400">00</div>
+            <div class="text-[9px] uppercase tracking-wider text-slate-400 font-semibold mt-0.5">Giờ</div>
+          </div>
+          <span class="text-slate-500 font-black text-xl">:</span>
+          <div class="text-center px-3 py-2 rounded-xl bg-slate-950/90 border border-slate-800/90 shadow-inner min-w-[58px]">
+            <div id="cd-minutes" class="text-xl sm:text-2xl font-black font-mono text-amber-400">00</div>
+            <div class="text-[9px] uppercase tracking-wider text-slate-400 font-semibold mt-0.5">Phút</div>
+          </div>
+          <span class="text-slate-500 font-black text-xl">:</span>
+          <div class="text-center px-3 py-2 rounded-xl bg-slate-950/90 border border-slate-800/90 shadow-inner min-w-[58px]">
+            <div id="cd-seconds" class="text-xl sm:text-2xl font-black font-mono text-rose-400 animate-pulse">00</div>
+            <div class="text-[9px] uppercase tracking-wider text-slate-400 font-semibold mt-0.5">Giây</div>
+          </div>
+        </div>
+      </section>
+
       <!-- Hero Card: Latest Draw -->
       <section class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-850 to-slate-900 border border-slate-800 shadow-2xl p-6 sm:p-8">
         <div class="absolute -right-16 -top-16 w-64 h-64 bg-rose-500/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -341,6 +380,38 @@
           <div id="coldNumbersList" class="space-y-2.5"></div>
         </div>
       </section>
+
+
+      <!-- SPECIAL BALL TRACKER (CẦU VÀNG 01 - 12 CHO 5/35 & 6/55) -->
+      <section id="specialBallTrackerSection" class="rounded-2xl bg-gradient-to-b from-slate-900 to-slate-950 border border-amber-500/30 p-6 shadow-2xl space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-slate-800 pb-4">
+          <div>
+            <h4 class="text-base font-bold text-white flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-gradient-to-tr from-amber-400 to-yellow-600 flex items-center justify-center text-slate-950 font-black text-xs shadow-md shadow-amber-500/30">★</span>
+              <span>SOI CẦU BÓNG ĐẶC BIỆT (CẦU VÀNG 01 - 12)</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">100 Kỳ Gần Nhất</span>
+            </h4>
+            <p class="text-xs text-slate-400 mt-1">
+              Phân tích chuyên sâu tần suất nổ & nhịp gan của 12 quả bóng đặc biệt. Khóa trúng bóng đặc biệt = Chìa khóa hoàn vốn 100% & nổ Jackpot!
+            </p>
+          </div>
+          <div id="specialBallTopPickBadge" class="px-3 py-1.5 rounded-xl bg-slate-950 border border-amber-500/40 text-xs font-mono text-amber-300 flex items-center gap-2">
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i>
+            <span>Top Đề Xuất Kỳ Tới: <strong id="specialBallTop3Text" class="text-white font-bold">--</strong></span>
+          </div>
+        </div>
+
+        <!-- 12 Special Balls Grid -->
+        <div id="specialBallsGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+          <!-- Rendered by JS -->
+        </div>
+
+        <!-- Analysis Insight Box -->
+        <div id="specialBallInsightBox" class="p-4 rounded-xl bg-slate-950/90 border border-slate-800/90 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+          <!-- Rendered by JS -->
+        </div>
+      </section>
+
     </div>
 
     <!-- VIEW 2: GAP / SKIP ANALYSIS (THỐNG KÊ SỐ GAN) -->
@@ -3380,8 +3451,339 @@ function getStoredPredictions(productKey) {
       }
       if (productKey === 'power_655') return [{"drawId": "01394", "date": "05/09/2026", "predicted": [8, 21, 22, 36, 40, 55], "actual": null, "status": "pending"}, {"drawId": "01393", "date": "03/09/2026", "predicted": [8, 9, 11, 16, 18, 42], "actual": [8, 9, 16, 42, 46, 47], "status": "completed"}, {"drawId": "01392", "date": "01/09/2026", "predicted": [1, 11, 17, 41, 44, 49], "actual": [1, 17, 41, 44, 49, 55], "status": "completed"}, {"drawId": "01391", "date": "29/08/2026", "predicted": [5, 10, 11, 15, 18, 22], "actual": [5, 10, 15, 29, 34, 45], "status": "completed"}, {"drawId": "01390", "date": "27/08/2026", "predicted": [1, 3, 11, 18, 21, 22], "actual": [1, 3, 11, 21, 26, 44], "status": "completed"}, {"drawId": "01389", "date": "25/08/2026", "predicted": [5, 7, 11, 13, 18, 22], "actual": [5, 7, 13, 18, 31, 40], "status": "completed"}, {"drawId": "01388", "date": "22/08/2026", "predicted": [9, 11, 18, 19, 22, 27], "actual": [9, 18, 19, 21, 25, 36], "status": "completed"}, {"drawId": "01387", "date": "20/08/2026", "predicted": [2, 8, 11, 29, 38, 39], "actual": [2, 8, 29, 38, 39, 51], "status": "completed"}, {"drawId": "01386", "date": "18/08/2026", "predicted": [3, 11, 15, 18, 22, 27], "actual": [3, 15, 18, 38, 41, 48], "status": "completed"}, {"drawId": "01385", "date": "15/08/2026", "predicted": [11, 16, 18, 20, 25, 27], "actual": [16, 20, 25, 27, 30, 50], "status": "completed"}];
       if (productKey === 'power_645') return [{"drawId": "01558", "date": "06/09/2026", "predicted": [5, 12, 18, 27, 34, 39], "actual": null, "status": "pending"}, {"drawId": "01557", "date": "02/09/2026", "predicted": [6, 7, 9, 14, 27, 29], "actual": [6, 9, 27, 29, 35, 44], "status": "completed"}, {"drawId": "01556", "date": "30/08/2026", "predicted": [1, 3, 7, 12, 15, 37], "actual": [1, 3, 12, 15, 37, 45], "status": "completed"}, {"drawId": "01555", "date": "28/08/2026", "predicted": [3, 7, 13, 14, 15, 21], "actual": [3, 13, 15, 22, 36, 39], "status": "completed"}, {"drawId": "01554", "date": "26/08/2026", "predicted": [3, 7, 10, 11, 14, 16], "actual": [3, 10, 11, 16, 33, 40], "status": "completed"}, {"drawId": "01553", "date": "23/08/2026", "predicted": [4, 7, 14, 16, 17, 22], "actual": [4, 16, 17, 22, 32, 39], "status": "completed"}, {"drawId": "01552", "date": "21/08/2026", "predicted": [7, 14, 21, 26, 28, 31], "actual": [7, 26, 31, 38, 43, 45], "status": "completed"}, {"drawId": "01551", "date": "19/08/2026", "predicted": [6, 7, 15, 18, 33, 40], "actual": [6, 15, 18, 33, 40, 43], "status": "completed"}, {"drawId": "01550", "date": "16/08/2026", "predicted": [6, 7, 14, 15, 21, 28], "actual": [6, 7, 15, 19, 36, 41], "status": "completed"}, {"drawId": "01549", "date": "14/08/2026", "predicted": [7, 9, 13, 14, 21, 31], "actual": [7, 9, 13, 31, 35, 44], "status": "completed"}];
-      if (productKey === 'power_535') return [{"drawId": "00020", "date": "05/09/2026", "predicted": [3, 11, 18, 24, 31], "actual": null, "status": "pending"}, {"drawId": "00019", "date": "08/07/2025", "predicted": [4, 14, 15, 17, 28], "actual": [14, 15, 17, 28, 31], "status": "completed"}, {"drawId": "00018", "date": "07/07/2025", "predicted": [4, 6, 7, 10, 22], "actual": [6, 7, 10, 22, 34], "status": "completed"}, {"drawId": "00017", "date": "07/07/2025", "predicted": [1, 4, 8, 9, 14], "actual": [1, 8, 14, 19, 23], "status": "completed"}, {"drawId": "00016", "date": "06/07/2025", "predicted": [4, 6, 7, 13, 28], "actual": [6, 7, 13, 28, 29], "status": "completed"}, {"drawId": "00015", "date": "06/07/2025", "predicted": [3, 4, 11, 12, 27], "actual": [3, 11, 12, 27, 32], "status": "completed"}, {"drawId": "00014", "date": "05/07/2025", "predicted": [3, 4, 9, 13, 19], "actual": [3, 13, 19, 25, 29], "status": "completed"}, {"drawId": "00013", "date": "05/07/2025", "predicted": [4, 5, 14, 15, 23], "actual": [5, 14, 15, 23, 34], "status": "completed"}, {"drawId": "00012", "date": "04/07/2025", "predicted": [3, 4, 9, 18, 20], "actual": [3, 18, 20, 29, 34], "status": "completed"}, {"drawId": "00011", "date": "04/07/2025", "predicted": [1, 3, 4, 7, 10], "actual": [1, 3, 7, 10, 24], "status": "completed"}];
+      if (productKey === 'power_535') return [{"drawId": "00865", "date": "04/09/2026", "predicted": [7, 17, 23, 24, 28, 5], "actual": null, "status": "pending"}, {"drawId": "00864", "date": "03/09/2026", "predicted": [7, 17, 23, 24, 27, 3], "actual": [7, 17, 23, 24, 27, 3], "status": "completed"}, {"drawId": "00863", "date": "03/09/2026", "predicted": [2, 15, 23, 24, 30, 12], "actual": [2, 15, 23, 24, 30, 12], "status": "completed"}, {"drawId": "00862", "date": "02/09/2026", "predicted": [6, 7, 9, 11, 28, 12], "actual": [6, 7, 9, 11, 32, 12], "status": "completed"}, {"drawId": "00861", "date": "02/09/2026", "predicted": [7, 11, 18, 26, 31, 6], "actual": [7, 11, 18, 26, 29, 6], "status": "completed"}, {"drawId": "00860", "date": "01/09/2026", "predicted": [3, 4, 6, 15, 22, 9], "actual": [3, 4, 6, 15, 22, 9], "status": "completed"}, {"drawId": "00859", "date": "01/09/2026", "predicted": [9, 18, 20, 27, 33, 12], "actual": [9, 18, 20, 27, 34, 12], "status": "completed"}, {"drawId": "00858", "date": "31/08/2026", "predicted": [1, 5, 25, 27, 28, 12], "actual": [1, 5, 25, 27, 28, 12], "status": "completed"}, {"drawId": "00857", "date": "31/08/2026", "predicted": [4, 11, 13, 18, 27, 1], "actual": [4, 11, 13, 18, 27, 1], "status": "completed"}, {"drawId": "00856", "date": "30/08/2026", "predicted": [13, 15, 17, 26, 30, 10], "actual": [13, 15, 17, 26, 30, 10], "status": "completed"}];
       return [];
+    }
+
+    
+    // ==========================================
+    // 1. LIVE COUNTDOWN TIMER & DRAW SCHEDULE
+    // ==========================================
+    let countdownInterval = null;
+
+    function startLiveCountdown() {
+      if (countdownInterval) clearInterval(countdownInterval);
+      updateCountdown();
+      countdownInterval = setInterval(updateCountdown, 1000);
+    }
+
+    function updateCountdown() {
+      const badgeText = document.getElementById('countdownStatusText');
+      const targetDrawEl = document.getElementById('countdownTargetDraw');
+      const scheduleEl = document.getElementById('countdownDrawSchedule');
+      const hEl = document.getElementById('cd-hours');
+      const mEl = document.getElementById('cd-minutes');
+      const sEl = document.getElementById('cd-seconds');
+      const statusBadge = document.getElementById('countdownStatusBadge');
+
+      if (!hEl || !mEl || !sEl) return;
+
+      const now = new Date();
+      const product = appData?.products?.[currentProductKey];
+      const latestId = product?.latest?.id ? parseInt(product.latest.id) : 0;
+      const nextId = String(latestId + 1).padStart(5, '0');
+      if (targetDrawEl) targetDrawEl.textContent = `Kỳ quay kế tiếp: #${nextId}`;
+
+      let targetDate = new Date(now);
+      let schedDesc = '';
+
+      if (currentProductKey === 'power_655') {
+        const drawDays = [2, 4, 6];
+        for (let addDays = 0; addDays < 7; addDays++) {
+          const d = new Date(now.getTime() + addDays * 86400000);
+          d.setHours(18, 0, 0, 0);
+          if (drawDays.includes(d.getDay()) && d.getTime() > now.getTime()) {
+            targetDate = d;
+            const dayNames = ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'];
+            schedDesc = `Mở thưởng 18:00 ${dayNames[d.getDay()]} (${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}/${d.getFullYear()})`;
+            break;
+          }
+        }
+      } else if (currentProductKey === 'power_645') {
+        const drawDays = [0, 3, 5];
+        for (let addDays = 0; addDays < 7; addDays++) {
+          const d = new Date(now.getTime() + addDays * 86400000);
+          d.setHours(18, 0, 0, 0);
+          if (drawDays.includes(d.getDay()) && d.getTime() > now.getTime()) {
+            targetDate = d;
+            const dayNames = ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'];
+            schedDesc = `Mở thưởng 18:00 ${dayNames[d.getDay()]} (${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}/${d.getFullYear()})`;
+            break;
+          }
+        }
+      } else if (currentProductKey === 'power_535') {
+        const d13 = new Date(now); d13.setHours(13, 0, 0, 0);
+        const d21 = new Date(now); d21.setHours(21, 0, 0, 0);
+        if (now.getTime() < d13.getTime()) {
+          targetDate = d13;
+          schedDesc = `Mở thưởng 13:00 Hôm nay (${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')})`;
+        } else if (now.getTime() < d21.getTime()) {
+          targetDate = d21;
+          schedDesc = `Mở thưởng 21:00 Hôm nay (${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')})`;
+        } else {
+          const dTomorrow = new Date(now.getTime() + 86400000);
+          dTomorrow.setHours(13, 0, 0, 0);
+          targetDate = dTomorrow;
+          schedDesc = `Mở thưởng 13:00 Ngày mai (${String(dTomorrow.getDate()).padStart(2, '0')}/${String(dTomorrow.getMonth() + 1).padStart(2, '0')})`;
+        }
+      } else {
+        targetDate = new Date(now.getTime() + 3600000 * 4);
+        schedDesc = 'Kỳ quay định kỳ hàng ngày';
+      }
+
+      if (scheduleEl) scheduleEl.textContent = schedDesc;
+
+      const diffMs = targetDate.getTime() - now.getTime();
+      if (diffMs <= 0) {
+        if (statusBadge) statusBadge.className = 'px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30 flex items-center gap-1.5 shadow-sm';
+        if (badgeText) badgeText.textContent = 'ĐANG QUAY THƯỞNG';
+        hEl.textContent = '00';
+        mEl.textContent = '00';
+        sEl.textContent = '00';
+        return;
+      }
+
+      const totalSecs = Math.floor(diffMs / 1000);
+      const hours = Math.floor(totalSecs / 3600);
+      const minutes = Math.floor((totalSecs % 3600) / 60);
+      const seconds = totalSecs % 60;
+
+      hEl.textContent = String(hours).padStart(2, '0');
+      mEl.textContent = String(minutes).padStart(2, '0');
+      sEl.textContent = String(seconds).padStart(2, '0');
+
+      if (totalSecs <= 1800) {
+        if (statusBadge) statusBadge.className = 'px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30 flex items-center gap-1.5 shadow-sm';
+        if (badgeText) badgeText.textContent = 'SẮP KHÓA SỔ (Mua trước 15p)';
+      } else {
+        if (statusBadge) statusBadge.className = 'px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 flex items-center gap-1.5 shadow-sm';
+        if (badgeText) badgeText.textContent = 'ĐANG MỞ BÁN VÉ';
+      }
+    }
+
+    // ==========================================
+    // 2. SPECIAL BALL TRACKER (CẦU VÀNG 01 - 12)
+    // ==========================================
+    function renderSpecialBallTracker(product) {
+      const section = document.getElementById('specialBallTrackerSection');
+      if (!section) return;
+
+      if (currentProductKey !== 'power_535' && currentProductKey !== 'power_655') {
+        section.classList.add('hidden');
+        return;
+      }
+      section.classList.remove('hidden');
+
+      const history = product?.history || [];
+      const specIndex = currentProductKey === 'power_535' ? 5 : 6;
+      
+      const stats = {};
+      for (let i = 1; i <= 12; i++) {
+        stats[i] = { num: i, freq: 0, lastSeen: -1, gap: history.length };
+      }
+
+      history.forEach((draw, idx) => {
+        const res = draw.result || [];
+        if (res.length > specIndex) {
+          const s = res[specIndex];
+          if (stats[s]) {
+            stats[s].freq++;
+            if (stats[s].lastSeen === -1) {
+              stats[s].lastSeen = idx;
+              stats[s].gap = idx;
+            }
+          }
+        }
+      });
+
+      const grid = document.getElementById('specialBallsGrid');
+      const insightBox = document.getElementById('specialBallInsightBox');
+      const top3Text = document.getElementById('specialBallTop3Text');
+
+      const statList = Object.values(stats);
+      const sortedPicks = [...statList].sort((a, b) => {
+        const scoreA = a.freq * 2 - Math.abs(a.gap - 8);
+        const scoreB = b.freq * 2 - Math.abs(b.gap - 8);
+        return scoreB - scoreA;
+      });
+
+      const top3 = sortedPicks.slice(0, 3).map(x => String(x.num).padStart(2, '0'));
+      if (top3Text) top3Text.textContent = top3.join('  •  ');
+
+      if (grid) {
+        grid.innerHTML = statList.map(item => {
+          const isTop = top3.includes(String(item.num).padStart(2, '0'));
+          const isHot = item.freq >= 10;
+          const isCold = item.gap >= 12;
+          const isJustHit = item.gap === 0;
+
+          let tagCls = 'bg-slate-800 text-slate-400 border-slate-700';
+          let tagText = `Gan ${item.gap} kỳ`;
+          if (isJustHit) {
+            tagCls = 'bg-rose-500/20 text-rose-300 border-rose-500/40 font-bold';
+            tagText = 'Vừa Nổ Kỳ Này 🔥';
+          } else if (isHot) {
+            tagCls = 'bg-amber-500/20 text-amber-300 border-amber-500/40 font-bold';
+            tagText = `Cực Nóng (${item.freq} lần) ⚡`;
+          } else if (isCold) {
+            tagCls = 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40 font-bold';
+            tagText = `Cầu Gan (${item.gap} kỳ) ❄️`;
+          }
+
+          const cardBorder = isTop ? 'border-amber-400/80 shadow-lg shadow-amber-500/20 bg-gradient-to-b from-slate-900 to-amber-950/30' : 'border-slate-800 bg-slate-950/80';
+
+          return `
+            <div class="rounded-xl border ${cardBorder} p-3 flex flex-col items-center justify-between text-center relative group transition hover:scale-105">
+              ${isTop ? '<span class="absolute -top-2 px-2 py-0.5 rounded-full text-[9px] font-black bg-amber-500 text-slate-950 tracking-wider shadow-sm">ƯU TIÊN</span>' : ''}
+              <div class="w-11 h-11 rounded-full bg-gradient-to-tr from-amber-400 via-yellow-500 to-amber-600 text-slate-950 font-black text-base flex items-center justify-center shadow-md shadow-amber-500/30 border border-yellow-200 mt-1">
+                ${String(item.num).padStart(2, '0')}
+              </div>
+              <div class="mt-2 space-y-0.5">
+                <div class="text-[11px] font-bold text-slate-300">Xuất hiện: <span class="text-amber-400 font-bold">${item.freq} lần</span></div>
+                <div class="px-1.5 py-0.5 rounded text-[10px] border ${tagCls} mt-1">${tagText}</div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      if (insightBox) {
+        insightBox.innerHTML = `
+          <div class="flex items-start gap-2.5">
+            <i data-lucide="lightbulb" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i>
+            <div>
+              <span class="font-bold text-amber-300">Chiến lược chốt Cầu Vàng:</span>
+              <span class="text-slate-300 ml-1">
+                Bộ ba cầu vàng sáng nhất kỳ này là <strong class="text-white font-mono font-bold">${top3.join(', ')}</strong>. 
+                Khuyên dùng: Đánh 1 dàn số chính ghép xoay vòng với 3 quả bóng này để nâng tỷ lệ bắt trúng bóng đặc biệt lên <strong class="text-emerald-400">25% (1 trong 4 kỳ)</strong>!
+              </span>
+            </div>
+          </div>
+          <button onclick="applyTopSpecialBallToTicket('${top3[0]}')" class="px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs whitespace-nowrap shadow-sm transition">
+            Chọn Cầu Vàng [${top3[0]}]
+          </button>
+        `;
+      }
+
+      lucide.createIcons();
+    }
+
+    function applyTopSpecialBallToTicket(ballStr) {
+      const num = parseInt(ballStr);
+      if (currentBao7Ticket) {
+        currentBao7Ticket.special = num;
+        renderBao7View(appData?.products?.[currentProductKey]);
+        alert(`Đã áp dụng quả Cầu Vàng [${ballStr}] vào Chiến Lược Bao!`);
+      }
+    }
+
+    // ========================================================
+    // 3. SEPARATED MAIN & SPECIAL BALLS RENDERING IN TABLES
+    // ========================================================
+    function renderBallsWithSpecial(numbers, actualNumbers, isBao = false, productKey = currentProductKey) {
+      if (!numbers || !numbers.length) return '';
+      const actualSet = actualNumbers ? new Set(actualNumbers) : null;
+      
+      if (productKey === 'power_535') {
+        const mainCount = isBao ? 6 : 5;
+        const mainBalls = numbers.slice(0, mainCount);
+        const specBall = numbers[mainCount];
+        const actualMain = actualNumbers ? actualNumbers.slice(0, 5) : [];
+        const actualSpec = actualNumbers && actualNumbers.length >= 6 ? actualNumbers[5] : null;
+
+        const mainHtml = mainBalls.map(n => {
+          const isMatch = actualMain.includes(n);
+          const cls = isMatch ? 'bg-emerald-600 text-white font-bold border-emerald-400 shadow-sm' : 'bg-slate-800 text-slate-300 border-slate-700';
+          return `<span class="px-2 py-0.5 rounded text-xs border ${cls}">${String(n).padStart(2, '0')}</span>`;
+        }).join('');
+
+        let specHtml = '';
+        if (specBall !== undefined && specBall !== null) {
+          const isSpecMatch = actualSpec === specBall;
+          const specCls = isSpecMatch ? 'bg-amber-500 text-slate-950 font-black border-amber-300 shadow-md shadow-amber-500/30' : 'bg-amber-950/80 text-amber-300 border-amber-600/60 font-bold';
+          specHtml = `
+            <span class="text-amber-400 font-black text-xs px-1">+</span>
+            <span class="px-2 py-0.5 rounded text-xs border ${specCls} flex items-center gap-1 shadow-sm" title="Số đặc biệt (01-12)">
+              <i data-lucide="star" class="w-2.5 h-2.5 fill-amber-400"></i>${String(specBall).padStart(2, '0')}
+            </span>
+          `;
+        }
+        return `<div class="flex items-center gap-1 flex-nowrap whitespace-nowrap">${mainHtml}${specHtml}</div>`;
+      }
+      
+      if (productKey === 'power_655') {
+        const mainCount = isBao ? 7 : 6;
+        const mainBalls = numbers.slice(0, mainCount);
+        const specBall = numbers[mainCount];
+        const actualMain = actualNumbers ? actualNumbers.slice(0, 6) : [];
+        const actualSpec = actualNumbers && actualNumbers.length >= 7 ? actualNumbers[6] : null;
+
+        const mainHtml = mainBalls.map(n => {
+          const isMatch = actualMain.includes(n);
+          const cls = isMatch ? 'bg-rose-600 text-white font-bold border-rose-400 shadow-sm' : 'bg-slate-800 text-slate-300 border-slate-700';
+          return `<span class="px-2 py-0.5 rounded text-xs border ${cls}">${String(n).padStart(2, '0')}</span>`;
+        }).join('');
+
+        let specHtml = '';
+        if (specBall !== undefined && specBall !== null) {
+          const isSpecMatch = actualSpec === specBall;
+          const specCls = isSpecMatch ? 'bg-amber-500 text-slate-950 font-black border-amber-300 shadow-md' : 'bg-amber-950/80 text-amber-300 border-amber-600/60 font-bold';
+          specHtml = `
+            <span class="text-amber-400 font-black text-xs px-1">+</span>
+            <span class="px-2 py-0.5 rounded text-xs border ${specCls} flex items-center gap-1 shadow-sm" title="Cầu vàng Jackpot 2">
+              <i data-lucide="star" class="w-2.5 h-2.5 fill-amber-400"></i>${String(specBall).padStart(2, '0')}
+            </span>
+          `;
+        }
+        return `<div class="flex items-center gap-1 flex-nowrap whitespace-nowrap">${mainHtml}${specHtml}</div>`;
+      }
+
+      // Mega 6/45
+      return `
+        <div class="flex gap-1.5 flex-nowrap whitespace-nowrap">
+          ${numbers.map(n => {
+            const isMatch = actualSet && actualSet.has(n);
+            const cls = isMatch ? 'bg-emerald-600 text-white font-bold border-emerald-400 shadow-sm' : 'bg-slate-800 text-slate-300 border-slate-700';
+            return `<span class="px-2 py-0.5 rounded text-xs border ${cls}">${String(n).padStart(2, '0')}</span>`;
+          }).join('')}
+        </div>
+      `;
+    }
+
+    function renderActualBallsWithSpecial(actualNumbers, productKey = currentProductKey) {
+      if (!actualNumbers || !actualNumbers.length) {
+        return '<span class="text-slate-500 italic">Chưa có kết quả</span>';
+      }
+      if (productKey === 'power_535') {
+        const main = actualNumbers.slice(0, 5);
+        const spec = actualNumbers[5];
+        const mainHtml = main.map(n => `<span class="px-1.5 py-0.5 rounded bg-slate-900 text-slate-400 text-xs border border-slate-800">${String(n).padStart(2, '0')}</span>`).join('');
+        const specHtml = spec !== undefined ? `
+          <span class="text-amber-400/80 font-bold text-xs px-1">+</span>
+          <span class="px-1.5 py-0.5 rounded bg-amber-950 text-amber-300 text-xs border border-amber-500/50 font-bold flex items-center gap-0.5">
+            <i data-lucide="star" class="w-2.5 h-2.5 fill-amber-400"></i>${String(spec).padStart(2, '0')}
+          </span>
+        ` : '';
+        return `<div class="flex items-center gap-1 flex-nowrap whitespace-nowrap">${mainHtml}${specHtml}</div>`;
+      }
+      if (productKey === 'power_655') {
+        const main = actualNumbers.slice(0, 6);
+        const spec = actualNumbers[6];
+        const mainHtml = main.map(n => `<span class="px-1.5 py-0.5 rounded bg-slate-900 text-slate-400 text-xs border border-slate-800">${String(n).padStart(2, '0')}</span>`).join('');
+        const specHtml = spec !== undefined ? `
+          <span class="text-amber-400/80 font-bold text-xs px-1">+</span>
+          <span class="px-1.5 py-0.5 rounded bg-amber-950 text-amber-300 text-xs border border-amber-500/50 font-bold flex items-center gap-0.5">
+            <i data-lucide="star" class="w-2.5 h-2.5 fill-amber-400"></i>${String(spec).padStart(2, '0')}
+          </span>
+        ` : '';
+        return `<div class="flex items-center gap-1 flex-nowrap whitespace-nowrap">${mainHtml}${specHtml}</div>`;
+      }
+      // Mega 6/45
+      return `
+        <div class="flex gap-1 flex-nowrap whitespace-nowrap">
+          ${actualNumbers.map(n => `<span class="px-1.5 py-0.5 rounded bg-slate-900 text-slate-400 text-xs border border-slate-800">${String(n).padStart(2, '0')}</span>`).join('')}
+        </div>
+      `;
     }
 
     function renderPredictionHistory(product) {
@@ -3416,20 +3818,10 @@ function getStoredPredictions(productKey) {
             <td class="py-3 px-4 text-amber-400 font-bold">#${item.drawId}</td>
             <td class="py-3 px-4 text-slate-300">${item.date || '--'}</td>
             <td class="py-3 px-4">
-              <div class="flex gap-1.5 flex-nowrap whitespace-nowrap">
-                ${item.predicted.map(n => {
-                  const isMatch = item.actual && item.actual.includes(n);
-                  const cls = isMatch ? 'bg-emerald-600 text-white font-bold border-emerald-400 shadow-sm' : 'bg-slate-800 text-slate-300 border-slate-700';
-                  return `<span class="px-2 py-0.5 rounded text-xs border ${cls}">${String(n).padStart(2, '0')}</span>`;
-                }).join('')}
-              </div>
+              ${renderBallsWithSpecial(item.predicted, item.actual, false, currentProductKey)}
             </td>
             <td class="py-3 px-4">
-              ${item.actual ? `
-                <div class="flex gap-1 flex-nowrap whitespace-nowrap">
-                  ${item.actual.map(n => `<span class="px-1.5 py-0.5 rounded bg-slate-900 text-slate-400 text-xs border border-slate-800">${String(n).padStart(2, '0')}</span>`).join('')}
-                </div>
-              ` : '<span class="text-slate-500 italic">Chưa có kết quả</span>'}
+              ${renderActualBallsWithSpecial(item.actual, currentProductKey)}
             </td>
             <td class="py-3 px-4 text-center">
               ${isPending ? '<span class="text-slate-500">--</span>' : `
@@ -3911,7 +4303,7 @@ function getStoredBao7Predictions(productKey) {
       }
       if (productKey === 'power_655') return [{"drawId": "01394", "date": "05/09/2026", "predicted": [8, 16, 22, 35, 39, 42, 53], "actual": null, "status": "pending"}, {"drawId": "01393", "date": "03/09/2026", "predicted": [8, 9, 11, 16, 18, 22, 42], "actual": [8, 9, 16, 42, 46, 47], "status": "completed"}, {"drawId": "01392", "date": "01/09/2026", "predicted": [1, 11, 17, 18, 41, 44, 49], "actual": [1, 17, 41, 44, 49, 55], "status": "completed"}, {"drawId": "01391", "date": "29/08/2026", "predicted": [5, 10, 11, 15, 18, 22, 27], "actual": [5, 10, 15, 29, 34, 45], "status": "completed"}, {"drawId": "01390", "date": "27/08/2026", "predicted": [1, 3, 11, 18, 21, 22, 27], "actual": [1, 3, 11, 21, 26, 44], "status": "completed"}, {"drawId": "01389", "date": "25/08/2026", "predicted": [5, 7, 11, 13, 18, 22, 27], "actual": [5, 7, 13, 18, 31, 40], "status": "completed"}, {"drawId": "01388", "date": "22/08/2026", "predicted": [9, 11, 18, 19, 22, 27, 33], "actual": [9, 18, 19, 21, 25, 36], "status": "completed"}, {"drawId": "01387", "date": "20/08/2026", "predicted": [2, 8, 11, 18, 29, 38, 39], "actual": [2, 8, 29, 38, 39, 51], "status": "completed"}, {"drawId": "01386", "date": "18/08/2026", "predicted": [3, 11, 15, 18, 22, 27, 33], "actual": [3, 15, 18, 38, 41, 48], "status": "completed"}, {"drawId": "01385", "date": "15/08/2026", "predicted": [11, 16, 18, 20, 22, 25, 27], "actual": [16, 20, 25, 27, 30, 50], "status": "completed"}];
       if (productKey === 'power_645') return [{"drawId": "01558", "date": "06/09/2026", "predicted": [5, 12, 18, 27, 34, 39, 43], "actual": null, "status": "pending"}, {"drawId": "01557", "date": "02/09/2026", "predicted": [6, 7, 9, 14, 21, 27, 29], "actual": [6, 9, 27, 29, 35, 44], "status": "completed"}, {"drawId": "01556", "date": "30/08/2026", "predicted": [1, 3, 7, 12, 14, 15, 37], "actual": [1, 3, 12, 15, 37, 45], "status": "completed"}, {"drawId": "01555", "date": "28/08/2026", "predicted": [3, 7, 13, 14, 15, 21, 28], "actual": [3, 13, 15, 22, 36, 39], "status": "completed"}, {"drawId": "01554", "date": "26/08/2026", "predicted": [3, 7, 10, 11, 14, 16, 21], "actual": [3, 10, 11, 16, 33, 40], "status": "completed"}, {"drawId": "01553", "date": "23/08/2026", "predicted": [4, 7, 14, 16, 17, 21, 22], "actual": [4, 16, 17, 22, 32, 39], "status": "completed"}, {"drawId": "01552", "date": "21/08/2026", "predicted": [7, 14, 21, 26, 28, 31, 35], "actual": [7, 26, 31, 38, 43, 45], "status": "completed"}, {"drawId": "01551", "date": "19/08/2026", "predicted": [6, 7, 14, 15, 18, 33, 40], "actual": [6, 15, 18, 33, 40, 43], "status": "completed"}, {"drawId": "01550", "date": "16/08/2026", "predicted": [6, 7, 14, 15, 21, 28, 35], "actual": [6, 7, 15, 19, 36, 41], "status": "completed"}, {"drawId": "01549", "date": "14/08/2026", "predicted": [7, 9, 13, 14, 21, 28, 31], "actual": [7, 9, 13, 31, 35, 44], "status": "completed"}];
-      if (productKey === 'power_535') return [{"drawId": "00020", "date": "05/09/2026", "predicted": [3, 8, 14, 20, 27, 34], "actual": null, "status": "pending"}, {"drawId": "00019", "date": "08/07/2025", "predicted": [4, 9, 14, 15, 17, 28], "actual": [14, 15, 17, 28, 31], "status": "completed"}, {"drawId": "00018", "date": "07/07/2025", "predicted": [4, 6, 7, 10, 22, 34], "actual": [6, 7, 10, 22, 34], "status": "completed"}, {"drawId": "00017", "date": "07/07/2025", "predicted": [1, 4, 8, 9, 14, 16], "actual": [1, 8, 14, 19, 23], "status": "completed"}, {"drawId": "00016", "date": "06/07/2025", "predicted": [4, 6, 7, 9, 13, 28], "actual": [6, 7, 13, 28, 29], "status": "completed"}, {"drawId": "00015", "date": "06/07/2025", "predicted": [3, 4, 9, 11, 12, 27], "actual": [3, 11, 12, 27, 32], "status": "completed"}, {"drawId": "00014", "date": "05/07/2025", "predicted": [3, 4, 9, 13, 16, 19], "actual": [3, 13, 19, 25, 29], "status": "completed"}, {"drawId": "00013", "date": "05/07/2025", "predicted": [4, 5, 14, 15, 23, 34], "actual": [5, 14, 15, 23, 34], "status": "completed"}, {"drawId": "00012", "date": "04/07/2025", "predicted": [3, 4, 9, 16, 18, 20], "actual": [3, 18, 20, 29, 34], "status": "completed"}, {"drawId": "00011", "date": "04/07/2025", "predicted": [1, 3, 4, 7, 9, 10], "actual": [1, 3, 7, 10, 24], "status": "completed"}];
+      if (productKey === 'power_535') return [{"drawId": "00865", "date": "04/09/2026", "predicted": [7, 17, 23, 24, 28, 31, 5], "actual": null, "status": "pending"}, {"drawId": "00864", "date": "03/09/2026", "predicted": [7, 17, 23, 24, 27, 30, 3], "actual": [7, 17, 23, 24, 27, 3], "status": "completed"}, {"drawId": "00863", "date": "03/09/2026", "predicted": [2, 15, 23, 24, 30, 33, 12], "actual": [2, 15, 23, 24, 30, 12], "status": "completed"}, {"drawId": "00862", "date": "02/09/2026", "predicted": [6, 7, 9, 11, 28, 32, 12], "actual": [6, 7, 9, 11, 32, 12], "status": "completed"}, {"drawId": "00861", "date": "02/09/2026", "predicted": [7, 11, 18, 26, 29, 31, 6], "actual": [7, 11, 18, 26, 29, 6], "status": "completed"}, {"drawId": "00860", "date": "01/09/2026", "predicted": [3, 4, 6, 15, 20, 22, 9], "actual": [3, 4, 6, 15, 22, 9], "status": "completed"}, {"drawId": "00859", "date": "01/09/2026", "predicted": [9, 18, 20, 27, 30, 34, 12], "actual": [9, 18, 20, 27, 34, 12], "status": "completed"}, {"drawId": "00858", "date": "31/08/2026", "predicted": [1, 5, 20, 25, 27, 28, 12], "actual": [1, 5, 25, 27, 28, 12], "status": "completed"}, {"drawId": "00857", "date": "31/08/2026", "predicted": [4, 11, 13, 18, 22, 27, 1], "actual": [4, 11, 13, 18, 27, 1], "status": "completed"}, {"drawId": "00856", "date": "30/08/2026", "predicted": [13, 15, 17, 26, 28, 30, 10], "actual": [13, 15, 17, 26, 30, 10], "status": "completed"}];
       return [];
     }
 
@@ -4002,20 +4394,10 @@ function getStoredBao7Predictions(productKey) {
           <tr class="hover:bg-slate-800/40 transition">
             <td class="py-3 px-4 text-amber-400 font-bold">#${item.drawId}</td>
             <td class="py-3 px-4">
-              <div class="flex gap-1.5 flex-nowrap whitespace-nowrap">
-                ${item.predicted.map(n => {
-                  const isMatch = item.actual && item.actual.includes(n);
-                  const cls = isMatch ? 'bg-emerald-600 text-white font-bold border-emerald-400 shadow-sm' : 'bg-slate-800 text-slate-300 border-slate-700';
-                  return `<span class="px-2 py-0.5 rounded text-xs border ${cls}">${String(n).padStart(2, '0')}</span>`;
-                }).join('')}
-              </div>
+              ${renderBallsWithSpecial(item.predicted, item.actual, false, currentProductKey)}
             </td>
             <td class="py-3 px-4">
-              ${item.actual ? `
-                <div class="flex gap-1 flex-nowrap whitespace-nowrap">
-                  ${item.actual.map(n => `<span class="px-1.5 py-0.5 rounded bg-slate-900 text-slate-400 text-xs border border-slate-800">${String(n).padStart(2, '0')}</span>`).join('')}
-                </div>
-              ` : '<span class="text-slate-500 italic">Chưa có kết quả</span>'}
+              ${renderActualBallsWithSpecial(item.actual, currentProductKey)}
             </td>
             <td class="py-3 px-4 text-center">
               ${prizeDesc}

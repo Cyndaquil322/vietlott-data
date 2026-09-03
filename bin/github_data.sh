@@ -28,6 +28,9 @@ python src/vietlott/cli/missing.py power_655 || true
 python src/vietlott/cli/crawl.py power_645 || true
 python src/vietlott/cli/missing.py power_645 || true
 
+python src/vietlott/cli/crawl.py power_535 || true
+python src/vietlott/cli/missing.py power_535 || true
+
 python src/vietlott/cli/crawl.py 3d || true
 python src/vietlott/cli/missing.py 3d || true
 

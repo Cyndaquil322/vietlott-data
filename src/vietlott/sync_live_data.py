@@ -207,6 +207,98 @@ def sync_max3d(name: str, url: str, game_id: str, file_path: Path, max_pages: in
     print(f"[OK] {name} synced: +{new_draws} new draws. Total now: {len(existing)} draws.")
 
 
+def sync_power535(file_path: Path, max_pages: int = 40):
+    print(f"\n=== Syncing Power 5/35 ===")
+    existing = load_existing_data(file_path)
+    latest_local_id = int(max(existing.keys(), key=lambda x: int(x))) if existing else 0
+    print(f"Latest local draw: #{latest_local_id} (Total: {len(existing)})")
+
+    headers_info = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "Content-Type": "text/plain; charset=utf-8",
+        "X-AjaxPro-Method": "ServerSideFrontEndCreateRenderInfo",
+        "Origin": "https://vietlott.vn",
+    }
+    try:
+        r1 = requests.post(
+            "https://vietlott.vn/ajaxpro/Vietlott.Utility.WebEnvironments,Vietlott.Utility.ashx",
+            headers=headers_info,
+            data=json.dumps({"SiteId": "main.frontend.vi"}),
+            timeout=15,
+        )
+        render_info = r1.json().get("value")
+        render_info["SiteLang"] = "vi"
+    except Exception as e:
+        print(f"Failed to get RenderInfo for 5/35: {e}")
+        return
+
+    headers_draw = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "Content-Type": "text/plain; charset=utf-8",
+        "X-AjaxPro-Method": "ServerSideDrawResult",
+        "Origin": "https://vietlott.vn",
+    }
+
+    new_draws = 0
+    for page in range(max_pages):
+        body = {
+            "ORenderInfo": render_info,
+            "Key": "8a8d9359",
+            "GameDrawId": "",
+            "ArrayNumbers": [["" for _ in range(35)] for _ in range(5)],
+            "CheckMulti": False,
+            "PageIndex": page,
+        }
+        try:
+            r2 = requests.post(
+                "https://vietlott.vn/ajaxpro/Vietlott.PlugIn.WebParts.Game535CompareWebPart,Vietlott.PlugIn.WebParts.ashx",
+                headers=headers_draw,
+                data=json.dumps(body),
+                timeout=15,
+            )
+            val = r2.json().get("value", {})
+            if val.get("Error"):
+                break
+            html = val.get("HtmlContent", "")
+            soup = BeautifulSoup(html, "html.parser")
+            rows = soup.find_all("tr")
+            page_items = 0
+            for tr in rows:
+                tds = [td.text.strip() for td in tr.find_all("td")]
+                if len(tds) >= 3 and "|" in tds[2]:
+                    date_str, draw_id_raw, nums_str = tds[0], tds[1], tds[2]
+                    draw_id = str(draw_id_raw).replace("#", "").strip()
+                    parts = nums_str.split("|")
+                    main_str = parts[0]
+                    spec_str = parts[1]
+                    main_nums = [int(main_str[i : i + 2]) for i in range(0, len(main_str), 2)]
+                    spec_num = int(spec_str)
+                    all_nums = main_nums + [spec_num]
+                    dt = datetime.strptime(date_str, "%d/%m/%Y").strftime("%Y-%m-%d")
+
+                    if draw_id not in existing:
+                        existing[draw_id] = {
+                            "date": dt,
+                            "id": draw_id,
+                            "result": all_nums,
+                            "page": page,
+                            "process_time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                        }
+                        new_draws += 1
+                        page_items += 1
+                    else:
+                        page_items += 1
+
+            if page_items == 0:
+                break
+        except Exception as e:
+            print(f"Error on 5/35 page {page}: {e}")
+            break
+
+    save_data(file_path, existing)
+    print(f"[OK] Power 5/35 synced: +{new_draws} new draws. Total now: {len(existing)} draws.")
+
+
 def main():
     DATA_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -230,7 +322,13 @@ def main():
         max_pages=35,
     )
 
-    # 3. Max 3D
+    # 3. Power 5/35
+    sync_power535(
+        file_path=DATA_DIR / "power535.jsonl",
+        max_pages=35,
+    )
+
+    # 4. Max 3D
     sync_max3d(
         name="Max 3D",
         url="https://www.vietlott.vn/ajaxpro/Vietlott.PlugIn.WebParts.GameMax3DCompareWebPart,Vietlott.PlugIn.WebParts.ashx",
@@ -239,7 +337,7 @@ def main():
         max_pages=35,
     )
 
-    # 4. Max 3D Pro
+    # 5. Max 3D Pro
     sync_max3d(
         name="Max 3D Pro",
         url="https://www.vietlott.vn/ajaxpro/Vietlott.PlugIn.WebParts.GameMax3DProCompareWebPart,Vietlott.PlugIn.WebParts.ashx",
