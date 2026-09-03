@@ -1395,12 +1395,25 @@
           </div>
 
           <div class="flex items-center gap-2 flex-wrap">
-            <button onclick="refreshLiveSummaryData()" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-300 hover:text-white font-bold text-xs flex items-center gap-1.5 transition active:scale-95 shadow-sm border border-slate-700">
-              <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
-              <span>Cập Nhật KQ Mới Nhất</span>
+            <button onclick="createShareSyncLink()" class="px-3 py-2 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-bold text-xs flex items-center gap-1.5 transition active:scale-95 shadow-md shadow-violet-950/40" title="Tạo link gửi qua Zalo/iMessage để đồng bộ sang máy tính hoặc điện thoại khác">
+              <i data-lucide="share-2" class="w-3.5 h-3.5"></i>
+              <span>Tạo Link Đồng Bộ Máy Khác</span>
             </button>
-            <button onclick="clearAllSavedTickets()" class="px-3.5 py-2 rounded-xl bg-slate-800/80 hover:bg-rose-950 text-slate-400 hover:text-rose-300 font-semibold text-xs transition border border-slate-800">
-              <i data-lucide="trash-2" class="w-3.5 h-3.5 inline"></i> Xóa Hết
+            <button onclick="exportTicketsJson()" class="px-2.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs flex items-center gap-1 transition border border-slate-700" title="Xuất file JSON sao lưu">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i>
+              <span>Xuất File</span>
+            </button>
+            <label class="px-2.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs flex items-center gap-1 transition border border-slate-700 cursor-pointer" title="Nạp file JSON sao lưu">
+              <i data-lucide="upload" class="w-3.5 h-3.5"></i>
+              <span>Nạp File</span>
+              <input type="file" id="importTicketsInput" accept=".json" class="hidden" onchange="importTicketsJson(event)">
+            </label>
+            <button onclick="refreshLiveSummaryData()" class="px-2.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-300 hover:text-white font-bold text-xs flex items-center gap-1 transition border border-slate-700" title="Cập nhật kết quả mới">
+              <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+              <span>Cập Nhật KQ</span>
+            </button>
+            <button onclick="clearAllSavedTickets()" class="px-2 py-2 rounded-xl bg-slate-800/80 hover:bg-rose-950 text-slate-400 hover:text-rose-300 font-semibold text-xs transition border border-slate-800" title="Xóa toàn bộ">
+              <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
             </button>
           </div>
         </div>
@@ -1485,6 +1498,7 @@
       renderGameTabs();
       setupEventListeners();
       updateSavedBadge();
+      checkUrlSyncParams();
       await loadData();
     });
 
@@ -1549,8 +1563,20 @@
       lucide.createIcons();
     }
 
+    let gitSavedTickets = [];
+
     async function loadData() {
       const ts = Date.now();
+      
+      // Also fetch Git synced tickets
+      try {
+        const gitRes = await fetch('./docs/data/saved_tickets.json?v=' + ts).catch(() => fetch('./data/saved_tickets.json?v=' + ts));
+        if (gitRes && gitRes.ok) {
+          gitSavedTickets = await gitRes.json();
+          updateSavedBadge();
+        }
+      } catch (e) {}
+
       const urls = [
         './data/vietlott_summary.json?v=' + ts,
         './docs/data/vietlott_summary.json?v=' + ts,
@@ -4216,16 +4242,133 @@ function getStoredPredictions(productKey) {
       lucide.createIcons();
     }
 
+
+    // Cross-Device Sync & Git Integration
+    function getAllMergedSavedTickets() {
+      const localList = getSavedTickets();
+      const localIds = new Set(localList.map(x => x.id || (x.game + '_' + x.drawId)));
+      const merged = [...localList];
+      
+      if (Array.isArray(gitSavedTickets)) {
+        gitSavedTickets.forEach(gt => {
+          const key = gt.id || (gt.game + '_' + gt.drawId);
+          if (!localIds.has(key)) {
+            merged.push({ ...gt, isFromGit: true });
+          }
+        });
+      }
+      return merged;
+    }
+
+    function createShareSyncLink() {
+      const list = getSavedTickets();
+      if (!list.length) {
+        alert('Sổ tay của bạn hiện đang trống! Hãy lưu ít nhất 1 vé trước khi tạo link đồng bộ.');
+        return;
+      }
+      const dataStr = JSON.stringify(list);
+      const encoded = btoa(encodeURIComponent(dataStr));
+      const syncUrl = `${window.location.origin}${window.location.pathname}?sync=${encoded}`;
+      
+      navigator.clipboard.writeText(syncUrl).then(() => {
+        alert(`ĐÃ TẠO VÀ COPY LINK ĐỒNG BỘ THÀNH CÔNG! 🔗\n\nBạn chỉ cần gửi link này qua Zalo / Telegram / iMessage sang máy tính hoặc điện thoại khác, mở lên là hệ thống sẽ tự động nạp toàn bộ ${list.length} vé vào Sổ Tay của thiết bị đó!`);
+      }).catch(() => {
+        prompt('Copy link đồng bộ dưới đây để mở trên thiết bị khác:', syncUrl);
+      });
+    }
+
+    function checkUrlSyncParams() {
+      const params = new URLSearchParams(window.location.search);
+      const syncData = params.get('sync');
+      if (syncData) {
+        try {
+          const decoded = decodeURIComponent(atob(syncData));
+          const incomingTickets = JSON.parse(decoded);
+          if (Array.isArray(incomingTickets) && incomingTickets.length > 0) {
+            if (confirm(`PHÁT HIỆN LIÊN KẾT ĐỒNG BỘ! 📲\n\nBạn nhận được ${incomingTickets.length} vé từ thiết bị khác. Bạn có muốn nạp toàn bộ vé này vào Sổ Tay trên máy này không?`)) {
+              const current = getSavedTickets();
+              const currentIds = new Set(current.map(x => x.game + '_' + x.drawId + '_' + JSON.stringify(x.numbers)));
+              let added = 0;
+              incomingTickets.forEach(t => {
+                const key = t.game + '_' + t.drawId + '_' + JSON.stringify(t.numbers);
+                if (!currentIds.has(key)) {
+                  current.unshift({ ...t, id: 'sync_' + Date.now() + '_' + Math.random().toString(36).substr(2, 4) });
+                  currentIds.add(key);
+                  added++;
+                }
+              });
+              setSavedTickets(current);
+              alert(`Đã nạp thành công +${added} vé mới vào Sổ Tay!`);
+              // Clean URL without refresh
+              const cleanUrl = window.location.origin + window.location.pathname;
+              window.history.replaceState({}, document.title, cleanUrl);
+              switchView('saved-tickets');
+            }
+          }
+        } catch (err) {
+          console.error('Sync parse error:', err);
+        }
+      }
+    }
+
+    function exportTicketsJson() {
+      const list = getSavedTickets();
+      if (!list.length) {
+        alert('Sổ tay trống, không có vé để xuất file!');
+        return;
+      }
+      const blob = new Blob([JSON.stringify(list, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `vietlott_so_tay_backup_${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function importTicketsJson(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const imported = JSON.parse(e.target.result);
+          if (Array.isArray(imported) && imported.length > 0) {
+            const current = getSavedTickets();
+            const currentIds = new Set(current.map(x => x.game + '_' + x.drawId + '_' + JSON.stringify(x.numbers)));
+            let count = 0;
+            imported.forEach(t => {
+              const key = t.game + '_' + t.drawId + '_' + JSON.stringify(t.numbers);
+              if (!currentIds.has(key)) {
+                current.unshift({ ...t, id: 'imp_' + Date.now() + '_' + Math.random().toString(36).substr(2, 4) });
+                currentIds.add(key);
+                count++;
+              }
+            });
+            setSavedTickets(current);
+            renderSavedTicketsView();
+            alert(`Đã nạp thành công +${count} vé từ file vào Sổ Tay!`);
+          } else {
+            alert('File không hợp lệ hoặc không có dữ liệu vé!');
+          }
+        } catch (err) {
+          alert('Lỗi đọc file JSON: ' + err.message);
+        }
+      };
+      reader.readAsText(file);
+      event.target.value = '';
+    }
+
     function renderSavedTicketsView() {
       const container = document.getElementById('savedTicketsContainer');
       if (!container) return;
 
-      let list = getSavedTickets();
+      let list = getAllMergedSavedTickets();
       if (currentSavedFilter !== 'all') {
         list = list.filter(x => x.game === currentSavedFilter);
       }
 
-      const allTickets = getSavedTickets();
+      const allTickets = getAllMergedSavedTickets();
       let totalCost = 0;
       let totalWinnings = 0;
       let pendingCount = 0;
@@ -4397,6 +4540,7 @@ function getStoredPredictions(productKey) {
                 <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-slate-800 text-slate-300">
                   ${item.type === 'bao7' ? 'Chiến Lược Bao 7' : item.type === 'bao6' ? 'Chiến Lược Bao 6' : 'Vé Vàng Dự Đoán'}
                 </span>
+                ${item.isFromGit ? '<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 flex items-center gap-1">☁️ Đồng Bộ Git</span>' : ''}
                 <span class="text-[11px] text-slate-500">Lưu lúc: ${item.savedAt}</span>
               </div>
 

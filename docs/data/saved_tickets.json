@@ -1,0 +1,59 @@
+[
+  {
+    "id": "git_655_01394",
+    "game": "power_655",
+    "gameName": "Power 6/55",
+    "drawId": "01394",
+    "type": "bao7",
+    "numbers": [
+      8,
+      16,
+      22,
+      35,
+      39,
+      42,
+      53
+    ],
+    "cost": 70000,
+    "savedAt": "04/09/2026 (Đồng bộ Git)",
+    "source": "git"
+  },
+  {
+    "id": "git_645_01558",
+    "game": "power_645",
+    "gameName": "Mega 6/45",
+    "drawId": "01558",
+    "type": "bao7",
+    "numbers": [
+      5,
+      12,
+      18,
+      27,
+      34,
+      39,
+      43
+    ],
+    "cost": 70000,
+    "savedAt": "04/09/2026 (Đồng bộ Git)",
+    "source": "git"
+  },
+  {
+    "id": "git_535_00865",
+    "game": "power_535",
+    "gameName": "Power 5/35",
+    "drawId": "00865",
+    "type": "bao6",
+    "numbers": [
+      7,
+      17,
+      23,
+      24,
+      28,
+      31,
+      5
+    ],
+    "cost": 60000,
+    "savedAt": "04/09/2026 (Đồng bộ Git)",
+    "source": "git"
+  }
+]
