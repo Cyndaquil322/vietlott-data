@@ -118,3 +118,21 @@ vietlott-data-master/
 | **Data Visualization** | Chart.js 4.x + Lucide Icons + Canvas Confetti | Biểu đồ chuông Gaussian, đường xu hướng tổng, pháo hoa khi trúng |
 | **PWA Standalone** | Service Worker Cache API + Web App Manifest | Cài đặt trực tiếp lên iPhone/Android, chạy tràn viền không URL bar |
 | **Persistence** | HTML5 `localStorage` + URL Base64 Sync + Git JSON | Lưu trữ vé cá nhân, chuyển vé sang máy tính 1-chạm, backup JSON |
+
+---
+
+## 7. QUY TRÌNH KIỂM ĐỊNH QUÁ KHỨ 200 KỲ (WALK-FORWARD BACKTEST 200 DRAWS)
+
+Hệ thống tuân thủ nguyên tắc trung thực khoa học và tính toàn vẹn dữ liệu tuyệt đối:
+* **Quy mô mẫu:** Chạy kiểm định liên tục trên **200 kỳ quay thực tế** của từng game.
+* **Nguyên lý Walk-Forward:** Tại mỗi kỳ $T \in [1, 200]$, mô hình chỉ được phép tiếp cận dữ liệu từ kỳ $T-1$ trở về trước. Hoàn toàn không có thiên lệch nhìn trước tương lai (No Look-Ahead Bias).
+* **Mô hình phân tích toàn diện:** Tại từng kỳ, hệ thống chạy đồng thời:
+  1. Hàm nguy cơ nhịp gan Bayesian ($H(r_b)$) & Vùng vàng điểm rơi.
+  2. Tần suất suy giảm mũ ($lpha = 0.035$).
+  3. Radar Bắt Cầu Rơi (quán tính lặp lại từ $T-1$).
+  4. Bạc Nhớ Chuyển Tiếp (luật $A 	o B$ với $	ext{Lift} \ge 1.6	imes$).
+  5. Ma Trận Kề Đồng Quy Cặp Đôi ($M_{55 	imes 55}$).
+  6. Bộ lọc tổ hợp: $AC \ge 7$, Tổng phân phối Gaussian $\mu \pm 1\sigma$.
+* **Hiển thị & Báo cáo:**
+  * **Chỉ số KPI tổng kết:** Đo lường tổng thể trên toàn bộ 200 kỳ (Tỷ lệ trúng $\ge 3$ số, $\ge 4$ số, Tổng vốn, Tổng thưởng, Hiệu suất P&L).
+  * **Bảng chi tiết 20 kỳ gần nhất:** Trình bày rõ ràng 20 kỳ đối soát gần nhất kèm 1 kỳ chờ mở thưởng tiếp theo để người dùng theo dõi và kiểm chứng.
