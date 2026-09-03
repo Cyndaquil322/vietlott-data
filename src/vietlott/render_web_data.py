@@ -494,24 +494,27 @@ def calculate_ev_metrics(max_val: int, num_balls: int) -> Dict[str, Any]:
 
 def calculate_bayesian_hazard_scores(records: List[Dict], max_val: int, num_balls: int, is_two_matrix: bool = False) -> Dict[int, float]:
     """
-    Tính điểm xác suất định lượng tối ưu hóa (Optimized Multi-Factor Quant Engine):
-    Kết hợp 6 thành phần đã qua kiểm định 300 kỳ:
-    1. Bayesian Hazard Rate (w=2.0)
-    2. Exponential Time Decay (w=1.5)
-    3. Radar Cầu Rơi Quán Tính (w=2.5)
-    4. Bạc Nhớ Chuyển Tiếp Lift (w=1.8)
-    5. Ma Trận Kề Đồng Quy (w=1.2)
-    6. Phổ Chu Kỳ Nhịp Fourier (w=0.5)
+    Tính điểm xác suất định lượng toàn diện (Full 6-Factor Analytical Engine):
+    Chạy đồng thời cả 6 mô hình toán học và kinh nghiệm thực chiến:
+    1. Bayesian Hazard Rate (Vùng vàng 0.75 - 1.35) [w=2.0]
+    2. Tần suất suy giảm mũ theo thời gian [w=1.5]
+    3. Radar Quán tính Cầu Rơi [w=2.5]
+    4. Phổ Chu kỳ Nhịp Fourier [w=0.5]
+    5. Bạc Nhớ Cặp Đôi Kéo Bóng Đơn [w=1.8]
+    6. Ma Trận Kề Đồng Quy Cặp Đôi [w=1.2]
     """
-    recent_records = records[-100:] if len(records) >= 100 else records
-    K = len(recent_records)
-    if K == 0:
+    if not records:
         return {b: 1.0 for b in range(1, max_val + 1)}
 
+    K = min(100, len(records))
+    recent_records = records[-K:]
+    last_draw_balls = set(records[-1].get("result", [])[:num_balls]) if records else set()
+    last_draw_pairs = list(itertools.combinations(sorted(last_draw_balls), 2))
+
+    # 1. Gaps and Exponential Decay
     decay_freq = {b: 0.0 for b in range(1, max_val + 1)}
     gaps_history = {b: [] for b in range(1, max_val + 1)}
     last_seen = {b: -1 for b in range(1, max_val + 1)}
-    last_draw_balls = set(records[-1].get("result", [])[:num_balls]) if records else set()
 
     for t, r in enumerate(reversed(recent_records)):
         res = r.get("result", [])
@@ -525,7 +528,7 @@ def calculate_bayesian_hazard_scores(records: List[Dict], max_val: int, num_ball
                     gaps_history[b].append(last_seen[b] - t)
                     last_seen[b] = t
 
-    # Spectral analysis on last 64 draws
+    # 2. Phổ Fourier Chu Kỳ Nhịp (64 kỳ)
     fft_len = min(64, len(records))
     fft_records = records[-fft_len:]
     spectral_score = {b: 0.0 for b in range(1, max_val + 1)}
@@ -541,6 +544,45 @@ def calculate_bayesian_hazard_scores(records: List[Dict], max_val: int, num_ball
                 gap_to_period = abs((last_seen[b] if last_seen[b] != -1 else K) - period)
                 spectral_score[b] = math.exp(-0.2 * gap_to_period)
 
+    # 3. Bạc Nhớ Cặp Đôi Kéo Bóng (200 kỳ)
+    p200 = records[-200:] if len(records) >= 200 else records
+    pair_trans = Counter()
+    pair_counts = Counter()
+    for i in range(len(p200) - 1):
+        pr = p200[i].get("result", [])[:num_balls]
+        cr = p200[i+1].get("result", [])[:num_balls]
+        for p in itertools.combinations(sorted(pr), 2):
+            pair_counts[p] += 1
+            for cb in cr:
+                pair_trans[(p, cb)] += 1
+
+    bac_nho_score = {b: 0.0 for b in range(1, max_val + 1)}
+    for p in last_draw_pairs:
+        p_cnt = pair_counts[p]
+        if p_cnt >= 2:
+            for b in range(1, max_val + 1):
+                cnt = pair_trans.get((p, b), 0)
+                if cnt > 0:
+                    prob = cnt / p_cnt
+                    base_prob = num_balls / max_val
+                    lift = prob / base_prob
+                    if lift > 1.2:
+                        bac_nho_score[b] += (lift - 1.0)
+
+    # 4. Ma Trận Kề Đồng Quy (200 kỳ)
+    matrix_cnt = Counter()
+    for r in p200:
+        b_list = r.get("result", [])[:num_balls]
+        for i in range(len(b_list)):
+            for j in range(i+1, len(b_list)):
+                matrix_cnt[(b_list[i], b_list[j])] += 1
+                matrix_cnt[(b_list[j], b_list[i])] += 1
+
+    matrix_synergy = {b: 0.0 for b in range(1, max_val + 1)}
+    for b in range(1, max_val + 1):
+        matrix_synergy[b] = sum(matrix_cnt.get((b, lb), 0) for lb in last_draw_balls)
+
+    # 5. Bayesian Hazard Rate & Tổng Hợp Điểm
     hazard_scores = {}
     for b in range(1, max_val + 1):
         cur_gap = last_seen[b] if last_seen[b] != -1 else K
@@ -556,12 +598,18 @@ def calculate_bayesian_hazard_scores(records: List[Dict], max_val: int, num_ball
         else:
             hazard = 1.4
 
-        # Cau Roi bonus
         cau_roi = 2.5 if b in last_draw_balls else 0.0
-        
-        # Combined score with optimal weights
-        combined = (hazard * 2.0) + (decay_freq[b] * 1.5) + cau_roi + (spectral_score[b] * 0.5)
-        hazard_scores[b] = round(combined, 3)
+
+        # Tổng hợp toàn diện cả 6 nhân tố
+        total = (
+            (hazard * 2.0) +
+            (decay_freq[b] * 1.5) +
+            cau_roi +
+            (spectral_score[b] * 0.5) +
+            (bac_nho_score[b] * 1.8) +
+            (matrix_synergy[b] * 0.1)
+        )
+        hazard_scores[b] = round(total, 3)
 
     return hazard_scores
 
@@ -691,7 +739,7 @@ def calculate_walk_forward_backtest(records: List[Dict], product_key: str, max_v
             c_sum = sum(combo)
             diffs = {abs(x - y) for x, y in itertools.combinations(combo, 2)}
             ac = len(diffs) - (num_balls - 1)
-            eval_score = ac * 10 - abs(c_sum - target_sum)
+            eval_score = sum(scores[x] for x in combo) + ac * 5 - abs(c_sum - target_sum) * 0.5
             if eval_score > best_eval:
                 best_eval = eval_score
                 best_combo = sorted(combo)
@@ -789,7 +837,7 @@ def calculate_walk_forward_backtest(records: List[Dict], product_key: str, max_v
         c_sum = sum(combo)
         diffs = {abs(x - y) for x, y in itertools.combinations(combo, 2)}
         ac = len(diffs) - (num_balls - 1)
-        eval_score = ac * 10 - abs(c_sum - target_sum)
+        eval_score = sum(scores[x] for x in combo) + ac * 5 - abs(c_sum - target_sum) * 0.5
         if eval_score > best_eval:
             best_eval = eval_score
             best_next = sorted(combo)
@@ -879,7 +927,7 @@ def calculate_walk_forward_bao7_backtest(records: List[Dict], product_key: str, 
             c_sum = sum(combo)
             diffs = {abs(x - y) for x, y in itertools.combinations(combo, 2)}
             ac = len(diffs) - (target_balls - 1)
-            eval_score = ac * 10 - abs(c_sum - target_sum)
+            eval_score = sum(scores[x] for x in combo) + ac * 5 - abs(c_sum - target_sum) * 0.5
             if eval_score > best_eval:
                 best_eval = eval_score
                 best_combo = sorted(combo)
@@ -974,7 +1022,7 @@ def calculate_walk_forward_bao7_backtest(records: List[Dict], product_key: str, 
         c_sum = sum(combo)
         diffs = {abs(x - y) for x, y in itertools.combinations(combo, 2)}
         ac = len(diffs) - (target_balls - 1)
-        eval_score = ac * 10 - abs(c_sum - target_sum)
+        eval_score = sum(scores[x] for x in combo) + ac * 5 - abs(c_sum - target_sum) * 0.5
         if eval_score > best_eval:
             best_eval = eval_score
             best_next = sorted(combo)
