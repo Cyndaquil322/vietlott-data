@@ -1585,6 +1585,10 @@
       // 7. History Table
       renderHistoryTable();
 
+      // 8. Live Countdown Timer & Special Ball Tracker
+      startLiveCountdown();
+      renderSpecialBallTracker(product);
+
       lucide.createIcons();
     }
 
@@ -3569,6 +3573,12 @@ function getStoredPredictions(productKey) {
       } else {
         targetDate = new Date(now.getTime() + 3600000 * 4);
         schedDesc = 'Kỳ quay định kỳ hàng ngày';
+      }
+
+      if (!schedDesc) {
+        // Fallback: find the next draw for any scenario that wasn't caught
+        const dayNames = ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'];
+        schedDesc = `Kỳ quay kế tiếp: ${dayNames[targetDate.getDay()]} ${String(targetDate.getDate()).padStart(2, '0')}/${String(targetDate.getMonth() + 1).padStart(2, '0')}`;
       }
 
       if (scheduleEl) scheduleEl.textContent = schedDesc;
