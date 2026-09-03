@@ -26,19 +26,21 @@ DOCS_DATA_DIR = DOCS_DIR / "data"
 
 
 def read_jsonl(file_path: Path) -> List[Dict[str, Any]]:
-    """Read JSONL file and return list of dicts."""
+    """Read JSONL file and return list of dicts with unique IDs."""
     if not file_path.exists():
         return []
-    records = []
+    records = {}
     with open(file_path, "r", encoding="utf-8") as f:
         for line in f:
             line = line.strip()
             if line:
                 try:
-                    records.append(json.loads(line))
+                    r = json.loads(line)
+                    clean_id = str(r.get("id", "")).replace("#", "").strip()
+                    records[clean_id] = r
                 except json.JSONDecodeError:
                     continue
-    return records
+    return sorted(records.values(), key=lambda x: (x.get("date", ""), str(x.get("id", ""))))
 
 
 def calculate_gap_analysis(records: List[Dict], max_val: int, num_balls: int) -> List[Dict[str, Any]]:
@@ -516,12 +518,13 @@ def main():
         **process_max3d(records_3d_pro)
     }
 
-    output_path = DOCS_DATA_DIR / "vietlott_summary.json"
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(summary_data, f, ensure_ascii=False, indent=2)
-
-    file_size_kb = output_path.stat().st_size / 1024
-    print(f"Successfully generated {output_path} ({file_size_kb:.1f} KB)")
+    for out_dir in [DOCS_DATA_DIR, DATA_DIR]:
+        out_dir.mkdir(parents=True, exist_ok=True)
+        output_path = out_dir / "vietlott_summary.json"
+        with open(output_path, "w", encoding="utf-8") as f:
+            json.dump(summary_data, f, ensure_ascii=False, indent=2)
+        file_size_kb = output_path.stat().st_size / 1024
+        print(f"Successfully generated {output_path} ({file_size_kb:.1f} KB)")
 
 
 if __name__ == "__main__":
