@@ -3548,21 +3548,40 @@ function getStoredPredictions(productKey) {
         if (breakdownCostEl) breakdownCostEl.textContent = `7 vé x 10k = 70.000đ`;
         if (payoutEl) {
           payoutEl.innerHTML = `
-            <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex justify-between items-center">
-              <span>Trúng 3/7 số:</span>
-              <span class="text-blue-400 font-bold">4 Giải Ba = 200.000 VNĐ (Lời +130.000đ)</span>
-            </div>
-            <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex justify-between items-center">
-              <span>Trúng 4/7 số:</span>
-              <span class="text-emerald-400 font-bold">3 Giải Nhì + 4 Giải Ba = 1.700.000 VNĐ (Lời +1.630.000đ)</span>
-            </div>
-            <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex justify-between items-center">
-              <span>Trúng 5/7 số:</span>
-              <span class="text-rose-400 font-bold">2 Giải Nhất (80tr) + 5 Giải Nhì = 82.500.000 VNĐ</span>
-            </div>
-            <div class="p-2.5 rounded-lg bg-slate-900 border border-amber-500/40 flex justify-between items-center text-amber-300 font-bold">
-              <span>Trúng 6/7 số:</span>
-              <span>1 Jackpot 1 (30+ Tỷ) + 6 Giải Nhất (240 Triệu VNĐ)!</span>
+            <div class="space-y-2">
+              <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <span class="font-bold text-slate-300">Trùng 3 số:</span>
+                <span class="text-xs text-slate-400">4 giải Ba (50.000đ)</span>
+                <span class="text-blue-400 font-bold">200.000 VNĐ (Lời +130.000đ)</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <span class="font-bold text-slate-300">Trùng 4 số:</span>
+                <span class="text-xs text-slate-400">3 giải Nhì (500k) + 4 giải Ba (50k)</span>
+                <span class="text-emerald-400 font-bold">1.700.000 VNĐ (Lời +1.630.000đ)</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <span class="font-bold text-slate-300">Trùng 5 số:</span>
+                <span class="text-xs text-slate-400">2 giải Nhất (40tr) + 5 giải Nhì (500k)</span>
+                <span class="text-rose-400 font-bold">82.500.000 VNĐ (Lời +82.430.000đ)</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-900 border border-amber-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-amber-300">
+                <span class="font-bold">Trùng 5 số + Cầu Vàng:</span>
+                <span class="text-xs text-amber-200/80">1 Jackpot 2 + 1 giải Nhất + 5 giải Nhì</span>
+                <span class="font-extrabold">Jackpot 2 + 42.500.000 VNĐ</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-900 border border-amber-500/40 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-amber-300">
+                <span class="font-bold">Trùng 6 số:</span>
+                <span class="text-xs text-amber-200/80">1 Jackpot 1 + 6 giải Nhất (40tr)</span>
+                <span class="font-extrabold">Jackpot 1 + 240.000.000 VNĐ</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-900 border border-amber-500/60 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-amber-300">
+                <span class="font-bold">Trùng 6 số + Cầu Vàng:</span>
+                <span class="text-xs text-amber-200/80">1 Jackpot 1 + 1 Jackpot 2 + 5 giải Nhất</span>
+                <span class="font-extrabold">Jackpot 1 + Jackpot 2 + 200.000.000đ</span>
+              </div>
+              <p class="text-[10px] text-slate-500 italic pt-1 text-right">
+                * Lưu ý: Mức thưởng trên 10 triệu đồng đối với mỗi giải con chịu thuế TNCN 10% phần vượt trên 10 triệu đồng.
+              </p>
             </div>
           `;
         }
@@ -3577,21 +3596,30 @@ function getStoredPredictions(productKey) {
         if (breakdownCostEl) breakdownCostEl.textContent = `7 vé x 10k = 70.000đ`;
         if (payoutEl) {
           payoutEl.innerHTML = `
-            <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex justify-between items-center">
-              <span>Trúng 3/7 số:</span>
-              <span class="text-blue-400 font-bold">4 Giải Ba = 120.000 VNĐ (Lời +50.000đ)</span>
-            </div>
-            <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex justify-between items-center">
-              <span>Trúng 4/7 số:</span>
-              <span class="text-emerald-400 font-bold">3 Giải Nhì + 4 Giải Ba = 1.020.000 VNĐ (Lời +950.000đ)</span>
-            </div>
-            <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex justify-between items-center">
-              <span>Trúng 5/7 số:</span>
-              <span class="text-rose-400 font-bold">2 Giải Nhất (20tr) + 5 Giải Nhì = 21.500.000 VNĐ</span>
-            </div>
-            <div class="p-2.5 rounded-lg bg-slate-900 border border-amber-500/40 flex justify-between items-center text-amber-300 font-bold">
-              <span>Trúng 6/7 số:</span>
-              <span>1 Jackpot (12+ Tỷ) + 6 Giải Nhất (60 Triệu VNĐ)!</span>
+            <div class="space-y-2">
+              <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <span class="font-bold text-slate-300">Trùng 3 số:</span>
+                <span class="text-xs text-slate-400">4 giải Ba (30.000đ)</span>
+                <span class="text-blue-400 font-bold">120.000 VNĐ (Lời +50.000đ)</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <span class="font-bold text-slate-300">Trùng 4 số:</span>
+                <span class="text-xs text-slate-400">3 giải Nhì (300k) + 4 giải Ba (30k)</span>
+                <span class="text-emerald-400 font-bold">1.020.000 VNĐ (Lời +950.000đ)</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <span class="font-bold text-slate-300">Trùng 5 số:</span>
+                <span class="text-xs text-slate-400">2 giải Nhất (10tr) + 5 giải Nhì (300k)</span>
+                <span class="text-rose-400 font-bold">21.500.000 VNĐ (Lời +21.430.000đ)</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-900 border border-amber-500/40 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-amber-300">
+                <span class="font-bold">Trùng 6 số:</span>
+                <span class="text-xs text-amber-200/80">1 giải Jackpot + 6 giải Nhất (10tr)</span>
+                <span class="font-extrabold">Jackpot (12+ Tỷ) + 60.000.000 VNĐ</span>
+              </div>
+              <p class="text-[10px] text-slate-500 italic pt-1 text-right">
+                * Lưu ý: Mức thưởng trên 10 triệu đồng đối với mỗi giải con chịu thuế TNCN 10% phần vượt trên 10 triệu đồng.
+              </p>
             </div>
           `;
         }
@@ -3885,9 +3913,16 @@ function getStoredBao7Predictions(productKey) {
           matchCount = item.predicted.filter(n => actualSet.has(n)).length;
 
           if (currentProductKey === 'power_655') {
-            if (matchCount === 6) {
-              prizeDesc = '<span class="text-amber-400 font-bold">🏆 1 JACKPOT 1 + 6 GIẢI NHẤT</span>';
-              profitDesc = '<span class="text-amber-400 font-bold">+Hàng Chục Tỷ</span>';
+            const hasSpecial = item.specialBall && item.predicted.includes(item.specialBall);
+            if (matchCount === 6 && hasSpecial) {
+              prizeDesc = '<span class="text-amber-400 font-bold">🏆 1 JP1 + 1 JP2 + 5 GIẢI NHẤT</span>';
+              profitDesc = '<span class="text-amber-400 font-bold">JP1 + JP2 + 200 Triệu</span>';
+            } else if (matchCount === 6) {
+              prizeDesc = '<span class="text-amber-400 font-bold">🏆 1 JP1 + 6 GIẢI NHẤT (240tr)</span>';
+              profitDesc = '<span class="text-amber-400 font-bold">JP1 + 240.000.000đ</span>';
+            } else if (matchCount === 5 && hasSpecial) {
+              prizeDesc = '<span class="text-amber-300 font-bold">💎 1 JP2 + 1 NHẤT + 5 NHÌ</span>';
+              profitDesc = '<span class="text-amber-300 font-bold">JP2 + 42.500.000đ</span>';
             } else if (matchCount === 5) {
               prizeDesc = '<span class="text-rose-400 font-bold">2 Giải Nhất (80tr) + 5 Giải Nhì</span>';
               profitDesc = '<span class="text-emerald-400 font-bold">+82.430.000 VNĐ</span>';
@@ -3901,11 +3936,11 @@ function getStoredBao7Predictions(productKey) {
               prizeDesc = '<span class="text-slate-500">Không trúng</span>';
               profitDesc = '<span class="text-rose-400">-70.000 VNĐ</span>';
             }
-          } else {
+          } else if (currentProductKey === 'power_645') {
             // Mega 6/45
             if (matchCount === 6) {
               prizeDesc = '<span class="text-amber-400 font-bold">🏆 1 JACKPOT + 6 GIẢI NHẤT</span>';
-              profitDesc = '<span class="text-amber-400 font-bold">+Hàng Chục Tỷ</span>';
+              profitDesc = '<span class="text-amber-400 font-bold">Jackpot + 60.000.000đ</span>';
             } else if (matchCount === 5) {
               prizeDesc = '<span class="text-rose-400 font-bold">2 Giải Nhất (20tr) + 5 Giải Nhì</span>';
               profitDesc = '<span class="text-emerald-400 font-bold">+21.430.000 VNĐ</span>';
@@ -3918,6 +3953,21 @@ function getStoredBao7Predictions(productKey) {
             } else {
               prizeDesc = '<span class="text-slate-500">Không trúng</span>';
               profitDesc = '<span class="text-rose-400">-70.000 VNĐ</span>';
+            }
+          } else {
+            // Power 5/35
+            if (matchCount === 5) {
+              prizeDesc = '<span class="text-amber-400 font-bold">🏆 1 ĐỘC ĐẮC + 5 GIẢI NHẤT</span>';
+              profitDesc = '<span class="text-amber-400 font-bold">Jackpot (6+ Tỷ)</span>';
+            } else if (matchCount === 4) {
+              prizeDesc = '<span class="text-emerald-400 font-bold">2 Giải Nhì + 4 Giải Bốn</span>';
+              profitDesc = '<span class="text-emerald-400 font-bold">Lời Vốn Nhiều Lần</span>';
+            } else if (matchCount === 3) {
+              prizeDesc = '<span class="text-blue-400 font-bold">3 Giải Bốn + 3 Giải Sáu</span>';
+              profitDesc = '<span class="text-emerald-400 font-bold">Lời Vốn (+90.000đ)</span>';
+            } else {
+              prizeDesc = '<span class="text-slate-500">Không trúng</span>';
+              profitDesc = '<span class="text-rose-400">-60.000 VNĐ</span>';
             }
           }
         } else {
