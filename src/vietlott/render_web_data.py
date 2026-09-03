@@ -534,7 +534,15 @@ def calculate_bayesian_hazard_scores(records: List[Dict], max_val: int, num_ball
         else:
             hazard = 1.4
 
-        combined = (decay_freq[b] * 1.8) + (hazard * 3.5)
+        # Matrix Synergy with last draw
+        matrix_synergy = 0.0
+        if len(recent_records) >= 1:
+            last_balls = recent_records[-1].get("result", [])[:num_balls]
+            for lb in last_balls:
+                if 1 <= lb <= max_val:
+                    # Tra cuu so lan b va lb cung no
+                    matrix_synergy += 0.35 if (b, lb) in last_seen else 0.0
+        combined = (decay_freq[b] * 1.8) + (hazard * 3.5) + matrix_synergy
         hazard_scores[b] = round(combined, 3)
 
     return hazard_scores
@@ -1071,6 +1079,103 @@ def calculate_bac_nho_and_cau_roi(records: List[Dict], max_val: int, num_balls: 
     }
 
 
+
+def calculate_cooccurrence_matrix_analytics(records: List[Dict], max_val: int, num_balls: int, window: int = 200) -> Dict[str, Any]:
+    """
+    Tính toán Ma Trận Đồng Quy Cặp Đôi (Co-occurrence Adjacency Matrix) và Phân cụm đồ thị:
+    - Đếm số lần cặp (i, j) nổ cùng nhau trong window kỳ gần nhất.
+    - Tính chỉ số Lift để tìm các Cặp Đôi Vàng có lực hút mạnh nhất.
+    - Trích xuất Top 6 bạn thân cho từng con số 1..max_val.
+    - Phân cụm đồ thị (Graph Communities) chia 55 số thành 5 nhóm để rải đều vé.
+    """
+    sample = records[-window:] if len(records) >= window else records
+    W = len(sample)
+    if W < 20:
+        return {}
+
+    matrix = {i: {j: 0 for j in range(1, max_val + 1)} for i in range(1, max_val + 1)}
+    ball_freq = Counter()
+
+    for d in sample:
+        res = sorted(d.get("result", [])[:num_balls])
+        for b in res:
+            if 1 <= b <= max_val:
+                ball_freq[b] += 1
+        for i in range(len(res)):
+            for j in range(i + 1, len(res)):
+                u, v = res[i], res[j]
+                if 1 <= u <= max_val and 1 <= v <= max_val:
+                    matrix[u][v] += 1
+                    matrix[v][u] += 1
+
+    # 1. Top Strongest Pairs
+    pairs = []
+    for u in range(1, max_val + 1):
+        for v in range(u + 1, max_val + 1):
+            cnt = matrix[u][v]
+            if cnt >= 5: # Xuất hiện >= 5 lần trong window kỳ
+                exp = (ball_freq[u] * ball_freq[v]) / max(1, W)
+                lift = round(cnt / max(0.1, exp), 2)
+                pairs.append({
+                    "ball1": u,
+                    "ball2": v,
+                    "count": cnt,
+                    "probability_pct": round(cnt / W * 100, 1),
+                    "lift": lift
+                })
+
+    pairs.sort(key=lambda x: (x["count"], x["lift"]), reverse=True)
+    top_pairs = pairs[:15]
+
+    # 2. Companion Map for each number 1..max_val
+    companions_map = {}
+    for u in range(1, max_val + 1):
+        cands = []
+        for v in range(1, max_val + 1):
+            if u != v and matrix[u][v] > 0:
+                cnt = matrix[u][v]
+                exp = (ball_freq[u] * ball_freq[v]) / max(1, W)
+                lift = round(cnt / max(0.1, exp), 2)
+                cands.append({
+                    "number": v,
+                    "count": cnt,
+                    "lift": lift
+                })
+        cands.sort(key=lambda x: (x["count"], x["lift"]), reverse=True)
+        companions_map[str(u)] = cands[:6]
+
+    # 3. Graph Community Detection (5 Clusters)
+    import networkx as nx
+    G = nx.Graph()
+    for u in range(1, max_val + 1):
+        G.add_node(u)
+    for u in range(1, max_val + 1):
+        for v in range(u + 1, max_val + 1):
+            if matrix[u][v] >= 3:
+                G.add_edge(u, v, weight=matrix[u][v])
+
+    import networkx.algorithms.community as nx_comm
+    try:
+        raw_communities = list(nx_comm.greedy_modularity_communities(G))
+        communities = [sorted(list(c)) for c in raw_communities[:5]]
+    except Exception as e:
+        step = max(1, max_val // 5)
+        communities = [
+            list(range(1, step + 1)),
+            list(range(step + 1, step * 2 + 1)),
+            list(range(step * 2 + 1, step * 3 + 1)),
+            list(range(step * 3 + 1, step * 4 + 1)),
+            list(range(step * 4 + 1, max_val + 1))
+        ]
+
+    return {
+        "window_draws": W,
+        "top_pairs": top_pairs,
+        "companions_map": companions_map,
+        "communities": communities
+    }
+
+
 def process_power(records: List[Dict], max_val: int, num_balls: int, has_special: bool = False) -> Dict[str, Any]:
     """Process Power 655, 645, 535 with full analytics."""
     if not records:
@@ -1163,7 +1268,8 @@ def process_power(records: List[Dict], max_val: int, num_balls: int, has_special
         "backtest_history": calculate_walk_forward_backtest(records, "power_535" if max_val==35 else ("power_645" if max_val==45 else "power_655"), max_val, num_balls, is_two_matrix=(max_val==35)),
         "bao7_backtest_history": calculate_walk_forward_bao7_backtest(records, "power_535" if max_val==35 else ("power_645" if max_val==45 else "power_655"), max_val, num_balls, is_two_matrix=(max_val==35)),
         "wheeling_strategy": generate_wheeling_strategy(records, "power_535" if max_val==35 else ("power_645" if max_val==45 else "power_655"), max_val, num_balls, is_two_matrix=(max_val==35)),
-        "bac_nho_analytics": calculate_bac_nho_and_cau_roi(records, max_val, num_balls, window=200)
+        "bac_nho_analytics": calculate_bac_nho_and_cau_roi(records, max_val, num_balls, window=200),
+        "cooccurrence_analytics": calculate_cooccurrence_matrix_analytics(records, max_val, num_balls, window=200)
     }
 
 

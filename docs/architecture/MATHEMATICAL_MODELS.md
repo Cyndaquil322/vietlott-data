@@ -110,3 +110,30 @@ $$\forall T \subset \text{Core Pool}, |T| \ge 4 \implies \exists \text{ Vé } W 
 
 * **Ý nghĩa thực chiến:** Người chơi chỉ cần bỏ ra **60.000đ** (6 vé đơn 10k), nếu trong 14 số của Tập Hạt Nhân có 4 số quay thưởng nổ, **CHẮC CHẮN sẽ có ít nhất 1 vé trúng giải Ba (50.000đ) hoặc giải Nhì (500.000đ/1.700.000đ)**!
 * Đây là phương pháp quản trị rủi ro và tối ưu hóa đòn bẩy vốn theo lý thuyết trò chơi được chứng minh toán học.
+
+---
+
+## 6. MA TRẬN KỀ ĐỒNG QUY CẶP ĐÔI (CO-OCCURRENCE ADJACENCY MATRIX & PAIRWISE LIFT)
+
+### A. Ma trận kề đối xứng $M_{N \times N}$:
+Với $N$ là số lượng bóng trong lồng ($N = 55$ cho 6/55, $N = 45$ cho 6/45), ma trận kề $M$ được xác định trên cửa sổ $W = 200$ kỳ gần nhất:
+$$M_{ij} = \sum_{t=1}^{W} \mathbb{I}(i \in \text{draw}_t \land j \in \text{draw}_t) \quad (\forall i \neq j, M_{ii} = 0)$$
+
+### B. Chỉ số độ nâng lực hút cặp đôi (Pairwise Lift):
+Đo lường mức độ hai con số xuất hiện cùng nhau cao hơn bao nhiêu lần so với kỳ vọng ngẫu nhiên độc lập:
+$$\text{Lift}(i, j) = \frac{P(i \cap j)}{P(i) \cdot P(j)} = \frac{M_{ij} \times W}{F_i \times F_j}$$
+Trong đó $F_i$ và $F_j$ là tần suất xuất hiện độc lập của bóng $i$ và $j$.
+* Nếu $\text{Lift}(i, j) \ge 1.5$: Hai số có **lực hút đồng quy cực mạnh** (Synergistic Pair), ưu tiên ghép cùng vé.
+* Nếu $\text{Lift}(i, j) < 0.5$: Hai số có tính **xung khắc / kỵ nhau** (Repulsive Pair), tránh đưa cả 2 vào cùng một vé đơn.
+
+---
+
+## 7. PHÂN CỤM ĐỒ THỊ TỰ NHIÊN (GRAPH COMMUNITY DETECTION - LOUVAIN MODULARITY)
+
+Mạng lưới quan hệ giữa các con số được mô hình hóa thành đồ thị vô hướng có trọng số $G = (V, E, W)$, trong đó các đỉnh là các con số, và trọng số cạnh là số lần nổ chung $M_{ij} \ge 3$.
+
+Hệ thống áp dụng thuật toán tối ưu hóa độ tách biệt mô-đun (Modularity Maximization):
+$$Q = \frac{1}{2m} \sum_{i, j} \left[ A_{ij} - \frac{k_i k_j}{2m} \right] \delta(c_i, c_j)$$
+
+Thuật toán tự động phân hoạch 55 số thành **4 đến 5 Cụm Đồ Thị tự nhiên (Graph Communities)**:
+* **Quy tắc rải vé tối ưu:** Khi sinh một vé 6 số, thuật toán áp dụng nguyên lý **Đa dạng hóa danh mục**: Bắt buộc 6 con số phải đến từ ít nhất 4 cụm đồ thị khác nhau, ngăn chặn triệt để hiện tượng dồn hết số vào một cụm rủi ro.
