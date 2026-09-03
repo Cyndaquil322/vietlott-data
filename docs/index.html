@@ -190,6 +190,11 @@
           <i data-lucide="layers" class="w-3.5 h-3.5 text-emerald-400"></i>
           <span>Chiến Lược Bao 7 (70k)</span>
         </button>
+        <button onclick="switchView('saved-tickets')" id="nav-saved-tickets" class="view-tab px-3 py-1.5 rounded-lg bg-gradient-to-r from-violet-900/40 via-purple-900/30 to-slate-800/80 text-violet-300 border border-violet-500/40 hover:from-violet-600 hover:to-purple-600 hover:text-white flex items-center gap-1.5 transition shadow-sm">
+          <i data-lucide="bookmark" class="w-3.5 h-3.5 text-violet-400"></i>
+          <span>Sổ Tay Vé Đã Lưu</span>
+          <span id="savedTicketsBadge" class="ml-1 px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-violet-500 text-white font-mono">0</span>
+        </button>
         <button onclick="switchView('history')" id="nav-history" class="view-tab px-3 py-1.5 rounded-lg bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white flex items-center gap-1.5 transition">
           <i data-lucide="history" class="w-3.5 h-3.5 text-slate-400"></i>
           <span>Lịch Sử Kỳ Quay</span>
@@ -1358,6 +1363,80 @@
       </section>
     </div>
 
+    <!-- VIEW 11: SAVED TICKETS NOTEBOOK (SỔ TAY VÉ ĐÃ LƯU & THEO DÕI) -->
+    <div id="view-saved-tickets-content" class="view-content hidden space-y-6">
+      <div class="rounded-2xl bg-gradient-to-b from-slate-900 to-slate-950 border border-violet-500/40 p-6 shadow-xl space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-violet-500/20 text-violet-300 border border-violet-500/30 flex items-center gap-1">
+                <i data-lucide="bookmark-check" class="w-3.5 h-3.5 text-violet-400"></i> Sổ Tay Cá Nhân
+              </span>
+              <span class="text-xs text-slate-400">Tự động đối soát kết quả thật khi có kỳ mở thưởng mới</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mt-1 flex items-center gap-2">
+              <i data-lucide="bookmark" class="w-5 h-5 text-violet-400"></i>
+              SỔ TAY VÉ ĐÃ LƯU & THEO DÕI THỰC CHIẾN
+            </h3>
+            <p class="text-xs text-slate-400 mt-0.5">
+              Lưu trữ mọi bộ số vàng, dàn Bao 7 / Bao 6 mà bạn đã chốt. Hệ thống tự động so khớp đối soát với kết quả thực tế, thống kê Lời / Lỗ và cung cấp cú pháp gửi tin nhắn 9969!
+            </p>
+          </div>
+
+          <div class="flex items-center gap-2 flex-wrap">
+            <button onclick="refreshLiveSummaryData()" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-300 hover:text-white font-bold text-xs flex items-center gap-1.5 transition active:scale-95 shadow-sm border border-slate-700">
+              <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+              <span>Cập Nhật KQ Mới Nhất</span>
+            </button>
+            <button onclick="clearAllSavedTickets()" class="px-3.5 py-2 rounded-xl bg-slate-800/80 hover:bg-rose-950 text-slate-400 hover:text-rose-300 font-semibold text-xs transition border border-slate-800">
+              <i data-lucide="trash-2" class="w-3.5 h-3.5 inline"></i> Xóa Hết
+            </button>
+          </div>
+        </div>
+
+        <!-- Metric Stat Cards -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono">
+          <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
+            <span class="text-[10px] text-slate-400 uppercase font-sans block">Tổng Vé Đã Lưu</span>
+            <span id="st-totalTickets" class="text-white font-black text-lg mt-0.5 block">0</span>
+            <span class="text-[10px] text-slate-500 font-sans">Tất cả các game</span>
+          </div>
+          <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
+            <span class="text-[10px] text-slate-400 uppercase font-sans block">Chờ Mở Thưởng</span>
+            <span id="st-pendingTickets" class="text-amber-400 font-black text-lg mt-0.5 block">0</span>
+            <span class="text-[10px] text-slate-500 font-sans">Kỳ tới chưa quay</span>
+          </div>
+          <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
+            <span class="text-[10px] text-slate-400 uppercase font-sans block">Tổng Tiền Trúng</span>
+            <span id="st-totalWinnings" class="text-emerald-400 font-black text-lg mt-0.5 block">0 VNĐ</span>
+            <span class="text-[10px] text-slate-500 font-sans">Đã đối soát kết quả</span>
+          </div>
+          <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
+            <span class="text-[10px] text-slate-400 uppercase font-sans block">Lợi Nhuận Ròng (P&L)</span>
+            <span id="st-netProfit" class="text-blue-400 font-black text-lg mt-0.5 block">0 VNĐ</span>
+            <span class="text-[10px] text-slate-500 font-sans">Tiền trúng - Tiền mua vé</span>
+          </div>
+        </div>
+
+        <!-- Filter bar -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-950 p-3 rounded-xl border border-slate-800 text-xs">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="text-slate-400 font-medium">Lọc theo game:</span>
+            <button onclick="filterSavedTickets('all')" id="stFilter-all" class="st-filter-btn px-2.5 py-1 rounded-lg bg-violet-600 text-white font-bold">Tất cả</button>
+            <button onclick="filterSavedTickets('power_655')" id="stFilter-power_655" class="st-filter-btn px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300">Power 6/55</button>
+            <button onclick="filterSavedTickets('power_645')" id="stFilter-power_645" class="st-filter-btn px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300">Mega 6/45</button>
+            <button onclick="filterSavedTickets('power_535')" id="stFilter-power_535" class="st-filter-btn px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300">Power 5/35</button>
+          </div>
+          <span class="text-slate-400 text-[11px]">💡 Bấm "Lưu Dàn Này" ở tab Dự Đoán hoặc Bao 7 để thêm vé vào đây</span>
+        </div>
+
+        <!-- Saved Tickets List Container -->
+        <div id="savedTicketsContainer" class="space-y-3">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+
   </main>
 
   <!-- Footer -->
@@ -1454,6 +1533,7 @@
       if (viewName === 'digits-ev') renderTailDivChart();
       if (viewName === 'bao7') renderBao7View(appData?.products?.[currentProductKey]);
       if (viewName === 'ensemble') renderEnsembleView(appData?.products?.[currentProductKey]);
+      if (viewName === 'saved-tickets') renderSavedTicketsView();
       lucide.createIcons();
     }
 
@@ -3980,7 +4060,16 @@ function getStoredPredictions(productKey) {
 
       localStorage.setItem(storageKey, JSON.stringify(list));
       renderPredictionHistory(product);
-      alert(`Đã lưu bộ số [${nums.join(', ')}] (${score}% thỏa mãn) vào lịch sử theo dõi!`);
+      
+      const gameLabel = currentProductKey === 'power_655' ? 'Power 6/55' : currentProductKey === 'power_645' ? 'Mega 6/45' : 'Power 5/35';
+      saveTicketToNotebook({
+        game: currentProductKey,
+        gameName: gameLabel,
+        drawId: nextId,
+        type: 'ensemble',
+        numbers: nums,
+        cost: 10000
+      });
     }
 
     function clearPredictionHistory() {
@@ -4009,6 +4098,332 @@ function getStoredPredictions(productKey) {
     let currentBao7Ticket = null;
 
     
+
+    // ==========================================
+    // 5. SAVED TICKETS NOTEBOOK (SỔ TAY CÁ NHÂN)
+    // ==========================================
+    let currentSavedFilter = 'all';
+
+    function getSavedTickets() {
+      const raw = localStorage.getItem('vietlott_user_notebook_tickets');
+      if (raw) {
+        try {
+          const list = JSON.parse(raw);
+          if (Array.isArray(list)) return list;
+        } catch (e) {}
+      }
+      return [];
+    }
+
+    function setSavedTickets(list) {
+      localStorage.setItem('vietlott_user_notebook_tickets', JSON.stringify(list));
+      updateSavedBadge();
+    }
+
+    function updateSavedBadge() {
+      const badge = document.getElementById('savedTicketsBadge');
+      if (badge) {
+        const list = getSavedTickets();
+        badge.textContent = list.length;
+      }
+    }
+
+    function saveTicketToNotebook(ticketData) {
+      const list = getSavedTickets();
+      // Check duplicate
+      const exists = list.some(x => x.game === ticketData.game && x.drawId === ticketData.drawId && JSON.stringify(x.numbers) === JSON.stringify(ticketData.numbers));
+      if (exists) {
+        alert('Bộ số này đã có trong Sổ Tay Vé Đã Lưu của bạn!');
+        return;
+      }
+      list.unshift({
+        id: 't_' + Date.now(),
+        savedAt: new Date().toLocaleDateString('vi-VN') + ' ' + new Date().toLocaleTimeString('vi-VN', {hour: '2-digit', minute:'2-digit'}),
+        ...ticketData
+      });
+      setSavedTickets(list);
+      updateSavedBadge();
+      
+      if (confirm(`ĐÃ LƯU VÉ VÀO SỔ TAY THÀNH CÔNG! 🎉\n\n• Game: ${ticketData.gameName}\n• Kỳ quay: #${ticketData.drawId}\n• Dãy số: [${ticketData.numbers.join(', ')}]\n\nBạn có muốn chuyển sang xem ngay tại tab "Sổ Tay Vé Đã Lưu"?`)) {
+        switchView('saved-tickets');
+      }
+    }
+
+    function deleteSavedTicket(ticketId) {
+      if (confirm('Bạn có chắc chắn muốn xóa vé này khỏi Sổ Tay?')) {
+        let list = getSavedTickets();
+        list = list.filter(x => x.id !== ticketId);
+        setSavedTickets(list);
+        renderSavedTicketsView();
+      }
+    }
+
+    function clearAllSavedTickets() {
+      if (confirm('Bạn có chắc chắn muốn xóa TOÀN BỘ vé trong Sổ Tay?')) {
+        setSavedTickets([]);
+        renderSavedTicketsView();
+      }
+    }
+
+    function filterSavedTickets(gameKey) {
+      currentSavedFilter = gameKey;
+      document.querySelectorAll('.st-filter-btn').forEach(btn => {
+        btn.className = 'st-filter-btn px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300';
+      });
+      const active = document.getElementById(`stFilter-${gameKey}`);
+      if (active) active.className = 'st-filter-btn px-2.5 py-1 rounded-lg bg-violet-600 text-white font-bold';
+      renderSavedTicketsView();
+    }
+
+    async function refreshLiveSummaryData() {
+      const btn = event?.currentTarget;
+      if (btn) btn.innerHTML = '<i data-lucide="loader" class="w-3.5 h-3.5 animate-spin"></i> Đang tải...';
+      await loadData();
+      renderSavedTicketsView();
+      alert('Đã đồng bộ và cập nhật dữ liệu kết quả mới nhất từ máy chủ!');
+      if (btn) btn.innerHTML = '<i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i> Cập Nhật KQ Mới Nhất';
+      lucide.createIcons();
+    }
+
+    function renderSavedTicketsView() {
+      const container = document.getElementById('savedTicketsContainer');
+      if (!container) return;
+
+      let list = getSavedTickets();
+      if (currentSavedFilter !== 'all') {
+        list = list.filter(x => x.game === currentSavedFilter);
+      }
+
+      const allTickets = getSavedTickets();
+      let totalCost = 0;
+      let totalWinnings = 0;
+      let pendingCount = 0;
+
+      // Evaluate each ticket against current live data in appData
+      const evaluatedList = list.map(item => {
+        const prod = appData?.products?.[item.game];
+        let actual = null;
+        let isPending = true;
+
+        if (prod) {
+          // Check if latest id matches or history matches
+          if (prod.latest && (prod.latest.id === item.drawId || parseInt(prod.latest.id) >= parseInt(item.drawId))) {
+            // Find draw in history or latest
+            if (prod.latest.id === item.drawId) {
+              actual = prod.latest.result;
+              isPending = false;
+            } else if (prod.history) {
+              const h = prod.history.find(x => x.id === item.drawId);
+              if (h) {
+                actual = h.result;
+                isPending = false;
+              }
+            }
+          }
+        }
+
+        const cost = item.cost || (item.type === 'bao6' ? 60000 : item.type === 'bao7' ? 70000 : 10000);
+        totalCost += cost;
+
+        let winAmount = 0;
+        let winTitle = '';
+        let matchText = '';
+
+        if (isPending) {
+          pendingCount++;
+          winTitle = '⏳ Đang chờ mở thưởng';
+        } else if (actual) {
+          const is535 = item.game === 'power_535';
+          const is655 = item.game === 'power_655';
+          const mainLimit = (item.type === 'bao7') ? 7 : (item.type === 'bao6') ? 6 : (is535 ? 5 : 6);
+          const predMain = item.numbers.slice(0, mainLimit);
+          const actualMainCount = is535 ? 5 : 6;
+          const actualMain = actual.slice(0, actualMainCount);
+          const actualMainSet = new Set(actualMain);
+          const matchMain = predMain.filter(n => actualMainSet.has(n)).length;
+
+          let matchSpec = false;
+          if (is535) {
+            const predSpec = item.numbers[mainLimit];
+            const actSpec = actual[5];
+            matchSpec = predSpec !== undefined && actSpec !== undefined && predSpec === actSpec;
+          } else if (is655) {
+            const predSpec = item.numbers[mainLimit];
+            const actSpec = actual[6];
+            matchSpec = predSpec !== undefined && actSpec !== undefined && predSpec === actSpec;
+          }
+
+          matchText = is535 || is655 ? `Trúng ${matchMain} chính${matchSpec ? ' + Cầu ĐB' : ''}` : `Trúng ${matchMain} số`;
+
+          // Prize calculator
+          if (item.type === 'bao7') {
+            if (item.game === 'power_655') {
+              if (matchMain === 6) { winAmount = 240000000; winTitle = '🏆 JACKPOT 1 + 240tr'; }
+              else if (matchMain === 5 && matchSpec) { winAmount = 42500000; winTitle = '💎 JACKPOT 2 + 42.5tr'; }
+              else if (matchMain === 5) { winAmount = 82500000; winTitle = '🥈 2 Giải Nhất (80tr)'; }
+              else if (matchMain === 4) { winAmount = 1700000; winTitle = '🥉 3 Giải Nhì + 4 Giải Ba'; }
+              else if (matchMain === 3) { winAmount = 200000; winTitle = '🎖️ 4 Giải Ba (200k)'; }
+              else { winAmount = 0; winTitle = 'Không trúng'; }
+            } else {
+              // 6/45
+              if (matchMain === 6) { winAmount = 60000000; winTitle = '🏆 JACKPOT + 60tr'; }
+              else if (matchMain === 5) { winAmount = 21500000; winTitle = '🥈 2 Nhất (20tr) + 5 Nhì'; }
+              else if (matchMain === 4) { winAmount = 1020000; winTitle = '🥉 3 Nhì + 4 Ba (1.02tr)'; }
+              else if (matchMain === 3) { winAmount = 120000; winTitle = '🎖️ 4 Giải Ba (120k)'; }
+              else { winAmount = 0; winTitle = 'Không trúng'; }
+            }
+          } else if (item.type === 'bao6' && item.game === 'power_535') {
+            if (matchMain === 5 && matchSpec) { winAmount = 2500000; winTitle = '🏆 ĐỘC ĐẮC + 2.5tr'; }
+            else if (matchMain === 5) { winAmount = 40250000; winTitle = '🥈 1 Nhất (40tr) + 5 Ba'; }
+            else if (matchMain === 4 && matchSpec) { winAmount = 1200000; winTitle = '🥉 2 Nhì + 4 Tư (1.2tr)'; }
+            else if (matchMain === 4) { winAmount = 100000; winTitle = '🥉 2 Giải Ba (100k)'; }
+            else if (matchMain === 3 && matchSpec) { winAmount = 180000; winTitle = '🎖️ 3 Tư + 3 KK (180k)'; }
+            else if (matchMain === 3) { winAmount = 90000; winTitle = '🎖️ 3 Giải Năm (90k)'; }
+            else if (matchSpec) { winAmount = 60000; winTitle = '⭐ 6 Giải KK (Hòa vốn 60k)'; }
+            else { winAmount = 0; winTitle = 'Không trúng'; }
+          } else {
+            // Vé đơn 10k
+            if (item.game === 'power_655') {
+              if (matchMain === 6) { winAmount = 30000000000; winTitle = '🏆 JACKPOT 1'; }
+              else if (matchMain === 5 && matchSpec) { winAmount = 3500000000; winTitle = '💎 JACKPOT 2'; }
+              else if (matchMain === 5) { winAmount = 40000000; winTitle = '🥈 Giải Nhất (40tr)'; }
+              else if (matchMain === 4) { winAmount = 500000; winTitle = '🥉 Giải Nhì (500k)'; }
+              else if (matchMain === 3) { winAmount = 50000; winTitle = '🎖️ Giải Ba (50k)'; }
+            } else if (item.game === 'power_645') {
+              if (matchMain === 6) { winAmount = 12000000000; winTitle = '🏆 JACKPOT'; }
+              else if (matchMain === 5) { winAmount = 10000000; winTitle = '🥈 Giải Nhất (10tr)'; }
+              else if (matchMain === 4) { winAmount = 300000; winTitle = '🥉 Giải Nhì (300k)'; }
+              else if (matchMain === 3) { winAmount = 30000; winTitle = '🎖️ Giải Ba (30k)'; }
+            } else if (item.game === 'power_535') {
+              if (matchMain === 5 && matchSpec) { winAmount = 6000000000; winTitle = '🏆 ĐỘC ĐẮC'; }
+              else if (matchMain === 5) { winAmount = 40000000; winTitle = '🥈 Giải Nhất (40tr)'; }
+              else if (matchMain === 4 && matchSpec) { winAmount = 500000; winTitle = '🥉 Giải Nhì (500k)'; }
+              else if (matchMain === 4) { winAmount = 50000; winTitle = '🥉 Giải Ba (50k)'; }
+              else if (matchMain === 3 && matchSpec) { winAmount = 50000; winTitle = '🎖️ Giải Tư (50k)'; }
+              else if (matchMain === 3) { winAmount = 30000; winTitle = '🎖️ Giải Năm (30k)'; }
+              else if (matchSpec) { winAmount = 10000; winTitle = '⭐ Giải KK (10k)'; }
+            }
+          }
+        }
+
+        totalWinnings += winAmount;
+
+        return {
+          ...item,
+          actual,
+          isPending,
+          winAmount,
+          winTitle,
+          matchText,
+          netProfit: winAmount - cost
+        };
+      });
+
+      // Update metrics
+      document.getElementById('st-totalTickets').textContent = allTickets.length;
+      document.getElementById('st-pendingTickets').textContent = pendingCount;
+      document.getElementById('st-totalWinnings').textContent = totalWinnings.toLocaleString() + ' đ';
+      const net = totalWinnings - totalCost;
+      const netEl = document.getElementById('st-netProfit');
+      if (netEl) {
+        netEl.textContent = (net >= 0 ? '+' : '') + net.toLocaleString() + ' đ';
+        netEl.className = net >= 0 ? 'text-emerald-400 font-black text-lg mt-0.5 block' : 'text-rose-400 font-black text-lg mt-0.5 block';
+      }
+
+      if (!evaluatedList.length) {
+        container.innerHTML = `
+          <div class="text-center py-12 bg-slate-950/60 rounded-xl border border-dashed border-slate-800 space-y-3">
+            <i data-lucide="ticket" class="w-10 h-10 text-slate-600 mx-auto"></i>
+            <p class="text-sm text-slate-400">Chưa có vé nào được lưu trong Sổ Tay.</p>
+            <p class="text-xs text-slate-500">Hãy sang tab <strong>Dự Đoán Toàn Diện</strong> hoặc <strong>Chiến Lược Bao 7</strong> rồi bấm nút <strong>"Lưu Vé Này"</strong> để bắt đầu theo dõi!</p>
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      container.innerHTML = evaluatedList.map(item => {
+        const gameLabel = item.game === 'power_655' ? 'Power 6/55' : item.game === 'power_645' ? 'Mega 6/45' : 'Power 5/35';
+        const gameBg = item.game === 'power_655' ? 'bg-rose-500/20 text-rose-300 border-rose-500/30' : item.game === 'power_645' ? 'bg-blue-500/20 text-blue-300 border-blue-500/30' : 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30';
+        
+        let smsSyntax = '';
+        if (item.game === 'power_655') {
+          smsSyntax = item.type === 'bao7' ? `655 K1 B7 S ${item.numbers.slice(0, 7).map(n => String(n).padStart(2, '0')).join(' ')}` : `655 K1 S ${item.numbers.slice(0, 6).map(n => String(n).padStart(2, '0')).join(' ')}`;
+        } else if (item.game === 'power_645') {
+          smsSyntax = item.type === 'bao7' ? `645 K1 B7 S ${item.numbers.slice(0, 7).map(n => String(n).padStart(2, '0')).join(' ')}` : `645 K1 S ${item.numbers.slice(0, 6).map(n => String(n).padStart(2, '0')).join(' ')}`;
+        }
+
+        const isBao = item.type === 'bao7' || item.type === 'bao6';
+
+        return `
+          <div class="rounded-xl bg-slate-950 border border-slate-800 p-4 space-y-3 transition hover:border-slate-700">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800/80 pb-3">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-bold border ${gameBg}">
+                  ${gameLabel}
+                </span>
+                <span class="text-xs font-mono font-bold text-amber-400">Kỳ #${item.drawId}</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-slate-800 text-slate-300">
+                  ${item.type === 'bao7' ? 'Chiến Lược Bao 7' : item.type === 'bao6' ? 'Chiến Lược Bao 6' : 'Vé Vàng Dự Đoán'}
+                </span>
+                <span class="text-[11px] text-slate-500">Lưu lúc: ${item.savedAt}</span>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-mono text-slate-400">Vốn: <strong>${(item.cost || 70000).toLocaleString()}đ</strong></span>
+                <button onclick="deleteSavedTicket('${item.id}')" class="text-slate-500 hover:text-rose-400 transition p-1" title="Xóa vé này">
+                  <i data-lucide="trash" class="w-4 h-4"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
+              <div class="lg:col-span-6 space-y-1.5">
+                <div class="text-[11px] text-slate-400">Dàn số bạn chọn:</div>
+                <div class="overflow-x-auto py-1">
+                  ${renderBallsWithSpecial(item.numbers, item.actual, isBao, item.game)}
+                </div>
+              </div>
+
+              <div class="lg:col-span-6 space-y-1.5">
+                <div class="text-[11px] text-slate-400">Kết quả thực tế từ Vietlott:</div>
+                <div class="overflow-x-auto py-1">
+                  ${item.actual ? renderActualBallsWithSpecial(item.actual, item.game) : '<span class="text-xs text-amber-400/80 italic font-mono flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5 inline"></i> Đang chờ quay thưởng...</span>'}
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-slate-800/80 text-xs">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="font-bold ${item.isPending ? 'text-amber-400' : item.winAmount > 0 ? 'text-emerald-400' : 'text-slate-500'}">
+                  ${item.winTitle}
+                </span>
+                ${item.matchText ? `<span class="px-2 py-0.5 rounded-full bg-slate-900 border border-slate-800 text-slate-300 font-mono text-[11px]">${item.matchText}</span>` : ''}
+                ${!item.isPending ? `
+                  <span class="font-mono font-bold ${item.netProfit >= 0 ? 'text-emerald-400' : 'text-rose-400'}">
+                    (${item.netProfit >= 0 ? '+' : ''}${item.netProfit.toLocaleString()} VNĐ)
+                  </span>
+                ` : ''}
+              </div>
+
+              <div class="flex items-center gap-2">
+                ${smsSyntax ? `
+                  <button onclick="navigator.clipboard.writeText('${smsSyntax}').then(() => alert('Đã chép: ' + '${smsSyntax}'))" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs flex items-center gap-1 transition">
+                    <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy SMS
+                  </button>
+                  <button onclick="window.location.href = 'sms:9969?body=' + encodeURIComponent('${smsSyntax}')" class="px-2.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-1 transition shadow-sm">
+                    <i data-lucide="send" class="w-3.5 h-3.5"></i> Gửi 9969
+                  </button>
+                ` : ''}
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      lucide.createIcons();
+    }
+
     // ==========================================
     // 4. VIETLOTT SMS 9969 SYNTAX LOGIC (6/55 & 6/45)
     // ==========================================
@@ -4667,7 +5082,16 @@ function getStoredBao7Predictions(productKey) {
 
       localStorage.setItem(storageKey, JSON.stringify(list));
       renderBao7History();
-      alert(`Đã lưu Dàn Bao 7 kỳ #${nextId} [${currentBao7Ticket.numbers.join(', ')}] vào lịch sử theo dõi!`);
+      
+      const gameLabel = currentProductKey === 'power_655' ? 'Power 6/55' : currentProductKey === 'power_645' ? 'Mega 6/45' : 'Power 5/35';
+      saveTicketToNotebook({
+        game: currentProductKey,
+        gameName: gameLabel,
+        drawId: nextId,
+        type: currentProductKey === 'power_535' ? 'bao6' : 'bao7',
+        numbers: toSaveNums,
+        cost: currentProductKey === 'power_535' ? 60000 : 70000
+      });
     }
 
     function clearBao7History() {

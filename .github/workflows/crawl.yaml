@@ -3,9 +3,13 @@ name: Vietlott Daily Crawler & Web Deploy
 on:
   workflow_dispatch: # Allows manual trigger from GitHub UI
   schedule:
-    # Runs at 12:00 UTC (19:00 VN time, after Vietlott 18:30 daily draw)
-    - cron: '0 12 * * *'
-    # Runs at 05:00 UTC (12:00 VN noon time for midday Keno & Bingo draws)
+    # 1. Runs at 06:35 UTC (13:35 VN time - Immediately after Power 5/35 13:00 midday draw)
+    - cron: '35 6 * * *'
+    # 2. Runs at 11:45 UTC (18:45 VN time - Immediately after Power 6/55 & Mega 6/45 18:00 draws)
+    - cron: '45 11 * * *'
+    # 3. Runs at 14:35 UTC (21:35 VN time - Immediately after Power 5/35 21:00 evening draw)
+    - cron: '35 14 * * *'
+    # 4. Runs at 05:00 UTC (12:00 VN time - Midday sync check)
     - cron: '0 5 * * *'
 
 # Grant permission to commit and push updates back to the repo
