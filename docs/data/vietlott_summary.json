@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-09-04 01:16:14",
+    "generated_at": "2026-09-04 02:16:26",
     "generator": "vietlott-data automated pipeline",
     "version": "2.0.0"
   },
@@ -3105,7 +3105,304 @@
       "odd_even": {
         "odd_pct": 53.3,
         "even_pct": 46.7
-      }
+      },
+      "backtest_history": [
+        {
+          "drawId": "01394",
+          "date": "Kỳ Kế Tiếp",
+          "predicted": [
+            11,
+            20,
+            23,
+            27,
+            38,
+            48
+          ],
+          "special": 8,
+          "actual": null,
+          "matched": [],
+          "matchCount": 0,
+          "specMatched": false,
+          "status": "pending"
+        },
+        {
+          "drawId": "01393",
+          "date": "2026-09-03",
+          "predicted": [
+            2,
+            16,
+            23,
+            27,
+            40,
+            55
+          ],
+          "special": 8,
+          "actual": [
+            8,
+            9,
+            16,
+            42,
+            46,
+            47,
+            11
+          ],
+          "matched": [
+            16
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "status": "completed"
+        },
+        {
+          "drawId": "01392",
+          "date": "2026-09-01",
+          "predicted": [
+            8,
+            18,
+            20,
+            33,
+            39,
+            55
+          ],
+          "special": 28,
+          "actual": [
+            1,
+            17,
+            41,
+            44,
+            49,
+            55,
+            45
+          ],
+          "matched": [
+            55
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "status": "completed"
+        },
+        {
+          "drawId": "01391",
+          "date": "2026-08-29",
+          "predicted": [
+            2,
+            5,
+            28,
+            33,
+            45,
+            55
+          ],
+          "special": 8,
+          "actual": [
+            5,
+            10,
+            15,
+            29,
+            34,
+            45,
+            24
+          ],
+          "matched": [
+            5,
+            45
+          ],
+          "matchCount": 2,
+          "specMatched": false,
+          "status": "completed"
+        },
+        {
+          "drawId": "01390",
+          "date": "2026-08-27",
+          "predicted": [
+            8,
+            11,
+            33,
+            40,
+            41,
+            45
+          ],
+          "special": 22,
+          "actual": [
+            1,
+            3,
+            11,
+            21,
+            26,
+            44,
+            10
+          ],
+          "matched": [
+            11
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "status": "completed"
+        },
+        {
+          "drawId": "01389",
+          "date": "2026-08-25",
+          "predicted": [
+            2,
+            11,
+            23,
+            40,
+            41,
+            45
+          ],
+          "special": 8,
+          "actual": [
+            5,
+            7,
+            13,
+            18,
+            31,
+            40,
+            14
+          ],
+          "matched": [
+            40
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "status": "completed"
+        },
+        {
+          "drawId": "01388",
+          "date": "2026-08-22",
+          "predicted": [
+            2,
+            11,
+            22,
+            32,
+            40,
+            55
+          ],
+          "special": 8,
+          "actual": [
+            9,
+            18,
+            19,
+            21,
+            25,
+            36,
+            8
+          ],
+          "matched": [],
+          "matchCount": 0,
+          "specMatched": false,
+          "status": "completed"
+        },
+        {
+          "drawId": "01387",
+          "date": "2026-08-20",
+          "predicted": [
+            1,
+            11,
+            22,
+            40,
+            41,
+            53
+          ],
+          "special": 8,
+          "actual": [
+            2,
+            8,
+            29,
+            38,
+            39,
+            51,
+            47
+          ],
+          "matched": [],
+          "matchCount": 0,
+          "specMatched": false,
+          "status": "completed"
+        },
+        {
+          "drawId": "01386",
+          "date": "2026-08-18",
+          "predicted": [
+            3,
+            17,
+            23,
+            32,
+            40,
+            53
+          ],
+          "special": 8,
+          "actual": [
+            3,
+            15,
+            18,
+            38,
+            41,
+            48,
+            30
+          ],
+          "matched": [
+            3
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "status": "completed"
+        },
+        {
+          "drawId": "01385",
+          "date": "2026-08-15",
+          "predicted": [
+            8,
+            24,
+            25,
+            28,
+            32,
+            53
+          ],
+          "special": 22,
+          "actual": [
+            16,
+            20,
+            25,
+            27,
+            30,
+            50,
+            2
+          ],
+          "matched": [
+            25
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "status": "completed"
+        },
+        {
+          "drawId": "01384",
+          "date": "2026-08-13",
+          "predicted": [
+            9,
+            22,
+            28,
+            32,
+            39,
+            48
+          ],
+          "special": 8,
+          "actual": [
+            5,
+            9,
+            27,
+            29,
+            45,
+            46,
+            42
+          ],
+          "matched": [
+            9
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "status": "completed"
+        }
+      ]
     },
     "power_645": {
       "name": "Mega 6/45",
@@ -5971,7 +6268,296 @@
       "odd_even": {
         "odd_pct": 53.3,
         "even_pct": 46.7
-      }
+      },
+      "backtest_history": [
+        {
+          "drawId": "01558",
+          "date": "Kỳ Kế Tiếp",
+          "predicted": [
+            3,
+            6,
+            11,
+            30,
+            31,
+            44
+          ],
+          "special": null,
+          "actual": null,
+          "matched": [],
+          "matchCount": 0,
+          "specMatched": false,
+          "status": "pending"
+        },
+        {
+          "drawId": "01557",
+          "date": "2026-09-02",
+          "predicted": [
+            6,
+            9,
+            11,
+            30,
+            36,
+            45
+          ],
+          "special": null,
+          "actual": [
+            6,
+            9,
+            27,
+            29,
+            35,
+            44
+          ],
+          "matched": [
+            6,
+            9
+          ],
+          "matchCount": 2,
+          "specMatched": false,
+          "status": "completed"
+        },
+        {
+          "drawId": "01556",
+          "date": "2026-08-30",
+          "predicted": [
+            2,
+            11,
+            13,
+            30,
+            31,
+            45
+          ],
+          "special": null,
+          "actual": [
+            1,
+            3,
+            12,
+            15,
+            37,
+            45
+          ],
+          "matched": [
+            45
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "status": "completed"
+        },
+        {
+          "drawId": "01555",
+          "date": "2026-08-28",
+          "predicted": [
+            2,
+            3,
+            24,
+            27,
+            39,
+            44
+          ],
+          "special": null,
+          "actual": [
+            3,
+            13,
+            15,
+            22,
+            36,
+            39
+          ],
+          "matched": [
+            3,
+            39
+          ],
+          "matchCount": 2,
+          "specMatched": false,
+          "status": "completed"
+        },
+        {
+          "drawId": "01554",
+          "date": "2026-08-26",
+          "predicted": [
+            11,
+            13,
+            14,
+            30,
+            36,
+            41
+          ],
+          "special": null,
+          "actual": [
+            3,
+            10,
+            11,
+            16,
+            33,
+            40
+          ],
+          "matched": [
+            11
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "status": "completed"
+        },
+        {
+          "drawId": "01553",
+          "date": "2026-08-23",
+          "predicted": [
+            11,
+            13,
+            17,
+            27,
+            36,
+            39
+          ],
+          "special": null,
+          "actual": [
+            4,
+            16,
+            17,
+            22,
+            32,
+            39
+          ],
+          "matched": [
+            17,
+            39
+          ],
+          "matchCount": 2,
+          "specMatched": false,
+          "status": "completed"
+        },
+        {
+          "drawId": "01552",
+          "date": "2026-08-21",
+          "predicted": [
+            6,
+            9,
+            13,
+            25,
+            39,
+            45
+          ],
+          "special": null,
+          "actual": [
+            7,
+            26,
+            31,
+            38,
+            43,
+            45
+          ],
+          "matched": [
+            45
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "status": "completed"
+        },
+        {
+          "drawId": "01551",
+          "date": "2026-08-19",
+          "predicted": [
+            3,
+            9,
+            13,
+            26,
+            42,
+            45
+          ],
+          "special": null,
+          "actual": [
+            6,
+            15,
+            18,
+            33,
+            40,
+            43
+          ],
+          "matched": [],
+          "matchCount": 0,
+          "specMatched": false,
+          "status": "completed"
+        },
+        {
+          "drawId": "01550",
+          "date": "2026-08-16",
+          "predicted": [
+            3,
+            11,
+            17,
+            26,
+            42,
+            45
+          ],
+          "special": null,
+          "actual": [
+            6,
+            7,
+            15,
+            19,
+            36,
+            41
+          ],
+          "matched": [],
+          "matchCount": 0,
+          "specMatched": false,
+          "status": "completed"
+        },
+        {
+          "drawId": "01549",
+          "date": "2026-08-14",
+          "predicted": [
+            6,
+            13,
+            16,
+            30,
+            32,
+            41
+          ],
+          "special": null,
+          "actual": [
+            7,
+            9,
+            13,
+            31,
+            35,
+            44
+          ],
+          "matched": [
+            13
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "status": "completed"
+        },
+        {
+          "drawId": "01548",
+          "date": "2026-08-12",
+          "predicted": [
+            3,
+            13,
+            27,
+            29,
+            36,
+            41
+          ],
+          "special": null,
+          "actual": [
+            15,
+            17,
+            22,
+            29,
+            33,
+            40
+          ],
+          "matched": [
+            29
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "status": "completed"
+        }
+      ]
     },
     "power_535": {
       "name": "Power 5/35",
@@ -8638,7 +9224,272 @@
       "odd_even": {
         "odd_pct": 53.2,
         "even_pct": 46.8
-      }
+      },
+      "backtest_history": [
+        {
+          "drawId": "00865",
+          "date": "Kỳ Kế Tiếp",
+          "predicted": [
+            1,
+            12,
+            18,
+            28,
+            30
+          ],
+          "special": 9,
+          "actual": null,
+          "matched": [],
+          "matchCount": 0,
+          "specMatched": false,
+          "status": "pending"
+        },
+        {
+          "drawId": "00864",
+          "date": "2026-09-03",
+          "predicted": [
+            3,
+            15,
+            21,
+            22,
+            26
+          ],
+          "special": 9,
+          "actual": [
+            7,
+            17,
+            23,
+            24,
+            27,
+            3
+          ],
+          "matched": [],
+          "matchCount": 0,
+          "specMatched": false,
+          "status": "completed"
+        },
+        {
+          "drawId": "00863",
+          "date": "2026-09-03",
+          "predicted": [
+            1,
+            12,
+            21,
+            22,
+            35
+          ],
+          "special": 9,
+          "actual": [
+            2,
+            15,
+            23,
+            24,
+            30,
+            12
+          ],
+          "matched": [],
+          "matchCount": 0,
+          "specMatched": false,
+          "status": "completed"
+        },
+        {
+          "drawId": "00862",
+          "date": "2026-09-02",
+          "predicted": [
+            1,
+            15,
+            19,
+            21,
+            34
+          ],
+          "special": 9,
+          "actual": [
+            6,
+            7,
+            9,
+            11,
+            32,
+            12
+          ],
+          "matched": [],
+          "matchCount": 0,
+          "specMatched": false,
+          "status": "completed"
+        },
+        {
+          "drawId": "00861",
+          "date": "2026-09-02",
+          "predicted": [
+            1,
+            9,
+            12,
+            28,
+            35
+          ],
+          "special": 7,
+          "actual": [
+            7,
+            11,
+            18,
+            26,
+            29,
+            6
+          ],
+          "matched": [],
+          "matchCount": 0,
+          "specMatched": false,
+          "status": "completed"
+        },
+        {
+          "drawId": "00860",
+          "date": "2026-09-01",
+          "predicted": [
+            1,
+            7,
+            16,
+            30,
+            35
+          ],
+          "special": 7,
+          "actual": [
+            3,
+            4,
+            6,
+            15,
+            22,
+            9
+          ],
+          "matched": [],
+          "matchCount": 0,
+          "specMatched": false,
+          "status": "completed"
+        },
+        {
+          "drawId": "00859",
+          "date": "2026-09-01",
+          "predicted": [
+            10,
+            13,
+            21,
+            22,
+            26
+          ],
+          "special": 7,
+          "actual": [
+            9,
+            18,
+            20,
+            27,
+            34,
+            12
+          ],
+          "matched": [],
+          "matchCount": 0,
+          "specMatched": false,
+          "status": "completed"
+        },
+        {
+          "drawId": "00858",
+          "date": "2026-08-31",
+          "predicted": [
+            1,
+            7,
+            19,
+            30,
+            34
+          ],
+          "special": 7,
+          "actual": [
+            1,
+            5,
+            25,
+            27,
+            28,
+            12
+          ],
+          "matched": [
+            1
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "status": "completed"
+        },
+        {
+          "drawId": "00857",
+          "date": "2026-08-31",
+          "predicted": [
+            7,
+            13,
+            16,
+            20,
+            35
+          ],
+          "special": 7,
+          "actual": [
+            4,
+            11,
+            13,
+            18,
+            27,
+            1
+          ],
+          "matched": [
+            13
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "status": "completed"
+        },
+        {
+          "drawId": "00856",
+          "date": "2026-08-30",
+          "predicted": [
+            2,
+            12,
+            19,
+            21,
+            33
+          ],
+          "special": 7,
+          "actual": [
+            13,
+            15,
+            17,
+            26,
+            30,
+            10
+          ],
+          "matched": [],
+          "matchCount": 0,
+          "specMatched": false,
+          "status": "completed"
+        },
+        {
+          "drawId": "00855",
+          "date": "2026-08-30",
+          "predicted": [
+            2,
+            15,
+            16,
+            23,
+            35
+          ],
+          "special": 7,
+          "actual": [
+            2,
+            4,
+            12,
+            21,
+            28,
+            7
+          ],
+          "matched": [
+            2
+          ],
+          "matchCount": 1,
+          "specMatched": true,
+          "status": "completed"
+        }
+      ]
     },
     "keno": {
       "name": "Keno",

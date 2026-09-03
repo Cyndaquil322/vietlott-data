@@ -13,6 +13,7 @@ for the static Web UI. Includes latest draws & deep analytical stats:
 import itertools
 import json
 import math
+import hashlib
 from collections import Counter, defaultdict
 from datetime import datetime
 from pathlib import Path
@@ -489,6 +490,169 @@ def calculate_ev_metrics(max_val: int, num_balls: int) -> Dict[str, Any]:
     return {}
 
 
+
+def calculate_walk_forward_backtest(records: List[Dict], product_key: str, max_val: int, num_balls: int, is_two_matrix: bool = False, num_draws: int = 10) -> List[Dict[str, Any]]:
+    """
+    Thực hiện kiểm định quá khứ (Walk-Forward Backtest) trung thực 100%.
+    Tại mỗi kỳ T trong quá khứ, chỉ dùng dữ liệu từ T-1 trở về trước để dự đoán.
+    Không nhìn trước tương lai (No look-ahead bias).
+    """
+    if len(records) < 20:
+        return []
+
+    backtest_results = []
+    
+    # Duyệt từ quá khứ đến hiện tại cho num_draws kỳ gần nhất
+    start_idx = max(0, len(records) - num_draws)
+    
+    for i in range(start_idx, len(records)):
+        target_draw = records[i]
+        draw_id = str(target_draw.get("id", "")).replace("#", "").strip()
+        date_str = target_draw.get("date", "")
+        actual_res = target_draw.get("result", [])
+        
+        # CHỈ LẤY DỮ LIỆU TỪ KỲ i-1 TRỞ VỀ TRƯỚC (QUÁ KHỨ THỰC TẾ)
+        past_records = records[:i]
+        recent_records = past_records[-50:] if len(past_records) >= 50 else past_records
+        
+        # 1. Tần suất và nhịp gan
+        freq = Counter()
+        last_seen = {}
+        for idx, r in enumerate(reversed(recent_records)):
+            res = r.get("result", [])
+            main_b = res[:5] if is_two_matrix else res[:6]
+            for b in main_b:
+                if 1 <= b <= max_val:
+                    freq[b] += 1
+                    if b not in last_seen:
+                        last_seen[b] = idx
+                        
+        scores = {}
+        for b in range(1, max_val + 1):
+            gap = last_seen.get(b, len(recent_records))
+            scores[b] = freq[b] * 2.0 - abs(gap - (8 if is_two_matrix else 12)) * 0.5
+            
+        sorted_candidates = sorted(scores.keys(), key=lambda x: scores[x], reverse=True)
+        top_pool = sorted_candidates[:20]
+        
+        # Deterministic combination selection based on draw_id seed
+        seed_hash = int(hashlib.md5(f"{product_key}_{draw_id}".encode()).hexdigest(), 16)
+        import itertools
+        all_combos = list(itertools.combinations(top_pool, num_balls))
+        sample_combos = [all_combos[(seed_hash + step * 97) % len(all_combos)] for step in range(min(40, len(all_combos)))]
+        
+        target_sum = 168 if max_val == 55 else (138 if max_val == 45 else 90)
+        best_combo = None
+        best_eval = -999999
+        
+        for combo in sample_combos:
+            c_sum = sum(combo)
+            diffs = {abs(x - y) for x, y in itertools.combinations(combo, 2)}
+            ac = len(diffs) - (num_balls - 1)
+            eval_score = ac * 10 - abs(c_sum - target_sum)
+            if eval_score > best_eval:
+                best_eval = eval_score
+                best_combo = sorted(combo)
+                
+        # Cầu vàng đặc biệt
+        spec_ball = None
+        if is_two_matrix:
+            spec_freq = Counter()
+            for r in recent_records:
+                res = r.get("result", [])
+                if len(res) >= 6:
+                    spec_freq[res[5]] += 1
+            spec_ball = max(range(1, 13), key=lambda x: spec_freq[x])
+        elif product_key == "power_655":
+            spec_pool = [x for x in sorted_candidates if x not in best_combo]
+            spec_ball = spec_pool[0] if spec_pool else 1
+            
+        # So khớp với kết quả thực tế
+        actual_main = actual_res[:5] if is_two_matrix else actual_res[:6]
+        matched = [x for x in best_combo if x in actual_main]
+        spec_matched = (is_two_matrix and len(actual_res) >= 6 and spec_ball == actual_res[5])
+        
+        backtest_results.append({
+            "drawId": draw_id,
+            "date": date_str,
+            "predicted": best_combo,
+            "special": spec_ball,
+            "actual": actual_res,
+            "matched": matched,
+            "matchCount": len(matched),
+            "specMatched": spec_matched,
+            "status": "completed"
+        })
+        
+    # Thêm 1 bản ghi dự đoán cho kỳ TIẾP THEO (PENDING)
+    latest_id_int = int(records[-1].get("id", "0").replace("#", "")) if records else 0
+    next_id_str = str(latest_id_int + 1).zfill(5)
+    
+    # Dự đoán cho kỳ tiếp theo dựa trên toàn bộ records hiện có
+    recent_records = records[-50:]
+    freq = Counter()
+    last_seen = {}
+    for idx, r in enumerate(reversed(recent_records)):
+        res = r.get("result", [])
+        main_b = res[:5] if is_two_matrix else res[:6]
+        for b in main_b:
+            if 1 <= b <= max_val:
+                freq[b] += 1
+                if b not in last_seen:
+                    last_seen[b] = idx
+                    
+    scores = {}
+    for b in range(1, max_val + 1):
+        gap = last_seen.get(b, len(recent_records))
+        scores[b] = freq[b] * 2.0 - abs(gap - (8 if is_two_matrix else 12)) * 0.5
+        
+    sorted_candidates = sorted(scores.keys(), key=lambda x: scores[x], reverse=True)
+    top_pool = sorted_candidates[:20]
+    seed_hash = int(hashlib.md5(f"{product_key}_{next_id_str}".encode()).hexdigest(), 16)
+    all_combos = list(itertools.combinations(top_pool, num_balls))
+    sample_combos = [all_combos[(seed_hash + step * 97) % len(all_combos)] for step in range(min(40, len(all_combos)))]
+    
+    target_sum = 168 if max_val == 55 else (138 if max_val == 45 else 90)
+    best_next = None
+    best_eval = -999999
+    for combo in sample_combos:
+        c_sum = sum(combo)
+        diffs = {abs(x - y) for x, y in itertools.combinations(combo, 2)}
+        ac = len(diffs) - (num_balls - 1)
+        eval_score = ac * 10 - abs(c_sum - target_sum)
+        if eval_score > best_eval:
+            best_eval = eval_score
+            best_next = sorted(combo)
+            
+    next_spec = None
+    if is_two_matrix:
+        spec_freq = Counter()
+        for r in recent_records:
+            res = r.get("result", [])
+            if len(res) >= 6:
+                spec_freq[res[5]] += 1
+        next_spec = max(range(1, 13), key=lambda x: spec_freq[x])
+    elif product_key == "power_655":
+        spec_pool = [x for x in sorted_candidates if x not in best_next]
+        next_spec = spec_pool[0] if spec_pool else 1
+        
+    # Bản ghi pending đưa lên đầu danh sách
+    pending_record = {
+        "drawId": next_id_str,
+        "date": "Kỳ Kế Tiếp",
+        "predicted": best_next,
+        "special": next_spec,
+        "actual": None,
+        "matched": [],
+        "matchCount": 0,
+        "specMatched": False,
+        "status": "pending"
+    }
+    
+    # Trả về danh sách đảo ngược: Pending đầu tiên, sau đó là các kỳ gần nhất
+    return [pending_record] + list(reversed(backtest_results))
+
+
 def process_power(records: List[Dict], max_val: int, num_balls: int, has_special: bool = False) -> Dict[str, Any]:
     """Process Power 655, 645, 535 with full analytics."""
     if not records:
@@ -577,7 +741,8 @@ def process_power(records: List[Dict], max_val: int, num_balls: int, has_special
         "odd_even": {
             "odd_pct": round(odd_count / total_oe * 100, 1),
             "even_pct": round(even_count / total_oe * 100, 1),
-        }
+        },
+        "backtest_history": calculate_walk_forward_backtest(records, "power_535" if max_val==35 else ("power_645" if max_val==45 else "power_655"), max_val, num_balls, is_two_matrix=(max_val==35))
     }
 
 
