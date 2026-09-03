@@ -1473,6 +1473,7 @@
       lucide.createIcons();
       renderGameTabs();
       setupEventListeners();
+      updateSavedBadge();
       await loadData();
     });
 
@@ -1569,6 +1570,7 @@
         document.getElementById('updateTimeText').textContent = `Cập nhật: ${appData.meta.generated_at}`;
       }
       renderCurrentProduct();
+      updateSavedBadge();
     }
 
     document.getElementById('manualJsonInput').addEventListener('change', (e) => {
@@ -4138,6 +4140,11 @@ function getStoredPredictions(productKey) {
       if (badge) {
         const list = getSavedTickets();
         badge.textContent = list.length;
+        if (list.length > 0) {
+          badge.className = 'ml-1 px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-violet-500 text-white font-mono shadow-sm';
+        } else {
+          badge.className = 'ml-1 px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-slate-700 text-slate-400 font-mono';
+        }
       }
     }
 
