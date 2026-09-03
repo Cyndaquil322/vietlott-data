@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-09-04 02:16:26",
+    "generated_at": "2026-09-04 02:24:07",
     "generator": "vietlott-data automated pipeline",
     "version": "2.0.0"
   },
@@ -3402,6 +3402,353 @@
           "specMatched": false,
           "status": "completed"
         }
+      ],
+      "bao7_backtest_history": [
+        {
+          "drawId": "01394",
+          "date": "Kỳ Kế Tiếp",
+          "predicted": [
+            2,
+            8,
+            23,
+            25,
+            41,
+            45,
+            48
+          ],
+          "special": 39,
+          "actual": null,
+          "matched": [],
+          "matchCount": 0,
+          "specMatched": false,
+          "cost": 70000,
+          "payout": 0,
+          "netProfit": 0,
+          "prizeDetail": "Đang chờ quay",
+          "status": "pending"
+        },
+        {
+          "drawId": "01393",
+          "date": "2026-09-03",
+          "predicted": [
+            5,
+            14,
+            27,
+            33,
+            38,
+            39,
+            41
+          ],
+          "special": 8,
+          "actual": [
+            8,
+            9,
+            16,
+            42,
+            46,
+            47,
+            11
+          ],
+          "matched": [],
+          "matchCount": 0,
+          "specMatched": false,
+          "cost": 70000,
+          "payout": 0,
+          "netProfit": -70000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
+        },
+        {
+          "drawId": "01392",
+          "date": "2026-09-01",
+          "predicted": [
+            5,
+            8,
+            27,
+            28,
+            39,
+            45,
+            49
+          ],
+          "special": 14,
+          "actual": [
+            1,
+            17,
+            41,
+            44,
+            49,
+            55,
+            45
+          ],
+          "matched": [
+            49
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "cost": 70000,
+          "payout": 0,
+          "netProfit": -70000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
+        },
+        {
+          "drawId": "01391",
+          "date": "2026-08-29",
+          "predicted": [
+            2,
+            8,
+            27,
+            28,
+            38,
+            40,
+            49
+          ],
+          "special": 39,
+          "actual": [
+            5,
+            10,
+            15,
+            29,
+            34,
+            45,
+            24
+          ],
+          "matched": [],
+          "matchCount": 0,
+          "specMatched": false,
+          "cost": 70000,
+          "payout": 0,
+          "netProfit": -70000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
+        },
+        {
+          "drawId": "01390",
+          "date": "2026-08-27",
+          "predicted": [
+            1,
+            14,
+            18,
+            33,
+            38,
+            44,
+            45
+          ],
+          "special": 8,
+          "actual": [
+            1,
+            3,
+            11,
+            21,
+            26,
+            44,
+            10
+          ],
+          "matched": [
+            1,
+            44
+          ],
+          "matchCount": 2,
+          "specMatched": false,
+          "cost": 70000,
+          "payout": 0,
+          "netProfit": -70000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
+        },
+        {
+          "drawId": "01389",
+          "date": "2026-08-25",
+          "predicted": [
+            5,
+            11,
+            23,
+            24,
+            28,
+            45,
+            55
+          ],
+          "special": 8,
+          "actual": [
+            5,
+            7,
+            13,
+            18,
+            31,
+            40,
+            14
+          ],
+          "matched": [
+            5
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "cost": 70000,
+          "payout": 0,
+          "netProfit": -70000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
+        },
+        {
+          "drawId": "01388",
+          "date": "2026-08-22",
+          "predicted": [
+            5,
+            8,
+            22,
+            33,
+            38,
+            45,
+            53
+          ],
+          "special": 1,
+          "actual": [
+            9,
+            18,
+            19,
+            21,
+            25,
+            36,
+            8
+          ],
+          "matched": [],
+          "matchCount": 0,
+          "specMatched": false,
+          "cost": 70000,
+          "payout": 0,
+          "netProfit": -70000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
+        },
+        {
+          "drawId": "01387",
+          "date": "2026-08-20",
+          "predicted": [
+            1,
+            5,
+            25,
+            32,
+            33,
+            41,
+            55
+          ],
+          "special": 8,
+          "actual": [
+            2,
+            8,
+            29,
+            38,
+            39,
+            51,
+            47
+          ],
+          "matched": [],
+          "matchCount": 0,
+          "specMatched": false,
+          "cost": 70000,
+          "payout": 0,
+          "netProfit": -70000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
+        },
+        {
+          "drawId": "01386",
+          "date": "2026-08-18",
+          "predicted": [
+            2,
+            3,
+            17,
+            23,
+            40,
+            45,
+            48
+          ],
+          "special": 8,
+          "actual": [
+            3,
+            15,
+            18,
+            38,
+            41,
+            48,
+            30
+          ],
+          "matched": [
+            3,
+            48
+          ],
+          "matchCount": 2,
+          "specMatched": false,
+          "cost": 70000,
+          "payout": 0,
+          "netProfit": -70000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
+        },
+        {
+          "drawId": "01385",
+          "date": "2026-08-15",
+          "predicted": [
+            2,
+            14,
+            16,
+            32,
+            33,
+            40,
+            53
+          ],
+          "special": 8,
+          "actual": [
+            16,
+            20,
+            25,
+            27,
+            30,
+            50,
+            2
+          ],
+          "matched": [
+            16
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "cost": 70000,
+          "payout": 0,
+          "netProfit": -70000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
+        },
+        {
+          "drawId": "01384",
+          "date": "2026-08-13",
+          "predicted": [
+            4,
+            14,
+            17,
+            28,
+            33,
+            40,
+            48
+          ],
+          "special": 8,
+          "actual": [
+            5,
+            9,
+            27,
+            29,
+            45,
+            46,
+            42
+          ],
+          "matched": [],
+          "matchCount": 0,
+          "specMatched": false,
+          "cost": 70000,
+          "payout": 0,
+          "netProfit": -70000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
+        }
       ]
     },
     "power_645": {
@@ -6557,6 +6904,352 @@
           "specMatched": false,
           "status": "completed"
         }
+      ],
+      "bao7_backtest_history": [
+        {
+          "drawId": "01558",
+          "date": "Kỳ Kế Tiếp",
+          "predicted": [
+            2,
+            3,
+            15,
+            28,
+            30,
+            37,
+            45
+          ],
+          "special": null,
+          "actual": null,
+          "matched": [],
+          "matchCount": 0,
+          "specMatched": false,
+          "cost": 70000,
+          "payout": 0,
+          "netProfit": 0,
+          "prizeDetail": "Đang chờ quay",
+          "status": "pending"
+        },
+        {
+          "drawId": "01557",
+          "date": "2026-09-02",
+          "predicted": [
+            2,
+            11,
+            13,
+            16,
+            35,
+            41,
+            45
+          ],
+          "special": null,
+          "actual": [
+            6,
+            9,
+            27,
+            29,
+            35,
+            44
+          ],
+          "matched": [
+            35
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "cost": 70000,
+          "payout": 0,
+          "netProfit": -70000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
+        },
+        {
+          "drawId": "01556",
+          "date": "2026-08-30",
+          "predicted": [
+            2,
+            20,
+            22,
+            28,
+            31,
+            35,
+            45
+          ],
+          "special": null,
+          "actual": [
+            1,
+            3,
+            12,
+            15,
+            37,
+            45
+          ],
+          "matched": [
+            45
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "cost": 70000,
+          "payout": 0,
+          "netProfit": -70000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
+        },
+        {
+          "drawId": "01555",
+          "date": "2026-08-28",
+          "predicted": [
+            9,
+            11,
+            17,
+            20,
+            30,
+            31,
+            35
+          ],
+          "special": null,
+          "actual": [
+            3,
+            13,
+            15,
+            22,
+            36,
+            39
+          ],
+          "matched": [],
+          "matchCount": 0,
+          "specMatched": false,
+          "cost": 70000,
+          "payout": 0,
+          "netProfit": -70000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
+        },
+        {
+          "drawId": "01554",
+          "date": "2026-08-26",
+          "predicted": [
+            6,
+            11,
+            14,
+            17,
+            30,
+            43,
+            45
+          ],
+          "special": null,
+          "actual": [
+            3,
+            10,
+            11,
+            16,
+            33,
+            40
+          ],
+          "matched": [
+            11
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "cost": 70000,
+          "payout": 0,
+          "netProfit": -70000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
+        },
+        {
+          "drawId": "01553",
+          "date": "2026-08-23",
+          "predicted": [
+            11,
+            14,
+            16,
+            17,
+            32,
+            36,
+            43
+          ],
+          "special": null,
+          "actual": [
+            4,
+            16,
+            17,
+            22,
+            32,
+            39
+          ],
+          "matched": [
+            16,
+            17,
+            32
+          ],
+          "matchCount": 3,
+          "specMatched": false,
+          "cost": 70000,
+          "payout": 120000,
+          "netProfit": 50000,
+          "prizeDetail": "4 Giải Ba (30k)",
+          "status": "completed"
+        },
+        {
+          "drawId": "01552",
+          "date": "2026-08-21",
+          "predicted": [
+            6,
+            11,
+            13,
+            26,
+            27,
+            39,
+            45
+          ],
+          "special": null,
+          "actual": [
+            7,
+            26,
+            31,
+            38,
+            43,
+            45
+          ],
+          "matched": [
+            26,
+            45
+          ],
+          "matchCount": 2,
+          "specMatched": false,
+          "cost": 70000,
+          "payout": 0,
+          "netProfit": -70000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
+        },
+        {
+          "drawId": "01551",
+          "date": "2026-08-19",
+          "predicted": [
+            3,
+            6,
+            11,
+            26,
+            36,
+            44,
+            45
+          ],
+          "special": null,
+          "actual": [
+            6,
+            15,
+            18,
+            33,
+            40,
+            43
+          ],
+          "matched": [
+            6
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "cost": 70000,
+          "payout": 0,
+          "netProfit": -70000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
+        },
+        {
+          "drawId": "01550",
+          "date": "2026-08-16",
+          "predicted": [
+            9,
+            11,
+            13,
+            17,
+            28,
+            41,
+            42
+          ],
+          "special": null,
+          "actual": [
+            6,
+            7,
+            15,
+            19,
+            36,
+            41
+          ],
+          "matched": [
+            41
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "cost": 70000,
+          "payout": 0,
+          "netProfit": -70000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
+        },
+        {
+          "drawId": "01549",
+          "date": "2026-08-14",
+          "predicted": [
+            6,
+            9,
+            14,
+            28,
+            30,
+            37,
+            41
+          ],
+          "special": null,
+          "actual": [
+            7,
+            9,
+            13,
+            31,
+            35,
+            44
+          ],
+          "matched": [
+            9
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "cost": 70000,
+          "payout": 0,
+          "netProfit": -70000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
+        },
+        {
+          "drawId": "01548",
+          "date": "2026-08-12",
+          "predicted": [
+            3,
+            6,
+            22,
+            26,
+            31,
+            32,
+            44
+          ],
+          "special": null,
+          "actual": [
+            15,
+            17,
+            22,
+            29,
+            33,
+            40
+          ],
+          "matched": [
+            22
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "cost": 70000,
+          "payout": 0,
+          "netProfit": -70000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
+        }
       ]
     },
     "power_535": {
@@ -9487,6 +10180,338 @@
           ],
           "matchCount": 1,
           "specMatched": true,
+          "status": "completed"
+        }
+      ],
+      "bao7_backtest_history": [
+        {
+          "drawId": "00865",
+          "date": "Kỳ Kế Tiếp",
+          "predicted": [
+            1,
+            11,
+            13,
+            18,
+            32,
+            33
+          ],
+          "special": 9,
+          "actual": null,
+          "matched": [],
+          "matchCount": 0,
+          "specMatched": false,
+          "cost": 60000,
+          "payout": 0,
+          "netProfit": 0,
+          "prizeDetail": "Đang chờ quay",
+          "status": "pending"
+        },
+        {
+          "drawId": "00864",
+          "date": "2026-09-03",
+          "predicted": [
+            1,
+            7,
+            11,
+            25,
+            30,
+            32
+          ],
+          "special": 9,
+          "actual": [
+            7,
+            17,
+            23,
+            24,
+            27,
+            3
+          ],
+          "matched": [
+            7
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "cost": 60000,
+          "payout": 0,
+          "netProfit": -60000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
+        },
+        {
+          "drawId": "00863",
+          "date": "2026-09-03",
+          "predicted": [
+            7,
+            11,
+            12,
+            17,
+            28,
+            30
+          ],
+          "special": 9,
+          "actual": [
+            2,
+            15,
+            23,
+            24,
+            30,
+            12
+          ],
+          "matched": [
+            30
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "cost": 60000,
+          "payout": 0,
+          "netProfit": -60000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
+        },
+        {
+          "drawId": "00862",
+          "date": "2026-09-02",
+          "predicted": [
+            2,
+            9,
+            19,
+            20,
+            32,
+            34
+          ],
+          "special": 9,
+          "actual": [
+            6,
+            7,
+            9,
+            11,
+            32,
+            12
+          ],
+          "matched": [
+            9,
+            32
+          ],
+          "matchCount": 2,
+          "specMatched": false,
+          "cost": 60000,
+          "payout": 0,
+          "netProfit": -60000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
+        },
+        {
+          "drawId": "00861",
+          "date": "2026-09-02",
+          "predicted": [
+            3,
+            7,
+            8,
+            19,
+            32,
+            34
+          ],
+          "special": 7,
+          "actual": [
+            7,
+            11,
+            18,
+            26,
+            29,
+            6
+          ],
+          "matched": [
+            7
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "cost": 60000,
+          "payout": 0,
+          "netProfit": -60000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
+        },
+        {
+          "drawId": "00860",
+          "date": "2026-09-01",
+          "predicted": [
+            1,
+            2,
+            19,
+            22,
+            26,
+            35
+          ],
+          "special": 7,
+          "actual": [
+            3,
+            4,
+            6,
+            15,
+            22,
+            9
+          ],
+          "matched": [
+            22
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "cost": 60000,
+          "payout": 0,
+          "netProfit": -60000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
+        },
+        {
+          "drawId": "00859",
+          "date": "2026-09-01",
+          "predicted": [
+            2,
+            3,
+            17,
+            20,
+            28,
+            30
+          ],
+          "special": 7,
+          "actual": [
+            9,
+            18,
+            20,
+            27,
+            34,
+            12
+          ],
+          "matched": [
+            20
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "cost": 60000,
+          "payout": 0,
+          "netProfit": -60000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
+        },
+        {
+          "drawId": "00858",
+          "date": "2026-08-31",
+          "predicted": [
+            2,
+            10,
+            13,
+            15,
+            34,
+            35
+          ],
+          "special": 7,
+          "actual": [
+            1,
+            5,
+            25,
+            27,
+            28,
+            12
+          ],
+          "matched": [],
+          "matchCount": 0,
+          "specMatched": false,
+          "cost": 60000,
+          "payout": 0,
+          "netProfit": -60000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
+        },
+        {
+          "drawId": "00857",
+          "date": "2026-08-31",
+          "predicted": [
+            7,
+            12,
+            13,
+            16,
+            26,
+            33
+          ],
+          "special": 7,
+          "actual": [
+            4,
+            11,
+            13,
+            18,
+            27,
+            1
+          ],
+          "matched": [
+            13
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "cost": 60000,
+          "payout": 0,
+          "netProfit": -60000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
+        },
+        {
+          "drawId": "00856",
+          "date": "2026-08-30",
+          "predicted": [
+            3,
+            15,
+            19,
+            20,
+            22,
+            30
+          ],
+          "special": 7,
+          "actual": [
+            13,
+            15,
+            17,
+            26,
+            30,
+            10
+          ],
+          "matched": [
+            15,
+            30
+          ],
+          "matchCount": 2,
+          "specMatched": false,
+          "cost": 60000,
+          "payout": 0,
+          "netProfit": -60000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
+        },
+        {
+          "drawId": "00855",
+          "date": "2026-08-30",
+          "predicted": [
+            1,
+            8,
+            10,
+            23,
+            34,
+            35
+          ],
+          "special": 7,
+          "actual": [
+            2,
+            4,
+            12,
+            21,
+            28,
+            7
+          ],
+          "matched": [],
+          "matchCount": 0,
+          "specMatched": true,
+          "cost": 60000,
+          "payout": 60000,
+          "netProfit": 0,
+          "prizeDetail": "6 Giải KK (10k)",
           "status": "completed"
         }
       ]

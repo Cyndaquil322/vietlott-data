@@ -653,6 +653,205 @@ def calculate_walk_forward_backtest(records: List[Dict], product_key: str, max_v
     return [pending_record] + list(reversed(backtest_results))
 
 
+
+def calculate_walk_forward_bao7_backtest(records: List[Dict], product_key: str, max_val: int, num_balls: int, is_two_matrix: bool = False, num_draws: int = 10) -> List[Dict[str, Any]]:
+    """
+    Thực hiện kiểm định quá khứ (Walk-Forward Backtest) cho dàn Bao 7 (hoặc Bao 6 của 5/35).
+    Tính toán minh bạch tiền vốn, tiền trúng giải theo bảng cơ cấu thưởng chính thức Vietlott.
+    """
+    if len(records) < 20:
+        return []
+
+    target_balls = 6 if is_two_matrix else 7
+    cost = 60000 if is_two_matrix else 70000
+    backtest_results = []
+    
+    start_idx = max(0, len(records) - num_draws)
+    
+    for i in range(start_idx, len(records)):
+        target_draw = records[i]
+        draw_id = str(target_draw.get("id", "")).replace("#", "").strip()
+        date_str = target_draw.get("date", "")
+        actual_res = target_draw.get("result", [])
+        
+        past_records = records[:i]
+        recent_records = past_records[-50:] if len(past_records) >= 50 else past_records
+        
+        freq = Counter()
+        last_seen = {}
+        for idx, r in enumerate(reversed(recent_records)):
+            res = r.get("result", [])
+            main_b = res[:5] if is_two_matrix else res[:6]
+            for b in main_b:
+                if 1 <= b <= max_val:
+                    freq[b] += 1
+                    if b not in last_seen:
+                        last_seen[b] = idx
+                        
+        scores = {}
+        for b in range(1, max_val + 1):
+            gap = last_seen.get(b, len(recent_records))
+            scores[b] = freq[b] * 2.0 - abs(gap - (8 if is_two_matrix else 12)) * 0.5
+            
+        sorted_candidates = sorted(scores.keys(), key=lambda x: scores[x], reverse=True)
+        top_pool = sorted_candidates[:22]
+        
+        seed_hash = int(hashlib.md5(f"bao7_{product_key}_{draw_id}".encode()).hexdigest(), 16)
+        import itertools
+        all_combos = list(itertools.combinations(top_pool, target_balls))
+        sample_combos = [all_combos[(seed_hash + step * 79) % len(all_combos)] for step in range(min(50, len(all_combos)))]
+        
+        target_sum = 195 if max_val == 55 else (160 if max_val == 45 else 105)
+        best_combo = None
+        best_eval = -999999
+        
+        for combo in sample_combos:
+            c_sum = sum(combo)
+            diffs = {abs(x - y) for x, y in itertools.combinations(combo, 2)}
+            ac = len(diffs) - (target_balls - 1)
+            eval_score = ac * 10 - abs(c_sum - target_sum)
+            if eval_score > best_eval:
+                best_eval = eval_score
+                best_combo = sorted(combo)
+                
+        # Cầu đặc biệt
+        spec_ball = None
+        if is_two_matrix:
+            spec_freq = Counter()
+            for r in recent_records:
+                res = r.get("result", [])
+                if len(res) >= 6:
+                    spec_freq[res[5]] += 1
+            spec_ball = max(range(1, 13), key=lambda x: spec_freq[x])
+        elif product_key == "power_655":
+            spec_pool = [x for x in sorted_candidates if x not in best_combo]
+            spec_ball = spec_pool[0] if spec_pool else 1
+            
+        # So khớp với kết quả thực tế
+        actual_main = actual_res[:5] if is_two_matrix else actual_res[:6]
+        matched = [x for x in best_combo if x in actual_main]
+        spec_matched = (is_two_matrix and len(actual_res) >= 6 and spec_ball == actual_res[5])
+        
+        # Tính thưởng chuẩn Vietlott cho Bao 7 / Bao 6
+        k = len(matched)
+        payout = 0
+        detail_txt = "Không trúng"
+        
+        if is_two_matrix: # 5/35 Bao 6
+            if spec_matched and k == 0:
+                payout = 60000; detail_txt = "6 Giải KK (10k)"
+            elif k == 3 and not spec_matched:
+                payout = 90000; detail_txt = "3 Giải Năm (30k)"
+            elif k == 3 and spec_matched:
+                payout = 180000; detail_txt = "3 Giải Tư (50k) + 3 Giải KK (10k)"
+            elif k == 4 and not spec_matched:
+                payout = 100000; detail_txt = "2 Giải Ba (50k)"
+            elif k == 4 and spec_matched:
+                payout = 1200000; detail_txt = "2 Giải Nhì (500k) + 4 Giải Tư (50k)"
+            elif k == 5 and not spec_matched:
+                payout = 40250000; detail_txt = "1 Giải Nhất (40tr) + 5 Giải Ba"
+            elif k >= 5 and spec_matched:
+                payout = 6000000000; detail_txt = "Jackpot Độc Đắc!"
+        elif product_key == "power_655": # 6/55 Bao 7
+            if k == 3:
+                payout = 200000; detail_txt = "4 Giải Ba (50k)"
+            elif k == 4:
+                payout = 1700000; detail_txt = "3 Giải Nhì (500k) + 4 Giải Ba (50k)"
+            elif k == 5:
+                payout = 82500000; detail_txt = "2 Giải Nhất (40tr) + 5 Giải Nhì"
+            elif k == 6:
+                payout = 30000000000; detail_txt = "Jackpot 1 + 6 Giải Nhất!"
+        else: # 6/45 Bao 7
+            if k == 3:
+                payout = 120000; detail_txt = "4 Giải Ba (30k)"
+            elif k == 4:
+                payout = 1020000; detail_txt = "3 Giải Nhì (300k) + 4 Giải Ba (30k)"
+            elif k == 5:
+                payout = 21500000; detail_txt = "2 Giải Nhất (10tr) + 5 Giải Nhì"
+            elif k == 6:
+                payout = 12000000000; detail_txt = "Jackpot + 6 Giải Nhất!"
+                
+        backtest_results.append({
+            "drawId": draw_id,
+            "date": date_str,
+            "predicted": best_combo,
+            "special": spec_ball,
+            "actual": actual_res,
+            "matched": matched,
+            "matchCount": k,
+            "specMatched": spec_matched,
+            "cost": cost,
+            "payout": payout,
+            "netProfit": payout - cost,
+            "prizeDetail": detail_txt,
+            "status": "completed"
+        })
+        
+    # Pending record for upcoming draw
+    latest_id_int = int(records[-1].get("id", "0").replace("#", "")) if records else 0
+    next_id_str = str(latest_id_int + 1).zfill(5)
+    
+    recent_records = records[-50:]
+    freq = Counter()
+    last_seen = {}
+    for idx, r in enumerate(reversed(recent_records)):
+        res = r.get("result", [])
+        main_b = res[:5] if is_two_matrix else res[:6]
+        for b in main_b:
+            if 1 <= b <= max_val:
+                freq[b] += 1
+                if b not in last_seen:
+                    last_seen[b] = idx
+    scores = {b: freq[b] * 2.0 - abs(last_seen.get(b, len(recent_records)) - (8 if is_two_matrix else 12)) * 0.5 for b in range(1, max_val + 1)}
+    sorted_candidates = sorted(scores.keys(), key=lambda x: scores[x], reverse=True)
+    top_pool = sorted_candidates[:22]
+    seed_hash = int(hashlib.md5(f"bao7_{product_key}_{next_id_str}".encode()).hexdigest(), 16)
+    import itertools
+    all_combos = list(itertools.combinations(top_pool, target_balls))
+    sample_combos = [all_combos[(seed_hash + step * 79) % len(all_combos)] for step in range(min(50, len(all_combos)))]
+    target_sum = 195 if max_val == 55 else (160 if max_val == 45 else 105)
+    best_next = None
+    best_eval = -999999
+    for combo in sample_combos:
+        c_sum = sum(combo)
+        diffs = {abs(x - y) for x, y in itertools.combinations(combo, 2)}
+        ac = len(diffs) - (target_balls - 1)
+        eval_score = ac * 10 - abs(c_sum - target_sum)
+        if eval_score > best_eval:
+            best_eval = eval_score
+            best_next = sorted(combo)
+            
+    next_spec = None
+    if is_two_matrix:
+        spec_freq = Counter()
+        for r in recent_records:
+            res = r.get("result", [])
+            if len(res) >= 6:
+                spec_freq[res[5]] += 1
+        next_spec = max(range(1, 13), key=lambda x: spec_freq[x])
+    elif product_key == "power_655":
+        spec_pool = [x for x in sorted_candidates if x not in best_next]
+        next_spec = spec_pool[0] if spec_pool else 1
+        
+    pending_record = {
+        "drawId": next_id_str,
+        "date": "Kỳ Kế Tiếp",
+        "predicted": best_next,
+        "special": next_spec,
+        "actual": None,
+        "matched": [],
+        "matchCount": 0,
+        "specMatched": False,
+        "cost": cost,
+        "payout": 0,
+        "netProfit": 0,
+        "prizeDetail": "Đang chờ quay",
+        "status": "pending"
+    }
+    
+    return [pending_record] + list(reversed(backtest_results))
+
+
 def process_power(records: List[Dict], max_val: int, num_balls: int, has_special: bool = False) -> Dict[str, Any]:
     """Process Power 655, 645, 535 with full analytics."""
     if not records:
@@ -742,7 +941,8 @@ def process_power(records: List[Dict], max_val: int, num_balls: int, has_special
             "odd_pct": round(odd_count / total_oe * 100, 1),
             "even_pct": round(even_count / total_oe * 100, 1),
         },
-        "backtest_history": calculate_walk_forward_backtest(records, "power_535" if max_val==35 else ("power_645" if max_val==45 else "power_655"), max_val, num_balls, is_two_matrix=(max_val==35))
+        "backtest_history": calculate_walk_forward_backtest(records, "power_535" if max_val==35 else ("power_645" if max_val==45 else "power_655"), max_val, num_balls, is_two_matrix=(max_val==35)),
+        "bao7_backtest_history": calculate_walk_forward_bao7_backtest(records, "power_535" if max_val==35 else ("power_645" if max_val==45 else "power_655"), max_val, num_balls, is_two_matrix=(max_val==35))
     }
 
 
