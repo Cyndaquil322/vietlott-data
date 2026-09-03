@@ -1656,14 +1656,13 @@
           else if (matchedMain.length === 4) { prizeName = '🎉 TRÚNG GIẢI NHÌ (300.000đ)'; isWin = true; prizeColor = 'text-emerald-400'; }
           else if (matchedMain.length === 3) { prizeName = '🎯 TRÚNG GIẢI BA (30.000đ)'; isWin = true; prizeColor = 'text-emerald-400'; }
         } else if (product.name === 'Power 5/35' || currentProductKey === 'power_535') {
-          if (matchedMain.length === 5 && matchedSpecial) { prizeName = '🏆 TRÚNG GIẢI ĐỘC ĐẮC / JACKPOT (Từ 6 TỶ)'; isWin = true; prizeColor = 'text-amber-400 font-extrabold'; }
-          else if (matchedMain.length === 5) { prizeName = '⭐ TRÚNG GIẢI NHẤT (Khởi điểm 40.000.000đ)'; isWin = true; prizeColor = 'text-emerald-400 font-bold'; }
-          else if (matchedMain.length === 4 && matchedSpecial) { prizeName = '💎 TRÚNG GIẢI NHÌ (4 số chính + Số đặc biệt)'; isWin = true; prizeColor = 'text-emerald-400 font-bold'; }
-          else if (matchedMain.length === 4) { prizeName = '🎉 TRÚNG GIẢI BA (4 số chính)'; isWin = true; prizeColor = 'text-emerald-400'; }
-          else if (matchedMain.length === 3 && matchedSpecial) { prizeName = '🎯 TRÚNG GIẢI BỐN (3 số chính + Số đặc biệt)'; isWin = true; prizeColor = 'text-emerald-400'; }
-          else if (matchedMain.length === 3) { prizeName = '🎖️ TRÚNG GIẢI NĂM (3 số chính)'; isWin = true; prizeColor = 'text-emerald-400'; }
-          else if (matchedMain.length === 2 && matchedSpecial) { prizeName = '🎈 TRÚNG GIẢI SÁU (2 số chính + Số đặc biệt)'; isWin = true; prizeColor = 'text-blue-400'; }
-          else if (matchedMain.length === 1 && matchedSpecial) { prizeName = '✨ TRÚNG GIẢI BẢY (1 số chính + Số đặc biệt)'; isWin = true; prizeColor = 'text-slate-300'; }
+          if (matchedMain.length === 5 && matchedSpecial) { prizeName = '🏆 TRÚNG GIẢI ĐỘC ĐẮC (Tối thiểu 6 TỶ)'; isWin = true; prizeColor = 'text-amber-400 font-extrabold'; }
+          else if (matchedMain.length === 5) { prizeName = '⭐ TRÚNG GIẢI NHẤT (10.000.000đ)'; isWin = true; prizeColor = 'text-emerald-400 font-bold'; }
+          else if (matchedMain.length === 4 && matchedSpecial) { prizeName = '💎 TRÚNG GIẢI NHÌ (5.000.000đ)'; isWin = true; prizeColor = 'text-emerald-400 font-bold'; }
+          else if (matchedMain.length === 4) { prizeName = '🎉 TRÚNG GIẢI BA (500.000đ)'; isWin = true; prizeColor = 'text-emerald-400'; }
+          else if (matchedMain.length === 3 && matchedSpecial) { prizeName = '🎯 TRÚNG GIẢI TƯ (100.000đ)'; isWin = true; prizeColor = 'text-emerald-400'; }
+          else if (matchedMain.length === 3) { prizeName = '🎖️ TRÚNG GIẢI NĂM (30.000đ)'; isWin = true; prizeColor = 'text-emerald-400'; }
+          else if (matchedSpecial) { prizeName = '✨ TRÚNG GIẢI KHUYẾN KHÍCH (10.000đ)'; isWin = true; prizeColor = 'text-teal-400'; }
         } else {
           if (matchedMain.length >= 3) { prizeName = `🎯 Trùng ${matchedMain.length} số!`; isWin = true; prizeColor = 'text-emerald-400 font-bold'; }
         }
@@ -3634,21 +3633,45 @@ function getStoredPredictions(productKey) {
         if (breakdownCostEl) breakdownCostEl.textContent = `6 vé x 10k = 60.000đ`;
         if (payoutEl) {
           payoutEl.innerHTML = `
-            <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex justify-between items-center">
-              <span>Trúng 3 chính + 1 đặc biệt:</span>
-              <span class="text-blue-400 font-bold">3 Giải Bốn + 3 Giải Sáu (Lời vốn)</span>
-            </div>
-            <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex justify-between items-center">
-              <span>Trúng 4 chính + 1 đặc biệt:</span>
-              <span class="text-emerald-400 font-bold">2 Giải Nhì + 4 Giải Bốn</span>
-            </div>
-            <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex justify-between items-center">
-              <span>Trúng 5 chính + 0 đặc biệt:</span>
-              <span class="text-rose-400 font-bold">1 Giải Nhất (40tr) + 5 Giải Ba</span>
-            </div>
-            <div class="p-2.5 rounded-lg bg-slate-900 border border-amber-500/40 flex justify-between items-center text-amber-300 font-bold">
-              <span>Trúng 5 chính + 1 đặc biệt:</span>
-              <span>1 ĐỘC ĐẮC (JACKPOT 6+ TỶ) + 5 Giải Nhì!</span>
+            <div class="space-y-2">
+              <div class="p-2.5 rounded-lg bg-slate-900 border border-emerald-500/40 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-emerald-300">
+                <span class="font-bold">Chỉ trúng Cầu Đặc Biệt (0-2 chính):</span>
+                <span class="text-xs text-emerald-200/80">6 giải Khuyến khích (6 x 10k)</span>
+                <span class="font-bold text-emerald-400">60.000 VNĐ (Bảo hiểm hòa vốn 100%)</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <span class="font-bold text-slate-300">Trùng 3 chính (không cầu ĐB):</span>
+                <span class="text-xs text-slate-400">3 giải Năm (3 x 30k)</span>
+                <span class="text-blue-400 font-bold">90.000 VNĐ (Lời +30.000đ)</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <span class="font-bold text-slate-300">Trùng 3 chính + Cầu ĐB:</span>
+                <span class="text-xs text-slate-400">3 giải Tư (300k) + 3 giải Khuyến khích</span>
+                <span class="text-blue-400 font-bold">330.000 VNĐ (Lời +270.000đ)</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <span class="font-bold text-slate-300">Trùng 4 chính (không cầu ĐB):</span>
+                <span class="text-xs text-slate-400">2 giải Ba (1tr) + 4 giải Năm (120k)</span>
+                <span class="text-emerald-400 font-bold">1.120.000 VNĐ (Gấp 19 lần vốn)</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <span class="font-bold text-slate-300">Trùng 4 chính + Cầu ĐB:</span>
+                <span class="text-xs text-slate-400">2 giải Nhì (10tr) + 4 giải Tư (400k)</span>
+                <span class="text-emerald-400 font-bold">10.400.000 VNĐ (Gấp 173 lần vốn)</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <span class="font-bold text-slate-300">Trùng 5 chính (không cầu ĐB):</span>
+                <span class="text-xs text-slate-400">1 giải Nhất (10tr) + 5 giải Ba (2.5tr)</span>
+                <span class="text-rose-400 font-bold">12.500.000 VNĐ</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-900 border border-amber-500/50 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-amber-300">
+                <span class="font-bold">Trùng 5 chính + Cầu ĐB:</span>
+                <span class="text-xs text-amber-200/80">1 Độc Đắc + 5 giải Nhì (25tr)</span>
+                <span class="font-extrabold">Jackpot (6+ Tỷ) + 25.000.000 VNĐ</span>
+              </div>
+              <p class="text-[10px] text-amber-400/80 italic pt-1 text-right">
+                ⚡ Cơ chế Rolldown: Khi Độc Đắc vượt 12 Tỷ chưa nổ, số tiền vượt được chia đều cho các giải Nhất, Nhì, Ba, Tư, Năm!
+              </p>
             </div>
           `;
         }
