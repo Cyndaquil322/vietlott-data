@@ -11,7 +11,7 @@ from vietlott.crawler.schema.requests import RequestP3D
 
 class P3D(ProductPower655):
     name = "3d"
-    url = "https://vietlott.vn/ajaxpro/Vietlott.PlugIn.WebParts.GameMax3DCompareWebPart,Vietlott.PlugIn.WebParts.ashx"
+    url = "https://www.vietlott.vn/ajaxpro/Vietlott.PlugIn.WebParts.GameMax3DCompareWebPart,Vietlott.PlugIn.WebParts.ashx"
 
     org_body = RequestP3D(
         CheckMulti=0,

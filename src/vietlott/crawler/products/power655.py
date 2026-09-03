@@ -19,7 +19,7 @@ from vietlott.crawler.schema.requests import RequestPower655
 
 class ProductPower655(BaseProduct):
     name = "power_655"
-    url = "https://vietlott.vn/ajaxpro/Vietlott.PlugIn.WebParts.Game655CompareWebPart,Vietlott.PlugIn.WebParts.ashx"
+    url = "https://www.vietlott.vn/ajaxpro/Vietlott.PlugIn.WebParts.Game655CompareWebPart,Vietlott.PlugIn.WebParts.ashx"
     page_to_run = 1  # roll every 2 days
 
     stored_data_dtype = {

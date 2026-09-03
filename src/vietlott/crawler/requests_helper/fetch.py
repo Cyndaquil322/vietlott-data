@@ -13,7 +13,7 @@ from vietlott.crawler.requests_helper.config import TIMEOUT
 
 
 def get_vietlott_cookie() -> Tuple[str, dict]:
-    res = requests.get("https://vietlott.vn/ajaxpro/")
+    res = requests.get("https://www.vietlott.vn/ajaxpro/")
     match = re.search(r'document.cookie="(.*?)"', res.text)
     if match is None:
         raise ValueError(f"cookie is None, text={res.text}")

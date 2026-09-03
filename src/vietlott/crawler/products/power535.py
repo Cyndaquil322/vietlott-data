@@ -5,7 +5,7 @@ from vietlott.crawler.schema.requests import RequestPower535
 
 class ProductPower535(ProductPower655):
     name = "power_535"
-    url = "https://vietlott.vn/ajaxpro/Vietlott.PlugIn.WebParts.Game535CompareWebPart,Vietlott.PlugIn.WebParts.ashx"
+    url = "https://www.vietlott.vn/ajaxpro/Vietlott.PlugIn.WebParts.Game535CompareWebPart,Vietlott.PlugIn.WebParts.ashx"
 
     # Use RequestPower535 schema similar to 645/655 but adjusted for 5/35
     org_body = RequestPower535(

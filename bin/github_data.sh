@@ -16,7 +16,9 @@ echo "Running from directory: $(pwd)"
 export PYTHONPATH="src"
 export LOGURU_LEVEL="INFO"
 
-echo "=== 1. CRAWLING RECENT LOTTERY RESULTS ==="
+echo "=== 1. SYNCING & CRAWLING RECENT LOTTERY RESULTS ==="
+python src/vietlott/sync_live_data.py || true
+
 python src/vietlott/cli/crawl.py keno || true
 python src/vietlott/cli/missing.py keno || true
 

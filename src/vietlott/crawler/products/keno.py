@@ -10,7 +10,7 @@ from vietlott.crawler.schema.requests import RequestKeno
 
 class ProductKeno(ProductPower655):
     name = "keno"
-    url = "https://vietlott.vn/ajaxpro/Vietlott.PlugIn.WebParts.GameKenoCompareWebPart,Vietlott.PlugIn.WebParts.ashx"
+    url = "https://www.vietlott.vn/ajaxpro/Vietlott.PlugIn.WebParts.GameKenoCompareWebPart,Vietlott.PlugIn.WebParts.ashx"
 
     org_body = RequestKeno(
         DrawDate="",

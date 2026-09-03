@@ -6,7 +6,7 @@ from vietlott.crawler.schema.requests import RequestP3DPro
 class P3DPro(P3D):
     name = "3d_pro"
     url = (
-        "https://vietlott.vn/ajaxpro/Vietlott.PlugIn.WebParts.GameMax3DProCompareWebPart,Vietlott.PlugIn.WebParts.ashx"
+        "https://www.vietlott.vn/ajaxpro/Vietlott.PlugIn.WebParts.GameMax3DProCompareWebPart,Vietlott.PlugIn.WebParts.ashx"
     )
 
     org_body = RequestP3DPro(

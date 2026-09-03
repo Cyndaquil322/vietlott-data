@@ -11,7 +11,7 @@ from vietlott.crawler.schema.requests import RequestBingo18
 
 class ProductBingo18(ProductPower655):
     name = "bingo18"
-    url = "https://vietlott.vn/ajaxpro/Vietlott.PlugIn.WebParts.GameBingoCompareWebPart,Vietlott.PlugIn.WebParts.ashx"
+    url = "https://www.vietlott.vn/ajaxpro/Vietlott.PlugIn.WebParts.GameBingoCompareWebPart,Vietlott.PlugIn.WebParts.ashx"
 
     stored_data_dtype = {
         "date": str,
