@@ -13,7 +13,7 @@ for the static Web UI. Includes latest draws & deep analytical stats:
 import itertools
 import json
 import math
-from collections import Counter
+from collections import Counter, defaultdict
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List
@@ -238,6 +238,257 @@ def calculate_sum_and_patterns(records: List[Dict], num_balls: int, max_val: int
     }
 
 
+def calculate_positional_stats(records: List[Dict], num_balls: int, max_val: int) -> Dict[str, Any]:
+    if not records:
+        return {}
+    pos_numbers = [[] for _ in range(num_balls)]
+    spans = []
+    for r in records:
+        res = sorted(r.get("result", [])[:num_balls])
+        if len(res) == num_balls:
+            for i, val in enumerate(res):
+                pos_numbers[i].append(val)
+            spans.append(res[-1] - res[0])
+
+    pos_stats = []
+    total_valid = len(spans)
+    for i in range(num_balls):
+        arr = sorted(pos_numbers[i])
+        n = len(arr)
+        if n == 0:
+            continue
+        q1 = arr[int(n * 0.25)]
+        med = arr[int(n * 0.5)]
+        q3 = arr[int(n * 0.75)]
+        avg = round(sum(arr) / n, 1)
+        mode_val = Counter(arr).most_common(1)[0][0]
+        pos_stats.append({
+            "ball_index": i + 1,
+            "min": arr[0],
+            "q1": q1,
+            "median": med,
+            "avg": avg,
+            "q3": q3,
+            "max": arr[-1],
+            "mode": mode_val,
+            "safe_range": f"{q1:02d} - {q3:02d}"
+        })
+
+    if max_val == 55:
+        span_buckets = [
+            ("< 30", lambda s: s < 30),
+            ("30 - 39", lambda s: 30 <= s <= 39),
+            ("40 - 45", lambda s: 40 <= s <= 45),
+            ("46 - 49", lambda s: 46 <= s <= 49),
+            (">= 50", lambda s: s >= 50),
+        ]
+    elif max_val == 45:
+        span_buckets = [
+            ("< 25", lambda s: s < 25),
+            ("25 - 32", lambda s: 25 <= s <= 32),
+            ("33 - 38", lambda s: 33 <= s <= 38),
+            ("39 - 41", lambda s: 39 <= s <= 41),
+            (">= 42", lambda s: s >= 42),
+        ]
+    else:
+        span_buckets = [
+            ("< 15", lambda s: s < 15),
+            ("15 - 22", lambda s: 15 <= s <= 22),
+            ("23 - 28", lambda s: 23 <= s <= 28),
+            (">= 29", lambda s: s >= 29),
+        ]
+
+    span_dist = []
+    for label, fn in span_buckets:
+        c = sum(1 for s in spans if fn(s))
+        span_dist.append({
+            "range": label,
+            "count": c,
+            "pct": round(c / total_valid * 100, 1) if total_valid else 0
+        })
+
+    sorted_spans = sorted(spans)
+    return {
+        "positions": pos_stats,
+        "span_stats": {
+            "min": sorted_spans[0] if sorted_spans else 0,
+            "max": sorted_spans[-1] if sorted_spans else 0,
+            "median": sorted_spans[len(sorted_spans) // 2] if sorted_spans else 0,
+            "avg": round(sum(sorted_spans) / len(sorted_spans), 1) if sorted_spans else 0,
+            "distribution": span_dist
+        }
+    }
+
+
+def calculate_ac_stats(records: List[Dict], num_balls: int) -> Dict[str, Any]:
+    if not records:
+        return {}
+    ac_counts = Counter()
+    total_valid = 0
+    for r in records:
+        nums = sorted(r.get("result", [])[:num_balls])
+        if len(nums) == num_balls:
+            diffs = set(abs(nums[i] - nums[j]) for i in range(len(nums)) for j in range(i + 1, len(nums)))
+            ac = len(diffs) - (num_balls - 1)
+            ac_counts[ac] += 1
+            total_valid += 1
+
+    ac_dist = [
+        {"ac": k, "count": v, "pct": round(v / total_valid * 100, 1)}
+        for k, v in sorted(ac_counts.items())
+    ]
+    high_ac_cnt = sum(v for k, v in ac_counts.items() if k >= 7)
+    high_ac_pct = round(high_ac_cnt / total_valid * 100, 1) if total_valid else 0
+    avg_ac = round(sum(k * v for k, v in ac_counts.items()) / total_valid, 2) if total_valid else 0
+
+    return {
+        "distribution": ac_dist,
+        "high_ac_pct": high_ac_pct,
+        "avg_ac": avg_ac
+    }
+
+
+def calculate_delta_stats(records: List[Dict], num_balls: int) -> Dict[str, Any]:
+    if not records:
+        return {}
+    deltas = Counter()
+    for r in records:
+        nums = sorted(r.get("result", [])[:num_balls])
+        if len(nums) == num_balls:
+            deltas[nums[0]] += 1
+            for i in range(1, num_balls):
+                deltas[nums[i] - nums[i - 1]] += 1
+
+    total_deltas = sum(deltas.values())
+    top_deltas = [
+        {"delta": k, "count": v, "pct": round(v / total_deltas * 100, 1)}
+        for k, v in deltas.most_common(8)
+    ]
+    small_delta_cnt = sum(v for k, v in deltas.items() if k <= 5)
+    small_delta_pct = round(small_delta_cnt / total_deltas * 100, 1) if total_deltas else 0
+    avg_delta = round(sum(k * v for k, v in deltas.items()) / total_deltas, 2) if total_deltas else 0
+
+    return {
+        "top_deltas": top_deltas,
+        "small_delta_pct": small_delta_pct,
+        "avg_delta": avg_delta
+    }
+
+
+def calculate_markov_matrix(records: List[Dict], max_val: int, num_balls: int) -> Dict[str, Any]:
+    if len(records) < 2:
+        return {}
+    matrix = defaultdict(Counter)
+    total_draws = len(records)
+    for t in range(1, total_draws):
+        p_nums = set(records[t - 1].get("result", [])[:num_balls])
+        c_nums = set(records[t].get("result", [])[:num_balls])
+        for p in p_nums:
+            for c in c_nums:
+                matrix[p][c] += 1
+
+    latest_nums = sorted(records[-1].get("result", [])[:num_balls])
+    markov_scores = Counter()
+    for n in latest_nums:
+        for cand, cnt in matrix[n].items():
+            markov_scores[cand] += cnt
+
+    top_candidates = []
+    max_score = markov_scores.most_common(1)[0][1] if markov_scores else 1
+    for cand, sc in markov_scores.most_common(12):
+        top_candidates.append({
+            "number": cand,
+            "score": sc,
+            "rel_strength": round((sc / max_score) * 100, 1)
+        })
+
+    return {
+        "latest_basis": latest_nums,
+        "top_candidates": top_candidates
+    }
+
+
+def calculate_digit_dynamics(records: List[Dict], max_val: int, num_balls: int) -> Dict[str, Any]:
+    if not records:
+        return {}
+    total_draws = len(records)
+    tail_diversity = Counter()
+
+    last_seen_tail = {d: 0 for d in range(10)}
+    last_seen_head = {d: 0 for d in range(max_val // 10 + 1)}
+
+    for idx, r in enumerate(reversed(records)):
+        nums = r.get("result", [])[:num_balls]
+        cur_tails = set(n % 10 for n in nums)
+        cur_heads = set(n // 10 for n in nums)
+        for d in range(10):
+            if d not in cur_tails and last_seen_tail[d] == idx:
+                last_seen_tail[d] += 1
+        for h in range(max_val // 10 + 1):
+            if h not in cur_heads and last_seen_head[h] == idx:
+                last_seen_head[h] += 1
+
+    for r in records:
+        nums = r.get("result", [])[:num_balls]
+        tails = [n % 10 for n in nums]
+        tail_diversity[len(set(tails))] += 1
+
+    tail_div_stat = [
+        {"distinct_tails": k, "count": v, "pct": round(v / total_draws * 100, 1)}
+        for k, v in sorted(tail_diversity.items())
+    ]
+
+    câm_tails = [
+        {"tail": d, "streak": last_seen_tail[d]}
+        for d in range(10)
+    ]
+    câm_heads = [
+        {"head": f"{h}x", "streak": last_seen_head[h]}
+        for h in range(max_val // 10 + 1)
+    ]
+
+    return {
+        "tail_diversity": tail_div_stat,
+        "cam_tails": sorted(câm_tails, key=lambda x: x["streak"], reverse=True),
+        "cam_heads": sorted(câm_heads, key=lambda x: x["streak"], reverse=True)
+    }
+
+
+def calculate_ev_metrics(max_val: int, num_balls: int) -> Dict[str, Any]:
+    if max_val == 55 and num_balls == 6:
+        jp1_est = 52292606250
+        jp2_est = 3673281450
+        baseline_return = 1211
+        jp1_return = (jp1_est * 0.9) / 28989675
+        jp2_return = (jp2_est * 0.9) / 4831612
+        current_ev = baseline_return + jp1_return + jp2_return
+        return {
+            "ticket_cost": 10000,
+            "current_ev": round(current_ev),
+            "ev_pct": round((current_ev / 10000) * 100, 1),
+            "breakeven_jackpot": "283 Tỷ VNĐ",
+            "status": "Vùng Tích Lũy (-EV)" if current_ev < 10000 else "Vùng Có Lợi Thế (+EV)",
+            "jp1_est": jp1_est,
+            "jp2_est": jp2_est,
+            "combinations": 28989675
+        }
+    elif max_val == 45 and num_balls == 6:
+        jp_est = 25000000000
+        baseline_return = 2140
+        jp_return = (jp_est * 0.9) / 8145060
+        current_ev = baseline_return + jp_return
+        return {
+            "ticket_cost": 10000,
+            "current_ev": round(current_ev),
+            "ev_pct": round((current_ev / 10000) * 100, 1),
+            "breakeven_jackpot": "81 Tỷ VNĐ",
+            "status": "Vùng Tích Lũy (-EV)" if current_ev < 10000 else "Vùng Có Lợi Thế (+EV)",
+            "jp1_est": jp_est,
+            "combinations": 8145060
+        }
+    return {}
+
+
 def process_power(records: List[Dict], max_val: int, num_balls: int, has_special: bool = False) -> Dict[str, Any]:
     """Process Power 655, 645, 535 with full analytics."""
     if not records:
@@ -294,6 +545,14 @@ def process_power(records: List[Dict], max_val: int, num_balls: int, has_special
     # Top overdue numbers (gan nhất hiện tại)
     top_overdue = sorted(gap_analysis, key=lambda x: x["current_gap"], reverse=True)[:10]
 
+    # 6 New Analytical Modules:
+    positional_stats = calculate_positional_stats(records, num_balls, max_val)
+    ac_stats = calculate_ac_stats(records, num_balls)
+    delta_stats = calculate_delta_stats(records, num_balls)
+    markov_stats = calculate_markov_matrix(records, max_val, num_balls)
+    digit_dynamics = calculate_digit_dynamics(records, max_val, num_balls)
+    ev_metrics = calculate_ev_metrics(max_val, num_balls)
+
     return {
         "total_draws": total_draws,
         "first_draw": records[0].get("date"),
@@ -309,6 +568,12 @@ def process_power(records: List[Dict], max_val: int, num_balls: int, has_special
         "top_triples": cooccurrence["top_triples"],
         "sum_stats": sum_patterns.get("sum_stats", {}),
         "patterns": sum_patterns.get("patterns", {}),
+        "positional_stats": positional_stats,
+        "ac_stats": ac_stats,
+        "delta_stats": delta_stats,
+        "markov_stats": markov_stats,
+        "digit_dynamics": digit_dynamics,
+        "ev_metrics": ev_metrics,
         "odd_even": {
             "odd_pct": round(odd_count / total_oe * 100, 1),
             "even_pct": round(even_count / total_oe * 100, 1),
