@@ -1222,17 +1222,16 @@ def calculate_cooccurrence_matrix_analytics(records: List[Dict], max_val: int, n
         companions_map[str(u)] = cands[:6]
 
     # 3. Graph Community Detection (5 Clusters)
-    import networkx as nx
-    G = nx.Graph()
-    for u in range(1, max_val + 1):
-        G.add_node(u)
-    for u in range(1, max_val + 1):
-        for v in range(u + 1, max_val + 1):
-            if matrix[u][v] >= 3:
-                G.add_edge(u, v, weight=matrix[u][v])
-
-    import networkx.algorithms.community as nx_comm
     try:
+        import networkx as nx
+        import networkx.algorithms.community as nx_comm
+        G = nx.Graph()
+        for u in range(1, max_val + 1):
+            G.add_node(u)
+        for u in range(1, max_val + 1):
+            for v in range(u + 1, max_val + 1):
+                if matrix[u][v] >= 3:
+                    G.add_edge(u, v, weight=matrix[u][v])
         raw_communities = list(nx_comm.greedy_modularity_communities(G))
         communities = [sorted(list(c)) for c in raw_communities[:5]]
     except Exception as e:

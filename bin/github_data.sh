@@ -51,6 +51,7 @@ cp -f docs/data/vietlott_summary.json data/vietlott_summary.json || true
 echo "=== 3. COMMITTING AND PUSHING UPDATES ==="
 if [ -d ".git" ]; then
   # Configure git user if running in CI or not set
+  git config --global --add safe.directory "*" || true
   if [ -z "$(git config user.name)" ]; then
     git config user.name "github-actions[bot]"
     git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -67,7 +68,7 @@ if [ -d ".git" ]; then
     # Try push to current branch if remote exists
     if git remote get-url origin >/dev/null 2>&1; then
       echo "Pushing changes to remote origin..."
-      git push origin HEAD
+      git push origin HEAD:main || git push origin main || git push
     else
       echo "No remote origin configured, skipping push."
     fi

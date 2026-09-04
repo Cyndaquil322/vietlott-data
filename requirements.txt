@@ -64,3 +64,7 @@ tzdata==2024.1
     #   pendulum
 urllib3==2.2.1
     # via requests
+networkx>=3.2
+scipy>=1.12.0
+scikit-learn>=1.4.0
+
