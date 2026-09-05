@@ -3,14 +3,24 @@ name: Vietlott Daily Crawler & Web Deploy
 on:
   workflow_dispatch: # Allows manual trigger from GitHub UI
   schedule:
-    # 1. Runs at 06:35 UTC (13:35 VN time - Immediately after Power 5/35 13:00 midday draw)
-    - cron: '35 6 * * *'
-    # 2. Runs at 11:45 UTC (18:45 VN time - Immediately after Power 6/55 & Mega 6/45 18:00 draws)
-    - cron: '45 11 * * *'
-    # 3. Runs at 14:35 UTC (21:35 VN time - Immediately after Power 5/35 21:00 evening draw)
-    - cron: '35 14 * * *'
-    # 4. Runs at 05:00 UTC (12:00 VN time - Midday sync check)
-    - cron: '0 5 * * *'
+    # 1. Evening Draw Window (Power 6/55, Mega 6/45 drawn ~18:00 - 18:30 VN time)
+    #    Multiple sync attempts guarantee we never miss results if Vietlott website is delayed
+    - cron: '35 11 * * *'  # 18:35 VN (Early check)
+    - cron: '50 11 * * *'  # 18:50 VN (Prime check)
+    - cron: '15 12 * * *'  # 19:15 VN (Safety backup check)
+    - cron: '0 13 * * *'   # 20:00 VN (Final evening verification)
+
+    # 2. Night Draw Window (Power 5/35 evening draw ~21:00 VN time)
+    - cron: '35 14 * * *'  # 21:35 VN (Prime check)
+    - cron: '15 15 * * *'  # 22:15 VN (Backup check)
+
+    # 3. Midday Draw Window (Power 5/35 midday draw ~13:00 VN time)
+    - cron: '35 6 * * *'   # 13:35 VN (Prime check)
+    - cron: '15 7 * * *'   # 14:15 VN (Backup check)
+
+    # 4. Morning & Pre-draw Freshness checks
+    - cron: '30 22 * * *'  # 05:30 VN (Early morning fresh check)
+    - cron: '30 4 * * *'   # 11:30 VN (Pre-midday check)
 
 # Grant permission to commit and push updates back to the repo
 permissions:

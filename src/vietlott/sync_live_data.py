@@ -36,14 +36,21 @@ def load_existing_data(file_path: Path) -> Dict[str, Dict]:
                 try:
                     d = json.loads(line)
                     raw_id = str(d.get("id", "")).replace("#", "").strip()
-                    res[raw_id] = d
+                    clean_id = str(int(raw_id)) if raw_id.isdigit() else raw_id
+                    res[clean_id] = d
                 except Exception:
                     continue
     return res
 
 
 def save_data(file_path: Path, records_dict: Dict[str, Dict]):
-    sorted_records = sorted(records_dict.values(), key=lambda x: (x.get("date", ""), str(x.get("id", ""))))
+    def sort_key(x):
+        d_val = x.get("date", "")
+        id_val = str(x.get("id", "")).replace("#", "").strip()
+        num_id = int(id_val) if id_val.isdigit() else 0
+        return (d_val, num_id)
+
+    sorted_records = sorted(records_dict.values(), key=sort_key)
     with open(file_path, "w", encoding="utf-8") as f:
         for r in sorted_records:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
@@ -98,7 +105,7 @@ def sync_power(name: str, url: str, key: str, file_path: Path, array_len: int = 
                         "process_time": datetime.now().isoformat(),
                     }
                     new_draws += 1
-                elif int(clean_id) <= latest_local_id and page > 0:
+                elif int(clean_id) <= latest_local_id:
                     # Overlapped with existing historical data
                     stop = True
 
@@ -192,7 +199,7 @@ def sync_max3d(name: str, url: str, game_id: str, file_path: Path, max_pages: in
                         "process_time": datetime.now().isoformat(),
                     }
                     new_draws += 1
-                elif int(clean_id) <= latest_local_id and page > 1:
+                elif int(clean_id) <= latest_local_id:
                     stop = True
 
             print(f"Page {page} processed.")
@@ -240,6 +247,7 @@ def sync_power535(file_path: Path, max_pages: int = 40):
     }
 
     new_draws = 0
+    stop = False
     for page in range(max_pages):
         body = {
             "ORenderInfo": render_info,
@@ -267,7 +275,8 @@ def sync_power535(file_path: Path, max_pages: int = 40):
                 tds = [td.text.strip() for td in tr.find_all("td")]
                 if len(tds) >= 3 and "|" in tds[2]:
                     date_str, draw_id_raw, nums_str = tds[0], tds[1], tds[2]
-                    draw_id = str(draw_id_raw).replace("#", "").strip()
+                    draw_id = str(draw_id_raw).replace("#", "").strip().zfill(5)
+                    clean_id = str(int(draw_id))
                     parts = nums_str.split("|")
                     main_str = parts[0]
                     spec_str = parts[1]
@@ -276,8 +285,8 @@ def sync_power535(file_path: Path, max_pages: int = 40):
                     all_nums = main_nums + [spec_num]
                     dt = datetime.strptime(date_str, "%d/%m/%Y").strftime("%Y-%m-%d")
 
-                    if draw_id not in existing:
-                        existing[draw_id] = {
+                    if clean_id not in existing:
+                        existing[clean_id] = {
                             "date": dt,
                             "id": draw_id,
                             "result": all_nums,
@@ -288,8 +297,11 @@ def sync_power535(file_path: Path, max_pages: int = 40):
                         page_items += 1
                     else:
                         page_items += 1
+                        if int(clean_id) <= latest_local_id:
+                            stop = True
 
-            if page_items == 0:
+            if stop or page_items == 0:
+                print(f"Reached existing data overlap at page {page}.")
                 break
         except Exception as e:
             print(f"Error on 5/35 page {page}: {e}")

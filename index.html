@@ -1192,10 +1192,14 @@
               Được gieo mầm cố định theo mã kỳ quay (Draw ID Seed), tối ưu hóa từ 5 mô hình toán học & 5 bộ lọc vật lý Không Gian Âm. F5 hoặc đổi thiết bị vẫn đồng nhất 100%.
             </p>
           </div>
-          <div class="flex items-center gap-2 flex-shrink-0">
-            <span class="px-3 py-1.5 rounded-xl bg-slate-800 border border-slate-700 text-xs font-mono text-slate-300 flex items-center gap-1.5">
-              <i data-lucide="calendar" class="w-3.5 h-3.5 text-rose-400"></i>
-              <span>Kỳ tới: <strong id="consensusNextDrawBadge" class="text-amber-300">#00000</strong></span>
+          <div class="flex items-center gap-2 flex-shrink-0 flex-wrap">
+            <span class="px-3 py-1.5 rounded-xl bg-slate-800/80 border border-slate-700 text-xs font-mono text-slate-300 flex items-center gap-1.5">
+              <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>Vừa xổ: <strong id="consensusLastDrawBadge" class="text-emerald-400 font-bold">#00000</strong></span>
+            </span>
+            <span class="px-3 py-1.5 rounded-xl bg-amber-500/10 border border-amber-500/40 text-xs font-mono text-amber-300 flex items-center gap-1.5 shadow-sm">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i>
+              <span>Dự đoán Kỳ tới: <strong id="consensusNextDrawBadge" class="text-amber-300 font-bold text-sm">#00000</strong></span>
             </span>
           </div>
         </div>
@@ -1207,7 +1211,10 @@
               🏆 Khuyên Dùng Nhất
             </div>
             <div>
-              <span class="text-xs font-bold text-amber-400 uppercase tracking-wide">DÀN VÀNG ĐỒNG THUẬN (CORE 6)</span>
+              <div class="flex items-center justify-between gap-2 pr-24">
+                <span class="text-xs font-bold text-amber-400 uppercase tracking-wide">DÀN VÀNG ĐỒNG THUẬN (CORE 6)</span>
+                <span id="consensusCardGoldenDraw" class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40">Dự đoán #00000</span>
+              </div>
               <p class="text-[11px] text-slate-400 mt-0.5">Cân bằng hoàn hảo giữa điểm Consensus, dải Gaussian và AC ≥ 7.</p>
             </div>
 
@@ -1244,7 +1251,10 @@
           <!-- Card 2: Dàn Xung Lực Bứt Phá (Momentum) -->
           <div class="p-5 rounded-2xl bg-slate-950 border border-rose-500/30 shadow-xl space-y-4">
             <div>
-              <span class="text-xs font-bold text-rose-400 uppercase tracking-wide">🔥 DÀN XUNG LỰC BỨT PHÁ (MOMENTUM)</span>
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-xs font-bold text-rose-400 uppercase tracking-wide">🔥 DÀN XUNG LỰC BỨT PHÁ (MOMENTUM)</span>
+                <span id="consensusCardMomDraw" class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-rose-500/20 text-rose-300 border border-rose-500/40">Dự đoán #00000</span>
+              </div>
               <p class="text-[11px] text-slate-400 mt-0.5">Tập trung tối đa vào các bóng có chuỗi nhiệt dồn dập và lực hút Bạc Nhớ.</p>
             </div>
 
@@ -1278,7 +1288,10 @@
           <!-- Card 3: Dàn Hạt Nhân Bao 7 / Bao 6 -->
           <div class="p-5 rounded-2xl bg-slate-950 border border-emerald-500/30 shadow-xl space-y-4">
             <div>
-              <span class="text-xs font-bold text-emerald-400 uppercase tracking-wide">💎 TẬP HẠT NHÂN BAO 7 (70K)</span>
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-xs font-bold text-emerald-400 uppercase tracking-wide">💎 TẬP HẠT NHÂN BAO 7 (70K)</span>
+                <span id="consensusCardBao7Draw" class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">Dự đoán #00000</span>
+              </div>
               <p class="text-[11px] text-slate-400 mt-0.5">Top 7 số có trọng số cao nhất để tối ưu hóa đòn bẩy ăn giải chùm.</p>
             </div>
 
@@ -4481,9 +4494,25 @@
       if (!product || !product.consensus_hub) return;
       const hub = product.consensus_hub;
 
-      // 1. Header KPIs
+      // 1. Header KPIs & Target Draw Identification
       const nextDrawEl = document.getElementById('consensusNextDrawBadge');
       if (nextDrawEl) nextDrawEl.textContent = hub.next_draw_id || 'Kỳ Kế Tiếp';
+
+      const lastDrawEl = document.getElementById('consensusLastDrawBadge');
+      if (lastDrawEl) {
+        const last = product.latest || {};
+        lastDrawEl.textContent = last.id ? `#${last.id} (${last.date || ''})` : '--';
+      }
+
+      const drawText = hub.next_draw_id || 'Kỳ Kế Tiếp';
+      const cardGoldenDraw = document.getElementById('consensusCardGoldenDraw');
+      if (cardGoldenDraw) cardGoldenDraw.textContent = `Dự đoán ${drawText}`;
+
+      const cardMomDraw = document.getElementById('consensusCardMomDraw');
+      if (cardMomDraw) cardMomDraw.textContent = `Dự đoán ${drawText}`;
+
+      const cardBao7Draw = document.getElementById('consensusCardBao7Draw');
+      if (cardBao7Draw) cardBao7Draw.textContent = `Dự đoán ${drawText}`;
 
       const winRateEl = document.getElementById('consensusWinRateGe3');
       const consensusModel = hub.leaderboard?.find(x => x.id === 'consensus');
