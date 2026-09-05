@@ -1179,210 +1179,24 @@
 
     <!-- VIEW: CONSENSUS MULTI-MODEL PREDICTOR (TỔNG HỢP DỰ ĐOÁN ĐA MÔ HÌNH & 100 KỲ BACKTEST) -->
     <div id="view-consensus-content" class="view-content hidden space-y-6">
-      <!-- 1. Header & Quick Metrics -->
+      <!-- 1. BỘ SỐ ĐỀ XUẤT CHÍNH THỨC CHO KỲ TỚI (DÃY SỐ NẰM TRÊN CÙNG - MỞ APP THẤY NGAY) -->
       <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 shadow-xl space-y-6">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+        <div class="border-b border-slate-800 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <h3 class="text-lg font-bold text-white flex items-center gap-2 flex-wrap">
-              <i data-lucide="cpu" class="w-5 h-5 text-amber-400"></i>
-              <span>HỘI ĐỒNG DỰ ĐOÁN ĐỒNG THUẬN (CONSENSUS HUB)</span>
-              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 animate-pulse">5 MÔ HÌNH QUANT + 100 KỲ BACKTEST</span>
+              <i data-lucide="sparkles" class="w-5 h-5 text-amber-400"></i>
+              <span>BỘ SỐ ĐỀ XUẤT CHÍNH THỨC CHO KỲ TỚI</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 animate-pulse">CỐ ĐỊNH THEO KỲ QUAY</span>
             </h3>
             <p class="text-xs text-slate-400 mt-0.5">
-              Hợp lực 5 mô hình toán học độc lập (Bayesian Hazard, Exponential Decay, Markov Chain, Phổ Fourier và Bạc Nhớ Lift). Toàn bộ được kiểm chứng qua 100 kỳ Walk-Forward Backtest thực tế không thiên lệch.
+              Được gieo mầm cố định theo mã kỳ quay (Draw ID Seed), tối ưu hóa từ 5 mô hình toán học & 5 bộ lọc vật lý Không Gian Âm. F5 hoặc đổi thiết bị vẫn đồng nhất 100%.
             </p>
           </div>
-          <div class="flex items-center gap-2">
+          <div class="flex items-center gap-2 flex-shrink-0">
             <span class="px-3 py-1.5 rounded-xl bg-slate-800 border border-slate-700 text-xs font-mono text-slate-300 flex items-center gap-1.5">
               <i data-lucide="calendar" class="w-3.5 h-3.5 text-rose-400"></i>
               <span>Kỳ tới: <strong id="consensusNextDrawBadge" class="text-amber-300">#00000</strong></span>
             </span>
-          </div>
-        </div>
-
-        <!-- 4 Quick KPI Cards -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono">
-          <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
-            <div class="text-slate-500 text-[11px] mb-1 flex items-center gap-1">
-              <i data-lucide="layers" class="w-3.5 h-3.5 text-blue-400"></i>
-              <span>Mô Hình Độc Lập</span>
-            </div>
-            <div class="text-sm font-bold text-blue-400">5 Thuật Toán</div>
-            <div class="text-[10px] text-slate-500 mt-0.5">+ 1 Consensus Engine</div>
-          </div>
-          <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
-            <div class="text-slate-500 text-[11px] mb-1 flex items-center gap-1">
-              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
-              <span>Kiểm Định Backtest</span>
-            </div>
-            <div class="text-sm font-bold text-emerald-400">100 Kỳ Thật</div>
-            <div class="text-[10px] text-slate-500 mt-0.5">Walk-Forward 100%</div>
-          </div>
-          <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
-            <div class="text-slate-500 text-[11px] mb-1 flex items-center gap-1">
-              <i data-lucide="award" class="w-3.5 h-3.5 text-amber-400"></i>
-              <span>Tỷ Lệ Trúng >= 3 Số</span>
-            </div>
-            <div class="text-sm font-bold text-amber-400" id="consensusWinRateGe3">--%</div>
-            <div class="text-[10px] text-slate-500 mt-0.5">Gấp 13x ngẫu nhiên</div>
-          </div>
-          <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
-            <div class="text-slate-500 text-[11px] mb-1 flex items-center gap-1">
-              <i data-lucide="sliders" class="w-3.5 h-3.5 text-purple-400"></i>
-              <span>Cơ Chế Trọng Số</span>
-            </div>
-            <div class="text-sm font-bold text-purple-400">Thích Ứng Động</div>
-            <div class="text-[10px] text-slate-500 mt-0.5">Tự tối ưu theo phong độ</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2. Bảng Đấu Sĩ & Tổng Sắp Phong Độ 100 Kỳ (Model Leaderboard) -->
-      <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 shadow-xl space-y-4">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
-          <div>
-            <h4 class="text-base font-bold text-white flex items-center gap-2">
-              <i data-lucide="trophy" class="w-5 h-5 text-amber-400"></i>
-              <span>BẢNG ĐẤU SĨ: ĐỐI SOÁT PHONG ĐỘ 100 KỲ THỰC TẾ CỦA CÁC MÔ HÌNH</span>
-            </h4>
-            <p class="text-xs text-slate-400 mt-0.5">
-              So sánh sòng phẳng thành tích bắt bóng qua 100 kỳ quá khứ giữa từng mô hình đơn lẻ, mô hình Consensus tổng hợp và mốc ngẫu nhiên cơ sở.
-            </p>
-          </div>
-          <span class="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-slate-800 text-slate-400">
-            Walk-Forward Test (Kỳ T chỉ dùng dữ liệu ≤ T-1)
-          </span>
-        </div>
-
-        <div class="overflow-x-auto">
-          <table class="w-full text-left text-xs font-mono">
-            <thead class="bg-slate-950/80 text-slate-400 uppercase text-[10px] tracking-wider border-b border-slate-800">
-              <tr>
-                <th class="px-3 py-3 rounded-l-lg">Mô Hình Thuật Toán</th>
-                <th class="px-3 py-3 text-center">Bóng TB / Kỳ</th>
-                <th class="px-3 py-3 text-center">Trúng ≥ 3 Số (Có Thưởng)</th>
-                <th class="px-3 py-3 text-center">Phong Độ 10 Kỳ Gần Nhất</th>
-                <th class="px-3 py-3 text-center rounded-r-lg">Trọng Số Kỳ Này</th>
-              </tr>
-            </thead>
-            <tbody id="consensusLeaderboardBody" class="divide-y divide-slate-800/60">
-              <!-- Rendered by JS -->
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- 2.5 Báo Cáo Huấn Luyện Định Lượng & Lọc Không Gian Âm (Trained Quant Parameters & Negative Space Filter) -->
-      <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 shadow-xl space-y-5">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
-          <div>
-            <h4 class="text-base font-bold text-white flex items-center gap-2">
-              <i data-lucide="brain" class="w-5 h-5 text-indigo-400"></i>
-              <span>THÔNG SỐ HUẤN LUYỆN ĐỊNH LƯỢNG & BỘ LỌC KHÔNG GIAN ÂM (NEGATIVE SPACE)</span>
-            </h4>
-            <p class="text-xs text-slate-400 mt-0.5">
-              Học máy tối ưu hóa tham số thích ứng theo từng loại hình, kết hợp 5 bộ lọc vật lý xổ số triệt tiêu 80%+ không gian vé rác.
-            </p>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="px-2.5 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-mono font-bold flex items-center gap-1.5">
-              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i>
-              <span id="consensusNsStatusBadge">100% Đạt Chuẩn (5/5 Bộ Lọc)</span>
-            </span>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs">
-          <!-- Card A: Trained Hyperparameters -->
-          <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800/80 space-y-2.5">
-            <div class="text-[11px] font-bold text-indigo-300 uppercase tracking-wide flex items-center gap-1.5">
-              <i data-lucide="sliders" class="w-3.5 h-3.5 text-indigo-400"></i>
-              <span>Siêu Tham Số Đã Huấn Luyện</span>
-            </div>
-            <div class="space-y-1.5 text-slate-300 text-[11px]">
-              <div class="flex justify-between">
-                <span class="text-slate-500">Hệ số suy giảm alpha:</span>
-                <strong id="paramAlpha" class="text-white">--</strong>
-              </div>
-              <div class="flex justify-between">
-                <span class="text-slate-500">Chu kỳ bán rã (Half-life):</span>
-                <strong id="paramHalfLife" class="text-amber-300">-- kỳ</strong>
-              </div>
-              <div class="flex justify-between">
-                <span class="text-slate-500">Khung nhịp Gan Vàng:</span>
-                <strong id="paramHazardWin" class="text-emerald-300">--</strong>
-              </div>
-              <div class="flex justify-between">
-                <span class="text-slate-500">Cửa sổ DFT Fourier:</span>
-                <strong id="paramFourierWin" class="text-cyan-300">64 kỳ</strong>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card B: Negative Space Physics Bounds -->
-          <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800/80 space-y-2.5">
-            <div class="text-[11px] font-bold text-emerald-300 uppercase tracking-wide flex items-center gap-1.5">
-              <i data-lucide="filter" class="w-3.5 h-3.5 text-emerald-400"></i>
-              <span>Biên Ràng Buộc Vật Lý Xổ Số</span>
-            </div>
-            <div class="space-y-1.5 text-slate-300 text-[11px]">
-              <div class="flex justify-between">
-                <span class="text-slate-500">Dải tổng Gaussian (2-sigma):</span>
-                <strong id="paramGaussianSum" class="text-amber-300">--</strong>
-              </div>
-              <div class="flex justify-between">
-                <span class="text-slate-500">Tổng kỳ vọng (mu):</span>
-                <strong id="paramGaussianMean" class="text-white">--</strong>
-              </div>
-              <div class="flex justify-between">
-                <span class="text-slate-500">Độ phức tạp AC tối thiểu:</span>
-                <strong id="paramMinAc" class="text-emerald-300">--</strong>
-              </div>
-              <div class="flex justify-between">
-                <span class="text-slate-500">Chuỗi số kề nhau:</span>
-                <strong class="text-rose-300">&lt; 3 số liên tiếp</strong>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card C: 5/5 Negative Space Badges -->
-          <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800/80 space-y-2.5">
-            <div class="text-[11px] font-bold text-amber-300 uppercase tracking-wide flex items-center gap-1.5">
-              <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-400"></i>
-              <span>5 Tiêu Chí Không Gian Âm</span>
-            </div>
-            <div class="space-y-1.5 text-[11px]">
-              <div class="flex items-center gap-2 text-slate-300">
-                <span class="text-emerald-400">✓</span> <span>Tổng Gaussian trong dải mu ± 2 sigma</span>
-              </div>
-              <div class="flex items-center gap-2 text-slate-300">
-                <span class="text-emerald-400">✓</span> <span>Độ phức tạp AC đạt chuẩn cao</span>
-              </div>
-              <div class="flex items-center gap-2 text-slate-300">
-                <span class="text-emerald-400">✓</span> <span>Triệt tiêu chuỗi 3+ số kề nhau</span>
-              </div>
-              <div class="flex items-center gap-2 text-slate-300">
-                <span class="text-emerald-400">✓</span> <span>Cân bằng Chẵn/Lẻ (loại 100% C hoặc L)</span>
-              </div>
-              <div class="flex items-center gap-2 text-slate-300">
-                <span class="text-emerald-400">✓</span> <span>Khống chế lặp từ kỳ trước &le; 2 bóng</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 3. Bộ Số Gợi Ý Tối Ưu Cho Kỳ Tới (Consensus Golden Combo & Strategy Presets) -->
-      <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 shadow-xl space-y-6">
-        <div class="border-b border-slate-800 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-          <div>
-            <h4 class="text-base font-bold text-white flex items-center gap-2">
-              <i data-lucide="sparkles" class="w-5 h-5 text-rose-400"></i>
-              <span>BỘ SỐ ĐỀ XUẤT CHÍNH THỨC CHO KỲ TỚI (CỐ ĐỊNH THEO SEED)</span>
-            </h4>
-            <p class="text-xs text-slate-400 mt-0.5">
-              Được gieo mầm cố định theo mã kỳ quay (Draw ID Seed). F5 hoặc mở trên thiết bị khác đều cho kết quả đồng nhất 100%.
-            </p>
           </div>
         </div>
 
@@ -1488,6 +1302,193 @@
                 <i data-lucide="layers" class="w-3.5 h-3.5"></i>
                 <span>Xem Bảng Cơ Cấu Thưởng Bao 7</span>
               </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Header & Quick Metrics -->
+      <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 shadow-xl space-y-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+          <div>
+            <h4 class="text-base font-bold text-white flex items-center gap-2 flex-wrap">
+              <i data-lucide="cpu" class="w-5 h-5 text-amber-400"></i>
+              <span>HỘI ĐỒNG DỰ ĐOÁN ĐỒNG THUẬN (CONSENSUS HUB)</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40">5 MÔ HÌNH QUANT + 100 KỲ BACKTEST</span>
+            </h4>
+            <p class="text-xs text-slate-400 mt-0.5">
+              Hợp lực 5 mô hình toán học độc lập (Bayesian Hazard, Exponential Decay, Markov Chain, Phổ Fourier và Bạc Nhớ Lift). Toàn bộ được kiểm chứng qua 100 kỳ Walk-Forward Backtest thực tế không thiên lệch.
+            </p>
+          </div>
+        </div>
+
+        <!-- 4 Quick KPI Cards -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono">
+          <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+            <div class="text-slate-500 text-[11px] mb-1 flex items-center gap-1">
+              <i data-lucide="layers" class="w-3.5 h-3.5 text-blue-400"></i>
+              <span>Mô Hình Độc Lập</span>
+            </div>
+            <div class="text-sm font-bold text-blue-400">5 Thuật Toán</div>
+            <div class="text-[10px] text-slate-500 mt-0.5">+ 1 Consensus Engine</div>
+          </div>
+          <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+            <div class="text-slate-500 text-[11px] mb-1 flex items-center gap-1">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>Kiểm Định Backtest</span>
+            </div>
+            <div class="text-sm font-bold text-emerald-400">100 Kỳ Thật</div>
+            <div class="text-[10px] text-slate-500 mt-0.5">Walk-Forward 100%</div>
+          </div>
+          <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+            <div class="text-slate-500 text-[11px] mb-1 flex items-center gap-1">
+              <i data-lucide="award" class="w-3.5 h-3.5 text-amber-400"></i>
+              <span>Tỷ Lệ Trúng >= 3 Số</span>
+            </div>
+            <div class="text-sm font-bold text-amber-400" id="consensusWinRateGe3">--%</div>
+            <div class="text-[10px] text-slate-500 mt-0.5">Gấp 13x ngẫu nhiên</div>
+          </div>
+          <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+            <div class="text-slate-500 text-[11px] mb-1 flex items-center gap-1">
+              <i data-lucide="sliders" class="w-3.5 h-3.5 text-purple-400"></i>
+              <span>Cơ Chế Trọng Số</span>
+            </div>
+            <div class="text-sm font-bold text-purple-400">Thích Ứng Động</div>
+            <div class="text-[10px] text-slate-500 mt-0.5">Tự tối ưu theo phong độ</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Bảng Đấu Sĩ & Tổng Sắp Phong Độ 100 Kỳ (Model Leaderboard) -->
+      <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 shadow-xl space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+          <div>
+            <h4 class="text-base font-bold text-white flex items-center gap-2">
+              <i data-lucide="trophy" class="w-5 h-5 text-amber-400"></i>
+              <span>BẢNG ĐẤU SĨ: ĐỐI SOÁT PHONG ĐỘ 100 KỲ THỰC TẾ CỦA CÁC MÔ HÌNH</span>
+            </h4>
+            <p class="text-xs text-slate-400 mt-0.5">
+              So sánh sòng phẳng thành tích bắt bóng qua 100 kỳ quá khứ giữa từng mô hình đơn lẻ, mô hình Consensus tổng hợp và mốc ngẫu nhiên cơ sở.
+            </p>
+          </div>
+          <span class="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-slate-800 text-slate-400">
+            Walk-Forward Test (Kỳ T chỉ dùng dữ liệu ≤ T-1)
+          </span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs font-mono">
+            <thead class="bg-slate-950/80 text-slate-400 uppercase text-[10px] tracking-wider border-b border-slate-800">
+              <tr>
+                <th class="px-3 py-3 rounded-l-lg">Mô Hình Thuật Toán</th>
+                <th class="px-3 py-3 text-center">Bóng TB / Kỳ</th>
+                <th class="px-3 py-3 text-center">Trúng ≥ 3 Số (Có Thưởng)</th>
+                <th class="px-3 py-3 text-center">Phong Độ 10 Kỳ Gần Nhất</th>
+                <th class="px-3 py-3 text-center rounded-r-lg">Trọng Số Kỳ Này</th>
+              </tr>
+            </thead>
+            <tbody id="consensusLeaderboardBody" class="divide-y divide-slate-800/60">
+              <!-- Rendered by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 4. Báo Cáo Huấn Luyện Định Lượng & Lọc Không Gian Âm (Trained Quant Parameters & Negative Space Filter) -->
+      <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 shadow-xl space-y-5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+          <div>
+            <h4 class="text-base font-bold text-white flex items-center gap-2">
+              <i data-lucide="brain" class="w-5 h-5 text-indigo-400"></i>
+              <span>THÔNG SỐ HUẤN LUYỆN ĐỊNH LƯỢNG & BỘ LỌC KHÔNG GIAN ÂM (NEGATIVE SPACE)</span>
+            </h4>
+            <p class="text-xs text-slate-400 mt-0.5">
+              Học máy tối ưu hóa tham số thích ứng theo từng loại hình, kết hợp 5 bộ lọc vật lý xổ số triệt tiêu 80%+ không gian vé rác.
+            </p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-mono font-bold flex items-center gap-1.5">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span id="consensusNsStatusBadge">100% Đạt Chuẩn (5/5 Bộ Lọc)</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs">
+          <!-- Card A: Trained Hyperparameters -->
+          <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800/80 space-y-2.5">
+            <div class="text-[11px] font-bold text-indigo-300 uppercase tracking-wide flex items-center gap-1.5">
+              <i data-lucide="sliders" class="w-3.5 h-3.5 text-indigo-400"></i>
+              <span>Siêu Tham Số Đã Huấn Luyện</span>
+            </div>
+            <div class="space-y-1.5 text-slate-300 text-[11px]">
+              <div class="flex justify-between">
+                <span class="text-slate-500">Hệ số suy giảm alpha:</span>
+                <strong id="paramAlpha" class="text-white">--</strong>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-500">Chu kỳ bán rã (Half-life):</span>
+                <strong id="paramHalfLife" class="text-amber-300">-- kỳ</strong>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-500">Khung nhịp Gan Vàng:</span>
+                <strong id="paramHazardWin" class="text-emerald-300">--</strong>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-500">Cửa sổ DFT Fourier:</span>
+                <strong id="paramFourierWin" class="text-cyan-300">64 kỳ</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card B: Negative Space Physics Bounds -->
+          <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800/80 space-y-2.5">
+            <div class="text-[11px] font-bold text-emerald-300 uppercase tracking-wide flex items-center gap-1.5">
+              <i data-lucide="filter" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>Biên Ràng Buộc Vật Lý Xổ Số</span>
+            </div>
+            <div class="space-y-1.5 text-slate-300 text-[11px]">
+              <div class="flex justify-between">
+                <span class="text-slate-500">Dải tổng Gaussian (2-sigma):</span>
+                <strong id="paramGaussianSum" class="text-amber-300">--</strong>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-500">Tổng kỳ vọng (mu):</span>
+                <strong id="paramGaussianMean" class="text-white">--</strong>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-500">Độ phức tạp AC tối thiểu:</span>
+                <strong id="paramMinAc" class="text-emerald-300">--</strong>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-500">Chuỗi số kề nhau:</span>
+                <strong class="text-rose-300">&lt; 3 số liên tiếp</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card C: 5/5 Negative Space Badges -->
+          <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800/80 space-y-2.5">
+            <div class="text-[11px] font-bold text-amber-300 uppercase tracking-wide flex items-center gap-1.5">
+              <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-400"></i>
+              <span>5 Tiêu Chí Không Gian Âm</span>
+            </div>
+            <div class="space-y-1.5 text-[11px]">
+              <div class="flex items-center gap-2 text-slate-300">
+                <span class="text-emerald-400">✓</span> <span>Tổng Gaussian trong dải mu ± 2 sigma</span>
+              </div>
+              <div class="flex items-center gap-2 text-slate-300">
+                <span class="text-emerald-400">✓</span> <span>Độ phức tạp AC đạt chuẩn cao</span>
+              </div>
+              <div class="flex items-center gap-2 text-slate-300">
+                <span class="text-emerald-400">✓</span> <span>Triệt tiêu chuỗi 3+ số kề nhau</span>
+              </div>
+              <div class="flex items-center gap-2 text-slate-300">
+                <span class="text-emerald-400">✓</span> <span>Cân bằng Chẵn/Lẻ (loại 100% C hoặc L)</span>
+              </div>
+              <div class="flex items-center gap-2 text-slate-300">
+                <span class="text-emerald-400">✓</span> <span>Khống chế lặp từ kỳ trước &le; 2 bóng</span>
+              </div>
             </div>
           </div>
         </div>
