@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-09-05 10:53:16",
+    "generated_at": "2026-09-05 18:23:35",
     "generator": "vietlott-data automated pipeline",
     "version": "2.0.0"
   },
@@ -6654,6 +6654,776 @@
             54
           ]
         ]
+      },
+      "consensus_hub": {
+        "next_draw_id": "#01394",
+        "evaluated_draws_count": 100,
+        "leaderboard": [
+          {
+            "id": "consensus",
+            "name": "Consensus Engine (Tổng Hợp)",
+            "icon": "trophy",
+            "color": "amber",
+            "avg_hits": 0.77,
+            "win_rate_ge3": 4.0,
+            "recent_10_hits": 7,
+            "form": "⚡ Phong độ tốt",
+            "weight_pct": 100.0,
+            "desc": "Hội đồng hợp lực tích hợp 5 mô hình độc lập với trọng số thích ứng."
+          },
+          {
+            "id": "markov",
+            "name": "Markov Transition Chain",
+            "icon": "git-merge",
+            "color": "fuchsia",
+            "avg_hits": 0.8,
+            "win_rate_ge3": 5.0,
+            "recent_10_hits": 7,
+            "form": "Chờ điểm rơi",
+            "weight_pct": 50.7,
+            "desc": "Xác suất chuyển trạng thái có điều kiện từ kết quả kỳ trước."
+          },
+          {
+            "id": "hazard",
+            "name": "Bayesian Hazard Rate (Nhịp Gan)",
+            "icon": "timer",
+            "color": "emerald",
+            "avg_hits": 0.6,
+            "win_rate_ge3": 2.0,
+            "recent_10_hits": 8,
+            "form": "⚡ Ổn định",
+            "weight_pct": 21.6,
+            "desc": "Hàm mật độ nguy cơ rơi vào vùng vàng (0.75 - 1.35 chu kỳ trung bình)."
+          },
+          {
+            "id": "decay",
+            "name": "Exponential Time Decay (Nhiệt)",
+            "icon": "flame",
+            "color": "rose",
+            "avg_hits": 0.67,
+            "win_rate_ge3": 1.0,
+            "recent_10_hits": 3,
+            "form": "Chờ điểm rơi",
+            "weight_pct": 12.5,
+            "desc": "Tần suất suy giảm mũ theo thời gian alpha=0.035, đo quán tính nhiệt."
+          },
+          {
+            "id": "bac_nho",
+            "name": "Pairwise Synergy & Bạc Nhớ",
+            "icon": "network",
+            "color": "indigo",
+            "avg_hits": 0.65,
+            "win_rate_ge3": 1.0,
+            "recent_10_hits": 7,
+            "form": "Chờ điểm rơi",
+            "weight_pct": 12.4,
+            "desc": "Chỉ số độ nâng Lift và lực hút cặp đôi đồng quy từ kỳ trước."
+          },
+          {
+            "id": "fourier",
+            "name": "Fourier Spectral Resonance (Sóng)",
+            "icon": "activity",
+            "color": "cyan",
+            "avg_hits": 0.57,
+            "win_rate_ge3": 0.0,
+            "recent_10_hits": 7,
+            "form": "Chờ điểm rơi",
+            "weight_pct": 2.7,
+            "desc": "Cộng hưởng bước sóng phổ dao động rời rạc (DFT) trên 64 kỳ."
+          },
+          {
+            "id": "baseline_random",
+            "name": "Ngẫu Nhiên Thuần Túy (Cơ sở)",
+            "icon": "help-circle",
+            "color": "slate",
+            "avg_hits": 0.65,
+            "win_rate_ge3": 2.3,
+            "recent_10_hits": 6,
+            "form": "Mốc tham chiếu",
+            "weight_pct": 0,
+            "desc": "Kỳ vọng toán học ngẫu nhiên độc lập E[X] = 6 * 6 / 55 = 0.65 bóng."
+          }
+        ],
+        "top_consensus_balls": [
+          {
+            "ball": 7,
+            "score": 9.3,
+            "agreement_count": 4,
+            "agreement_pct": 80.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.2,
+              "decay": 0.8,
+              "markov": 5.1,
+              "fourier": 0.0,
+              "bac_nho": 1.2
+            }
+          },
+          {
+            "ball": 5,
+            "score": 8.8,
+            "agreement_count": 4,
+            "agreement_pct": 80.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.2,
+              "decay": 1.2,
+              "markov": 5.1,
+              "fourier": 0.0,
+              "bac_nho": 0.3
+            }
+          },
+          {
+            "ball": 22,
+            "score": 8.8,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.2,
+              "decay": 0.8,
+              "markov": 5.1,
+              "fourier": 0.0,
+              "bac_nho": 0.8
+            }
+          },
+          {
+            "ball": 40,
+            "score": 8.3,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.2,
+              "decay": 0.9,
+              "markov": 4.5,
+              "fourier": 0.0,
+              "bac_nho": 0.7
+            }
+          },
+          {
+            "ball": 26,
+            "score": 8.0,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.2,
+              "decay": 0.5,
+              "markov": 4.8,
+              "fourier": 0.0,
+              "bac_nho": 0.5
+            }
+          },
+          {
+            "ball": 30,
+            "score": 7.7,
+            "agreement_count": 1,
+            "agreement_pct": 20.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.2,
+              "decay": 0.5,
+              "markov": 5.1,
+              "fourier": 0.0,
+              "bac_nho": 0.0
+            }
+          },
+          {
+            "ball": 15,
+            "score": 7.6,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.2,
+              "decay": 0.7,
+              "markov": 3.9,
+              "fourier": 0.0,
+              "bac_nho": 0.8
+            }
+          },
+          {
+            "ball": 23,
+            "score": 7.3,
+            "agreement_count": 1,
+            "agreement_pct": 20.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.2,
+              "decay": 0.7,
+              "markov": 4.5,
+              "fourier": 0.0,
+              "bac_nho": 0.0
+            }
+          },
+          {
+            "ball": 45,
+            "score": 7.3,
+            "agreement_count": 1,
+            "agreement_pct": 20.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.2,
+              "decay": 1.0,
+              "markov": 3.9,
+              "fourier": 0.0,
+              "bac_nho": 0.3
+            }
+          },
+          {
+            "ball": 2,
+            "score": 7.2,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.2,
+              "decay": 0.9,
+              "markov": 3.0,
+              "fourier": 0.0,
+              "bac_nho": 1.2
+            }
+          },
+          {
+            "ball": 8,
+            "score": 7.2,
+            "agreement_count": 4,
+            "agreement_pct": 80.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.2,
+              "decay": 1.2,
+              "markov": 3.9,
+              "fourier": 0.0,
+              "bac_nho": 0.0
+            }
+          },
+          {
+            "ball": 28,
+            "score": 7.2,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.2,
+              "decay": 0.6,
+              "markov": 3.9,
+              "fourier": 0.0,
+              "bac_nho": 0.5
+            }
+          },
+          {
+            "ball": 52,
+            "score": 7.1,
+            "agreement_count": 1,
+            "agreement_pct": 20.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.2,
+              "decay": 0.3,
+              "markov": 3.9,
+              "fourier": 0.0,
+              "bac_nho": 0.8
+            }
+          },
+          {
+            "ball": 55,
+            "score": 7.0,
+            "agreement_count": 1,
+            "agreement_pct": 20.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.2,
+              "decay": 1.0,
+              "markov": 3.9,
+              "fourier": 0.0,
+              "bac_nho": 0.0
+            }
+          },
+          {
+            "ball": 53,
+            "score": 6.9,
+            "agreement_count": 0,
+            "agreement_pct": 0.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.2,
+              "decay": 0.5,
+              "markov": 3.9,
+              "fourier": 0.0,
+              "bac_nho": 0.3
+            }
+          }
+        ],
+        "model_explanations": {
+          "hazard": {
+            "name": "Bayesian Hazard Rate (Nhịp Gan)",
+            "top_picks": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "math_basis": "Hàm nguy cơ Bayesian trên tỷ số chu kỳ gan r_b = g_b / avg_gap",
+            "rationale": "Các bóng 01, 02, 03, 04 đang nằm chuẩn xác trong 'Vùng Vàng Điểm Rơi' (0.75 - 1.35 chu kỳ trung bình), xác suất bung nổ kỳ này cao nhất."
+          },
+          "decay": {
+            "name": "Exponential Time Decay (Nhiệt)",
+            "top_picks": [
+              5,
+              8,
+              9,
+              18,
+              41
+            ],
+            "math_basis": "Tần suất suy giảm mũ thời gian alpha = 0.035 trên 100 kỳ gần nhất",
+            "rationale": "Các bóng 05, 08, 09, 18 có xung lực xuất hiện dày đặc gần đây, quán tính nhiệt tiếp tục duy trì đà nổ."
+          },
+          "markov": {
+            "name": "Markov Transition Chain",
+            "top_picks": [
+              5,
+              7,
+              22,
+              30,
+              26
+            ],
+            "math_basis": "Ma trận chuyển trạng thái Markov bậc 1 từ 6 bóng kỳ trước",
+            "rationale": "Dựa trên kết quả kỳ trước (08, 09, 16, 42, 46, 47), ma trận xác suất chuyển trạng thái ghi nhận các số 05, 07, 22, 30 có liên kết nổ kế tiếp cao nhất."
+          },
+          "fourier": {
+            "name": "Fourier Spectral Resonance (Sóng)",
+            "top_picks": [
+              29,
+              1,
+              2,
+              3,
+              4
+            ],
+            "math_basis": "Biến đổi Fourier rời rạc (DFT) trích xuất tần số dao động chủ đạo trên 64 kỳ",
+            "rationale": "Bước sóng chu kỳ của các bóng 29, 01, 02, 03 đang tiến sát pha cực đại trên phổ dao động cộng hưởng."
+          },
+          "bac_nho": {
+            "name": "Pairwise Synergy & Bạc Nhớ",
+            "top_picks": [
+              2,
+              7,
+              12,
+              15,
+              22
+            ],
+            "math_basis": "Độ nâng Lift > 1.2 giữa cặp bóng kỳ trước và bóng đơn kỳ sau trên 120 kỳ",
+            "rationale": "Lực hút cặp đôi Bạc Nhớ chỉ ra các bóng 02, 07, 12, 15 có độ nâng Lift cao hơn 30-70% so với tần suất ngẫu nhiên khi đi kèm bóng kỳ trước."
+          }
+        },
+        "tickets": {
+          "golden": {
+            "numbers": [
+              2,
+              15,
+              22,
+              26,
+              45,
+              55
+            ],
+            "ac_index": 10,
+            "sum": 165,
+            "odd_even": "3C - 3L",
+            "sei_score": 10.0,
+            "special": 7
+          },
+          "momentum": {
+            "numbers": [
+              8,
+              18,
+              22,
+              44,
+              45,
+              47
+            ],
+            "special": 7
+          },
+          "bao7": {
+            "numbers": [
+              7,
+              5,
+              22,
+              40,
+              26,
+              30,
+              15
+            ],
+            "special": 7
+          }
+        },
+        "history_walk_forward": [
+          {
+            "drawId": "01393",
+            "date": "2026-09-03",
+            "actual": [
+              8,
+              9,
+              16,
+              42,
+              46,
+              47
+            ],
+            "predicted": [
+              29,
+              5,
+              39,
+              22,
+              33,
+              8
+            ],
+            "matched": [
+              8
+            ],
+            "matchCount": 1
+          },
+          {
+            "drawId": "01392",
+            "date": "2026-09-01",
+            "actual": [
+              1,
+              17,
+              41,
+              44,
+              49,
+              55
+            ],
+            "predicted": [
+              20,
+              22,
+              21,
+              31,
+              50,
+              53
+            ],
+            "matched": [],
+            "matchCount": 0
+          },
+          {
+            "drawId": "01391",
+            "date": "2026-08-29",
+            "actual": [
+              5,
+              10,
+              15,
+              29,
+              34,
+              45
+            ],
+            "predicted": [
+              8,
+              22,
+              53,
+              29,
+              16,
+              21
+            ],
+            "matched": [
+              29
+            ],
+            "matchCount": 1
+          },
+          {
+            "drawId": "01390",
+            "date": "2026-08-27",
+            "actual": [
+              1,
+              3,
+              11,
+              21,
+              26,
+              44
+            ],
+            "predicted": [
+              5,
+              1,
+              20,
+              53,
+              46,
+              16
+            ],
+            "matched": [
+              1
+            ],
+            "matchCount": 1
+          },
+          {
+            "drawId": "01389",
+            "date": "2026-08-25",
+            "actual": [
+              5,
+              7,
+              13,
+              18,
+              31,
+              40
+            ],
+            "predicted": [
+              8,
+              20,
+              5,
+              22,
+              30,
+              53
+            ],
+            "matched": [
+              5
+            ],
+            "matchCount": 1
+          },
+          {
+            "drawId": "01388",
+            "date": "2026-08-22",
+            "actual": [
+              9,
+              18,
+              19,
+              21,
+              25,
+              36
+            ],
+            "predicted": [
+              39,
+              16,
+              33,
+              7,
+              5,
+              8
+            ],
+            "matched": [],
+            "matchCount": 0
+          },
+          {
+            "drawId": "01387",
+            "date": "2026-08-20",
+            "actual": [
+              2,
+              8,
+              29,
+              38,
+              39,
+              51
+            ],
+            "predicted": [
+              33,
+              32,
+              21,
+              16,
+              53,
+              39
+            ],
+            "matched": [
+              39
+            ],
+            "matchCount": 1
+          },
+          {
+            "drawId": "01386",
+            "date": "2026-08-18",
+            "actual": [
+              3,
+              15,
+              18,
+              38,
+              41,
+              48
+            ],
+            "predicted": [
+              33,
+              22,
+              16,
+              5,
+              27,
+              14
+            ],
+            "matched": [],
+            "matchCount": 0
+          },
+          {
+            "drawId": "01385",
+            "date": "2026-08-15",
+            "actual": [
+              16,
+              20,
+              25,
+              27,
+              30,
+              50
+            ],
+            "predicted": [
+              39,
+              22,
+              20,
+              16,
+              43,
+              26
+            ],
+            "matched": [
+              16,
+              20
+            ],
+            "matchCount": 2
+          },
+          {
+            "drawId": "01384",
+            "date": "2026-08-13",
+            "actual": [
+              5,
+              9,
+              27,
+              29,
+              45,
+              46
+            ],
+            "predicted": [
+              14,
+              30,
+              16,
+              53,
+              39,
+              22
+            ],
+            "matched": [],
+            "matchCount": 0
+          },
+          {
+            "drawId": "01383",
+            "date": "2026-08-11",
+            "actual": [
+              2,
+              7,
+              19,
+              20,
+              39,
+              50
+            ],
+            "predicted": [
+              33,
+              22,
+              16,
+              23,
+              55,
+              10
+            ],
+            "matched": [],
+            "matchCount": 0
+          },
+          {
+            "drawId": "01382",
+            "date": "2026-08-08",
+            "actual": [
+              5,
+              29,
+              33,
+              38,
+              40,
+              45
+            ],
+            "predicted": [
+              32,
+              41,
+              33,
+              22,
+              53,
+              28
+            ],
+            "matched": [
+              33
+            ],
+            "matchCount": 1
+          },
+          {
+            "drawId": "01381",
+            "date": "2026-08-06",
+            "actual": [
+              14,
+              18,
+              23,
+              35,
+              51,
+              55
+            ],
+            "predicted": [
+              40,
+              22,
+              53,
+              55,
+              28,
+              32
+            ],
+            "matched": [
+              55
+            ],
+            "matchCount": 1
+          },
+          {
+            "drawId": "01380",
+            "date": "2026-08-04",
+            "actual": [
+              14,
+              39,
+              40,
+              42,
+              47,
+              54
+            ],
+            "predicted": [
+              41,
+              22,
+              28,
+              32,
+              11,
+              20
+            ],
+            "matched": [],
+            "matchCount": 0
+          },
+          {
+            "drawId": "01379",
+            "date": "2026-08-01",
+            "actual": [
+              11,
+              14,
+              16,
+              44,
+              49,
+              55
+            ],
+            "predicted": [
+              16,
+              7,
+              9,
+              34,
+              22,
+              17
+            ],
+            "matched": [
+              16
+            ],
+            "matchCount": 1
+          }
+        ]
       }
     },
     "power_645": {
@@ -12695,6 +13465,776 @@
             42
           ]
         ]
+      },
+      "consensus_hub": {
+        "next_draw_id": "#01559",
+        "evaluated_draws_count": 100,
+        "leaderboard": [
+          {
+            "id": "consensus",
+            "name": "Consensus Engine (Tổng Hợp)",
+            "icon": "trophy",
+            "color": "amber",
+            "avg_hits": 0.73,
+            "win_rate_ge3": 0.0,
+            "recent_10_hits": 8,
+            "form": "⚡ Phong độ tốt",
+            "weight_pct": 100.0,
+            "desc": "Hội đồng hợp lực tích hợp 5 mô hình độc lập với trọng số thích ứng."
+          },
+          {
+            "id": "markov",
+            "name": "Markov Transition Chain",
+            "icon": "git-merge",
+            "color": "fuchsia",
+            "avg_hits": 0.75,
+            "win_rate_ge3": 5.0,
+            "recent_10_hits": 5,
+            "form": "Chờ điểm rơi",
+            "weight_pct": 54.2,
+            "desc": "Xác suất chuyển trạng thái có điều kiện từ kết quả kỳ trước."
+          },
+          {
+            "id": "bac_nho",
+            "name": "Pairwise Synergy & Bạc Nhớ",
+            "icon": "network",
+            "color": "indigo",
+            "avg_hits": 0.78,
+            "win_rate_ge3": 1.0,
+            "recent_10_hits": 8,
+            "form": "⚡ Ổn định",
+            "weight_pct": 14.0,
+            "desc": "Chỉ số độ nâng Lift và lực hút cặp đôi đồng quy từ kỳ trước."
+          },
+          {
+            "id": "hazard",
+            "name": "Bayesian Hazard Rate (Nhịp Gan)",
+            "icon": "timer",
+            "color": "emerald",
+            "avg_hits": 0.77,
+            "win_rate_ge3": 1.0,
+            "recent_10_hits": 8,
+            "form": "⚡ Ổn định",
+            "weight_pct": 14.0,
+            "desc": "Hàm mật độ nguy cơ rơi vào vùng vàng (0.75 - 1.35 chu kỳ trung bình)."
+          },
+          {
+            "id": "decay",
+            "name": "Exponential Time Decay (Nhiệt)",
+            "icon": "flame",
+            "color": "rose",
+            "avg_hits": 0.76,
+            "win_rate_ge3": 1.0,
+            "recent_10_hits": 13,
+            "form": "🔥 Đang vào nhịp",
+            "weight_pct": 13.9,
+            "desc": "Tần suất suy giảm mũ theo thời gian alpha=0.035, đo quán tính nhiệt."
+          },
+          {
+            "id": "fourier",
+            "name": "Fourier Spectral Resonance (Sóng)",
+            "icon": "activity",
+            "color": "cyan",
+            "avg_hits": 0.76,
+            "win_rate_ge3": 0.0,
+            "recent_10_hits": 6,
+            "form": "Chờ điểm rơi",
+            "weight_pct": 3.8,
+            "desc": "Cộng hưởng bước sóng phổ dao động rời rạc (DFT) trên 64 kỳ."
+          },
+          {
+            "id": "baseline_random",
+            "name": "Ngẫu Nhiên Thuần Túy (Cơ sở)",
+            "icon": "help-circle",
+            "color": "slate",
+            "avg_hits": 0.8,
+            "win_rate_ge3": 2.3,
+            "recent_10_hits": 8,
+            "form": "Mốc tham chiếu",
+            "weight_pct": 0,
+            "desc": "Kỳ vọng toán học ngẫu nhiên độc lập E[X] = 6 * 6 / 45 = 0.8 bóng."
+          }
+        ],
+        "top_consensus_balls": [
+          {
+            "ball": 31,
+            "score": 8.6,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.4,
+              "decay": 1.0,
+              "markov": 5.4,
+              "fourier": 0.0,
+              "bac_nho": 0.7
+            }
+          },
+          {
+            "ball": 44,
+            "score": 7.9,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.4,
+              "decay": 0.9,
+              "markov": 4.2,
+              "fourier": 0.0,
+              "bac_nho": 1.4
+            }
+          },
+          {
+            "ball": 16,
+            "score": 7.3,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.4,
+              "decay": 1.4,
+              "markov": 4.2,
+              "fourier": 0.0,
+              "bac_nho": 0.4
+            }
+          },
+          {
+            "ball": 2,
+            "score": 7.2,
+            "agreement_count": 4,
+            "agreement_pct": 80.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.4,
+              "decay": 0.6,
+              "markov": 4.2,
+              "fourier": 0.0,
+              "bac_nho": 1.0
+            }
+          },
+          {
+            "ball": 3,
+            "score": 7.2,
+            "agreement_count": 5,
+            "agreement_pct": 100.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.4,
+              "decay": 1.2,
+              "markov": 4.0,
+              "fourier": 0.0,
+              "bac_nho": 0.7
+            }
+          },
+          {
+            "ball": 6,
+            "score": 7.0,
+            "agreement_count": 5,
+            "agreement_pct": 100.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.4,
+              "decay": 1.2,
+              "markov": 3.8,
+              "fourier": 0.0,
+              "bac_nho": 0.7
+            }
+          },
+          {
+            "ball": 9,
+            "score": 7.0,
+            "agreement_count": 4,
+            "agreement_pct": 80.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.4,
+              "decay": 0.9,
+              "markov": 3.8,
+              "fourier": 0.0,
+              "bac_nho": 1.0
+            }
+          },
+          {
+            "ball": 22,
+            "score": 6.8,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.4,
+              "decay": 0.9,
+              "markov": 4.0,
+              "fourier": 0.0,
+              "bac_nho": 0.5
+            }
+          },
+          {
+            "ball": 45,
+            "score": 6.8,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.4,
+              "decay": 1.2,
+              "markov": 3.5,
+              "fourier": 0.0,
+              "bac_nho": 0.6
+            }
+          },
+          {
+            "ball": 38,
+            "score": 6.7,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.4,
+              "decay": 0.7,
+              "markov": 4.0,
+              "fourier": 0.0,
+              "bac_nho": 0.7
+            }
+          },
+          {
+            "ball": 13,
+            "score": 6.6,
+            "agreement_count": 1,
+            "agreement_pct": 20.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.4,
+              "decay": 0.8,
+              "markov": 3.5,
+              "fourier": 0.0,
+              "bac_nho": 0.8
+            }
+          },
+          {
+            "ball": 36,
+            "score": 6.6,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.4,
+              "decay": 1.1,
+              "markov": 4.0,
+              "fourier": 0.0,
+              "bac_nho": 0.2
+            }
+          },
+          {
+            "ball": 7,
+            "score": 6.4,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.4,
+              "decay": 0.7,
+              "markov": 4.0,
+              "fourier": 0.0,
+              "bac_nho": 0.3
+            }
+          },
+          {
+            "ball": 30,
+            "score": 6.4,
+            "agreement_count": 1,
+            "agreement_pct": 20.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.4,
+              "decay": 0.6,
+              "markov": 4.0,
+              "fourier": 0.0,
+              "bac_nho": 0.4
+            }
+          },
+          {
+            "ball": 39,
+            "score": 6.4,
+            "agreement_count": 0,
+            "agreement_pct": 0.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.4,
+              "decay": 0.9,
+              "markov": 3.8,
+              "fourier": 0.0,
+              "bac_nho": 0.4
+            }
+          }
+        ],
+        "model_explanations": {
+          "hazard": {
+            "name": "Bayesian Hazard Rate (Nhịp Gan)",
+            "top_picks": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "math_basis": "Hàm nguy cơ Bayesian trên tỷ số chu kỳ gan r_b = g_b / avg_gap",
+            "rationale": "Các bóng 01, 02, 03, 04 đang nằm chuẩn xác trong 'Vùng Vàng Điểm Rơi' (0.75 - 1.35 chu kỳ trung bình), xác suất bung nổ kỳ này cao nhất."
+          },
+          "decay": {
+            "name": "Exponential Time Decay (Nhiệt)",
+            "top_picks": [
+              16,
+              45,
+              6,
+              3,
+              36
+            ],
+            "math_basis": "Tần suất suy giảm mũ thời gian alpha = 0.035 trên 100 kỳ gần nhất",
+            "rationale": "Các bóng 16, 45, 06, 03 có xung lực xuất hiện dày đặc gần đây, quán tính nhiệt tiếp tục duy trì đà nổ."
+          },
+          "markov": {
+            "name": "Markov Transition Chain",
+            "top_picks": [
+              31,
+              2,
+              16,
+              44,
+              3
+            ],
+            "math_basis": "Ma trận chuyển trạng thái Markov bậc 1 từ 6 bóng kỳ trước",
+            "rationale": "Dựa trên kết quả kỳ trước (16, 21, 23, 29, 34, 45), ma trận xác suất chuyển trạng thái ghi nhận các số 31, 02, 16, 44 có liên kết nổ kế tiếp cao nhất."
+          },
+          "fourier": {
+            "name": "Fourier Spectral Resonance (Sóng)",
+            "top_picks": [
+              14,
+              4,
+              10,
+              15,
+              1
+            ],
+            "math_basis": "Biến đổi Fourier rời rạc (DFT) trích xuất tần số dao động chủ đạo trên 64 kỳ",
+            "rationale": "Bước sóng chu kỳ của các bóng 14, 04, 10, 15 đang tiến sát pha cực đại trên phổ dao động cộng hưởng."
+          },
+          "bac_nho": {
+            "name": "Pairwise Synergy & Bạc Nhớ",
+            "top_picks": [
+              44,
+              2,
+              9,
+              13,
+              31
+            ],
+            "math_basis": "Độ nâng Lift > 1.2 giữa cặp bóng kỳ trước và bóng đơn kỳ sau trên 120 kỳ",
+            "rationale": "Lực hút cặp đôi Bạc Nhớ chỉ ra các bóng 44, 02, 09, 13 có độ nâng Lift cao hơn 30-70% so với tần suất ngẫu nhiên khi đi kèm bóng kỳ trước."
+          }
+        },
+        "tickets": {
+          "golden": {
+            "numbers": [
+              3,
+              9,
+              13,
+              22,
+              44,
+              45
+            ],
+            "ac_index": 10,
+            "sum": 136,
+            "odd_even": "2C - 4L",
+            "sei_score": 10.0,
+            "special": null
+          },
+          "momentum": {
+            "numbers": [
+              6,
+              16,
+              31,
+              38,
+              39,
+              44
+            ],
+            "special": null
+          },
+          "bao7": {
+            "numbers": [
+              31,
+              44,
+              16,
+              2,
+              3,
+              6,
+              9
+            ],
+            "special": null
+          }
+        },
+        "history_walk_forward": [
+          {
+            "drawId": "01558",
+            "date": "2026-09-04",
+            "actual": [
+              16,
+              21,
+              23,
+              29,
+              34,
+              45
+            ],
+            "predicted": [
+              45,
+              15,
+              31,
+              43,
+              6,
+              7
+            ],
+            "matched": [
+              45
+            ],
+            "matchCount": 1
+          },
+          {
+            "drawId": "01557",
+            "date": "2026-09-02",
+            "actual": [
+              6,
+              9,
+              27,
+              29,
+              35,
+              44
+            ],
+            "predicted": [
+              16,
+              31,
+              36,
+              37,
+              22,
+              6
+            ],
+            "matched": [
+              6
+            ],
+            "matchCount": 1
+          },
+          {
+            "drawId": "01556",
+            "date": "2026-08-30",
+            "actual": [
+              1,
+              3,
+              12,
+              15,
+              37,
+              45
+            ],
+            "predicted": [
+              31,
+              16,
+              17,
+              2,
+              13,
+              44
+            ],
+            "matched": [],
+            "matchCount": 0
+          },
+          {
+            "drawId": "01555",
+            "date": "2026-08-28",
+            "actual": [
+              3,
+              13,
+              15,
+              22,
+              36,
+              39
+            ],
+            "predicted": [
+              16,
+              36,
+              43,
+              31,
+              45,
+              41
+            ],
+            "matched": [
+              36
+            ],
+            "matchCount": 1
+          },
+          {
+            "drawId": "01554",
+            "date": "2026-08-26",
+            "actual": [
+              3,
+              10,
+              11,
+              16,
+              33,
+              40
+            ],
+            "predicted": [
+              30,
+              36,
+              31,
+              14,
+              35,
+              13
+            ],
+            "matched": [],
+            "matchCount": 0
+          },
+          {
+            "drawId": "01553",
+            "date": "2026-08-23",
+            "actual": [
+              4,
+              16,
+              17,
+              22,
+              32,
+              39
+            ],
+            "predicted": [
+              36,
+              16,
+              45,
+              6,
+              31,
+              7
+            ],
+            "matched": [
+              16
+            ],
+            "matchCount": 1
+          },
+          {
+            "drawId": "01552",
+            "date": "2026-08-21",
+            "actual": [
+              7,
+              26,
+              31,
+              38,
+              43,
+              45
+            ],
+            "predicted": [
+              31,
+              6,
+              36,
+              16,
+              44,
+              43
+            ],
+            "matched": [
+              31,
+              43
+            ],
+            "matchCount": 2
+          },
+          {
+            "drawId": "01551",
+            "date": "2026-08-19",
+            "actual": [
+              6,
+              15,
+              18,
+              33,
+              40,
+              43
+            ],
+            "predicted": [
+              45,
+              41,
+              16,
+              35,
+              31,
+              4
+            ],
+            "matched": [],
+            "matchCount": 0
+          },
+          {
+            "drawId": "01550",
+            "date": "2026-08-16",
+            "actual": [
+              6,
+              7,
+              15,
+              19,
+              36,
+              41
+            ],
+            "predicted": [
+              16,
+              45,
+              37,
+              28,
+              31,
+              11
+            ],
+            "matched": [],
+            "matchCount": 0
+          },
+          {
+            "drawId": "01549",
+            "date": "2026-08-14",
+            "actual": [
+              7,
+              9,
+              13,
+              31,
+              35,
+              44
+            ],
+            "predicted": [
+              17,
+              16,
+              44,
+              31,
+              41,
+              36
+            ],
+            "matched": [
+              31,
+              44
+            ],
+            "matchCount": 2
+          },
+          {
+            "drawId": "01548",
+            "date": "2026-08-12",
+            "actual": [
+              15,
+              17,
+              22,
+              29,
+              33,
+              40
+            ],
+            "predicted": [
+              43,
+              16,
+              30,
+              11,
+              31,
+              37
+            ],
+            "matched": [],
+            "matchCount": 0
+          },
+          {
+            "drawId": "01547",
+            "date": "2026-08-09",
+            "actual": [
+              3,
+              17,
+              20,
+              27,
+              31,
+              35
+            ],
+            "predicted": [
+              23,
+              41,
+              2,
+              45,
+              6,
+              16
+            ],
+            "matched": [],
+            "matchCount": 0
+          },
+          {
+            "drawId": "01546",
+            "date": "2026-08-07",
+            "actual": [
+              2,
+              8,
+              19,
+              30,
+              36,
+              43
+            ],
+            "predicted": [
+              36,
+              29,
+              42,
+              30,
+              6,
+              35
+            ],
+            "matched": [
+              30,
+              36
+            ],
+            "matchCount": 2
+          },
+          {
+            "drawId": "01545",
+            "date": "2026-08-05",
+            "actual": [
+              2,
+              6,
+              11,
+              16,
+              28,
+              39
+            ],
+            "predicted": [
+              31,
+              16,
+              30,
+              25,
+              44,
+              37
+            ],
+            "matched": [
+              16
+            ],
+            "matchCount": 1
+          },
+          {
+            "drawId": "01544",
+            "date": "2026-08-02",
+            "actual": [
+              3,
+              12,
+              20,
+              25,
+              27,
+              37
+            ],
+            "predicted": [
+              16,
+              31,
+              44,
+              36,
+              45,
+              28
+            ],
+            "matched": [],
+            "matchCount": 0
+          }
+        ]
       }
     },
     "power_535": {
@@ -18149,6 +19689,736 @@
             25,
             33
           ]
+        ]
+      },
+      "consensus_hub": {
+        "next_draw_id": "#00866",
+        "evaluated_draws_count": 100,
+        "leaderboard": [
+          {
+            "id": "consensus",
+            "name": "Consensus Engine (Tổng Hợp)",
+            "icon": "trophy",
+            "color": "amber",
+            "avg_hits": 0.58,
+            "win_rate_ge3": 1.0,
+            "recent_10_hits": 4,
+            "form": "⚡ Phong độ tốt",
+            "weight_pct": 100.0,
+            "desc": "Hội đồng hợp lực tích hợp 5 mô hình độc lập với trọng số thích ứng."
+          },
+          {
+            "id": "bac_nho",
+            "name": "Pairwise Synergy & Bạc Nhớ",
+            "icon": "network",
+            "color": "indigo",
+            "avg_hits": 0.66,
+            "win_rate_ge3": 3.0,
+            "recent_10_hits": 7,
+            "form": "Chờ điểm rơi",
+            "weight_pct": 59.1,
+            "desc": "Chỉ số độ nâng Lift và lực hút cặp đôi đồng quy từ kỳ trước."
+          },
+          {
+            "id": "hazard",
+            "name": "Bayesian Hazard Rate (Nhịp Gan)",
+            "icon": "timer",
+            "color": "emerald",
+            "avg_hits": 0.69,
+            "win_rate_ge3": 1.0,
+            "recent_10_hits": 7,
+            "form": "Chờ điểm rơi",
+            "weight_pct": 23.9,
+            "desc": "Hàm mật độ nguy cơ rơi vào vùng vàng (0.75 - 1.35 chu kỳ trung bình)."
+          },
+          {
+            "id": "markov",
+            "name": "Markov Transition Chain",
+            "icon": "git-merge",
+            "color": "fuchsia",
+            "avg_hits": 0.67,
+            "win_rate_ge3": 0.0,
+            "recent_10_hits": 7,
+            "form": "Chờ điểm rơi",
+            "weight_pct": 6.0,
+            "desc": "Xác suất chuyển trạng thái có điều kiện từ kết quả kỳ trước."
+          },
+          {
+            "id": "fourier",
+            "name": "Fourier Spectral Resonance (Sóng)",
+            "icon": "activity",
+            "color": "cyan",
+            "avg_hits": 0.64,
+            "win_rate_ge3": 0.0,
+            "recent_10_hits": 8,
+            "form": "⚡ Ổn định",
+            "weight_pct": 5.7,
+            "desc": "Cộng hưởng bước sóng phổ dao động rời rạc (DFT) trên 64 kỳ."
+          },
+          {
+            "id": "decay",
+            "name": "Exponential Time Decay (Nhiệt)",
+            "icon": "flame",
+            "color": "rose",
+            "avg_hits": 0.6,
+            "win_rate_ge3": 0.0,
+            "recent_10_hits": 5,
+            "form": "Chờ điểm rơi",
+            "weight_pct": 5.3,
+            "desc": "Tần suất suy giảm mũ theo thời gian alpha=0.035, đo quán tính nhiệt."
+          },
+          {
+            "id": "baseline_random",
+            "name": "Ngẫu Nhiên Thuần Túy (Cơ sở)",
+            "icon": "help-circle",
+            "color": "slate",
+            "avg_hits": 0.71,
+            "win_rate_ge3": 3.5,
+            "recent_10_hits": 7,
+            "form": "Mốc tham chiếu",
+            "weight_pct": 0,
+            "desc": "Kỳ vọng toán học ngẫu nhiên độc lập E[X] = 5 * 5 / 35 = 0.71 bóng."
+          }
+        ],
+        "top_consensus_balls": [
+          {
+            "ball": 35,
+            "score": 8.9,
+            "agreement_count": 1,
+            "agreement_pct": 20.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.4,
+              "decay": 0.2,
+              "markov": 0.4,
+              "fourier": 0.0,
+              "bac_nho": 5.9
+            }
+          },
+          {
+            "ball": 19,
+            "score": 8.8,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.4,
+              "decay": 0.3,
+              "markov": 0.6,
+              "fourier": 0.0,
+              "bac_nho": 5.6
+            }
+          },
+          {
+            "ball": 13,
+            "score": 7.9,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.4,
+              "decay": 0.5,
+              "markov": 0.6,
+              "fourier": 0.0,
+              "bac_nho": 4.4
+            }
+          },
+          {
+            "ball": 30,
+            "score": 7.6,
+            "agreement_count": 1,
+            "agreement_pct": 20.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.4,
+              "decay": 0.3,
+              "markov": 0.3,
+              "fourier": 0.0,
+              "bac_nho": 4.5
+            }
+          },
+          {
+            "ball": 11,
+            "score": 7.5,
+            "agreement_count": 5,
+            "agreement_pct": 100.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.4,
+              "decay": 0.4,
+              "markov": 0.5,
+              "fourier": 0.0,
+              "bac_nho": 4.2
+            }
+          },
+          {
+            "ball": 21,
+            "score": 7.3,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.4,
+              "decay": 0.3,
+              "markov": 0.5,
+              "fourier": 0.0,
+              "bac_nho": 4.1
+            }
+          },
+          {
+            "ball": 3,
+            "score": 7.1,
+            "agreement_count": 5,
+            "agreement_pct": 100.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.4,
+              "decay": 0.4,
+              "markov": 0.4,
+              "fourier": 0.0,
+              "bac_nho": 3.9
+            }
+          },
+          {
+            "ball": 10,
+            "score": 7.1,
+            "agreement_count": 4,
+            "agreement_pct": 80.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.4,
+              "decay": 0.2,
+              "markov": 0.5,
+              "fourier": 0.0,
+              "bac_nho": 4.0
+            }
+          },
+          {
+            "ball": 22,
+            "score": 7.0,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.4,
+              "decay": 0.4,
+              "markov": 0.4,
+              "fourier": 0.0,
+              "bac_nho": 3.8
+            }
+          },
+          {
+            "ball": 23,
+            "score": 6.9,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.4,
+              "decay": 0.3,
+              "markov": 0.6,
+              "fourier": 0.0,
+              "bac_nho": 3.6
+            }
+          },
+          {
+            "ball": 15,
+            "score": 6.7,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.4,
+              "decay": 0.4,
+              "markov": 0.5,
+              "fourier": 0.0,
+              "bac_nho": 3.4
+            }
+          },
+          {
+            "ball": 1,
+            "score": 6.2,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.4,
+              "decay": 0.3,
+              "markov": 0.4,
+              "fourier": 0.0,
+              "bac_nho": 3.2
+            }
+          },
+          {
+            "ball": 28,
+            "score": 6.0,
+            "agreement_count": 1,
+            "agreement_pct": 20.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.4,
+              "decay": 0.4,
+              "markov": 0.4,
+              "fourier": 0.0,
+              "bac_nho": 2.8
+            }
+          },
+          {
+            "ball": 8,
+            "score": 5.9,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.4,
+              "decay": 0.2,
+              "markov": 0.5,
+              "fourier": 0.0,
+              "bac_nho": 2.8
+            }
+          },
+          {
+            "ball": 18,
+            "score": 5.9,
+            "agreement_count": 1,
+            "agreement_pct": 20.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.4,
+              "decay": 0.4,
+              "markov": 0.3,
+              "fourier": 0.0,
+              "bac_nho": 2.8
+            }
+          }
+        ],
+        "model_explanations": {
+          "hazard": {
+            "name": "Bayesian Hazard Rate (Nhịp Gan)",
+            "top_picks": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "math_basis": "Hàm nguy cơ Bayesian trên tỷ số chu kỳ gan r_b = g_b / avg_gap",
+            "rationale": "Các bóng 01, 02, 03, 04 đang nằm chuẩn xác trong 'Vùng Vàng Điểm Rơi' (0.75 - 1.35 chu kỳ trung bình), xác suất bung nổ kỳ này cao nhất."
+          },
+          "decay": {
+            "name": "Exponential Time Decay (Nhiệt)",
+            "top_picks": [
+              13,
+              2,
+              7,
+              3,
+              15
+            ],
+            "math_basis": "Tần suất suy giảm mũ thời gian alpha = 0.035 trên 100 kỳ gần nhất",
+            "rationale": "Các bóng 13, 02, 07, 03 có xung lực xuất hiện dày đặc gần đây, quán tính nhiệt tiếp tục duy trì đà nổ."
+          },
+          "markov": {
+            "name": "Markov Transition Chain",
+            "top_picks": [
+              23,
+              13,
+              19,
+              10,
+              11
+            ],
+            "math_basis": "Ma trận chuyển trạng thái Markov bậc 1 từ 6 bóng kỳ trước",
+            "rationale": "Dựa trên kết quả kỳ trước (02, 13, 19, 22, 31), ma trận xác suất chuyển trạng thái ghi nhận các số 23, 13, 19, 10 có liên kết nổ kế tiếp cao nhất."
+          },
+          "fourier": {
+            "name": "Fourier Spectral Resonance (Sóng)",
+            "top_picks": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "math_basis": "Biến đổi Fourier rời rạc (DFT) trích xuất tần số dao động chủ đạo trên 64 kỳ",
+            "rationale": "Bước sóng chu kỳ của các bóng 01, 02, 03, 04 đang tiến sát pha cực đại trên phổ dao động cộng hưởng."
+          },
+          "bac_nho": {
+            "name": "Pairwise Synergy & Bạc Nhớ",
+            "top_picks": [
+              35,
+              19,
+              30,
+              13,
+              11
+            ],
+            "math_basis": "Độ nâng Lift > 1.2 giữa cặp bóng kỳ trước và bóng đơn kỳ sau trên 120 kỳ",
+            "rationale": "Lực hút cặp đôi Bạc Nhớ chỉ ra các bóng 35, 19, 30, 13 có độ nâng Lift cao hơn 30-70% so với tần suất ngẫu nhiên khi đi kèm bóng kỳ trước."
+          }
+        },
+        "tickets": {
+          "golden": {
+            "numbers": [
+              8,
+              10,
+              15,
+              23,
+              35
+            ],
+            "ac_index": 6,
+            "sum": 91,
+            "odd_even": "2C - 3L",
+            "sei_score": 9.3,
+            "special": 9
+          },
+          "momentum": {
+            "numbers": [
+              1,
+              11,
+              18,
+              21,
+              34
+            ],
+            "special": 9
+          },
+          "bao7": {
+            "numbers": [
+              35,
+              19,
+              13,
+              30,
+              11,
+              21
+            ],
+            "special": 9
+          }
+        },
+        "history_walk_forward": [
+          {
+            "drawId": "00865",
+            "date": "2026-09-04",
+            "actual": [
+              2,
+              13,
+              19,
+              22,
+              31
+            ],
+            "predicted": [
+              13,
+              15,
+              27,
+              3,
+              22
+            ],
+            "matched": [
+              13,
+              22
+            ],
+            "matchCount": 2
+          },
+          {
+            "drawId": "00864",
+            "date": "2026-09-03",
+            "actual": [
+              7,
+              17,
+              23,
+              24,
+              27
+            ],
+            "predicted": [
+              15,
+              22,
+              13,
+              3,
+              28
+            ],
+            "matched": [],
+            "matchCount": 0
+          },
+          {
+            "drawId": "00863",
+            "date": "2026-09-03",
+            "actual": [
+              2,
+              15,
+              23,
+              24,
+              30
+            ],
+            "predicted": [
+              13,
+              11,
+              9,
+              35,
+              20
+            ],
+            "matched": [],
+            "matchCount": 0
+          },
+          {
+            "drawId": "00862",
+            "date": "2026-09-02",
+            "actual": [
+              6,
+              7,
+              9,
+              11,
+              32
+            ],
+            "predicted": [
+              12,
+              19,
+              2,
+              28,
+              34
+            ],
+            "matched": [],
+            "matchCount": 0
+          },
+          {
+            "drawId": "00861",
+            "date": "2026-09-02",
+            "actual": [
+              7,
+              11,
+              18,
+              26,
+              29
+            ],
+            "predicted": [
+              17,
+              9,
+              6,
+              3,
+              34
+            ],
+            "matched": [],
+            "matchCount": 0
+          },
+          {
+            "drawId": "00860",
+            "date": "2026-09-01",
+            "actual": [
+              3,
+              4,
+              6,
+              15,
+              22
+            ],
+            "predicted": [
+              28,
+              7,
+              34,
+              35,
+              13
+            ],
+            "matched": [],
+            "matchCount": 0
+          },
+          {
+            "drawId": "00859",
+            "date": "2026-09-01",
+            "actual": [
+              9,
+              18,
+              20,
+              27,
+              34
+            ],
+            "predicted": [
+              27,
+              35,
+              22,
+              17,
+              33
+            ],
+            "matched": [
+              27
+            ],
+            "matchCount": 1
+          },
+          {
+            "drawId": "00858",
+            "date": "2026-08-31",
+            "actual": [
+              1,
+              5,
+              25,
+              27,
+              28
+            ],
+            "predicted": [
+              34,
+              12,
+              35,
+              15,
+              13
+            ],
+            "matched": [],
+            "matchCount": 0
+          },
+          {
+            "drawId": "00857",
+            "date": "2026-08-31",
+            "actual": [
+              4,
+              11,
+              13,
+              18,
+              27
+            ],
+            "predicted": [
+              22,
+              13,
+              21,
+              34,
+              35
+            ],
+            "matched": [
+              13
+            ],
+            "matchCount": 1
+          },
+          {
+            "drawId": "00856",
+            "date": "2026-08-30",
+            "actual": [
+              13,
+              15,
+              17,
+              26,
+              30
+            ],
+            "predicted": [
+              33,
+              28,
+              29,
+              34,
+              21
+            ],
+            "matched": [],
+            "matchCount": 0
+          },
+          {
+            "drawId": "00855",
+            "date": "2026-08-30",
+            "actual": [
+              2,
+              4,
+              12,
+              21,
+              28
+            ],
+            "predicted": [
+              19,
+              28,
+              13,
+              34,
+              5
+            ],
+            "matched": [
+              28
+            ],
+            "matchCount": 1
+          },
+          {
+            "drawId": "00854",
+            "date": "2026-08-29",
+            "actual": [
+              6,
+              7,
+              12,
+              18,
+              20
+            ],
+            "predicted": [
+              21,
+              23,
+              28,
+              34,
+              19
+            ],
+            "matched": [],
+            "matchCount": 0
+          },
+          {
+            "drawId": "00853",
+            "date": "2026-08-29",
+            "actual": [
+              2,
+              26,
+              27,
+              32,
+              34
+            ],
+            "predicted": [
+              13,
+              33,
+              9,
+              8,
+              28
+            ],
+            "matched": [],
+            "matchCount": 0
+          },
+          {
+            "drawId": "00852",
+            "date": "2026-08-28",
+            "actual": [
+              11,
+              17,
+              28,
+              29,
+              34
+            ],
+            "predicted": [
+              13,
+              33,
+              9,
+              22,
+              15
+            ],
+            "matched": [],
+            "matchCount": 0
+          },
+          {
+            "drawId": "00851",
+            "date": "2026-08-28",
+            "actual": [
+              12,
+              17,
+              18,
+              21,
+              28
+            ],
+            "predicted": [
+              33,
+              28,
+              11,
+              21,
+              15
+            ],
+            "matched": [
+              21,
+              28
+            ],
+            "matchCount": 2
+          }
         ]
       }
     },

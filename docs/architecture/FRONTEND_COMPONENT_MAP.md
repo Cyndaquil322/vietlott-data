@@ -3,25 +3,41 @@
 
 ---
 
-## 1. CẤU TRÚC PHÂN CHIA CÁC VIEW (SPA VIEWS)
+## 1. CẤU TRÚC PHÂN CHIA CÁC VIEW (SPA VIEWS & 2-TIER NAVIGATION)
 
-Giao diện là một Single Page Application (SPA) chứa 11 view nội dung được điều hướng bằng hàm `switchView(viewName)`:
+Giao diện là một Single Page Application (SPA) chứa 16 view nội dung được phân thành **4 Cụm Nhóm Tầng 1 (Primary Categories)** và các Tab con ở Tầng 2:
 
+### Nhóm 1: `overview` (🎯 Tổng Quan & Vé)
 | ID Thẻ Div | Tên View trên Menu | Chức năng chính |
 |---|---|---|
-| `view-overview-content` | **Kỳ Quay & Dò Vé** | Đồng hồ đếm ngược trực tiếp, Hero Card kết quả mới nhất, Dò vé trúng thưởng, Soi cầu bóng đặc biệt (01-55 hoặc 01-12) |
+| `view-overview-content` | **Kỳ Quay & Dò Vé** | Đồng hồ đếm ngược trực tiếp, Hero Card kết quả mới nhất, Dò vé trúng thưởng, Soi cầu bóng đặc biệt |
+| `view-saved-tickets-content` | **Sổ Tay Vé Đã Lưu** | Quản lý toàn bộ vé cá nhân, tự động đối soát kết quả thật từ Vietlott, tính P&L ròng, Copy/Gửi SMS 9969 |
+| `view-history-content` | **Lịch Sử Kỳ Quay** | Bảng tra cứu toàn bộ các kỳ quay quá khứ kèm phân trang |
+
+### Nhóm 2: `predictions` (🤖 AI & Dự Đoán)
+| ID Thẻ Div | Tên View trên Menu | Chức năng chính |
+|---|---|---|
+| `view-consensus-content` | **⭐ Tổng Hợp Dự Đoán** | Bảng đấu sĩ đối soát 100 kỳ walk-forward cho 5 mô hình độc lập + Consensus, Bảng trọng số Top 15 bóng, Ma trận giải trình toán học (Explainable AI), Bộ vé đề xuất chuẩn SEI |
+| `view-ensemble-content` | **Dự Đoán Toàn Diện** | Bộ sinh số Ensemble Multi-Model (100 kỳ), bảng Lịch sử dự đoán & đối soát kết quả |
+| `view-bao7-content` | **Chiến Lược Bao 7 (70k)** | Trình sinh dàn Bao 7 (hoặc Bao 6 cho 5/35), bảng cơ cấu thưởng chính thức Vietlott, tính lãi/lỗ |
+| `view-smart-generator-content` | **Tạo Vé Thông Minh** | Trình tạo vé theo bộ lọc tham số tùy biến |
+| `view-simulator-content` | **Giả Lập Nuôi Số** | Backtest chiến lược nuôi số cá nhân qua lịch sử |
+
+### Nhóm 3: `stats` (📊 Thống Kê Cơ Bản)
+| ID Thẻ Div | Tên View trên Menu | Chức năng chính |
+|---|---|---|
 | `view-gap-content` | **Thống Kê Số Gan** | Bảng cảnh báo số vượt nhịp gan, thống kê Current Gap, Max Gap của toàn bộ bóng |
 | `view-pairs-content` | **Cặp Số Hay Đi Cùng** | Ma trận cặp đôi (Pairs) và bộ ba (Triples) có tần suất về cùng nhau cao nhất |
 | `view-sum-content` | **Phân Tích Tổng Giải** | Biểu đồ phân phối Gaussian, xu hướng tổng dồn, kỳ vọng toán học |
 | `view-patterns-content` | **Xu Hướng & Mẫu Hình** | Tỷ lệ số liền kề, tỷ lệ lặp lại từ kỳ trước, phân bố dải đầu số (Decade) |
-| `view-positional-content` | **Vị Trí & Biên Độ** | Thống kê giá trị từng vị trí bóng (Bóng 1 đến 6) và biên độ dải (Span = Max - Min) |
-| `view-ac-delta-content` | **Độ Phức Tạp & Delta** | Biểu đồ chỉ số Arithmetic Complexity (AC) và khoảng cách giữa các số liên tiếp |
+
+### Nhóm 4: `quant` (🔬 Định Lượng Sâu)
+| ID Thẻ Div | Tên View trên Menu | Chức năng chính |
+|---|---|---|
 | `view-markov-content` | **Markov & Dự Đoán** | Dự báo xác suất chuyển trạng thái Markov kỳ tới |
+| `view-ac-delta-content` | **Độ Phức Tạp & Delta** | Biểu đồ chỉ số Arithmetic Complexity (AC) và khoảng cách giữa các số liên tiếp |
+| `view-positional-content` | **Vị Trí & Biên Độ** | Thống kê giá trị từng vị trí bóng (Bóng 1 đến 6) và biên độ dải (Span = Max - Min) |
 | `view-digits-ev-content` | **Đuôi Số & Đo +EV** | Phân tích phân bố chữ số hàng đơn vị và kỳ vọng giá trị dương (+EV) |
-| `view-ensemble-content` | **Dự Đoán Toàn Diện** | Bộ sinh số Ensemble Multi-Model (100 kỳ), bảng Lịch sử dự đoán & đối soát kết quả |
-| `view-bao7-content` | **Chiến Lược Bao 7 (70k)** | Trình sinh dàn Bao 7 (hoặc Bao 6 cho 5/35), bảng cơ cấu thưởng chính thức Vietlott, tính lãi/lỗ |
-| `view-saved-tickets-content` | **Sổ Tay Vé Đã Lưu** | Quản lý toàn bộ vé cá nhân, tự động đối soát kết quả thật từ Vietlott, tính P&L ròng, Copy/Gửi SMS 9969, Tạo link đồng bộ |
-| `view-history-content` | **Lịch Sử Kỳ Quay** | Bảng tra cứu toàn bộ các kỳ quay quá khứ kèm phân trang |
 
 ---
 

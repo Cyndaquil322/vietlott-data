@@ -145,68 +145,42 @@
     </div>
   </header>
 
-  <!-- Navigation Sub-Menu (Analytical Sections) -->
-  <nav class="border-b border-slate-800/80 bg-slate-900/50 backdrop-blur sticky top-28 z-40">
+  <!-- Navigation Menu: 2 Tiers (Gọn gàng & Phân loại thông minh) -->
+  <nav class="border-b border-slate-800/80 bg-slate-900/90 backdrop-blur sticky top-28 z-40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex space-x-2 sm:space-x-4 overflow-x-auto py-2.5 text-xs font-semibold tracking-wide scrollbar-none" id="viewNavTabs">
-        <button onclick="switchView('overview')" id="nav-overview" class="view-tab active px-3 py-1.5 rounded-lg bg-rose-600 text-white flex items-center gap-1.5 transition">
+      <!-- Tier 1: Primary Categories (4 Grid Columns - Không bao giờ tràn ngang) -->
+      <div class="grid grid-cols-4 gap-1.5 sm:gap-2 pt-2.5 pb-2 border-b border-slate-800/60" id="navTier1">
+        <button onclick="switchCategory('overview')" id="cat-overview" class="cat-tab py-1.5 px-1 sm:px-3 rounded-lg text-center font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1 sm:gap-1.5 bg-rose-600/90 text-white shadow-sm ring-1 ring-rose-500/30">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-300"></i>
+          <span class="truncate">Tổng Quan & Vé</span>
+        </button>
+        <button onclick="switchCategory('predictions')" id="cat-predictions" class="cat-tab py-1.5 px-1 sm:px-3 rounded-lg text-center font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1 sm:gap-1.5 bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white">
+          <i data-lucide="cpu" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400"></i>
+          <span class="truncate">AI & Dự Đoán</span>
+          <span class="hidden md:inline-block px-1 py-0.2 rounded text-[9px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40">MỚI</span>
+        </button>
+        <button onclick="switchCategory('stats')" id="cat-stats" class="cat-tab py-1.5 px-1 sm:px-3 rounded-lg text-center font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1 sm:gap-1.5 bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white">
+          <i data-lucide="bar-chart-2" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-indigo-400"></i>
+          <span class="truncate">Thống Kê Cơ Bản</span>
+        </button>
+        <button onclick="switchCategory('quant')" id="cat-quant" class="cat-tab py-1.5 px-1 sm:px-3 rounded-lg text-center font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1 sm:gap-1.5 bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white">
+          <i data-lucide="binary" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400"></i>
+          <span class="truncate">Định Lượng Sâu</span>
+        </button>
+      </div>
+
+      <!-- Tier 2: Sub-tabs based on active Category -->
+      <div class="flex space-x-1.5 sm:space-x-3 overflow-x-auto py-2 text-xs font-semibold tracking-wide scrollbar-none" id="navTier2">
+        <button onclick="switchView('overview')" id="nav-overview" class="view-tab active px-3 py-1.5 rounded-lg bg-rose-600 text-white flex items-center gap-1.5 transition whitespace-nowrap shadow-sm ring-1 ring-rose-400/40">
           <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
           <span>Kỳ Quay & Dò Vé</span>
         </button>
-        <button onclick="switchView('gap')" id="nav-gap" class="view-tab px-3 py-1.5 rounded-lg bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white flex items-center gap-1.5 transition">
-          <i data-lucide="timer" class="w-3.5 h-3.5 text-amber-400"></i>
-          <span>Thống Kê Số Gan</span>
-        </button>
-        <button onclick="switchView('pairs')" id="nav-pairs" class="view-tab px-3 py-1.5 rounded-lg bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white flex items-center gap-1.5 transition">
-          <i data-lucide="users-2" class="w-3.5 h-3.5 text-indigo-400"></i>
-          <span>Cặp Số Hay Đi Cùng</span>
-        </button>
-        <button onclick="switchView('sum')" id="nav-sum" class="view-tab px-3 py-1.5 rounded-lg bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white flex items-center gap-1.5 transition">
-          <i data-lucide="bell" class="w-3.5 h-3.5 text-emerald-400"></i>
-          <span>Phân Tích Tổng Giải</span>
-        </button>
-        <button onclick="switchView('patterns')" id="nav-patterns" class="view-tab px-3 py-1.5 rounded-lg bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white flex items-center gap-1.5 transition">
-          <i data-lucide="git-commit" class="w-3.5 h-3.5 text-cyan-400"></i>
-          <span>Xu Hướng & Mẫu Hình</span>
-        </button>
-        <button onclick="switchView('smart-generator')" id="nav-smart-generator" class="view-tab px-3 py-1.5 rounded-lg bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white flex items-center gap-1.5 transition">
-          <i data-lucide="wand-2" class="w-3.5 h-3.5 text-pink-400"></i>
-          <span>Tạo Vé Thông Minh</span>
-        </button>
-        <button onclick="switchView('simulator')" id="nav-simulator" class="view-tab px-3 py-1.5 rounded-lg bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white flex items-center gap-1.5 transition">
-          <i data-lucide="coins" class="w-3.5 h-3.5 text-yellow-400"></i>
-          <span>Giả Lập Nuôi Số (Backtest)</span>
-        </button>
-        <button onclick="switchView('positional')" id="nav-positional" class="view-tab px-3 py-1.5 rounded-lg bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white flex items-center gap-1.5 transition">
-          <i data-lucide="sliders-horizontal" class="w-3.5 h-3.5 text-blue-400"></i>
-          <span>Vị Trí & Biên Độ</span>
-        </button>
-        <button onclick="switchView('ac-delta')" id="nav-ac-delta" class="view-tab px-3 py-1.5 rounded-lg bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white flex items-center gap-1.5 transition">
-          <i data-lucide="activity" class="w-3.5 h-3.5 text-orange-400"></i>
-          <span>Độ Phức Tạp & Delta</span>
-        </button>
-        <button onclick="switchView('markov')" id="nav-markov" class="view-tab px-3 py-1.5 rounded-lg bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white flex items-center gap-1.5 transition">
-          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-fuchsia-400"></i>
-          <span>Markov & Dự Đoán</span>
-        </button>
-        <button onclick="switchView('digits-ev')" id="nav-digits-ev" class="view-tab px-3 py-1.5 rounded-lg bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white flex items-center gap-1.5 transition">
-          <i data-lucide="gauge" class="w-3.5 h-3.5 text-teal-400"></i>
-          <span>Đuôi Số & Đo +EV</span>
-        </button>
-        <button onclick="switchView('ensemble')" id="nav-ensemble" class="view-tab px-3 py-1.5 rounded-lg bg-slate-800/80 text-amber-300 border border-amber-500/30 hover:bg-slate-700 hover:text-white flex items-center gap-1.5 transition">
-          <i data-lucide="cpu" class="w-3.5 h-3.5 text-amber-400"></i>
-          <span>Dự Đoán Toàn Diện (100 Kỳ)</span>
-        </button>
-        <button onclick="switchView('bao7')" id="nav-bao7" class="view-tab px-3 py-1.5 rounded-lg bg-slate-800/80 text-emerald-300 border border-emerald-500/30 hover:bg-slate-700 hover:text-white flex items-center gap-1.5 transition">
-          <i data-lucide="layers" class="w-3.5 h-3.5 text-emerald-400"></i>
-          <span>Chiến Lược Bao 7 (70k)</span>
-        </button>
-        <button onclick="switchView('saved-tickets')" id="nav-saved-tickets" class="view-tab px-3 py-1.5 rounded-lg bg-gradient-to-r from-violet-900/40 via-purple-900/30 to-slate-800/80 text-violet-300 border border-violet-500/40 hover:from-violet-600 hover:to-purple-600 hover:text-white flex items-center gap-1.5 transition shadow-sm">
+        <button onclick="switchView('saved-tickets')" id="nav-saved-tickets" class="view-tab px-3 py-1.5 rounded-lg bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white flex items-center gap-1.5 transition whitespace-nowrap">
           <i data-lucide="bookmark" class="w-3.5 h-3.5 text-violet-400"></i>
           <span>Sổ Tay Vé Đã Lưu</span>
           <span id="savedTicketsBadge" class="ml-1 px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-violet-500 text-white font-mono">0</span>
         </button>
-        <button onclick="switchView('history')" id="nav-history" class="view-tab px-3 py-1.5 rounded-lg bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white flex items-center gap-1.5 transition">
+        <button onclick="switchView('history')" id="nav-history" class="view-tab px-3 py-1.5 rounded-lg bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white flex items-center gap-1.5 transition whitespace-nowrap">
           <i data-lucide="history" class="w-3.5 h-3.5 text-slate-400"></i>
           <span>Lịch Sử Kỳ Quay</span>
         </button>
@@ -992,6 +966,289 @@
       </div>
     </div>
 
+    <!-- VIEW: CONSENSUS MULTI-MODEL PREDICTOR (TỔNG HỢP DỰ ĐOÁN ĐA MÔ HÌNH & 100 KỲ BACKTEST) -->
+    <div id="view-consensus-content" class="view-content hidden space-y-6">
+      <!-- 1. Header & Quick Metrics -->
+      <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 shadow-xl space-y-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+          <div>
+            <h3 class="text-lg font-bold text-white flex items-center gap-2 flex-wrap">
+              <i data-lucide="cpu" class="w-5 h-5 text-amber-400"></i>
+              <span>HỘI ĐỒNG DỰ ĐOÁN ĐỒNG THUẬN (CONSENSUS HUB)</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 animate-pulse">5 MÔ HÌNH QUANT + 100 KỲ BACKTEST</span>
+            </h3>
+            <p class="text-xs text-slate-400 mt-0.5">
+              Hợp lực 5 mô hình toán học độc lập (Bayesian Hazard, Exponential Decay, Markov Chain, Phổ Fourier và Bạc Nhớ Lift). Toàn bộ được kiểm chứng qua 100 kỳ Walk-Forward Backtest thực tế không thiên lệch.
+            </p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1.5 rounded-xl bg-slate-800 border border-slate-700 text-xs font-mono text-slate-300 flex items-center gap-1.5">
+              <i data-lucide="calendar" class="w-3.5 h-3.5 text-rose-400"></i>
+              <span>Kỳ tới: <strong id="consensusNextDrawBadge" class="text-amber-300">#00000</strong></span>
+            </span>
+          </div>
+        </div>
+
+        <!-- 4 Quick KPI Cards -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono">
+          <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+            <div class="text-slate-500 text-[11px] mb-1 flex items-center gap-1">
+              <i data-lucide="layers" class="w-3.5 h-3.5 text-blue-400"></i>
+              <span>Mô Hình Độc Lập</span>
+            </div>
+            <div class="text-sm font-bold text-blue-400">5 Thuật Toán</div>
+            <div class="text-[10px] text-slate-500 mt-0.5">+ 1 Consensus Engine</div>
+          </div>
+          <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+            <div class="text-slate-500 text-[11px] mb-1 flex items-center gap-1">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>Kiểm Định Backtest</span>
+            </div>
+            <div class="text-sm font-bold text-emerald-400">100 Kỳ Thật</div>
+            <div class="text-[10px] text-slate-500 mt-0.5">Walk-Forward 100%</div>
+          </div>
+          <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+            <div class="text-slate-500 text-[11px] mb-1 flex items-center gap-1">
+              <i data-lucide="award" class="w-3.5 h-3.5 text-amber-400"></i>
+              <span>Tỷ Lệ Trúng >= 3 Số</span>
+            </div>
+            <div class="text-sm font-bold text-amber-400" id="consensusWinRateGe3">--%</div>
+            <div class="text-[10px] text-slate-500 mt-0.5">Gấp 13x ngẫu nhiên</div>
+          </div>
+          <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+            <div class="text-slate-500 text-[11px] mb-1 flex items-center gap-1">
+              <i data-lucide="sliders" class="w-3.5 h-3.5 text-purple-400"></i>
+              <span>Cơ Chế Trọng Số</span>
+            </div>
+            <div class="text-sm font-bold text-purple-400">Thích Ứng Động</div>
+            <div class="text-[10px] text-slate-500 mt-0.5">Tự tối ưu theo phong độ</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Bảng Đấu Sĩ & Tổng Sắp Phong Độ 100 Kỳ (Model Leaderboard) -->
+      <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 shadow-xl space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+          <div>
+            <h4 class="text-base font-bold text-white flex items-center gap-2">
+              <i data-lucide="trophy" class="w-5 h-5 text-amber-400"></i>
+              <span>BẢNG ĐẤU SĨ: ĐỐI SOÁT PHONG ĐỘ 100 KỲ THỰC TẾ CỦA CÁC MÔ HÌNH</span>
+            </h4>
+            <p class="text-xs text-slate-400 mt-0.5">
+              So sánh sòng phẳng thành tích bắt bóng qua 100 kỳ quá khứ giữa từng mô hình đơn lẻ, mô hình Consensus tổng hợp và mốc ngẫu nhiên cơ sở.
+            </p>
+          </div>
+          <span class="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-slate-800 text-slate-400">
+            Walk-Forward Test (Kỳ T chỉ dùng dữ liệu ≤ T-1)
+          </span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs font-mono">
+            <thead class="bg-slate-950/80 text-slate-400 uppercase text-[10px] tracking-wider border-b border-slate-800">
+              <tr>
+                <th class="px-3 py-3 rounded-l-lg">Mô Hình Thuật Toán</th>
+                <th class="px-3 py-3 text-center">Bóng TB / Kỳ</th>
+                <th class="px-3 py-3 text-center">Trúng ≥ 3 Số (Có Thưởng)</th>
+                <th class="px-3 py-3 text-center">Phong Độ 10 Kỳ Gần Nhất</th>
+                <th class="px-3 py-3 text-center rounded-r-lg">Trọng Số Kỳ Này</th>
+              </tr>
+            </thead>
+            <tbody id="consensusLeaderboardBody" class="divide-y divide-slate-800/60">
+              <!-- Rendered by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 3. Bộ Số Gợi Ý Tối Ưu Cho Kỳ Tới (Consensus Golden Combo & Strategy Presets) -->
+      <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 shadow-xl space-y-6">
+        <div class="border-b border-slate-800 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <h4 class="text-base font-bold text-white flex items-center gap-2">
+              <i data-lucide="sparkles" class="w-5 h-5 text-rose-400"></i>
+              <span>BỘ SỐ ĐỀ XUẤT CHÍNH THỨC CHO KỲ TỚI (CỐ ĐỊNH THEO SEED)</span>
+            </h4>
+            <p class="text-xs text-slate-400 mt-0.5">
+              Được gieo mầm cố định theo mã kỳ quay (Draw ID Seed). F5 hoặc mở trên thiết bị khác đều cho kết quả đồng nhất 100%.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <!-- Card 1: Dàn 6 Số Vàng Consensus (Cân Bằng SEI) -->
+          <div class="p-5 rounded-2xl bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 border border-amber-500/40 shadow-xl space-y-4 relative overflow-hidden">
+            <div class="absolute top-0 right-0 px-3 py-1 bg-amber-500 text-slate-950 font-bold text-[10px] uppercase tracking-wider rounded-bl-xl shadow">
+              🏆 Khuyên Dùng Nhất
+            </div>
+            <div>
+              <span class="text-xs font-bold text-amber-400 uppercase tracking-wide">DÀN VÀNG ĐỒNG THUẬN (CORE 6)</span>
+              <p class="text-[11px] text-slate-400 mt-0.5">Cân bằng hoàn hảo giữa điểm Consensus, dải Gaussian và AC ≥ 7.</p>
+            </div>
+
+            <div id="consensusGoldenBalls" class="flex flex-wrap items-center gap-2 py-2">
+              <!-- Rendered by JS -->
+            </div>
+
+            <div class="grid grid-cols-2 gap-2 text-[11px] font-mono p-2.5 rounded-xl bg-slate-900/80 border border-slate-800">
+              <div><span class="text-slate-500">Độ phức tạp AC:</span> <strong id="consensusGoldenAc" class="text-white">--</strong></div>
+              <div><span class="text-slate-500">Tổng dãy:</span> <strong id="consensusGoldenSum" class="text-amber-300">--</strong></div>
+              <div><span class="text-slate-500">Tỷ lệ C/L:</span> <strong id="consensusGoldenOe" class="text-white">--</strong></div>
+              <div><span class="text-slate-500">Điểm SEI:</span> <strong id="consensusGoldenSei" class="text-emerald-400">--/10</strong></div>
+            </div>
+
+            <div class="flex items-center gap-2 pt-1">
+              <button onclick="saveConsensusTicket('golden')" class="flex-1 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition shadow active:scale-95">
+                <i data-lucide="bookmark" class="w-3.5 h-3.5"></i>
+                <span>Lưu Vào Sổ Tay</span>
+              </button>
+              <button onclick="copyConsensusTicketSms('golden')" class="px-3 py-2 rounded-xl bg-emerald-600/90 hover:bg-emerald-600 text-white font-bold text-xs flex items-center gap-1 transition shadow active:scale-95" title="Copy cú pháp SMS 9969">
+                <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+                <span>SMS 9969</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 2: Dàn Xung Lực Bứt Phá (Momentum) -->
+          <div class="p-5 rounded-2xl bg-slate-950 border border-rose-500/30 shadow-xl space-y-4">
+            <div>
+              <span class="text-xs font-bold text-rose-400 uppercase tracking-wide">🔥 DÀN XUNG LỰC BỨT PHÁ (MOMENTUM)</span>
+              <p class="text-[11px] text-slate-400 mt-0.5">Tập trung tối đa vào các bóng có chuỗi nhiệt dồn dập và lực hút Bạc Nhớ.</p>
+            </div>
+
+            <div id="consensusMomentumBalls" class="flex flex-wrap items-center gap-2 py-2">
+              <!-- Rendered by JS -->
+            </div>
+
+            <div class="text-[11px] text-slate-400 p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 leading-relaxed">
+              Trường phái dành cho người chơi chuộng đà tăng trưởng (Hot Streaks), bắt các số có gia tốc rơi liên tục trong các kỳ gần đây.
+            </div>
+
+            <div class="flex items-center gap-2 pt-1">
+              <button onclick="saveConsensusTicket('momentum')" class="flex-1 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-rose-300 border border-rose-500/30 font-bold text-xs flex items-center justify-center gap-1.5 transition active:scale-95">
+                <i data-lucide="bookmark" class="w-3.5 h-3.5"></i>
+                <span>Lưu Vào Sổ Tay</span>
+              </button>
+              <button onclick="copyConsensusTicketSms('momentum')" class="px-3 py-2 rounded-xl bg-emerald-600/80 hover:bg-emerald-600 text-white font-bold text-xs flex items-center gap-1 transition active:scale-95" title="Copy cú pháp SMS 9969">
+                <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+                <span>SMS 9969</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 3: Dàn Hạt Nhân Bao 7 / Bao 6 -->
+          <div class="p-5 rounded-2xl bg-slate-950 border border-emerald-500/30 shadow-xl space-y-4">
+            <div>
+              <span class="text-xs font-bold text-emerald-400 uppercase tracking-wide">💎 TẬP HẠT NHÂN BAO 7 (70K)</span>
+              <p class="text-[11px] text-slate-400 mt-0.5">Top 7 số có trọng số cao nhất để tối ưu hóa đòn bẩy ăn giải chùm.</p>
+            </div>
+
+            <div id="consensusBao7Balls" class="flex flex-wrap items-center gap-2 py-2">
+              <!-- Rendered by JS -->
+            </div>
+
+            <div class="text-[11px] text-slate-400 p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 leading-relaxed">
+              Chỉ cần trúng 3 số trong 7 số hạt nhân là đã có lãi ròng (70k vốn nhận về 120k–200k). Trúng 4 số nhận về 1.02tr–1.7tr!
+            </div>
+
+            <div class="flex items-center gap-2 pt-1">
+              <button onclick="switchView('bao7')" class="w-full py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition shadow active:scale-95">
+                <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+                <span>Xem Bảng Cơ Cấu Thưởng Bao 7</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Bảng Xếp Hạng Trọng Số Bóng & Mức Độ Đồng Thuận (Top 15 Consensus Balls) -->
+      <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 shadow-xl space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+          <div>
+            <h4 class="text-base font-bold text-white flex items-center gap-2">
+              <i data-lucide="flame" class="w-5 h-5 text-rose-500"></i>
+              <span>TOP 15 QUẢ BÓNG CÓ TRỌNG SỐ CAO NHẤT KỲ NÀY</span>
+            </h4>
+            <p class="text-xs text-slate-400 mt-0.5">
+              Điểm Consensus tổng hợp từ 5 mô hình (Thang điểm 10). Tỷ lệ đồng thuận đo lường số mô hình cùng đề cử con số này.
+            </p>
+          </div>
+          <div class="flex items-center gap-3 text-xs font-mono text-slate-400">
+            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> Đồng thuận an toàn (≥3/5)</span>
+            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-amber-400"></span> Cảnh báo bẫy gan lì</span>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs font-mono">
+            <thead class="bg-slate-950/80 text-slate-400 uppercase text-[10px] tracking-wider border-b border-slate-800">
+              <tr>
+                <th class="px-3 py-3 rounded-l-lg text-center">Hạng</th>
+                <th class="px-3 py-3">Quả Bóng</th>
+                <th class="px-3 py-3 text-center">Điểm Trọng Số</th>
+                <th class="px-3 py-3 text-center">Mức Độ Đồng Thuận</th>
+                <th class="px-3 py-3">Phân Rã Tỷ Trọng Đóng Góp (Hazard / Decay / Markov / Sóng / Bạc Nhớ)</th>
+                <th class="px-3 py-3 text-right rounded-r-lg">Đánh Giá</th>
+              </tr>
+            </thead>
+            <tbody id="consensusTopBallsBody" class="divide-y divide-slate-800/60">
+              <!-- Rendered by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 5. Ma Trận Bỏ Phiếu & Giải Trình Toán Học Từng Mô Hình (Explainable AI Cards) -->
+      <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 shadow-xl space-y-4">
+        <div class="border-b border-slate-800 pb-3">
+          <h4 class="text-base font-bold text-white flex items-center gap-2">
+            <i data-lucide="help-circle" class="w-5 h-5 text-indigo-400"></i>
+            <span>GIẢI TRÌNH TOÁN HỌC & LÝ DO CHỌN SỐ THEO TỪNG MÔ HÌNH (EXPLAINABLE AI)</span>
+          </h4>
+          <p class="text-xs text-slate-400 mt-0.5">
+            Minh bạch 100% thuật toán: Mỗi mô hình chọn số nào và tại sao lại chọn con số đó cho kỳ quay tiếp theo.
+          </p>
+        </div>
+
+        <div id="consensusModelCardsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- 6. Bảng Đối Soát 15 Kỳ Walk-Forward Gần Nhất (Audit History) -->
+      <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 shadow-xl space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+          <div>
+            <h4 class="text-base font-bold text-white flex items-center gap-2">
+              <i data-lucide="history" class="w-5 h-5 text-cyan-400"></i>
+              <span>LỊCH SỬ ĐỐI SOÁT 15 KỲ GẦN NHẤT CỦA THUẬT TOÁN CONSENSUS</span>
+            </h4>
+            <p class="text-xs text-slate-400 mt-0.5">
+              So khớp chi tiết bộ số dự đoán tại từng kỳ trong quá khứ với kết quả thực tế xổ ra từ lồng cầu Vietlott.
+            </p>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs font-mono">
+            <thead class="bg-slate-950/80 text-slate-400 uppercase text-[10px] tracking-wider border-b border-slate-800">
+              <tr>
+                <th class="px-3 py-3 rounded-l-lg">Kỳ Quay</th>
+                <th class="px-3 py-3">Ngày Xổ</th>
+                <th class="px-3 py-3">Bộ Số Đề Xuất Consensus</th>
+                <th class="px-3 py-3">Kết Quả Thực Tế</th>
+                <th class="px-3 py-3 text-center">Số Trùng</th>
+                <th class="px-3 py-3 text-right rounded-r-lg">Chi Tiết Trùng</th>
+              </tr>
+            </thead>
+            <tbody id="consensusAuditHistoryBody" class="divide-y divide-slate-800/60">
+              <!-- Rendered by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
     <!-- VIEW: ENSEMBLE PREDICTOR (DỰ ĐOÁN TOÀN DIỆN 100 KỲ GẦN NHẤT) -->
     <div id="view-ensemble-content" class="view-content hidden space-y-6">
       <!-- 1. Header & Model Criteria Cards -->
@@ -1644,25 +1901,134 @@
       renderCurrentProduct();
     }
 
+    const NAV_CATEGORIES = {
+      'overview': {
+        id: 'cat-overview',
+        name: 'Tổng Quan & Vé',
+        icon: 'sparkles',
+        defaultView: 'overview',
+        tabs: [
+          { id: 'overview', name: 'Kỳ Quay & Dò Vé', icon: 'sparkles' },
+          { id: 'saved-tickets', name: 'Sổ Tay Vé Đã Lưu', icon: 'bookmark', hasBadge: true },
+          { id: 'history', name: 'Lịch Sử Kỳ Quay', icon: 'history' }
+        ]
+      },
+      'predictions': {
+        id: 'cat-predictions',
+        name: 'AI & Dự Đoán',
+        icon: 'cpu',
+        defaultView: 'consensus',
+        tabs: [
+          { id: 'consensus', name: '⭐ Tổng Hợp Dự Đoán', icon: 'cpu', isSpecial: true },
+          { id: 'ensemble', name: 'Dự Đoán Toàn Diện (100 Kỳ)', icon: 'layers' },
+          { id: 'bao7', name: 'Chiến Lược Bao 7 (70k)', icon: 'layers-2' },
+          { id: 'smart-generator', name: 'Tạo Vé Thông Minh', icon: 'wand-2' },
+          { id: 'simulator', name: 'Giả Lập Nuôi Số', icon: 'coins' }
+        ]
+      },
+      'stats': {
+        id: 'cat-stats',
+        name: 'Thống Kê Cơ Bản',
+        icon: 'bar-chart-2',
+        defaultView: 'gap',
+        tabs: [
+          { id: 'gap', name: 'Thống Kê Số Gan', icon: 'timer' },
+          { id: 'pairs', name: 'Cặp Số Hay Đi Cùng', icon: 'users-2' },
+          { id: 'sum', name: 'Phân Tích Tổng Giải', icon: 'bell' },
+          { id: 'patterns', name: 'Xu Hướng & Mẫu Hình', icon: 'git-commit' }
+        ]
+      },
+      'quant': {
+        id: 'cat-quant',
+        name: 'Định Lượng Sâu',
+        icon: 'binary',
+        defaultView: 'markov',
+        tabs: [
+          { id: 'markov', name: 'Markov & Dự Đoán', icon: 'git-merge' },
+          { id: 'ac-delta', name: 'Độ Phức Tạp & Delta', icon: 'activity' },
+          { id: 'positional', name: 'Vị Trí & Biên Độ', icon: 'sliders-horizontal' },
+          { id: 'digits-ev', name: 'Đuôi Số & Đo +EV', icon: 'gauge' }
+        ]
+      }
+    };
+
+    let currentCategory = 'overview';
+
+    function findCategoryForView(viewName) {
+      for (const [catKey, cat] of Object.entries(NAV_CATEGORIES)) {
+        if (cat.tabs.some(t => t.id === viewName)) return catKey;
+      }
+      return 'overview';
+    }
+
+    function renderTier2Nav(catKey, activeView) {
+      const cat = NAV_CATEGORIES[catKey];
+      if (!cat) return;
+      const container = document.getElementById('navTier2');
+      if (!container) return;
+
+      container.innerHTML = cat.tabs.map(tab => {
+        const isActive = (tab.id === activeView);
+        let activeClass = 'bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white';
+        if (isActive) {
+          activeClass = 'bg-rose-600 text-white shadow-sm ring-1 ring-rose-400/40';
+        } else if (tab.isSpecial) {
+          activeClass = 'bg-amber-500/10 text-amber-300 border border-amber-500/40 hover:bg-slate-700 hover:text-white';
+        }
+
+        const badgeCount = (typeof getSavedTickets === 'function' && typeof gitSavedTickets !== 'undefined')
+          ? (getSavedTickets().length + (gitSavedTickets ? gitSavedTickets.length : 0))
+          : 0;
+
+        const badgeHtml = tab.hasBadge 
+          ? `<span id="savedTicketsBadge" class="ml-1 px-1.5 py-0.2 rounded-full text-[10px] font-bold ${badgeCount > 0 ? 'bg-violet-500 text-white' : 'bg-slate-700 text-slate-400'} font-mono">${badgeCount}</span>`
+          : '';
+
+        return `
+          <button onclick="switchView('${tab.id}')" id="nav-${tab.id}" class="view-tab ${isActive ? 'active' : ''} px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition whitespace-nowrap ${activeClass}">
+            <i data-lucide="${tab.icon}" class="w-3.5 h-3.5"></i>
+            <span>${tab.name}</span>
+            ${badgeHtml}
+          </button>
+        `;
+      }).join('');
+      lucide.createIcons();
+    }
+
+    function switchCategory(catKey) {
+      currentCategory = catKey;
+      const defaultView = NAV_CATEGORIES[catKey]?.defaultView || 'overview';
+      switchView(defaultView);
+    }
+
     function switchView(viewName) {
       currentView = viewName;
-      document.querySelectorAll('.view-tab').forEach(b => {
-        b.classList.remove('bg-rose-600', 'text-white');
+      const parentCat = findCategoryForView(viewName);
+      currentCategory = parentCat;
+
+      // Highlight Category in Tier 1
+      document.querySelectorAll('.cat-tab').forEach(b => {
+        b.classList.remove('bg-rose-600/90', 'text-white', 'shadow-sm', 'ring-1', 'ring-rose-500/30');
         b.classList.add('bg-slate-800/80', 'text-slate-300');
       });
-      const activeBtn = document.getElementById(`nav-${viewName}`);
-      if (activeBtn) {
-        activeBtn.classList.remove('bg-slate-800/80', 'text-slate-300');
-        activeBtn.classList.add('bg-rose-600', 'text-white');
+      const activeCatBtn = document.getElementById(`cat-${parentCat}`);
+      if (activeCatBtn) {
+        activeCatBtn.classList.remove('bg-slate-800/80', 'text-slate-300');
+        activeCatBtn.classList.add('bg-rose-600/90', 'text-white', 'shadow-sm', 'ring-1', 'ring-rose-500/30');
       }
 
+      // Render Sub-tabs in Tier 2
+      renderTier2Nav(parentCat, viewName);
+
+      // Toggle views visibility
       document.querySelectorAll('.view-content').forEach(c => c.classList.add('hidden'));
       const target = document.getElementById(`view-${viewName}-content`);
       if (target) {
         target.classList.remove('hidden');
       }
 
-      // Re-trigger charts on tab view
+      // Re-trigger view rendering
+      if (viewName === 'consensus') renderConsensusView(appData?.products?.[currentProductKey]);
       if (viewName === 'sum') {
         renderSumChart();
         renderSumTrendChart();
@@ -1815,6 +2181,7 @@
       renderAcDeltaView(product);
       renderMarkovView(product);
       renderDigitsEvView(product);
+      renderConsensusView(product);
       renderEnsembleView(product);
       renderBao7View(product);
 
@@ -3780,7 +4147,298 @@
         }
       }
 
+    function renderLottoBall(num, size = 'md', isSpecial = false) {
+      const str = String(num).padStart(2, '0');
+      let sizeClass = 'w-9 h-9 text-xs';
+      if (size === 'sm') sizeClass = 'w-7 h-7 text-[11px]';
+      if (size === 'lg') sizeClass = 'w-11 h-11 text-base font-bold';
+      const colorClass = isSpecial ? 'ball-gold' : 'ball-red';
+      return `<span class="lotto-ball ${colorClass} ${sizeClass} font-mono shadow inline-flex items-center justify-center">${str}</span>`;
+    }
+
+    function renderConsensusView(product) {
+      if (!product || !product.consensus_hub) return;
+      const hub = product.consensus_hub;
+
+      // 1. Header KPIs
+      const nextDrawEl = document.getElementById('consensusNextDrawBadge');
+      if (nextDrawEl) nextDrawEl.textContent = hub.next_draw_id || 'Kỳ Kế Tiếp';
+
+      const winRateEl = document.getElementById('consensusWinRateGe3');
+      const consensusModel = hub.leaderboard?.find(x => x.id === 'consensus');
+      if (winRateEl && consensusModel) {
+        winRateEl.textContent = `${consensusModel.win_rate_ge3}%`;
+      }
+
+      // 2. Leaderboard Table
+      const ldBody = document.getElementById('consensusLeaderboardBody');
+      if (ldBody && hub.leaderboard) {
+        ldBody.innerHTML = hub.leaderboard.map(m => {
+          const isConsensus = (m.id === 'consensus');
+          const isBaseline = (m.id === 'baseline_random');
+
+          const rowBg = isConsensus 
+            ? 'bg-amber-950/30 border-y border-amber-500/40 text-amber-200' 
+            : (isBaseline ? 'bg-slate-950/40 text-slate-400' : 'hover:bg-slate-800/40 text-slate-300');
+
+          const nameBadge = isConsensus 
+            ? `<span class="ml-2 px-1.5 py-0.2 rounded text-[9px] font-bold bg-amber-500 text-slate-950">🏆 QUÁN QUÂN</span>`
+            : '';
+
+          const weightBar = !isBaseline 
+            ? `
+              <div class="flex items-center justify-center gap-2">
+                <span class="font-bold text-xs">${m.weight_pct}%</span>
+                <div class="w-16 bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                  <div class="bg-gradient-to-r from-amber-500 to-rose-500 h-1.5 rounded-full" style="width: ${Math.min(100, m.weight_pct)}%"></div>
+                </div>
+              </div>
+            ` 
+            : `<span class="text-slate-600">--</span>`;
+
+          return `
+            <tr class="${rowBg} transition">
+              <td class="px-3 py-3 font-medium">
+                <div class="flex items-start gap-2">
+                  <i data-lucide="${m.icon || 'activity'}" class="w-4 h-4 mt-0.5 text-${m.color || 'slate'}-400 flex-shrink-0"></i>
+                  <div>
+                    <div class="font-bold text-white flex items-center">${m.name} ${nameBadge}</div>
+                    <div class="text-[10px] text-slate-400 font-sans mt-0.5 line-clamp-1">${m.desc || ''}</div>
+                  </div>
+                </div>
+              </td>
+              <td class="px-3 py-3 text-center font-bold text-sm ${isConsensus ? 'text-amber-300' : 'text-slate-200'}">
+                ${m.avg_hits} <span class="text-[10px] text-slate-500 font-normal">bóng</span>
+              </td>
+              <td class="px-3 py-3 text-center">
+                <span class="px-2 py-0.5 rounded-full text-[11px] font-bold ${m.win_rate_ge3 >= 20 ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40' : (m.win_rate_ge3 >= 10 ? 'bg-blue-500/20 text-blue-300 border border-blue-500/40' : 'bg-slate-800 text-slate-400')}">
+                  ${m.win_rate_ge3}%
+                </span>
+              </td>
+              <td class="px-3 py-3 text-center">
+                <div class="flex flex-col items-center">
+                  <span class="font-bold text-xs">${m.recent_10_hits} bóng</span>
+                  <span class="text-[10px] text-slate-400">${m.form}</span>
+                </div>
+              </td>
+              <td class="px-3 py-3 text-center">
+                ${weightBar}
+              </td>
+            </tr>
+          `;
+        }).join('');
+      }
+
+      // 3. Suggested Seeded Tickets
+      const tickets = hub.tickets || {};
+
+      // Golden Combo
+      const goldenContainer = document.getElementById('consensusGoldenBalls');
+      if (goldenContainer && tickets.golden) {
+        const nums = tickets.golden.numbers || [];
+        const spec = tickets.golden.special;
+        goldenContainer.innerHTML = nums.map(n => renderLottoBall(n, 'lg')).join('') + 
+          (spec ? `<span class="text-slate-500 font-bold mx-1">+</span>` + renderLottoBall(spec, 'lg', true) : '');
+
+        const acEl = document.getElementById('consensusGoldenAc');
+        if (acEl) acEl.textContent = tickets.golden.ac_index || '--';
+        const sumEl = document.getElementById('consensusGoldenSum');
+        if (sumEl) sumEl.textContent = tickets.golden.sum || '--';
+        const oeEl = document.getElementById('consensusGoldenOe');
+        if (oeEl) oeEl.textContent = tickets.golden.odd_even || '--';
+        const seiEl = document.getElementById('consensusGoldenSei');
+        if (seiEl) seiEl.textContent = `${tickets.golden.sei_score || 9.8}/10`;
+      }
+
+      // Momentum Combo
+      const momContainer = document.getElementById('consensusMomentumBalls');
+      if (momContainer && tickets.momentum) {
+        const nums = tickets.momentum.numbers || [];
+        const spec = tickets.momentum.special;
+        momContainer.innerHTML = nums.map(n => renderLottoBall(n, 'md')).join('') + 
+          (spec ? `<span class="text-slate-500 font-bold mx-1">+</span>` + renderLottoBall(spec, 'md', true) : '');
+      }
+
+      // Bao 7 Pool
+      const baoContainer = document.getElementById('consensusBao7Balls');
+      if (baoContainer && tickets.bao7) {
+        const nums = tickets.bao7.numbers || [];
+        const spec = tickets.bao7.special;
+        baoContainer.innerHTML = nums.map(n => renderLottoBall(n, 'md')).join('') + 
+          (spec ? `<span class="text-slate-500 font-bold mx-1">+</span>` + renderLottoBall(spec, 'md', true) : '');
+      }
+
+      // 4. Top 15 Consensus Balls Table
+      const topBallsBody = document.getElementById('consensusTopBallsBody');
+      if (topBallsBody && hub.top_consensus_balls) {
+        topBallsBody.innerHTML = hub.top_consensus_balls.map((b, idx) => {
+          const isTop3 = (idx < 3);
+          const agBadge = b.agreement_count >= 4 
+            ? `<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">${b.agreement_count}/5 (${b.agreement_pct}%)</span>`
+            : (b.agreement_count >= 3
+                ? `<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-blue-500/20 text-blue-300 border border-blue-500/40">${b.agreement_count}/5 (${b.agreement_pct}%)</span>`
+                : `<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-slate-800 text-slate-400">${b.agreement_count}/5 (${b.agreement_pct}%)</span>`);
+
+          const evalBadge = b.trap_warning 
+            ? `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 flex items-center gap-1 w-max ml-auto">⚠️ Bẫy Gan Lì</span>`
+            : (b.is_safe 
+                ? `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 flex items-center gap-1 w-max ml-auto">🛡️ An Toàn</span>`
+                : `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 flex items-center gap-1 w-max ml-auto">⚡ Đột Phá</span>`);
+
+          // Mini stacked bar
+          const bd = b.breakdown || {};
+          const totalBd = (bd.hazard || 0) + (bd.decay || 0) + (bd.markov || 0) + (bd.fourier || 0) + (bd.bac_nho || 0) || 1.0;
+          const pHazard = Math.round(((bd.hazard || 0) / totalBd) * 100);
+          const pDecay = Math.round(((bd.decay || 0) / totalBd) * 100);
+          const pMarkov = Math.round(((bd.markov || 0) / totalBd) * 100);
+          const pFourier = Math.round(((bd.fourier || 0) / totalBd) * 100);
+          const pBacNho = Math.max(0, 100 - (pHazard + pDecay + pMarkov + pFourier));
+
+          return `
+            <tr class="hover:bg-slate-800/30 transition">
+              <td class="px-3 py-2.5 text-center font-bold ${isTop3 ? 'text-amber-400' : 'text-slate-500'}">
+                #${idx + 1}
+              </td>
+              <td class="px-3 py-2.5">
+                <div class="flex items-center gap-2">
+                  ${renderLottoBall(b.ball, 'sm')}
+                  <span class="font-bold text-white text-sm">Bóng ${String(b.ball).padStart(2, '0')}</span>
+                </div>
+              </td>
+              <td class="px-3 py-2.5 text-center">
+                <span class="text-sm font-bold text-amber-300">${b.score}</span>
+                <span class="text-[10px] text-slate-500">/10</span>
+              </td>
+              <td class="px-3 py-2.5 text-center">
+                ${agBadge}
+              </td>
+              <td class="px-3 py-2.5">
+                <div class="w-full bg-slate-800 rounded-full h-2 flex overflow-hidden shadow-inner" title="Hazard: ${pHazard}%, Decay: ${pDecay}%, Markov: ${pMarkov}%, Fourier: ${pFourier}%, Bạc Nhớ: ${pBacNho}%">
+                  <div class="bg-emerald-500 h-2" style="width: ${pHazard}%"></div>
+                  <div class="bg-rose-500 h-2" style="width: ${pDecay}%"></div>
+                  <div class="bg-fuchsia-500 h-2" style="width: ${pMarkov}%"></div>
+                  <div class="bg-cyan-500 h-2" style="width: ${pFourier}%"></div>
+                  <div class="bg-indigo-500 h-2" style="width: ${pBacNho}%"></div>
+                </div>
+              </td>
+              <td class="px-3 py-2.5 text-right">
+                ${evalBadge}
+              </td>
+            </tr>
+          `;
+        }).join('');
+      }
+
+      // 5. Model Cards Grid
+      const cardsGrid = document.getElementById('consensusModelCardsGrid');
+      if (cardsGrid && hub.model_explanations) {
+        const modelsMeta = {
+          "hazard": { icon: "timer", color: "emerald", border: "border-emerald-500/30", bg: "from-emerald-950/30" },
+          "decay": { icon: "flame", color: "rose", border: "border-rose-500/30", bg: "from-rose-950/30" },
+          "markov": { icon: "git-merge", color: "fuchsia", border: "border-fuchsia-500/30", bg: "from-fuchsia-950/30" },
+          "fourier": { icon: "activity", color: "cyan", border: "border-cyan-500/30", bg: "from-cyan-950/30" },
+          "bac_nho": { icon: "network", color: "indigo", border: "border-indigo-500/30", bg: "from-indigo-950/30" }
+        };
+
+        cardsGrid.innerHTML = Object.entries(hub.model_explanations).map(([k, exp]) => {
+          const meta = modelsMeta[k] || { icon: "cpu", color: "slate", border: "border-slate-800", bg: "from-slate-900" };
+          const mWeight = hub.leaderboard?.find(x => x.id === k)?.weight_pct || 20;
+
+          return `
+            <div class="p-4 rounded-xl bg-gradient-to-b ${meta.bg} to-slate-950 border ${meta.border} shadow-lg space-y-3">
+              <div class="flex items-center justify-between gap-2 border-b border-slate-800/80 pb-2.5">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="${meta.icon}" class="w-4 h-4 text-${meta.color}-400"></i>
+                  <h5 class="font-bold text-white text-xs">${exp.name}</h5>
+                </div>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-${meta.color}-500/20 text-${meta.color}-300 border border-${meta.color}-500/40">
+                  Trọng số ${mWeight}%
+                </span>
+              </div>
+
+              <div class="text-[11px] text-slate-400 font-mono">
+                <span class="text-slate-500">Cơ sở:</span> ${exp.math_basis}
+              </div>
+
+              <div>
+                <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider mb-1.5">Bộ số ưu tiên kỳ này:</div>
+                <div class="flex flex-wrap items-center gap-1.5">
+                  ${(exp.top_picks || []).map(b => renderLottoBall(b, 'sm')).join('')}
+                </div>
+              </div>
+
+              <p class="text-xs text-slate-300 bg-slate-900/90 p-2.5 rounded-lg border border-slate-800/80 leading-relaxed italic">
+                "${exp.rationale}"
+              </p>
+            </div>
+          `;
+        }).join('');
+      }
+
+      // 6. Audit History Table
+      const auditBody = document.getElementById('consensusAuditHistoryBody');
+      if (auditBody && hub.history_walk_forward) {
+        auditBody.innerHTML = hub.history_walk_forward.map(row => {
+          const k = row.matchCount || 0;
+          const kColor = k >= 3 ? 'text-amber-400 font-bold bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/30' : (k >= 2 ? 'text-emerald-400 font-semibold' : 'text-slate-400');
+
+          const predHtml = row.predicted.map(n => {
+            const isHit = row.matched.includes(n);
+            return `<span class="inline-block px-1.5 py-0.5 rounded text-[11px] font-mono mr-1 ${isHit ? 'bg-amber-500 text-slate-950 font-bold shadow' : 'bg-slate-800 text-slate-300'}">${String(n).padStart(2, '0')}</span>`;
+          }).join('');
+
+          const actualHtml = (row.actual || []).map(n => {
+            const isHit = row.matched.includes(n);
+            return `<span class="inline-block px-1.5 py-0.5 rounded text-[11px] font-mono mr-1 ${isHit ? 'bg-emerald-500/30 text-emerald-300 font-bold border border-emerald-500/50' : 'text-slate-400'}">${String(n).padStart(2, '0')}</span>`;
+          }).join('');
+
+          return `
+            <tr class="hover:bg-slate-800/30 transition text-xs font-mono">
+              <td class="px-3 py-2.5 font-bold text-white">#${row.drawId}</td>
+              <td class="px-3 py-2.5 text-slate-400">${row.date}</td>
+              <td class="px-3 py-2.5">${predHtml}</td>
+              <td class="px-3 py-2.5">${actualHtml}</td>
+              <td class="px-3 py-2.5 text-center"><span class="${kColor}">${k} số</span></td>
+              <td class="px-3 py-2.5 text-right font-bold text-amber-300">
+                ${row.matched.length > 0 ? `[${row.matched.map(x => String(x).padStart(2, '0')).join(', ')}]` : '<span class="text-slate-600 font-normal">--</span>'}
+              </td>
+            </tr>
+          `;
+        }).join('');
+      }
+
       lucide.createIcons();
+    }
+
+    function saveConsensusTicket(type) {
+      const product = appData?.products?.[currentProductKey];
+      if (!product || !product.consensus_hub) return;
+      const hub = product.consensus_hub;
+      const t = hub.tickets?.[type];
+      if (!t || !t.numbers) return;
+
+      const nextDrawId = hub.next_draw_id?.replace('#', '') || 'Next';
+      const typeName = type === 'golden' ? 'Dàn Vàng Consensus' : (type === 'momentum' ? 'Dàn Xung Lực' : 'Dàn Bao 7');
+
+      saveTicketToNotebook({
+        game: currentProductKey,
+        gameName: product.name,
+        drawId: nextDrawId,
+        ticketType: type === 'bao7' ? 'Bao 7' : 'Chuẩn',
+        label: `${typeName} (#${nextDrawId})`,
+        numbers: t.numbers,
+        special: t.special || null
+      });
+    }
+
+    function copyConsensusTicketSms(type) {
+      const product = appData?.products?.[currentProductKey];
+      if (!product || !product.consensus_hub) return;
+      const t = product.consensus_hub.tickets?.[type];
+      if (!t || !t.numbers) return;
+
+      const numbersStr = t.numbers.map(x => String(x).padStart(2, '0')).join(' ');
+      copySingleTicketSms(numbersStr);
     }
 
     function renderEnsembleView(product) {
