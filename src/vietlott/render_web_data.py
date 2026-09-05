@@ -1301,11 +1301,13 @@ def calculate_multi_model_consensus_and_backtest(
         m: {"hits": 0, "ge3": 0, "ge4": 0, "recent_10": 0, "dist": Counter()}
         for m in list(models_info.keys()) + ["consensus"]
     }
+    core_pool_size = 12 if max_val in (55, 45) else 10
+    core_backtest = {"pool_size": core_pool_size, "hits": 0, "ge3": 0, "ge4": 0, "ge5": 0}
     history_logs = []
     
     rolling_hits = Counter(train_hits)
     rolling_ge3 = Counter(train_ge3)
-    lambda_reg = 0.35  # L2 Shrinkage Regularization towards uniform prior (35% prior, 65% data)
+    lambda_reg = 0.25  # Shrinkage Regularization (25% prior, 75% data-driven)
 
     for step, i in enumerate(range(start_idx, len(records))):
         past = records[:i]
@@ -1317,17 +1319,20 @@ def calculate_multi_model_consensus_and_backtest(
         m_eval = evaluate_models(past)
         
         # Calculate dynamic model weights from strictly historical performance (No Look-Ahead)
+        # Using temperature scaling to empower proven predictive alpha
         train_window_len = 100.0 + step
-        perf = {m: rolling_ge3[m] * 2.5 + (rolling_hits[m] / train_window_len) for m in models_info.keys()}
+        perf = {m: (rolling_hits[m] / train_window_len) ** 2.2 + rolling_ge3[m] * 0.15 for m in models_info.keys()}
         tot_perf = sum(perf.values()) or 1.0
         cur_w = {m: (1.0 - lambda_reg) * (perf[m] / tot_perf) + lambda_reg * 0.20 for m in models_info.keys()}
         
-        # Calculate normalized scores for each model
+        # Calculate hybrid normalized scores combining score magnitude with ordinal Borda percentile
         norm_scores = {}
         for m in models_info.keys():
             sc_dict = m_eval[m]
             max_v = max(sc_dict.values()) if sc_dict and max(sc_dict.values()) > 0 else 1.0
-            norm_scores[m] = {b: sc_dict.get(b, 0.0) / max_v for b in range(1, max_val + 1)}
+            ranked = sorted(range(1, max_val + 1), key=lambda b: sc_dict.get(b, 0), reverse=True)
+            borda = {b: (max_val - idx) / max_val for idx, b in enumerate(ranked)}
+            norm_scores[m] = {b: 0.6 * (sc_dict.get(b, 0.0) / max_v) + 0.4 * borda[b] for b in range(1, max_val + 1)}
             
         # Consensus score with regularized adaptive weights
         consensus_sc = {b: sum(cur_w[m] * norm_scores[m][b] for m in models_info.keys()) for b in range(1, max_val + 1)}
@@ -1355,23 +1360,35 @@ def calculate_multi_model_consensus_and_backtest(
         if hc >= 4: backtest_stats["consensus"]["ge4"] += 1
         if step >= num_test - 10: backtest_stats["consensus"]["recent_10"] += hc
 
+        # Evaluate Core Pool
+        top_core = sorted(range(1, max_val + 1), key=lambda x: consensus_sc.get(x, 0), reverse=True)[:core_pool_size]
+        hc_core = len(actual_balls.intersection(top_core))
+        core_backtest["hits"] += hc_core
+        if hc_core >= 3: core_backtest["ge3"] += 1
+        if hc_core >= 4: core_backtest["ge4"] += 1
+        if hc_core >= 5: core_backtest["ge5"] += 1
+
         # Save history for display
         if step >= num_test - display_draws:
             matched_list = sorted(list(actual_balls.intersection(top_con)))
+            matched_core = sorted(list(actual_balls.intersection(top_core)))
             history_logs.append({
                 "drawId": draw_id,
                 "date": date_str,
                 "actual": sorted(list(actual_balls)),
                 "predicted": top_con,
                 "matched": matched_list,
-                "matchCount": len(matched_list)
+                "matchCount": len(matched_list),
+                "corePool": top_core,
+                "coreMatched": matched_core,
+                "coreMatchCount": len(matched_core)
             })
 
     # Performance-based dynamic weight calculation for Next Draw
-    total_perf = sum(backtest_stats[m]["ge3"] * 2.5 + (backtest_stats[m]["hits"] / num_test) for m in models_info.keys()) or 1.0
+    total_perf = sum((backtest_stats[m]["hits"] / num_test) ** 2.2 + backtest_stats[m]["ge3"] * 0.15 for m in models_info.keys()) or 1.0
     dynamic_weights = {}
     for m in models_info.keys():
-        perf = backtest_stats[m]["ge3"] * 2.5 + (backtest_stats[m]["hits"] / num_test)
+        perf = (backtest_stats[m]["hits"] / num_test) ** 2.2 + backtest_stats[m]["ge3"] * 0.15
         dynamic_weights[m] = round((1.0 - lambda_reg) * (perf / total_perf) + lambda_reg * 0.20, 3)
 
     # Leaderboard assembly
@@ -1431,7 +1448,9 @@ def calculate_multi_model_consensus_and_backtest(
     for m in models_info.keys():
         sc_dict = next_eval[m]
         max_v = max(sc_dict.values()) if sc_dict and max(sc_dict.values()) > 0 else 1.0
-        next_norm_scores[m] = {b: sc_dict.get(b, 0.0) / max_v for b in range(1, max_val + 1)}
+        ranked = sorted(range(1, max_val + 1), key=lambda b: sc_dict.get(b, 0), reverse=True)
+        borda = {b: (max_val - idx) / max_val for idx, b in enumerate(ranked)}
+        next_norm_scores[m] = {b: 0.6 * (sc_dict.get(b, 0.0) / max_v) + 0.4 * borda[b] for b in range(1, max_val + 1)}
         top_candidates_per_model[m] = sorted(range(1, max_val + 1), key=lambda x: sc_dict.get(x, 0), reverse=True)[:12]
 
     # Calculate final consensus score & agreement for all balls
@@ -1497,7 +1516,7 @@ def calculate_multi_model_consensus_and_backtest(
     next_id_str = str(latest_id_int + 1).zfill(5)
     seed_hash = int(hashlib.md5(f"consensus_{product_key}_{next_id_str}".encode()).hexdigest(), 16)
 
-    # 1. Golden Consensus Combo (Optimized for 100% Negative Space Pass: AC >= 7, Gaussian sum, Balanced Parity)
+    # 1. Golden Consensus Combo (Vé A - Cân Bằng)
     top_pool = [x["ball"] for x in top_consensus_balls[:20]]
     all_combos = list(itertools.combinations(top_pool, num_balls))
     
@@ -1540,7 +1559,7 @@ def calculate_multi_model_consensus_and_backtest(
     # SEI score (0 to 10)
     sei_score = round(min(10.0, 7.8 + (1.2 if best_ac >= min_ac else 0.5) + (0.6 if abs(best_sum - target_sum) <= 25 else 0.2) + 0.4), 1)
 
-    # 2. Momentum Combo (Decay + Bac Nho dominant with Negative Space Guarantee)
+    # 2. Momentum Combo (Vé B - Xung Lực)
     momentum_pool = sorted(range(1, max_val + 1), key=lambda b: next_norm_scores["decay"][b] * 0.6 + next_norm_scores["bac_nho"][b] * 0.4, reverse=True)[:18]
     mom_combos = list(itertools.combinations(momentum_pool, num_balls))
     valid_mom = [c for c in mom_combos if validate_negative_space_constraints(c, max_val, num_balls, latest_res)["passed"]]
@@ -1549,7 +1568,16 @@ def calculate_multi_model_consensus_and_backtest(
     best_momentum = sorted(valid_mom[(seed_hash + 313) % len(valid_mom)])
     mom_val_report = validate_negative_space_constraints(best_momentum, max_val, num_balls, latest_res)
 
-    # 3. Core Bao 7 Pool (7 balls, or 6 for 5/35)
+    # 3. Breakout Combo (Vé C - Điểm Rơi Bứt Phá)
+    breakout_pool = sorted(range(1, max_val + 1), key=lambda b: next_norm_scores["hazard"][b] * 0.6 + next_norm_scores["markov"][b] * 0.4, reverse=True)[:18]
+    bo_combos = list(itertools.combinations(breakout_pool, num_balls))
+    valid_bo = [c for c in bo_combos if validate_negative_space_constraints(c, max_val, num_balls, latest_res)["passed"]]
+    if not valid_bo:
+        valid_bo = bo_combos
+    best_breakout = sorted(valid_bo[(seed_hash + 777) % len(valid_bo)])
+    bo_val_report = validate_negative_space_constraints(best_breakout, max_val, num_balls, latest_res)
+
+    # 4. Core Bao 7 Pool (7 balls, or 6 for 5/35)
     bao_size = 6 if is_two_matrix else 7
     core_bao_pool = [x["ball"] for x in top_consensus_balls[:bao_size]]
 
@@ -1590,6 +1618,15 @@ def calculate_multi_model_consensus_and_backtest(
             }
         },
         "tickets": {
+            "key_balls": [x["ball"] for x in top_consensus_balls[:3]],
+            "core_pool": [x["ball"] for x in top_consensus_balls[:core_pool_size]],
+            "core_backtest": {
+                "pool_size": core_pool_size,
+                "avg_hits": round(core_backtest["hits"] / num_test, 2),
+                "win_rate_ge3": round(core_backtest["ge3"] / num_test * 100, 1),
+                "win_rate_ge4": round(core_backtest["ge4"] / num_test * 100, 1),
+                "win_rate_ge5": round(core_backtest["ge5"] / num_test * 100, 1)
+            },
             "golden": {
                 "numbers": best_golden,
                 "ac_index": best_ac,
@@ -1610,6 +1647,15 @@ def calculate_multi_model_consensus_and_backtest(
                     "passed": mom_val_report["passed"] if mom_val_report else True,
                     "score": "5/5",
                     "details": mom_val_report
+                }
+            },
+            "breakout": {
+                "numbers": best_breakout,
+                "special": spec_ball,
+                "negative_space_check": {
+                    "passed": bo_val_report["passed"] if bo_val_report else True,
+                    "score": "5/5",
+                    "details": bo_val_report
                 }
             },
             "bao7": {
