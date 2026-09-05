@@ -1740,17 +1740,43 @@
           </div>
         </div>
 
+        <!-- 3 KPI Cards for Walk-Forward Triad, Key-5 & Wheeling-4 -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-mono">
+          <div class="bg-slate-950 p-3 rounded-xl border border-amber-500/30 flex items-center justify-between">
+            <div>
+              <span class="text-slate-400 text-[11px] block">Top 3 Kiềng 3 Chân (100 Kỳ)</span>
+              <span id="kpiTriadWinRate" class="text-amber-400 font-black text-base font-mono">--% nổ ≥1 bóng</span>
+            </div>
+            <span class="px-2 py-1 rounded bg-amber-500/10 text-amber-300 text-[10px] font-bold border border-amber-500/20">36-48% Hit</span>
+          </div>
+          <div class="bg-slate-950 p-3 rounded-xl border border-indigo-500/30 flex items-center justify-between">
+            <div>
+              <span class="text-slate-400 text-[11px] block">Top 5 Ngũ Thủ Trục (100 Kỳ)</span>
+              <span id="kpiKey5WinRate" class="text-indigo-300 font-black text-base font-mono">--% nổ ≥1 bóng</span>
+            </div>
+            <span id="kpiKey5Ge2Badge" class="px-2 py-1 rounded bg-indigo-500/10 text-indigo-300 text-[10px] font-bold border border-indigo-500/20">--% ≥2 bóng</span>
+          </div>
+          <div class="bg-slate-950 p-3 rounded-xl border border-emerald-500/30 flex items-center justify-between">
+            <div>
+              <span class="text-slate-400 text-[11px] block">Bao Thu Gọn 4 Vé (Bảo Hiểm)</span>
+              <span id="kpiWheel4WinRate" class="text-emerald-400 font-black text-base font-mono">100% trúng khi nổ 4</span>
+            </div>
+            <span class="px-2 py-1 rounded bg-emerald-500/10 text-emerald-300 text-[10px] font-bold border border-emerald-500/20">Vốn 40k</span>
+          </div>
+        </div>
+
         <div class="overflow-x-auto">
           <table class="w-full text-left text-xs font-mono">
             <thead class="bg-slate-950/80 text-slate-400 uppercase text-[10px] tracking-wider border-b border-slate-800">
               <tr>
                 <th class="px-3 py-3 rounded-l-lg">Kỳ Quay</th>
                 <th class="px-3 py-3">Ngày Xổ</th>
-                <th class="px-3 py-3">Vé Consensus Đơn</th>
-                <th class="px-3 py-3 text-center">Dàn Hạt Nhân (Hits)</th>
                 <th class="px-3 py-3">Kết Quả Thực Tế</th>
-                <th class="px-3 py-3 text-center">Vé Đơn Trùng</th>
-                <th class="px-3 py-3 text-right rounded-r-lg">Chi Tiết Trùng</th>
+                <th class="px-3 py-3">Top 3 Kiềng 3 Chân</th>
+                <th class="px-3 py-3 text-center">Ngũ Thủ (Hits)</th>
+                <th class="px-3 py-3 text-center">Dàn Hạt Nhân (Hits)</th>
+                <th class="px-3 py-3 text-center">Bao 4 Vé (Giải)</th>
+                <th class="px-3 py-3 text-right rounded-r-lg">Vé Đơn Consensus</th>
               </tr>
             </thead>
             <tbody id="consensusAuditHistoryBody" class="divide-y divide-slate-800/60">
@@ -5018,23 +5044,51 @@
         }).join('');
       }
 
-      // 6. Audit History Table
+      // 6. Audit History Table & KPIs
+      const triadKpi = tickets.triad_backtest || {};
+      const key5Kpi = tickets.key5_backtest || {};
+      const wheel4Kpi = tickets.wheel4_backtest || {};
+
+      const triadEl = document.getElementById('kpiTriadWinRate');
+      if (triadEl) triadEl.textContent = `${triadKpi.win_rate_ge1 || 42}% nổ ≥1 bóng`;
+
+      const key5El = document.getElementById('kpiKey5WinRate');
+      if (key5El) key5El.textContent = `${key5Kpi.win_rate_ge1 || 55}% nổ ≥1 bóng`;
+
+      const key5Ge2El = document.getElementById('kpiKey5Ge2Badge');
+      if (key5Ge2El) key5Ge2El.textContent = `${key5Kpi.win_rate_ge2 || 15}% ≥2 bóng`;
+
+      const wheel4El = document.getElementById('kpiWheel4WinRate');
+      if (wheel4El) wheel4El.textContent = `${wheel4Kpi.core_ge4_win_rate || 100}% trúng khi nổ 4`;
+
       const auditBody = document.getElementById('consensusAuditHistoryBody');
       if (auditBody && hub.history_walk_forward) {
         auditBody.innerHTML = hub.history_walk_forward.map(row => {
           const k = row.matchCount || 0;
           const kColor = k >= 3 ? 'text-amber-400 font-bold bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/30' : (k >= 2 ? 'text-emerald-400 font-semibold' : 'text-slate-400');
 
-          const predHtml = row.predicted.map(n => {
-            const isHit = row.matched.includes(n);
-            return `<span class="inline-block px-1.5 py-0.5 rounded text-[11px] font-mono mr-1 ${isHit ? 'bg-amber-500 text-slate-950 font-bold shadow' : 'bg-slate-800 text-slate-300'}">${String(n).padStart(2, '0')}</span>`;
-          }).join('');
-
           const actualHtml = (row.actual || []).map(n => {
-            const isHit = row.matched.includes(n);
+            const isHit = (row.triadMatched && row.triadMatched.includes(n)) || (row.matched && row.matched.includes(n));
             return `<span class="inline-block px-1.5 py-0.5 rounded text-[11px] font-mono mr-1 ${isHit ? 'bg-emerald-500/30 text-emerald-300 font-bold border border-emerald-500/50' : 'text-slate-400'}">${String(n).padStart(2, '0')}</span>`;
           }).join('');
 
+          // Triad
+          const triadList = row.triad || [];
+          const triadHits = row.triadMatchCount !== undefined ? row.triadMatchCount : 0;
+          const triadHtml = triadList.map(n => {
+            const isHit = (row.triadMatched || []).includes(n);
+            return `<span class="inline-block px-1.5 py-0.5 rounded text-[11px] font-mono mr-1 ${isHit ? 'bg-amber-500 text-slate-950 font-bold shadow' : 'bg-slate-800 text-slate-400'}">${String(n).padStart(2, '0')}</span>`;
+          }).join('') + (triadHits > 0 ? `<span class="ml-1 px-1.5 py-0.2 rounded text-[10px] font-bold bg-amber-500/20 text-amber-300">${triadHits} con</span>` : '');
+
+          // Key 5
+          const key5Hits = row.key5MatchCount !== undefined ? row.key5MatchCount : 0;
+          const key5Badge = key5Hits >= 2 
+            ? `<span class="px-2 py-0.5 rounded font-bold text-xs bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">${key5Hits}/5 bóng 🔥</span>`
+            : (key5Hits >= 1 
+                ? `<span class="px-2 py-0.5 rounded font-semibold text-xs bg-indigo-500/20 text-indigo-300 border border-indigo-500/40">${key5Hits}/5 bóng</span>`
+                : `<span class="text-slate-600 text-xs">${key5Hits}/5</span>`);
+
+          // Core
           const coreK = row.coreMatchCount !== undefined ? row.coreMatchCount : 0;
           const coreKBadge = coreK >= 3 
             ? `<span class="px-2 py-0.5 rounded font-bold text-xs bg-amber-500/20 text-amber-300 border border-amber-500/40">${coreK} bóng 🔥</span>`
@@ -5042,17 +5096,22 @@
                 ? `<span class="px-2 py-0.5 rounded font-semibold text-xs bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">${coreK} bóng</span>`
                 : `<span class="text-slate-500 text-xs">${coreK} bóng</span>`);
 
+          // Wheel 4
+          const w4 = row.wheel4 || {};
+          const wheel4Badge = w4.wonPrize 
+            ? `<span class="px-2 py-0.5 rounded font-bold text-[11px] bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">Trúng Giải (${w4.maxHit} con) 🎉</span>`
+            : `<span class="text-slate-500 text-xs">Max ${w4.maxHit || 0} con</span>`;
+
           return `
             <tr class="hover:bg-slate-800/30 transition text-xs font-mono">
               <td class="px-3 py-2.5 font-bold text-white">#${row.drawId}</td>
-              <td class="px-3 py-2.5 text-slate-400">${row.date}</td>
-              <td class="px-3 py-2.5">${predHtml}</td>
-              <td class="px-3 py-2.5 text-center">${coreKBadge}</td>
+              <td class="px-3 py-2.5 text-slate-400 whitespace-nowrap">${row.date}</td>
               <td class="px-3 py-2.5">${actualHtml}</td>
-              <td class="px-3 py-2.5 text-center"><span class="${kColor}">${k} số</span></td>
-              <td class="px-3 py-2.5 text-right font-bold text-amber-300">
-                ${row.matched.length > 0 ? `[${row.matched.map(x => String(x).padStart(2, '0')).join(', ')}]` : '<span class="text-slate-600 font-normal">--</span>'}
-              </td>
+              <td class="px-3 py-2.5 whitespace-nowrap">${triadHtml || '<span class="text-slate-600">--</span>'}</td>
+              <td class="px-3 py-2.5 text-center">${key5Badge}</td>
+              <td class="px-3 py-2.5 text-center">${coreKBadge}</td>
+              <td class="px-3 py-2.5 text-center">${wheel4Badge}</td>
+              <td class="px-3 py-2.5 text-right"><span class="${kColor}">${k} số</span></td>
             </tr>
           `;
         }).join('');

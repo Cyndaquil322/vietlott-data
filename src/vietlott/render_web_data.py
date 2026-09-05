@@ -1303,6 +1303,9 @@ def calculate_multi_model_consensus_and_backtest(
     }
     core_pool_size = 12 if max_val in (55, 45) else 10
     core_backtest = {"pool_size": core_pool_size, "hits": 0, "ge3": 0, "ge4": 0, "ge5": 0}
+    triad_backtest = {"hits": 0, "ge1": 0, "ge2": 0}
+    key5_backtest = {"hits": 0, "ge1": 0, "ge2": 0}
+    wheel4_backtest = {"prize_won_count": 0, "core_ge4_count": 0, "core_ge4_won_count": 0}
     history_logs = []
     
     rolling_hits = Counter(train_hits)
@@ -1368,10 +1371,68 @@ def calculate_multi_model_consensus_and_backtest(
         if hc_core >= 4: core_backtest["ge4"] += 1
         if hc_core >= 5: core_backtest["ge5"] += 1
 
+        # Evaluate Stratified Triad (Kiềng 3 Chân: 1 Markov + 1 Hazard + 1 Cầu Rơi)
+        b_mkv = sorted(range(1, max_val + 1), key=lambda b: m_eval["markov"].get(b, 0), reverse=True)[0]
+        top_hzd = sorted(range(1, max_val + 1), key=lambda b: m_eval["hazard"].get(b, 0), reverse=True)
+        b_hzd = next((b for b in top_hzd if b != b_mkv), 1)
+        prev_r = past[-1].get("result", [])[:num_balls] if past else []
+        if prev_r:
+            sw = past[-15:]
+            cau_roi_s = sorted(prev_r, key=lambda b: sum(1 for r in sw if b in r.get("result", [])[:num_balls]), reverse=True)
+            b_cr = next((b for b in cau_roi_s if b not in (b_mkv, b_hzd)), (cau_roi_s[0] if cau_roi_s else 2))
+        else:
+            b_cr = next((b for b in top_core if b not in (b_mkv, b_hzd)), 3)
+        h_triad_balls = [b_mkv, b_hzd, b_cr]
+        h_triad = len(actual_balls.intersection(h_triad_balls))
+        triad_backtest["hits"] += h_triad
+        if h_triad >= 1: triad_backtest["ge1"] += 1
+        if h_triad >= 2: triad_backtest["ge2"] += 1
+
+        # Evaluate Top 5 Ngũ Thủ
+        rem_con = [b for b in top_core if b not in h_triad_balls]
+        h_key5_balls = h_triad_balls + rem_con[:2]
+        h_key5 = len(actual_balls.intersection(h_key5_balls))
+        key5_backtest["hits"] += h_key5
+        if h_key5 >= 1: key5_backtest["ge1"] += 1
+        if h_key5 >= 2: key5_backtest["ge2"] += 1
+
+        # Evaluate 4-Ticket Abbreviated Covering Wheels
+        core_10 = top_core[:10]
+        if num_balls == 6:
+            wheel_idx = [
+                [0, 1, 2, 3, 4, 5],
+                [0, 1, 6, 7, 8, 9],
+                [2, 3, 6, 7, 8, 9],
+                [4, 5, 6, 7, 8, 9],
+            ]
+        else:
+            wheel_idx = [
+                [0, 1, 2, 3, 4],
+                [0, 5, 6, 7, 8],
+                [1, 2, 5, 6, 9],
+                [3, 4, 7, 8, 9],
+            ]
+        ticket_hits = []
+        for idx_l in wheel_idx:
+            t_nums = [core_10[x] for x in idx_l if x < len(core_10)]
+            ticket_hits.append(len(actual_balls.intersection(t_nums)))
+        max_wheel_hit = max(ticket_hits) if ticket_hits else 0
+        wheel_won_prize = any(h >= 3 for h in ticket_hits)
+        if wheel_won_prize:
+            wheel4_backtest["prize_won_count"] += 1
+        
+        core_10_hits = len(actual_balls.intersection(core_10))
+        if core_10_hits >= 4:
+            wheel4_backtest["core_ge4_count"] += 1
+            if wheel_won_prize:
+                wheel4_backtest["core_ge4_won_count"] += 1
+
         # Save history for display
         if step >= num_test - display_draws:
             matched_list = sorted(list(actual_balls.intersection(top_con)))
             matched_core = sorted(list(actual_balls.intersection(top_core)))
+            matched_triad = sorted(list(actual_balls.intersection(h_triad_balls)))
+            matched_key5 = sorted(list(actual_balls.intersection(h_key5_balls)))
             history_logs.append({
                 "drawId": draw_id,
                 "date": date_str,
@@ -1381,7 +1442,18 @@ def calculate_multi_model_consensus_and_backtest(
                 "matchCount": len(matched_list),
                 "corePool": top_core,
                 "coreMatched": matched_core,
-                "coreMatchCount": len(matched_core)
+                "coreMatchCount": len(matched_core),
+                "triad": h_triad_balls,
+                "triadMatched": matched_triad,
+                "triadMatchCount": len(matched_triad),
+                "key5": h_key5_balls,
+                "key5Matched": matched_key5,
+                "key5MatchCount": len(matched_key5),
+                "wheel4": {
+                    "ticketHits": ticket_hits,
+                    "maxHit": max_wheel_hit,
+                    "wonPrize": wheel_won_prize
+                }
             })
 
     # Performance-based dynamic weight calculation for Next Draw
@@ -1675,6 +1747,16 @@ def calculate_multi_model_consensus_and_backtest(
             "key_balls": top_key_triad,
             "key_roles": key_roles,
             "key_5_balls": top_key_5,
+            "triad_backtest": {
+                "avg_hits": round(triad_backtest["hits"] / num_test, 2),
+                "win_rate_ge1": round(triad_backtest["ge1"] / num_test * 100, 1),
+                "win_rate_ge2": round(triad_backtest["ge2"] / num_test * 100, 1)
+            },
+            "key5_backtest": {
+                "avg_hits": round(key5_backtest["hits"] / num_test, 2),
+                "win_rate_ge1": round(key5_backtest["ge1"] / num_test * 100, 1),
+                "win_rate_ge2": round(key5_backtest["ge2"] / num_test * 100, 1)
+            },
             "core_pool": [x["ball"] for x in top_consensus_balls[:core_pool_size]],
             "core_backtest": {
                 "pool_size": core_pool_size,
@@ -1684,6 +1766,11 @@ def calculate_multi_model_consensus_and_backtest(
                 "win_rate_ge5": round(core_backtest["ge5"] / num_test * 100, 1)
             },
             "wheeling_4_tickets": wheeling_4_tickets,
+            "wheel4_backtest": {
+                "overall_prize_win_rate": round(wheel4_backtest["prize_won_count"] / num_test * 100, 1),
+                "core_ge4_count": wheel4_backtest["core_ge4_count"],
+                "core_ge4_win_rate": round(wheel4_backtest["core_ge4_won_count"] / max(1, wheel4_backtest["core_ge4_count"]) * 100, 1)
+            },
             "golden": {
                 "numbers": best_golden,
                 "ac_index": best_ac,

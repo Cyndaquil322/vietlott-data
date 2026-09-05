@@ -119,6 +119,7 @@ def sync_power(name: str, url: str, key: str, file_path: Path, array_len: int = 
 
     save_data(file_path, existing)
     print(f"[OK] {name} synced: +{new_draws} new draws. Total now: {len(existing)} draws.")
+    return new_draws
 
 
 def sync_max3d(name: str, url: str, game_id: str, file_path: Path, max_pages: int = 35):
@@ -212,6 +213,7 @@ def sync_max3d(name: str, url: str, game_id: str, file_path: Path, max_pages: in
 
     save_data(file_path, existing)
     print(f"[OK] {name} synced: +{new_draws} new draws. Total now: {len(existing)} draws.")
+    return new_draws
 
 
 def sync_power535(file_path: Path, max_pages: int = 40):
@@ -237,7 +239,7 @@ def sync_power535(file_path: Path, max_pages: int = 40):
         render_info["SiteLang"] = "vi"
     except Exception as e:
         print(f"Failed to get RenderInfo for 5/35: {e}")
-        return
+        return 0
 
     headers_draw = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
@@ -309,63 +311,69 @@ def sync_power535(file_path: Path, max_pages: int = 40):
 
     save_data(file_path, existing)
     print(f"[OK] Power 5/35 synced: +{new_draws} new draws. Total now: {len(existing)} draws.")
+    return new_draws
 
 
-def main():
+def main(trigger_render: bool = True) -> Dict[str, int]:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
+    results: Dict[str, int] = {}
 
     # 1. Power 6/55
-    sync_power(
+    results["power655"] = sync_power(
         name="Power 6/55",
         url="https://www.vietlott.vn/ajaxpro/Vietlott.PlugIn.WebParts.Game655CompareWebPart,Vietlott.PlugIn.WebParts.ashx",
         key="23bbd667",
         file_path=DATA_DIR / "power655.jsonl",
         array_len=5,
         max_pages=35,
-    )
+    ) or 0
 
     # 2. Mega 6/45
-    sync_power(
+    results["power645"] = sync_power(
         name="Mega 6/45",
         url="https://www.vietlott.vn/ajaxpro/Vietlott.PlugIn.WebParts.Game645CompareWebPart,Vietlott.PlugIn.WebParts.ashx",
         key="785cdae0",
         file_path=DATA_DIR / "power645.jsonl",
         array_len=6,
         max_pages=35,
-    )
+    ) or 0
 
     # 3. Power 5/35
-    sync_power535(
+    results["power535"] = sync_power535(
         file_path=DATA_DIR / "power535.jsonl",
         max_pages=35,
-    )
+    ) or 0
 
     # 4. Max 3D
-    sync_max3d(
+    results["max3d"] = sync_max3d(
         name="Max 3D",
         url="https://www.vietlott.vn/ajaxpro/Vietlott.PlugIn.WebParts.GameMax3DCompareWebPart,Vietlott.PlugIn.WebParts.ashx",
         game_id="5",
         file_path=DATA_DIR / "3d.jsonl",
         max_pages=35,
-    )
+    ) or 0
 
     # 5. Max 3D Pro
-    sync_max3d(
+    results["max3dpro"] = sync_max3d(
         name="Max 3D Pro",
         url="https://www.vietlott.vn/ajaxpro/Vietlott.PlugIn.WebParts.GameMax3DProCompareWebPart,Vietlott.PlugIn.WebParts.ashx",
         game_id="6",
         file_path=DATA_DIR / "3d_pro.jsonl",
         max_pages=35,
-    )
+    ) or 0
 
-    print("\n=== Live Sync Complete! Regenerating Web Data ===")
-    try:
-        from vietlott.render_web_data import main as render_web
-    except ModuleNotFoundError:
-        import sys
-        sys.path.insert(0, str(Path(__file__).resolve().parent))
-        from render_web_data import main as render_web
-    render_web()
+    total_new = sum(results.values())
+    if trigger_render:
+        print("\n=== Live Sync Complete! Regenerating Web Data ===")
+        try:
+            from vietlott.render_web_data import main as render_web
+        except ModuleNotFoundError:
+            import sys
+            sys.path.insert(0, str(Path(__file__).resolve().parent))
+            from render_web_data import main as render_web
+        render_web()
+
+    return results
 
 
 if __name__ == "__main__":
