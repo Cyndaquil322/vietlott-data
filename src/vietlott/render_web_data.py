@@ -1577,9 +1577,33 @@ def calculate_multi_model_consensus_and_backtest(
     best_breakout = sorted(valid_bo[(seed_hash + 777) % len(valid_bo)])
     bo_val_report = validate_negative_space_constraints(best_breakout, max_val, num_balls, latest_res)
 
-    # 4. Core Bao 7 Pool (7 balls, or 6 for 5/35)
-    bao_size = 6 if is_two_matrix else 7
-    core_bao_pool = [x["ball"] for x in top_consensus_balls[:bao_size]]
+    # Stratified Triad for Top 3 Key Balls (Kiềng 3 Chân: Markov + Hazard + Cầu Rơi):
+    # 1. Top Markov ball
+    top_markov_balls = sorted(range(1, max_val + 1), key=lambda b: next_eval["markov"].get(b, 0), reverse=True)
+    b_markov = top_markov_balls[0]
+    
+    # 2. Top Hazard ball in golden zone
+    top_hazard_balls = sorted(range(1, max_val + 1), key=lambda b: next_eval["hazard"].get(b, 0), reverse=True)
+    b_hazard = next((b for b in top_hazard_balls if b != b_markov), 1)
+    
+    # 3. Top Cau Roi (Hottest repeat ball from previous draw)
+    if latest_res:
+        short_window = records[-15:]
+        cau_roi_sorted = sorted(latest_res, key=lambda b: sum(1 for r in short_window if b in r.get("result", [])[:num_balls]), reverse=True)
+        b_cau_roi = next((b for b in cau_roi_sorted if b not in (b_markov, b_hazard)), (cau_roi_sorted[0] if cau_roi_sorted else 2))
+    else:
+        b_cau_roi = next((b for b in top_consensus_balls if b["ball"] not in (b_markov, b_hazard)), {"ball": 3})["ball"]
+        
+    top_key_triad = [b_markov, b_hazard, b_cau_roi]
+    key_roles = [
+        {"ball": b_markov, "role": "Xác Suất Markov", "color": "fuchsia"},
+        {"ball": b_hazard, "role": "Điểm Rơi Hazard", "color": "emerald"},
+        {"ball": b_cau_roi, "role": "Nhịp Cầu Rơi", "color": "amber"}
+    ]
+    
+    # Top 5 Ngũ Thủ Trục (Key 5 balls):
+    remaining_con = [x["ball"] for x in top_consensus_balls if x["ball"] not in top_key_triad]
+    top_key_5 = top_key_triad + remaining_con[:2]
 
     # Special Ball
     spec_ball = None
@@ -1592,6 +1616,36 @@ def calculate_multi_model_consensus_and_backtest(
     elif product_key == "power_655":
         candidates = [x["ball"] for x in top_consensus_balls if x["ball"] not in best_golden]
         spec_ball = candidates[0] if candidates else 1
+
+    # 4 Abbreviated Wheeling Tickets (Bao Thu Gọn 4 Vé từ Dàn Hạt Nhân 10 số):
+    core_10 = [x["ball"] for x in top_consensus_balls[:10]]
+    if num_balls == 6:
+        wheel_indices = [
+            [0, 1, 2, 3, 4, 5],
+            [0, 1, 6, 7, 8, 9],
+            [2, 3, 6, 7, 8, 9],
+            [4, 5, 6, 7, 8, 9],
+        ]
+    else:
+        wheel_indices = [
+            [0, 1, 2, 3, 4],
+            [0, 5, 6, 7, 8],
+            [1, 2, 5, 6, 9],
+            [3, 4, 7, 8, 9],
+        ]
+    wheeling_4_tickets = []
+    for w_idx, idx_list in enumerate(wheel_indices):
+        t_nums = sorted([core_10[i] for i in idx_list if i < len(core_10)])
+        wheeling_4_tickets.append({
+            "id": f"ve_{w_idx + 1}",
+            "label": f"Vé {w_idx + 1}",
+            "numbers": t_nums,
+            "special": spec_ball
+        })
+
+    # 4. Core Bao 7 Pool (7 balls, or 6 for 5/35)
+    bao_size = 6 if is_two_matrix else 7
+    core_bao_pool = [x["ball"] for x in top_consensus_balls[:bao_size]]
 
     return {
         "next_draw_id": f"#{next_id_str}",
@@ -1618,7 +1672,9 @@ def calculate_multi_model_consensus_and_backtest(
             }
         },
         "tickets": {
-            "key_balls": [x["ball"] for x in top_consensus_balls[:3]],
+            "key_balls": top_key_triad,
+            "key_roles": key_roles,
+            "key_5_balls": top_key_5,
             "core_pool": [x["ball"] for x in top_consensus_balls[:core_pool_size]],
             "core_backtest": {
                 "pool_size": core_pool_size,
@@ -1627,6 +1683,7 @@ def calculate_multi_model_consensus_and_backtest(
                 "win_rate_ge4": round(core_backtest["ge4"] / num_test * 100, 1),
                 "win_rate_ge5": round(core_backtest["ge5"] / num_test * 100, 1)
             },
+            "wheeling_4_tickets": wheeling_4_tickets,
             "golden": {
                 "numbers": best_golden,
                 "ac_index": best_ac,

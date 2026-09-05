@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-09-05 19:35:23",
+    "generated_at": "2026-09-05 20:39:08",
     "generator": "vietlott-data automated pipeline",
     "version": "2.0.0"
   },
@@ -7060,7 +7060,31 @@
         },
         "tickets": {
           "key_balls": [
+            22,
             20,
+            9
+          ],
+          "key_roles": [
+            {
+              "ball": 22,
+              "role": "Xác Suất Markov",
+              "color": "fuchsia"
+            },
+            {
+              "ball": 20,
+              "role": "Điểm Rơi Hazard",
+              "color": "emerald"
+            },
+            {
+              "ball": 9,
+              "role": "Nhịp Cầu Rơi",
+              "color": "amber"
+            }
+          ],
+          "key_5_balls": [
+            22,
+            20,
+            9,
             39,
             55
           ],
@@ -7085,6 +7109,60 @@
             "win_rate_ge4": 0.0,
             "win_rate_ge5": 0.0
           },
+          "wheeling_4_tickets": [
+            {
+              "id": "ve_1",
+              "label": "Vé 1",
+              "numbers": [
+                2,
+                7,
+                8,
+                20,
+                39,
+                55
+              ],
+              "special": 20
+            },
+            {
+              "id": "ve_2",
+              "label": "Vé 2",
+              "numbers": [
+                20,
+                25,
+                27,
+                29,
+                39,
+                41
+              ],
+              "special": 20
+            },
+            {
+              "id": "ve_3",
+              "label": "Vé 3",
+              "numbers": [
+                8,
+                25,
+                27,
+                29,
+                41,
+                55
+              ],
+              "special": 20
+            },
+            {
+              "id": "ve_4",
+              "label": "Vé 4",
+              "numbers": [
+                2,
+                7,
+                25,
+                27,
+                29,
+                41
+              ],
+              "special": 20
+            }
+          ],
           "golden": {
             "numbers": [
               2,
@@ -14304,6 +14382,30 @@
         "tickets": {
           "key_balls": [
             31,
+            43,
+            16
+          ],
+          "key_roles": [
+            {
+              "ball": 31,
+              "role": "Xác Suất Markov",
+              "color": "fuchsia"
+            },
+            {
+              "ball": 43,
+              "role": "Điểm Rơi Hazard",
+              "color": "emerald"
+            },
+            {
+              "ball": 16,
+              "role": "Nhịp Cầu Rơi",
+              "color": "amber"
+            }
+          ],
+          "key_5_balls": [
+            31,
+            43,
+            16,
             38,
             3
           ],
@@ -14328,6 +14430,60 @@
             "win_rate_ge4": 0.0,
             "win_rate_ge5": 0.0
           },
+          "wheeling_4_tickets": [
+            {
+              "id": "ve_1",
+              "label": "Vé 1",
+              "numbers": [
+                2,
+                3,
+                7,
+                22,
+                31,
+                38
+              ],
+              "special": null
+            },
+            {
+              "id": "ve_2",
+              "label": "Vé 2",
+              "numbers": [
+                13,
+                31,
+                36,
+                38,
+                41,
+                43
+              ],
+              "special": null
+            },
+            {
+              "id": "ve_3",
+              "label": "Vé 3",
+              "numbers": [
+                3,
+                13,
+                22,
+                36,
+                41,
+                43
+              ],
+              "special": null
+            },
+            {
+              "id": "ve_4",
+              "label": "Vé 4",
+              "numbers": [
+                2,
+                7,
+                13,
+                36,
+                41,
+                43
+              ],
+              "special": null
+            }
+          ],
           "golden": {
             "numbers": [
               7,
@@ -21002,6 +21158,30 @@
         "tickets": {
           "key_balls": [
             2,
+            26,
+            18
+          ],
+          "key_roles": [
+            {
+              "ball": 2,
+              "role": "Xác Suất Markov",
+              "color": "fuchsia"
+            },
+            {
+              "ball": 26,
+              "role": "Điểm Rơi Hazard",
+              "color": "emerald"
+            },
+            {
+              "ball": 18,
+              "role": "Nhịp Cầu Rơi",
+              "color": "amber"
+            }
+          ],
+          "key_5_balls": [
+            2,
+            26,
+            18,
             9,
             7
           ],
@@ -21024,6 +21204,56 @@
             "win_rate_ge4": 1.0,
             "win_rate_ge5": 0.0
           },
+          "wheeling_4_tickets": [
+            {
+              "id": "ve_1",
+              "label": "Vé 1",
+              "numbers": [
+                2,
+                4,
+                7,
+                9,
+                13
+              ],
+              "special": 7
+            },
+            {
+              "id": "ve_2",
+              "label": "Vé 2",
+              "numbers": [
+                2,
+                17,
+                27,
+                28,
+                34
+              ],
+              "special": 7
+            },
+            {
+              "id": "ve_3",
+              "label": "Vé 3",
+              "numbers": [
+                7,
+                9,
+                15,
+                17,
+                28
+              ],
+              "special": 7
+            },
+            {
+              "id": "ve_4",
+              "label": "Vé 4",
+              "numbers": [
+                4,
+                13,
+                15,
+                27,
+                34
+              ],
+              "special": 7
+            }
+          ],
           "golden": {
             "numbers": [
               4,
