@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-09-05 18:23:35",
+    "generated_at": "2026-09-05 18:50:59",
     "generator": "vietlott-data automated pipeline",
     "version": "2.0.0"
   },
@@ -6664,12 +6664,12 @@
             "name": "Consensus Engine (Tổng Hợp)",
             "icon": "trophy",
             "color": "amber",
-            "avg_hits": 0.77,
-            "win_rate_ge3": 4.0,
-            "recent_10_hits": 7,
+            "avg_hits": 0.73,
+            "win_rate_ge3": 1.0,
+            "recent_10_hits": 9,
             "form": "⚡ Phong độ tốt",
             "weight_pct": 100.0,
-            "desc": "Hội đồng hợp lực tích hợp 5 mô hình độc lập với trọng số thích ứng."
+            "desc": "Hội đồng hợp lực tích hợp 5 mô hình độc lập với trọng số thích ứng điều chuẩn L2."
           },
           {
             "id": "markov",
@@ -6679,8 +6679,8 @@
             "avg_hits": 0.8,
             "win_rate_ge3": 5.0,
             "recent_10_hits": 7,
-            "form": "Chờ điểm rơi",
-            "weight_pct": 50.7,
+            "form": "⚡ Ổn định",
+            "weight_pct": 40.3,
             "desc": "Xác suất chuyển trạng thái có điều kiện từ kết quả kỳ trước."
           },
           {
@@ -6688,24 +6688,24 @@
             "name": "Bayesian Hazard Rate (Nhịp Gan)",
             "icon": "timer",
             "color": "emerald",
-            "avg_hits": 0.6,
+            "avg_hits": 0.72,
             "win_rate_ge3": 2.0,
-            "recent_10_hits": 8,
-            "form": "⚡ Ổn định",
-            "weight_pct": 21.6,
-            "desc": "Hàm mật độ nguy cơ rơi vào vùng vàng (0.75 - 1.35 chu kỳ trung bình)."
+            "recent_10_hits": 6,
+            "form": "Chờ điểm rơi",
+            "weight_pct": 21.3,
+            "desc": "Hàm mật độ nguy cơ rơi vào vùng vàng (0.70 - 1.40 chu kỳ trung bình)."
           },
           {
             "id": "decay",
             "name": "Exponential Time Decay (Nhiệt)",
             "icon": "flame",
             "color": "rose",
-            "avg_hits": 0.67,
+            "avg_hits": 0.66,
             "win_rate_ge3": 1.0,
-            "recent_10_hits": 3,
+            "recent_10_hits": 5,
             "form": "Chờ điểm rơi",
-            "weight_pct": 12.5,
-            "desc": "Tần suất suy giảm mũ theo thời gian alpha=0.035, đo quán tính nhiệt."
+            "weight_pct": 14.9,
+            "desc": "Tần suất suy giảm mũ theo thời gian alpha=0.028, chu kỳ bán rã 24.8 kỳ."
           },
           {
             "id": "bac_nho",
@@ -6715,8 +6715,8 @@
             "avg_hits": 0.65,
             "win_rate_ge3": 1.0,
             "recent_10_hits": 7,
-            "form": "Chờ điểm rơi",
-            "weight_pct": 12.4,
+            "form": "⚡ Ổn định",
+            "weight_pct": 14.9,
             "desc": "Chỉ số độ nâng Lift và lực hút cặp đôi đồng quy từ kỳ trước."
           },
           {
@@ -6724,11 +6724,11 @@
             "name": "Fourier Spectral Resonance (Sóng)",
             "icon": "activity",
             "color": "cyan",
-            "avg_hits": 0.57,
+            "avg_hits": 0.65,
             "win_rate_ge3": 0.0,
-            "recent_10_hits": 7,
+            "recent_10_hits": 4,
             "form": "Chờ điểm rơi",
-            "weight_pct": 2.7,
+            "weight_pct": 8.6,
             "desc": "Cộng hưởng bước sóng phổ dao động rời rạc (DFT) trên 64 kỳ."
           },
           {
@@ -6747,227 +6747,227 @@
         "top_consensus_balls": [
           {
             "ball": 7,
-            "score": 9.3,
-            "agreement_count": 4,
-            "agreement_pct": 80.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 2.2,
-              "decay": 0.8,
-              "markov": 5.1,
-              "fourier": 0.0,
-              "bac_nho": 1.2
-            }
-          },
-          {
-            "ball": 5,
-            "score": 8.8,
-            "agreement_count": 4,
-            "agreement_pct": 80.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 2.2,
-              "decay": 1.2,
-              "markov": 5.1,
-              "fourier": 0.0,
-              "bac_nho": 0.3
-            }
-          },
-          {
-            "ball": 22,
-            "score": 8.8,
+            "score": 8.1,
             "agreement_count": 2,
             "agreement_pct": 40.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 2.2,
-              "decay": 0.8,
-              "markov": 5.1,
-              "fourier": 0.0,
-              "bac_nho": 0.8
+              "hazard": 1.0,
+              "decay": 1.1,
+              "markov": 4.0,
+              "fourier": 0.5,
+              "bac_nho": 1.5
             }
           },
           {
             "ball": 40,
-            "score": 8.3,
+            "score": 7.1,
             "agreement_count": 2,
             "agreement_pct": 40.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 2.2,
-              "decay": 0.9,
-              "markov": 4.5,
-              "fourier": 0.0,
-              "bac_nho": 0.7
-            }
-          },
-          {
-            "ball": 26,
-            "score": 8.0,
-            "agreement_count": 2,
-            "agreement_pct": 40.0,
-            "is_safe": false,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 2.2,
-              "decay": 0.5,
-              "markov": 4.8,
-              "fourier": 0.0,
-              "bac_nho": 0.5
+              "hazard": 1.0,
+              "decay": 1.1,
+              "markov": 3.6,
+              "fourier": 0.6,
+              "bac_nho": 0.9
             }
           },
           {
             "ball": 30,
-            "score": 7.7,
-            "agreement_count": 1,
-            "agreement_pct": 20.0,
-            "is_safe": false,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 2.2,
-              "decay": 0.5,
-              "markov": 5.1,
-              "fourier": 0.0,
-              "bac_nho": 0.0
-            }
-          },
-          {
-            "ball": 15,
-            "score": 7.6,
+            "score": 7.0,
             "agreement_count": 2,
             "agreement_pct": 40.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 2.2,
+              "hazard": 2.1,
               "decay": 0.7,
-              "markov": 3.9,
-              "fourier": 0.0,
-              "bac_nho": 0.8
-            }
-          },
-          {
-            "ball": 23,
-            "score": 7.3,
-            "agreement_count": 1,
-            "agreement_pct": 20.0,
-            "is_safe": false,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 2.2,
-              "decay": 0.7,
-              "markov": 4.5,
-              "fourier": 0.0,
+              "markov": 4.0,
+              "fourier": 0.2,
               "bac_nho": 0.0
             }
           },
           {
-            "ball": 45,
-            "score": 7.3,
-            "agreement_count": 1,
-            "agreement_pct": 20.0,
+            "ball": 5,
+            "score": 6.8,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 2.2,
-              "decay": 1.0,
-              "markov": 3.9,
-              "fourier": 0.0,
-              "bac_nho": 0.3
+              "hazard": 0.6,
+              "decay": 1.5,
+              "markov": 4.0,
+              "fourier": 0.3,
+              "bac_nho": 0.4
             }
           },
           {
-            "ball": 2,
-            "score": 7.2,
+            "ball": 26,
+            "score": 6.8,
             "agreement_count": 3,
             "agreement_pct": 60.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 2.2,
-              "decay": 0.9,
-              "markov": 3.0,
-              "fourier": 0.0,
-              "bac_nho": 1.2
+              "hazard": 1.0,
+              "decay": 0.7,
+              "markov": 3.8,
+              "fourier": 0.6,
+              "bac_nho": 0.6
             }
           },
           {
-            "ball": 8,
-            "score": 7.2,
-            "agreement_count": 4,
-            "agreement_pct": 80.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 2.2,
-              "decay": 1.2,
-              "markov": 3.9,
-              "fourier": 0.0,
-              "bac_nho": 0.0
-            }
-          },
-          {
-            "ball": 28,
-            "score": 7.2,
+            "ball": 38,
+            "score": 6.7,
             "agreement_count": 2,
             "agreement_pct": 40.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 2.2,
-              "decay": 0.6,
-              "markov": 3.9,
-              "fourier": 0.0,
-              "bac_nho": 0.5
-            }
-          },
-          {
-            "ball": 52,
-            "score": 7.1,
-            "agreement_count": 1,
-            "agreement_pct": 20.0,
-            "is_safe": false,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 2.2,
-              "decay": 0.3,
-              "markov": 3.9,
-              "fourier": 0.0,
-              "bac_nho": 0.8
-            }
-          },
-          {
-            "ball": 55,
-            "score": 7.0,
-            "agreement_count": 1,
-            "agreement_pct": 20.0,
-            "is_safe": false,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 2.2,
-              "decay": 1.0,
-              "markov": 3.9,
-              "fourier": 0.0,
+              "hazard": 1.9,
+              "decay": 1.1,
+              "markov": 2.8,
+              "fourier": 0.8,
               "bac_nho": 0.0
             }
           },
           {
-            "ball": 53,
-            "score": 6.9,
-            "agreement_count": 0,
-            "agreement_pct": 0.0,
+            "ball": 2,
+            "score": 6.6,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 2.2,
-              "decay": 0.5,
-              "markov": 3.9,
+              "hazard": 1.0,
+              "decay": 1.0,
+              "markov": 2.4,
+              "fourier": 0.7,
+              "bac_nho": 1.5
+            }
+          },
+          {
+            "ball": 22,
+            "score": 6.6,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 0.5,
+              "decay": 1.1,
+              "markov": 4.0,
               "fourier": 0.0,
-              "bac_nho": 0.3
+              "bac_nho": 1.0
+            }
+          },
+          {
+            "ball": 23,
+            "score": 6.5,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.9,
+              "decay": 0.9,
+              "markov": 3.6,
+              "fourier": 0.1,
+              "bac_nho": 0.0
+            }
+          },
+          {
+            "ball": 27,
+            "score": 6.5,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.9,
+              "decay": 0.9,
+              "markov": 3.1,
+              "fourier": 0.7,
+              "bac_nho": 0.0
+            }
+          },
+          {
+            "ball": 50,
+            "score": 6.1,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.0,
+              "decay": 0.8,
+              "markov": 2.4,
+              "fourier": 0.2,
+              "bac_nho": 0.6
+            }
+          },
+          {
+            "ball": 12,
+            "score": 5.9,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.9,
+              "decay": 0.4,
+              "markov": 2.6,
+              "fourier": 0.0,
+              "bac_nho": 1.0
+            }
+          },
+          {
+            "ball": 15,
+            "score": 5.9,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 0.6,
+              "decay": 0.9,
+              "markov": 3.1,
+              "fourier": 0.3,
+              "bac_nho": 1.0
+            }
+          },
+          {
+            "ball": 20,
+            "score": 5.9,
+            "agreement_count": 1,
+            "agreement_pct": 20.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.1,
+              "decay": 1.0,
+              "markov": 2.6,
+              "fourier": 0.3,
+              "bac_nho": 0.0
+            }
+          },
+          {
+            "ball": 39,
+            "score": 5.8,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.1,
+              "decay": 1.2,
+              "markov": 1.9,
+              "fourier": 0.3,
+              "bac_nho": 0.4
             }
           }
         ],
@@ -6975,26 +6975,26 @@
           "hazard": {
             "name": "Bayesian Hazard Rate (Nhịp Gan)",
             "top_picks": [
-              1,
-              2,
-              3,
-              4,
-              5
+              54,
+              20,
+              30,
+              39,
+              35
             ],
-            "math_basis": "Hàm nguy cơ Bayesian trên tỷ số chu kỳ gan r_b = g_b / avg_gap",
-            "rationale": "Các bóng 01, 02, 03, 04 đang nằm chuẩn xác trong 'Vùng Vàng Điểm Rơi' (0.75 - 1.35 chu kỳ trung bình), xác suất bung nổ kỳ này cao nhất."
+            "math_basis": "Hàm nguy cơ Bayesian trên tỷ số chu kỳ gan r_b = g_b / avg_gap trong vùng [0.70, 1.40]",
+            "rationale": "Các bóng 54, 20, 30, 39 đang nằm chuẩn xác trong 'Vùng Vàng Điểm Rơi', xác suất nổ kỳ này tối ưu nhất."
           },
           "decay": {
             "name": "Exponential Time Decay (Nhiệt)",
             "top_picks": [
               5,
               8,
+              16,
               9,
-              18,
               41
             ],
-            "math_basis": "Tần suất suy giảm mũ thời gian alpha = 0.035 trên 100 kỳ gần nhất",
-            "rationale": "Các bóng 05, 08, 09, 18 có xung lực xuất hiện dày đặc gần đây, quán tính nhiệt tiếp tục duy trì đà nổ."
+            "math_basis": "Tần suất suy giảm mũ thời gian alpha = 0.028 trên 120 kỳ",
+            "rationale": "Các bóng 05, 08, 16, 09 có xung lực xuất hiện dày đặc gần đây, quán tính nhiệt tiếp tục duy trì đà nổ."
           },
           "markov": {
             "name": "Markov Transition Chain",
@@ -7005,20 +7005,20 @@
               30,
               26
             ],
-            "math_basis": "Ma trận chuyển trạng thái Markov bậc 1 từ 6 bóng kỳ trước",
+            "math_basis": "Ma trận chuyển trạng thái Markov bậc 1 từ các bóng kỳ trước",
             "rationale": "Dựa trên kết quả kỳ trước (08, 09, 16, 42, 46, 47), ma trận xác suất chuyển trạng thái ghi nhận các số 05, 07, 22, 30 có liên kết nổ kế tiếp cao nhất."
           },
           "fourier": {
             "name": "Fourier Spectral Resonance (Sóng)",
             "top_picks": [
-              29,
-              1,
-              2,
-              3,
-              4
+              10,
+              31,
+              38,
+              34,
+              27
             ],
             "math_basis": "Biến đổi Fourier rời rạc (DFT) trích xuất tần số dao động chủ đạo trên 64 kỳ",
-            "rationale": "Bước sóng chu kỳ của các bóng 29, 01, 02, 03 đang tiến sát pha cực đại trên phổ dao động cộng hưởng."
+            "rationale": "Bước sóng chu kỳ của các bóng 10, 31, 38, 34 đang tiến sát pha cực đại trên phổ dao động cộng hưởng."
           },
           "bac_nho": {
             "name": "Pairwise Synergy & Bạc Nhớ",
@@ -7033,44 +7033,142 @@
             "rationale": "Lực hút cặp đôi Bạc Nhớ chỉ ra các bóng 02, 07, 12, 15 có độ nâng Lift cao hơn 30-70% so với tần suất ngẫu nhiên khi đi kèm bóng kỳ trước."
           }
         },
+        "training_report": {
+          "trained_hyperparameters": {
+            "decay_alpha": 0.028,
+            "half_life_draws": 24.8,
+            "hazard_window": [
+              0.7,
+              1.4
+            ],
+            "fourier_window": 64,
+            "gaussian_sum_range": [
+              115,
+              220
+            ],
+            "gaussian_mean": 168,
+            "min_ac_threshold": 7
+          },
+          "trained_model_weights": {
+            "hazard": 21.3,
+            "decay": 14.9,
+            "markov": 40.3,
+            "fourier": 8.6,
+            "bac_nho": 14.9
+          },
+          "negative_space_compliance": "100% Đạt Chuẩn (5/5 Bộ Lọc)",
+          "accuracy_gain_vs_random": {
+            "avg_hits_improvement_pct": 12.3,
+            "hit_rate_ge3": 1.0,
+            "baseline_random_avg": 0.65
+          }
+        },
         "tickets": {
           "golden": {
             "numbers": [
               2,
-              15,
-              22,
-              26,
-              45,
-              55
+              7,
+              27,
+              39,
+              40,
+              50
             ],
             "ac_index": 10,
             "sum": 165,
             "odd_even": "3C - 3L",
             "sei_score": 10.0,
-            "special": 7
+            "special": 30,
+            "negative_space_check": {
+              "passed": true,
+              "score": "5/5",
+              "details": {
+                "passed": true,
+                "score_pass": 5,
+                "sum": {
+                  "val": 165,
+                  "min": 115,
+                  "max": 220,
+                  "passed": true
+                },
+                "ac": {
+                  "val": 10,
+                  "threshold": 7,
+                  "passed": true
+                },
+                "consecutive": {
+                  "max_len": 2,
+                  "passed": true
+                },
+                "parity": {
+                  "ratio": "3C - 3L",
+                  "passed": true
+                },
+                "repeat": {
+                  "count": 0,
+                  "max_allowed": 2,
+                  "passed": true
+                }
+              }
+            }
           },
           "momentum": {
             "numbers": [
-              8,
-              18,
-              22,
-              44,
+              1,
+              2,
+              7,
+              40,
               45,
-              47
+              55
             ],
-            "special": 7
+            "special": 30,
+            "negative_space_check": {
+              "passed": true,
+              "score": "5/5",
+              "details": {
+                "passed": true,
+                "score_pass": 5,
+                "sum": {
+                  "val": 150,
+                  "min": 115,
+                  "max": 220,
+                  "passed": true
+                },
+                "ac": {
+                  "val": 8,
+                  "threshold": 7,
+                  "passed": true
+                },
+                "consecutive": {
+                  "max_len": 2,
+                  "passed": true
+                },
+                "parity": {
+                  "ratio": "2C - 4L",
+                  "passed": true
+                },
+                "repeat": {
+                  "count": 0,
+                  "max_allowed": 2,
+                  "passed": true
+                }
+              }
+            }
           },
           "bao7": {
             "numbers": [
               7,
-              5,
-              22,
               40,
-              26,
               30,
-              15
+              5,
+              26,
+              38,
+              2
             ],
-            "special": 7
+            "special": 30,
+            "negative_space_check": {
+              "passed": true,
+              "score": "Đạt Chuẩn Bao"
+            }
           }
         },
         "history_walk_forward": [
@@ -7086,17 +7184,18 @@
               47
             ],
             "predicted": [
-              29,
-              5,
+              8,
               39,
-              22,
               33,
-              8
+              16,
+              29,
+              5
             ],
             "matched": [
-              8
+              8,
+              16
             ],
-            "matchCount": 1
+            "matchCount": 2
           },
           {
             "drawId": "01392",
@@ -7111,11 +7210,11 @@
             ],
             "predicted": [
               20,
+              16,
               22,
+              23,
               21,
-              31,
-              50,
-              53
+              33
             ],
             "matched": [],
             "matchCount": 0
@@ -7133,16 +7232,14 @@
             ],
             "predicted": [
               8,
-              22,
-              53,
-              29,
               16,
-              21
+              22,
+              28,
+              23,
+              55
             ],
-            "matched": [
-              29
-            ],
-            "matchCount": 1
+            "matched": [],
+            "matchCount": 0
           },
           {
             "drawId": "01390",
@@ -7156,17 +7253,15 @@
               44
             ],
             "predicted": [
-              5,
-              1,
+              43,
+              16,
+              14,
+              55,
               20,
-              53,
-              46,
-              16
+              46
             ],
-            "matched": [
-              1
-            ],
-            "matchCount": 1
+            "matched": [],
+            "matchCount": 0
           },
           {
             "drawId": "01389",
@@ -7181,11 +7276,11 @@
             ],
             "predicted": [
               8,
-              20,
-              5,
-              22,
               30,
-              53
+              5,
+              20,
+              22,
+              33
             ],
             "matched": [
               5
@@ -7206,10 +7301,10 @@
             "predicted": [
               39,
               16,
+              37,
               33,
-              7,
-              5,
-              8
+              55,
+              7
             ],
             "matched": [],
             "matchCount": 0
@@ -7227,16 +7322,17 @@
             ],
             "predicted": [
               33,
+              55,
               32,
-              21,
+              8,
               16,
-              53,
               39
             ],
             "matched": [
+              8,
               39
             ],
-            "matchCount": 1
+            "matchCount": 2
           },
           {
             "drawId": "01386",
@@ -7253,12 +7349,15 @@
               33,
               22,
               16,
-              5,
-              27,
-              14
+              41,
+              38,
+              5
             ],
-            "matched": [],
-            "matchCount": 0
+            "matched": [
+              38,
+              41
+            ],
+            "matchCount": 2
           },
           {
             "drawId": "01385",
@@ -7272,12 +7371,12 @@
               50
             ],
             "predicted": [
-              39,
               22,
-              20,
               16,
-              43,
-              26
+              8,
+              39,
+              20,
+              43
             ],
             "matched": [
               16,
@@ -7297,12 +7396,12 @@
               46
             ],
             "predicted": [
-              14,
-              30,
               16,
+              22,
+              8,
+              30,
               53,
-              39,
-              22
+              14
             ],
             "matched": [],
             "matchCount": 0
@@ -7319,12 +7418,12 @@
               50
             ],
             "predicted": [
-              33,
               22,
               16,
-              23,
-              55,
-              10
+              33,
+              8,
+              10,
+              55
             ],
             "matched": [],
             "matchCount": 0
@@ -7341,12 +7440,12 @@
               45
             ],
             "predicted": [
-              32,
-              41,
-              33,
               22,
-              53,
-              28
+              32,
+              33,
+              41,
+              28,
+              8
             ],
             "matched": [
               33
@@ -7365,17 +7464,15 @@
               55
             ],
             "predicted": [
-              40,
               22,
+              32,
+              40,
               53,
-              55,
-              28,
-              32
+              8,
+              28
             ],
-            "matched": [
-              55
-            ],
-            "matchCount": 1
+            "matched": [],
+            "matchCount": 0
           },
           {
             "drawId": "01380",
@@ -7389,12 +7486,12 @@
               54
             ],
             "predicted": [
-              41,
               22,
-              28,
+              41,
               32,
-              11,
-              20
+              20,
+              53,
+              28
             ],
             "matched": [],
             "matchCount": 0
@@ -7413,10 +7510,10 @@
             "predicted": [
               16,
               7,
+              17,
               9,
-              34,
               22,
-              17
+              8
             ],
             "matched": [
               16
@@ -13475,12 +13572,12 @@
             "name": "Consensus Engine (Tổng Hợp)",
             "icon": "trophy",
             "color": "amber",
-            "avg_hits": 0.73,
+            "avg_hits": 0.72,
             "win_rate_ge3": 0.0,
-            "recent_10_hits": 8,
+            "recent_10_hits": 10,
             "form": "⚡ Phong độ tốt",
             "weight_pct": 100.0,
-            "desc": "Hội đồng hợp lực tích hợp 5 mô hình độc lập với trọng số thích ứng."
+            "desc": "Hội đồng hợp lực tích hợp 5 mô hình độc lập với trọng số thích ứng điều chuẩn L2."
           },
           {
             "id": "markov",
@@ -13491,8 +13588,32 @@
             "win_rate_ge3": 5.0,
             "recent_10_hits": 5,
             "form": "Chờ điểm rơi",
-            "weight_pct": 54.2,
+            "weight_pct": 32.5,
             "desc": "Xác suất chuyển trạng thái có điều kiện từ kết quả kỳ trước."
+          },
+          {
+            "id": "hazard",
+            "name": "Bayesian Hazard Rate (Nhịp Gan)",
+            "icon": "timer",
+            "color": "emerald",
+            "avg_hits": 0.81,
+            "win_rate_ge3": 3.0,
+            "recent_10_hits": 9,
+            "form": "⚡ Ổn định",
+            "weight_pct": 23.0,
+            "desc": "Hàm mật độ nguy cơ rơi vào vùng vàng (0.75 - 1.35 chu kỳ trung bình)."
+          },
+          {
+            "id": "fourier",
+            "name": "Fourier Spectral Resonance (Sóng)",
+            "icon": "activity",
+            "color": "cyan",
+            "avg_hits": 0.72,
+            "win_rate_ge3": 2.0,
+            "recent_10_hits": 10,
+            "form": "🔥 Đang vào nhịp",
+            "weight_pct": 18.0,
+            "desc": "Cộng hưởng bước sóng phổ dao động rời rạc (DFT) trên 64 kỳ."
           },
           {
             "id": "bac_nho",
@@ -13503,20 +13624,8 @@
             "win_rate_ge3": 1.0,
             "recent_10_hits": 8,
             "form": "⚡ Ổn định",
-            "weight_pct": 14.0,
+            "weight_pct": 13.3,
             "desc": "Chỉ số độ nâng Lift và lực hút cặp đôi đồng quy từ kỳ trước."
-          },
-          {
-            "id": "hazard",
-            "name": "Bayesian Hazard Rate (Nhịp Gan)",
-            "icon": "timer",
-            "color": "emerald",
-            "avg_hits": 0.77,
-            "win_rate_ge3": 1.0,
-            "recent_10_hits": 8,
-            "form": "⚡ Ổn định",
-            "weight_pct": 14.0,
-            "desc": "Hàm mật độ nguy cơ rơi vào vùng vàng (0.75 - 1.35 chu kỳ trung bình)."
           },
           {
             "id": "decay",
@@ -13527,20 +13636,8 @@
             "win_rate_ge3": 1.0,
             "recent_10_hits": 13,
             "form": "🔥 Đang vào nhịp",
-            "weight_pct": 13.9,
-            "desc": "Tần suất suy giảm mũ theo thời gian alpha=0.035, đo quán tính nhiệt."
-          },
-          {
-            "id": "fourier",
-            "name": "Fourier Spectral Resonance (Sóng)",
-            "icon": "activity",
-            "color": "cyan",
-            "avg_hits": 0.76,
-            "win_rate_ge3": 0.0,
-            "recent_10_hits": 6,
-            "form": "Chờ điểm rơi",
-            "weight_pct": 3.8,
-            "desc": "Cộng hưởng bước sóng phổ dao động rời rạc (DFT) trên 64 kỳ."
+            "weight_pct": 13.3,
+            "desc": "Tần suất suy giảm mũ theo thời gian alpha=0.035, chu kỳ bán rã 19.8 kỳ."
           },
           {
             "id": "baseline_random",
@@ -13558,227 +13655,227 @@
         "top_consensus_balls": [
           {
             "ball": 31,
-            "score": 8.6,
-            "agreement_count": 3,
-            "agreement_pct": 60.0,
+            "score": 7.7,
+            "agreement_count": 4,
+            "agreement_pct": 80.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 1.4,
+              "hazard": 2.1,
               "decay": 1.0,
-              "markov": 5.4,
-              "fourier": 0.0,
+              "markov": 3.2,
+              "fourier": 0.7,
               "bac_nho": 0.7
             }
           },
           {
-            "ball": 44,
-            "score": 7.9,
+            "ball": 38,
+            "score": 7.0,
             "agreement_count": 3,
             "agreement_pct": 60.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 1.4,
-              "decay": 0.9,
-              "markov": 4.2,
-              "fourier": 0.0,
-              "bac_nho": 1.4
+              "hazard": 2.1,
+              "decay": 0.6,
+              "markov": 2.4,
+              "fourier": 1.2,
+              "bac_nho": 0.6
             }
           },
           {
-            "ball": 16,
-            "score": 7.3,
+            "ball": 7,
+            "score": 6.6,
             "agreement_count": 2,
             "agreement_pct": 40.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 1.4,
-              "decay": 1.4,
-              "markov": 4.2,
-              "fourier": 0.0,
+              "hazard": 2.3,
+              "decay": 0.7,
+              "markov": 2.4,
+              "fourier": 0.9,
+              "bac_nho": 0.3
+            }
+          },
+          {
+            "ball": 36,
+            "score": 6.4,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.1,
+              "decay": 1.0,
+              "markov": 2.4,
+              "fourier": 1.8,
+              "bac_nho": 0.2
+            }
+          },
+          {
+            "ball": 3,
+            "score": 6.3,
+            "agreement_count": 4,
+            "agreement_pct": 80.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 0.6,
+              "decay": 1.1,
+              "markov": 2.4,
+              "fourier": 1.6,
+              "bac_nho": 0.6
+            }
+          },
+          {
+            "ball": 22,
+            "score": 6.3,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.1,
+              "decay": 0.9,
+              "markov": 2.4,
+              "fourier": 1.4,
+              "bac_nho": 0.5
+            }
+          },
+          {
+            "ball": 41,
+            "score": 6.3,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.3,
+              "decay": 0.7,
+              "markov": 2.2,
+              "fourier": 0.5,
+              "bac_nho": 0.6
+            }
+          },
+          {
+            "ball": 43,
+            "score": 6.3,
+            "agreement_count": 1,
+            "agreement_pct": 20.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.3,
+              "decay": 0.8,
+              "markov": 2.2,
+              "fourier": 0.7,
+              "bac_nho": 0.2
+            }
+          },
+          {
+            "ball": 13,
+            "score": 6.1,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.1,
+              "decay": 0.8,
+              "markov": 2.1,
+              "fourier": 1.3,
+              "bac_nho": 0.8
+            }
+          },
+          {
+            "ball": 39,
+            "score": 6.0,
+            "agreement_count": 1,
+            "agreement_pct": 20.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.1,
+              "decay": 0.9,
+              "markov": 2.2,
+              "fourier": 1.4,
               "bac_nho": 0.4
             }
           },
           {
             "ball": 2,
-            "score": 7.2,
-            "agreement_count": 4,
-            "agreement_pct": 80.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 1.4,
-              "decay": 0.6,
-              "markov": 4.2,
-              "fourier": 0.0,
-              "bac_nho": 1.0
-            }
-          },
-          {
-            "ball": 3,
-            "score": 7.2,
-            "agreement_count": 5,
-            "agreement_pct": 100.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 1.4,
-              "decay": 1.2,
-              "markov": 4.0,
-              "fourier": 0.0,
-              "bac_nho": 0.7
-            }
-          },
-          {
-            "ball": 6,
-            "score": 7.0,
-            "agreement_count": 5,
-            "agreement_pct": 100.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 1.4,
-              "decay": 1.2,
-              "markov": 3.8,
-              "fourier": 0.0,
-              "bac_nho": 0.7
-            }
-          },
-          {
-            "ball": 9,
-            "score": 7.0,
-            "agreement_count": 4,
-            "agreement_pct": 80.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 1.4,
-              "decay": 0.9,
-              "markov": 3.8,
-              "fourier": 0.0,
-              "bac_nho": 1.0
-            }
-          },
-          {
-            "ball": 22,
-            "score": 6.8,
-            "agreement_count": 2,
-            "agreement_pct": 40.0,
-            "is_safe": false,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 1.4,
-              "decay": 0.9,
-              "markov": 4.0,
-              "fourier": 0.0,
-              "bac_nho": 0.5
-            }
-          },
-          {
-            "ball": 45,
-            "score": 6.8,
-            "agreement_count": 2,
-            "agreement_pct": 40.0,
-            "is_safe": false,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 1.4,
-              "decay": 1.2,
-              "markov": 3.5,
-              "fourier": 0.0,
-              "bac_nho": 0.6
-            }
-          },
-          {
-            "ball": 38,
-            "score": 6.7,
-            "agreement_count": 2,
-            "agreement_pct": 40.0,
-            "is_safe": false,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 1.4,
-              "decay": 0.7,
-              "markov": 4.0,
-              "fourier": 0.0,
-              "bac_nho": 0.7
-            }
-          },
-          {
-            "ball": 13,
-            "score": 6.6,
-            "agreement_count": 1,
-            "agreement_pct": 20.0,
-            "is_safe": false,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 1.4,
-              "decay": 0.8,
-              "markov": 3.5,
-              "fourier": 0.0,
-              "bac_nho": 0.8
-            }
-          },
-          {
-            "ball": 36,
-            "score": 6.6,
-            "agreement_count": 2,
-            "agreement_pct": 40.0,
-            "is_safe": false,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 1.4,
-              "decay": 1.1,
-              "markov": 4.0,
-              "fourier": 0.0,
-              "bac_nho": 0.2
-            }
-          },
-          {
-            "ball": 7,
-            "score": 6.4,
+            "score": 5.8,
             "agreement_count": 3,
             "agreement_pct": 60.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 1.4,
-              "decay": 0.7,
-              "markov": 4.0,
-              "fourier": 0.0,
-              "bac_nho": 0.3
+              "hazard": 1.1,
+              "decay": 0.6,
+              "markov": 2.5,
+              "fourier": 0.7,
+              "bac_nho": 0.9
             }
           },
           {
-            "ball": 30,
-            "score": 6.4,
+            "ball": 40,
+            "score": 5.5,
             "agreement_count": 1,
             "agreement_pct": 20.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 1.4,
+              "hazard": 1.1,
               "decay": 0.6,
-              "markov": 4.0,
-              "fourier": 0.0,
+              "markov": 2.0,
+              "fourier": 1.4,
               "bac_nho": 0.4
             }
           },
           {
-            "ball": 39,
-            "score": 6.4,
-            "agreement_count": 0,
-            "agreement_pct": 0.0,
+            "ball": 1,
+            "score": 5.4,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 1.4,
-              "decay": 0.9,
-              "markov": 3.8,
-              "fourier": 0.0,
+              "hazard": 0.7,
+              "decay": 0.4,
+              "markov": 2.0,
+              "fourier": 1.7,
+              "bac_nho": 0.6
+            }
+          },
+          {
+            "ball": 18,
+            "score": 5.4,
+            "agreement_count": 1,
+            "agreement_pct": 20.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.1,
+              "decay": 0.4,
+              "markov": 1.8,
+              "fourier": 1.8,
               "bac_nho": 0.4
+            }
+          },
+          {
+            "ball": 45,
+            "score": 5.4,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 0.5,
+              "decay": 1.2,
+              "markov": 2.1,
+              "fourier": 1.1,
+              "bac_nho": 0.6
             }
           }
         ],
@@ -13786,14 +13883,14 @@
           "hazard": {
             "name": "Bayesian Hazard Rate (Nhịp Gan)",
             "top_picks": [
-              1,
-              2,
-              3,
-              4,
-              5
+              43,
+              7,
+              41,
+              19,
+              38
             ],
-            "math_basis": "Hàm nguy cơ Bayesian trên tỷ số chu kỳ gan r_b = g_b / avg_gap",
-            "rationale": "Các bóng 01, 02, 03, 04 đang nằm chuẩn xác trong 'Vùng Vàng Điểm Rơi' (0.75 - 1.35 chu kỳ trung bình), xác suất bung nổ kỳ này cao nhất."
+            "math_basis": "Hàm nguy cơ Bayesian trên tỷ số chu kỳ gan r_b = g_b / avg_gap trong vùng [0.75, 1.35]",
+            "rationale": "Các bóng 43, 07, 41, 19 đang nằm chuẩn xác trong 'Vùng Vàng Điểm Rơi', xác suất nổ kỳ này tối ưu nhất."
           },
           "decay": {
             "name": "Exponential Time Decay (Nhiệt)",
@@ -13804,7 +13901,7 @@
               3,
               36
             ],
-            "math_basis": "Tần suất suy giảm mũ thời gian alpha = 0.035 trên 100 kỳ gần nhất",
+            "math_basis": "Tần suất suy giảm mũ thời gian alpha = 0.035 trên 120 kỳ",
             "rationale": "Các bóng 16, 45, 06, 03 có xung lực xuất hiện dày đặc gần đây, quán tính nhiệt tiếp tục duy trì đà nổ."
           },
           "markov": {
@@ -13816,20 +13913,20 @@
               44,
               3
             ],
-            "math_basis": "Ma trận chuyển trạng thái Markov bậc 1 từ 6 bóng kỳ trước",
+            "math_basis": "Ma trận chuyển trạng thái Markov bậc 1 từ các bóng kỳ trước",
             "rationale": "Dựa trên kết quả kỳ trước (16, 21, 23, 29, 34, 45), ma trận xác suất chuyển trạng thái ghi nhận các số 31, 02, 16, 44 có liên kết nổ kế tiếp cao nhất."
           },
           "fourier": {
             "name": "Fourier Spectral Resonance (Sóng)",
             "top_picks": [
-              14,
-              4,
-              10,
-              15,
+              12,
+              37,
+              36,
+              18,
               1
             ],
             "math_basis": "Biến đổi Fourier rời rạc (DFT) trích xuất tần số dao động chủ đạo trên 64 kỳ",
-            "rationale": "Bước sóng chu kỳ của các bóng 14, 04, 10, 15 đang tiến sát pha cực đại trên phổ dao động cộng hưởng."
+            "rationale": "Bước sóng chu kỳ của các bóng 12, 37, 36, 18 đang tiến sát pha cực đại trên phổ dao động cộng hưởng."
           },
           "bac_nho": {
             "name": "Pairwise Synergy & Bạc Nhớ",
@@ -13844,44 +13941,142 @@
             "rationale": "Lực hút cặp đôi Bạc Nhớ chỉ ra các bóng 44, 02, 09, 13 có độ nâng Lift cao hơn 30-70% so với tần suất ngẫu nhiên khi đi kèm bóng kỳ trước."
           }
         },
+        "training_report": {
+          "trained_hyperparameters": {
+            "decay_alpha": 0.035,
+            "half_life_draws": 19.8,
+            "hazard_window": [
+              0.75,
+              1.35
+            ],
+            "fourier_window": 64,
+            "gaussian_sum_range": [
+              95,
+              180
+            ],
+            "gaussian_mean": 138,
+            "min_ac_threshold": 7
+          },
+          "trained_model_weights": {
+            "hazard": 23.0,
+            "decay": 13.3,
+            "markov": 32.5,
+            "fourier": 18.0,
+            "bac_nho": 13.3
+          },
+          "negative_space_compliance": "100% Đạt Chuẩn (5/5 Bộ Lọc)",
+          "accuracy_gain_vs_random": {
+            "avg_hits_improvement_pct": -10.0,
+            "hit_rate_ge3": 0.0,
+            "baseline_random_avg": 0.8
+          }
+        },
         "tickets": {
           "golden": {
             "numbers": [
               3,
-              9,
               13,
+              18,
               22,
-              44,
-              45
+              38,
+              39
             ],
             "ac_index": 10,
-            "sum": 136,
-            "odd_even": "2C - 4L",
+            "sum": 133,
+            "odd_even": "3C - 3L",
             "sei_score": 10.0,
-            "special": null
+            "special": null,
+            "negative_space_check": {
+              "passed": true,
+              "score": "5/5",
+              "details": {
+                "passed": true,
+                "score_pass": 5,
+                "sum": {
+                  "val": 133,
+                  "min": 95,
+                  "max": 180,
+                  "passed": true
+                },
+                "ac": {
+                  "val": 10,
+                  "threshold": 7,
+                  "passed": true
+                },
+                "consecutive": {
+                  "max_len": 2,
+                  "passed": true
+                },
+                "parity": {
+                  "ratio": "3C - 3L",
+                  "passed": true
+                },
+                "repeat": {
+                  "count": 0,
+                  "max_allowed": 2,
+                  "passed": true
+                }
+              }
+            }
           },
           "momentum": {
             "numbers": [
-              6,
-              16,
-              31,
-              38,
+              2,
+              9,
+              35,
+              36,
               39,
-              44
+              41
             ],
-            "special": null
+            "special": null,
+            "negative_space_check": {
+              "passed": true,
+              "score": "5/5",
+              "details": {
+                "passed": true,
+                "score_pass": 5,
+                "sum": {
+                  "val": 162,
+                  "min": 95,
+                  "max": 180,
+                  "passed": true
+                },
+                "ac": {
+                  "val": 10,
+                  "threshold": 7,
+                  "passed": true
+                },
+                "consecutive": {
+                  "max_len": 2,
+                  "passed": true
+                },
+                "parity": {
+                  "ratio": "2C - 4L",
+                  "passed": true
+                },
+                "repeat": {
+                  "count": 0,
+                  "max_allowed": 2,
+                  "passed": true
+                }
+              }
+            }
           },
           "bao7": {
             "numbers": [
               31,
-              44,
-              16,
-              2,
+              38,
+              7,
+              36,
               3,
-              6,
-              9
+              22,
+              41
             ],
-            "special": null
+            "special": null,
+            "negative_space_check": {
+              "passed": true,
+              "score": "Đạt Chuẩn Bao"
+            }
           }
         },
         "history_walk_forward": [
@@ -13897,12 +14092,12 @@
               45
             ],
             "predicted": [
-              45,
-              15,
               31,
+              7,
               43,
-              6,
-              7
+              45,
+              19,
+              37
             ],
             "matched": [
               45
@@ -13923,15 +14118,16 @@
             "predicted": [
               16,
               31,
-              36,
-              37,
-              22,
-              6
+              6,
+              9,
+              7,
+              36
             ],
             "matched": [
-              6
+              6,
+              9
             ],
-            "matchCount": 1
+            "matchCount": 2
           },
           {
             "drawId": "01556",
@@ -13947,10 +14143,10 @@
             "predicted": [
               31,
               16,
-              17,
-              2,
-              13,
-              44
+              7,
+              44,
+              9,
+              43
             ],
             "matched": [],
             "matchCount": 0
@@ -13967,12 +14163,12 @@
               39
             ],
             "predicted": [
-              16,
               36,
-              43,
               31,
-              45,
-              41
+              43,
+              16,
+              44,
+              20
             ],
             "matched": [
               36
@@ -13991,12 +14187,12 @@
               40
             ],
             "predicted": [
-              30,
               36,
+              30,
+              13,
               31,
-              14,
-              35,
-              13
+              44,
+              34
             ],
             "matched": [],
             "matchCount": 0
@@ -14014,11 +14210,11 @@
             ],
             "predicted": [
               36,
+              44,
+              28,
               16,
-              45,
-              6,
-              31,
-              7
+              20,
+              37
             ],
             "matched": [
               16
@@ -14038,17 +14234,16 @@
             ],
             "predicted": [
               31,
-              6,
-              36,
+              20,
               16,
               44,
-              43
+              37,
+              36
             ],
             "matched": [
-              31,
-              43
+              31
             ],
-            "matchCount": 2
+            "matchCount": 1
           },
           {
             "drawId": "01551",
@@ -14062,15 +14257,17 @@
               43
             ],
             "predicted": [
-              45,
-              41,
               16,
-              35,
               31,
-              4
+              37,
+              33,
+              8,
+              45
             ],
-            "matched": [],
-            "matchCount": 0
+            "matched": [
+              33
+            ],
+            "matchCount": 1
           },
           {
             "drawId": "01550",
@@ -14084,15 +14281,17 @@
               41
             ],
             "predicted": [
-              16,
-              45,
               37,
               28,
-              31,
-              11
+              16,
+              45,
+              36,
+              43
             ],
-            "matched": [],
-            "matchCount": 0
+            "matched": [
+              36
+            ],
+            "matchCount": 1
           },
           {
             "drawId": "01549",
@@ -14106,12 +14305,12 @@
               44
             ],
             "predicted": [
-              17,
               16,
-              44,
+              28,
               31,
-              41,
-              36
+              36,
+              38,
+              44
             ],
             "matched": [
               31,
@@ -14131,12 +14330,12 @@
               40
             ],
             "predicted": [
-              43,
               16,
+              28,
               30,
               11,
-              31,
-              37
+              43,
+              13
             ],
             "matched": [],
             "matchCount": 0
@@ -14153,15 +14352,18 @@
               35
             ],
             "predicted": [
+              38,
+              31,
               23,
-              41,
-              2,
-              45,
-              6,
-              16
+              9,
+              16,
+              3
             ],
-            "matched": [],
-            "matchCount": 0
+            "matched": [
+              3,
+              31
+            ],
+            "matchCount": 2
           },
           {
             "drawId": "01546",
@@ -14176,15 +14378,15 @@
             ],
             "predicted": [
               36,
-              29,
-              42,
-              30,
-              6,
-              35
+              43,
+              24,
+              9,
+              31,
+              13
             ],
             "matched": [
-              30,
-              36
+              36,
+              43
             ],
             "matchCount": 2
           },
@@ -14201,16 +14403,14 @@
             ],
             "predicted": [
               31,
-              16,
-              30,
-              25,
+              9,
               44,
-              37
+              17,
+              18,
+              30
             ],
-            "matched": [
-              16
-            ],
-            "matchCount": 1
+            "matched": [],
+            "matchCount": 0
           },
           {
             "drawId": "01544",
@@ -14224,15 +14424,17 @@
               37
             ],
             "predicted": [
-              16,
-              31,
               44,
-              36,
-              45,
-              28
+              7,
+              37,
+              31,
+              9,
+              36
             ],
-            "matched": [],
-            "matchCount": 0
+            "matched": [
+              37
+            ],
+            "matchCount": 1
           }
         ]
       }
@@ -19700,12 +19902,12 @@
             "name": "Consensus Engine (Tổng Hợp)",
             "icon": "trophy",
             "color": "amber",
-            "avg_hits": 0.58,
-            "win_rate_ge3": 1.0,
-            "recent_10_hits": 4,
+            "avg_hits": 0.69,
+            "win_rate_ge3": 0.0,
+            "recent_10_hits": 7,
             "form": "⚡ Phong độ tốt",
             "weight_pct": 100.0,
-            "desc": "Hội đồng hợp lực tích hợp 5 mô hình độc lập với trọng số thích ứng."
+            "desc": "Hội đồng hợp lực tích hợp 5 mô hình độc lập với trọng số thích ứng điều chuẩn L2."
           },
           {
             "id": "bac_nho",
@@ -19715,21 +19917,33 @@
             "avg_hits": 0.66,
             "win_rate_ge3": 3.0,
             "recent_10_hits": 7,
-            "form": "Chờ điểm rơi",
-            "weight_pct": 59.1,
+            "form": "⚡ Ổn định",
+            "weight_pct": 46.9,
             "desc": "Chỉ số độ nâng Lift và lực hút cặp đôi đồng quy từ kỳ trước."
+          },
+          {
+            "id": "fourier",
+            "name": "Fourier Spectral Resonance (Sóng)",
+            "icon": "activity",
+            "color": "cyan",
+            "avg_hits": 0.58,
+            "win_rate_ge3": 1.0,
+            "recent_10_hits": 7,
+            "form": "⚡ Ổn định",
+            "weight_pct": 22.1,
+            "desc": "Cộng hưởng bước sóng phổ dao động rời rạc (DFT) trên 64 kỳ."
           },
           {
             "id": "hazard",
             "name": "Bayesian Hazard Rate (Nhịp Gan)",
             "icon": "timer",
             "color": "emerald",
-            "avg_hits": 0.69,
-            "win_rate_ge3": 1.0,
-            "recent_10_hits": 7,
-            "form": "Chờ điểm rơi",
-            "weight_pct": 23.9,
-            "desc": "Hàm mật độ nguy cơ rơi vào vùng vàng (0.75 - 1.35 chu kỳ trung bình)."
+            "avg_hits": 0.76,
+            "win_rate_ge3": 0.0,
+            "recent_10_hits": 9,
+            "form": "⚡ Ổn định",
+            "weight_pct": 10.7,
+            "desc": "Hàm mật độ nguy cơ rơi vào vùng vàng (0.80 - 1.30 chu kỳ trung bình)."
           },
           {
             "id": "markov",
@@ -19739,33 +19953,21 @@
             "avg_hits": 0.67,
             "win_rate_ge3": 0.0,
             "recent_10_hits": 7,
-            "form": "Chờ điểm rơi",
-            "weight_pct": 6.0,
-            "desc": "Xác suất chuyển trạng thái có điều kiện từ kết quả kỳ trước."
-          },
-          {
-            "id": "fourier",
-            "name": "Fourier Spectral Resonance (Sóng)",
-            "icon": "activity",
-            "color": "cyan",
-            "avg_hits": 0.64,
-            "win_rate_ge3": 0.0,
-            "recent_10_hits": 8,
             "form": "⚡ Ổn định",
-            "weight_pct": 5.7,
-            "desc": "Cộng hưởng bước sóng phổ dao động rời rạc (DFT) trên 64 kỳ."
+            "weight_pct": 10.3,
+            "desc": "Xác suất chuyển trạng thái có điều kiện từ kết quả kỳ trước."
           },
           {
             "id": "decay",
             "name": "Exponential Time Decay (Nhiệt)",
             "icon": "flame",
             "color": "rose",
-            "avg_hits": 0.6,
+            "avg_hits": 0.62,
             "win_rate_ge3": 0.0,
-            "recent_10_hits": 5,
+            "recent_10_hits": 3,
             "form": "Chờ điểm rơi",
-            "weight_pct": 5.3,
-            "desc": "Tần suất suy giảm mũ theo thời gian alpha=0.035, đo quán tính nhiệt."
+            "weight_pct": 10.0,
+            "desc": "Tần suất suy giảm mũ theo thời gian alpha=0.055, chu kỳ bán rã 12.6 kỳ."
           },
           {
             "id": "baseline_random",
@@ -19782,227 +19984,227 @@
         ],
         "top_consensus_balls": [
           {
-            "ball": 35,
-            "score": 8.9,
-            "agreement_count": 1,
-            "agreement_pct": 20.0,
-            "is_safe": false,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 2.4,
-              "decay": 0.2,
-              "markov": 0.4,
-              "fourier": 0.0,
-              "bac_nho": 5.9
-            }
-          },
-          {
             "ball": 19,
-            "score": 8.8,
-            "agreement_count": 2,
-            "agreement_pct": 40.0,
-            "is_safe": false,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 2.4,
-              "decay": 0.3,
-              "markov": 0.6,
-              "fourier": 0.0,
-              "bac_nho": 5.6
-            }
-          },
-          {
-            "ball": 13,
-            "score": 7.9,
-            "agreement_count": 3,
-            "agreement_pct": 60.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 2.4,
-              "decay": 0.5,
-              "markov": 0.6,
-              "fourier": 0.0,
-              "bac_nho": 4.4
-            }
-          },
-          {
-            "ball": 30,
-            "score": 7.6,
-            "agreement_count": 1,
-            "agreement_pct": 20.0,
-            "is_safe": false,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 2.4,
-              "decay": 0.3,
-              "markov": 0.3,
-              "fourier": 0.0,
-              "bac_nho": 4.5
-            }
-          },
-          {
-            "ball": 11,
-            "score": 7.5,
-            "agreement_count": 5,
-            "agreement_pct": 100.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 2.4,
-              "decay": 0.4,
-              "markov": 0.5,
-              "fourier": 0.0,
-              "bac_nho": 4.2
-            }
-          },
-          {
-            "ball": 21,
             "score": 7.3,
             "agreement_count": 2,
             "agreement_pct": 40.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 2.4,
-              "decay": 0.3,
-              "markov": 0.5,
-              "fourier": 0.0,
-              "bac_nho": 4.1
+              "hazard": 0.2,
+              "decay": 0.5,
+              "markov": 0.9,
+              "fourier": 1.2,
+              "bac_nho": 4.4
             }
           },
           {
-            "ball": 3,
-            "score": 7.1,
-            "agreement_count": 5,
-            "agreement_pct": 100.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 2.4,
-              "decay": 0.4,
-              "markov": 0.4,
-              "fourier": 0.0,
-              "bac_nho": 3.9
-            }
-          },
-          {
-            "ball": 10,
-            "score": 7.1,
-            "agreement_count": 4,
-            "agreement_pct": 80.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 2.4,
-              "decay": 0.2,
-              "markov": 0.5,
-              "fourier": 0.0,
-              "bac_nho": 4.0
-            }
-          },
-          {
-            "ball": 22,
-            "score": 7.0,
-            "agreement_count": 3,
-            "agreement_pct": 60.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 2.4,
-              "decay": 0.4,
-              "markov": 0.4,
-              "fourier": 0.0,
-              "bac_nho": 3.8
-            }
-          },
-          {
-            "ball": 23,
-            "score": 6.9,
+            "ball": 30,
+            "score": 7.2,
             "agreement_count": 2,
             "agreement_pct": 40.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 2.4,
-              "decay": 0.3,
+              "hazard": 0.3,
+              "decay": 0.6,
               "markov": 0.6,
-              "fourier": 0.0,
+              "fourier": 2.1,
               "bac_nho": 3.6
             }
           },
           {
-            "ball": 15,
-            "score": 6.7,
+            "ball": 11,
+            "score": 7.0,
+            "agreement_count": 5,
+            "agreement_pct": 100.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 0.5,
+              "decay": 0.8,
+              "markov": 0.9,
+              "fourier": 1.4,
+              "bac_nho": 3.3
+            }
+          },
+          {
+            "ball": 3,
+            "score": 6.9,
+            "agreement_count": 5,
+            "agreement_pct": 100.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 0.5,
+              "decay": 0.7,
+              "markov": 0.7,
+              "fourier": 1.9,
+              "bac_nho": 3.1
+            }
+          },
+          {
+            "ball": 13,
+            "score": 6.6,
             "agreement_count": 3,
             "agreement_pct": 60.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 2.4,
-              "decay": 0.4,
-              "markov": 0.5,
-              "fourier": 0.0,
-              "bac_nho": 3.4
+              "hazard": 0.2,
+              "decay": 1.0,
+              "markov": 1.0,
+              "fourier": 0.9,
+              "bac_nho": 3.5
+            }
+          },
+          {
+            "ball": 15,
+            "score": 6.4,
+            "agreement_count": 4,
+            "agreement_pct": 80.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 0.5,
+              "decay": 0.7,
+              "markov": 0.9,
+              "fourier": 1.6,
+              "bac_nho": 2.7
+            }
+          },
+          {
+            "ball": 35,
+            "score": 6.2,
+            "agreement_count": 1,
+            "agreement_pct": 20.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 0.3,
+              "decay": 0.3,
+              "markov": 0.7,
+              "fourier": 0.2,
+              "bac_nho": 4.7
             }
           },
           {
             "ball": 1,
-            "score": 6.2,
+            "score": 6.1,
             "agreement_count": 3,
             "agreement_pct": 60.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 2.4,
-              "decay": 0.3,
-              "markov": 0.4,
-              "fourier": 0.0,
-              "bac_nho": 3.2
+              "hazard": 1.0,
+              "decay": 0.5,
+              "markov": 0.7,
+              "fourier": 1.4,
+              "bac_nho": 2.5
             }
           },
           {
-            "ball": 28,
-            "score": 6.0,
-            "agreement_count": 1,
-            "agreement_pct": 20.0,
-            "is_safe": false,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 2.4,
-              "decay": 0.4,
-              "markov": 0.4,
-              "fourier": 0.0,
-              "bac_nho": 2.8
-            }
-          },
-          {
-            "ball": 8,
+            "ball": 22,
             "score": 5.9,
             "agreement_count": 3,
             "agreement_pct": 60.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 2.4,
-              "decay": 0.2,
-              "markov": 0.5,
-              "fourier": 0.0,
-              "bac_nho": 2.8
+              "hazard": 0.2,
+              "decay": 0.7,
+              "markov": 0.7,
+              "fourier": 1.3,
+              "bac_nho": 3.0
+            }
+          },
+          {
+            "ball": 21,
+            "score": 5.8,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 0.5,
+              "decay": 0.5,
+              "markov": 0.8,
+              "fourier": 0.7,
+              "bac_nho": 3.3
+            }
+          },
+          {
+            "ball": 32,
+            "score": 5.8,
+            "agreement_count": 1,
+            "agreement_pct": 20.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 0.3,
+              "decay": 0.4,
+              "markov": 0.7,
+              "fourier": 2.0,
+              "bac_nho": 2.3
+            }
+          },
+          {
+            "ball": 9,
+            "score": 5.7,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 0.5,
+              "decay": 0.7,
+              "markov": 0.6,
+              "fourier": 2.2,
+              "bac_nho": 1.7
             }
           },
           {
             "ball": 18,
-            "score": 5.9,
+            "score": 5.7,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 0.5,
+              "decay": 0.8,
+              "markov": 0.6,
+              "fourier": 1.6,
+              "bac_nho": 2.3
+            }
+          },
+          {
+            "ball": 34,
+            "score": 5.6,
             "agreement_count": 1,
             "agreement_pct": 20.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 2.4,
-              "decay": 0.4,
-              "markov": 0.3,
-              "fourier": 0.0,
+              "hazard": 1.1,
+              "decay": 0.7,
+              "markov": 0.7,
+              "fourier": 1.1,
+              "bac_nho": 2.2
+            }
+          },
+          {
+            "ball": 23,
+            "score": 5.2,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 0.3,
+              "decay": 0.6,
+              "markov": 1.0,
+              "fourier": 0.5,
               "bac_nho": 2.8
             }
           }
@@ -20011,14 +20213,14 @@
           "hazard": {
             "name": "Bayesian Hazard Rate (Nhịp Gan)",
             "top_picks": [
+              34,
               1,
-              2,
-              3,
-              4,
-              5
+              25,
+              20,
+              3
             ],
-            "math_basis": "Hàm nguy cơ Bayesian trên tỷ số chu kỳ gan r_b = g_b / avg_gap",
-            "rationale": "Các bóng 01, 02, 03, 04 đang nằm chuẩn xác trong 'Vùng Vàng Điểm Rơi' (0.75 - 1.35 chu kỳ trung bình), xác suất bung nổ kỳ này cao nhất."
+            "math_basis": "Hàm nguy cơ Bayesian trên tỷ số chu kỳ gan r_b = g_b / avg_gap trong vùng [0.80, 1.30]",
+            "rationale": "Các bóng 34, 01, 25, 20 đang nằm chuẩn xác trong 'Vùng Vàng Điểm Rơi', xác suất nổ kỳ này tối ưu nhất."
           },
           "decay": {
             "name": "Exponential Time Decay (Nhiệt)",
@@ -20026,11 +20228,11 @@
               13,
               2,
               7,
-              3,
-              15
+              27,
+              11
             ],
-            "math_basis": "Tần suất suy giảm mũ thời gian alpha = 0.035 trên 100 kỳ gần nhất",
-            "rationale": "Các bóng 13, 02, 07, 03 có xung lực xuất hiện dày đặc gần đây, quán tính nhiệt tiếp tục duy trì đà nổ."
+            "math_basis": "Tần suất suy giảm mũ thời gian alpha = 0.055 trên 120 kỳ",
+            "rationale": "Các bóng 13, 02, 07, 27 có xung lực xuất hiện dày đặc gần đây, quán tính nhiệt tiếp tục duy trì đà nổ."
           },
           "markov": {
             "name": "Markov Transition Chain",
@@ -20041,20 +20243,20 @@
               10,
               11
             ],
-            "math_basis": "Ma trận chuyển trạng thái Markov bậc 1 từ 6 bóng kỳ trước",
+            "math_basis": "Ma trận chuyển trạng thái Markov bậc 1 từ các bóng kỳ trước",
             "rationale": "Dựa trên kết quả kỳ trước (02, 13, 19, 22, 31), ma trận xác suất chuyển trạng thái ghi nhận các số 23, 13, 19, 10 có liên kết nổ kế tiếp cao nhất."
           },
           "fourier": {
             "name": "Fourier Spectral Resonance (Sóng)",
             "top_picks": [
-              1,
-              2,
+              9,
+              30,
+              32,
               3,
-              4,
-              5
+              17
             ],
             "math_basis": "Biến đổi Fourier rời rạc (DFT) trích xuất tần số dao động chủ đạo trên 64 kỳ",
-            "rationale": "Bước sóng chu kỳ của các bóng 01, 02, 03, 04 đang tiến sát pha cực đại trên phổ dao động cộng hưởng."
+            "rationale": "Bước sóng chu kỳ của các bóng 09, 30, 32, 03 đang tiến sát pha cực đại trên phổ dao động cộng hưởng."
           },
           "bac_nho": {
             "name": "Pairwise Synergy & Bạc Nhớ",
@@ -20069,41 +20271,139 @@
             "rationale": "Lực hút cặp đôi Bạc Nhớ chỉ ra các bóng 35, 19, 30, 13 có độ nâng Lift cao hơn 30-70% so với tần suất ngẫu nhiên khi đi kèm bóng kỳ trước."
           }
         },
+        "training_report": {
+          "trained_hyperparameters": {
+            "decay_alpha": 0.055,
+            "half_life_draws": 12.6,
+            "hazard_window": [
+              0.8,
+              1.3
+            ],
+            "fourier_window": 64,
+            "gaussian_sum_range": [
+              60,
+              120
+            ],
+            "gaussian_mean": 90,
+            "min_ac_threshold": 4
+          },
+          "trained_model_weights": {
+            "hazard": 10.7,
+            "decay": 10.0,
+            "markov": 10.3,
+            "fourier": 22.1,
+            "bac_nho": 46.9
+          },
+          "negative_space_compliance": "100% Đạt Chuẩn (5/5 Bộ Lọc)",
+          "accuracy_gain_vs_random": {
+            "avg_hits_improvement_pct": -2.8,
+            "hit_rate_ge3": 0.0,
+            "baseline_random_avg": 0.71
+          }
+        },
         "tickets": {
           "golden": {
             "numbers": [
-              8,
-              10,
+              3,
+              11,
               15,
-              23,
-              35
+              30,
+              32
             ],
             "ac_index": 6,
             "sum": 91,
             "odd_even": "2C - 3L",
-            "sei_score": 9.3,
-            "special": 9
+            "sei_score": 10.0,
+            "special": 9,
+            "negative_space_check": {
+              "passed": true,
+              "score": "5/5",
+              "details": {
+                "passed": true,
+                "score_pass": 5,
+                "sum": {
+                  "val": 91,
+                  "min": 60,
+                  "max": 120,
+                  "passed": true
+                },
+                "ac": {
+                  "val": 6,
+                  "threshold": 4,
+                  "passed": true
+                },
+                "consecutive": {
+                  "max_len": 1,
+                  "passed": true
+                },
+                "parity": {
+                  "ratio": "2C - 3L",
+                  "passed": true
+                },
+                "repeat": {
+                  "count": 0,
+                  "max_allowed": 2,
+                  "passed": true
+                }
+              }
+            }
           },
           "momentum": {
             "numbers": [
-              1,
-              11,
+              7,
+              9,
               18,
-              21,
-              34
+              22,
+              30
             ],
-            "special": 9
+            "special": 9,
+            "negative_space_check": {
+              "passed": true,
+              "score": "5/5",
+              "details": {
+                "passed": true,
+                "score_pass": 5,
+                "sum": {
+                  "val": 86,
+                  "min": 60,
+                  "max": 120,
+                  "passed": true
+                },
+                "ac": {
+                  "val": 6,
+                  "threshold": 4,
+                  "passed": true
+                },
+                "consecutive": {
+                  "max_len": 1,
+                  "passed": true
+                },
+                "parity": {
+                  "ratio": "3C - 2L",
+                  "passed": true
+                },
+                "repeat": {
+                  "count": 1,
+                  "max_allowed": 2,
+                  "passed": true
+                }
+              }
+            }
           },
           "bao7": {
             "numbers": [
-              35,
               19,
-              13,
               30,
               11,
-              21
+              3,
+              13,
+              15
             ],
-            "special": 9
+            "special": 9,
+            "negative_space_check": {
+              "passed": true,
+              "score": "Đạt Chuẩn Bao"
+            }
           }
         },
         "history_walk_forward": [
@@ -20119,10 +20419,10 @@
             ],
             "predicted": [
               13,
+              26,
+              22,
               15,
-              27,
-              3,
-              22
+              9
             ],
             "matched": [
               13,
@@ -20141,11 +20441,11 @@
               27
             ],
             "predicted": [
+              28,
               15,
-              22,
               13,
-              3,
-              28
+              22,
+              26
             ],
             "matched": [],
             "matchCount": 0
@@ -20162,10 +20462,10 @@
             ],
             "predicted": [
               13,
-              11,
-              9,
-              35,
-              20
+              20,
+              21,
+              18,
+              11
             ],
             "matched": [],
             "matchCount": 0
@@ -20182,10 +20482,10 @@
             ],
             "predicted": [
               12,
-              19,
               2,
-              28,
-              34
+              21,
+              13,
+              28
             ],
             "matched": [],
             "matchCount": 0
@@ -20201,14 +20501,16 @@
               29
             ],
             "predicted": [
-              17,
-              9,
-              6,
-              3,
-              34
+              21,
+              12,
+              28,
+              11,
+              25
             ],
-            "matched": [],
-            "matchCount": 0
+            "matched": [
+              11
+            ],
+            "matchCount": 1
           },
           {
             "drawId": "00860",
@@ -20221,14 +20523,16 @@
               22
             ],
             "predicted": [
-              28,
               7,
-              34,
+              28,
               35,
-              13
+              15,
+              12
             ],
-            "matched": [],
-            "matchCount": 0
+            "matched": [
+              15
+            ],
+            "matchCount": 1
           },
           {
             "drawId": "00859",
@@ -20241,16 +20545,17 @@
               34
             ],
             "predicted": [
-              27,
               35,
-              22,
-              17,
-              33
+              27,
+              8,
+              34,
+              2
             ],
             "matched": [
-              27
+              27,
+              34
             ],
-            "matchCount": 1
+            "matchCount": 2
           },
           {
             "drawId": "00858",
@@ -20266,8 +20571,8 @@
               34,
               12,
               35,
-              15,
-              13
+              7,
+              20
             ],
             "matched": [],
             "matchCount": 0
@@ -20284,10 +20589,10 @@
             ],
             "predicted": [
               22,
-              13,
-              21,
-              34,
-              35
+              33,
+              35,
+              9,
+              13
             ],
             "matched": [
               13
@@ -20306,10 +20611,10 @@
             ],
             "predicted": [
               33,
-              28,
               29,
+              19,
               34,
-              21
+              28
             ],
             "matched": [],
             "matchCount": 0
@@ -20326,10 +20631,10 @@
             ],
             "predicted": [
               19,
+              30,
               28,
-              13,
-              34,
-              5
+              5,
+              14
             ],
             "matched": [
               28
@@ -20348,10 +20653,10 @@
             ],
             "predicted": [
               21,
-              23,
-              28,
-              34,
-              19
+              19,
+              31,
+              35,
+              15
             ],
             "matched": [],
             "matchCount": 0
@@ -20368,10 +20673,10 @@
             ],
             "predicted": [
               13,
+              8,
               33,
               9,
-              8,
-              28
+              7
             ],
             "matched": [],
             "matchCount": 0
@@ -20388,10 +20693,10 @@
             ],
             "predicted": [
               13,
+              5,
               33,
-              9,
-              22,
-              15
+              15,
+              8
             ],
             "matched": [],
             "matchCount": 0
@@ -20407,17 +20712,16 @@
               28
             ],
             "predicted": [
-              33,
               28,
-              11,
-              21,
-              15
+              33,
+              15,
+              13,
+              6
             ],
             "matched": [
-              21,
               28
             ],
-            "matchCount": 2
+            "matchCount": 1
           }
         ]
       }
