@@ -111,82 +111,293 @@
 <body class="bg-slate-950 text-slate-100 min-h-full flex flex-col font-sans selection:bg-rose-500 selection:text-white">
 
   <!-- Header -->
-  <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <div class="flex items-center space-x-3">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-rose-600 via-amber-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-rose-900/30">
-            <i data-lucide="line-chart" class="w-5 h-5 text-white"></i>
+  <header class="border-b border-slate-800 bg-slate-900/95 backdrop-blur sticky top-0 z-40 shadow-lg shadow-slate-950/20">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-14 sm:h-16 gap-2 sm:gap-4">
+        <!-- Left: Menu Button & Brand -->
+        <div class="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
+          <button onclick="toggleSidebar()" id="sidebarToggleBtn" class="p-2 sm:px-3 sm:py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-400 hover:text-white transition flex items-center gap-1.5 border border-slate-700/80 shadow-sm active:scale-95 cursor-pointer" title="Mở danh mục tính năng">
+            <i data-lucide="menu" class="w-5 h-5"></i>
+            <span class="hidden md:inline text-xs font-bold font-mono tracking-wider">TÍNH NĂNG</span>
+          </button>
+
+          <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-tr from-rose-600 via-amber-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-rose-900/30 flex-shrink-0">
+            <i data-lucide="line-chart" class="w-4 h-4 sm:w-5 sm:h-5 text-white"></i>
           </div>
-          <div>
-            <h1 class="text-xl font-bold bg-gradient-to-r from-rose-400 via-amber-300 to-indigo-300 bg-clip-text text-transparent">
-              VIETLOTT ANALYTICS HUB
+
+          <div class="min-w-0">
+            <h1 class="text-sm sm:text-base md:text-lg font-bold bg-gradient-to-r from-rose-400 via-amber-300 to-indigo-300 bg-clip-text text-transparent truncate leading-tight">
+              VIETLOTT ANALYTICS
             </h1>
-            <p class="text-xs text-slate-400">Trung tâm Thống kê & Phân tích Dữ liệu Xổ số Chuyên sâu</p>
+            <p class="text-[10px] text-slate-400 font-mono hidden lg:block">Quant & AI Lottery Explorer</p>
           </div>
         </div>
 
-        <div class="flex items-center space-x-3">
-          <div id="statusBadge" class="hidden sm:flex items-center space-x-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-xs text-slate-300">
+        <!-- Center / Right: 3 Core Product Pills -->
+        <div class="flex items-center space-x-1 sm:space-x-2 overflow-x-auto scrollbar-none py-1" id="productTabs">
+          <!-- Rendered by JS: Power 6/55, Mega 6/45, Power 5/35 -->
+        </div>
+
+        <!-- Right: Status Badge & GitHub -->
+        <div class="flex items-center space-x-2 flex-shrink-0">
+          <div id="statusBadge" class="hidden xl:flex items-center space-x-2 px-2.5 py-1 rounded-full bg-slate-800 border border-slate-700 text-xs text-slate-300 font-mono">
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-            <span id="updateTimeText">Đang tải dữ liệu...</span>
+            <span id="updateTimeText">Live</span>
           </div>
 
-          <a href="https://github.com/Cyndaquil322/vietlott-data" target="_blank" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition" title="GitHub Repository">
-            <i data-lucide="github" class="w-5 h-5"></i>
+          <a href="https://github.com/Cyndaquil322/vietlott-data" target="_blank" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition" title="GitHub Repository">
+            <i data-lucide="github" class="w-4 h-4 sm:w-5 sm:h-5"></i>
           </a>
         </div>
-      </div>
-
-      <!-- Game Tabs -->
-      <div class="flex space-x-1 sm:space-x-2 overflow-x-auto pb-3 pt-1 scrollbar-none" id="productTabs">
-        <!-- Rendered by JS -->
       </div>
     </div>
   </header>
 
-  <!-- Navigation Menu: 2 Tiers (Gọn gàng & Phân loại thông minh) -->
-  <nav class="border-b border-slate-800/80 bg-slate-900/90 backdrop-blur sticky top-28 z-40">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Tier 1: Primary Categories (4 Grid Columns - Không bao giờ tràn ngang) -->
-      <div class="grid grid-cols-4 gap-1.5 sm:gap-2 pt-2.5 pb-2 border-b border-slate-800/60" id="navTier1">
-        <button onclick="switchCategory('overview')" id="cat-overview" class="cat-tab py-1.5 px-1 sm:px-3 rounded-lg text-center font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1 sm:gap-1.5 bg-rose-600/90 text-white shadow-sm ring-1 ring-rose-500/30">
-          <i data-lucide="sparkles" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-300"></i>
-          <span class="truncate">Tổng Quan & Vé</span>
+  <!-- Sub-header bar: Current Active View Title & Breadcrumb -->
+  <div class="border-b border-slate-800/80 bg-slate-900/60 backdrop-blur py-2 px-3 sm:px-6 lg:px-8 sticky top-14 sm:top-16 z-30">
+    <div class="max-w-7xl mx-auto flex items-center justify-between text-xs font-mono">
+      <div class="flex items-center gap-2 text-slate-400">
+        <button onclick="toggleSidebar()" class="hover:text-amber-300 flex items-center gap-1 font-bold text-amber-400 transition cursor-pointer">
+          <i data-lucide="menu" class="w-3.5 h-3.5"></i>
+          <span class="underline underline-offset-2">Menu</span>
         </button>
-        <button onclick="switchCategory('predictions')" id="cat-predictions" class="cat-tab py-1.5 px-1 sm:px-3 rounded-lg text-center font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1 sm:gap-1.5 bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white">
-          <i data-lucide="cpu" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400"></i>
-          <span class="truncate">AI & Dự Đoán</span>
-          <span class="hidden md:inline-block px-1 py-0.2 rounded text-[9px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40">MỚI</span>
-        </button>
-        <button onclick="switchCategory('stats')" id="cat-stats" class="cat-tab py-1.5 px-1 sm:px-3 rounded-lg text-center font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1 sm:gap-1.5 bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white">
-          <i data-lucide="bar-chart-2" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-indigo-400"></i>
-          <span class="truncate">Thống Kê Cơ Bản</span>
-        </button>
-        <button onclick="switchCategory('quant')" id="cat-quant" class="cat-tab py-1.5 px-1 sm:px-3 rounded-lg text-center font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1 sm:gap-1.5 bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white">
-          <i data-lucide="binary" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400"></i>
-          <span class="truncate">Định Lượng Sâu</span>
-        </button>
+        <span class="text-slate-600">/</span>
+        <span id="currentViewBreadcrumb" class="text-white font-bold flex items-center gap-1.5">
+          <i data-lucide="cpu" class="w-3.5 h-3.5 text-amber-400"></i>
+          <span>⭐ Tổng Hợp Dự Đoán</span>
+        </span>
       </div>
-
-      <!-- Tier 2: Sub-tabs based on active Category -->
-      <div class="flex space-x-1.5 sm:space-x-3 overflow-x-auto py-2 text-xs font-semibold tracking-wide scrollbar-none" id="navTier2">
-        <button onclick="switchView('overview')" id="nav-overview" class="view-tab active px-3 py-1.5 rounded-lg bg-rose-600 text-white flex items-center gap-1.5 transition whitespace-nowrap shadow-sm ring-1 ring-rose-400/40">
-          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-          <span>Kỳ Quay & Dò Vé</span>
-        </button>
-        <button onclick="switchView('saved-tickets')" id="nav-saved-tickets" class="view-tab px-3 py-1.5 rounded-lg bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white flex items-center gap-1.5 transition whitespace-nowrap">
+      <div class="flex items-center gap-3">
+        <button onclick="switchView('saved-tickets')" class="text-slate-400 hover:text-violet-300 flex items-center gap-1.5 transition cursor-pointer">
           <i data-lucide="bookmark" class="w-3.5 h-3.5 text-violet-400"></i>
-          <span>Sổ Tay Vé Đã Lưu</span>
-          <span id="savedTicketsBadge" class="ml-1 px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-violet-500 text-white font-mono">0</span>
-        </button>
-        <button onclick="switchView('history')" id="nav-history" class="view-tab px-3 py-1.5 rounded-lg bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white flex items-center gap-1.5 transition whitespace-nowrap">
-          <i data-lucide="history" class="w-3.5 h-3.5 text-slate-400"></i>
-          <span>Lịch Sử Kỳ Quay</span>
+          <span>Sổ tay:</span>
+          <strong id="savedTicketsBadge" class="px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-violet-500/20 text-violet-300 border border-violet-500/40 font-mono">0</strong>
         </button>
       </div>
     </div>
-  </nav>
+  </div>
+
+  <!-- BACKDROP OVERLAY FOR SIDEBAR -->
+  <div id="sidebarOverlay" onclick="closeSidebar()" class="fixed inset-0 bg-slate-950/75 backdrop-blur-sm z-50 transition-opacity duration-300 opacity-0 pointer-events-none"></div>
+
+  <!-- SIDEBAR DRAWER (CỘT BÊN TRÁI CHỨA CÁC TÍNH NĂNG) -->
+  <aside id="sidebarMenu" class="fixed top-0 left-0 bottom-0 w-84 max-w-[85vw] bg-slate-900 border-r border-slate-800 shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+    <!-- Drawer Header -->
+    <div class="p-4 border-b border-slate-800 flex items-center justify-between bg-slate-950/70">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-rose-600 to-amber-500 flex items-center justify-center text-white shadow">
+          <i data-lucide="layout-grid" class="w-4 h-4"></i>
+        </div>
+        <div>
+          <div class="font-bold text-sm text-white">DANH MỤC TÍNH NĂNG</div>
+          <div class="text-[10px] text-slate-400 font-mono">Vietlott Analytics & Quant Hub</div>
+        </div>
+      </div>
+      <button onclick="closeSidebar()" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition cursor-pointer" title="Đóng menu">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Drawer Navigation Items -->
+    <div class="flex-1 overflow-y-auto p-4 space-y-6 scrollbar-thin text-xs">
+      <!-- Group 1: Dự Đoán & AI -->
+      <div class="space-y-1.5">
+        <div class="px-2 pb-1 text-[10px] font-bold uppercase tracking-wider text-amber-400/90 font-mono flex items-center gap-1.5">
+          <i data-lucide="sparkles" class="w-3 h-3 text-amber-400"></i>
+          <span>Dự Đoán AI & Quant</span>
+        </div>
+        <button onclick="switchView('consensus')" id="side-consensus" class="w-full text-left p-2.5 rounded-xl transition flex items-center gap-3 sidebar-nav-item bg-amber-500/10 text-amber-300 border border-amber-500/30 cursor-pointer">
+          <div class="w-7 h-7 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="cpu" class="w-4 h-4"></i>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold flex items-center gap-1.5 text-white">
+              <span>⭐ Tổng Hợp Dự Đoán</span>
+              <span class="px-1.5 py-0.2 rounded text-[9px] font-bold bg-amber-500 text-slate-950 font-mono">HOT</span>
+            </div>
+            <div class="text-[10px] text-slate-400 truncate">Hội đồng 5 mô hình + 100 kỳ backtest</div>
+          </div>
+        </button>
+
+        <button onclick="switchView('bao7')" id="side-bao7" class="w-full text-left p-2.5 rounded-xl transition flex items-center gap-3 sidebar-nav-item hover:bg-slate-800/60 text-slate-300 hover:text-white cursor-pointer">
+          <div class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="layers" class="w-4 h-4"></i>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-slate-200">Dự Đoán Bao 7 / Bao 6</div>
+            <div class="text-[10px] text-slate-400 truncate">Tập 7 số hạt nhân đòn bẩy giải chùm</div>
+          </div>
+        </button>
+
+        <button onclick="switchView('ensemble')" id="side-ensemble" class="w-full text-left p-2.5 rounded-xl transition flex items-center gap-3 sidebar-nav-item hover:bg-slate-800/60 text-slate-300 hover:text-white cursor-pointer">
+          <div class="w-7 h-7 rounded-lg bg-rose-500/20 text-rose-400 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="sparkles" class="w-4 h-4"></i>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-slate-200">Dự Đoán Ensemble Đa Tầng</div>
+            <div class="text-[10px] text-slate-400 truncate">Mô hình tích hợp SEI chuẩn hóa</div>
+          </div>
+        </button>
+
+        <button onclick="switchView('smart-generator')" id="side-smart-generator" class="w-full text-left p-2.5 rounded-xl transition flex items-center gap-3 sidebar-nav-item hover:bg-slate-800/60 text-slate-300 hover:text-white cursor-pointer">
+          <div class="w-7 h-7 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="sliders" class="w-4 h-4"></i>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-slate-200">Sinh Số Thông Minh</div>
+            <div class="text-[10px] text-slate-400 truncate">Tùy biến bộ lọc số học & dải tổng</div>
+          </div>
+        </button>
+
+        <button onclick="switchView('simulator')" id="side-simulator" class="w-full text-left p-2.5 rounded-xl transition flex items-center gap-3 sidebar-nav-item hover:bg-slate-800/60 text-slate-300 hover:text-white cursor-pointer">
+          <div class="w-7 h-7 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="play-circle" class="w-4 h-4"></i>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-slate-200">Giả Lập Quay Số & Lãi Lỗ</div>
+            <div class="text-[10px] text-slate-400 truncate">Mô phỏng P&L Monte Carlo 500 kỳ</div>
+          </div>
+        </button>
+      </div>
+
+      <!-- Group 2: Kết Quả & Dò Vé -->
+      <div class="space-y-1.5 pt-2 border-t border-slate-800/60">
+        <div class="px-2 pb-1 text-[10px] font-bold uppercase tracking-wider text-rose-400/90 font-mono flex items-center gap-1.5">
+          <i data-lucide="check-circle" class="w-3 h-3 text-rose-400"></i>
+          <span>Kết Quả & Dò Vé</span>
+        </div>
+        <button onclick="switchView('overview')" id="side-overview" class="w-full text-left p-2.5 rounded-xl transition flex items-center gap-3 sidebar-nav-item hover:bg-slate-800/60 text-slate-300 hover:text-white cursor-pointer">
+          <div class="w-7 h-7 rounded-lg bg-slate-800 text-rose-400 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="calendar" class="w-4 h-4"></i>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-slate-200">Kỳ Quay Mới & Dò Vé</div>
+            <div class="text-[10px] text-slate-400 truncate">Kiểm tra kết quả và đếm ngược kỳ tới</div>
+          </div>
+        </button>
+
+        <button onclick="switchView('saved-tickets')" id="side-saved-tickets" class="w-full text-left p-2.5 rounded-xl transition flex items-center gap-3 sidebar-nav-item hover:bg-slate-800/60 text-slate-300 hover:text-white cursor-pointer">
+          <div class="w-7 h-7 rounded-lg bg-violet-500/20 text-violet-400 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="bookmark" class="w-4 h-4"></i>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-slate-200">Sổ Tay Vé Đã Lưu</div>
+            <div class="text-[10px] text-slate-400 truncate">Quản lý vé cá nhân & SMS 9969</div>
+          </div>
+        </button>
+
+        <button onclick="switchView('history')" id="side-history" class="w-full text-left p-2.5 rounded-xl transition flex items-center gap-3 sidebar-nav-item hover:bg-slate-800/60 text-slate-300 hover:text-white cursor-pointer">
+          <div class="w-7 h-7 rounded-lg bg-slate-800 text-slate-400 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="history" class="w-4 h-4"></i>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-slate-200">Lịch Sử Kỳ Quay Toàn Bộ</div>
+            <div class="text-[10px] text-slate-400 truncate">Tra cứu dữ liệu hơn 1.600 kỳ</div>
+          </div>
+        </button>
+      </div>
+
+      <!-- Group 3: Thống Kê Cơ Bản -->
+      <div class="space-y-1.5 pt-2 border-t border-slate-800/60">
+        <div class="px-2 pb-1 text-[10px] font-bold uppercase tracking-wider text-indigo-400/90 font-mono flex items-center gap-1.5">
+          <i data-lucide="bar-chart-2" class="w-3 h-3 text-indigo-400"></i>
+          <span>Thống Kê Cơ Bản</span>
+        </div>
+        <button onclick="switchView('gap')" id="side-gap" class="w-full text-left p-2.5 rounded-xl transition flex items-center gap-3 sidebar-nav-item hover:bg-slate-800/60 text-slate-300 hover:text-white cursor-pointer">
+          <div class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="timer" class="w-4 h-4"></i>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-slate-200">Chu Kỳ Nhịp & Số Gan</div>
+            <div class="text-[10px] text-slate-400 truncate">Khoảng cách rơi và bóng đang vào nhịp</div>
+          </div>
+        </button>
+
+        <button onclick="switchView('pairs')" id="side-pairs" class="w-full text-left p-2.5 rounded-xl transition flex items-center gap-3 sidebar-nav-item hover:bg-slate-800/60 text-slate-300 hover:text-white cursor-pointer">
+          <div class="w-7 h-7 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="link" class="w-4 h-4"></i>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-slate-200">Cặp Đôi & Bộ Ba Hay Về</div>
+            <div class="text-[10px] text-slate-400 truncate">Tần suất đồng xuất hiện (Co-occurrence)</div>
+          </div>
+        </button>
+
+        <button onclick="switchView('sum')" id="side-sum" class="w-full text-left p-2.5 rounded-xl transition flex items-center gap-3 sidebar-nav-item hover:bg-slate-800/60 text-slate-300 hover:text-white cursor-pointer">
+          <div class="w-7 h-7 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="bell" class="w-4 h-4"></i>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-slate-200">Phân Phối Dải Tổng Gaussian</div>
+            <div class="text-[10px] text-slate-400 truncate">Đường cong hình chuông & kỳ vọng μ</div>
+          </div>
+        </button>
+
+        <button onclick="switchView('patterns')" id="side-patterns" class="w-full text-left p-2.5 rounded-xl transition flex items-center gap-3 sidebar-nav-item hover:bg-slate-800/60 text-slate-300 hover:text-white cursor-pointer">
+          <div class="w-7 h-7 rounded-lg bg-pink-500/20 text-pink-400 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="grid" class="w-4 h-4"></i>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-slate-200">Liền Kề, Cầu Lặp & Đầu Số</div>
+            <div class="text-[10px] text-slate-400 truncate">Quy luật số kề và lặp lại từ kỳ trước</div>
+          </div>
+        </button>
+      </div>
+
+      <!-- Group 4: Định Lượng Sâu -->
+      <div class="space-y-1.5 pt-2 border-t border-slate-800/60">
+        <div class="px-2 pb-1 text-[10px] font-bold uppercase tracking-wider text-emerald-400/90 font-mono flex items-center gap-1.5">
+          <i data-lucide="binary" class="w-3 h-3 text-emerald-400"></i>
+          <span>Định Lượng Chuyên Sâu</span>
+        </div>
+        <button onclick="switchView('markov')" id="side-markov" class="w-full text-left p-2.5 rounded-xl transition flex items-center gap-3 sidebar-nav-item hover:bg-slate-800/60 text-slate-300 hover:text-white cursor-pointer">
+          <div class="w-7 h-7 rounded-lg bg-fuchsia-500/20 text-fuchsia-400 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="git-merge" class="w-4 h-4"></i>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-slate-200">Ma Trận Chuyển Trạng Thái Markov</div>
+            <div class="text-[10px] text-slate-400 truncate">Xác suất có điều kiện chuyển từ kỳ trước</div>
+          </div>
+        </button>
+
+        <button onclick="switchView('ac-delta')" id="side-ac-delta" class="w-full text-left p-2.5 rounded-xl transition flex items-center gap-3 sidebar-nav-item hover:bg-slate-800/60 text-slate-300 hover:text-white cursor-pointer">
+          <div class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="activity" class="w-4 h-4"></i>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-slate-200">Độ Phức Tạp AC & Delta Gaps</div>
+            <div class="text-[10px] text-slate-400 truncate">Chỉ số phân tán số học và delta sai phân</div>
+          </div>
+        </button>
+
+        <button onclick="switchView('positional')" id="side-positional" class="w-full text-left p-2.5 rounded-xl transition flex items-center gap-3 sidebar-nav-item hover:bg-slate-800/60 text-slate-300 hover:text-white cursor-pointer">
+          <div class="w-7 h-7 rounded-lg bg-orange-500/20 text-orange-400 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="crosshair" class="w-4 h-4"></i>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-slate-200">Điểm Rơi Theo Vị Trí Bóng</div>
+            <div class="text-[10px] text-slate-400 truncate">Dải min-max của bóng 1 đến bóng 6</div>
+          </div>
+        </button>
+
+        <button onclick="switchView('digits-ev')" id="side-digits-ev" class="w-full text-left p-2.5 rounded-xl transition flex items-center gap-3 sidebar-nav-item hover:bg-slate-800/60 text-slate-300 hover:text-white cursor-pointer">
+          <div class="w-7 h-7 rounded-lg bg-violet-500/20 text-violet-400 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="sparkles" class="w-4 h-4"></i>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-bold text-slate-200">Kỳ Vọng Toán Học EV & Đuôi Số</div>
+            <div class="text-[10px] text-slate-400 truncate">Phân phối đuôi 0-9 và entropy ngẫu nhiên</div>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Drawer Footer -->
+    <div class="p-3 border-t border-slate-800 bg-slate-950/60 text-[11px] text-slate-500 font-mono text-center flex items-center justify-center gap-2">
+      <i data-lucide="keyboard" class="w-3.5 h-3.5 text-slate-500"></i>
+      <span>Bấm <kbd class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">ESC</kbd> hoặc ra ngoài để đóng</span>
+    </div>
+  </aside>
 
   <!-- Main Container -->
   <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
@@ -1971,22 +2182,38 @@
     // State
     let appData = null;
     let currentProductKey = 'power_655';
-    let currentView = 'overview';
+    let currentView = 'consensus';
     let currentPage = 1;
     let pageSize = 25;
     let sumChartInstance = null;
     let decadeChartInstance = null;
     let simPnlChartInstance = null;
 
+    // 3 Loại Hình Xổ Số Cốt Lõi (Đã loại bỏ Keno, Bingo 18, Max 3D theo yêu cầu)
     const PRODUCT_LIST = [
       { key: 'power_655', label: 'Power 6/55', icon: 'zap' },
       { key: 'power_645', label: 'Mega 6/45', icon: 'award' },
-      { key: 'power_535', label: 'Power 5/35', icon: 'star' },
-      { key: 'keno', label: 'Keno', icon: 'grid' },
-      { key: 'bingo18', label: 'Bingo 18', icon: 'dice-3' },
-      { key: '3d', label: 'Max 3D', icon: 'layers' },
-      { key: '3d_pro', label: 'Max 3D Pro', icon: 'box' },
+      { key: 'power_535', label: 'Power 5/35', icon: 'star' }
     ];
+
+    const VIEW_METADATA = {
+      'consensus': { name: '⭐ Tổng Hợp Dự Đoán', icon: 'cpu', color: 'amber' },
+      'bao7': { name: 'Dự Đoán Bao 7 / Bao 6', icon: 'layers', color: 'emerald' },
+      'ensemble': { name: 'Dự Đoán Ensemble Đa Tầng', icon: 'sparkles', color: 'rose' },
+      'smart-generator': { name: 'Sinh Số Thông Minh', icon: 'sliders', color: 'purple' },
+      'simulator': { name: 'Giả Lập Quay Số & Lãi Lỗ', icon: 'play-circle', color: 'cyan' },
+      'overview': { name: 'Kỳ Quay Mới & Dò Vé', icon: 'calendar', color: 'rose' },
+      'saved-tickets': { name: 'Sổ Tay Vé Đã Lưu', icon: 'bookmark', color: 'violet' },
+      'history': { name: 'Lịch Sử Toàn Bộ Kỳ Quay', icon: 'history', color: 'slate' },
+      'gap': { name: 'Chu Kỳ Nhịp & Số Gan', icon: 'timer', color: 'emerald' },
+      'pairs': { name: 'Cặp Đôi & Bộ Ba Hay Về', icon: 'link', color: 'blue' },
+      'sum': { name: 'Phân Phối Dải Tổng Gaussian', icon: 'bell', color: 'amber' },
+      'patterns': { name: 'Liền Kề, Cầu Lặp & Đầu Số', icon: 'grid', color: 'pink' },
+      'markov': { name: 'Ma Trận Chuyển Trạng Thái Markov', icon: 'git-merge', color: 'fuchsia' },
+      'ac-delta': { name: 'Độ Phức Tạp AC & Delta Gaps', icon: 'activity', color: 'emerald' },
+      'positional': { name: 'Điểm Rơi Theo Vị Trí Bóng', icon: 'crosshair', color: 'orange' },
+      'digits-ev': { name: 'Kỳ Vọng Toán Học EV & Đuôi Số', icon: 'sparkles', color: 'violet' }
+    };
 
     document.addEventListener('DOMContentLoaded', async () => {
       lucide.createIcons();
@@ -1999,14 +2226,15 @@
 
     function renderGameTabs() {
       const container = document.getElementById('productTabs');
+      if (!container) return;
       container.innerHTML = PRODUCT_LIST.map(p => `
         <button onclick="switchProduct('${p.key}')" id="tab-${p.key}" 
-          class="flex items-center space-x-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition whitespace-nowrap ${
+          class="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition whitespace-nowrap cursor-pointer ${
             p.key === currentProductKey 
-              ? 'bg-rose-600 text-white shadow-lg shadow-rose-900/30' 
+              ? 'bg-rose-600 text-white shadow-md shadow-rose-900/40 ring-1 ring-rose-400/50' 
               : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white'
           }">
-          <i data-lucide="${p.icon}" class="w-4 h-4"></i>
+          <i data-lucide="${p.icon}" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
           <span>${p.label}</span>
         </button>
       `).join('');
@@ -2022,124 +2250,91 @@
       renderCurrentProduct();
     }
 
-    const NAV_CATEGORIES = {
-      'overview': {
-        id: 'cat-overview',
-        name: 'Tổng Quan & Vé',
-        icon: 'sparkles',
-        defaultView: 'overview',
-        tabs: [
-          { id: 'overview', name: 'Kỳ Quay & Dò Vé', icon: 'sparkles' },
-          { id: 'saved-tickets', name: 'Sổ Tay Vé Đã Lưu', icon: 'bookmark', hasBadge: true },
-          { id: 'history', name: 'Lịch Sử Kỳ Quay', icon: 'history' }
-        ]
-      },
-      'predictions': {
-        id: 'cat-predictions',
-        name: 'AI & Dự Đoán',
-        icon: 'cpu',
-        defaultView: 'consensus',
-        tabs: [
-          { id: 'consensus', name: '⭐ Tổng Hợp Dự Đoán', icon: 'cpu', isSpecial: true },
-          { id: 'ensemble', name: 'Dự Đoán Toàn Diện (100 Kỳ)', icon: 'layers' },
-          { id: 'bao7', name: 'Chiến Lược Bao 7 (70k)', icon: 'layers-2' },
-          { id: 'smart-generator', name: 'Tạo Vé Thông Minh', icon: 'wand-2' },
-          { id: 'simulator', name: 'Giả Lập Nuôi Số', icon: 'coins' }
-        ]
-      },
-      'stats': {
-        id: 'cat-stats',
-        name: 'Thống Kê Cơ Bản',
-        icon: 'bar-chart-2',
-        defaultView: 'gap',
-        tabs: [
-          { id: 'gap', name: 'Thống Kê Số Gan', icon: 'timer' },
-          { id: 'pairs', name: 'Cặp Số Hay Đi Cùng', icon: 'users-2' },
-          { id: 'sum', name: 'Phân Tích Tổng Giải', icon: 'bell' },
-          { id: 'patterns', name: 'Xu Hướng & Mẫu Hình', icon: 'git-commit' }
-        ]
-      },
-      'quant': {
-        id: 'cat-quant',
-        name: 'Định Lượng Sâu',
-        icon: 'binary',
-        defaultView: 'markov',
-        tabs: [
-          { id: 'markov', name: 'Markov & Dự Đoán', icon: 'git-merge' },
-          { id: 'ac-delta', name: 'Độ Phức Tạp & Delta', icon: 'activity' },
-          { id: 'positional', name: 'Vị Trí & Biên Độ', icon: 'sliders-horizontal' },
-          { id: 'digits-ev', name: 'Đuôi Số & Đo +EV', icon: 'gauge' }
-        ]
+    // Sidebar Drawer Controller (Cột menu bên trái)
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebarMenu');
+      const overlay = document.getElementById('sidebarOverlay');
+      if (!sidebar || !overlay) return;
+      const isOpen = !sidebar.classList.contains('-translate-x-full');
+      if (isOpen) {
+        closeSidebar();
+      } else {
+        openSidebar();
       }
-    };
-
-    let currentCategory = 'overview';
-
-    function findCategoryForView(viewName) {
-      for (const [catKey, cat] of Object.entries(NAV_CATEGORIES)) {
-        if (cat.tabs.some(t => t.id === viewName)) return catKey;
-      }
-      return 'overview';
     }
 
-    function renderTier2Nav(catKey, activeView) {
-      const cat = NAV_CATEGORIES[catKey];
-      if (!cat) return;
-      const container = document.getElementById('navTier2');
-      if (!container) return;
-
-      container.innerHTML = cat.tabs.map(tab => {
-        const isActive = (tab.id === activeView);
-        let activeClass = 'bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white';
-        if (isActive) {
-          activeClass = 'bg-rose-600 text-white shadow-sm ring-1 ring-rose-400/40';
-        } else if (tab.isSpecial) {
-          activeClass = 'bg-amber-500/10 text-amber-300 border border-amber-500/40 hover:bg-slate-700 hover:text-white';
-        }
-
-        const badgeCount = (typeof getSavedTickets === 'function' && typeof gitSavedTickets !== 'undefined')
-          ? (getSavedTickets().length + (gitSavedTickets ? gitSavedTickets.length : 0))
-          : 0;
-
-        const badgeHtml = tab.hasBadge 
-          ? `<span id="savedTicketsBadge" class="ml-1 px-1.5 py-0.2 rounded-full text-[10px] font-bold ${badgeCount > 0 ? 'bg-violet-500 text-white' : 'bg-slate-700 text-slate-400'} font-mono">${badgeCount}</span>`
-          : '';
-
-        return `
-          <button onclick="switchView('${tab.id}')" id="nav-${tab.id}" class="view-tab ${isActive ? 'active' : ''} px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition whitespace-nowrap ${activeClass}">
-            <i data-lucide="${tab.icon}" class="w-3.5 h-3.5"></i>
-            <span>${tab.name}</span>
-            ${badgeHtml}
-          </button>
-        `;
-      }).join('');
+    function openSidebar() {
+      const sidebar = document.getElementById('sidebarMenu');
+      const overlay = document.getElementById('sidebarOverlay');
+      if (!sidebar || !overlay) return;
+      sidebar.classList.remove('-translate-x-full');
+      overlay.classList.remove('opacity-0', 'pointer-events-none');
+      overlay.classList.add('opacity-100');
+      document.body.classList.add('overflow-hidden');
       lucide.createIcons();
     }
 
+    function closeSidebar() {
+      const sidebar = document.getElementById('sidebarMenu');
+      const overlay = document.getElementById('sidebarOverlay');
+      if (!sidebar || !overlay) return;
+      sidebar.classList.add('-translate-x-full');
+      overlay.classList.add('opacity-0', 'pointer-events-none');
+      overlay.classList.remove('opacity-100');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeSidebar();
+    });
+
+    const NAV_CATEGORIES = {
+      'overview': { id: 'cat-overview', name: 'Tổng Quan & Vé', icon: 'sparkles', defaultView: 'overview' },
+      'predictions': { id: 'cat-predictions', name: 'AI & Dự Đoán', icon: 'cpu', defaultView: 'consensus' },
+      'stats': { id: 'cat-stats', name: 'Thống Kê Cơ Bản', icon: 'bar-chart-2', defaultView: 'gap' },
+      'quant': { id: 'cat-quant', name: 'Định Lượng Sâu', icon: 'binary', defaultView: 'markov' }
+    };
+
+    let currentCategory = 'predictions';
+
+    function findCategoryForView(viewName) {
+      if (['consensus', 'bao7', 'ensemble', 'smart-generator', 'simulator'].includes(viewName)) return 'predictions';
+      if (['overview', 'saved-tickets', 'history'].includes(viewName)) return 'overview';
+      if (['gap', 'pairs', 'sum', 'patterns'].includes(viewName)) return 'stats';
+      return 'quant';
+    }
+
+    function renderTier2Nav() {}
     function switchCategory(catKey) {
-      currentCategory = catKey;
-      const defaultView = NAV_CATEGORIES[catKey]?.defaultView || 'overview';
+      const defaultView = NAV_CATEGORIES[catKey]?.defaultView || 'consensus';
       switchView(defaultView);
     }
 
     function switchView(viewName) {
       currentView = viewName;
-      const parentCat = findCategoryForView(viewName);
-      currentCategory = parentCat;
+      currentCategory = findCategoryForView(viewName);
 
-      // Highlight Category in Tier 1
-      document.querySelectorAll('.cat-tab').forEach(b => {
-        b.classList.remove('bg-rose-600/90', 'text-white', 'shadow-sm', 'ring-1', 'ring-rose-500/30');
-        b.classList.add('bg-slate-800/80', 'text-slate-300');
+      // Highlight active item in sidebar drawer
+      document.querySelectorAll('.sidebar-nav-item').forEach(el => {
+        el.classList.remove('bg-amber-500/10', 'text-amber-300', 'border', 'border-amber-500/30', 'bg-rose-500/10', 'text-rose-300', 'border-rose-500/30');
+        el.classList.add('text-slate-300', 'hover:bg-slate-800/60', 'hover:text-white');
       });
-      const activeCatBtn = document.getElementById(`cat-${parentCat}`);
-      if (activeCatBtn) {
-        activeCatBtn.classList.remove('bg-slate-800/80', 'text-slate-300');
-        activeCatBtn.classList.add('bg-rose-600/90', 'text-white', 'shadow-sm', 'ring-1', 'ring-rose-500/30');
+      const activeSideBtn = document.getElementById(`side-${viewName}`);
+      if (activeSideBtn) {
+        activeSideBtn.classList.remove('text-slate-300', 'hover:bg-slate-800/60', 'hover:text-white');
+        activeSideBtn.classList.add('bg-amber-500/10', 'text-amber-300', 'border', 'border-amber-500/30');
       }
 
-      // Render Sub-tabs in Tier 2
-      renderTier2Nav(parentCat, viewName);
+      // Update Breadcrumb
+      const bcEl = document.getElementById('currentViewBreadcrumb');
+      if (bcEl && VIEW_METADATA[viewName]) {
+        const meta = VIEW_METADATA[viewName];
+        bcEl.innerHTML = `<i data-lucide="${meta.icon}" class="w-3.5 h-3.5 text-${meta.color}-400"></i><span>${meta.name}</span>`;
+      }
+
+      // Close sidebar drawer smoothly
+      closeSidebar();
 
       // Toggle views visibility
       document.querySelectorAll('.view-content').forEach(c => c.classList.add('hidden'));
@@ -2212,6 +2407,7 @@
       }
       renderCurrentProduct();
       updateSavedBadge();
+      switchView(currentView || 'consensus');
     }
 
     document.getElementById('manualJsonInput').addEventListener('change', (e) => {
