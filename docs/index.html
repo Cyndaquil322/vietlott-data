@@ -133,9 +133,24 @@
           </div>
         </div>
 
-        <!-- Center / Right: 3 Core Product Pills -->
-        <div class="flex items-center space-x-1 sm:space-x-2 overflow-x-auto scrollbar-none py-1" id="productTabs">
-          <!-- Rendered by JS: Power 6/55, Mega 6/45, Power 5/35 -->
+        <!-- Center / Right: Streamlined Game Selector Dropdown -->
+        <div class="relative" id="productSelectorWrapper">
+          <button id="productSelectorBtn" onclick="toggleProductDropdown(event)" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold bg-rose-600 hover:bg-rose-500 text-white shadow-md shadow-rose-950/40 transition active:scale-95 cursor-pointer whitespace-nowrap border border-rose-400/40 ring-1 ring-rose-400/20">
+            <i data-lucide="zap" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-300" id="productSelectorIcon"></i>
+            <span id="productSelectorLabel">Power 6/55</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-rose-200 transition-transform duration-200" id="productSelectorChevron"></i>
+          </button>
+          
+          <!-- Dropdown Menu -->
+          <div id="productDropdownMenu" class="hidden absolute right-0 mt-2 w-64 rounded-2xl bg-slate-900/95 backdrop-blur-xl border border-slate-700/80 shadow-2xl p-2 z-50 space-y-1 divide-y divide-slate-800/80">
+            <div class="px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider text-slate-400 flex items-center justify-between">
+              <span>Chọn Loại Hình</span>
+              <span class="text-amber-400 font-bold">3 Đài Chính</span>
+            </div>
+            <div class="pt-1.5 space-y-1" id="productDropdownList">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
         </div>
 
         <!-- Right: Status Badge & GitHub -->
@@ -2203,11 +2218,11 @@
     let decadeChartInstance = null;
     let simPnlChartInstance = null;
 
-    // 3 Loại Hình Xổ Số Cốt Lõi (Đã loại bỏ Keno, Bingo 18, Max 3D theo yêu cầu)
+    // 3 Loại Hình Xổ Số Cốt Lõi (Dropdown chọn loại hình gọn gàng)
     const PRODUCT_LIST = [
-      { key: 'power_655', label: 'Power 6/55', icon: 'zap' },
-      { key: 'power_645', label: 'Mega 6/45', icon: 'award' },
-      { key: 'power_535', label: 'Power 5/35', icon: 'star' }
+      { key: 'power_655', label: 'Power 6/55', icon: 'zap', schedule: 'Thứ 3, 5, 7 (18h)', desc: 'Jackpot 1 & 2 (100+ Tỷ)' },
+      { key: 'power_645', label: 'Mega 6/45', icon: 'award', schedule: 'Thứ 4, 6, CN (18h)', desc: 'Jackpot khởi điểm 12 Tỷ' },
+      { key: 'power_535', label: 'Power 5/35', icon: 'star', schedule: 'Hàng ngày (13h & 21h)', desc: 'Tỷ lệ trúng cao, 2 kỳ/ngày' }
     ];
 
     const VIEW_METADATA = {
@@ -2238,21 +2253,82 @@
       await loadData();
     });
 
+    // Product Selector Dropdown Controller
+    function toggleProductDropdown(e) {
+      if (e) e.stopPropagation();
+      const menu = document.getElementById('productDropdownMenu');
+      const chevron = document.getElementById('productSelectorChevron');
+      if (!menu) return;
+      const isHidden = menu.classList.contains('hidden');
+      if (isHidden) {
+        menu.classList.remove('hidden');
+        if (chevron) chevron.classList.add('rotate-180');
+        renderProductDropdown();
+      } else {
+        closeProductDropdown();
+      }
+    }
+
+    function closeProductDropdown() {
+      const menu = document.getElementById('productDropdownMenu');
+      const chevron = document.getElementById('productSelectorChevron');
+      if (menu) menu.classList.add('hidden');
+      if (chevron) chevron.classList.remove('rotate-180');
+    }
+
+    // Close on click outside or escape
+    document.addEventListener('click', (e) => {
+      const wrapper = document.getElementById('productSelectorWrapper');
+      if (wrapper && !wrapper.contains(e.target)) {
+        closeProductDropdown();
+      }
+    });
+
     function renderGameTabs() {
-      const container = document.getElementById('productTabs');
-      if (!container) return;
-      container.innerHTML = PRODUCT_LIST.map(p => `
-        <button onclick="switchProduct('${p.key}')" id="tab-${p.key}" 
-          class="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition whitespace-nowrap cursor-pointer ${
-            p.key === currentProductKey 
-              ? 'bg-rose-600 text-white shadow-md shadow-rose-900/40 ring-1 ring-rose-400/50' 
-              : 'bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white'
-          }">
-          <i data-lucide="${p.icon}" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
-          <span>${p.label}</span>
-        </button>
-      `).join('');
+      const prod = PRODUCT_LIST.find(p => p.key === currentProductKey) || PRODUCT_LIST[0];
+      const labelEl = document.getElementById('productSelectorLabel');
+      const iconEl = document.getElementById('productSelectorIcon');
+
+      if (labelEl) labelEl.textContent = prod.label;
+      if (iconEl) iconEl.setAttribute('data-lucide', prod.icon);
+
+      renderProductDropdown();
       lucide.createIcons();
+    }
+
+    function renderProductDropdown() {
+      const listEl = document.getElementById('productDropdownList');
+      if (!listEl) return;
+      listEl.innerHTML = PRODUCT_LIST.map(p => {
+        const isSelected = (p.key === currentProductKey);
+        return `
+          <button onclick="selectProductFromDropdown('${p.key}')" class="w-full text-left p-2.5 rounded-xl transition flex items-center justify-between gap-2 cursor-pointer ${
+            isSelected 
+              ? 'bg-rose-500/15 border border-rose-500/40 text-white' 
+              : 'hover:bg-slate-800/80 text-slate-300 hover:text-white'
+          }">
+            <div class="flex items-center gap-2.5">
+              <div class="w-7 h-7 rounded-lg flex items-center justify-center ${isSelected ? 'bg-rose-600 text-white' : 'bg-slate-800 text-slate-400'}">
+                <i data-lucide="${p.icon}" class="w-3.5 h-3.5"></i>
+              </div>
+              <div>
+                <div class="font-bold text-xs flex items-center gap-1.5">
+                  <span>${p.label}</span>
+                  ${isSelected ? '<span class="text-[9px] px-1.5 py-0.2 rounded bg-rose-500/30 text-rose-300 font-mono">Đang xem</span>' : ''}
+                </div>
+                <div class="text-[10px] text-slate-400 font-sans mt-0.5">${p.desc || ''}</div>
+              </div>
+            </div>
+            <span class="text-[9px] font-mono text-slate-500 hidden sm:inline whitespace-nowrap">${p.schedule || ''}</span>
+          </button>
+        `;
+      }).join('');
+      lucide.createIcons();
+    }
+
+    function selectProductFromDropdown(key) {
+      closeProductDropdown();
+      switchProduct(key);
     }
 
     function switchProduct(key) {
