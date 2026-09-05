@@ -27,3 +27,26 @@
 * Bộ số dự đoán chính thức cho kỳ tiếp theo phải luôn được gieo mầm cố định theo mã kỳ quay (`Draw ID Seed`).
 * Khi người dùng tải lại trang (F5/Reload) hoặc mở trên nhiều thiết bị khác nhau, bộ số đề xuất chính thức phải luôn đồng nhất 100%, không được tự ý nhảy số lung tung do dùng hàm ngẫu nhiên thuần túy.
 * Chỉ sinh thêm tổ hợp mới khi người dùng chủ động bấm nút *"Sinh thêm tổ hợp"*.
+
+---
+
+### 4. QUY TRÌNH KỸ THUẬT BẮT BUỘC (ENGINEERING WORKFLOWS & SUPERPOWERS ENFORCEMENT)
+Mỗi khi tiếp nhận bất kỳ yêu cầu nào từ người dùng, Agent BẮT BUỘC phải vận hành theo đúng các nguyên tắc:
+
+1. **Khởi động & Kích hoạt Skill (`using-superpowers`):**
+   - Phải xác định và gọi skill phù hợp ngay từ đầu.
+   - Luôn tuyên bố minh bạch: `"Using [skill] to [purpose]"` trước khi thực hiện bất kỳ hành động nào.
+2. **Theo dõi tiến độ bằng Checklist (Task Tracking):**
+   - Tạo và duy trì một Task Checklist rõ ràng (`- [ ]`, `- [/]`, `- [x]`) trong phản hồi để người dùng theo dõi tiến độ từng bước theo thời gian thực.
+3. **Tuân thủ chu trình phân lớp:**
+   - **Phát triển tính năng mới:** `brainstorming` -> `writing-plans` -> `executing-plans` (hoặc `subagent-driven-development`).
+   - **Sửa lỗi / Điều tra:** `systematic-debugging` (Tìm nguyên nhân gốc trước khi sửa).
+   - **Viết code:** `test-driven-development` (TDD - Viết test kiểm chứng trước).
+   - **Trước khi công bố hoàn thành:** Bắt buộc áp dụng `verification-before-completion`: Chạy lệnh kiểm thử thực tế và trưng ra bằng chứng (Fresh Evidence) trước khi đưa ra bất kỳ kết luận nào (`NO COMPLETION CLAIMS WITHOUT FRESH VERIFICATION EVIDENCE`).
+   - **Kết thúc & Bàn giao:** `finishing-a-development-branch`.
+
+---
+
+### 5. QUY TẮC BẢO TOÀN DỮ LIỆU MÁY NGƯỜI DÙNG (DATA SAFETY)
+* **TUYỆT ĐỐI KHÔNG ĐƯỢC XOÁ BẤT KỲ FILE NÀO TRÊN MÁY NGƯỜI DÙNG.**
+* Khi tích hợp, cấu hình hoặc nâng cấp, **CHỈ ĐƯỢC COPY HOẶC TẠO MỚI** file.
