@@ -1,4 +1,4 @@
-import cattrs
+import attrs
 
 from vietlott.crawler.schema.requests import ORenderInfoCls, RequestPower655
 
@@ -87,7 +87,6 @@ def test_schema_structure():
         PageIndex=0,
     )
 
-    rendered_object = cattrs.unstructure(schema_object)
+    rendered_object = attrs.asdict(schema_object)
 
-    diffs = find_diff(rendered_object, org_body)
-    assert len(diffs) == 0, diffs
+    assert not find_diff(org_body, rendered_object)

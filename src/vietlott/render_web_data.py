@@ -2307,8 +2307,10 @@ def main():
     for out_dir in [DOCS_DATA_DIR, DATA_DIR]:
         out_dir.mkdir(parents=True, exist_ok=True)
         output_path = out_dir / "vietlott_summary.json"
-        with open(output_path, "w", encoding="utf-8") as f:
+        tmp_path = out_dir / "vietlott_summary.json.tmp"
+        with open(tmp_path, "w", encoding="utf-8") as f:
             json.dump(summary_data, f, ensure_ascii=False, indent=2)
+        tmp_path.replace(output_path)
         file_size_kb = output_path.stat().st_size / 1024
         print(f"Successfully generated {output_path} ({file_size_kb:.1f} KB)")
 

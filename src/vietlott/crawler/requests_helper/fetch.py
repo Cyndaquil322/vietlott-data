@@ -7,7 +7,11 @@ import re
 from typing import Callable, Optional, Tuple
 
 import requests
-from loguru import logger
+try:
+    from loguru import logger
+except ImportError:
+    import logging
+    logger = logging.getLogger("vietlott")
 
 from vietlott.crawler.requests_helper.config import TIMEOUT
 

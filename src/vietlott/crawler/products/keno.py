@@ -1,6 +1,6 @@
+from datetime import datetime
 from typing import Dict, List
 
-import pendulum
 from bs4 import BeautifulSoup
 
 from vietlott.crawler.products import BaseProduct
@@ -51,7 +51,7 @@ class ProductKeno(ProductPower655):
 
             #
             td_a = tds[0].find_all("a")
-            row["date"] = pendulum.from_format(td_a[0].text, "DD/MM/YYYY").to_date_string()
+            row["date"] = datetime.strptime(td_a[0].text.strip(), "%d/%m/%Y").strftime("%Y-%m-%d")
 
             # if row["date"] != run_date_str:
             #     logger.error("wrong date instance %s != %s", row["date"], run_date_str)

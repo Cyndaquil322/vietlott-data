@@ -1,4 +1,4 @@
-import cattrs
+import attrs
 
 from vietlott.crawler.products import P3DPro
 from vietlott.crawler.products.p3d import P3D
@@ -18,7 +18,7 @@ def test_power_655():
         ProductPower655.url,
         dict(Cookie=vietlott_cookie, **requests_config.headers),
         ProductPower655.org_params,
-        cattrs.unstructure(ProductPower655.org_body),
+        attrs.asdict(ProductPower655.org_body),
         _fn,
         cookies,
     )
@@ -37,7 +37,7 @@ def test_power_645():
         ProductPower645.url,
         dict(Cookie=vietlott_cookie, **requests_config.headers),
         ProductPower645.org_params,
-        cattrs.unstructure(ProductPower645.org_body),
+        attrs.asdict(ProductPower645.org_body),
         _fn,
         cookies,
     )
@@ -56,7 +56,7 @@ def test_power_3d():
         P3D.url,
         dict(Cookie=vietlott_cookie, **requests_config.headers),
         P3D.org_params,
-        cattrs.unstructure(P3D.org_body),
+        attrs.asdict(P3D.org_body),
         _fn,
         cookies,
     )
@@ -76,7 +76,7 @@ def test_power_3d_pro():
         P3DPro.url,
         dict(Cookie=vietlott_cookie, **requests_config.headers),
         P3DPro.org_params,
-        cattrs.unstructure(P3DPro.org_body),
+        attrs.asdict(P3DPro.org_body),
         _fn,
         cookies,
     )

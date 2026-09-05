@@ -11,6 +11,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 from bs4 import BeautifulSoup
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
@@ -23,6 +25,21 @@ HEADERS = {
     "X-Requested-With": "XMLHttpRequest",
     "Origin": "https://www.vietlott.vn",
 }
+
+
+def get_robust_session() -> requests.Session:
+    """Tạo session HTTP có cơ chế tự động thử lại (Retry & Exponential Backoff)."""
+    session = requests.Session()
+    retries = Retry(
+        total=3,
+        backoff_factor=1,
+        status_forcelist=[429, 500, 502, 503, 504],
+        raise_on_status=False,
+    )
+    adapter = HTTPAdapter(max_retries=retries)
+    session.mount("http://", adapter)
+    session.mount("https://", adapter)
+    return session
 
 
 def load_existing_data(file_path: Path) -> Dict[str, Dict]:
@@ -44,6 +61,7 @@ def load_existing_data(file_path: Path) -> Dict[str, Dict]:
 
 
 def save_data(file_path: Path, records_dict: Dict[str, Dict]):
+    """Ghi file dữ liệu nguyên tử (Atomic Write) chống hỏng dữ liệu khi bị ngắt."""
     def sort_key(x):
         d_val = x.get("date", "")
         id_val = str(x.get("id", "")).replace("#", "").strip()
@@ -51,9 +69,11 @@ def save_data(file_path: Path, records_dict: Dict[str, Dict]):
         return (d_val, num_id)
 
     sorted_records = sorted(records_dict.values(), key=sort_key)
-    with open(file_path, "w", encoding="utf-8") as f:
+    tmp_path = file_path.with_suffix(".tmp")
+    with open(tmp_path, "w", encoding="utf-8") as f:
         for r in sorted_records:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
+    tmp_path.replace(file_path)
 
 
 def sync_power(name: str, url: str, key: str, file_path: Path, array_len: int = 5, max_pages: int = 35):
@@ -62,6 +82,7 @@ def sync_power(name: str, url: str, key: str, file_path: Path, array_len: int = 
     latest_local_id = int(max(existing.keys(), key=lambda x: int(x))) if existing else 0
     print(f"Latest local draw: #{latest_local_id} (Total: {len(existing)})")
 
+    session = get_robust_session()
     new_draws = 0
     stop = False
 
@@ -75,7 +96,7 @@ def sync_power(name: str, url: str, key: str, file_path: Path, array_len: int = 
             "PageIndex": page,
         }
         try:
-            res = requests.post(url, headers=HEADERS, json=body, timeout=12)
+            res = session.post(url, headers=HEADERS, json=body, timeout=12)
             if not res.ok:
                 print(f"Page {page} request failed: {res.status_code}")
                 break
@@ -128,6 +149,7 @@ def sync_max3d(name: str, url: str, game_id: str, file_path: Path, max_pages: in
     latest_local_id = int(max(existing.keys(), key=lambda x: int(x))) if existing else 0
     print(f"Latest local draw: #{latest_local_id} (Total: {len(existing)})")
 
+    session = get_robust_session()
     new_draws = 0
     stop = False
 
@@ -142,7 +164,7 @@ def sync_max3d(name: str, url: str, game_id: str, file_path: Path, max_pages: in
             "number02": "321",
         }
         try:
-            res = requests.post(url, headers=HEADERS, json=body, timeout=12)
+            res = session.post(url, headers=HEADERS, json=body, timeout=12)
             if not res.ok:
                 break
             data = res.json()
@@ -222,6 +244,7 @@ def sync_power535(file_path: Path, max_pages: int = 40):
     latest_local_id = int(max(existing.keys(), key=lambda x: int(x))) if existing else 0
     print(f"Latest local draw: #{latest_local_id} (Total: {len(existing)})")
 
+    session = get_robust_session()
     headers_info = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
         "Content-Type": "text/plain; charset=utf-8",
@@ -229,7 +252,7 @@ def sync_power535(file_path: Path, max_pages: int = 40):
         "Origin": "https://vietlott.vn",
     }
     try:
-        r1 = requests.post(
+        r1 = session.post(
             "https://vietlott.vn/ajaxpro/Vietlott.Utility.WebEnvironments,Vietlott.Utility.ashx",
             headers=headers_info,
             data=json.dumps({"SiteId": "main.frontend.vi"}),
@@ -260,7 +283,7 @@ def sync_power535(file_path: Path, max_pages: int = 40):
             "PageIndex": page,
         }
         try:
-            r2 = requests.post(
+            r2 = session.post(
                 "https://vietlott.vn/ajaxpro/Vietlott.PlugIn.WebParts.Game535CompareWebPart,Vietlott.PlugIn.WebParts.ashx",
                 headers=headers_draw,
                 data=json.dumps(body),

@@ -1,8 +1,12 @@
+from datetime import datetime
 from typing import Dict, List
 
-import pendulum
 from bs4 import BeautifulSoup
-from loguru import logger
+try:
+    from loguru import logger
+except ImportError:
+    import logging
+    logger = logging.getLogger("vietlott")
 
 from vietlott.crawler.products import BaseProduct
 from vietlott.crawler.products.power655 import ProductPower655
@@ -64,7 +68,7 @@ class ProductBingo18(ProductPower655):
 
         soup = BeautifulSoup(html_content, "lxml")
         data = []
-        process_time = pendulum.now().to_iso8601_string()
+        process_time = datetime.now().isoformat()
 
         for i, tr in enumerate(soup.select("table tr")):
             if i == 0:  # Skip header row
@@ -82,7 +86,7 @@ class ProductBingo18(ProductPower655):
                 # Parse date
                 date_text = date_id_links[0].text.strip()
                 try:
-                    row["date"] = pendulum.from_format(date_text, "DD/MM/YYYY").to_date_string()
+                    row["date"] = datetime.strptime(date_text, "%d/%m/%Y").strftime("%Y-%m-%d")
                 except Exception as e:
                     logger.warning(f"Failed to parse date '{date_text}': {e}")
                     continue

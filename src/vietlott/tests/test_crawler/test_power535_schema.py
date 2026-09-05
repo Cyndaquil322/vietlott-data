@@ -1,4 +1,4 @@
-import cattrs
+import attrs
 
 from vietlott.crawler.schema.requests import ORenderInfoCls, RequestPower535
 
@@ -35,7 +35,7 @@ def test_power535_schema_structure():
     )
 
     # Test that it can be serialized
-    rendered_object = cattrs.unstructure(schema_object)
+    rendered_object = attrs.asdict(schema_object)
 
     # Basic validation
     assert "ORenderInfo" in rendered_object

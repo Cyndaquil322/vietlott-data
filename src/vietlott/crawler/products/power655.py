@@ -4,10 +4,14 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 from typing import Dict, List, Optional
 
-import cattrs
+import attrs
 import pandas as pd
 from bs4 import BeautifulSoup
-from loguru import logger
+try:
+    from loguru import logger
+except ImportError:
+    import logging
+    logger = logging.getLogger("vietlott")
 
 from vietlott.config.products import ProductConfig
 from vietlott.crawler import collections_helper
@@ -114,7 +118,7 @@ class ProductPower655(BaseProduct):
             self.url,
             requests_config.headers,
             self.org_params,
-            cattrs.unstructure(self.org_body),
+            attrs.asdict(self.org_body),
             self.process_result,
             self.cookies,
         )

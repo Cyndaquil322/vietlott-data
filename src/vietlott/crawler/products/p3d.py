@@ -1,6 +1,6 @@
+from datetime import datetime
 from typing import Dict, List
 
-import pendulum
 from bs4 import BeautifulSoup
 
 from vietlott.crawler.collections_helper import chunks_iter
@@ -51,8 +51,8 @@ class P3D(ProductPower655):
             div_0_text = div_0.get_text()
 
             # Extract the date after "Ngày:"
-            date_str = div_0_text.split("Ngày: ")[1]
-            row["date"] = pendulum.from_format(date_str, "DD/MM/YYYY").to_date_string()
+            date_str = div_0_text.split("Ngày: ")[1].strip()
+            row["date"] = datetime.strptime(date_str, "%d/%m/%Y").strftime("%Y-%m-%d")
 
             # if row["date"] != run_date_str:
             #     logger.error("wrong date instance %s != %s", row["date"], run_date_str)

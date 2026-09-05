@@ -50,6 +50,13 @@ from vietlott.render_web_data import main as render_web_data
 def setup_logger():
     LOGS_DIR.mkdir(parents=True, exist_ok=True)
     log_file = LOGS_DIR / "auto_draw_audit.log"
+    # Auto-rotate log file if exceeds 5MB
+    if log_file.exists() and log_file.stat().st_size > 5 * 1024 * 1024:
+        backup = LOGS_DIR / f"auto_draw_audit_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
+        try:
+            log_file.replace(backup)
+        except Exception:
+            pass
     return log_file
 
 
