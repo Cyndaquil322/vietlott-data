@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-09-06 11:39:27",
+    "generated_at": "2026-09-06 14:21:43",
     "generator": "vietlott-data automated pipeline",
     "version": "2.0.0"
   },
@@ -8365,24 +8365,38 @@
       "balls": 6,
       "max_number": 45,
       "has_special": false,
-      "total_draws": 1361,
+      "total_draws": 1362,
       "first_draw": "2017-10-25",
-      "latest_draw": "2026-09-04",
+      "latest_draw": "2026-09-06",
       "latest": {
-        "date": "2026-09-04",
-        "id": "01558",
+        "date": "2026-09-06",
+        "id": "01559",
         "result": [
-          16,
-          21,
-          23,
-          29,
-          34,
-          45
+          9,
+          14,
+          22,
+          26,
+          27,
+          40
         ],
         "page": 0,
-        "process_time": "2026-09-04T20:43:34.617730"
+        "process_time": "2026-09-06T21:11:59.066452"
       },
       "history": [
+        {
+          "date": "2026-09-06",
+          "id": "01559",
+          "result": [
+            9,
+            14,
+            22,
+            26,
+            27,
+            40
+          ],
+          "page": 0,
+          "process_time": "2026-09-06T21:11:59.066452"
+        },
         {
           "date": "2026-09-04",
           "id": "01558",
@@ -9768,119 +9782,105 @@
           ],
           "page": 12,
           "process_time": "2026-09-04T20:43:43.277843"
-        },
-        {
-          "date": "2026-01-16",
-          "id": "01459",
-          "result": [
-            2,
-            10,
-            21,
-            31,
-            34,
-            40
-          ],
-          "page": 12,
-          "process_time": "2026-09-04T20:43:43.277843"
         }
       ],
       "hot_numbers": [
         {
           "number": 22,
-          "count": 200,
-          "pct": 14.7
+          "count": 201,
+          "pct": 14.76
         },
         {
           "number": 7,
           "count": 199,
-          "pct": 14.62
+          "pct": 14.61
         },
         {
           "number": 10,
           "count": 199,
-          "pct": 14.62
+          "pct": 14.61
         },
         {
           "number": 19,
           "count": 199,
-          "pct": 14.62
+          "pct": 14.61
         },
         {
           "number": 24,
           "count": 199,
-          "pct": 14.62
+          "pct": 14.61
         },
         {
           "number": 44,
           "count": 198,
-          "pct": 14.55
+          "pct": 14.54
         },
         {
           "number": 28,
           "count": 196,
-          "pct": 14.4
+          "pct": 14.39
         },
         {
           "number": 37,
           "count": 196,
-          "pct": 14.4
+          "pct": 14.39
         },
         {
           "number": 20,
           "count": 192,
-          "pct": 14.11
+          "pct": 14.1
         },
         {
           "number": 4,
           "count": 191,
-          "pct": 14.03
+          "pct": 14.02
         }
       ],
       "cold_numbers": [
         {
           "number": 38,
           "count": 160,
-          "pct": 11.76
+          "pct": 11.75
         },
         {
           "number": 17,
           "count": 160,
-          "pct": 11.76
+          "pct": 11.75
         },
         {
           "number": 32,
           "count": 163,
-          "pct": 11.98
+          "pct": 11.97
         },
         {
           "number": 12,
           "count": 164,
-          "pct": 12.05
+          "pct": 12.04
         },
         {
           "number": 21,
           "count": 165,
-          "pct": 12.12
-        },
-        {
-          "number": 40,
-          "count": 167,
-          "pct": 12.27
+          "pct": 12.11
         },
         {
           "number": 3,
           "count": 167,
-          "pct": 12.27
+          "pct": 12.26
+        },
+        {
+          "number": 40,
+          "count": 168,
+          "pct": 12.33
         },
         {
           "number": 15,
           "count": 169,
-          "pct": 12.42
+          "pct": 12.41
         },
         {
           "number": 2,
           "count": 170,
-          "pct": 12.49
+          "pct": 12.48
         },
         {
           "number": 39,
@@ -9891,637 +9891,637 @@
       "top_overdue": [
         {
           "number": 5,
-          "current_gap": 26,
+          "current_gap": 27,
           "max_gap": 34,
           "avg_gap": 7.7,
           "appearances": 177,
-          "heat_ratio": 3.38
-        },
-        {
-          "number": 14,
-          "current_gap": 25,
-          "max_gap": 47,
-          "avg_gap": 7.8,
-          "appearances": 174,
-          "heat_ratio": 3.21
+          "heat_ratio": 3.51
         },
         {
           "number": 42,
-          "current_gap": 24,
+          "current_gap": 25,
           "max_gap": 46,
-          "avg_gap": 7.6,
+          "avg_gap": 7.7,
           "appearances": 178,
-          "heat_ratio": 3.16
+          "heat_ratio": 3.25
         },
         {
           "number": 24,
-          "current_gap": 15,
+          "current_gap": 16,
           "max_gap": 30,
           "avg_gap": 6.8,
           "appearances": 199,
-          "heat_ratio": 2.21
+          "heat_ratio": 2.35
         },
         {
           "number": 25,
-          "current_gap": 14,
+          "current_gap": 15,
           "max_gap": 43,
           "avg_gap": 7.7,
           "appearances": 177,
-          "heat_ratio": 1.82
+          "heat_ratio": 1.95
         },
         {
           "number": 28,
-          "current_gap": 13,
+          "current_gap": 14,
           "max_gap": 35,
           "avg_gap": 6.9,
           "appearances": 196,
-          "heat_ratio": 1.88
+          "heat_ratio": 2.03
         },
         {
           "number": 2,
-          "current_gap": 12,
+          "current_gap": 13,
           "max_gap": 47,
           "avg_gap": 8.0,
           "appearances": 170,
-          "heat_ratio": 1.5
+          "heat_ratio": 1.62
         },
         {
           "number": 8,
-          "current_gap": 12,
+          "current_gap": 13,
           "max_gap": 37,
           "avg_gap": 7.7,
           "appearances": 177,
-          "heat_ratio": 1.56
-        },
-        {
-          "number": 30,
-          "current_gap": 12,
-          "max_gap": 64,
-          "avg_gap": 7.1,
-          "appearances": 191,
           "heat_ratio": 1.69
         },
         {
+          "number": 30,
+          "current_gap": 13,
+          "max_gap": 64,
+          "avg_gap": 7.1,
+          "appearances": 191,
+          "heat_ratio": 1.83
+        },
+        {
           "number": 20,
-          "current_gap": 11,
+          "current_gap": 12,
           "max_gap": 34,
           "avg_gap": 7.1,
           "appearances": 192,
-          "heat_ratio": 1.55
+          "heat_ratio": 1.69
+        },
+        {
+          "number": 19,
+          "current_gap": 9,
+          "max_gap": 35,
+          "avg_gap": 6.8,
+          "appearances": 199,
+          "heat_ratio": 1.32
         }
       ],
       "gap_analysis": [
         {
           "number": 1,
-          "current_gap": 2,
+          "current_gap": 3,
           "max_gap": 60,
-          "avg_gap": 7.6,
+          "avg_gap": 7.7,
           "appearances": 178,
-          "heat_ratio": 0.26
-        },
-        {
-          "number": 2,
-          "current_gap": 12,
-          "max_gap": 47,
-          "avg_gap": 8.0,
-          "appearances": 170,
-          "heat_ratio": 1.5
-        },
-        {
-          "number": 3,
-          "current_gap": 2,
-          "max_gap": 70,
-          "avg_gap": 8.1,
-          "appearances": 167,
-          "heat_ratio": 0.25
-        },
-        {
-          "number": 4,
-          "current_gap": 5,
-          "max_gap": 40,
-          "avg_gap": 7.1,
-          "appearances": 191,
-          "heat_ratio": 0.7
-        },
-        {
-          "number": 5,
-          "current_gap": 26,
-          "max_gap": 34,
-          "avg_gap": 7.7,
-          "appearances": 177,
-          "heat_ratio": 3.38
-        },
-        {
-          "number": 6,
-          "current_gap": 1,
-          "max_gap": 36,
-          "avg_gap": 7.5,
-          "appearances": 182,
-          "heat_ratio": 0.13
-        },
-        {
-          "number": 7,
-          "current_gap": 6,
-          "max_gap": 45,
-          "avg_gap": 6.8,
-          "appearances": 199,
-          "heat_ratio": 0.88
-        },
-        {
-          "number": 8,
-          "current_gap": 12,
-          "max_gap": 37,
-          "avg_gap": 7.7,
-          "appearances": 177,
-          "heat_ratio": 1.56
-        },
-        {
-          "number": 9,
-          "current_gap": 1,
-          "max_gap": 51,
-          "avg_gap": 7.9,
-          "appearances": 173,
-          "heat_ratio": 0.13
-        },
-        {
-          "number": 10,
-          "current_gap": 4,
-          "max_gap": 46,
-          "avg_gap": 6.8,
-          "appearances": 199,
-          "heat_ratio": 0.59
-        },
-        {
-          "number": 11,
-          "current_gap": 4,
-          "max_gap": 51,
-          "avg_gap": 7.4,
-          "appearances": 184,
-          "heat_ratio": 0.54
-        },
-        {
-          "number": 12,
-          "current_gap": 2,
-          "max_gap": 42,
-          "avg_gap": 8.3,
-          "appearances": 164,
-          "heat_ratio": 0.24
-        },
-        {
-          "number": 13,
-          "current_gap": 3,
-          "max_gap": 29,
-          "avg_gap": 7.4,
-          "appearances": 183,
-          "heat_ratio": 0.41
-        },
-        {
-          "number": 14,
-          "current_gap": 25,
-          "max_gap": 47,
-          "avg_gap": 7.8,
-          "appearances": 174,
-          "heat_ratio": 3.21
-        },
-        {
-          "number": 15,
-          "current_gap": 2,
-          "max_gap": 34,
-          "avg_gap": 8.1,
-          "appearances": 169,
-          "heat_ratio": 0.25
-        },
-        {
-          "number": 16,
-          "current_gap": 0,
-          "max_gap": 37,
-          "avg_gap": 7.2,
-          "appearances": 188,
-          "heat_ratio": 0.0
-        },
-        {
-          "number": 17,
-          "current_gap": 5,
-          "max_gap": 41,
-          "avg_gap": 8.5,
-          "appearances": 160,
-          "heat_ratio": 0.59
-        },
-        {
-          "number": 18,
-          "current_gap": 7,
-          "max_gap": 35,
-          "avg_gap": 7.6,
-          "appearances": 180,
-          "heat_ratio": 0.92
-        },
-        {
-          "number": 19,
-          "current_gap": 8,
-          "max_gap": 35,
-          "avg_gap": 6.8,
-          "appearances": 199,
-          "heat_ratio": 1.18
-        },
-        {
-          "number": 20,
-          "current_gap": 11,
-          "max_gap": 34,
-          "avg_gap": 7.1,
-          "appearances": 192,
-          "heat_ratio": 1.55
-        },
-        {
-          "number": 21,
-          "current_gap": 0,
-          "max_gap": 37,
-          "avg_gap": 8.2,
-          "appearances": 165,
-          "heat_ratio": 0.0
-        },
-        {
-          "number": 22,
-          "current_gap": 3,
-          "max_gap": 33,
-          "avg_gap": 6.8,
-          "appearances": 200,
-          "heat_ratio": 0.44
-        },
-        {
-          "number": 23,
-          "current_gap": 0,
-          "max_gap": 33,
-          "avg_gap": 7.5,
-          "appearances": 182,
-          "heat_ratio": 0.0
-        },
-        {
-          "number": 24,
-          "current_gap": 15,
-          "max_gap": 30,
-          "avg_gap": 6.8,
-          "appearances": 199,
-          "heat_ratio": 2.21
-        },
-        {
-          "number": 25,
-          "current_gap": 14,
-          "max_gap": 43,
-          "avg_gap": 7.7,
-          "appearances": 177,
-          "heat_ratio": 1.82
-        },
-        {
-          "number": 26,
-          "current_gap": 6,
-          "max_gap": 38,
-          "avg_gap": 7.6,
-          "appearances": 180,
-          "heat_ratio": 0.79
-        },
-        {
-          "number": 27,
-          "current_gap": 1,
-          "max_gap": 39,
-          "avg_gap": 7.4,
-          "appearances": 183,
-          "heat_ratio": 0.14
-        },
-        {
-          "number": 28,
-          "current_gap": 13,
-          "max_gap": 35,
-          "avg_gap": 6.9,
-          "appearances": 196,
-          "heat_ratio": 1.88
-        },
-        {
-          "number": 29,
-          "current_gap": 0,
-          "max_gap": 33,
-          "avg_gap": 7.3,
-          "appearances": 186,
-          "heat_ratio": 0.0
-        },
-        {
-          "number": 30,
-          "current_gap": 12,
-          "max_gap": 64,
-          "avg_gap": 7.1,
-          "appearances": 191,
-          "heat_ratio": 1.69
-        },
-        {
-          "number": 31,
-          "current_gap": 6,
-          "max_gap": 30,
-          "avg_gap": 7.2,
-          "appearances": 188,
-          "heat_ratio": 0.83
-        },
-        {
-          "number": 32,
-          "current_gap": 5,
-          "max_gap": 33,
-          "avg_gap": 8.3,
-          "appearances": 163,
-          "heat_ratio": 0.6
-        },
-        {
-          "number": 33,
-          "current_gap": 4,
-          "max_gap": 36,
-          "avg_gap": 7.6,
-          "appearances": 178,
-          "heat_ratio": 0.53
-        },
-        {
-          "number": 34,
-          "current_gap": 0,
-          "max_gap": 34,
-          "avg_gap": 7.4,
-          "appearances": 183,
-          "heat_ratio": 0.0
-        },
-        {
-          "number": 35,
-          "current_gap": 1,
-          "max_gap": 44,
-          "avg_gap": 7.3,
-          "appearances": 186,
-          "heat_ratio": 0.14
-        },
-        {
-          "number": 36,
-          "current_gap": 3,
-          "max_gap": 33,
-          "avg_gap": 7.7,
-          "appearances": 177,
           "heat_ratio": 0.39
         },
         {
-          "number": 37,
-          "current_gap": 2,
-          "max_gap": 27,
-          "avg_gap": 6.9,
-          "appearances": 196,
-          "heat_ratio": 0.29
+          "number": 2,
+          "current_gap": 13,
+          "max_gap": 47,
+          "avg_gap": 8.0,
+          "appearances": 170,
+          "heat_ratio": 1.62
         },
         {
-          "number": 38,
-          "current_gap": 6,
+          "number": 3,
+          "current_gap": 3,
           "max_gap": 70,
+          "avg_gap": 8.2,
+          "appearances": 167,
+          "heat_ratio": 0.37
+        },
+        {
+          "number": 4,
+          "current_gap": 6,
+          "max_gap": 40,
+          "avg_gap": 7.1,
+          "appearances": 191,
+          "heat_ratio": 0.85
+        },
+        {
+          "number": 5,
+          "current_gap": 27,
+          "max_gap": 34,
+          "avg_gap": 7.7,
+          "appearances": 177,
+          "heat_ratio": 3.51
+        },
+        {
+          "number": 6,
+          "current_gap": 2,
+          "max_gap": 36,
+          "avg_gap": 7.5,
+          "appearances": 182,
+          "heat_ratio": 0.27
+        },
+        {
+          "number": 7,
+          "current_gap": 7,
+          "max_gap": 45,
+          "avg_gap": 6.8,
+          "appearances": 199,
+          "heat_ratio": 1.03
+        },
+        {
+          "number": 8,
+          "current_gap": 13,
+          "max_gap": 37,
+          "avg_gap": 7.7,
+          "appearances": 177,
+          "heat_ratio": 1.69
+        },
+        {
+          "number": 9,
+          "current_gap": 0,
+          "max_gap": 51,
+          "avg_gap": 7.8,
+          "appearances": 174,
+          "heat_ratio": 0.0
+        },
+        {
+          "number": 10,
+          "current_gap": 5,
+          "max_gap": 46,
+          "avg_gap": 6.8,
+          "appearances": 199,
+          "heat_ratio": 0.74
+        },
+        {
+          "number": 11,
+          "current_gap": 5,
+          "max_gap": 51,
+          "avg_gap": 7.4,
+          "appearances": 184,
+          "heat_ratio": 0.68
+        },
+        {
+          "number": 12,
+          "current_gap": 3,
+          "max_gap": 42,
+          "avg_gap": 8.3,
+          "appearances": 164,
+          "heat_ratio": 0.36
+        },
+        {
+          "number": 13,
+          "current_gap": 4,
+          "max_gap": 29,
+          "avg_gap": 7.4,
+          "appearances": 183,
+          "heat_ratio": 0.54
+        },
+        {
+          "number": 14,
+          "current_gap": 0,
+          "max_gap": 47,
+          "avg_gap": 7.8,
+          "appearances": 175,
+          "heat_ratio": 0.0
+        },
+        {
+          "number": 15,
+          "current_gap": 3,
+          "max_gap": 34,
+          "avg_gap": 8.1,
+          "appearances": 169,
+          "heat_ratio": 0.37
+        },
+        {
+          "number": 16,
+          "current_gap": 1,
+          "max_gap": 37,
+          "avg_gap": 7.2,
+          "appearances": 188,
+          "heat_ratio": 0.14
+        },
+        {
+          "number": 17,
+          "current_gap": 6,
+          "max_gap": 41,
           "avg_gap": 8.5,
           "appearances": 160,
           "heat_ratio": 0.71
         },
         {
-          "number": 39,
-          "current_gap": 3,
-          "max_gap": 38,
-          "avg_gap": 8.0,
-          "appearances": 171,
-          "heat_ratio": 0.38
-        },
-        {
-          "number": 40,
-          "current_gap": 4,
-          "max_gap": 46,
-          "avg_gap": 8.1,
-          "appearances": 167,
-          "heat_ratio": 0.49
-        },
-        {
-          "number": 41,
+          "number": 18,
           "current_gap": 8,
-          "max_gap": 40,
-          "avg_gap": 7.2,
-          "appearances": 188,
-          "heat_ratio": 1.11
-        },
-        {
-          "number": 42,
-          "current_gap": 24,
-          "max_gap": 46,
-          "avg_gap": 7.6,
-          "appearances": 178,
-          "heat_ratio": 3.16
-        },
-        {
-          "number": 43,
-          "current_gap": 6,
-          "max_gap": 45,
+          "max_gap": 35,
           "avg_gap": 7.6,
           "appearances": 180,
-          "heat_ratio": 0.79
+          "heat_ratio": 1.05
         },
         {
-          "number": 44,
+          "number": 19,
+          "current_gap": 9,
+          "max_gap": 35,
+          "avg_gap": 6.8,
+          "appearances": 199,
+          "heat_ratio": 1.32
+        },
+        {
+          "number": 20,
+          "current_gap": 12,
+          "max_gap": 34,
+          "avg_gap": 7.1,
+          "appearances": 192,
+          "heat_ratio": 1.69
+        },
+        {
+          "number": 21,
           "current_gap": 1,
           "max_gap": 37,
+          "avg_gap": 8.3,
+          "appearances": 165,
+          "heat_ratio": 0.12
+        },
+        {
+          "number": 22,
+          "current_gap": 0,
+          "max_gap": 33,
+          "avg_gap": 6.8,
+          "appearances": 201,
+          "heat_ratio": 0.0
+        },
+        {
+          "number": 23,
+          "current_gap": 1,
+          "max_gap": 33,
+          "avg_gap": 7.5,
+          "appearances": 182,
+          "heat_ratio": 0.13
+        },
+        {
+          "number": 24,
+          "current_gap": 16,
+          "max_gap": 30,
+          "avg_gap": 6.8,
+          "appearances": 199,
+          "heat_ratio": 2.35
+        },
+        {
+          "number": 25,
+          "current_gap": 15,
+          "max_gap": 43,
+          "avg_gap": 7.7,
+          "appearances": 177,
+          "heat_ratio": 1.95
+        },
+        {
+          "number": 26,
+          "current_gap": 0,
+          "max_gap": 38,
+          "avg_gap": 7.5,
+          "appearances": 181,
+          "heat_ratio": 0.0
+        },
+        {
+          "number": 27,
+          "current_gap": 0,
+          "max_gap": 39,
+          "avg_gap": 7.4,
+          "appearances": 184,
+          "heat_ratio": 0.0
+        },
+        {
+          "number": 28,
+          "current_gap": 14,
+          "max_gap": 35,
           "avg_gap": 6.9,
-          "appearances": 198,
+          "appearances": 196,
+          "heat_ratio": 2.03
+        },
+        {
+          "number": 29,
+          "current_gap": 1,
+          "max_gap": 33,
+          "avg_gap": 7.3,
+          "appearances": 186,
           "heat_ratio": 0.14
         },
         {
-          "number": 45,
+          "number": 30,
+          "current_gap": 13,
+          "max_gap": 64,
+          "avg_gap": 7.1,
+          "appearances": 191,
+          "heat_ratio": 1.83
+        },
+        {
+          "number": 31,
+          "current_gap": 7,
+          "max_gap": 30,
+          "avg_gap": 7.2,
+          "appearances": 188,
+          "heat_ratio": 0.97
+        },
+        {
+          "number": 32,
+          "current_gap": 6,
+          "max_gap": 33,
+          "avg_gap": 8.4,
+          "appearances": 163,
+          "heat_ratio": 0.71
+        },
+        {
+          "number": 33,
+          "current_gap": 5,
+          "max_gap": 36,
+          "avg_gap": 7.7,
+          "appearances": 178,
+          "heat_ratio": 0.65
+        },
+        {
+          "number": 34,
+          "current_gap": 1,
+          "max_gap": 34,
+          "avg_gap": 7.4,
+          "appearances": 183,
+          "heat_ratio": 0.14
+        },
+        {
+          "number": 35,
+          "current_gap": 2,
+          "max_gap": 44,
+          "avg_gap": 7.3,
+          "appearances": 186,
+          "heat_ratio": 0.27
+        },
+        {
+          "number": 36,
+          "current_gap": 4,
+          "max_gap": 33,
+          "avg_gap": 7.7,
+          "appearances": 177,
+          "heat_ratio": 0.52
+        },
+        {
+          "number": 37,
+          "current_gap": 3,
+          "max_gap": 27,
+          "avg_gap": 6.9,
+          "appearances": 196,
+          "heat_ratio": 0.43
+        },
+        {
+          "number": 38,
+          "current_gap": 7,
+          "max_gap": 70,
+          "avg_gap": 8.5,
+          "appearances": 160,
+          "heat_ratio": 0.82
+        },
+        {
+          "number": 39,
+          "current_gap": 4,
+          "max_gap": 38,
+          "avg_gap": 8.0,
+          "appearances": 171,
+          "heat_ratio": 0.5
+        },
+        {
+          "number": 40,
           "current_gap": 0,
+          "max_gap": 46,
+          "avg_gap": 8.1,
+          "appearances": 168,
+          "heat_ratio": 0.0
+        },
+        {
+          "number": 41,
+          "current_gap": 9,
+          "max_gap": 40,
+          "avg_gap": 7.2,
+          "appearances": 188,
+          "heat_ratio": 1.25
+        },
+        {
+          "number": 42,
+          "current_gap": 25,
+          "max_gap": 46,
+          "avg_gap": 7.7,
+          "appearances": 178,
+          "heat_ratio": 3.25
+        },
+        {
+          "number": 43,
+          "current_gap": 7,
+          "max_gap": 45,
+          "avg_gap": 7.6,
+          "appearances": 180,
+          "heat_ratio": 0.92
+        },
+        {
+          "number": 44,
+          "current_gap": 2,
+          "max_gap": 37,
+          "avg_gap": 6.9,
+          "appearances": 198,
+          "heat_ratio": 0.29
+        },
+        {
+          "number": 45,
+          "current_gap": 1,
           "max_gap": 39,
           "avg_gap": 7.2,
           "appearances": 188,
-          "heat_ratio": 0.0
+          "heat_ratio": 0.14
         }
       ],
       "frequency": [
         {
           "number": 1,
           "count": 178,
-          "pct": 13.08
+          "pct": 13.07
         },
         {
           "number": 2,
           "count": 170,
-          "pct": 12.49
+          "pct": 12.48
         },
         {
           "number": 3,
           "count": 167,
-          "pct": 12.27
+          "pct": 12.26
         },
         {
           "number": 4,
           "count": 191,
-          "pct": 14.03
+          "pct": 14.02
         },
         {
           "number": 5,
           "count": 177,
-          "pct": 13.01
+          "pct": 13.0
         },
         {
           "number": 6,
           "count": 182,
-          "pct": 13.37
+          "pct": 13.36
         },
         {
           "number": 7,
           "count": 199,
-          "pct": 14.62
+          "pct": 14.61
         },
         {
           "number": 8,
           "count": 177,
-          "pct": 13.01
+          "pct": 13.0
         },
         {
           "number": 9,
-          "count": 173,
-          "pct": 12.71
-        },
-        {
-          "number": 10,
-          "count": 199,
-          "pct": 14.62
-        },
-        {
-          "number": 11,
-          "count": 184,
-          "pct": 13.52
-        },
-        {
-          "number": 12,
-          "count": 164,
-          "pct": 12.05
-        },
-        {
-          "number": 13,
-          "count": 183,
-          "pct": 13.45
-        },
-        {
-          "number": 14,
           "count": 174,
           "pct": 12.78
         },
         {
+          "number": 10,
+          "count": 199,
+          "pct": 14.61
+        },
+        {
+          "number": 11,
+          "count": 184,
+          "pct": 13.51
+        },
+        {
+          "number": 12,
+          "count": 164,
+          "pct": 12.04
+        },
+        {
+          "number": 13,
+          "count": 183,
+          "pct": 13.44
+        },
+        {
+          "number": 14,
+          "count": 175,
+          "pct": 12.85
+        },
+        {
           "number": 15,
           "count": 169,
-          "pct": 12.42
+          "pct": 12.41
         },
         {
           "number": 16,
           "count": 188,
-          "pct": 13.81
+          "pct": 13.8
         },
         {
           "number": 17,
           "count": 160,
-          "pct": 11.76
+          "pct": 11.75
         },
         {
           "number": 18,
           "count": 180,
-          "pct": 13.23
+          "pct": 13.22
         },
         {
           "number": 19,
           "count": 199,
-          "pct": 14.62
+          "pct": 14.61
         },
         {
           "number": 20,
           "count": 192,
-          "pct": 14.11
+          "pct": 14.1
         },
         {
           "number": 21,
           "count": 165,
-          "pct": 12.12
+          "pct": 12.11
         },
         {
           "number": 22,
-          "count": 200,
-          "pct": 14.7
+          "count": 201,
+          "pct": 14.76
         },
         {
           "number": 23,
           "count": 182,
-          "pct": 13.37
+          "pct": 13.36
         },
         {
           "number": 24,
           "count": 199,
-          "pct": 14.62
+          "pct": 14.61
         },
         {
           "number": 25,
           "count": 177,
-          "pct": 13.01
+          "pct": 13.0
         },
         {
           "number": 26,
-          "count": 180,
-          "pct": 13.23
+          "count": 181,
+          "pct": 13.29
         },
         {
           "number": 27,
-          "count": 183,
-          "pct": 13.45
+          "count": 184,
+          "pct": 13.51
         },
         {
           "number": 28,
           "count": 196,
-          "pct": 14.4
+          "pct": 14.39
         },
         {
           "number": 29,
           "count": 186,
-          "pct": 13.67
+          "pct": 13.66
         },
         {
           "number": 30,
           "count": 191,
-          "pct": 14.03
+          "pct": 14.02
         },
         {
           "number": 31,
           "count": 188,
-          "pct": 13.81
+          "pct": 13.8
         },
         {
           "number": 32,
           "count": 163,
-          "pct": 11.98
+          "pct": 11.97
         },
         {
           "number": 33,
           "count": 178,
-          "pct": 13.08
+          "pct": 13.07
         },
         {
           "number": 34,
           "count": 183,
-          "pct": 13.45
+          "pct": 13.44
         },
         {
           "number": 35,
           "count": 186,
-          "pct": 13.67
+          "pct": 13.66
         },
         {
           "number": 36,
           "count": 177,
-          "pct": 13.01
+          "pct": 13.0
         },
         {
           "number": 37,
           "count": 196,
-          "pct": 14.4
+          "pct": 14.39
         },
         {
           "number": 38,
           "count": 160,
-          "pct": 11.76
+          "pct": 11.75
         },
         {
           "number": 39,
@@ -10530,33 +10530,33 @@
         },
         {
           "number": 40,
-          "count": 167,
-          "pct": 12.27
+          "count": 168,
+          "pct": 12.33
         },
         {
           "number": 41,
           "count": 188,
-          "pct": 13.81
+          "pct": 13.8
         },
         {
           "number": 42,
           "count": 178,
-          "pct": 13.08
+          "pct": 13.07
         },
         {
           "number": 43,
           "count": 180,
-          "pct": 13.23
+          "pct": 13.22
         },
         {
           "number": 44,
           "count": 198,
-          "pct": 14.55
+          "pct": 14.54
         },
         {
           "number": 45,
           "count": 188,
-          "pct": 13.81
+          "pct": 13.8
         }
       ],
       "top_pairs": [
@@ -10793,8 +10793,8 @@
           },
           {
             "range": "120 - 139",
-            "count": 368,
-            "pct": 27.0
+            "count": 369,
+            "pct": 27.1
           },
           {
             "range": "140 - 159",
@@ -10814,33 +10814,33 @@
         ]
       },
       "patterns": {
-        "consecutive_pct": 50.9,
+        "consecutive_pct": 51.0,
         "repeat_from_prev_pct": 59.6,
         "avg_repeat_per_draw": 0.79,
         "decade_distribution": [
           {
             "decade": "00-09",
-            "count": 1614,
+            "count": 1615,
             "pct": 19.8
           },
           {
             "decade": "10-19",
-            "count": 1800,
+            "count": 1801,
             "pct": 22.0
           },
           {
             "decade": "20-29",
-            "count": 1860,
+            "count": 1863,
             "pct": 22.8
           },
           {
             "decade": "30-39",
             "count": 1793,
-            "pct": 22.0
+            "pct": 21.9
           },
           {
             "decade": "40-49",
-            "count": 1099,
+            "count": 1100,
             "pct": 13.5
           }
         ]
@@ -10927,8 +10927,8 @@
             },
             {
               "range": "25 - 32",
-              "count": 391,
-              "pct": 28.7
+              "count": 392,
+              "pct": 28.8
             },
             {
               "range": "33 - 38",
@@ -10977,8 +10977,8 @@
           },
           {
             "ac": 6,
-            "count": 136,
-            "pct": 10.0
+            "count": 137,
+            "pct": 10.1
           },
           {
             "ac": 7,
@@ -11001,14 +11001,14 @@
             "pct": 18.5
           }
         ],
-        "high_ac_pct": 85.0,
+        "high_ac_pct": 84.9,
         "avg_ac": 8.08
       },
       "delta_stats": {
         "top_deltas": [
           {
             "delta": 1,
-            "count": 1029,
+            "count": 1030,
             "pct": 12.6
           },
           {
@@ -11023,12 +11023,12 @@
           },
           {
             "delta": 4,
-            "count": 770,
+            "count": 771,
             "pct": 9.4
           },
           {
             "delta": 5,
-            "count": 701,
+            "count": 702,
             "pct": 8.6
           },
           {
@@ -11043,7 +11043,7 @@
           },
           {
             "delta": 8,
-            "count": 478,
+            "count": 479,
             "pct": 5.9
           }
         ],
@@ -11052,73 +11052,73 @@
       },
       "markov_stats": {
         "latest_basis": [
-          16,
-          21,
-          23,
-          29,
-          34,
-          45
+          9,
+          14,
+          22,
+          26,
+          27,
+          40
         ],
         "top_candidates": [
           {
-            "number": 29,
-            "score": 169,
+            "number": 19,
+            "score": 172,
             "rel_strength": 100.0
           },
           {
-            "number": 19,
-            "score": 166,
-            "rel_strength": 98.2
-          },
-          {
-            "number": 41,
-            "score": 166,
-            "rel_strength": 98.2
-          },
-          {
-            "number": 20,
+            "number": 11,
             "score": 164,
-            "rel_strength": 97.0
-          },
-          {
-            "number": 30,
-            "score": 163,
-            "rel_strength": 96.4
-          },
-          {
-            "number": 22,
-            "score": 163,
-            "rel_strength": 96.4
-          },
-          {
-            "number": 24,
-            "score": 161,
             "rel_strength": 95.3
           },
           {
-            "number": 33,
-            "score": 156,
-            "rel_strength": 92.3
-          },
-          {
-            "number": 28,
-            "score": 154,
-            "rel_strength": 91.1
-          },
-          {
             "number": 31,
-            "score": 154,
-            "rel_strength": 91.1
-          },
-          {
-            "number": 45,
-            "score": 153,
-            "rel_strength": 90.5
+            "score": 163,
+            "rel_strength": 94.8
           },
           {
             "number": 4,
-            "score": 151,
-            "rel_strength": 89.3
+            "score": 162,
+            "rel_strength": 94.2
+          },
+          {
+            "number": 13,
+            "score": 160,
+            "rel_strength": 93.0
+          },
+          {
+            "number": 16,
+            "score": 158,
+            "rel_strength": 91.9
+          },
+          {
+            "number": 10,
+            "score": 157,
+            "rel_strength": 91.3
+          },
+          {
+            "number": 42,
+            "score": 156,
+            "rel_strength": 90.7
+          },
+          {
+            "number": 27,
+            "score": 155,
+            "rel_strength": 90.1
+          },
+          {
+            "number": 1,
+            "score": 153,
+            "rel_strength": 89.0
+          },
+          {
+            "number": 6,
+            "score": 152,
+            "rel_strength": 88.4
+          },
+          {
+            "number": 44,
+            "score": 152,
+            "rel_strength": 88.4
           }
         ]
       },
@@ -11141,33 +11141,33 @@
           },
           {
             "distinct_tails": 6,
-            "count": 315,
-            "pct": 23.1
+            "count": 316,
+            "pct": 23.2
           }
         ],
         "cam_tails": [
           {
             "tail": 8,
-            "streak": 6
-          },
-          {
-            "tail": 0,
-            "streak": 4
-          },
-          {
-            "tail": 2,
-            "streak": 2
-          },
-          {
-            "tail": 7,
-            "streak": 1
+            "streak": 7
           },
           {
             "tail": 1,
-            "streak": 0
+            "streak": 1
           },
           {
             "tail": 3,
+            "streak": 1
+          },
+          {
+            "tail": 5,
+            "streak": 1
+          },
+          {
+            "tail": 0,
+            "streak": 0
+          },
+          {
+            "tail": 2,
             "streak": 0
           },
           {
@@ -11175,11 +11175,11 @@
             "streak": 0
           },
           {
-            "tail": 5,
+            "tail": 6,
             "streak": 0
           },
           {
-            "tail": 6,
+            "tail": 7,
             "streak": 0
           },
           {
@@ -11189,8 +11189,12 @@
         ],
         "cam_heads": [
           {
-            "head": "0x",
+            "head": "3x",
             "streak": 1
+          },
+          {
+            "head": "0x",
+            "streak": 0
           },
           {
             "head": "1x",
@@ -11198,10 +11202,6 @@
           },
           {
             "head": "2x",
-            "streak": 0
-          },
-          {
-            "head": "3x",
             "streak": 0
           },
           {
@@ -11220,21 +11220,21 @@
         "combinations": 8145060
       },
       "odd_even": {
-        "odd_pct": 53.7,
-        "even_pct": 46.3
+        "odd_pct": 53.3,
+        "even_pct": 46.7
       },
       "backtest_data": {
         "records": [
           {
-            "drawId": "01559",
+            "drawId": "01560",
             "date": "Kỳ Kế Tiếp",
             "predicted": [
-              5,
-              7,
-              26,
-              36,
-              41,
-              45
+              6,
+              14,
+              27,
+              28,
+              34,
+              37
             ],
             "special": null,
             "actual": null,
@@ -11246,6 +11246,37 @@
             "netProfit": 0,
             "prizeDetail": "Đang chờ quay",
             "status": "pending"
+          },
+          {
+            "drawId": "01559",
+            "date": "2026-09-06",
+            "predicted": [
+              5,
+              7,
+              26,
+              36,
+              41,
+              45
+            ],
+            "special": null,
+            "actual": [
+              9,
+              14,
+              22,
+              26,
+              27,
+              40
+            ],
+            "matched": [
+              26
+            ],
+            "matchCount": 1,
+            "specMatched": false,
+            "cost": 10000,
+            "payout": 0,
+            "netProfit": -10000,
+            "prizeDetail": "Không trúng",
+            "status": "completed"
           },
           {
             "drawId": "01558",
@@ -11816,35 +11847,6 @@
             "netProfit": -10000,
             "prizeDetail": "Không trúng",
             "status": "completed"
-          },
-          {
-            "drawId": "01539",
-            "date": "2026-07-22",
-            "predicted": [
-              11,
-              14,
-              18,
-              24,
-              36,
-              44
-            ],
-            "special": null,
-            "actual": [
-              3,
-              32,
-              33,
-              34,
-              39,
-              43
-            ],
-            "matched": [],
-            "matchCount": 0,
-            "specMatched": false,
-            "cost": 10000,
-            "payout": 0,
-            "netProfit": -10000,
-            "prizeDetail": "Không trúng",
-            "status": "completed"
           }
         ],
         "kpis": {
@@ -11855,23 +11857,23 @@
           "total_cost": 2000000,
           "total_payout": 150000,
           "net_profit": -1850000,
-          "avg_matched": 0.77,
+          "avg_matched": 0.76,
           "win_rate_pct": 2.5
         }
       },
       "bao7_backtest_data": {
         "records": [
           {
-            "drawId": "01559",
+            "drawId": "01560",
             "date": "Kỳ Kế Tiếp",
             "predicted": [
-              5,
-              7,
-              17,
-              21,
-              26,
-              41,
-              44
+              6,
+              9,
+              11,
+              31,
+              34,
+              35,
+              41
             ],
             "special": null,
             "actual": null,
@@ -11883,6 +11885,38 @@
             "netProfit": 0,
             "prizeDetail": "Đang chờ quay",
             "status": "pending"
+          },
+          {
+            "drawId": "01559",
+            "date": "2026-09-06",
+            "predicted": [
+              5,
+              7,
+              17,
+              21,
+              26,
+              41,
+              44
+            ],
+            "special": null,
+            "actual": [
+              9,
+              14,
+              22,
+              26,
+              27,
+              40
+            ],
+            "matched": [
+              26
+            ],
+            "matchCount": 1,
+            "specMatched": false,
+            "cost": 70000,
+            "payout": 0,
+            "netProfit": -70000,
+            "prizeDetail": "Không trúng",
+            "status": "completed"
           },
           {
             "drawId": "01558",
@@ -12485,36 +12519,6 @@
             "netProfit": -70000,
             "prizeDetail": "Không trúng",
             "status": "completed"
-          },
-          {
-            "drawId": "01539",
-            "date": "2026-07-22",
-            "predicted": [
-              11,
-              14,
-              16,
-              18,
-              24,
-              29,
-              44
-            ],
-            "special": null,
-            "actual": [
-              3,
-              32,
-              33,
-              34,
-              39,
-              43
-            ],
-            "matched": [],
-            "matchCount": 0,
-            "specMatched": false,
-            "cost": 70000,
-            "payout": 0,
-            "netProfit": -70000,
-            "prizeDetail": "Không trúng",
-            "status": "completed"
           }
         ],
         "kpis": {
@@ -12530,20 +12534,20 @@
       },
       "wheeling_strategy": {
         "core_pool": [
-          1,
-          3,
-          5,
-          7,
+          6,
           9,
-          22,
+          11,
+          16,
+          17,
+          23,
           26,
-          29,
-          36,
-          38,
-          41,
-          43,
-          44,
-          45
+          27,
+          28,
+          31,
+          34,
+          35,
+          37,
+          42
         ],
         "core_pool_size": 14,
         "tickets": [
@@ -12551,103 +12555,103 @@
             "id": "wheel_1",
             "ticketIndex": 1,
             "numbers": [
-              1,
-              3,
-              7,
-              22,
-              36,
-              43
+              6,
+              9,
+              16,
+              23,
+              28,
+              35
             ],
-            "sum": 112,
-            "ac": 9,
-            "odds": 4,
-            "evens": 2,
+            "sum": 117,
+            "ac": 6,
+            "odds": 3,
+            "evens": 3,
             "distinctTails": 5
           },
           {
             "id": "wheel_2",
             "ticketIndex": 2,
             "numbers": [
-              3,
-              5,
               9,
+              11,
+              17,
               26,
-              38,
-              44
+              31,
+              37
             ],
-            "sum": 125,
+            "sum": 131,
+            "ac": 8,
+            "odds": 5,
+            "evens": 1,
+            "distinctTails": 4
+          },
+          {
+            "id": "wheel_3",
+            "ticketIndex": 3,
+            "numbers": [
+              11,
+              16,
+              23,
+              27,
+              34,
+              42
+            ],
+            "sum": 153,
             "ac": 8,
             "odds": 3,
             "evens": 3,
             "distinctTails": 6
           },
           {
-            "id": "wheel_3",
-            "ticketIndex": 3,
-            "numbers": [
-              5,
-              7,
-              22,
-              29,
-              41,
-              45
-            ],
-            "sum": 149,
-            "ac": 10,
-            "odds": 5,
-            "evens": 1,
-            "distinctTails": 5
-          },
-          {
             "id": "wheel_4",
             "ticketIndex": 4,
             "numbers": [
-              1,
-              9,
+              6,
+              17,
               26,
-              36,
-              43,
-              45
+              28,
+              35,
+              42
             ],
-            "sum": 160,
-            "ac": 9,
-            "odds": 4,
-            "evens": 2,
+            "sum": 154,
+            "ac": 7,
+            "odds": 2,
+            "evens": 4,
             "distinctTails": 5
           },
           {
             "id": "wheel_5",
             "ticketIndex": 5,
             "numbers": [
-              3,
-              22,
-              29,
-              38,
-              41,
-              44
+              9,
+              23,
+              27,
+              31,
+              34,
+              37
             ],
-            "sum": 177,
-            "ac": 8,
-            "odds": 3,
-            "evens": 3,
-            "distinctTails": 6
+            "sum": 161,
+            "ac": 7,
+            "odds": 5,
+            "evens": 1,
+            "distinctTails": 5
           },
           {
             "id": "wheel_6",
             "ticketIndex": 6,
             "numbers": [
-              1,
-              5,
-              9,
-              29,
-              38,
-              43
+              6,
+              11,
+              17,
+              27,
+              31,
+              35
             ],
-            "sum": 125,
+            "sum": 127,
             "ac": 9,
             "odds": 5,
             "evens": 1,
-            "distinctTails": 5
+            "distinctTails": 4
           }
         ],
         "special_recommendation": [],
@@ -12657,141 +12661,141 @@
       },
       "bac_nho_analytics": {
         "window_draws": 200,
-        "has_repeat_pct": 64.3,
-        "repeat_1_pct": 52.8,
+        "has_repeat_pct": 63.8,
+        "repeat_1_pct": 52.3,
         "repeat_2_pct": 11.1,
         "latest_balls": [
-          16,
-          21,
-          23,
-          29,
-          34,
-          45
+          9,
+          14,
+          22,
+          26,
+          27,
+          40
         ],
         "cau_roi_analysis": [
           {
-            "number": 23,
-            "past_repeats": 6,
-            "repeat_tendency_score": 10.0
+            "number": 26,
+            "past_repeats": 7,
+            "repeat_tendency_score": 11.5
           },
           {
-            "number": 16,
-            "past_repeats": 5,
-            "repeat_tendency_score": 8.5
+            "number": 9,
+            "past_repeats": 4,
+            "repeat_tendency_score": 7.0
           },
           {
-            "number": 45,
-            "past_repeats": 5,
-            "repeat_tendency_score": 8.5
-          },
-          {
-            "number": 29,
+            "number": 14,
             "past_repeats": 3,
             "repeat_tendency_score": 5.5
           },
           {
-            "number": 21,
-            "past_repeats": 2,
-            "repeat_tendency_score": 3.5
+            "number": 22,
+            "past_repeats": 3,
+            "repeat_tendency_score": 5.5
           },
           {
-            "number": 34,
-            "past_repeats": 2,
-            "repeat_tendency_score": 3.5
+            "number": 27,
+            "past_repeats": 0,
+            "repeat_tendency_score": 0.5
+          },
+          {
+            "number": 40,
+            "past_repeats": 0,
+            "repeat_tendency_score": 0.5
           }
         ],
         "top_cau_roi": [
           {
-            "number": 23,
-            "past_repeats": 6,
-            "repeat_tendency_score": 10.0
+            "number": 26,
+            "past_repeats": 7,
+            "repeat_tendency_score": 11.5
           },
           {
-            "number": 16,
-            "past_repeats": 5,
-            "repeat_tendency_score": 8.5
+            "number": 9,
+            "past_repeats": 4,
+            "repeat_tendency_score": 7.0
           }
         ],
         "triggered_bac_nho": [
           {
-            "from_number": 21,
-            "to_number": 5,
-            "count": 5,
-            "appearances": 19,
-            "probability_pct": 26.3,
-            "lift": 2.77
-          },
-          {
-            "from_number": 21,
-            "to_number": 1,
-            "count": 5,
-            "appearances": 19,
-            "probability_pct": 26.3,
-            "lift": 2.51
-          },
-          {
-            "from_number": 23,
-            "to_number": 4,
-            "count": 8,
-            "appearances": 28,
-            "probability_pct": 28.6,
-            "lift": 2.29
-          },
-          {
-            "from_number": 16,
-            "to_number": 41,
+            "from_number": 27,
+            "to_number": 16,
             "count": 9,
-            "appearances": 31,
-            "probability_pct": 29.0,
-            "lift": 2.15
+            "appearances": 22,
+            "probability_pct": 40.9,
+            "lift": 2.56
           },
           {
-            "from_number": 21,
-            "to_number": 38,
-            "count": 5,
-            "appearances": 19,
-            "probability_pct": 26.3,
-            "lift": 2.02
+            "from_number": 26,
+            "to_number": 34,
+            "count": 8,
+            "appearances": 30,
+            "probability_pct": 26.7,
+            "lift": 2.42
           },
           {
-            "from_number": 34,
-            "to_number": 20,
+            "from_number": 40,
+            "to_number": 42,
             "count": 6,
-            "appearances": 21,
-            "probability_pct": 28.6,
-            "lift": 1.97
+            "appearances": 16,
+            "probability_pct": 37.5,
+            "lift": 2.34
           },
           {
-            "from_number": 23,
-            "to_number": 41,
-            "count": 7,
-            "appearances": 28,
+            "from_number": 9,
+            "to_number": 11,
+            "count": 8,
+            "appearances": 29,
+            "probability_pct": 27.6,
+            "lift": 2.3
+          },
+          {
+            "from_number": 27,
+            "to_number": 15,
+            "count": 6,
+            "appearances": 22,
+            "probability_pct": 27.3,
+            "lift": 2.27
+          },
+          {
+            "from_number": 40,
+            "to_number": 15,
+            "count": 4,
+            "appearances": 16,
+            "probability_pct": 25.0,
+            "lift": 2.08
+          },
+          {
+            "from_number": 26,
+            "to_number": 35,
+            "count": 9,
+            "appearances": 30,
+            "probability_pct": 30.0,
+            "lift": 1.88
+          },
+          {
+            "from_number": 40,
+            "to_number": 17,
+            "count": 4,
+            "appearances": 16,
             "probability_pct": 25.0,
             "lift": 1.85
           },
           {
-            "from_number": 16,
-            "to_number": 36,
-            "count": 10,
-            "appearances": 31,
-            "probability_pct": 32.3,
-            "lift": 1.84
+            "from_number": 27,
+            "to_number": 37,
+            "count": 6,
+            "appearances": 22,
+            "probability_pct": 27.3,
+            "lift": 1.82
           },
           {
-            "from_number": 45,
-            "to_number": 6,
-            "count": 9,
-            "appearances": 35,
-            "probability_pct": 25.7,
-            "lift": 1.84
-          },
-          {
-            "from_number": 29,
-            "to_number": 26,
-            "count": 8,
-            "appearances": 29,
-            "probability_pct": 27.6,
-            "lift": 1.84
+            "from_number": 14,
+            "to_number": 42,
+            "count": 6,
+            "appearances": 21,
+            "probability_pct": 28.6,
+            "lift": 1.79
           }
         ]
       },
@@ -12803,7 +12807,7 @@
             "ball2": 28,
             "count": 9,
             "probability_pct": 4.5,
-            "lift": 1.65
+            "lift": 1.7
           },
           {
             "ball1": 19,
@@ -12817,7 +12821,7 @@
             "ball2": 42,
             "count": 8,
             "probability_pct": 4.0,
-            "lift": 1.67
+            "lift": 1.61
           },
           {
             "ball1": 19,
@@ -12866,14 +12870,14 @@
             "ball2": 31,
             "count": 7,
             "probability_pct": 3.5,
-            "lift": 1.62
+            "lift": 1.67
           },
           {
-            "ball1": 9,
-            "ball2": 44,
+            "ball1": 18,
+            "ball2": 31,
             "count": 7,
             "probability_pct": 3.5,
-            "lift": 1.61
+            "lift": 1.6
           },
           {
             "ball1": 6,
@@ -12884,14 +12888,7 @@
           },
           {
             "ball1": 9,
-            "ball2": 30,
-            "count": 7,
-            "probability_pct": 3.5,
-            "lift": 1.56
-          },
-          {
-            "ball1": 18,
-            "ball2": 31,
+            "ball2": 44,
             "count": 7,
             "probability_pct": 3.5,
             "lift": 1.56
@@ -12902,6 +12899,13 @@
             "count": 7,
             "probability_pct": 3.5,
             "lift": 1.56
+          },
+          {
+            "ball1": 29,
+            "ball2": 44,
+            "count": 7,
+            "probability_pct": 3.5,
+            "lift": 1.56
           }
         ],
         "companions_map": {
@@ -12909,7 +12913,7 @@
             {
               "number": 23,
               "count": 5,
-              "lift": 1.64
+              "lift": 1.7
             },
             {
               "number": 37,
@@ -12941,12 +12945,12 @@
             {
               "number": 17,
               "count": 6,
-              "lift": 1.53
+              "lift": 1.59
             },
             {
               "number": 31,
               "count": 6,
-              "lift": 1.19
+              "lift": 1.22
             },
             {
               "number": 21,
@@ -12973,7 +12977,7 @@
             {
               "number": 27,
               "count": 6,
-              "lift": 2.18
+              "lift": 2.09
             },
             {
               "number": 11,
@@ -12993,7 +12997,7 @@
             {
               "number": 17,
               "count": 5,
-              "lift": 1.43
+              "lift": 1.48
             },
             {
               "number": 30,
@@ -13020,17 +13024,17 @@
             {
               "number": 28,
               "count": 6,
-              "lift": 1.41
+              "lift": 1.45
             },
             {
               "number": 27,
               "count": 5,
-              "lift": 1.82
+              "lift": 1.74
             },
             {
               "number": 17,
               "count": 5,
-              "lift": 1.43
+              "lift": 1.48
             }
           ],
           "5": [
@@ -13047,7 +13051,7 @@
             {
               "number": 28,
               "count": 5,
-              "lift": 1.55
+              "lift": 1.59
             },
             {
               "number": 39,
@@ -13057,10 +13061,10 @@
             {
               "number": 26,
               "count": 4,
-              "lift": 1.4
+              "lift": 1.36
             },
             {
-              "number": 36,
+              "number": 31,
               "count": 4,
               "lift": 1.2
             }
@@ -13074,7 +13078,7 @@
             {
               "number": 9,
               "count": 6,
-              "lift": 1.48
+              "lift": 1.43
             },
             {
               "number": 44,
@@ -13089,7 +13093,7 @@
             {
               "number": 28,
               "count": 6,
-              "lift": 1.26
+              "lift": 1.3
             },
             {
               "number": 19,
@@ -13148,7 +13152,7 @@
             {
               "number": 23,
               "count": 5,
-              "lift": 1.5
+              "lift": 1.55
             },
             {
               "number": 36,
@@ -13165,17 +13169,22 @@
             {
               "number": 44,
               "count": 7,
-              "lift": 1.61
+              "lift": 1.56
             },
             {
               "number": 30,
               "count": 7,
-              "lift": 1.56
+              "lift": 1.51
             },
             {
-              "number": 6,
+              "number": 14,
               "count": 6,
-              "lift": 1.48
+              "lift": 1.82
+            },
+            {
+              "number": 27,
+              "count": 6,
+              "lift": 1.74
             },
             {
               "number": 17,
@@ -13183,21 +13192,16 @@
               "lift": 1.48
             },
             {
-              "number": 45,
+              "number": 6,
               "count": 6,
-              "lift": 1.15
-            },
-            {
-              "number": 14,
-              "count": 5,
-              "lift": 1.64
+              "lift": 1.43
             }
           ],
           "10": [
             {
               "number": 27,
               "count": 6,
-              "lift": 2.18
+              "lift": 2.09
             },
             {
               "number": 35,
@@ -13215,14 +13219,14 @@
               "lift": 1.6
             },
             {
-              "number": 36,
+              "number": 31,
               "count": 5,
               "lift": 1.14
             },
             {
-              "number": 31,
+              "number": 36,
               "count": 5,
-              "lift": 1.11
+              "lift": 1.14
             }
           ],
           "11": [
@@ -13266,7 +13270,7 @@
             {
               "number": 41,
               "count": 5,
-              "lift": 1.61
+              "lift": 1.67
             },
             {
               "number": 43,
@@ -13276,7 +13280,7 @@
             {
               "number": 31,
               "count": 5,
-              "lift": 1.21
+              "lift": 1.24
             },
             {
               "number": 21,
@@ -13306,14 +13310,14 @@
               "lift": 1.28
             },
             {
-              "number": 36,
+              "number": 31,
               "count": 5,
               "lift": 1.1
             },
             {
-              "number": 31,
+              "number": 36,
               "count": 5,
-              "lift": 1.07
+              "lift": 1.1
             },
             {
               "number": 1,
@@ -13323,41 +13327,41 @@
           ],
           "14": [
             {
+              "number": 9,
+              "count": 6,
+              "lift": 1.82
+            },
+            {
               "number": 44,
               "count": 6,
-              "lift": 1.9
+              "lift": 1.82
             },
             {
-              "number": 9,
+              "number": 26,
               "count": 5,
-              "lift": 1.64
-            },
-            {
-              "number": 24,
-              "count": 4,
-              "lift": 1.41
+              "lift": 1.47
             },
             {
               "number": 41,
               "count": 4,
-              "lift": 1.41
+              "lift": 1.4
+            },
+            {
+              "number": 24,
+              "count": 4,
+              "lift": 1.35
             },
             {
               "number": 20,
               "count": 4,
-              "lift": 1.31
-            },
-            {
-              "number": 26,
-              "count": 4,
-              "lift": 1.27
+              "lift": 1.25
             }
           ],
           "15": [
             {
               "number": 31,
               "count": 7,
-              "lift": 1.62
+              "lift": 1.67
             },
             {
               "number": 8,
@@ -13367,7 +13371,7 @@
             {
               "number": 17,
               "count": 5,
-              "lift": 1.49
+              "lift": 1.54
             },
             {
               "number": 35,
@@ -13389,7 +13393,7 @@
             {
               "number": 28,
               "count": 9,
-              "lift": 1.65
+              "lift": 1.7
             },
             {
               "number": 6,
@@ -13404,7 +13408,7 @@
             {
               "number": 17,
               "count": 6,
-              "lift": 1.34
+              "lift": 1.39
             },
             {
               "number": 22,
@@ -13414,14 +13418,14 @@
             {
               "number": 40,
               "count": 5,
-              "lift": 1.95
+              "lift": 1.84
             }
           ],
           "17": [
             {
               "number": 2,
               "count": 6,
-              "lift": 1.53
+              "lift": 1.59
             },
             {
               "number": 9,
@@ -13429,31 +13433,31 @@
               "lift": 1.48
             },
             {
-              "number": 22,
-              "count": 6,
-              "lift": 1.38
-            },
-            {
               "number": 16,
               "count": 6,
-              "lift": 1.34
+              "lift": 1.39
             },
             {
               "number": 42,
               "count": 6,
-              "lift": 1.34
+              "lift": 1.39
             },
             {
-              "number": 31,
-              "count": 6,
-              "lift": 1.19
+              "number": 27,
+              "count": 5,
+              "lift": 1.61
+            },
+            {
+              "number": 15,
+              "count": 5,
+              "lift": 1.54
             }
           ],
           "18": [
             {
               "number": 31,
               "count": 7,
-              "lift": 1.56
+              "lift": 1.6
             },
             {
               "number": 29,
@@ -13554,17 +13558,17 @@
             {
               "number": 28,
               "count": 5,
-              "lift": 1.47
+              "lift": 1.52
+            },
+            {
+              "number": 31,
+              "count": 5,
+              "lift": 1.43
             },
             {
               "number": 36,
               "count": 5,
               "lift": 1.43
-            },
-            {
-              "number": 31,
-              "count": 5,
-              "lift": 1.39
             },
             {
               "number": 45,
@@ -13584,11 +13588,6 @@
               "lift": 1.56
             },
             {
-              "number": 23,
-              "count": 7,
-              "lift": 1.56
-            },
-            {
               "number": 36,
               "count": 7,
               "lift": 1.29
@@ -13599,7 +13598,7 @@
               "lift": 1.43
             },
             {
-              "number": 17,
+              "number": 23,
               "count": 6,
               "lift": 1.38
             },
@@ -13607,13 +13606,23 @@
               "number": 29,
               "count": 6,
               "lift": 1.29
+            },
+            {
+              "number": 16,
+              "count": 6,
+              "lift": 1.21
             }
           ],
           "23": [
             {
+              "number": 29,
+              "count": 6,
+              "lift": 1.43
+            },
+            {
               "number": 22,
-              "count": 7,
-              "lift": 1.56
+              "count": 6,
+              "lift": 1.38
             },
             {
               "number": 26,
@@ -13621,24 +13630,19 @@
               "lift": 1.38
             },
             {
-              "number": 29,
-              "count": 6,
-              "lift": 1.38
-            },
-            {
               "number": 45,
               "count": 6,
-              "lift": 1.15
+              "lift": 1.19
             },
             {
               "number": 1,
               "count": 5,
-              "lift": 1.64
+              "lift": 1.7
             },
             {
               "number": 8,
               "count": 5,
-              "lift": 1.5
+              "lift": 1.55
             }
           ],
           "24": [
@@ -13658,19 +13662,19 @@
               "lift": 1.71
             },
             {
-              "number": 26,
+              "number": 22,
               "count": 6,
-              "lift": 1.48
+              "lift": 1.43
             },
             {
-              "number": 22,
+              "number": 26,
               "count": 6,
               "lift": 1.43
             },
             {
               "number": 41,
               "count": 5,
-              "lift": 1.37
+              "lift": 1.42
             }
           ],
           "25": [
@@ -13682,7 +13686,7 @@
             {
               "number": 31,
               "count": 5,
-              "lift": 1.54
+              "lift": 1.59
             },
             {
               "number": 16,
@@ -13692,15 +13696,15 @@
             {
               "number": 28,
               "count": 4,
-              "lift": 1.31
-            },
-            {
-              "number": 27,
-              "count": 3,
-              "lift": 1.52
+              "lift": 1.35
             },
             {
               "number": 8,
+              "count": 3,
+              "lift": 1.45
+            },
+            {
+              "number": 12,
               "count": 3,
               "lift": 1.45
             }
@@ -13709,12 +13713,12 @@
             {
               "number": 42,
               "count": 8,
-              "lift": 1.67
+              "lift": 1.61
             },
             {
               "number": 24,
               "count": 6,
-              "lift": 1.48
+              "lift": 1.43
             },
             {
               "number": 23,
@@ -13724,7 +13728,7 @@
             {
               "number": 44,
               "count": 6,
-              "lift": 1.33
+              "lift": 1.29
             },
             {
               "number": 31,
@@ -13732,40 +13736,40 @@
               "lift": 1.11
             },
             {
-              "number": 39,
+              "number": 14,
               "count": 5,
-              "lift": 1.28
+              "lift": 1.47
             }
           ],
           "27": [
             {
               "number": 3,
               "count": 6,
-              "lift": 2.18
+              "lift": 2.09
             },
             {
               "number": 10,
               "count": 6,
-              "lift": 2.18
+              "lift": 2.09
+            },
+            {
+              "number": 9,
+              "count": 6,
+              "lift": 1.74
             },
             {
               "number": 4,
               "count": 5,
-              "lift": 1.82
+              "lift": 1.74
             },
             {
               "number": 17,
               "count": 5,
-              "lift": 1.62
+              "lift": 1.61
             },
             {
-              "number": 9,
+              "number": 22,
               "count": 5,
-              "lift": 1.57
-            },
-            {
-              "number": 13,
-              "count": 4,
               "lift": 1.4
             }
           ],
@@ -13773,32 +13777,32 @@
             {
               "number": 16,
               "count": 9,
-              "lift": 1.65
+              "lift": 1.7
             },
             {
               "number": 4,
               "count": 6,
-              "lift": 1.41
+              "lift": 1.45
             },
             {
               "number": 39,
               "count": 6,
-              "lift": 1.36
+              "lift": 1.4
             },
             {
               "number": 6,
               "count": 6,
-              "lift": 1.26
+              "lift": 1.3
             },
             {
               "number": 45,
               "count": 6,
-              "lift": 0.98
+              "lift": 1.01
             },
             {
               "number": 5,
               "count": 5,
-              "lift": 1.55
+              "lift": 1.59
             }
           ],
           "29": [
@@ -13820,7 +13824,7 @@
             {
               "number": 23,
               "count": 6,
-              "lift": 1.38
+              "lift": 1.43
             },
             {
               "number": 37,
@@ -13842,7 +13846,7 @@
             {
               "number": 9,
               "count": 7,
-              "lift": 1.56
+              "lift": 1.51
             },
             {
               "number": 36,
@@ -13869,32 +13873,32 @@
             {
               "number": 15,
               "count": 7,
-              "lift": 1.62
+              "lift": 1.67
             },
             {
               "number": 18,
               "count": 7,
-              "lift": 1.56
+              "lift": 1.6
             },
             {
               "number": 36,
               "count": 7,
-              "lift": 1.11
+              "lift": 1.14
             },
             {
               "number": 2,
               "count": 6,
-              "lift": 1.19
-            },
-            {
-              "number": 17,
-              "count": 6,
-              "lift": 1.19
+              "lift": 1.22
             },
             {
               "number": 26,
               "count": 6,
               "lift": 1.11
+            },
+            {
+              "number": 43,
+              "count": 6,
+              "lift": 1.07
             }
           ],
           "32": [
@@ -13985,7 +13989,7 @@
             {
               "number": 31,
               "count": 5,
-              "lift": 1.26
+              "lift": 1.3
             },
             {
               "number": 21,
@@ -14044,7 +14048,7 @@
             {
               "number": 31,
               "count": 7,
-              "lift": 1.11
+              "lift": 1.14
             },
             {
               "number": 45,
@@ -14113,7 +14117,7 @@
             {
               "number": 23,
               "count": 5,
-              "lift": 1.33
+              "lift": 1.37
             },
             {
               "number": 30,
@@ -14130,7 +14134,7 @@
             {
               "number": 28,
               "count": 6,
-              "lift": 1.36
+              "lift": 1.4
             },
             {
               "number": 32,
@@ -14140,12 +14144,12 @@
             {
               "number": 9,
               "count": 5,
-              "lift": 1.33
+              "lift": 1.28
             },
             {
               "number": 26,
               "count": 5,
-              "lift": 1.28
+              "lift": 1.24
             },
             {
               "number": 35,
@@ -14157,71 +14161,71 @@
             {
               "number": 29,
               "count": 5,
-              "lift": 2.08
+              "lift": 1.96
             },
             {
               "number": 16,
               "count": 5,
-              "lift": 1.95
+              "lift": 1.84
             },
             {
               "number": 33,
               "count": 3,
-              "lift": 2.21
+              "lift": 2.08
+            },
+            {
+              "number": 27,
+              "count": 3,
+              "lift": 1.53
             },
             {
               "number": 15,
               "count": 3,
-              "lift": 1.56
+              "lift": 1.47
             },
             {
               "number": 3,
               "count": 3,
-              "lift": 1.5
-            },
-            {
-              "number": 10,
-              "count": 3,
-              "lift": 1.5
+              "lift": 1.41
             }
           ],
           "41": [
             {
               "number": 45,
               "count": 7,
-              "lift": 1.44
+              "lift": 1.5
             },
             {
               "number": 12,
               "count": 5,
-              "lift": 1.61
+              "lift": 1.67
             },
             {
               "number": 24,
               "count": 5,
-              "lift": 1.37
-            },
-            {
-              "number": 23,
-              "count": 5,
-              "lift": 1.28
+              "lift": 1.42
             },
             {
               "number": 16,
               "count": 5,
-              "lift": 1.16
+              "lift": 1.2
             },
             {
               "number": 36,
               "count": 5,
-              "lift": 1.06
+              "lift": 1.1
+            },
+            {
+              "number": 21,
+              "count": 4,
+              "lift": 1.54
             }
           ],
           "42": [
             {
               "number": 26,
               "count": 8,
-              "lift": 1.67
+              "lift": 1.61
             },
             {
               "number": 11,
@@ -14241,7 +14245,7 @@
             {
               "number": 17,
               "count": 6,
-              "lift": 1.34
+              "lift": 1.39
             },
             {
               "number": 44,
@@ -14266,14 +14270,14 @@
               "lift": 1.17
             },
             {
-              "number": 36,
+              "number": 31,
               "count": 6,
               "lift": 1.07
             },
             {
-              "number": 31,
+              "number": 36,
               "count": 6,
-              "lift": 1.04
+              "lift": 1.07
             },
             {
               "number": 45,
@@ -14285,7 +14289,7 @@
             {
               "number": 9,
               "count": 7,
-              "lift": 1.61
+              "lift": 1.56
             },
             {
               "number": 29,
@@ -14300,7 +14304,7 @@
             {
               "number": 14,
               "count": 6,
-              "lift": 1.9
+              "lift": 1.82
             },
             {
               "number": 6,
@@ -14317,7 +14321,7 @@
             {
               "number": 41,
               "count": 7,
-              "lift": 1.44
+              "lift": 1.5
             },
             {
               "number": 35,
@@ -14335,14 +14339,14 @@
               "lift": 1.19
             },
             {
-              "number": 9,
-              "count": 6,
-              "lift": 1.15
-            },
-            {
               "number": 23,
               "count": 6,
-              "lift": 1.15
+              "lift": 1.19
+            },
+            {
+              "number": 9,
+              "count": 6,
+              "lift": 1.11
             }
           ]
         },
@@ -14352,18 +14356,13 @@
             5,
             7,
             8,
-            9,
             12,
-            13,
-            14,
             18,
             19,
             21,
-            22,
             23,
             24,
             25,
-            26,
             28,
             29,
             30,
@@ -14373,7 +14372,6 @@
             38,
             41,
             43,
-            44,
             45
           ],
           [
@@ -14395,11 +14393,19 @@
             39,
             40,
             42
+          ],
+          [
+            9,
+            13,
+            14,
+            22,
+            26,
+            44
           ]
         ]
       },
       "consensus_hub": {
-        "next_draw_id": "#01559",
+        "next_draw_id": "#01560",
         "evaluated_draws_count": 100,
         "leaderboard": [
           {
@@ -14407,9 +14413,9 @@
             "name": "Consensus Engine (Tổng Hợp)",
             "icon": "trophy",
             "color": "amber",
-            "avg_hits": 0.72,
+            "avg_hits": 0.73,
             "win_rate_ge3": 0.0,
-            "recent_10_hits": 10,
+            "recent_10_hits": 9,
             "form": "⚡ Phong độ tốt",
             "weight_pct": 100.0,
             "desc": "Hội đồng hợp lực tích hợp 5 mô hình độc lập với trọng số thích ứng điều chuẩn L2."
@@ -14421,9 +14427,9 @@
             "color": "fuchsia",
             "avg_hits": 0.75,
             "win_rate_ge3": 5.0,
-            "recent_10_hits": 5,
+            "recent_10_hits": 4,
             "form": "Chờ điểm rơi",
-            "weight_pct": 26.0,
+            "weight_pct": 26.9,
             "desc": "Xác suất chuyển trạng thái có điều kiện từ kết quả kỳ trước."
           },
           {
@@ -14433,33 +14439,21 @@
             "color": "emerald",
             "avg_hits": 0.81,
             "win_rate_ge3": 3.0,
-            "recent_10_hits": 9,
+            "recent_10_hits": 8,
             "form": "⚡ Ổn định",
-            "weight_pct": 22.7,
+            "weight_pct": 23.5,
             "desc": "Hàm mật độ nguy cơ rơi vào vùng vàng (0.75 - 1.35 chu kỳ trung bình)."
-          },
-          {
-            "id": "fourier",
-            "name": "Fourier Spectral Resonance (Sóng)",
-            "icon": "activity",
-            "color": "cyan",
-            "avg_hits": 0.72,
-            "win_rate_ge3": 2.0,
-            "recent_10_hits": 10,
-            "form": "🔥 Đang vào nhịp",
-            "weight_pct": 17.9,
-            "desc": "Cộng hưởng bước sóng phổ dao động rời rạc (DFT) trên 64 kỳ."
           },
           {
             "id": "bac_nho",
             "name": "Pairwise Synergy & Bạc Nhớ",
             "icon": "network",
             "color": "indigo",
-            "avg_hits": 0.78,
+            "avg_hits": 0.79,
             "win_rate_ge3": 1.0,
-            "recent_10_hits": 8,
+            "recent_10_hits": 7,
             "form": "⚡ Ổn định",
-            "weight_pct": 17.0,
+            "weight_pct": 17.8,
             "desc": "Chỉ số độ nâng Lift và lực hút cặp đôi đồng quy từ kỳ trước."
           },
           {
@@ -14467,12 +14461,24 @@
             "name": "Exponential Time Decay (Nhiệt)",
             "icon": "flame",
             "color": "rose",
-            "avg_hits": 0.76,
+            "avg_hits": 0.75,
             "win_rate_ge3": 1.0,
-            "recent_10_hits": 13,
+            "recent_10_hits": 12,
             "form": "🔥 Đang vào nhịp",
-            "weight_pct": 16.4,
+            "weight_pct": 16.7,
             "desc": "Tần suất suy giảm mũ theo thời gian alpha=0.035, chu kỳ bán rã 19.8 kỳ."
+          },
+          {
+            "id": "fourier",
+            "name": "Fourier Spectral Resonance (Sóng)",
+            "icon": "activity",
+            "color": "cyan",
+            "avg_hits": 0.69,
+            "win_rate_ge3": 1.0,
+            "recent_10_hits": 9,
+            "form": "⚡ Ổn định",
+            "weight_pct": 15.1,
+            "desc": "Cộng hưởng bước sóng phổ dao động rời rạc (DFT) trên 64 kỳ."
           },
           {
             "id": "baseline_random",
@@ -14489,228 +14495,228 @@
         ],
         "top_consensus_balls": [
           {
-            "ball": 31,
-            "score": 7.9,
+            "ball": 17,
+            "score": 9.1,
             "agreement_count": 4,
             "agreement_pct": 80.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
               "hazard": 2.1,
-              "decay": 1.3,
-              "markov": 2.6,
-              "fourier": 0.8,
-              "bac_nho": 1.1
+              "decay": 1.1,
+              "markov": 2.7,
+              "fourier": 1.5,
+              "bac_nho": 1.8
             }
           },
           {
-            "ball": 38,
-            "score": 7.2,
+            "ball": 36,
+            "score": 7.1,
             "agreement_count": 3,
             "agreement_pct": 60.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
               "hazard": 2.1,
-              "decay": 0.8,
-              "markov": 2.0,
-              "fourier": 1.2,
-              "bac_nho": 1.1
+              "decay": 1.4,
+              "markov": 1.8,
+              "fourier": 1.3,
+              "bac_nho": 0.5
             }
           },
           {
-            "ball": 3,
-            "score": 6.8,
-            "agreement_count": 4,
-            "agreement_pct": 80.0,
+            "ball": 37,
+            "score": 7.0,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.1,
+              "decay": 1.0,
+              "markov": 2.1,
+              "fourier": 1.3,
+              "bac_nho": 1.5
+            }
+          },
+          {
+            "ball": 16,
+            "score": 6.9,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
               "hazard": 0.7,
-              "decay": 1.4,
-              "markov": 2.1,
-              "fourier": 1.6,
-              "bac_nho": 1.1
+              "decay": 1.7,
+              "markov": 2.5,
+              "fourier": 0.6,
+              "bac_nho": 1.4
             }
           },
           {
-            "ball": 22,
-            "score": 6.8,
+            "ball": 31,
+            "score": 6.6,
             "agreement_count": 3,
             "agreement_pct": 60.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
               "hazard": 1.2,
-              "decay": 1.2,
-              "markov": 2.0,
-              "fourier": 1.5,
-              "bac_nho": 0.8
-            }
-          },
-          {
-            "ball": 7,
-            "score": 6.7,
-            "agreement_count": 2,
-            "agreement_pct": 40.0,
-            "is_safe": false,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 2.2,
-              "decay": 0.9,
-              "markov": 2.1,
-              "fourier": 1.0,
-              "bac_nho": 0.5
-            }
-          },
-          {
-            "ball": 2,
-            "score": 6.5,
-            "agreement_count": 3,
-            "agreement_pct": 60.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 1.4,
-              "decay": 0.8,
-              "markov": 2.2,
-              "fourier": 0.7,
-              "bac_nho": 1.4
-            }
-          },
-          {
-            "ball": 13,
-            "score": 6.5,
-            "agreement_count": 3,
-            "agreement_pct": 60.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 1.3,
-              "decay": 1.0,
-              "markov": 1.6,
-              "fourier": 1.3,
-              "bac_nho": 1.2
-            }
-          },
-          {
-            "ball": 36,
-            "score": 6.4,
-            "agreement_count": 3,
-            "agreement_pct": 60.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 1.1,
-              "decay": 1.4,
-              "markov": 2.0,
-              "fourier": 1.7,
-              "bac_nho": 0.2
-            }
-          },
-          {
-            "ball": 41,
-            "score": 6.4,
-            "agreement_count": 2,
-            "agreement_pct": 40.0,
-            "is_safe": false,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 2.2,
-              "decay": 0.8,
-              "markov": 1.8,
-              "fourier": 0.6,
+              "decay": 1.3,
+              "markov": 2.5,
+              "fourier": 0.5,
               "bac_nho": 1.0
             }
           },
           {
-            "ball": 43,
+            "ball": 45,
+            "score": 6.5,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 0.7,
+              "decay": 1.6,
+              "markov": 2.0,
+              "fourier": 1.3,
+              "bac_nho": 1.0
+            }
+          },
+          {
+            "ball": 3,
+            "score": 6.3,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 0.8,
+              "decay": 1.5,
+              "markov": 1.9,
+              "fourier": 1.4,
+              "bac_nho": 0.7
+            }
+          },
+          {
+            "ball": 13,
             "score": 6.2,
             "agreement_count": 1,
             "agreement_pct": 20.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 2.3,
-              "decay": 1.1,
+              "hazard": 1.3,
+              "decay": 1.0,
               "markov": 1.7,
-              "fourier": 0.8,
-              "bac_nho": 0.3
+              "fourier": 1.5,
+              "bac_nho": 0.7
             }
           },
           {
-            "ball": 39,
-            "score": 6.1,
+            "ball": 15,
+            "score": 6.0,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.3,
+              "decay": 1.3,
+              "markov": 2.3,
+              "fourier": 0.0,
+              "bac_nho": 1.2
+            }
+          },
+          {
+            "ball": 7,
+            "score": 5.9,
             "agreement_count": 1,
             "agreement_pct": 20.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 1.1,
-              "decay": 1.1,
-              "markov": 1.8,
-              "fourier": 1.4,
-              "bac_nho": 0.7
+              "hazard": 2.2,
+              "decay": 0.9,
+              "markov": 1.6,
+              "fourier": 0.7,
+              "bac_nho": 0.5
             }
           },
           {
-            "ball": 44,
-            "score": 5.8,
+            "ball": 34,
+            "score": 5.9,
             "agreement_count": 3,
             "agreement_pct": 60.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 0.6,
-              "decay": 1.2,
-              "markov": 2.2,
-              "fourier": 0.1,
+              "hazard": 0.5,
+              "decay": 0.5,
+              "markov": 2.0,
+              "fourier": 1.2,
               "bac_nho": 1.7
             }
           },
           {
-            "ball": 6,
-            "score": 5.6,
-            "agreement_count": 3,
-            "agreement_pct": 60.0,
-            "is_safe": true,
+            "ball": 38,
+            "score": 5.8,
+            "agreement_count": 1,
+            "agreement_pct": 20.0,
+            "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 0.6,
-              "decay": 1.5,
-              "markov": 1.9,
-              "fourier": 0.6,
-              "bac_nho": 1.0
+              "hazard": 2.3,
+              "decay": 0.8,
+              "markov": 0.9,
+              "fourier": 0.9,
+              "bac_nho": 0.8
             }
           },
           {
-            "ball": 45,
+            "ball": 18,
+            "score": 5.6,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 2.0,
+              "decay": 0.4,
+              "markov": 1.3,
+              "fourier": 1.3,
+              "bac_nho": 0.6
+            }
+          },
+          {
+            "ball": 2,
             "score": 5.5,
             "agreement_count": 2,
             "agreement_pct": 40.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 0.3,
-              "decay": 1.5,
-              "markov": 1.6,
-              "fourier": 1.1,
-              "bac_nho": 0.9
+              "hazard": 0.5,
+              "decay": 0.7,
+              "markov": 2.2,
+              "fourier": 0.8,
+              "bac_nho": 1.3
             }
           },
           {
-            "ball": 9,
-            "score": 5.4,
-            "agreement_count": 2,
-            "agreement_pct": 40.0,
+            "ball": 33,
+            "score": 5.1,
+            "agreement_count": 0,
+            "agreement_pct": 0.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 0.6,
-              "decay": 1.2,
-              "markov": 1.8,
-              "fourier": 0.5,
-              "bac_nho": 1.4
+              "hazard": 1.1,
+              "decay": 1.1,
+              "markov": 1.1,
+              "fourier": 0.8,
+              "bac_nho": 0.9
             }
           }
         ],
@@ -14718,14 +14724,14 @@
           "hazard": {
             "name": "Bayesian Hazard Rate (Nhịp Gan)",
             "top_picks": [
-              43,
-              7,
-              41,
+              38,
               19,
-              38
+              41,
+              7,
+              43
             ],
             "math_basis": "Hàm nguy cơ Bayesian trên tỷ số chu kỳ gan r_b = g_b / avg_gap trong vùng [0.75, 1.35]",
-            "rationale": "Các bóng 43, 07, 41, 19 đang nằm chuẩn xác trong 'Vùng Vàng Điểm Rơi', xác suất nổ kỳ này tối ưu nhất."
+            "rationale": "Các bóng 38, 19, 41, 07 đang nằm chuẩn xác trong 'Vùng Vàng Điểm Rơi', xác suất nổ kỳ này tối ưu nhất."
           },
           "decay": {
             "name": "Exponential Time Decay (Nhiệt)",
@@ -14734,7 +14740,7 @@
               45,
               6,
               3,
-              36
+              22
             ],
             "math_basis": "Tần suất suy giảm mũ thời gian alpha = 0.035 trên 120 kỳ",
             "rationale": "Các bóng 16, 45, 06, 03 có xung lực xuất hiện dày đặc gần đây, quán tính nhiệt tiếp tục duy trì đà nổ."
@@ -14742,38 +14748,38 @@
           "markov": {
             "name": "Markov Transition Chain",
             "top_picks": [
-              31,
-              2,
+              17,
               16,
-              44,
-              3
+              31,
+              42,
+              15
             ],
             "math_basis": "Ma trận chuyển trạng thái Markov bậc 1 từ các bóng kỳ trước",
-            "rationale": "Dựa trên kết quả kỳ trước (16, 21, 23, 29, 34, 45), ma trận xác suất chuyển trạng thái ghi nhận các số 31, 02, 16, 44 có liên kết nổ kế tiếp cao nhất."
+            "rationale": "Dựa trên kết quả kỳ trước (09, 14, 22, 26, 27, 40), ma trận xác suất chuyển trạng thái ghi nhận các số 17, 16, 31, 42 có liên kết nổ kế tiếp cao nhất."
           },
           "fourier": {
             "name": "Fourier Spectral Resonance (Sóng)",
             "top_picks": [
-              12,
-              37,
-              36,
-              18,
-              1
+              13,
+              17,
+              3,
+              1,
+              18
             ],
             "math_basis": "Biến đổi Fourier rời rạc (DFT) trích xuất tần số dao động chủ đạo trên 64 kỳ",
-            "rationale": "Bước sóng chu kỳ của các bóng 12, 37, 36, 18 đang tiến sát pha cực đại trên phổ dao động cộng hưởng."
+            "rationale": "Bước sóng chu kỳ của các bóng 13, 17, 03, 01 đang tiến sát pha cực đại trên phổ dao động cộng hưởng."
           },
           "bac_nho": {
             "name": "Pairwise Synergy & Bạc Nhớ",
             "top_picks": [
-              44,
-              2,
+              17,
+              34,
               9,
-              13,
-              31
+              37,
+              42
             ],
             "math_basis": "Độ nâng Lift > 1.2 giữa cặp bóng kỳ trước và bóng đơn kỳ sau trên 120 kỳ",
-            "rationale": "Lực hút cặp đôi Bạc Nhớ chỉ ra các bóng 44, 02, 09, 13 có độ nâng Lift cao hơn 30-70% so với tần suất ngẫu nhiên khi đi kèm bóng kỳ trước."
+            "rationale": "Lực hút cặp đôi Bạc Nhớ chỉ ra các bóng 17, 34, 09, 37 có độ nâng Lift cao hơn 30-70% so với tần suất ngẫu nhiên khi đi kèm bóng kỳ trước."
           }
         },
         "training_report": {
@@ -14793,48 +14799,48 @@
             "min_ac_threshold": 7
           },
           "trained_model_weights": {
-            "hazard": 22.7,
-            "decay": 16.4,
-            "markov": 26.0,
-            "fourier": 17.9,
-            "bac_nho": 17.0
+            "hazard": 23.5,
+            "decay": 16.7,
+            "markov": 26.9,
+            "fourier": 15.1,
+            "bac_nho": 17.8
           },
           "negative_space_compliance": "100% Đạt Chuẩn (5/5 Bộ Lọc)",
           "accuracy_gain_vs_random": {
-            "avg_hits_improvement_pct": -10.0,
+            "avg_hits_improvement_pct": -8.8,
             "hit_rate_ge3": 0.0,
             "baseline_random_avg": 0.8
           }
         },
         "tickets": {
           "key_balls": [
-            31,
-            43,
-            16
+            17,
+            38,
+            22
           ],
           "key_roles": [
             {
-              "ball": 31,
+              "ball": 17,
               "role": "Xác Suất Markov",
               "color": "fuchsia"
             },
             {
-              "ball": 43,
+              "ball": 38,
               "role": "Điểm Rơi Hazard",
               "color": "emerald"
             },
             {
-              "ball": 16,
+              "ball": 22,
               "role": "Nhịp Cầu Rơi",
               "color": "amber"
             }
           ],
           "key_5_balls": [
-            31,
-            43,
-            16,
+            17,
             38,
-            3
+            22,
+            36,
+            37
           ],
           "triad_backtest": {
             "avg_hits": 0.44,
@@ -14842,23 +14848,23 @@
             "win_rate_ge2": 4.0
           },
           "key5_backtest": {
-            "avg_hits": 0.61,
-            "win_rate_ge1": 50.0,
+            "avg_hits": 0.62,
+            "win_rate_ge1": 51.0,
             "win_rate_ge2": 11.0
           },
           "core_pool": [
-            31,
-            38,
-            3,
-            22,
-            7,
-            2,
-            13,
+            17,
             36,
-            41,
-            43,
-            39,
-            44
+            37,
+            16,
+            31,
+            45,
+            3,
+            13,
+            15,
+            7,
+            34,
+            38
           ],
           "core_backtest": {
             "pool_size": 12,
@@ -14872,12 +14878,12 @@
               "id": "ve_1",
               "label": "Vé 1",
               "numbers": [
-                2,
-                3,
-                7,
-                22,
+                16,
+                17,
                 31,
-                38
+                36,
+                37,
+                45
               ],
               "special": null
             },
@@ -14885,12 +14891,12 @@
               "id": "ve_2",
               "label": "Vé 2",
               "numbers": [
+                3,
+                7,
                 13,
-                31,
-                36,
-                38,
-                41,
-                43
+                15,
+                17,
+                36
               ],
               "special": null
             },
@@ -14899,11 +14905,11 @@
               "label": "Vé 3",
               "numbers": [
                 3,
+                7,
                 13,
-                22,
-                36,
-                41,
-                43
+                15,
+                16,
+                37
               ],
               "special": null
             },
@@ -14911,12 +14917,12 @@
               "id": "ve_4",
               "label": "Vé 4",
               "numbers": [
-                2,
+                3,
                 7,
                 13,
-                36,
-                41,
-                43
+                15,
+                31,
+                45
               ],
               "special": null
             }
@@ -14928,15 +14934,15 @@
           },
           "golden": {
             "numbers": [
+              2,
               7,
-              9,
-              13,
-              31,
-              36,
-              44
+              17,
+              34,
+              37,
+              45
             ],
             "ac_index": 10,
-            "sum": 140,
+            "sum": 142,
             "odd_even": "2C - 4L",
             "sei_score": 10.0,
             "special": null,
@@ -14947,7 +14953,7 @@
                 "passed": true,
                 "score_pass": 5,
                 "sum": {
-                  "val": 140,
+                  "val": 142,
                   "min": 95,
                   "max": 180,
                   "passed": true
@@ -14975,12 +14981,12 @@
           },
           "momentum": {
             "numbers": [
-              6,
+              2,
               15,
-              17,
-              31,
-              38,
-              41
+              22,
+              26,
+              29,
+              37
             ],
             "special": null,
             "negative_space_check": {
@@ -14990,13 +14996,13 @@
                 "passed": true,
                 "score_pass": 5,
                 "sum": {
-                  "val": 148,
+                  "val": 131,
                   "min": 95,
                   "max": 180,
                   "passed": true
                 },
                 "ac": {
-                  "val": 10,
+                  "val": 8,
                   "threshold": 7,
                   "passed": true
                 },
@@ -15005,11 +15011,11 @@
                   "passed": true
                 },
                 "parity": {
-                  "ratio": "2C - 4L",
+                  "ratio": "3C - 3L",
                   "passed": true
                 },
                 "repeat": {
-                  "count": 0,
+                  "count": 2,
                   "max_allowed": 2,
                   "passed": true
                 }
@@ -15018,12 +15024,12 @@
           },
           "breakout": {
             "numbers": [
-              4,
-              17,
+              7,
+              11,
+              16,
               18,
-              36,
-              39,
-              41
+              19,
+              38
             ],
             "special": null,
             "negative_space_check": {
@@ -15033,7 +15039,7 @@
                 "passed": true,
                 "score_pass": 5,
                 "sum": {
-                  "val": 155,
+                  "val": 109,
                   "min": 95,
                   "max": 180,
                   "passed": true
@@ -15061,13 +15067,13 @@
           },
           "bao7": {
             "numbers": [
+              17,
+              36,
+              37,
+              16,
               31,
-              38,
-              3,
-              22,
-              7,
-              2,
-              13
+              45,
+              3
             ],
             "special": null,
             "negative_space_check": {
@@ -15077,6 +15083,76 @@
           }
         },
         "history_walk_forward": [
+          {
+            "drawId": "01559",
+            "date": "2026-09-06",
+            "actual": [
+              9,
+              14,
+              22,
+              26,
+              27,
+              40
+            ],
+            "predicted": [
+              31,
+              38,
+              22,
+              3,
+              7,
+              36
+            ],
+            "matched": [
+              22
+            ],
+            "matchCount": 1,
+            "corePool": [
+              31,
+              38,
+              22,
+              3,
+              7,
+              36,
+              13,
+              2,
+              41,
+              43,
+              39,
+              44
+            ],
+            "coreMatched": [
+              22
+            ],
+            "coreMatchCount": 1,
+            "triad": [
+              31,
+              43,
+              16
+            ],
+            "triadMatched": [],
+            "triadMatchCount": 0,
+            "key5": [
+              31,
+              43,
+              16,
+              38,
+              22
+            ],
+            "key5Matched": [
+              22
+            ],
+            "key5MatchCount": 1,
+            "wheel4": {
+              "ticketHits": [
+                1,
+                0,
+                1,
+                0
+              ],
+              "maxHit": 1,
+              "wonPrize": false
+            }
+          },
           {
             "drawId": "01558",
             "date": "2026-09-04",
@@ -16082,75 +16158,6 @@
               "maxHit": 2,
               "wonPrize": false
             }
-          },
-          {
-            "drawId": "01544",
-            "date": "2026-08-02",
-            "actual": [
-              3,
-              12,
-              20,
-              25,
-              27,
-              37
-            ],
-            "predicted": [
-              44,
-              31,
-              7,
-              37,
-              36,
-              9
-            ],
-            "matched": [
-              37
-            ],
-            "matchCount": 1,
-            "corePool": [
-              44,
-              31,
-              7,
-              37,
-              36,
-              9,
-              35,
-              16,
-              22,
-              39,
-              28,
-              20
-            ],
-            "coreMatched": [
-              20,
-              37
-            ],
-            "coreMatchCount": 2,
-            "triad": [
-              28,
-              30,
-              6
-            ],
-            "triadMatched": [],
-            "triadMatchCount": 0,
-            "key5": [
-              28,
-              30,
-              6,
-              44,
-              31
-            ],
-            "key5Matched": [],
-            "key5MatchCount": 0,
-            "wheel4": {
-              "ticketHits": [
-                1,
-                0,
-                1,
-                0
-              ],
-              "maxHit": 1,
-              "wonPrize": false
-            }
           }
         ]
       }
@@ -16162,24 +16169,38 @@
       "balls": 5,
       "max_number": 35,
       "has_special": true,
-      "total_draws": 304,
+      "total_draws": 305,
       "first_draw": "2025-06-29",
       "latest_draw": "2026-09-06",
       "latest": {
         "date": "2026-09-06",
-        "id": "00869",
+        "id": "00870",
         "result": [
-          12,
-          16,
-          18,
+          11,
+          13,
           20,
-          29,
-          8
+          23,
+          24,
+          1
         ],
         "page": 0,
-        "process_time": "2026-09-06 13:56:34"
+        "process_time": "2026-09-06 21:11:59"
       },
       "history": [
+        {
+          "date": "2026-09-06",
+          "id": "00870",
+          "result": [
+            11,
+            13,
+            20,
+            23,
+            24,
+            1
+          ],
+          "page": 0,
+          "process_time": "2026-09-06 21:11:59"
+        },
         {
           "date": "2026-09-06",
           "id": "00869",
@@ -17565,665 +17586,651 @@
           ],
           "page": 11,
           "process_time": "2026-09-04 01:14:35"
-        },
-        {
-          "date": "2026-07-18",
-          "id": "00770",
-          "result": [
-            4,
-            15,
-            23,
-            27,
-            28,
-            1
-          ],
-          "page": 11,
-          "process_time": "2026-09-04 01:14:35"
         }
       ],
       "hot_numbers": [
         {
           "number": 34,
           "count": 59,
-          "pct": 19.41
+          "pct": 19.34
         },
         {
           "number": 15,
           "count": 56,
-          "pct": 18.42
+          "pct": 18.36
         },
         {
           "number": 33,
           "count": 54,
-          "pct": 17.76
+          "pct": 17.7
         },
         {
           "number": 22,
           "count": 51,
-          "pct": 16.78
+          "pct": 16.72
         },
         {
           "number": 28,
           "count": 51,
-          "pct": 16.78
+          "pct": 16.72
         },
         {
           "number": 13,
+          "count": 50,
+          "pct": 16.39
+        },
+        {
+          "number": 20,
           "count": 49,
-          "pct": 16.12
+          "pct": 16.07
+        },
+        {
+          "number": 23,
+          "count": 49,
+          "pct": 16.07
         },
         {
           "number": 6,
           "count": 48,
-          "pct": 15.79
-        },
-        {
-          "number": 20,
-          "count": 48,
-          "pct": 15.79
-        },
-        {
-          "number": 23,
-          "count": 48,
-          "pct": 15.79
+          "pct": 15.74
         },
         {
           "number": 27,
           "count": 48,
-          "pct": 15.79
+          "pct": 15.74
         }
       ],
       "cold_numbers": [
         {
           "number": 30,
           "count": 31,
-          "pct": 10.2
+          "pct": 10.16
         },
         {
           "number": 25,
           "count": 32,
-          "pct": 10.53
+          "pct": 10.49
         },
         {
           "number": 32,
           "count": 33,
-          "pct": 10.86
+          "pct": 10.82
         },
         {
           "number": 16,
           "count": 35,
-          "pct": 11.51
+          "pct": 11.48
         },
         {
           "number": 31,
           "count": 37,
-          "pct": 12.17
+          "pct": 12.13
         },
         {
           "number": 14,
           "count": 37,
-          "pct": 12.17
+          "pct": 12.13
         },
         {
           "number": 12,
           "count": 37,
-          "pct": 12.17
+          "pct": 12.13
         },
         {
           "number": 7,
           "count": 37,
-          "pct": 12.17
-        },
-        {
-          "number": 24,
-          "count": 38,
-          "pct": 12.5
+          "pct": 12.13
         },
         {
           "number": 5,
           "count": 38,
-          "pct": 12.5
+          "pct": 12.46
+        },
+        {
+          "number": 24,
+          "count": 39,
+          "pct": 12.79
         }
       ],
       "top_overdue": [
         {
           "number": 14,
-          "current_gap": 24,
-          "max_gap": 24,
+          "current_gap": 25,
+          "max_gap": 25,
           "avg_gap": 8.2,
           "appearances": 37,
-          "heat_ratio": 2.93
+          "heat_ratio": 3.05
         },
         {
           "number": 8,
-          "current_gap": 20,
-          "max_gap": 20,
-          "avg_gap": 7.2,
+          "current_gap": 21,
+          "max_gap": 21,
+          "avg_gap": 7.3,
           "appearances": 42,
-          "heat_ratio": 2.78
+          "heat_ratio": 2.88
         },
         {
           "number": 10,
-          "current_gap": 19,
+          "current_gap": 20,
           "max_gap": 22,
           "avg_gap": 6.5,
           "appearances": 47,
-          "heat_ratio": 2.92
+          "heat_ratio": 3.08
         },
         {
           "number": 33,
-          "current_gap": 19,
+          "current_gap": 20,
           "max_gap": 21,
           "avg_gap": 5.6,
           "appearances": 54,
-          "heat_ratio": 3.39
+          "heat_ratio": 3.57
         },
         {
           "number": 21,
-          "current_gap": 14,
+          "current_gap": 15,
           "max_gap": 29,
           "avg_gap": 7.6,
           "appearances": 40,
-          "heat_ratio": 1.84
+          "heat_ratio": 1.97
         },
         {
           "number": 1,
-          "current_gap": 11,
+          "current_gap": 12,
           "max_gap": 31,
           "avg_gap": 7.4,
           "appearances": 41,
-          "heat_ratio": 1.49
+          "heat_ratio": 1.62
         },
         {
           "number": 5,
-          "current_gap": 11,
+          "current_gap": 12,
           "max_gap": 26,
           "avg_gap": 8.0,
           "appearances": 38,
-          "heat_ratio": 1.38
+          "heat_ratio": 1.5
         },
         {
           "number": 28,
-          "current_gap": 11,
+          "current_gap": 12,
           "max_gap": 19,
           "avg_gap": 6.0,
           "appearances": 51,
-          "heat_ratio": 1.83
+          "heat_ratio": 2.0
         },
         {
           "number": 34,
-          "current_gap": 10,
+          "current_gap": 11,
           "max_gap": 16,
           "avg_gap": 5.2,
           "appearances": 59,
-          "heat_ratio": 1.92
+          "heat_ratio": 2.12
         },
         {
           "number": 4,
-          "current_gap": 9,
+          "current_gap": 10,
           "max_gap": 31,
-          "avg_gap": 7.2,
+          "avg_gap": 7.3,
           "appearances": 42,
-          "heat_ratio": 1.25
+          "heat_ratio": 1.37
         }
       ],
       "gap_analysis": [
         {
           "number": 1,
-          "current_gap": 11,
+          "current_gap": 12,
           "max_gap": 31,
           "avg_gap": 7.4,
           "appearances": 41,
-          "heat_ratio": 1.49
+          "heat_ratio": 1.62
         },
         {
           "number": 2,
-          "current_gap": 4,
+          "current_gap": 5,
           "max_gap": 37,
           "avg_gap": 7.6,
           "appearances": 40,
-          "heat_ratio": 0.53
+          "heat_ratio": 0.66
         },
         {
           "number": 3,
-          "current_gap": 2,
+          "current_gap": 3,
           "max_gap": 29,
           "avg_gap": 7.4,
           "appearances": 41,
-          "heat_ratio": 0.27
+          "heat_ratio": 0.41
         },
         {
           "number": 4,
-          "current_gap": 9,
+          "current_gap": 10,
           "max_gap": 31,
-          "avg_gap": 7.2,
+          "avg_gap": 7.3,
           "appearances": 42,
-          "heat_ratio": 1.25
+          "heat_ratio": 1.37
         },
         {
           "number": 5,
-          "current_gap": 11,
+          "current_gap": 12,
           "max_gap": 26,
           "avg_gap": 8.0,
           "appearances": 38,
-          "heat_ratio": 1.38
+          "heat_ratio": 1.5
         },
         {
           "number": 6,
-          "current_gap": 7,
+          "current_gap": 8,
           "max_gap": 34,
-          "avg_gap": 6.3,
+          "avg_gap": 6.4,
           "appearances": 48,
-          "heat_ratio": 1.11
+          "heat_ratio": 1.25
         },
         {
           "number": 7,
-          "current_gap": 5,
+          "current_gap": 6,
           "max_gap": 29,
           "avg_gap": 8.2,
           "appearances": 37,
-          "heat_ratio": 0.61
+          "heat_ratio": 0.73
         },
         {
           "number": 8,
-          "current_gap": 20,
-          "max_gap": 20,
-          "avg_gap": 7.2,
+          "current_gap": 21,
+          "max_gap": 21,
+          "avg_gap": 7.3,
           "appearances": 42,
-          "heat_ratio": 2.78
+          "heat_ratio": 2.88
         },
         {
           "number": 9,
-          "current_gap": 1,
+          "current_gap": 2,
           "max_gap": 24,
+          "avg_gap": 6.6,
+          "appearances": 46,
+          "heat_ratio": 0.3
+        },
+        {
+          "number": 10,
+          "current_gap": 20,
+          "max_gap": 22,
+          "avg_gap": 6.5,
+          "appearances": 47,
+          "heat_ratio": 3.08
+        },
+        {
+          "number": 11,
+          "current_gap": 0,
+          "max_gap": 32,
+          "avg_gap": 7.3,
+          "appearances": 42,
+          "heat_ratio": 0.0
+        },
+        {
+          "number": 12,
+          "current_gap": 1,
+          "max_gap": 46,
+          "avg_gap": 8.2,
+          "appearances": 37,
+          "heat_ratio": 0.12
+        },
+        {
+          "number": 13,
+          "current_gap": 0,
+          "max_gap": 19,
+          "avg_gap": 6.1,
+          "appearances": 50,
+          "heat_ratio": 0.0
+        },
+        {
+          "number": 14,
+          "current_gap": 25,
+          "max_gap": 25,
+          "avg_gap": 8.2,
+          "appearances": 37,
+          "heat_ratio": 3.05
+        },
+        {
+          "number": 15,
+          "current_gap": 2,
+          "max_gap": 22,
+          "avg_gap": 5.4,
+          "appearances": 56,
+          "heat_ratio": 0.37
+        },
+        {
+          "number": 16,
+          "current_gap": 1,
+          "max_gap": 32,
+          "avg_gap": 8.7,
+          "appearances": 35,
+          "heat_ratio": 0.11
+        },
+        {
+          "number": 17,
+          "current_gap": 6,
+          "max_gap": 22,
+          "avg_gap": 6.5,
+          "appearances": 47,
+          "heat_ratio": 0.92
+        },
+        {
+          "number": 18,
+          "current_gap": 1,
+          "max_gap": 43,
           "avg_gap": 6.6,
           "appearances": 46,
           "heat_ratio": 0.15
         },
         {
-          "number": 10,
-          "current_gap": 19,
-          "max_gap": 22,
-          "avg_gap": 6.5,
-          "appearances": 47,
-          "heat_ratio": 2.92
-        },
-        {
-          "number": 11,
-          "current_gap": 2,
-          "max_gap": 32,
-          "avg_gap": 7.4,
-          "appearances": 41,
-          "heat_ratio": 0.27
-        },
-        {
-          "number": 12,
-          "current_gap": 0,
-          "max_gap": 46,
-          "avg_gap": 8.2,
-          "appearances": 37,
-          "heat_ratio": 0.0
-        },
-        {
-          "number": 13,
-          "current_gap": 3,
-          "max_gap": 19,
-          "avg_gap": 6.2,
-          "appearances": 49,
-          "heat_ratio": 0.48
-        },
-        {
-          "number": 14,
-          "current_gap": 24,
-          "max_gap": 24,
-          "avg_gap": 8.2,
-          "appearances": 37,
-          "heat_ratio": 2.93
-        },
-        {
-          "number": 15,
-          "current_gap": 1,
-          "max_gap": 22,
-          "avg_gap": 5.4,
-          "appearances": 56,
-          "heat_ratio": 0.19
-        },
-        {
-          "number": 16,
-          "current_gap": 0,
-          "max_gap": 32,
-          "avg_gap": 8.7,
-          "appearances": 35,
-          "heat_ratio": 0.0
-        },
-        {
-          "number": 17,
-          "current_gap": 5,
-          "max_gap": 22,
-          "avg_gap": 6.5,
-          "appearances": 47,
-          "heat_ratio": 0.77
-        },
-        {
-          "number": 18,
-          "current_gap": 0,
-          "max_gap": 43,
-          "avg_gap": 6.6,
-          "appearances": 46,
-          "heat_ratio": 0.0
-        },
-        {
           "number": 19,
-          "current_gap": 4,
+          "current_gap": 5,
           "max_gap": 20,
           "avg_gap": 6.8,
           "appearances": 45,
-          "heat_ratio": 0.59
+          "heat_ratio": 0.74
         },
         {
           "number": 20,
           "current_gap": 0,
           "max_gap": 30,
-          "avg_gap": 6.3,
-          "appearances": 48,
+          "avg_gap": 6.2,
+          "appearances": 49,
           "heat_ratio": 0.0
         },
         {
           "number": 21,
-          "current_gap": 14,
+          "current_gap": 15,
           "max_gap": 29,
           "avg_gap": 7.6,
           "appearances": 40,
-          "heat_ratio": 1.84
+          "heat_ratio": 1.97
         },
         {
           "number": 22,
-          "current_gap": 1,
+          "current_gap": 2,
           "max_gap": 25,
           "avg_gap": 6.0,
           "appearances": 51,
-          "heat_ratio": 0.17
+          "heat_ratio": 0.33
         },
         {
           "number": 23,
-          "current_gap": 3,
-          "max_gap": 25,
-          "avg_gap": 6.3,
-          "appearances": 48,
-          "heat_ratio": 0.48
-        },
-        {
-          "number": 24,
-          "current_gap": 5,
-          "max_gap": 24,
-          "avg_gap": 8.0,
-          "appearances": 38,
-          "heat_ratio": 0.62
-        },
-        {
-          "number": 25,
-          "current_gap": 3,
-          "max_gap": 26,
-          "avg_gap": 9.5,
-          "appearances": 32,
-          "heat_ratio": 0.32
-        },
-        {
-          "number": 26,
-          "current_gap": 1,
-          "max_gap": 35,
-          "avg_gap": 7.1,
-          "appearances": 43,
-          "heat_ratio": 0.14
-        },
-        {
-          "number": 27,
-          "current_gap": 5,
-          "max_gap": 39,
-          "avg_gap": 6.3,
-          "appearances": 48,
-          "heat_ratio": 0.79
-        },
-        {
-          "number": 28,
-          "current_gap": 11,
-          "max_gap": 19,
-          "avg_gap": 6.0,
-          "appearances": 51,
-          "heat_ratio": 1.83
-        },
-        {
-          "number": 29,
           "current_gap": 0,
-          "max_gap": 31,
-          "avg_gap": 6.8,
-          "appearances": 45,
+          "max_gap": 25,
+          "avg_gap": 6.2,
+          "appearances": 49,
           "heat_ratio": 0.0
         },
         {
-          "number": 30,
+          "number": 24,
+          "current_gap": 0,
+          "max_gap": 24,
+          "avg_gap": 7.8,
+          "appearances": 39,
+          "heat_ratio": 0.0
+        },
+        {
+          "number": 25,
+          "current_gap": 4,
+          "max_gap": 26,
+          "avg_gap": 9.5,
+          "appearances": 32,
+          "heat_ratio": 0.42
+        },
+        {
+          "number": 26,
+          "current_gap": 2,
+          "max_gap": 35,
+          "avg_gap": 7.1,
+          "appearances": 43,
+          "heat_ratio": 0.28
+        },
+        {
+          "number": 27,
           "current_gap": 6,
+          "max_gap": 39,
+          "avg_gap": 6.4,
+          "appearances": 48,
+          "heat_ratio": 0.94
+        },
+        {
+          "number": 28,
+          "current_gap": 12,
+          "max_gap": 19,
+          "avg_gap": 6.0,
+          "appearances": 51,
+          "heat_ratio": 2.0
+        },
+        {
+          "number": 29,
+          "current_gap": 1,
+          "max_gap": 31,
+          "avg_gap": 6.8,
+          "appearances": 45,
+          "heat_ratio": 0.15
+        },
+        {
+          "number": 30,
+          "current_gap": 7,
           "max_gap": 33,
           "avg_gap": 9.8,
           "appearances": 31,
-          "heat_ratio": 0.61
+          "heat_ratio": 0.71
         },
         {
           "number": 31,
-          "current_gap": 4,
+          "current_gap": 5,
           "max_gap": 19,
           "avg_gap": 8.2,
           "appearances": 37,
-          "heat_ratio": 0.49
+          "heat_ratio": 0.61
         },
         {
           "number": 32,
-          "current_gap": 7,
+          "current_gap": 8,
           "max_gap": 22,
           "avg_gap": 9.2,
           "appearances": 33,
-          "heat_ratio": 0.76
+          "heat_ratio": 0.87
         },
         {
           "number": 33,
-          "current_gap": 19,
+          "current_gap": 20,
           "max_gap": 21,
           "avg_gap": 5.6,
           "appearances": 54,
-          "heat_ratio": 3.39
+          "heat_ratio": 3.57
         },
         {
           "number": 34,
-          "current_gap": 10,
+          "current_gap": 11,
           "max_gap": 16,
           "avg_gap": 5.2,
           "appearances": 59,
-          "heat_ratio": 1.92
+          "heat_ratio": 2.12
         },
         {
           "number": 35,
-          "current_gap": 2,
+          "current_gap": 3,
           "max_gap": 25,
           "avg_gap": 6.5,
           "appearances": 47,
-          "heat_ratio": 0.31
+          "heat_ratio": 0.46
         }
       ],
       "frequency": [
         {
           "number": 1,
           "count": 41,
-          "pct": 13.49
+          "pct": 13.44
         },
         {
           "number": 2,
           "count": 40,
-          "pct": 13.16
+          "pct": 13.11
         },
         {
           "number": 3,
           "count": 41,
-          "pct": 13.49
+          "pct": 13.44
         },
         {
           "number": 4,
           "count": 42,
-          "pct": 13.82
+          "pct": 13.77
         },
         {
           "number": 5,
           "count": 38,
-          "pct": 12.5
+          "pct": 12.46
         },
         {
           "number": 6,
           "count": 48,
-          "pct": 15.79
+          "pct": 15.74
         },
         {
           "number": 7,
           "count": 37,
-          "pct": 12.17
+          "pct": 12.13
         },
         {
           "number": 8,
           "count": 42,
-          "pct": 13.82
+          "pct": 13.77
         },
         {
           "number": 9,
           "count": 46,
-          "pct": 15.13
+          "pct": 15.08
         },
         {
           "number": 10,
           "count": 47,
-          "pct": 15.46
+          "pct": 15.41
         },
         {
           "number": 11,
-          "count": 41,
-          "pct": 13.49
+          "count": 42,
+          "pct": 13.77
         },
         {
           "number": 12,
           "count": 37,
-          "pct": 12.17
+          "pct": 12.13
         },
         {
           "number": 13,
-          "count": 49,
-          "pct": 16.12
+          "count": 50,
+          "pct": 16.39
         },
         {
           "number": 14,
           "count": 37,
-          "pct": 12.17
+          "pct": 12.13
         },
         {
           "number": 15,
           "count": 56,
-          "pct": 18.42
+          "pct": 18.36
         },
         {
           "number": 16,
           "count": 35,
-          "pct": 11.51
+          "pct": 11.48
         },
         {
           "number": 17,
           "count": 47,
-          "pct": 15.46
+          "pct": 15.41
         },
         {
           "number": 18,
           "count": 46,
-          "pct": 15.13
+          "pct": 15.08
         },
         {
           "number": 19,
           "count": 45,
-          "pct": 14.8
+          "pct": 14.75
         },
         {
           "number": 20,
-          "count": 48,
-          "pct": 15.79
+          "count": 49,
+          "pct": 16.07
         },
         {
           "number": 21,
           "count": 40,
-          "pct": 13.16
+          "pct": 13.11
         },
         {
           "number": 22,
           "count": 51,
-          "pct": 16.78
+          "pct": 16.72
         },
         {
           "number": 23,
-          "count": 48,
-          "pct": 15.79
+          "count": 49,
+          "pct": 16.07
         },
         {
           "number": 24,
-          "count": 38,
-          "pct": 12.5
+          "count": 39,
+          "pct": 12.79
         },
         {
           "number": 25,
           "count": 32,
-          "pct": 10.53
+          "pct": 10.49
         },
         {
           "number": 26,
           "count": 43,
-          "pct": 14.14
+          "pct": 14.1
         },
         {
           "number": 27,
           "count": 48,
-          "pct": 15.79
+          "pct": 15.74
         },
         {
           "number": 28,
           "count": 51,
-          "pct": 16.78
+          "pct": 16.72
         },
         {
           "number": 29,
           "count": 45,
-          "pct": 14.8
+          "pct": 14.75
         },
         {
           "number": 30,
           "count": 31,
-          "pct": 10.2
+          "pct": 10.16
         },
         {
           "number": 31,
           "count": 37,
-          "pct": 12.17
+          "pct": 12.13
         },
         {
           "number": 32,
           "count": 33,
-          "pct": 10.86
+          "pct": 10.82
         },
         {
           "number": 33,
           "count": 54,
-          "pct": 17.76
+          "pct": 17.7
         },
         {
           "number": 34,
           "count": 59,
-          "pct": 19.41
+          "pct": 19.34
         },
         {
           "number": 35,
           "count": 47,
-          "pct": 15.46
+          "pct": 15.41
         }
       ],
       "top_pairs": [
@@ -18233,7 +18240,7 @@
             22
           ],
           "count": 14,
-          "pct": 4.61
+          "pct": 4.59
         },
         {
           "pair": [
@@ -18241,7 +18248,7 @@
             27
           ],
           "count": 13,
-          "pct": 4.28
+          "pct": 4.26
         },
         {
           "pair": [
@@ -18249,7 +18256,7 @@
             29
           ],
           "count": 13,
-          "pct": 4.28
+          "pct": 4.26
         },
         {
           "pair": [
@@ -18257,7 +18264,7 @@
             35
           ],
           "count": 12,
-          "pct": 3.95
+          "pct": 3.93
         },
         {
           "pair": [
@@ -18265,7 +18272,7 @@
             14
           ],
           "count": 11,
-          "pct": 3.62
+          "pct": 3.61
         },
         {
           "pair": [
@@ -18273,7 +18280,23 @@
             27
           ],
           "count": 11,
-          "pct": 3.62
+          "pct": 3.61
+        },
+        {
+          "pair": [
+            13,
+            20
+          ],
+          "count": 11,
+          "pct": 3.61
+        },
+        {
+          "pair": [
+            13,
+            23
+          ],
+          "count": 11,
+          "pct": 3.61
         },
         {
           "pair": [
@@ -18281,7 +18304,7 @@
             15
           ],
           "count": 11,
-          "pct": 3.62
+          "pct": 3.61
         },
         {
           "pair": [
@@ -18289,7 +18312,7 @@
             34
           ],
           "count": 11,
-          "pct": 3.62
+          "pct": 3.61
         },
         {
           "pair": [
@@ -18297,7 +18320,7 @@
             24
           ],
           "count": 11,
-          "pct": 3.62
+          "pct": 3.61
         },
         {
           "pair": [
@@ -18305,7 +18328,7 @@
             33
           ],
           "count": 10,
-          "pct": 3.29
+          "pct": 3.28
         },
         {
           "pair": [
@@ -18313,7 +18336,7 @@
             33
           ],
           "count": 10,
-          "pct": 3.29
+          "pct": 3.28
         },
         {
           "pair": [
@@ -18321,23 +18344,7 @@
             20
           ],
           "count": 10,
-          "pct": 3.29
-        },
-        {
-          "pair": [
-            13,
-            20
-          ],
-          "count": 10,
-          "pct": 3.29
-        },
-        {
-          "pair": [
-            13,
-            23
-          ],
-          "count": 10,
-          "pct": 3.29
+          "pct": 3.28
         },
         {
           "pair": [
@@ -18345,10 +18352,19 @@
             27
           ],
           "count": 10,
-          "pct": 3.29
+          "pct": 3.28
         }
       ],
       "top_triples": [
+        {
+          "triple": [
+            13,
+            20,
+            23
+          ],
+          "count": 5,
+          "pct": 1.64
+        },
         {
           "triple": [
             18,
@@ -18360,21 +18376,12 @@
         },
         {
           "triple": [
-            13,
-            20,
-            23
-          ],
-          "count": 4,
-          "pct": 1.32
-        },
-        {
-          "triple": [
             10,
             15,
             22
           ],
           "count": 4,
-          "pct": 1.32
+          "pct": 1.31
         },
         {
           "triple": [
@@ -18383,7 +18390,7 @@
             20
           ],
           "count": 4,
-          "pct": 1.32
+          "pct": 1.31
         },
         {
           "triple": [
@@ -18392,7 +18399,7 @@
             24
           ],
           "count": 4,
-          "pct": 1.32
+          "pct": 1.31
         },
         {
           "triple": [
@@ -18401,7 +18408,7 @@
             27
           ],
           "count": 4,
-          "pct": 1.32
+          "pct": 1.31
         },
         {
           "triple": [
@@ -18410,7 +18417,7 @@
             24
           ],
           "count": 3,
-          "pct": 0.99
+          "pct": 0.98
         },
         {
           "triple": [
@@ -18419,7 +18426,7 @@
             28
           ],
           "count": 3,
-          "pct": 0.99
+          "pct": 0.98
         },
         {
           "triple": [
@@ -18428,7 +18435,7 @@
             33
           ],
           "count": 3,
-          "pct": 0.99
+          "pct": 0.98
         },
         {
           "triple": [
@@ -18437,7 +18444,7 @@
             34
           ],
           "count": 3,
-          "pct": 0.99
+          "pct": 0.98
         }
       ],
       "sum_stats": {
@@ -18456,49 +18463,49 @@
           {
             "range": "60 - 79",
             "count": 62,
-            "pct": 20.4
+            "pct": 20.3
           },
           {
             "range": "80 - 99",
-            "count": 109,
-            "pct": 35.9
+            "count": 110,
+            "pct": 36.1
           },
           {
             "range": "100 - 119",
             "count": 83,
-            "pct": 27.3
+            "pct": 27.2
           },
           {
             "range": ">= 120",
             "count": 26,
-            "pct": 8.6
+            "pct": 8.5
           }
         ]
       },
       "patterns": {
-        "consecutive_pct": 44.7,
-        "repeat_from_prev_pct": 54.8,
+        "consecutive_pct": 44.9,
+        "repeat_from_prev_pct": 54.9,
         "avg_repeat_per_draw": 0.67,
         "decade_distribution": [
           {
             "decade": "00-09",
             "count": 375,
-            "pct": 24.7
+            "pct": 24.6
           },
           {
             "decade": "10-19",
-            "count": 440,
-            "pct": 28.9
+            "count": 442,
+            "pct": 29.0
           },
           {
             "decade": "20-29",
-            "count": 444,
-            "pct": 29.2
+            "count": 447,
+            "pct": 29.3
           },
           {
             "decade": "30-39",
             "count": 261,
-            "pct": 17.2
+            "pct": 17.1
           }
         ]
       },
@@ -18542,18 +18549,18 @@
             "min": 6,
             "q1": 20,
             "median": 25,
-            "avg": 24.1,
-            "q3": 29,
+            "avg": 24.0,
+            "q3": 28,
             "max": 34,
             "mode": 27,
-            "safe_range": "20 - 29"
+            "safe_range": "20 - 28"
           },
           {
             "ball_index": 5,
             "min": 14,
             "q1": 28,
             "median": 32,
-            "avg": 30.4,
+            "avg": 30.3,
             "q3": 34,
             "max": 35,
             "mode": 34,
@@ -18564,27 +18571,27 @@
           "min": 7,
           "max": 34,
           "median": 25,
-          "avg": 24.2,
+          "avg": 24.1,
           "distribution": [
             {
               "range": "< 15",
-              "count": 26,
-              "pct": 8.6
+              "count": 27,
+              "pct": 8.9
             },
             {
               "range": "15 - 22",
               "count": 82,
-              "pct": 27.0
+              "pct": 26.9
             },
             {
               "range": "23 - 28",
               "count": 111,
-              "pct": 36.5
+              "pct": 36.4
             },
             {
               "range": ">= 29",
               "count": 85,
-              "pct": 28.0
+              "pct": 27.9
             }
           ]
         }
@@ -18604,17 +18611,17 @@
           {
             "ac": 4,
             "count": 73,
-            "pct": 24.0
+            "pct": 23.9
           },
           {
             "ac": 5,
             "count": 78,
-            "pct": 25.7
+            "pct": 25.6
           },
           {
             "ac": 6,
-            "count": 137,
-            "pct": 45.1
+            "count": 138,
+            "pct": 45.2
           }
         ],
         "high_ac_pct": 0.0,
@@ -18624,18 +18631,18 @@
         "top_deltas": [
           {
             "delta": 1,
-            "count": 204,
+            "count": 205,
             "pct": 13.4
           },
           {
             "delta": 2,
-            "count": 198,
+            "count": 199,
             "pct": 13.0
           },
           {
             "delta": 3,
-            "count": 163,
-            "pct": 10.7
+            "count": 164,
+            "pct": 10.8
           },
           {
             "delta": 4,
@@ -18645,7 +18652,7 @@
           {
             "delta": 5,
             "count": 118,
-            "pct": 7.8
+            "pct": 7.7
           },
           {
             "delta": 6,
@@ -18654,86 +18661,86 @@
           },
           {
             "delta": 7,
-            "count": 97,
+            "count": 98,
             "pct": 6.4
           },
           {
             "delta": 8,
             "count": 92,
-            "pct": 6.1
+            "pct": 6.0
           }
         ],
-        "small_delta_pct": 54.9,
+        "small_delta_pct": 55.0,
         "avg_delta": 6.07
       },
       "markov_stats": {
         "latest_basis": [
-          12,
-          16,
-          18,
+          11,
+          13,
           20,
-          29
+          23,
+          24
         ],
         "top_candidates": [
           {
             "number": 34,
-            "score": 46,
+            "score": 43,
             "rel_strength": 100.0
           },
           {
             "number": 15,
+            "score": 43,
+            "rel_strength": 100.0
+          },
+          {
+            "number": 33,
+            "score": 42,
+            "rel_strength": 97.7
+          },
+          {
+            "number": 35,
             "score": 41,
-            "rel_strength": 89.1
-          },
-          {
-            "number": 23,
-            "score": 39,
-            "rel_strength": 84.8
-          },
-          {
-            "number": 28,
-            "score": 37,
-            "rel_strength": 80.4
-          },
-          {
-            "number": 4,
-            "score": 37,
-            "rel_strength": 80.4
-          },
-          {
-            "number": 19,
-            "score": 36,
-            "rel_strength": 78.3
-          },
-          {
-            "number": 26,
-            "score": 35,
-            "rel_strength": 76.1
-          },
-          {
-            "number": 5,
-            "score": 35,
-            "rel_strength": 76.1
-          },
-          {
-            "number": 8,
-            "score": 33,
-            "rel_strength": 71.7
+            "rel_strength": 95.3
           },
           {
             "number": 13,
-            "score": 33,
-            "rel_strength": 71.7
+            "score": 39,
+            "rel_strength": 90.7
           },
           {
-            "number": 18,
-            "score": 32,
-            "rel_strength": 69.6
+            "number": 22,
+            "score": 39,
+            "rel_strength": 90.7
           },
           {
-            "number": 17,
-            "score": 32,
-            "rel_strength": 69.6
+            "number": 20,
+            "score": 37,
+            "rel_strength": 86.0
+          },
+          {
+            "number": 1,
+            "score": 36,
+            "rel_strength": 83.7
+          },
+          {
+            "number": 27,
+            "score": 36,
+            "rel_strength": 83.7
+          },
+          {
+            "number": 3,
+            "score": 36,
+            "rel_strength": 83.7
+          },
+          {
+            "number": 28,
+            "score": 35,
+            "rel_strength": 81.4
+          },
+          {
+            "number": 4,
+            "score": 35,
+            "rel_strength": 81.4
           }
         ]
       },
@@ -18746,34 +18753,38 @@
           },
           {
             "distinct_tails": 4,
-            "count": 135,
-            "pct": 44.4
+            "count": 136,
+            "pct": 44.6
           },
           {
             "distinct_tails": 5,
             "count": 142,
-            "pct": 46.7
+            "pct": 46.6
           }
         ],
         "cam_tails": [
           {
-            "tail": 4,
-            "streak": 5
-          },
-          {
             "tail": 7,
-            "streak": 5
-          },
-          {
-            "tail": 1,
-            "streak": 2
-          },
-          {
-            "tail": 3,
-            "streak": 2
+            "streak": 6
           },
           {
             "tail": 5,
+            "streak": 2
+          },
+          {
+            "tail": 2,
+            "streak": 1
+          },
+          {
+            "tail": 6,
+            "streak": 1
+          },
+          {
+            "tail": 8,
+            "streak": 1
+          },
+          {
+            "tail": 9,
             "streak": 1
           },
           {
@@ -18781,30 +18792,26 @@
             "streak": 0
           },
           {
-            "tail": 2,
+            "tail": 1,
             "streak": 0
           },
           {
-            "tail": 6,
+            "tail": 3,
             "streak": 0
           },
           {
-            "tail": 8,
-            "streak": 0
-          },
-          {
-            "tail": 9,
+            "tail": 4,
             "streak": 0
           }
         ],
         "cam_heads": [
           {
             "head": "3x",
-            "streak": 2
+            "streak": 3
           },
           {
             "head": "0x",
-            "streak": 1
+            "streak": 2
           },
           {
             "head": "1x",
@@ -18818,20 +18825,20 @@
       },
       "ev_metrics": {},
       "odd_even": {
-        "odd_pct": 52.0,
-        "even_pct": 48.0
+        "odd_pct": 52.4,
+        "even_pct": 47.6
       },
       "backtest_data": {
         "records": [
           {
-            "drawId": "00870",
+            "drawId": "00871",
             "date": "Kỳ Kế Tiếp",
             "predicted": [
+              11,
               13,
-              15,
+              17,
               18,
-              25,
-              26
+              35
             ],
             "special": 7,
             "actual": null,
@@ -18843,6 +18850,36 @@
             "netProfit": 0,
             "prizeDetail": "Đang chờ quay",
             "status": "pending"
+          },
+          {
+            "drawId": "00870",
+            "date": "2026-09-06",
+            "predicted": [
+              13,
+              15,
+              18,
+              25,
+              26
+            ],
+            "special": 7,
+            "actual": [
+              11,
+              13,
+              20,
+              23,
+              24,
+              1
+            ],
+            "matched": [
+              13
+            ],
+            "matchCount": 1,
+            "specMatched": false,
+            "cost": 10000,
+            "payout": 0,
+            "netProfit": -10000,
+            "prizeDetail": "Không trúng",
+            "status": "completed"
           },
           {
             "drawId": "00869",
@@ -19391,37 +19428,6 @@
             "netProfit": -10000,
             "prizeDetail": "Không trúng",
             "status": "completed"
-          },
-          {
-            "drawId": "00850",
-            "date": "2026-08-27",
-            "predicted": [
-              6,
-              9,
-              16,
-              20,
-              33
-            ],
-            "special": 7,
-            "actual": [
-              9,
-              10,
-              21,
-              33,
-              34,
-              2
-            ],
-            "matched": [
-              9,
-              33
-            ],
-            "matchCount": 2,
-            "specMatched": false,
-            "cost": 10000,
-            "payout": 0,
-            "netProfit": -10000,
-            "prizeDetail": "Không trúng",
-            "status": "completed"
           }
         ],
         "kpis": {
@@ -19432,22 +19438,22 @@
           "total_cost": 2000000,
           "total_payout": 110000,
           "net_profit": -1890000,
-          "avg_matched": 0.61,
+          "avg_matched": 0.62,
           "win_rate_pct": 1.0
         }
       },
       "bao7_backtest_data": {
         "records": [
           {
-            "drawId": "00870",
+            "drawId": "00871",
             "date": "Kỳ Kế Tiếp",
             "predicted": [
+              4,
               11,
-              12,
-              13,
-              19,
-              22,
-              26
+              16,
+              18,
+              24,
+              35
             ],
             "special": 7,
             "actual": null,
@@ -19459,6 +19465,38 @@
             "netProfit": 0,
             "prizeDetail": "Đang chờ quay",
             "status": "pending"
+          },
+          {
+            "drawId": "00870",
+            "date": "2026-09-06",
+            "predicted": [
+              11,
+              12,
+              13,
+              19,
+              22,
+              26
+            ],
+            "special": 7,
+            "actual": [
+              11,
+              13,
+              20,
+              23,
+              24,
+              1
+            ],
+            "matched": [
+              11,
+              13
+            ],
+            "matchCount": 2,
+            "specMatched": false,
+            "cost": 60000,
+            "payout": 0,
+            "netProfit": -60000,
+            "prizeDetail": "Không trúng",
+            "status": "completed"
           },
           {
             "drawId": "00869",
@@ -20047,39 +20085,6 @@
             "netProfit": -60000,
             "prizeDetail": "Không trúng",
             "status": "completed"
-          },
-          {
-            "drawId": "00850",
-            "date": "2026-08-27",
-            "predicted": [
-              1,
-              9,
-              16,
-              20,
-              33,
-              34
-            ],
-            "special": 7,
-            "actual": [
-              9,
-              10,
-              21,
-              33,
-              34,
-              2
-            ],
-            "matched": [
-              9,
-              33,
-              34
-            ],
-            "matchCount": 3,
-            "specMatched": false,
-            "cost": 60000,
-            "payout": 90000,
-            "netProfit": 30000,
-            "prizeDetail": "3 Giải Năm (30k)",
-            "status": "completed"
           }
         ],
         "kpis": {
@@ -20095,18 +20100,18 @@
       },
       "wheeling_strategy": {
         "core_pool": [
-          4,
+          2,
+          7,
           11,
-          12,
           13,
           15,
+          16,
           18,
-          19,
-          22,
+          20,
           23,
-          26,
-          28,
-          35
+          24,
+          27,
+          29
         ],
         "core_pool_size": 12,
         "tickets": [
@@ -20114,14 +20119,14 @@
             "id": "wheel_1",
             "ticketIndex": 1,
             "numbers": [
-              4,
-              11,
+              2,
+              7,
               13,
-              18,
+              16,
               23
             ],
-            "sum": 69,
-            "ac": 4,
+            "sum": 61,
+            "ac": 6,
             "odds": 3,
             "evens": 2,
             "distinctTails": 4
@@ -20130,14 +20135,14 @@
             "id": "wheel_2",
             "ticketIndex": 2,
             "numbers": [
+              7,
               11,
-              12,
               15,
-              19,
-              26
+              18,
+              24
             ],
-            "sum": 83,
-            "ac": 4,
+            "sum": 75,
+            "ac": 5,
             "odds": 3,
             "evens": 2,
             "distinctTails": 5
@@ -20146,46 +20151,46 @@
             "id": "wheel_3",
             "ticketIndex": 3,
             "numbers": [
-              12,
+              11,
               13,
-              18,
-              22,
-              28
+              16,
+              20,
+              27
             ],
-            "sum": 93,
-            "ac": 4,
-            "odds": 1,
-            "evens": 4,
-            "distinctTails": 3
+            "sum": 87,
+            "ac": 5,
+            "odds": 3,
+            "evens": 2,
+            "distinctTails": 5
           },
           {
             "id": "wheel_4",
             "ticketIndex": 4,
             "numbers": [
-              4,
+              2,
               15,
-              19,
+              18,
               23,
-              35
+              29
             ],
-            "sum": 96,
-            "ac": 5,
-            "odds": 4,
-            "evens": 1,
-            "distinctTails": 4
+            "sum": 87,
+            "ac": 6,
+            "odds": 3,
+            "evens": 2,
+            "distinctTails": 5
           },
           {
             "id": "wheel_5",
             "ticketIndex": 5,
             "numbers": [
-              11,
-              18,
-              22,
-              26,
-              35
+              7,
+              16,
+              20,
+              24,
+              29
             ],
-            "sum": 112,
-            "ac": 5,
+            "sum": 96,
+            "ac": 3,
             "odds": 2,
             "evens": 3,
             "distinctTails": 5
@@ -20194,17 +20199,17 @@
             "id": "wheel_6",
             "ticketIndex": 6,
             "numbers": [
-              4,
-              12,
-              19,
-              22,
-              28
+              2,
+              11,
+              18,
+              20,
+              27
             ],
-            "sum": 85,
-            "ac": 6,
-            "odds": 1,
-            "evens": 4,
-            "distinctTails": 4
+            "sum": 78,
+            "ac": 2,
+            "odds": 2,
+            "evens": 3,
+            "distinctTails": 5
           }
         ],
         "special_recommendation": [
@@ -20217,131 +20222,115 @@
       },
       "bac_nho_analytics": {
         "window_draws": 200,
-        "has_repeat_pct": 56.8,
-        "repeat_1_pct": 43.7,
+        "has_repeat_pct": 57.3,
+        "repeat_1_pct": 44.2,
         "repeat_2_pct": 12.1,
         "latest_balls": [
-          12,
-          16,
-          18,
+          11,
+          13,
           20,
-          29
+          23,
+          24
         ],
         "cau_roi_analysis": [
           {
-            "number": 18,
+            "number": 13,
+            "past_repeats": 11,
+            "repeat_tendency_score": 17.5
+          },
+          {
+            "number": 23,
             "past_repeats": 7,
             "repeat_tendency_score": 11.5
           },
           {
+            "number": 11,
+            "past_repeats": 6,
+            "repeat_tendency_score": 10.0
+          },
+          {
             "number": 20,
+            "past_repeats": 5,
+            "repeat_tendency_score": 8.5
+          },
+          {
+            "number": 24,
             "past_repeats": 4,
             "repeat_tendency_score": 7.0
-          },
-          {
-            "number": 29,
-            "past_repeats": 4,
-            "repeat_tendency_score": 7.0
-          },
-          {
-            "number": 12,
-            "past_repeats": 2,
-            "repeat_tendency_score": 3.5
-          },
-          {
-            "number": 16,
-            "past_repeats": 1,
-            "repeat_tendency_score": 2.0
           }
         ],
         "top_cau_roi": [
           {
-            "number": 18,
-            "past_repeats": 7,
-            "repeat_tendency_score": 11.5
+            "number": 13,
+            "past_repeats": 11,
+            "repeat_tendency_score": 17.5
           },
           {
-            "number": 20,
-            "past_repeats": 4,
-            "repeat_tendency_score": 7.0
+            "number": 23,
+            "past_repeats": 7,
+            "repeat_tendency_score": 11.5
           }
         ],
         "triggered_bac_nho": [
           {
-            "from_number": 16,
-            "to_number": 12,
-            "count": 8,
+            "from_number": 24,
+            "to_number": 16,
+            "count": 6,
             "appearances": 20,
-            "probability_pct": 40.0,
+            "probability_pct": 30.0,
             "lift": 2.86
           },
           {
-            "from_number": 12,
-            "to_number": 26,
-            "count": 10,
-            "appearances": 27,
-            "probability_pct": 37.0,
-            "lift": 2.39
-          },
-          {
-            "from_number": 18,
-            "to_number": 5,
-            "count": 8,
-            "appearances": 29,
-            "probability_pct": 27.6,
-            "lift": 2.12
-          },
-          {
-            "from_number": 29,
-            "to_number": 8,
-            "count": 8,
-            "appearances": 29,
-            "probability_pct": 27.6,
-            "lift": 2.04
+            "from_number": 11,
+            "to_number": 21,
+            "count": 9,
+            "appearances": 33,
+            "probability_pct": 27.3,
+            "lift": 2.02
           },
           {
             "from_number": 20,
             "to_number": 4,
             "count": 7,
-            "appearances": 25,
-            "probability_pct": 28.0,
-            "lift": 2.0
-          },
-          {
-            "from_number": 12,
-            "to_number": 2,
-            "count": 7,
-            "appearances": 27,
-            "probability_pct": 25.9,
+            "appearances": 26,
+            "probability_pct": 26.9,
             "lift": 1.92
           },
           {
-            "from_number": 12,
-            "to_number": 4,
-            "count": 7,
-            "appearances": 27,
-            "probability_pct": 25.9,
+            "from_number": 13,
+            "to_number": 13,
+            "count": 11,
+            "appearances": 34,
+            "probability_pct": 32.4,
             "lift": 1.85
           },
           {
-            "from_number": 29,
-            "to_number": 26,
-            "count": 8,
-            "appearances": 29,
-            "probability_pct": 27.6,
-            "lift": 1.78
+            "from_number": 23,
+            "to_number": 6,
+            "count": 9,
+            "appearances": 34,
+            "probability_pct": 26.5,
+            "lift": 1.76
           },
           {
-            "from_number": 12,
-            "to_number": 27,
-            "count": 7,
-            "appearances": 27,
-            "probability_pct": 25.9,
-            "lift": 1.62
-          },
-          {
-            "from_number": 16,
+            "from_number": 11,
             "to_number": 35,
+            "count": 9,
+            "appearances": 33,
+            "probability_pct": 27.3,
+            "lift": 1.76
+          },
+          {
+            "from_number": 24,
+            "to_number": 13,
+            "count": 6,
+            "appearances": 20,
+            "probability_pct": 30.0,
+            "lift": 1.71
+          },
+          {
+            "from_number": 24,
+            "to_number": 26,
             "count": 5,
             "appearances": 20,
             "probability_pct": 25.0,
@@ -20364,7 +20353,7 @@
             "ball2": 24,
             "count": 9,
             "probability_pct": 4.5,
-            "lift": 2.31
+            "lift": 2.2
           },
           {
             "ball1": 3,
@@ -20378,7 +20367,14 @@
             "ball2": 27,
             "count": 9,
             "probability_pct": 4.5,
-            "lift": 1.65
+            "lift": 1.61
+          },
+          {
+            "ball1": 13,
+            "ball2": 23,
+            "count": 9,
+            "probability_pct": 4.5,
+            "lift": 1.47
           },
           {
             "ball1": 15,
@@ -20416,20 +20412,6 @@
             "lift": 1.48
           },
           {
-            "ball1": 13,
-            "ball2": 23,
-            "count": 8,
-            "probability_pct": 4.0,
-            "lift": 1.34
-          },
-          {
-            "ball1": 13,
-            "ball2": 34,
-            "count": 8,
-            "probability_pct": 4.0,
-            "lift": 1.34
-          },
-          {
             "ball1": 6,
             "ball2": 14,
             "count": 7,
@@ -20456,6 +20438,13 @@
             "count": 7,
             "probability_pct": 3.5,
             "lift": 1.65
+          },
+          {
+            "ball1": 28,
+            "ball2": 31,
+            "count": 7,
+            "probability_pct": 3.5,
+            "lift": 1.56
           }
         ],
         "companions_map": {
@@ -20468,7 +20457,7 @@
             {
               "number": 11,
               "count": 5,
-              "lift": 1.32
+              "lift": 1.28
             },
             {
               "number": 5,
@@ -20486,9 +20475,9 @@
               "lift": 1.16
             },
             {
-              "number": 23,
+              "number": 34,
               "count": 4,
-              "lift": 1.02
+              "lift": 1.05
             }
           ],
           "2": [
@@ -20505,17 +20494,17 @@
             {
               "number": 23,
               "count": 6,
-              "lift": 1.31
+              "lift": 1.27
             },
             {
               "number": 24,
               "count": 5,
-              "lift": 1.85
+              "lift": 1.76
             },
             {
               "number": 8,
               "count": 5,
-              "lift": 1.37
+              "lift": 1.42
             },
             {
               "number": 21,
@@ -20574,7 +20563,7 @@
             {
               "number": 11,
               "count": 6,
-              "lift": 1.3
+              "lift": 1.26
             },
             {
               "number": 2,
@@ -20596,7 +20585,7 @@
             {
               "number": 34,
               "count": 6,
-              "lift": 1.36
+              "lift": 1.4
             },
             {
               "number": 3,
@@ -20648,71 +20637,71 @@
             {
               "number": 23,
               "count": 5,
-              "lift": 0.98
+              "lift": 0.95
             }
           ],
           "7": [
             {
               "number": 32,
               "count": 6,
-              "lift": 2.48
+              "lift": 2.6
             },
             {
               "number": 33,
               "count": 6,
-              "lift": 1.47
+              "lift": 1.54
             },
             {
               "number": 9,
               "count": 5,
-              "lift": 1.42
-            },
-            {
-              "number": 34,
-              "count": 5,
-              "lift": 1.34
+              "lift": 1.49
             },
             {
               "number": 6,
               "count": 4,
-              "lift": 1.21
+              "lift": 1.27
             },
             {
               "number": 17,
               "count": 4,
-              "lift": 1.21
+              "lift": 1.27
+            },
+            {
+              "number": 26,
+              "count": 4,
+              "lift": 1.23
             }
           ],
           "8": [
             {
               "number": 27,
               "count": 6,
-              "lift": 1.39
-            },
-            {
-              "number": 13,
-              "count": 6,
-              "lift": 1.27
+              "lift": 1.44
             },
             {
               "number": 2,
               "count": 5,
-              "lift": 1.37
+              "lift": 1.42
             },
             {
               "number": 10,
               "count": 5,
-              "lift": 1.32
+              "lift": 1.37
             },
             {
               "number": 35,
               "count": 5,
-              "lift": 1.19
+              "lift": 1.24
+            },
+            {
+              "number": 13,
+              "count": 5,
+              "lift": 1.1
             },
             {
               "number": 23,
               "count": 5,
-              "lift": 1.09
+              "lift": 1.1
             }
           ],
           "9": [
@@ -20737,12 +20726,12 @@
               "lift": 1.25
             },
             {
-              "number": 11,
+              "number": 34,
               "count": 6,
               "lift": 1.14
             },
             {
-              "number": 34,
+              "number": 11,
               "count": 6,
               "lift": 1.1
             }
@@ -20771,7 +20760,7 @@
             {
               "number": 8,
               "count": 5,
-              "lift": 1.32
+              "lift": 1.37
             },
             {
               "number": 22,
@@ -20781,34 +20770,34 @@
           ],
           "11": [
             {
+              "number": 20,
+              "count": 7,
+              "lift": 1.53
+            },
+            {
               "number": 18,
               "count": 7,
-              "lift": 1.41
+              "lift": 1.37
             },
             {
               "number": 27,
               "count": 7,
-              "lift": 1.33
-            },
-            {
-              "number": 20,
-              "count": 6,
-              "lift": 1.4
+              "lift": 1.29
             },
             {
               "number": 4,
               "count": 6,
-              "lift": 1.3
+              "lift": 1.26
             },
             {
               "number": 29,
               "count": 6,
-              "lift": 1.21
+              "lift": 1.18
             },
             {
               "number": 35,
               "count": 6,
-              "lift": 1.17
+              "lift": 1.14
             }
           ],
           "12": [
@@ -20846,18 +20835,23 @@
           "13": [
             {
               "number": 23,
-              "count": 8,
-              "lift": 1.34
+              "count": 9,
+              "lift": 1.47
             },
             {
               "number": 34,
-              "count": 8,
-              "lift": 1.34
+              "count": 7,
+              "lift": 1.21
             },
             {
-              "number": 8,
+              "number": 20,
               "count": 6,
               "lift": 1.27
+            },
+            {
+              "number": 11,
+              "count": 6,
+              "lift": 1.01
             },
             {
               "number": 33,
@@ -20868,11 +20862,6 @@
               "number": 22,
               "count": 6,
               "lift": 0.9
-            },
-            {
-              "number": 15,
-              "count": 6,
-              "lift": 0.88
             }
           ],
           "14": [
@@ -20899,19 +20888,19 @@
             {
               "number": 8,
               "count": 4,
-              "lift": 1.35
+              "lift": 1.4
             },
             {
               "number": 11,
               "count": 4,
-              "lift": 1.1
+              "lift": 1.07
             }
           ],
           "15": [
             {
               "number": 24,
               "count": 9,
-              "lift": 2.31
+              "lift": 2.2
             },
             {
               "number": 22,
@@ -20936,7 +20925,7 @@
             {
               "number": 34,
               "count": 6,
-              "lift": 0.9
+              "lift": 0.93
             }
           ],
           "16": [
@@ -20963,7 +20952,7 @@
             {
               "number": 20,
               "count": 4,
-              "lift": 1.47
+              "lift": 1.41
             },
             {
               "number": 18,
@@ -20985,7 +20974,7 @@
             {
               "number": 34,
               "count": 7,
-              "lift": 1.37
+              "lift": 1.41
             },
             {
               "number": 21,
@@ -20995,7 +20984,7 @@
             {
               "number": 24,
               "count": 5,
-              "lift": 1.67
+              "lift": 1.59
             },
             {
               "number": 5,
@@ -21017,7 +21006,7 @@
             {
               "number": 11,
               "count": 7,
-              "lift": 1.41
+              "lift": 1.37
             },
             {
               "number": 33,
@@ -21027,7 +21016,7 @@
             {
               "number": 20,
               "count": 6,
-              "lift": 1.54
+              "lift": 1.48
             },
             {
               "number": 12,
@@ -21039,7 +21028,7 @@
             {
               "number": 23,
               "count": 7,
-              "lift": 1.37
+              "lift": 1.33
             },
             {
               "number": 14,
@@ -21064,39 +21053,39 @@
             {
               "number": 31,
               "count": 5,
-              "lift": 1.28
+              "lift": 1.33
             }
           ],
           "20": [
             {
-              "number": 18,
-              "count": 6,
-              "lift": 1.54
+              "number": 11,
+              "count": 7,
+              "lift": 1.53
             },
             {
-              "number": 11,
+              "number": 18,
               "count": 6,
-              "lift": 1.4
+              "lift": 1.48
+            },
+            {
+              "number": 13,
+              "count": 6,
+              "lift": 1.27
             },
             {
               "number": 29,
               "count": 5,
-              "lift": 1.28
+              "lift": 1.23
             },
             {
               "number": 35,
               "count": 5,
-              "lift": 1.24
+              "lift": 1.19
             },
             {
               "number": 9,
               "count": 5,
-              "lift": 1.2
-            },
-            {
-              "number": 13,
-              "count": 5,
-              "lift": 1.1
+              "lift": 1.16
             }
           ],
           "21": [
@@ -21145,7 +21134,7 @@
             {
               "number": 31,
               "count": 7,
-              "lift": 1.42
+              "lift": 1.47
             },
             {
               "number": 4,
@@ -21167,27 +21156,27 @@
             {
               "number": 27,
               "count": 9,
-              "lift": 1.65
+              "lift": 1.61
             },
             {
               "number": 13,
-              "count": 8,
-              "lift": 1.34
+              "count": 9,
+              "lift": 1.47
             },
             {
               "number": 19,
               "count": 7,
-              "lift": 1.37
+              "lift": 1.33
             },
             {
               "number": 28,
               "count": 7,
-              "lift": 1.14
+              "lift": 1.11
             },
             {
               "number": 2,
               "count": 6,
-              "lift": 1.31
+              "lift": 1.27
             },
             {
               "number": 34,
@@ -21199,32 +21188,32 @@
             {
               "number": 15,
               "count": 9,
-              "lift": 2.31
+              "lift": 2.2
             },
             {
               "number": 2,
               "count": 5,
-              "lift": 1.85
+              "lift": 1.76
             },
             {
               "number": 17,
               "count": 5,
-              "lift": 1.67
+              "lift": 1.59
             },
             {
               "number": 34,
               "count": 5,
-              "lift": 1.47
+              "lift": 1.44
             },
             {
               "number": 30,
               "count": 4,
-              "lift": 2.11
+              "lift": 2.01
             },
             {
               "number": 33,
               "count": 4,
-              "lift": 1.08
+              "lift": 1.03
             }
           ],
           "25": [
@@ -21256,7 +21245,7 @@
             {
               "number": 20,
               "count": 3,
-              "lift": 1.21
+              "lift": 1.17
             }
           ],
           "26": [
@@ -21283,7 +21272,7 @@
             {
               "number": 34,
               "count": 6,
-              "lift": 1.14
+              "lift": 1.17
             },
             {
               "number": 29,
@@ -21295,7 +21284,7 @@
             {
               "number": 23,
               "count": 9,
-              "lift": 1.65
+              "lift": 1.61
             },
             {
               "number": 4,
@@ -21305,7 +21294,7 @@
             {
               "number": 11,
               "count": 7,
-              "lift": 1.33
+              "lift": 1.29
             },
             {
               "number": 15,
@@ -21315,7 +21304,7 @@
             {
               "number": 8,
               "count": 6,
-              "lift": 1.39
+              "lift": 1.44
             },
             {
               "number": 28,
@@ -21332,12 +21321,12 @@
             {
               "number": 31,
               "count": 7,
-              "lift": 1.5
+              "lift": 1.56
             },
             {
               "number": 23,
               "count": 7,
-              "lift": 1.14
+              "lift": 1.11
             },
             {
               "number": 25,
@@ -21364,17 +21353,17 @@
             {
               "number": 11,
               "count": 6,
-              "lift": 1.21
-            },
-            {
-              "number": 20,
-              "count": 5,
-              "lift": 1.28
+              "lift": 1.18
             },
             {
               "number": 31,
               "count": 5,
-              "lift": 1.28
+              "lift": 1.33
+            },
+            {
+              "number": 20,
+              "count": 5,
+              "lift": 1.23
             },
             {
               "number": 21,
@@ -21391,7 +21380,7 @@
             {
               "number": 23,
               "count": 5,
-              "lift": 1.55
+              "lift": 1.5
             },
             {
               "number": 15,
@@ -21401,7 +21390,7 @@
             {
               "number": 24,
               "count": 4,
-              "lift": 2.11
+              "lift": 2.01
             },
             {
               "number": 12,
@@ -21423,30 +21412,30 @@
             {
               "number": 28,
               "count": 7,
-              "lift": 1.5
+              "lift": 1.56
             },
             {
               "number": 22,
               "count": 7,
-              "lift": 1.42
+              "lift": 1.47
             },
             {
               "number": 19,
               "count": 5,
-              "lift": 1.28
+              "lift": 1.33
             },
             {
               "number": 29,
               "count": 5,
-              "lift": 1.28
+              "lift": 1.33
             },
             {
               "number": 9,
               "count": 5,
-              "lift": 1.2
+              "lift": 1.25
             },
             {
-              "number": 8,
+              "number": 10,
               "count": 4,
               "lift": 1.14
             }
@@ -21455,7 +21444,7 @@
             {
               "number": 7,
               "count": 6,
-              "lift": 2.48
+              "lift": 2.6
             },
             {
               "number": 33,
@@ -21475,7 +21464,7 @@
             {
               "number": 8,
               "count": 4,
-              "lift": 1.35
+              "lift": 1.4
             },
             {
               "number": 10,
@@ -21502,7 +21491,7 @@
             {
               "number": 7,
               "count": 6,
-              "lift": 1.47
+              "lift": 1.54
             },
             {
               "number": 32,
@@ -21517,29 +21506,29 @@
           ],
           "34": [
             {
-              "number": 13,
-              "count": 8,
-              "lift": 1.34
-            },
-            {
               "number": 17,
               "count": 7,
-              "lift": 1.37
+              "lift": 1.41
+            },
+            {
+              "number": 13,
+              "count": 7,
+              "lift": 1.21
             },
             {
               "number": 5,
               "count": 6,
-              "lift": 1.36
+              "lift": 1.4
             },
             {
               "number": 26,
               "count": 6,
-              "lift": 1.14
+              "lift": 1.17
             },
             {
               "number": 9,
               "count": 6,
-              "lift": 1.1
+              "lift": 1.14
             },
             {
               "number": 23,
@@ -21566,7 +21555,7 @@
             {
               "number": 11,
               "count": 6,
-              "lift": 1.17
+              "lift": 1.14
             },
             {
               "number": 28,
@@ -21584,46 +21573,48 @@
           [
             1,
             2,
-            3,
-            5,
             8,
-            12,
+            11,
+            13,
             14,
             15,
             19,
-            22,
+            21,
             23,
             24,
-            25,
-            26,
             27,
-            28,
             30,
-            31,
-            34
+            31
           ],
           [
             4,
+            5,
             6,
             7,
-            9,
-            10,
-            11,
-            13,
-            16,
+            12,
             17,
             18,
             20,
-            21,
+            22,
+            26,
             29,
             32,
+            34
+          ],
+          [
+            3,
+            9,
+            10,
+            16,
+            25,
+            28,
             33,
             35
           ]
         ]
       },
       "consensus_hub": {
-        "next_draw_id": "#00870",
+        "next_draw_id": "#00871",
         "evaluated_draws_count": 100,
         "leaderboard": [
           {
@@ -21631,7 +21622,7 @@
             "name": "Consensus Engine (Tổng Hợp)",
             "icon": "trophy",
             "color": "amber",
-            "avg_hits": 0.73,
+            "avg_hits": 0.75,
             "win_rate_ge3": 0.0,
             "recent_10_hits": 8,
             "form": "⚡ Phong độ tốt",
@@ -21647,8 +21638,20 @@
             "win_rate_ge3": 3.0,
             "recent_10_hits": 6,
             "form": "Chờ điểm rơi",
-            "weight_pct": 28.6,
+            "weight_pct": 27.1,
             "desc": "Chỉ số độ nâng Lift và lực hút cặp đôi đồng quy từ kỳ trước."
+          },
+          {
+            "id": "decay",
+            "name": "Exponential Time Decay (Nhiệt)",
+            "icon": "flame",
+            "color": "rose",
+            "avg_hits": 0.64,
+            "win_rate_ge3": 1.0,
+            "recent_10_hits": 7,
+            "form": "⚡ Ổn định",
+            "weight_pct": 18.4,
+            "desc": "Tần suất suy giảm mũ theo thời gian alpha=0.055, chu kỳ bán rã 12.6 kỳ."
           },
           {
             "id": "fourier",
@@ -21657,9 +21660,9 @@
             "color": "cyan",
             "avg_hits": 0.61,
             "win_rate_ge3": 1.0,
-            "recent_10_hits": 7,
-            "form": "⚡ Ổn định",
-            "weight_pct": 18.3,
+            "recent_10_hits": 5,
+            "form": "Chờ điểm rơi",
+            "weight_pct": 17.5,
             "desc": "Cộng hưởng bước sóng phổ dao động rời rạc (DFT) trên 64 kỳ."
           },
           {
@@ -21671,7 +21674,7 @@
             "win_rate_ge3": 0.0,
             "recent_10_hits": 10,
             "form": "🔥 Đang vào nhịp",
-            "weight_pct": 22.2,
+            "weight_pct": 21.1,
             "desc": "Hàm mật độ nguy cơ rơi vào vùng vàng (0.80 - 1.30 chu kỳ trung bình)."
           },
           {
@@ -21681,22 +21684,10 @@
             "color": "fuchsia",
             "avg_hits": 0.68,
             "win_rate_ge3": 0.0,
-            "recent_10_hits": 7,
+            "recent_10_hits": 8,
             "form": "⚡ Ổn định",
-            "weight_pct": 16.7,
+            "weight_pct": 15.9,
             "desc": "Xác suất chuyển trạng thái có điều kiện từ kết quả kỳ trước."
-          },
-          {
-            "id": "decay",
-            "name": "Exponential Time Decay (Nhiệt)",
-            "icon": "flame",
-            "color": "rose",
-            "avg_hits": 0.61,
-            "win_rate_ge3": 0.0,
-            "recent_10_hits": 4,
-            "form": "Chờ điểm rơi",
-            "weight_pct": 14.2,
-            "desc": "Tần suất suy giảm mũ theo thời gian alpha=0.055, chu kỳ bán rã 12.6 kỳ."
           },
           {
             "id": "baseline_random",
@@ -21713,228 +21704,228 @@
         ],
         "top_consensus_balls": [
           {
-            "ball": 12,
-            "score": 7.5,
-            "agreement_count": 4,
-            "agreement_pct": 80.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 0.4,
-              "decay": 1.2,
-              "markov": 1.6,
-              "fourier": 1.4,
-              "bac_nho": 2.9
-            }
-          },
-          {
-            "ball": 2,
-            "score": 7.2,
-            "agreement_count": 5,
-            "agreement_pct": 100.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 1.4,
-              "decay": 1.0,
-              "markov": 1.4,
-              "fourier": 1.5,
-              "bac_nho": 2.0
-            }
-          },
-          {
-            "ball": 4,
-            "score": 7.2,
+            "ball": 7,
+            "score": 8.1,
             "agreement_count": 3,
             "agreement_pct": 60.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
               "hazard": 2.1,
-              "decay": 0.5,
-              "markov": 1.7,
-              "fourier": 0.5,
-              "bac_nho": 2.4
+              "decay": 1.1,
+              "markov": 1.4,
+              "fourier": 0.9,
+              "bac_nho": 2.7
             }
           },
           {
-            "ball": 11,
-            "score": 6.8,
+            "ball": 27,
+            "score": 6.5,
             "agreement_count": 3,
             "agreement_pct": 60.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 0.8,
-              "decay": 1.2,
-              "markov": 1.5,
-              "fourier": 1.1,
-              "bac_nho": 2.2
-            }
-          },
-          {
-            "ball": 19,
-            "score": 6.6,
-            "agreement_count": 4,
-            "agreement_pct": 80.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 1.3,
-              "decay": 0.5,
-              "markov": 1.4,
-              "fourier": 1.6,
-              "bac_nho": 1.9
-            }
-          },
-          {
-            "ball": 15,
-            "score": 6.3,
-            "agreement_count": 4,
-            "agreement_pct": 80.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 0.7,
-              "decay": 1.2,
-              "markov": 1.4,
-              "fourier": 1.2,
-              "bac_nho": 1.9
-            }
-          },
-          {
-            "ball": 25,
-            "score": 6.3,
-            "agreement_count": 2,
-            "agreement_pct": 40.0,
-            "is_safe": false,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 1.2,
-              "decay": 0.6,
-              "markov": 0.8,
+              "hazard": 1.1,
+              "decay": 1.0,
+              "markov": 1.3,
               "fourier": 1.8,
-              "bac_nho": 1.8
-            }
-          },
-          {
-            "ball": 28,
-            "score": 6.3,
-            "agreement_count": 2,
-            "agreement_pct": 40.0,
-            "is_safe": false,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 1.2,
-              "decay": 0.8,
-              "markov": 1.6,
-              "fourier": 0.4,
-              "bac_nho": 2.4
+              "bac_nho": 1.3
             }
           },
           {
             "ball": 13,
+            "score": 6.4,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 0.4,
+              "decay": 1.8,
+              "markov": 1.6,
+              "fourier": 0.8,
+              "bac_nho": 1.9
+            }
+          },
+          {
+            "ball": 22,
+            "score": 6.4,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.1,
+              "decay": 1.2,
+              "markov": 1.5,
+              "fourier": 1.7,
+              "bac_nho": 0.8
+            }
+          },
+          {
+            "ball": 2,
+            "score": 6.1,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.8,
+              "decay": 1.1,
+              "markov": 1.2,
+              "fourier": 0.4,
+              "bac_nho": 1.5
+            }
+          },
+          {
+            "ball": 15,
+            "score": 6.0,
+            "agreement_count": 4,
+            "agreement_pct": 80.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.2,
+              "decay": 1.3,
+              "markov": 1.2,
+              "fourier": 1.3,
+              "bac_nho": 1.0
+            }
+          },
+          {
+            "ball": 18,
             "score": 5.9,
             "agreement_count": 3,
             "agreement_pct": 60.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 1.3,
-              "decay": 1.4,
-              "markov": 1.4,
-              "fourier": 0.5,
-              "bac_nho": 1.3
+              "hazard": 0.7,
+              "decay": 1.6,
+              "markov": 0.7,
+              "fourier": 1.3,
+              "bac_nho": 1.6
             }
           },
           {
             "ball": 9,
-            "score": 5.6,
-            "agreement_count": 3,
-            "agreement_pct": 60.0,
+            "score": 5.7,
+            "agreement_count": 4,
+            "agreement_pct": 80.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 0.7,
-              "decay": 1.1,
-              "markov": 1.1,
-              "fourier": 1.3,
-              "bac_nho": 1.4
+              "hazard": 1.2,
+              "decay": 1.3,
+              "markov": 1.2,
+              "fourier": 1.5,
+              "bac_nho": 0.6
             }
           },
           {
-            "ball": 22,
+            "ball": 12,
+            "score": 5.6,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 0.7,
+              "decay": 1.4,
+              "markov": 1.0,
+              "fourier": 1.5,
+              "bac_nho": 1.0
+            }
+          },
+          {
+            "ball": 32,
             "score": 5.5,
             "agreement_count": 2,
             "agreement_pct": 40.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 0.7,
-              "decay": 1.1,
-              "markov": 1.0,
-              "fourier": 1.5,
-              "bac_nho": 1.2
-            }
-          },
-          {
-            "ball": 23,
-            "score": 5.3,
-            "agreement_count": 1,
-            "agreement_pct": 20.0,
-            "is_safe": false,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 1.3,
-              "decay": 0.9,
-              "markov": 0.9,
-              "fourier": 0.8,
-              "bac_nho": 1.4
+              "hazard": 2.0,
+              "decay": 0.5,
+              "markov": 0.8,
+              "fourier": 0.6,
+              "bac_nho": 1.7
             }
           },
           {
             "ball": 35,
-            "score": 5.0,
+            "score": 5.5,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 1.0,
+              "decay": 0.6,
+              "markov": 1.5,
+              "fourier": 1.0,
+              "bac_nho": 1.4
+            }
+          },
+          {
+            "ball": 29,
+            "score": 5.4,
             "agreement_count": 2,
             "agreement_pct": 40.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 0.8,
-              "decay": 0.6,
-              "markov": 1.1,
-              "fourier": 0.9,
-              "bac_nho": 1.7
+              "hazard": 0.6,
+              "decay": 0.9,
+              "markov": 0.6,
+              "fourier": 1.2,
+              "bac_nho": 2.0
             }
           },
           {
-            "ball": 6,
-            "score": 4.8,
-            "agreement_count": 1,
-            "agreement_pct": 20.0,
+            "ball": 11,
+            "score": 5.2,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "hazard": 0.4,
+              "decay": 1.6,
+              "markov": 1.2,
+              "fourier": 0.7,
+              "bac_nho": 1.3
+            }
+          },
+          {
+            "ball": 20,
+            "score": 5.2,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 2.2,
-              "decay": 0.6,
-              "markov": 0.7,
-              "fourier": 0.7,
-              "bac_nho": 0.6
+              "hazard": 0.3,
+              "decay": 1.8,
+              "markov": 1.4,
+              "fourier": 0.9,
+              "bac_nho": 0.7
             }
           },
           {
-            "ball": 27,
-            "score": 4.8,
-            "agreement_count": 1,
-            "agreement_pct": 20.0,
-            "is_safe": false,
+            "ball": 4,
+            "score": 5.1,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
             "trap_warning": false,
             "breakdown": {
               "hazard": 1.2,
-              "decay": 0.9,
-              "markov": 0.8,
-              "fourier": 1.7,
-              "bac_nho": 0.2
+              "decay": 0.5,
+              "markov": 1.3,
+              "fourier": 0.5,
+              "bac_nho": 1.4
             }
           }
         ],
@@ -21942,62 +21933,62 @@
           "hazard": {
             "name": "Bayesian Hazard Rate (Nhịp Gan)",
             "top_picks": [
-              5,
               6,
-              4,
+              7,
               32,
-              1
+              17,
+              5
             ],
             "math_basis": "Hàm nguy cơ Bayesian trên tỷ số chu kỳ gan r_b = g_b / avg_gap trong vùng [0.80, 1.30]",
-            "rationale": "Các bóng 05, 06, 04, 32 đang nằm chuẩn xác trong 'Vùng Vàng Điểm Rơi', xác suất nổ kỳ này tối ưu nhất."
+            "rationale": "Các bóng 06, 07, 32, 17 đang nằm chuẩn xác trong 'Vùng Vàng Điểm Rơi', xác suất nổ kỳ này tối ưu nhất."
           },
           "decay": {
             "name": "Exponential Time Decay (Nhiệt)",
             "top_picks": [
-              18,
               20,
               13,
-              12,
-              11
+              11,
+              18,
+              23
             ],
             "math_basis": "Tần suất suy giảm mũ thời gian alpha = 0.055 trên 120 kỳ",
-            "rationale": "Các bóng 18, 20, 13, 12 có xung lực xuất hiện dày đặc gần đây, quán tính nhiệt tiếp tục duy trì đà nổ."
+            "rationale": "Các bóng 20, 13, 11, 18 có xung lực xuất hiện dày đặc gần đây, quán tính nhiệt tiếp tục duy trì đà nổ."
           },
           "markov": {
             "name": "Markov Transition Chain",
             "top_picks": [
-              4,
-              12,
-              28,
-              11,
-              2
+              13,
+              22,
+              3,
+              35,
+              7
             ],
             "math_basis": "Ma trận chuyển trạng thái Markov bậc 1 từ các bóng kỳ trước",
-            "rationale": "Dựa trên kết quả kỳ trước (12, 16, 18, 20, 29), ma trận xác suất chuyển trạng thái ghi nhận các số 04, 12, 28, 11 có liên kết nổ kế tiếp cao nhất."
+            "rationale": "Dựa trên kết quả kỳ trước (11, 13, 20, 23, 24), ma trận xác suất chuyển trạng thái ghi nhận các số 13, 22, 03, 35 có liên kết nổ kế tiếp cao nhất."
           },
           "fourier": {
             "name": "Fourier Spectral Resonance (Sóng)",
             "top_picks": [
-              25,
               27,
-              19,
-              31,
-              22
+              22,
+              12,
+              9,
+              25
             ],
             "math_basis": "Biến đổi Fourier rời rạc (DFT) trích xuất tần số dao động chủ đạo trên 64 kỳ",
-            "rationale": "Bước sóng chu kỳ của các bóng 25, 27, 19, 31 đang tiến sát pha cực đại trên phổ dao động cộng hưởng."
+            "rationale": "Bước sóng chu kỳ của các bóng 27, 22, 12, 09 đang tiến sát pha cực đại trên phổ dao động cộng hưởng."
           },
           "bac_nho": {
             "name": "Pairwise Synergy & Bạc Nhớ",
             "top_picks": [
-              12,
-              4,
-              28,
-              11,
-              2
+              7,
+              29,
+              13,
+              32,
+              18
             ],
             "math_basis": "Độ nâng Lift > 1.2 giữa cặp bóng kỳ trước và bóng đơn kỳ sau trên 120 kỳ",
-            "rationale": "Lực hút cặp đôi Bạc Nhớ chỉ ra các bóng 12, 04, 28, 11 có độ nâng Lift cao hơn 30-70% so với tần suất ngẫu nhiên khi đi kèm bóng kỳ trước."
+            "rationale": "Lực hút cặp đôi Bạc Nhớ chỉ ra các bóng 07, 29, 13, 32 có độ nâng Lift cao hơn 30-70% so với tần suất ngẫu nhiên khi đi kèm bóng kỳ trước."
           }
         },
         "training_report": {
@@ -22017,48 +22008,48 @@
             "min_ac_threshold": 4
           },
           "trained_model_weights": {
-            "hazard": 22.2,
-            "decay": 14.2,
-            "markov": 16.7,
-            "fourier": 18.3,
-            "bac_nho": 28.6
+            "hazard": 21.1,
+            "decay": 18.4,
+            "markov": 15.9,
+            "fourier": 17.5,
+            "bac_nho": 27.1
           },
           "negative_space_compliance": "100% Đạt Chuẩn (5/5 Bộ Lọc)",
           "accuracy_gain_vs_random": {
-            "avg_hits_improvement_pct": 2.8,
+            "avg_hits_improvement_pct": 5.6,
             "hit_rate_ge3": 0.0,
             "baseline_random_avg": 0.71
           }
         },
         "tickets": {
           "key_balls": [
-            4,
-            5,
-            18
+            13,
+            6,
+            11
           ],
           "key_roles": [
             {
-              "ball": 4,
+              "ball": 13,
               "role": "Xác Suất Markov",
               "color": "fuchsia"
             },
             {
-              "ball": 5,
+              "ball": 6,
               "role": "Điểm Rơi Hazard",
               "color": "emerald"
             },
             {
-              "ball": 18,
+              "ball": 11,
               "role": "Nhịp Cầu Rơi",
               "color": "amber"
             }
           ],
           "key_5_balls": [
-            4,
-            5,
-            18,
-            12,
-            2
+            13,
+            6,
+            11,
+            7,
+            27
           ],
           "triad_backtest": {
             "avg_hits": 0.44,
@@ -22071,20 +22062,20 @@
             "win_rate_ge2": 16.0
           },
           "core_pool": [
-            12,
-            2,
-            4,
-            11,
-            19,
-            15,
-            25,
-            28,
+            7,
+            27,
             13,
-            9
+            22,
+            2,
+            15,
+            18,
+            9,
+            12,
+            32
           ],
           "core_backtest": {
             "pool_size": 10,
-            "avg_hits": 1.41,
+            "avg_hits": 1.43,
             "win_rate_ge3": 8.0,
             "win_rate_ge4": 1.0,
             "win_rate_ge5": 0.0
@@ -22095,10 +22086,10 @@
               "label": "Vé 1",
               "numbers": [
                 2,
-                4,
-                11,
-                12,
-                19
+                7,
+                13,
+                22,
+                27
               ],
               "special": 7
             },
@@ -22106,11 +22097,11 @@
               "id": "ve_2",
               "label": "Vé 2",
               "numbers": [
+                7,
+                9,
                 12,
-                13,
                 15,
-                25,
-                28
+                18
               ],
               "special": 7
             },
@@ -22118,11 +22109,11 @@
               "id": "ve_3",
               "label": "Vé 3",
               "numbers": [
-                2,
-                4,
-                9,
+                13,
                 15,
-                25
+                18,
+                27,
+                32
               ],
               "special": 7
             },
@@ -22130,11 +22121,11 @@
               "id": "ve_4",
               "label": "Vé 4",
               "numbers": [
+                2,
                 9,
-                11,
-                13,
-                19,
-                28
+                12,
+                22,
+                32
               ],
               "special": 7
             }
@@ -22146,15 +22137,15 @@
           },
           "golden": {
             "numbers": [
-              4,
+              7,
               12,
-              23,
-              27,
-              28
+              13,
+              22,
+              29
             ],
             "ac_index": 6,
-            "sum": 94,
-            "odd_even": "3C - 2L",
+            "sum": 83,
+            "odd_even": "2C - 3L",
             "sei_score": 10.0,
             "special": 7,
             "negative_space_check": {
@@ -22164,55 +22155,13 @@
                 "passed": true,
                 "score_pass": 5,
                 "sum": {
-                  "val": 94,
+                  "val": 83,
                   "min": 60,
                   "max": 120,
                   "passed": true
                 },
                 "ac": {
                   "val": 6,
-                  "threshold": 4,
-                  "passed": true
-                },
-                "consecutive": {
-                  "max_len": 2,
-                  "passed": true
-                },
-                "parity": {
-                  "ratio": "3C - 2L",
-                  "passed": true
-                },
-                "repeat": {
-                  "count": 1,
-                  "max_allowed": 2,
-                  "passed": true
-                }
-              }
-            }
-          },
-          "momentum": {
-            "numbers": [
-              11,
-              12,
-              15,
-              20,
-              23
-            ],
-            "special": 7,
-            "negative_space_check": {
-              "passed": true,
-              "score": "5/5",
-              "details": {
-                "passed": true,
-                "score_pass": 5,
-                "sum": {
-                  "val": 81,
-                  "min": 60,
-                  "max": 120,
-                  "passed": true
-                },
-                "ac": {
-                  "val": 4,
                   "threshold": 4,
                   "passed": true
                 },
@@ -22225,20 +22174,20 @@
                   "passed": true
                 },
                 "repeat": {
-                  "count": 2,
+                  "count": 1,
                   "max_allowed": 2,
                   "passed": true
                 }
               }
             }
           },
-          "breakout": {
+          "momentum": {
             "numbers": [
-              6,
-              11,
-              25,
-              27,
-              34
+              1,
+              18,
+              22,
+              29,
+              35
             ],
             "special": 7,
             "negative_space_check": {
@@ -22248,13 +22197,13 @@
                 "passed": true,
                 "score_pass": 5,
                 "sum": {
-                  "val": 103,
+                  "val": 105,
                   "min": 60,
                   "max": 120,
                   "passed": true
                 },
                 "ac": {
-                  "val": 6,
+                  "val": 5,
                   "threshold": 4,
                   "passed": true
                 },
@@ -22274,13 +22223,55 @@
               }
             }
           },
+          "breakout": {
+            "numbers": [
+              5,
+              6,
+              9,
+              13,
+              32
+            ],
+            "special": 7,
+            "negative_space_check": {
+              "passed": true,
+              "score": "5/5",
+              "details": {
+                "passed": true,
+                "score_pass": 5,
+                "sum": {
+                  "val": 65,
+                  "min": 60,
+                  "max": 120,
+                  "passed": true
+                },
+                "ac": {
+                  "val": 5,
+                  "threshold": 4,
+                  "passed": true
+                },
+                "consecutive": {
+                  "max_len": 2,
+                  "passed": true
+                },
+                "parity": {
+                  "ratio": "2C - 3L",
+                  "passed": true
+                },
+                "repeat": {
+                  "count": 1,
+                  "max_allowed": 2,
+                  "passed": true
+                }
+              }
+            }
+          },
           "bao7": {
             "numbers": [
-              12,
+              7,
+              27,
+              13,
+              22,
               2,
-              4,
-              11,
-              19,
               15
             ],
             "special": 7,
@@ -22291,6 +22282,71 @@
           }
         },
         "history_walk_forward": [
+          {
+            "drawId": "00870",
+            "date": "2026-09-06",
+            "actual": [
+              11,
+              13,
+              20,
+              23,
+              24
+            ],
+            "predicted": [
+              4,
+              12,
+              2,
+              11,
+              19
+            ],
+            "matched": [
+              11
+            ],
+            "matchCount": 1,
+            "corePool": [
+              4,
+              12,
+              2,
+              11,
+              19,
+              28,
+              15,
+              25,
+              13,
+              9
+            ],
+            "coreMatched": [
+              11,
+              13
+            ],
+            "coreMatchCount": 2,
+            "triad": [
+              4,
+              5,
+              18
+            ],
+            "triadMatched": [],
+            "triadMatchCount": 0,
+            "key5": [
+              4,
+              5,
+              18,
+              12,
+              2
+            ],
+            "key5Matched": [],
+            "key5MatchCount": 0,
+            "wheel4": {
+              "ticketHits": [
+                1,
+                1,
+                0,
+                2
+              ],
+              "maxHit": 2,
+              "wonPrize": false
+            }
+          },
           {
             "drawId": "00869",
             "date": "2026-09-06",
@@ -23223,75 +23279,6 @@
                 2
               ],
               "maxHit": 2,
-              "wonPrize": false
-            }
-          },
-          {
-            "drawId": "00855",
-            "date": "2026-08-30",
-            "actual": [
-              2,
-              4,
-              12,
-              21,
-              28
-            ],
-            "predicted": [
-              19,
-              13,
-              28,
-              30,
-              35
-            ],
-            "matched": [
-              28
-            ],
-            "matchCount": 1,
-            "corePool": [
-              19,
-              13,
-              28,
-              30,
-              35,
-              14,
-              3,
-              34,
-              5,
-              11
-            ],
-            "coreMatched": [
-              28
-            ],
-            "coreMatchCount": 1,
-            "triad": [
-              19,
-              35,
-              12
-            ],
-            "triadMatched": [
-              12
-            ],
-            "triadMatchCount": 1,
-            "key5": [
-              19,
-              35,
-              12,
-              13,
-              28
-            ],
-            "key5Matched": [
-              12,
-              28
-            ],
-            "key5MatchCount": 2,
-            "wheel4": {
-              "ticketHits": [
-                1,
-                0,
-                1,
-                0
-              ],
-              "maxHit": 1,
               "wonPrize": false
             }
           }
