@@ -44,9 +44,13 @@ echo "=== 2. GENERATING README STATS & WEB DATA ==="
 python src/render_readme.py || true
 python src/vietlott/render_web_data.py
 
-# Sync index.html and json to root
+# Sync index.html, assets, sw.js and json to root
 cp -f docs/index.html index.html || true
+mkdir -p assets
+cp -rf docs/assets/. assets/ || true
+cp -f docs/sw.js sw.js || true
 cp -f docs/data/vietlott_summary.json data/vietlott_summary.json || true
+cp -f docs/data/saved_tickets.json data/saved_tickets.json || true
 
 echo "=== 3. COMMITTING AND PUSHING UPDATES ==="
 if [ -d ".git" ]; then
@@ -58,7 +62,7 @@ if [ -d ".git" ]; then
   fi
 
   git status
-  git add "$DATA_FOLDER" "$DOCS_FOLDER" readme.md index.html
+  git add "$DATA_FOLDER" "$DOCS_FOLDER" readme.md index.html assets sw.js
 
   # Only commit if there are staged changes
   if ! git diff --staged --quiet; then

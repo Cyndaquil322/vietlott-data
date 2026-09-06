@@ -1,0 +1,50 @@
+/* 3D Lotto Ball Styles */
+.lotto-ball {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  font-weight: 700;
+  box-shadow: inset -3px -3px 6px rgba(0, 0, 0, 0.45), inset 3px 3px 6px rgba(255, 255, 255, 0.4), 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease-in-out;
+  user-select: none;
+}
+.lotto-ball:hover {
+  transform: translateY(-2px) scale(1.05);
+}
+.ball-red {
+  background: radial-gradient(circle at 35% 35%, #ff4d6d, #c9184a, #800f2f);
+  color: #ffffff;
+}
+.ball-gold {
+  background: radial-gradient(circle at 35% 35%, #fde047, #eab308, #a16207);
+  color: #ffffff;
+  border: 2px solid #fef08a;
+}
+.ball-blue {
+  background: radial-gradient(circle at 35% 35%, #60a5fa, #2563eb, #1e3a8a);
+  color: #ffffff;
+}
+.ball-purple {
+  background: radial-gradient(circle at 35% 35%, #c084fc, #9333ea, #581c87);
+  color: #ffffff;
+}
+.ball-emerald {
+  background: radial-gradient(circle at 35% 35%, #34d399, #059669, #064e3b);
+  color: #ffffff;
+}
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}

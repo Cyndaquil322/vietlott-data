@@ -4,6 +4,7 @@ __pycache__/
 *.pyc
 .codegraph/
 scratch/
+*.bak
 
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,Jetbrains,VisualStudioCode,dotenv,dbt
 
