@@ -50,3 +50,13 @@ Mỗi khi tiếp nhận bất kỳ yêu cầu nào từ người dùng, Agent B�
 ### 5. QUY TẮC BẢO TOÀN DỮ LIỆU MÁY NGƯỜI DÙNG (DATA SAFETY)
 * **TUYỆT ĐỐI KHÔNG ĐƯỢC XOÁ BẤT KỲ FILE NÀO TRÊN MÁY NGƯỜI DÙNG.**
 * Khi tích hợp, cấu hình hoặc nâng cấp, **CHỈ ĐƯỢC COPY HOẶC TẠO MỚI** file.
+
+---
+
+### 6. QUY TẮC VỀ LỊCH QUAY & ĐẶC TÍNH SẢN PHẨM (VIETLOTT RULES MEMORY)
+* **BẮT BUỘC ĐỌC VÀ TUÂN THỦ TÀI LIỆU:** [VIETLOTT_GAME_RULES.md](file:///d:/Projects/vietlott-data-master/VIETLOTT_GAME_RULES.md).
+* **ĐẶC BIỆT LƯU Ý VỀ TẦN SUẤT & LỊCH QUAY:**
+  * **Lotto 5/35 (Power 5/35):** Quay **2 LẦN MỖI NGÀY** vào lúc **13:00 (Kỳ Trưa)** và **21:00 (Kỳ Tối)**, tất cả các ngày trong tuần (Thứ Hai đến Chủ Nhật). Tuyệt đối không được bỏ sót kỳ trưa 13:00!
+  * **Power 6/55:** Quay lúc **18:00 – 18:30** các ngày **Thứ Ba, Thứ Năm, Thứ Bảy**.
+  * **Mega 6/45:** Quay lúc **18:00 – 18:30** các ngày **Thứ Tư, Thứ Sáu, Chủ Nhật**.
+* Mọi tính toán Walk-Forward, thời gian đếm ngược (countdown), lập lịch cào dữ liệu và dự đoán kỳ tiếp theo phải luôn căn cứ chuẩn xác theo lịch quay này.
