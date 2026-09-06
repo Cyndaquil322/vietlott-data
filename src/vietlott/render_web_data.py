@@ -1165,11 +1165,11 @@ def calculate_multi_model_consensus_and_backtest(
         min_ac = 4
 
     models_info = {
-        "hazard": {"name": "Bayesian Hazard Rate (Nhịp Gan)", "icon": "timer", "color": "emerald", "desc": f"Hàm mật độ nguy cơ rơi vào vùng vàng ({hazard_win[0]:.2f} - {hazard_win[1]:.2f} chu kỳ trung bình)."},
-        "decay": {"name": "Exponential Time Decay (Nhiệt)", "icon": "flame", "color": "rose", "desc": f"Tần suất suy giảm mũ theo thời gian alpha={opt_alpha}, chu kỳ bán rã {round(math.log(2)/opt_alpha, 1)} kỳ."},
-        "markov": {"name": "Markov Transition Chain", "icon": "git-merge", "color": "fuchsia", "desc": "Xác suất chuyển trạng thái có điều kiện từ kết quả kỳ trước."},
-        "fourier": {"name": "Fourier Spectral Resonance (Sóng)", "icon": "activity", "color": "cyan", "desc": "Cộng hưởng bước sóng phổ dao động rời rạc (DFT) trên 64 kỳ."},
-        "bac_nho": {"name": "Pairwise Synergy & Bạc Nhớ", "icon": "network", "color": "indigo", "desc": "Chỉ số độ nâng Lift và lực hút cặp đôi đồng quy từ kỳ trước."}
+        "markov": {"name": "Markov PPMI Information Gain", "icon": "git-merge", "color": "fuchsia", "desc": "Thông tin tương hỗ dương chuẩn hóa Laplace đo lường lực hút chuyển trạng thái thực sự từ kỳ trước."},
+        "hazard": {"name": "Bayesian Rhythm Z-Score (Nhịp Điểm Rơi)", "icon": "timer", "color": "emerald", "desc": "Mật độ xác suất điểm rơi Gauss chuẩn hóa theo độ lệch chuẩn chu kỳ nhịp riêng của từng quả bóng."},
+        "decay": {"name": "Exponential Momentum & Decay (Nhiệt)", "icon": "flame", "color": "rose", "desc": f"Tần suất suy giảm mũ kết hợp quán tính nhiệt alpha={opt_alpha}, chu kỳ bán rã {round(math.log(2)/opt_alpha, 1)} kỳ."},
+        "bac_nho": {"name": "Empirical Bayes Pairwise Lift", "icon": "network", "color": "indigo", "desc": "Độ nâng lực hút cặp đôi kỳ trước kéo bóng kỳ sau với hiệu chỉnh Bayes chống quá khớp mẫu nhỏ."},
+        "fourier": {"name": "Hann-Windowed Spectral Resonance", "icon": "activity", "color": "cyan", "desc": "Cộng hưởng bước sóng chu kỳ DFT có cửa sổ Hann triệt tiêu rò rỉ phổ trên 64 kỳ."}
     }
 
     def evaluate_models(sub_records):
@@ -1198,85 +1198,99 @@ def calculate_multi_model_consensus_and_backtest(
                         gaps_history[b].append(t - prev_seen[b])
                         prev_seen[b] = t
 
-        # 2. Hazard
+        # 2. Hazard: Bayesian Rhythm Z-Score Gaussian Density
         hazard_scores = {}
-        h_min, h_max = hazard_win
         for b in range(1, max_val + 1):
             c_gap = cur_gap[b]
-            avg_gap = (sum(gaps_history[b]) / len(gaps_history[b])) if gaps_history[b] else (max_val / num_balls)
-            ratio = c_gap / max(1.0, avg_gap)
-            if h_min <= ratio <= h_max:
-                hazard = 3.0 - abs(ratio - 1.05) * 1.5
-            elif ratio < 0.35:
-                hazard = 0.6 + ratio
-            elif ratio > 2.2:
-                hazard = 0.7
-            else:
-                hazard = 1.4
-            hazard_scores[b] = round(hazard, 3)
+            all_g = gaps_history[b]
+            avg_g = (sum(all_g) / len(all_g)) if all_g else (max_val / num_balls)
+            std_g = float(np.std(all_g)) if len(all_g) >= 2 else (avg_g * 0.75)
+            z = (c_gap - 1.05 * avg_g) / max(1.0, std_g)
+            density = math.exp(-0.5 * (z ** 2))
+            if z > 2.5:
+                density *= 0.35
+            hazard_scores[b] = round(density * 3.0, 3)
 
-        # 3. Fourier
+        # 3. Fourier with Hann Window to suppress spectral leakage
         fft_len = min(64, len(sub_records))
         fft_records = sub_records[-fft_len:]
         spectral_score = {b: 0.0 for b in range(1, max_val + 1)}
-        for b in range(1, max_val + 1):
-            sig = [1.0 if b in r.get("result", [])[:num_balls] else 0.0 for r in fft_records]
-            if sum(sig) > 0:
-                sig_arr = np.array(sig)
-                fft_vals = np.abs(np.fft.rfft(sig_arr - sig_arr.mean()))
-                if len(fft_vals) > 1:
-                    dom_freq = np.argmax(fft_vals[1:]) + 1
-                    period = fft_len / dom_freq
-                    gap_to_period = abs(cur_gap[b] - period)
-                    spectral_score[b] = round(math.exp(-0.25 * gap_to_period), 3)
+        if fft_len >= 16:
+            hann_win = np.hanning(fft_len)
+            for b in range(1, max_val + 1):
+                sig = [1.0 if b in r.get("result", [])[:num_balls] else 0.0 for r in fft_records]
+                if sum(sig) > 0:
+                    sig_arr = np.array(sig)
+                    w_sig = (sig_arr - sig_arr.mean()) * hann_win
+                    fft_vals = np.abs(np.fft.rfft(w_sig))
+                    if len(fft_vals) > 1:
+                        dom_freq = np.argmax(fft_vals[1:]) + 1
+                        period = fft_len / dom_freq
+                        gap_to_period = abs(cur_gap[b] - period)
+                        spectral_score[b] = round(math.exp(-0.25 * gap_to_period), 3)
 
-        # 4. Markov
-        matrix = defaultdict(Counter)
+        # 4. Markov PPMI with Laplace Smoothing
         sub_len = min(150, len(sub_records))
         sub_recs = sub_records[-sub_len:]
+        matrix = defaultdict(Counter)
+        p_marginal = Counter()
+        c_marginal = Counter()
         for t in range(1, len(sub_recs)):
             p_nums = set(sub_recs[t - 1].get("result", [])[:num_balls])
             c_nums = set(sub_recs[t].get("result", [])[:num_balls])
             for p in p_nums:
+                p_marginal[p] += 1
                 for c in c_nums:
                     matrix[p][c] += 1
+            for c in c_nums:
+                c_marginal[c] += 1
+        total_trans = sum(p_marginal.values()) or 1.0
+
         markov_score = {b: 0.0 for b in range(1, max_val + 1)}
         for n in last_res:
-            for cand, cnt in matrix[n].items():
-                if 1 <= cand <= max_val:
-                    markov_score[cand] += cnt
+            p_cnt = p_marginal[n]
+            if p_cnt >= 2:
+                for b in range(1, max_val + 1):
+                    cnt = matrix[n][b]
+                    p_joint = (cnt + 0.1) / (total_trans + 0.1 * max_val)
+                    p_p = p_marginal[n] / total_trans
+                    p_c = c_marginal[b] / total_trans
+                    pmi = math.log2(p_joint / (p_p * p_c)) if (p_p * p_c > 0) else 0.0
+                    if pmi > 0:
+                        markov_score[b] += pmi
 
-        # 5. Bac nho
+        # 5. Bac nho with Empirical Bayes Shrinkage
         p120 = sub_records[-120:] if len(sub_records) >= 120 else sub_records
         pair_trans = Counter()
         pair_counts = Counter()
         for i in range(len(p120) - 1):
             pr = p120[i].get("result", [])[:num_balls]
-            cr = p120[i+1].get("result", [])[:num_balls]
+            cr = p120[i + 1].get("result", [])[:num_balls]
             for p in itertools.combinations(sorted(pr), 2):
                 pair_counts[p] += 1
                 for cb in cr:
                     pair_trans[(p, cb)] += 1
 
         bac_nho_score = {b: 0.0 for b in range(1, max_val + 1)}
+        base_prob = num_balls / max_val
+        alpha_prior = 3.0
         for p in last_draw_pairs:
             p_cnt = pair_counts[p]
             if p_cnt >= 2:
                 for b in range(1, max_val + 1):
                     cnt = pair_trans.get((p, b), 0)
                     if cnt > 0:
-                        prob = cnt / p_cnt
-                        base_prob = num_balls / max_val
-                        lift = prob / base_prob
-                        if lift > 1.2:
-                            bac_nho_score[b] += (lift - 1.0)
+                        smooth_prob = (cnt + alpha_prior * base_prob) / (p_cnt + alpha_prior)
+                        smooth_lift = smooth_prob / base_prob
+                        if smooth_lift > 1.15:
+                            bac_nho_score[b] += (smooth_lift - 1.0)
 
         return {
+            "markov": markov_score,
             "hazard": hazard_scores,
             "decay": decay_freq,
-            "markov": markov_score,
-            "fourier": spectral_score,
             "bac_nho": bac_nho_score,
+            "fourier": spectral_score,
             "cur_gap": cur_gap
         }
 
@@ -1310,7 +1324,8 @@ def calculate_multi_model_consensus_and_backtest(
     
     rolling_hits = Counter(train_hits)
     rolling_ge3 = Counter(train_ge3)
-    lambda_reg = 0.25  # Shrinkage Regularization (25% prior, 75% data-driven)
+    lambda_reg = 0.20  # Shrinkage Regularization (20% prior, 80% data-driven)
+    rand_rate = num_balls / max_val
 
     for step, i in enumerate(range(start_idx, len(records))):
         past = records[:i]
@@ -1322,20 +1337,25 @@ def calculate_multi_model_consensus_and_backtest(
         m_eval = evaluate_models(past)
         
         # Calculate dynamic model weights from strictly historical performance (No Look-Ahead)
-        # Using temperature scaling to empower proven predictive alpha
+        # Using Out-Of-Fold Alpha scaling to reward proven predictive outperformance
         train_window_len = 100.0 + step
-        perf = {m: (rolling_hits[m] / train_window_len) ** 2.2 + rolling_ge3[m] * 0.15 for m in models_info.keys()}
+        perf = {}
+        for m in models_info.keys():
+            avg_h = rolling_hits[m] / train_window_len
+            ge3_bonus = (rolling_ge3[m] / train_window_len) * 3.0
+            alpha = max(0.02, (avg_h - rand_rate * 0.9) * 1.5 + ge3_bonus)
+            perf[m] = alpha ** 2.0
         tot_perf = sum(perf.values()) or 1.0
         cur_w = {m: (1.0 - lambda_reg) * (perf[m] / tot_perf) + lambda_reg * 0.20 for m in models_info.keys()}
         
-        # Calculate hybrid normalized scores combining score magnitude with ordinal Borda percentile
+        # Calculate hybrid normalized scores combining magnitude with soft-exponential rank conviction
         norm_scores = {}
         for m in models_info.keys():
             sc_dict = m_eval[m]
             max_v = max(sc_dict.values()) if sc_dict and max(sc_dict.values()) > 0 else 1.0
             ranked = sorted(range(1, max_val + 1), key=lambda b: sc_dict.get(b, 0), reverse=True)
-            borda = {b: (max_val - idx) / max_val for idx, b in enumerate(ranked)}
-            norm_scores[m] = {b: 0.6 * (sc_dict.get(b, 0.0) / max_v) + 0.4 * borda[b] for b in range(1, max_val + 1)}
+            exp_conv = {b: math.exp(-0.075 * idx) for idx, b in enumerate(ranked)}
+            norm_scores[m] = {b: 0.5 * (sc_dict.get(b, 0.0) / max_v) + 0.5 * exp_conv[b] for b in range(1, max_val + 1)}
             
         # Consensus score with regularized adaptive weights
         consensus_sc = {b: sum(cur_w[m] * norm_scores[m][b] for m in models_info.keys()) for b in range(1, max_val + 1)}
@@ -1457,11 +1477,10 @@ def calculate_multi_model_consensus_and_backtest(
             })
 
     # Performance-based dynamic weight calculation for Next Draw
-    total_perf = sum((backtest_stats[m]["hits"] / num_test) ** 2.2 + backtest_stats[m]["ge3"] * 0.15 for m in models_info.keys()) or 1.0
+    total_perf = sum(perf[m] for m in models_info.keys()) or 1.0
     dynamic_weights = {}
     for m in models_info.keys():
-        perf = (backtest_stats[m]["hits"] / num_test) ** 2.2 + backtest_stats[m]["ge3"] * 0.15
-        dynamic_weights[m] = round((1.0 - lambda_reg) * (perf / total_perf) + lambda_reg * 0.20, 3)
+        dynamic_weights[m] = round((1.0 - lambda_reg) * (perf[m] / total_perf) + lambda_reg * 0.20, 3)
 
     # Leaderboard assembly
     random_avg = round(num_balls * num_balls / max_val, 2)
@@ -1476,7 +1495,7 @@ def calculate_multi_model_consensus_and_backtest(
             "recent_10_hits": backtest_stats["consensus"]["recent_10"],
             "form": "🔥 Đỉnh cao" if backtest_stats["consensus"]["recent_10"] >= 12 else "⚡ Phong độ tốt",
             "weight_pct": 100.0,
-            "desc": "Hội đồng hợp lực tích hợp 5 mô hình độc lập với trọng số thích ứng điều chuẩn L2."
+            "desc": "Hội đồng hợp lực 5 mô hình định lượng cao cấp tích hợp cơ chế xếp chồng Dynamic Alpha Stacking."
         }
     ]
 
@@ -1521,8 +1540,8 @@ def calculate_multi_model_consensus_and_backtest(
         sc_dict = next_eval[m]
         max_v = max(sc_dict.values()) if sc_dict and max(sc_dict.values()) > 0 else 1.0
         ranked = sorted(range(1, max_val + 1), key=lambda b: sc_dict.get(b, 0), reverse=True)
-        borda = {b: (max_val - idx) / max_val for idx, b in enumerate(ranked)}
-        next_norm_scores[m] = {b: 0.6 * (sc_dict.get(b, 0.0) / max_v) + 0.4 * borda[b] for b in range(1, max_val + 1)}
+        exp_conv = {b: math.exp(-0.075 * idx) for idx, b in enumerate(ranked)}
+        next_norm_scores[m] = {b: 0.5 * (sc_dict.get(b, 0.0) / max_v) + 0.5 * exp_conv[b] for b in range(1, max_val + 1)}
         top_candidates_per_model[m] = sorted(range(1, max_val + 1), key=lambda x: sc_dict.get(x, 0), reverse=True)[:12]
 
     # Calculate final consensus score & agreement for all balls
@@ -1551,35 +1570,35 @@ def calculate_multi_model_consensus_and_backtest(
     # Model rationales for next draw
     latest_res = records[-1].get("result", [])[:num_balls] if records else []
     model_explanations = {
+        "markov": {
+            "name": models_info["markov"]["name"],
+            "top_picks": top_candidates_per_model["markov"][:5],
+            "math_basis": "Thông tin tương hỗ dương PPMI có làm mịn Laplace từ tập kết quả kỳ trước",
+            "rationale": f"Dựa trên kết quả kỳ trước ({', '.join(str(x).zfill(2) for x in latest_res)}), ma trận PPMI ghi nhận các số {', '.join(str(x).zfill(2) for x in top_candidates_per_model['markov'][:4])} có độ gia tăng thông tin liên kết nổ cao nhất."
+        },
         "hazard": {
             "name": models_info["hazard"]["name"],
             "top_picks": top_candidates_per_model["hazard"][:5],
-            "math_basis": f"Hàm nguy cơ Bayesian trên tỷ số chu kỳ gan r_b = g_b / avg_gap trong vùng [{hazard_win[0]:.2f}, {hazard_win[1]:.2f}]",
-            "rationale": f"Các bóng {', '.join(str(x).zfill(2) for x in top_candidates_per_model['hazard'][:4])} đang nằm chuẩn xác trong 'Vùng Vàng Điểm Rơi', xác suất nổ kỳ này tối ưu nhất."
+            "math_basis": "Hàm mật độ điểm rơi Gauss trên độ lệch chuẩn chu kỳ nhịp riêng z_b = (g_b - 1.05 * avg_g) / std_g",
+            "rationale": f"Các bóng {', '.join(str(x).zfill(2) for x in top_candidates_per_model['hazard'][:4])} có nhịp gan hội tụ chuẩn xác tại đỉnh chuông mật độ Gauss, xác suất bùng nổ kỳ này đạt cực đại."
         },
         "decay": {
             "name": models_info["decay"]["name"],
             "top_picks": top_candidates_per_model["decay"][:5],
-            "math_basis": f"Tần suất suy giảm mũ thời gian alpha = {opt_alpha} trên 120 kỳ",
+            "math_basis": f"Tần suất suy giảm mũ kết hợp xung lực nhiệt alpha = {opt_alpha} trên 120 kỳ",
             "rationale": f"Các bóng {', '.join(str(x).zfill(2) for x in top_candidates_per_model['decay'][:4])} có xung lực xuất hiện dày đặc gần đây, quán tính nhiệt tiếp tục duy trì đà nổ."
-        },
-        "markov": {
-            "name": models_info["markov"]["name"],
-            "top_picks": top_candidates_per_model["markov"][:5],
-            "math_basis": "Ma trận chuyển trạng thái Markov bậc 1 từ các bóng kỳ trước",
-            "rationale": f"Dựa trên kết quả kỳ trước ({', '.join(str(x).zfill(2) for x in latest_res)}), ma trận xác suất chuyển trạng thái ghi nhận các số {', '.join(str(x).zfill(2) for x in top_candidates_per_model['markov'][:4])} có liên kết nổ kế tiếp cao nhất."
-        },
-        "fourier": {
-            "name": models_info["fourier"]["name"],
-            "top_picks": top_candidates_per_model["fourier"][:5],
-            "math_basis": "Biến đổi Fourier rời rạc (DFT) trích xuất tần số dao động chủ đạo trên 64 kỳ",
-            "rationale": f"Bước sóng chu kỳ của các bóng {', '.join(str(x).zfill(2) for x in top_candidates_per_model['fourier'][:4])} đang tiến sát pha cực đại trên phổ dao động cộng hưởng."
         },
         "bac_nho": {
             "name": models_info["bac_nho"]["name"],
             "top_picks": top_candidates_per_model["bac_nho"][:5],
-            "math_basis": "Độ nâng Lift > 1.2 giữa cặp bóng kỳ trước và bóng đơn kỳ sau trên 120 kỳ",
-            "rationale": f"Lực hút cặp đôi Bạc Nhớ chỉ ra các bóng {', '.join(str(x).zfill(2) for x in top_candidates_per_model['bac_nho'][:4])} có độ nâng Lift cao hơn 30-70% so với tần suất ngẫu nhiên khi đi kèm bóng kỳ trước."
+            "math_basis": "Độ nâng Lift có hiệu chỉnh Bayes chống quá khớp (Empirical Bayes Shrinkage) trên cặp số kỳ trước",
+            "rationale": f"Lực hút Bạc Nhớ Bayes chỉ ra các bóng {', '.join(str(x).zfill(2) for x in top_candidates_per_model['bac_nho'][:4])} có độ nâng xác suất thực sự vượt trội khi đi kèm cặp số kỳ trước."
+        },
+        "fourier": {
+            "name": models_info["fourier"]["name"],
+            "top_picks": top_candidates_per_model["fourier"][:5],
+            "math_basis": "Biến đổi Fourier rời rạc (DFT) áp dụng cửa sổ Hann triệt tiêu rò rỉ phổ trên 64 kỳ",
+            "rationale": f"Bước sóng chu kỳ của các bóng {', '.join(str(x).zfill(2) for x in top_candidates_per_model['fourier'][:4])} đang tiến sát pha cực đại trên phổ dao động cộng hưởng đã lọc nhiễu."
         }
     }
 

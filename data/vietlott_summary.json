@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-09-07 04:23:47",
+    "generated_at": "2026-09-07 04:36:43",
     "generator": "vietlott-data automated pipeline",
     "version": "2.0.0"
   },
@@ -6659,72 +6659,72 @@
             "name": "Consensus Engine (Tổng Hợp)",
             "icon": "trophy",
             "color": "amber",
-            "avg_hits": 0.69,
-            "win_rate_ge3": 1.0,
+            "avg_hits": 0.67,
+            "win_rate_ge3": 0.0,
             "recent_10_hits": 8,
             "form": "⚡ Phong độ tốt",
             "weight_pct": 100.0,
-            "desc": "Hội đồng hợp lực tích hợp 5 mô hình độc lập với trọng số thích ứng điều chuẩn L2."
+            "desc": "Hội đồng hợp lực 5 mô hình định lượng cao cấp tích hợp cơ chế xếp chồng Dynamic Alpha Stacking."
           },
           {
             "id": "markov",
-            "name": "Markov Transition Chain",
+            "name": "Markov PPMI Information Gain",
             "icon": "git-merge",
             "color": "fuchsia",
-            "avg_hits": 0.8,
-            "win_rate_ge3": 5.0,
-            "recent_10_hits": 7,
-            "form": "⚡ Ổn định",
-            "weight_pct": 33.3,
-            "desc": "Xác suất chuyển trạng thái có điều kiện từ kết quả kỳ trước."
+            "avg_hits": 0.75,
+            "win_rate_ge3": 4.0,
+            "recent_10_hits": 6,
+            "form": "Chờ điểm rơi",
+            "weight_pct": 23.9,
+            "desc": "Thông tin tương hỗ dương chuẩn hóa Laplace đo lường lực hút chuyển trạng thái thực sự từ kỳ trước."
           },
           {
             "id": "hazard",
-            "name": "Bayesian Hazard Rate (Nhịp Gan)",
+            "name": "Bayesian Rhythm Z-Score (Nhịp Điểm Rơi)",
             "icon": "timer",
             "color": "emerald",
-            "avg_hits": 0.7,
+            "avg_hits": 0.71,
             "win_rate_ge3": 2.0,
-            "recent_10_hits": 5,
+            "recent_10_hits": 4,
             "form": "Chờ điểm rơi",
+            "weight_pct": 17.6,
+            "desc": "Mật độ xác suất điểm rơi Gauss chuẩn hóa theo độ lệch chuẩn chu kỳ nhịp riêng của từng quả bóng."
+          },
+          {
+            "id": "fourier",
+            "name": "Hann-Windowed Spectral Resonance",
+            "icon": "activity",
+            "color": "cyan",
+            "avg_hits": 0.69,
+            "win_rate_ge3": 1.0,
+            "recent_10_hits": 7,
+            "form": "⚡ Ổn định",
             "weight_pct": 20.7,
-            "desc": "Hàm mật độ nguy cơ rơi vào vùng vàng (0.70 - 1.40 chu kỳ trung bình)."
+            "desc": "Cộng hưởng bước sóng chu kỳ DFT có cửa sổ Hann triệt tiêu rò rỉ phổ trên 64 kỳ."
           },
           {
             "id": "decay",
-            "name": "Exponential Time Decay (Nhiệt)",
+            "name": "Exponential Momentum & Decay (Nhiệt)",
             "icon": "flame",
             "color": "rose",
             "avg_hits": 0.67,
             "win_rate_ge3": 1.0,
             "recent_10_hits": 6,
             "form": "Chờ điểm rơi",
-            "weight_pct": 16.7,
-            "desc": "Tần suất suy giảm mũ theo thời gian alpha=0.028, chu kỳ bán rã 24.8 kỳ."
+            "weight_pct": 19.9,
+            "desc": "Tần suất suy giảm mũ kết hợp quán tính nhiệt alpha=0.028, chu kỳ bán rã 24.8 kỳ."
           },
           {
             "id": "bac_nho",
-            "name": "Pairwise Synergy & Bạc Nhớ",
+            "name": "Empirical Bayes Pairwise Lift",
             "icon": "network",
             "color": "indigo",
-            "avg_hits": 0.65,
+            "avg_hits": 0.63,
             "win_rate_ge3": 1.0,
-            "recent_10_hits": 7,
-            "form": "⚡ Ổn định",
-            "weight_pct": 16.2,
-            "desc": "Chỉ số độ nâng Lift và lực hút cặp đôi đồng quy từ kỳ trước."
-          },
-          {
-            "id": "fourier",
-            "name": "Fourier Spectral Resonance (Sóng)",
-            "icon": "activity",
-            "color": "cyan",
-            "avg_hits": 0.65,
-            "win_rate_ge3": 0.0,
-            "recent_10_hits": 4,
+            "recent_10_hits": 5,
             "form": "Chờ điểm rơi",
-            "weight_pct": 13.1,
-            "desc": "Cộng hưởng bước sóng phổ dao động rời rạc (DFT) trên 64 kỳ."
+            "weight_pct": 17.8,
+            "desc": "Độ nâng lực hút cặp đôi kỳ trước kéo bóng kỳ sau với hiệu chỉnh Bayes chống quá khớp mẫu nhỏ."
           },
           {
             "id": "baseline_random",
@@ -6741,246 +6741,258 @@
         ],
         "top_consensus_balls": [
           {
-            "ball": 20,
-            "score": 7.7,
-            "agreement_count": 3,
-            "agreement_pct": 60.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 2.1,
-              "decay": 1.1,
-              "markov": 2.6,
-              "fourier": 0.6,
-              "bac_nho": 1.3
-            }
-          },
-          {
-            "ball": 39,
-            "score": 7.5,
-            "agreement_count": 3,
-            "agreement_pct": 60.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 2.0,
-              "decay": 1.4,
-              "markov": 2.2,
-              "fourier": 0.6,
-              "bac_nho": 1.2
-            }
-          },
-          {
-            "ball": 55,
-            "score": 7.5,
+            "ball": 25,
+            "score": 7.6,
             "agreement_count": 4,
             "agreement_pct": 80.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 0.7,
-              "decay": 1.3,
-              "markov": 2.6,
-              "fourier": 1.3,
-              "bac_nho": 1.6
+              "markov": 1.9,
+              "hazard": 1.3,
+              "decay": 0.8,
+              "bac_nho": 1.7,
+              "fourier": 1.9
+            }
+          },
+          {
+            "ball": 55,
+            "score": 7.2,
+            "agreement_count": 4,
+            "agreement_pct": 80.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 1.5,
+              "hazard": 0.8,
+              "decay": 1.2,
+              "bac_nho": 1.5,
+              "fourier": 2.1
+            }
+          },
+          {
+            "ball": 39,
+            "score": 6.1,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 1.1,
+              "hazard": 1.7,
+              "decay": 1.4,
+              "bac_nho": 1.0,
+              "fourier": 0.8
             }
           },
           {
             "ball": 8,
-            "score": 7.3,
-            "agreement_count": 3,
-            "agreement_pct": 60.0,
-            "is_safe": true,
+            "score": 5.7,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 0.5,
-              "decay": 1.6,
-              "markov": 3.0,
-              "fourier": 0.5,
-              "bac_nho": 1.6
+              "markov": 1.0,
+              "hazard": 0.7,
+              "decay": 1.8,
+              "bac_nho": 1.8,
+              "fourier": 0.4
             }
           },
           {
             "ball": 7,
-            "score": 7.1,
-            "agreement_count": 1,
-            "agreement_pct": 20.0,
+            "score": 5.5,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 1.7,
-              "decay": 1.2,
-              "markov": 2.9,
-              "fourier": 0.7,
-              "bac_nho": 0.7
+              "markov": 1.0,
+              "hazard": 1.2,
+              "decay": 1.0,
+              "bac_nho": 0.6,
+              "fourier": 1.8
+            }
+          },
+          {
+            "ball": 20,
+            "score": 5.5,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 1.6,
+              "hazard": 1.8,
+              "decay": 0.8,
+              "bac_nho": 1.1,
+              "fourier": 0.3
             }
           },
           {
             "ball": 2,
-            "score": 7.0,
-            "agreement_count": 2,
-            "agreement_pct": 40.0,
-            "is_safe": false,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 1.7,
-              "decay": 1.1,
-              "markov": 2.0,
-              "fourier": 0.9,
-              "bac_nho": 1.3
-            }
-          },
-          {
-            "ball": 25,
-            "score": 7.0,
-            "agreement_count": 2,
-            "agreement_pct": 40.0,
-            "is_safe": false,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 1.8,
-              "decay": 1.0,
-              "markov": 2.4,
-              "fourier": 0.2,
-              "bac_nho": 1.6
-            }
-          },
-          {
-            "ball": 27,
-            "score": 6.5,
-            "agreement_count": 2,
-            "agreement_pct": 40.0,
-            "is_safe": false,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 1.8,
-              "decay": 0.9,
-              "markov": 2.2,
-              "fourier": 0.9,
-              "bac_nho": 0.6
-            }
-          },
-          {
-            "ball": 29,
-            "score": 6.5,
-            "agreement_count": 3,
-            "agreement_pct": 60.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 1.1,
-              "decay": 1.3,
-              "markov": 2.8,
-              "fourier": 1.1,
-              "bac_nho": 0.2
-            }
-          },
-          {
-            "ball": 41,
-            "score": 6.5,
-            "agreement_count": 3,
-            "agreement_pct": 60.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 0.6,
-              "decay": 1.4,
-              "markov": 1.6,
-              "fourier": 1.3,
-              "bac_nho": 1.6
-            }
-          },
-          {
-            "ball": 48,
-            "score": 6.5,
+            "score": 5.2,
             "agreement_count": 1,
             "agreement_pct": 20.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 1.9,
-              "decay": 0.8,
-              "markov": 2.1,
-              "fourier": 0.5,
-              "bac_nho": 1.2
-            }
-          },
-          {
-            "ball": 30,
-            "score": 6.3,
-            "agreement_count": 2,
-            "agreement_pct": 40.0,
-            "is_safe": false,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 1.8,
-              "decay": 0.6,
-              "markov": 2.4,
-              "fourier": 0.3,
-              "bac_nho": 1.3
-            }
-          },
-          {
-            "ball": 10,
-            "score": 6.2,
-            "agreement_count": 2,
-            "agreement_pct": 40.0,
-            "is_safe": false,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 0.7,
-              "decay": 0.6,
-              "markov": 3.2,
-              "fourier": 1.1,
-              "bac_nho": 0.7
-            }
-          },
-          {
-            "ball": 26,
-            "score": 6.1,
-            "agreement_count": 2,
-            "agreement_pct": 40.0,
-            "is_safe": false,
-            "trap_warning": false,
-            "breakdown": {
+              "markov": 1.2,
               "hazard": 1.1,
-              "decay": 0.6,
-              "markov": 1.9,
-              "fourier": 1.2,
-              "bac_nho": 1.3
+              "decay": 0.9,
+              "bac_nho": 1.1,
+              "fourier": 0.9
+            }
+          },
+          {
+            "ball": 36,
+            "score": 5.2,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 2.0,
+              "hazard": 0.9,
+              "decay": 0.4,
+              "bac_nho": 0.0,
+              "fourier": 1.9
             }
           },
           {
             "ball": 40,
-            "score": 6.1,
+            "score": 5.2,
             "agreement_count": 1,
             "agreement_pct": 20.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 1.0,
-              "decay": 1.3,
-              "markov": 3.0,
-              "fourier": 0.8,
-              "bac_nho": 0.1
+              "markov": 2.2,
+              "hazard": 1.1,
+              "decay": 1.1,
+              "bac_nho": 0.0,
+              "fourier": 0.8
+            }
+          },
+          {
+            "ball": 41,
+            "score": 5.2,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 0.8,
+              "hazard": 0.2,
+              "decay": 1.5,
+              "bac_nho": 1.6,
+              "fourier": 1.1
+            }
+          },
+          {
+            "ball": 38,
+            "score": 5.0,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 0.8,
+              "hazard": 1.5,
+              "decay": 1.0,
+              "bac_nho": 0.0,
+              "fourier": 1.7
+            }
+          },
+          {
+            "ball": 15,
+            "score": 4.8,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 1.9,
+              "hazard": 0.6,
+              "decay": 0.7,
+              "bac_nho": 0.1,
+              "fourier": 1.5
+            }
+          },
+          {
+            "ball": 10,
+            "score": 4.7,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 1.7,
+              "hazard": 0.5,
+              "decay": 0.5,
+              "bac_nho": 0.5,
+              "fourier": 1.4
+            }
+          },
+          {
+            "ball": 44,
+            "score": 4.7,
+            "agreement_count": 1,
+            "agreement_pct": 20.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 0.9,
+              "hazard": 0.7,
+              "decay": 1.2,
+              "bac_nho": 0.4,
+              "fourier": 1.5
+            }
+          },
+          {
+            "ball": 24,
+            "score": 4.6,
+            "agreement_count": 1,
+            "agreement_pct": 20.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 1.4,
+              "hazard": 0.5,
+              "decay": 0.9,
+              "bac_nho": 1.7,
+              "fourier": 0.0
             }
           }
         ],
         "model_explanations": {
+          "markov": {
+            "name": "Markov PPMI Information Gain",
+            "top_picks": [
+              6,
+              40,
+              43,
+              36,
+              15
+            ],
+            "math_basis": "Thông tin tương hỗ dương PPMI có làm mịn Laplace từ tập kết quả kỳ trước",
+            "rationale": "Dựa trên kết quả kỳ trước (09, 11, 24, 31, 33, 47), ma trận PPMI ghi nhận các số 06, 40, 43, 36 có độ gia tăng thông tin liên kết nổ cao nhất."
+          },
           "hazard": {
-            "name": "Bayesian Hazard Rate (Nhịp Gan)",
+            "name": "Bayesian Rhythm Z-Score (Nhịp Điểm Rơi)",
             "top_picks": [
               20,
               39,
               50,
-              35,
+              54,
               48
             ],
-            "math_basis": "Hàm nguy cơ Bayesian trên tỷ số chu kỳ gan r_b = g_b / avg_gap trong vùng [0.70, 1.40]",
-            "rationale": "Các bóng 20, 39, 50, 35 đang nằm chuẩn xác trong 'Vùng Vàng Điểm Rơi', xác suất nổ kỳ này tối ưu nhất."
+            "math_basis": "Hàm mật độ điểm rơi Gauss trên độ lệch chuẩn chu kỳ nhịp riêng z_b = (g_b - 1.05 * avg_g) / std_g",
+            "rationale": "Các bóng 20, 39, 50, 54 có nhịp gan hội tụ chuẩn xác tại đỉnh chuông mật độ Gauss, xác suất bùng nổ kỳ này đạt cực đại."
           },
           "decay": {
-            "name": "Exponential Time Decay (Nhiệt)",
+            "name": "Exponential Momentum & Decay (Nhiệt)",
             "top_picks": [
               9,
               5,
@@ -6988,35 +7000,11 @@
               16,
               33
             ],
-            "math_basis": "Tần suất suy giảm mũ thời gian alpha = 0.028 trên 120 kỳ",
+            "math_basis": "Tần suất suy giảm mũ kết hợp xung lực nhiệt alpha = 0.028 trên 120 kỳ",
             "rationale": "Các bóng 09, 05, 08, 16 có xung lực xuất hiện dày đặc gần đây, quán tính nhiệt tiếp tục duy trì đà nổ."
           },
-          "markov": {
-            "name": "Markov Transition Chain",
-            "top_picks": [
-              22,
-              10,
-              8,
-              40,
-              43
-            ],
-            "math_basis": "Ma trận chuyển trạng thái Markov bậc 1 từ các bóng kỳ trước",
-            "rationale": "Dựa trên kết quả kỳ trước (09, 11, 24, 31, 33, 47), ma trận xác suất chuyển trạng thái ghi nhận các số 22, 10, 08, 40 có liên kết nổ kế tiếp cao nhất."
-          },
-          "fourier": {
-            "name": "Fourier Spectral Resonance (Sóng)",
-            "top_picks": [
-              55,
-              41,
-              26,
-              34,
-              1
-            ],
-            "math_basis": "Biến đổi Fourier rời rạc (DFT) trích xuất tần số dao động chủ đạo trên 64 kỳ",
-            "rationale": "Bước sóng chu kỳ của các bóng 55, 41, 26, 34 đang tiến sát pha cực đại trên phổ dao động cộng hưởng."
-          },
           "bac_nho": {
-            "name": "Pairwise Synergy & Bạc Nhớ",
+            "name": "Empirical Bayes Pairwise Lift",
             "top_picks": [
               8,
               24,
@@ -7024,8 +7012,20 @@
               41,
               55
             ],
-            "math_basis": "Độ nâng Lift > 1.2 giữa cặp bóng kỳ trước và bóng đơn kỳ sau trên 120 kỳ",
-            "rationale": "Lực hút cặp đôi Bạc Nhớ chỉ ra các bóng 08, 24, 25, 41 có độ nâng Lift cao hơn 30-70% so với tần suất ngẫu nhiên khi đi kèm bóng kỳ trước."
+            "math_basis": "Độ nâng Lift có hiệu chỉnh Bayes chống quá khớp (Empirical Bayes Shrinkage) trên cặp số kỳ trước",
+            "rationale": "Lực hút Bạc Nhớ Bayes chỉ ra các bóng 08, 24, 25, 41 có độ nâng xác suất thực sự vượt trội khi đi kèm cặp số kỳ trước."
+          },
+          "fourier": {
+            "name": "Hann-Windowed Spectral Resonance",
+            "top_picks": [
+              55,
+              25,
+              36,
+              7,
+              38
+            ],
+            "math_basis": "Biến đổi Fourier rời rạc (DFT) áp dụng cửa sổ Hann triệt tiêu rò rỉ phổ trên 64 kỳ",
+            "rationale": "Bước sóng chu kỳ của các bóng 55, 25, 36, 07 đang tiến sát pha cực đại trên phổ dao động cộng hưởng đã lọc nhiễu."
           }
         },
         "training_report": {
@@ -7045,28 +7045,28 @@
             "min_ac_threshold": 7
           },
           "trained_model_weights": {
-            "hazard": 20.7,
-            "decay": 16.7,
-            "markov": 33.3,
-            "fourier": 13.1,
-            "bac_nho": 16.2
+            "markov": 23.9,
+            "hazard": 17.6,
+            "decay": 19.9,
+            "bac_nho": 17.8,
+            "fourier": 20.7
           },
           "negative_space_compliance": "100% Đạt Chuẩn (5/5 Bộ Lọc)",
           "accuracy_gain_vs_random": {
-            "avg_hits_improvement_pct": 6.2,
-            "hit_rate_ge3": 1.0,
+            "avg_hits_improvement_pct": 3.1,
+            "hit_rate_ge3": 0.0,
             "baseline_random_avg": 0.65
           }
         },
         "tickets": {
           "key_balls": [
-            22,
+            6,
             20,
             9
           ],
           "key_roles": [
             {
-              "ball": 22,
+              "ball": 6,
               "role": "Xác Suất Markov",
               "color": "fuchsia"
             },
@@ -7082,40 +7082,40 @@
             }
           ],
           "key_5_balls": [
-            22,
+            6,
             20,
             9,
-            39,
+            25,
             55
           ],
           "triad_backtest": {
-            "avg_hits": 0.37,
-            "win_rate_ge1": 31.0,
+            "avg_hits": 0.38,
+            "win_rate_ge1": 32.0,
             "win_rate_ge2": 6.0
           },
           "key5_backtest": {
-            "avg_hits": 0.69,
-            "win_rate_ge1": 50.0,
+            "avg_hits": 0.65,
+            "win_rate_ge1": 46.0,
             "win_rate_ge2": 18.0
           },
           "core_pool": [
-            20,
-            39,
+            25,
             55,
+            39,
             8,
             7,
+            20,
             2,
-            25,
-            27,
-            29,
+            36,
+            40,
             41,
-            48,
-            30
+            38,
+            15
           ],
           "core_backtest": {
             "pool_size": 12,
-            "avg_hits": 1.28,
-            "win_rate_ge3": 12.0,
+            "avg_hits": 1.3,
+            "win_rate_ge3": 11.0,
             "win_rate_ge4": 0.0,
             "win_rate_ge5": 0.0
           },
@@ -7124,40 +7124,40 @@
               "id": "ve_1",
               "label": "Vé 1",
               "numbers": [
-                2,
                 7,
                 8,
                 20,
+                25,
                 39,
                 55
               ],
-              "special": 20
+              "special": 25
             },
             {
               "id": "ve_2",
               "label": "Vé 2",
               "numbers": [
-                20,
+                2,
                 25,
-                27,
-                29,
-                39,
-                41
+                36,
+                40,
+                41,
+                55
               ],
-              "special": 20
+              "special": 25
             },
             {
               "id": "ve_3",
               "label": "Vé 3",
               "numbers": [
+                2,
                 8,
-                25,
-                27,
-                29,
-                41,
-                55
+                36,
+                39,
+                40,
+                41
               ],
-              "special": 20
+              "special": 25
             },
             {
               "id": "ve_4",
@@ -7165,33 +7165,33 @@
               "numbers": [
                 2,
                 7,
-                25,
-                27,
-                29,
+                20,
+                36,
+                40,
                 41
               ],
-              "special": 20
+              "special": 25
             }
           ],
           "wheel4_backtest": {
-            "overall_prize_win_rate": 3.0,
+            "overall_prize_win_rate": 5.0,
             "core_ge4_count": 0,
             "core_ge4_win_rate": 0.0
           },
           "golden": {
             "numbers": [
-              2,
-              7,
-              29,
+              8,
+              10,
+              20,
+              38,
               39,
-              41,
-              48
+              55
             ],
             "ac_index": 10,
-            "sum": 166,
-            "odd_even": "2C - 4L",
+            "sum": 170,
+            "odd_even": "4C - 2L",
             "sei_score": 10.0,
-            "special": 20,
+            "special": 25,
             "negative_space_check": {
               "passed": true,
               "score": "5/5",
@@ -7199,7 +7199,50 @@
                 "passed": true,
                 "score_pass": 5,
                 "sum": {
-                  "val": 166,
+                  "val": 170,
+                  "min": 115,
+                  "max": 220,
+                  "passed": true
+                },
+                "ac": {
+                  "val": 10,
+                  "threshold": 7,
+                  "passed": true
+                },
+                "consecutive": {
+                  "max_len": 2,
+                  "passed": true
+                },
+                "parity": {
+                  "ratio": "4C - 2L",
+                  "passed": true
+                },
+                "repeat": {
+                  "count": 0,
+                  "max_allowed": 2,
+                  "passed": true
+                }
+              }
+            }
+          },
+          "momentum": {
+            "numbers": [
+              16,
+              20,
+              30,
+              33,
+              39,
+              51
+            ],
+            "special": 25,
+            "negative_space_check": {
+              "passed": true,
+              "score": "5/5",
+              "details": {
+                "passed": true,
+                "score_pass": 5,
+                "sum": {
+                  "val": 189,
                   "min": 115,
                   "max": 220,
                   "passed": true
@@ -7214,54 +7257,11 @@
                   "passed": true
                 },
                 "parity": {
-                  "ratio": "2C - 4L",
+                  "ratio": "3C - 3L",
                   "passed": true
                 },
                 "repeat": {
-                  "count": 0,
-                  "max_allowed": 2,
-                  "passed": true
-                }
-              }
-            }
-          },
-          "momentum": {
-            "numbers": [
-              5,
-              9,
-              22,
-              24,
-              39,
-              45
-            ],
-            "special": 20,
-            "negative_space_check": {
-              "passed": true,
-              "score": "5/5",
-              "details": {
-                "passed": true,
-                "score_pass": 5,
-                "sum": {
-                  "val": 144,
-                  "min": 115,
-                  "max": 220,
-                  "passed": true
-                },
-                "ac": {
-                  "val": 8,
-                  "threshold": 7,
-                  "passed": true
-                },
-                "consecutive": {
-                  "max_len": 1,
-                  "passed": true
-                },
-                "parity": {
-                  "ratio": "2C - 4L",
-                  "passed": true
-                },
-                "repeat": {
-                  "count": 2,
+                  "count": 1,
                   "max_allowed": 2,
                   "passed": true
                 }
@@ -7271,13 +7271,13 @@
           "breakout": {
             "numbers": [
               2,
-              7,
-              29,
-              35,
-              39,
-              40
+              6,
+              12,
+              30,
+              38,
+              39
             ],
-            "special": 20,
+            "special": 25,
             "negative_space_check": {
               "passed": true,
               "score": "5/5",
@@ -7285,13 +7285,13 @@
                 "passed": true,
                 "score_pass": 5,
                 "sum": {
-                  "val": 152,
+                  "val": 127,
                   "min": 115,
                   "max": 220,
                   "passed": true
                 },
                 "ac": {
-                  "val": 8,
+                  "val": 10,
                   "threshold": 7,
                   "passed": true
                 },
@@ -7300,7 +7300,7 @@
                   "passed": true
                 },
                 "parity": {
-                  "ratio": "2C - 4L",
+                  "ratio": "5C - 1L",
                   "passed": true
                 },
                 "repeat": {
@@ -7313,15 +7313,15 @@
           },
           "bao7": {
             "numbers": [
-              20,
-              39,
+              25,
               55,
+              39,
               8,
               7,
-              2,
-              25
+              20,
+              2
             ],
-            "special": 20,
+            "special": 25,
             "negative_space_check": {
               "passed": true,
               "score": "Đạt Chuẩn Bao"
@@ -7342,32 +7342,32 @@
             ],
             "predicted": [
               7,
+              15,
               40,
-              5,
               2,
-              26,
-              22
+              5,
+              38
             ],
             "matched": [],
             "matchCount": 0,
             "corePool": [
               7,
-              40,
-              5,
-              2,
-              26,
-              22,
-              27,
-              38,
               15,
-              30,
+              40,
+              2,
+              5,
+              38,
+              39,
               23,
-              13
+              26,
+              18,
+              27,
+              45
             ],
             "coreMatched": [],
             "coreMatchCount": 0,
             "triad": [
-              5,
+              23,
               54,
               9
             ],
@@ -7376,11 +7376,11 @@
             ],
             "triadMatchCount": 1,
             "key5": [
-              5,
+              23,
               54,
               9,
               7,
-              40
+              15
             ],
             "key5Matched": [
               9
@@ -7411,59 +7411,62 @@
             "predicted": [
               8,
               39,
-              16,
-              33,
-              5,
-              29
+              18,
+              15,
+              27,
+              33
             ],
             "matched": [
-              8,
-              16
+              8
             ],
-            "matchCount": 2,
+            "matchCount": 1,
             "corePool": [
               8,
               39,
-              16,
+              18,
+              15,
+              27,
               33,
               5,
-              29,
-              22,
-              14,
               2,
-              27,
-              23,
-              7
+              16,
+              29,
+              47,
+              40
             ],
             "coreMatched": [
               8,
-              16
+              16,
+              47
             ],
-            "coreMatchCount": 2,
+            "coreMatchCount": 3,
             "triad": [
-              29,
+              47,
               54,
               44
             ],
-            "triadMatched": [],
-            "triadMatchCount": 0,
+            "triadMatched": [
+              47
+            ],
+            "triadMatchCount": 1,
             "key5": [
-              29,
+              47,
               54,
               44,
               8,
               39
             ],
             "key5Matched": [
-              8
+              8,
+              47
             ],
-            "key5MatchCount": 1,
+            "key5MatchCount": 2,
             "wheel4": {
               "ticketHits": [
+                1,
                 2,
                 1,
-                1,
-                0
+                1
               ],
               "maxHit": 2,
               "wonPrize": false
@@ -7482,42 +7485,42 @@
             ],
             "predicted": [
               20,
-              16,
+              25,
               23,
-              22,
-              33,
-              21
+              16,
+              8,
+              18
             ],
             "matched": [],
             "matchCount": 0,
             "corePool": [
               20,
-              16,
+              25,
               23,
-              22,
+              16,
+              8,
+              18,
+              40,
               33,
-              21,
-              30,
-              7,
-              39,
-              31,
-              50,
-              25
+              38,
+              27,
+              14,
+              21
             ],
             "coreMatched": [],
             "coreMatchCount": 0,
             "triad": [
-              22,
+              20,
               16,
               5
             ],
             "triadMatched": [],
             "triadMatchCount": 0,
             "key5": [
-              22,
+              20,
               16,
               5,
-              20,
+              25,
               23
             ],
             "key5Matched": [],
@@ -7547,26 +7550,26 @@
             "predicted": [
               8,
               16,
-              22,
+              14,
               28,
-              23,
-              14
+              40,
+              23
             ],
             "matched": [],
             "matchCount": 0,
             "corePool": [
               8,
               16,
-              22,
-              28,
-              23,
               14,
-              55,
-              30,
-              5,
-              18,
+              28,
+              40,
+              23,
               41,
-              9
+              38,
+              5,
+              55,
+              54,
+              22
             ],
             "coreMatched": [
               5
@@ -7574,17 +7577,17 @@
             "coreMatchCount": 1,
             "triad": [
               8,
-              24,
+              14,
               44
             ],
             "triadMatched": [],
             "triadMatchCount": 0,
             "key5": [
               8,
-              24,
+              14,
               44,
               16,
-              22
+              28
             ],
             "key5Matched": [],
             "key5MatchCount": 0,
@@ -7611,46 +7614,46 @@
               44
             ],
             "predicted": [
-              16,
               14,
-              43,
-              55,
               20,
-              5
+              16,
+              49,
+              41,
+              38
             ],
             "matched": [],
             "matchCount": 0,
             "corePool": [
-              16,
               14,
-              43,
-              55,
               20,
-              5,
-              8,
-              1,
-              38,
+              16,
+              49,
               41,
-              46,
-              28
+              38,
+              5,
+              1,
+              6,
+              51,
+              8,
+              55
             ],
             "coreMatched": [
               1
             ],
             "coreMatchCount": 1,
             "triad": [
-              46,
               6,
+              12,
               5
             ],
             "triadMatched": [],
             "triadMatchCount": 0,
             "key5": [
-              46,
               6,
+              12,
               5,
-              16,
-              14
+              14,
+              20
             ],
             "key5Matched": [],
             "key5MatchCount": 0,
@@ -7678,47 +7681,51 @@
             ],
             "predicted": [
               5,
+              20,
               8,
               30,
-              20,
-              22,
+              7,
               33
             ],
             "matched": [
-              5
-            ],
-            "matchCount": 1,
-            "corePool": [
-              5,
-              8,
-              30,
-              20,
-              22,
-              33,
-              38,
-              7,
-              16,
-              41,
-              14,
-              9
-            ],
-            "coreMatched": [
               5,
               7
             ],
-            "coreMatchCount": 2,
-            "triad": [
+            "matchCount": 2,
+            "corePool": [
+              5,
+              20,
+              8,
               30,
+              7,
+              33,
+              38,
+              16,
+              41,
+              40,
+              37,
+              55
+            ],
+            "coreMatched": [
+              5,
+              7,
+              40
+            ],
+            "coreMatchCount": 3,
+            "triad": [
+              5,
               55,
               9
             ],
-            "triadMatched": [],
-            "triadMatchCount": 0,
+            "triadMatched": [
+              5
+            ],
+            "triadMatchCount": 1,
             "key5": [
-              30,
+              5,
               55,
               9,
-              5,
+              20,
               8
             ],
             "key5Matched": [
@@ -7727,10 +7734,10 @@
             "key5MatchCount": 1,
             "wheel4": {
               "ticketHits": [
-                1,
+                2,
                 2,
                 1,
-                1
+                2
               ],
               "maxHit": 2,
               "wonPrize": false
@@ -7748,43 +7755,43 @@
               36
             ],
             "predicted": [
-              16,
-              7,
+              37,
               33,
-              55,
-              5,
-              39
+              7,
+              40,
+              39,
+              16
             ],
             "matched": [],
             "matchCount": 0,
             "corePool": [
-              16,
-              7,
+              37,
               33,
+              7,
+              40,
+              39,
+              16,
+              20,
               55,
               5,
-              39,
-              37,
-              40,
-              22,
-              8,
-              50,
-              14
+              41,
+              51,
+              22
             ],
             "coreMatched": [],
             "coreMatchCount": 0,
             "triad": [
-              39,
+              33,
               28,
               38
             ],
             "triadMatched": [],
             "triadMatchCount": 0,
             "key5": [
-              39,
+              33,
               28,
               38,
-              16,
+              37,
               7
             ],
             "key5Matched": [],
@@ -7813,57 +7820,56 @@
             ],
             "predicted": [
               33,
+              7,
               55,
               16,
-              7,
-              8,
-              32
+              37,
+              39
             ],
             "matched": [
-              8
+              39
             ],
             "matchCount": 1,
             "corePool": [
               33,
+              7,
               55,
               16,
-              7,
-              8,
-              32,
+              37,
               39,
-              5,
+              8,
               28,
-              21,
-              22,
-              13
+              32,
+              5,
+              29,
+              25
             ],
             "coreMatched": [
               8,
+              29,
               39
             ],
-            "coreMatchCount": 2,
+            "coreMatchCount": 3,
             "triad": [
-              8,
+              21,
               1,
               38
             ],
             "triadMatched": [
-              8,
               38
             ],
-            "triadMatchCount": 2,
+            "triadMatchCount": 1,
             "key5": [
-              8,
+              21,
               1,
               38,
               33,
-              55
+              7
             ],
             "key5Matched": [
-              8,
               38
             ],
-            "key5MatchCount": 2,
+            "key5MatchCount": 1,
             "wheel4": {
               "ticketHits": [
                 1,
@@ -7889,10 +7895,10 @@
             "predicted": [
               33,
               22,
-              16,
-              5,
               38,
-              41
+              44,
+              41,
+              5
             ],
             "matched": [
               38,
@@ -7902,36 +7908,35 @@
             "corePool": [
               33,
               22,
-              16,
-              5,
               38,
+              44,
               41,
-              14,
-              29,
-              28,
-              43,
-              3,
-              53
+              5,
+              16,
+              40,
+              51,
+              23,
+              55,
+              14
             ],
             "coreMatched": [
-              3,
               38,
               41
             ],
-            "coreMatchCount": 3,
+            "coreMatchCount": 2,
             "triad": [
-              22,
+              51,
               1,
               27
             ],
             "triadMatched": [],
             "triadMatchCount": 0,
             "key5": [
-              22,
+              51,
               1,
               27,
               33,
-              16
+              22
             ],
             "key5Matched": [],
             "key5MatchCount": 0,
@@ -7939,8 +7944,8 @@
               "ticketHits": [
                 2,
                 0,
-                0,
-                2
+                1,
+                1
               ],
               "maxHit": 2,
               "wonPrize": false
@@ -7959,11 +7964,11 @@
             ],
             "predicted": [
               22,
-              16,
-              8,
-              39,
+              23,
               20,
-              7
+              8,
+              16,
+              33
             ],
             "matched": [
               16,
@@ -7972,17 +7977,17 @@
             "matchCount": 2,
             "corePool": [
               22,
-              16,
-              8,
-              39,
-              20,
-              7,
-              43,
               23,
+              20,
+              8,
+              16,
               33,
-              5,
+              39,
               55,
-              41
+              51,
+              41,
+              7,
+              24
             ],
             "coreMatched": [
               16,
@@ -7990,28 +7995,30 @@
             ],
             "coreMatchCount": 2,
             "triad": [
-              22,
+              20,
               1,
               45
             ],
-            "triadMatched": [],
-            "triadMatchCount": 0,
+            "triadMatched": [
+              20
+            ],
+            "triadMatchCount": 1,
             "key5": [
-              22,
+              20,
               1,
               45,
-              16,
-              8
+              22,
+              23
             ],
             "key5Matched": [
-              16
+              20
             ],
             "key5MatchCount": 1,
             "wheel4": {
               "ticketHits": [
                 2,
-                1,
                 0,
+                1,
                 1
               ],
               "maxHit": 2,
@@ -8030,54 +8037,56 @@
               46
             ],
             "predicted": [
-              16,
               22,
-              8,
-              53,
-              30,
-              14
-            ],
-            "matched": [],
-            "matchCount": 0,
-            "corePool": [
               16,
-              22,
-              8,
-              53,
-              30,
-              14,
               55,
-              1,
-              9,
+              8,
+              14,
+              46
+            ],
+            "matched": [
+              46
+            ],
+            "matchCount": 1,
+            "corePool": [
+              22,
+              16,
+              55,
+              8,
+              14,
+              46,
+              51,
+              53,
               33,
-              39,
-              3
+              1,
+              35,
+              44
             ],
             "coreMatched": [
-              9
+              46
             ],
             "coreMatchCount": 1,
             "triad": [
-              16,
+              51,
               22,
               2
             ],
             "triadMatched": [],
             "triadMatchCount": 0,
             "key5": [
-              16,
+              51,
               22,
               2,
-              8,
-              53
+              16,
+              55
             ],
             "key5Matched": [],
             "key5MatchCount": 0,
             "wheel4": {
               "ticketHits": [
+                1,
                 0,
-                1,
-                1,
+                0,
                 1
               ],
               "maxHit": 1,
@@ -8098,44 +8107,44 @@
             "predicted": [
               22,
               16,
-              8,
               33,
-              55,
-              41
+              41,
+              8,
+              55
             ],
             "matched": [],
             "matchCount": 0,
             "corePool": [
               22,
               16,
-              8,
               33,
-              55,
               41,
-              10,
+              8,
+              55,
               7,
               23,
+              10,
               32,
-              35,
-              27
+              12,
+              44
             ],
             "coreMatched": [
               7
             ],
             "coreMatchCount": 1,
             "triad": [
-              22,
+              41,
               8,
               33
             ],
             "triadMatched": [],
             "triadMatchCount": 0,
             "key5": [
-              22,
+              41,
               8,
               33,
-              16,
-              55
+              22,
+              16
             ],
             "key5Matched": [],
             "key5MatchCount": 0,
@@ -8162,10 +8171,10 @@
               45
             ],
             "predicted": [
-              22,
-              32,
               33,
+              22,
               41,
+              32,
               28,
               8
             ],
@@ -8174,18 +8183,18 @@
             ],
             "matchCount": 1,
             "corePool": [
-              22,
-              32,
               33,
+              22,
               41,
+              32,
               28,
               8,
-              53,
+              4,
               16,
+              53,
               7,
               45,
-              11,
-              48
+              42
             ],
             "coreMatched": [
               33,
@@ -8193,18 +8202,18 @@
             ],
             "coreMatchCount": 2,
             "triad": [
-              22,
+              28,
               48,
               14
             ],
             "triadMatched": [],
             "triadMatchCount": 0,
             "key5": [
-              22,
+              28,
               48,
               14,
-              32,
-              33
+              33,
+              22
             ],
             "key5Matched": [
               33
@@ -8214,10 +8223,10 @@
               "ticketHits": [
                 1,
                 1,
-                2,
-                1
+                0,
+                0
               ],
-              "maxHit": 2,
+              "maxHit": 1,
               "wonPrize": false
             }
           },
@@ -8234,52 +8243,54 @@
             ],
             "predicted": [
               22,
-              32,
               40,
-              8,
-              7,
-              28
+              12,
+              32,
+              28,
+              8
             ],
             "matched": [],
             "matchCount": 0,
             "corePool": [
               22,
-              32,
               40,
-              8,
-              7,
+              12,
+              32,
               28,
-              53,
-              16,
+              8,
               1,
               55,
-              41,
-              10
+              33,
+              53,
+              43,
+              11
             ],
             "coreMatched": [
               55
             ],
             "coreMatchCount": 1,
             "triad": [
-              22,
+              35,
               10,
               14
             ],
             "triadMatched": [
-              14
+              14,
+              35
             ],
-            "triadMatchCount": 1,
+            "triadMatchCount": 2,
             "key5": [
-              22,
+              35,
               10,
               14,
-              32,
+              22,
               40
             ],
             "key5Matched": [
-              14
+              14,
+              35
             ],
-            "key5MatchCount": 1,
+            "key5MatchCount": 2,
             "wheel4": {
               "ticketHits": [
                 0,
@@ -8303,44 +8314,44 @@
               54
             ],
             "predicted": [
-              22,
               41,
-              32,
-              28,
               8,
-              53
+              33,
+              22,
+              32,
+              18
             ],
             "matched": [],
             "matchCount": 0,
             "corePool": [
-              22,
               41,
-              32,
-              28,
               8,
-              53,
-              20,
-              16,
-              11,
-              48,
               33,
-              18
+              22,
+              32,
+              18,
+              28,
+              11,
+              20,
+              53,
+              1,
+              55
             ],
             "coreMatched": [],
             "coreMatchCount": 0,
             "triad": [
-              22,
+              18,
               4,
               44
             ],
             "triadMatched": [],
             "triadMatchCount": 0,
             "key5": [
-              22,
+              18,
               4,
               44,
               41,
-              32
+              8
             ],
             "key5Matched": [],
             "key5MatchCount": 0,
@@ -14413,72 +14424,72 @@
             "name": "Consensus Engine (Tổng Hợp)",
             "icon": "trophy",
             "color": "amber",
-            "avg_hits": 0.73,
-            "win_rate_ge3": 0.0,
-            "recent_10_hits": 9,
-            "form": "⚡ Phong độ tốt",
+            "avg_hits": 0.85,
+            "win_rate_ge3": 1.0,
+            "recent_10_hits": 14,
+            "form": "🔥 Đỉnh cao",
             "weight_pct": 100.0,
-            "desc": "Hội đồng hợp lực tích hợp 5 mô hình độc lập với trọng số thích ứng điều chuẩn L2."
-          },
-          {
-            "id": "markov",
-            "name": "Markov Transition Chain",
-            "icon": "git-merge",
-            "color": "fuchsia",
-            "avg_hits": 0.75,
-            "win_rate_ge3": 5.0,
-            "recent_10_hits": 4,
-            "form": "Chờ điểm rơi",
-            "weight_pct": 26.9,
-            "desc": "Xác suất chuyển trạng thái có điều kiện từ kết quả kỳ trước."
+            "desc": "Hội đồng hợp lực 5 mô hình định lượng cao cấp tích hợp cơ chế xếp chồng Dynamic Alpha Stacking."
           },
           {
             "id": "hazard",
-            "name": "Bayesian Hazard Rate (Nhịp Gan)",
+            "name": "Bayesian Rhythm Z-Score (Nhịp Điểm Rơi)",
             "icon": "timer",
             "color": "emerald",
-            "avg_hits": 0.81,
-            "win_rate_ge3": 3.0,
-            "recent_10_hits": 8,
+            "avg_hits": 0.88,
+            "win_rate_ge3": 4.0,
+            "recent_10_hits": 7,
             "form": "⚡ Ổn định",
-            "weight_pct": 23.5,
-            "desc": "Hàm mật độ nguy cơ rơi vào vùng vàng (0.75 - 1.35 chu kỳ trung bình)."
+            "weight_pct": 23.2,
+            "desc": "Mật độ xác suất điểm rơi Gauss chuẩn hóa theo độ lệch chuẩn chu kỳ nhịp riêng của từng quả bóng."
+          },
+          {
+            "id": "fourier",
+            "name": "Hann-Windowed Spectral Resonance",
+            "icon": "activity",
+            "color": "cyan",
+            "avg_hits": 0.84,
+            "win_rate_ge3": 2.0,
+            "recent_10_hits": 13,
+            "form": "🔥 Đang vào nhịp",
+            "weight_pct": 21.8,
+            "desc": "Cộng hưởng bước sóng chu kỳ DFT có cửa sổ Hann triệt tiêu rò rỉ phổ trên 64 kỳ."
+          },
+          {
+            "id": "markov",
+            "name": "Markov PPMI Information Gain",
+            "icon": "git-merge",
+            "color": "fuchsia",
+            "avg_hits": 0.92,
+            "win_rate_ge3": 1.0,
+            "recent_10_hits": 11,
+            "form": "🔥 Đang vào nhịp",
+            "weight_pct": 20.5,
+            "desc": "Thông tin tương hỗ dương chuẩn hóa Laplace đo lường lực hút chuyển trạng thái thực sự từ kỳ trước."
           },
           {
             "id": "bac_nho",
-            "name": "Pairwise Synergy & Bạc Nhớ",
+            "name": "Empirical Bayes Pairwise Lift",
             "icon": "network",
             "color": "indigo",
-            "avg_hits": 0.79,
+            "avg_hits": 0.8,
             "win_rate_ge3": 1.0,
-            "recent_10_hits": 7,
+            "recent_10_hits": 8,
             "form": "⚡ Ổn định",
-            "weight_pct": 17.8,
-            "desc": "Chỉ số độ nâng Lift và lực hút cặp đôi đồng quy từ kỳ trước."
+            "weight_pct": 18.0,
+            "desc": "Độ nâng lực hút cặp đôi kỳ trước kéo bóng kỳ sau với hiệu chỉnh Bayes chống quá khớp mẫu nhỏ."
           },
           {
             "id": "decay",
-            "name": "Exponential Time Decay (Nhiệt)",
+            "name": "Exponential Momentum & Decay (Nhiệt)",
             "icon": "flame",
             "color": "rose",
             "avg_hits": 0.75,
             "win_rate_ge3": 1.0,
             "recent_10_hits": 12,
             "form": "🔥 Đang vào nhịp",
-            "weight_pct": 16.7,
-            "desc": "Tần suất suy giảm mũ theo thời gian alpha=0.035, chu kỳ bán rã 19.8 kỳ."
-          },
-          {
-            "id": "fourier",
-            "name": "Fourier Spectral Resonance (Sóng)",
-            "icon": "activity",
-            "color": "cyan",
-            "avg_hits": 0.69,
-            "win_rate_ge3": 1.0,
-            "recent_10_hits": 9,
-            "form": "⚡ Ổn định",
-            "weight_pct": 15.1,
-            "desc": "Cộng hưởng bước sóng phổ dao động rời rạc (DFT) trên 64 kỳ."
+            "weight_pct": 16.6,
+            "desc": "Tần suất suy giảm mũ kết hợp quán tính nhiệt alpha=0.035, chu kỳ bán rã 19.8 kỳ."
           },
           {
             "id": "baseline_random",
@@ -14496,245 +14507,257 @@
         "top_consensus_balls": [
           {
             "ball": 17,
-            "score": 9.1,
+            "score": 8.5,
             "agreement_count": 4,
             "agreement_pct": 80.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 2.1,
-              "decay": 1.1,
-              "markov": 2.7,
-              "fourier": 1.5,
-              "bac_nho": 1.8
-            }
-          },
-          {
-            "ball": 36,
-            "score": 7.1,
-            "agreement_count": 3,
-            "agreement_pct": 60.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 2.1,
-              "decay": 1.4,
-              "markov": 1.8,
-              "fourier": 1.3,
-              "bac_nho": 0.5
+              "markov": 2.0,
+              "hazard": 1.9,
+              "decay": 0.8,
+              "bac_nho": 1.8,
+              "fourier": 2.0
             }
           },
           {
             "ball": 37,
-            "score": 7.0,
+            "score": 6.7,
             "agreement_count": 3,
             "agreement_pct": 60.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 1.1,
-              "decay": 1.0,
-              "markov": 2.1,
-              "fourier": 1.3,
-              "bac_nho": 1.5
-            }
-          },
-          {
-            "ball": 16,
-            "score": 6.9,
-            "agreement_count": 3,
-            "agreement_pct": 60.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 0.7,
-              "decay": 1.7,
-              "markov": 2.5,
-              "fourier": 0.6,
-              "bac_nho": 1.4
-            }
-          },
-          {
-            "ball": 31,
-            "score": 6.6,
-            "agreement_count": 3,
-            "agreement_pct": 60.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 1.2,
-              "decay": 1.3,
-              "markov": 2.5,
-              "fourier": 0.5,
-              "bac_nho": 1.0
-            }
-          },
-          {
-            "ball": 45,
-            "score": 6.5,
-            "agreement_count": 3,
-            "agreement_pct": 60.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 0.7,
-              "decay": 1.6,
-              "markov": 2.0,
-              "fourier": 1.3,
-              "bac_nho": 1.0
+              "markov": 1.4,
+              "hazard": 1.0,
+              "decay": 0.7,
+              "bac_nho": 1.5,
+              "fourier": 2.1
             }
           },
           {
             "ball": 3,
-            "score": 6.3,
-            "agreement_count": 3,
-            "agreement_pct": 60.0,
+            "score": 6.6,
+            "agreement_count": 4,
+            "agreement_pct": 80.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 0.8,
-              "decay": 1.5,
-              "markov": 1.9,
-              "fourier": 1.4,
-              "bac_nho": 0.7
+              "markov": 1.7,
+              "hazard": 1.7,
+              "decay": 1.4,
+              "bac_nho": 0.5,
+              "fourier": 1.4
             }
           },
           {
             "ball": 13,
-            "score": 6.2,
-            "agreement_count": 1,
-            "agreement_pct": 20.0,
+            "score": 6.1,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 1.3,
-              "decay": 1.0,
-              "markov": 1.7,
-              "fourier": 1.5,
-              "bac_nho": 0.7
+              "markov": 1.2,
+              "hazard": 1.5,
+              "decay": 0.7,
+              "bac_nho": 0.5,
+              "fourier": 2.2
             }
           },
           {
-            "ball": 15,
-            "score": 6.0,
+            "ball": 36,
+            "score": 5.9,
             "agreement_count": 3,
             "agreement_pct": 60.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 1.3,
-              "decay": 1.3,
-              "markov": 2.3,
-              "fourier": 0.0,
-              "bac_nho": 1.2
+              "markov": 1.0,
+              "hazard": 1.7,
+              "decay": 1.2,
+              "bac_nho": 0.4,
+              "fourier": 1.6
             }
           },
           {
             "ball": 7,
-            "score": 5.9,
-            "agreement_count": 1,
-            "agreement_pct": 20.0,
-            "is_safe": false,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 2.2,
-              "decay": 0.9,
-              "markov": 1.6,
-              "fourier": 0.7,
-              "bac_nho": 0.5
-            }
-          },
-          {
-            "ball": 34,
-            "score": 5.9,
-            "agreement_count": 3,
-            "agreement_pct": 60.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 0.5,
-              "decay": 0.5,
-              "markov": 2.0,
-              "fourier": 1.2,
-              "bac_nho": 1.7
-            }
-          },
-          {
-            "ball": 38,
-            "score": 5.8,
-            "agreement_count": 1,
-            "agreement_pct": 20.0,
-            "is_safe": false,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 2.3,
-              "decay": 0.8,
-              "markov": 0.9,
-              "fourier": 0.9,
-              "bac_nho": 0.8
-            }
-          },
-          {
-            "ball": 18,
             "score": 5.6,
             "agreement_count": 2,
             "agreement_pct": 40.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
+              "markov": 0.9,
               "hazard": 2.0,
-              "decay": 0.4,
-              "markov": 1.3,
-              "fourier": 1.3,
-              "bac_nho": 0.6
+              "decay": 0.6,
+              "bac_nho": 0.3,
+              "fourier": 1.8
             }
           },
           {
-            "ball": 2,
-            "score": 5.5,
+            "ball": 31,
+            "score": 5.6,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 1.3,
+              "hazard": 1.4,
+              "decay": 1.1,
+              "bac_nho": 0.8,
+              "fourier": 0.9
+            }
+          },
+          {
+            "ball": 32,
+            "score": 5.1,
+            "agreement_count": 1,
+            "agreement_pct": 20.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 0.9,
+              "hazard": 1.5,
+              "decay": 0.5,
+              "bac_nho": 0.4,
+              "fourier": 1.9
+            }
+          },
+          {
+            "ball": 34,
+            "score": 5.1,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 1.4,
+              "hazard": 0.2,
+              "decay": 0.3,
+              "bac_nho": 1.7,
+              "fourier": 1.5
+            }
+          },
+          {
+            "ball": 9,
+            "score": 5.0,
             "agreement_count": 2,
             "agreement_pct": 40.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 0.5,
-              "decay": 0.7,
-              "markov": 2.2,
-              "fourier": 0.8,
-              "bac_nho": 1.3
+              "markov": 0.8,
+              "hazard": 0.4,
+              "decay": 1.2,
+              "bac_nho": 1.5,
+              "fourier": 1.0
             }
           },
           {
-            "ball": 33,
-            "score": 5.1,
-            "agreement_count": 0,
-            "agreement_pct": 0.0,
+            "ball": 15,
+            "score": 4.9,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 1.6,
+              "hazard": 1.2,
+              "decay": 1.1,
+              "bac_nho": 1.0,
+              "fourier": 0.0
+            }
+          },
+          {
+            "ball": 16,
+            "score": 4.9,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 1.1,
-              "decay": 1.1,
+              "markov": 1.2,
+              "hazard": 0.8,
+              "decay": 1.7,
+              "bac_nho": 1.3,
+              "fourier": 0.1
+            }
+          },
+          {
+            "ball": 38,
+            "score": 4.9,
+            "agreement_count": 1,
+            "agreement_pct": 20.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 0.7,
+              "hazard": 2.3,
+              "decay": 0.5,
+              "bac_nho": 0.6,
+              "fourier": 0.8
+            }
+          },
+          {
+            "ball": 11,
+            "score": 4.8,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 1.9,
+              "hazard": 1.6,
+              "decay": 0.6,
+              "bac_nho": 0.2,
+              "fourier": 0.6
+            }
+          },
+          {
+            "ball": 45,
+            "score": 4.5,
+            "agreement_count": 1,
+            "agreement_pct": 20.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
               "markov": 1.1,
-              "fourier": 0.8,
-              "bac_nho": 0.9
+              "hazard": 1.0,
+              "decay": 1.5,
+              "bac_nho": 0.8,
+              "fourier": 0.1
             }
           }
         ],
         "model_explanations": {
+          "markov": {
+            "name": "Markov PPMI Information Gain",
+            "top_picks": [
+              17,
+              11,
+              8,
+              3,
+              15
+            ],
+            "math_basis": "Thông tin tương hỗ dương PPMI có làm mịn Laplace từ tập kết quả kỳ trước",
+            "rationale": "Dựa trên kết quả kỳ trước (09, 14, 22, 26, 27, 40), ma trận PPMI ghi nhận các số 17, 11, 08, 03 có độ gia tăng thông tin liên kết nổ cao nhất."
+          },
           "hazard": {
-            "name": "Bayesian Hazard Rate (Nhịp Gan)",
+            "name": "Bayesian Rhythm Z-Score (Nhịp Điểm Rơi)",
             "top_picks": [
               38,
               19,
               41,
-              7,
-              43
+              4,
+              7
             ],
-            "math_basis": "Hàm nguy cơ Bayesian trên tỷ số chu kỳ gan r_b = g_b / avg_gap trong vùng [0.75, 1.35]",
-            "rationale": "Các bóng 38, 19, 41, 07 đang nằm chuẩn xác trong 'Vùng Vàng Điểm Rơi', xác suất nổ kỳ này tối ưu nhất."
+            "math_basis": "Hàm mật độ điểm rơi Gauss trên độ lệch chuẩn chu kỳ nhịp riêng z_b = (g_b - 1.05 * avg_g) / std_g",
+            "rationale": "Các bóng 38, 19, 41, 04 có nhịp gan hội tụ chuẩn xác tại đỉnh chuông mật độ Gauss, xác suất bùng nổ kỳ này đạt cực đại."
           },
           "decay": {
-            "name": "Exponential Time Decay (Nhiệt)",
+            "name": "Exponential Momentum & Decay (Nhiệt)",
             "top_picks": [
               16,
               45,
@@ -14742,44 +14765,32 @@
               3,
               22
             ],
-            "math_basis": "Tần suất suy giảm mũ thời gian alpha = 0.035 trên 120 kỳ",
+            "math_basis": "Tần suất suy giảm mũ kết hợp xung lực nhiệt alpha = 0.035 trên 120 kỳ",
             "rationale": "Các bóng 16, 45, 06, 03 có xung lực xuất hiện dày đặc gần đây, quán tính nhiệt tiếp tục duy trì đà nổ."
           },
-          "markov": {
-            "name": "Markov Transition Chain",
-            "top_picks": [
-              17,
-              16,
-              31,
-              42,
-              15
-            ],
-            "math_basis": "Ma trận chuyển trạng thái Markov bậc 1 từ các bóng kỳ trước",
-            "rationale": "Dựa trên kết quả kỳ trước (09, 14, 22, 26, 27, 40), ma trận xác suất chuyển trạng thái ghi nhận các số 17, 16, 31, 42 có liên kết nổ kế tiếp cao nhất."
-          },
-          "fourier": {
-            "name": "Fourier Spectral Resonance (Sóng)",
-            "top_picks": [
-              13,
-              17,
-              3,
-              1,
-              18
-            ],
-            "math_basis": "Biến đổi Fourier rời rạc (DFT) trích xuất tần số dao động chủ đạo trên 64 kỳ",
-            "rationale": "Bước sóng chu kỳ của các bóng 13, 17, 03, 01 đang tiến sát pha cực đại trên phổ dao động cộng hưởng."
-          },
           "bac_nho": {
-            "name": "Pairwise Synergy & Bạc Nhớ",
+            "name": "Empirical Bayes Pairwise Lift",
             "top_picks": [
               17,
               34,
-              9,
               37,
+              9,
               42
             ],
-            "math_basis": "Độ nâng Lift > 1.2 giữa cặp bóng kỳ trước và bóng đơn kỳ sau trên 120 kỳ",
-            "rationale": "Lực hút cặp đôi Bạc Nhớ chỉ ra các bóng 17, 34, 09, 37 có độ nâng Lift cao hơn 30-70% so với tần suất ngẫu nhiên khi đi kèm bóng kỳ trước."
+            "math_basis": "Độ nâng Lift có hiệu chỉnh Bayes chống quá khớp (Empirical Bayes Shrinkage) trên cặp số kỳ trước",
+            "rationale": "Lực hút Bạc Nhớ Bayes chỉ ra các bóng 17, 34, 37, 09 có độ nâng xác suất thực sự vượt trội khi đi kèm cặp số kỳ trước."
+          },
+          "fourier": {
+            "name": "Hann-Windowed Spectral Resonance",
+            "top_picks": [
+              13,
+              37,
+              17,
+              32,
+              7
+            ],
+            "math_basis": "Biến đổi Fourier rời rạc (DFT) áp dụng cửa sổ Hann triệt tiêu rò rỉ phổ trên 64 kỳ",
+            "rationale": "Bước sóng chu kỳ của các bóng 13, 37, 17, 32 đang tiến sát pha cực đại trên phổ dao động cộng hưởng đã lọc nhiễu."
           }
         },
         "training_report": {
@@ -14799,16 +14810,16 @@
             "min_ac_threshold": 7
           },
           "trained_model_weights": {
-            "hazard": 23.5,
-            "decay": 16.7,
-            "markov": 26.9,
-            "fourier": 15.1,
-            "bac_nho": 17.8
+            "markov": 20.5,
+            "hazard": 23.2,
+            "decay": 16.6,
+            "bac_nho": 18.0,
+            "fourier": 21.8
           },
           "negative_space_compliance": "100% Đạt Chuẩn (5/5 Bộ Lọc)",
           "accuracy_gain_vs_random": {
-            "avg_hits_improvement_pct": -8.8,
-            "hit_rate_ge3": 0.0,
+            "avg_hits_improvement_pct": 6.2,
+            "hit_rate_ge3": 1.0,
             "baseline_random_avg": 0.8
           }
         },
@@ -14839,38 +14850,38 @@
             17,
             38,
             22,
-            36,
-            37
+            37,
+            3
           ],
           "triad_backtest": {
-            "avg_hits": 0.44,
-            "win_rate_ge1": 40.0,
-            "win_rate_ge2": 4.0
+            "avg_hits": 0.4,
+            "win_rate_ge1": 35.0,
+            "win_rate_ge2": 5.0
           },
           "key5_backtest": {
-            "avg_hits": 0.62,
-            "win_rate_ge1": 51.0,
-            "win_rate_ge2": 11.0
+            "avg_hits": 0.68,
+            "win_rate_ge1": 55.0,
+            "win_rate_ge2": 13.0
           },
           "core_pool": [
             17,
-            36,
             37,
-            16,
-            31,
-            45,
             3,
             13,
-            15,
+            36,
             7,
+            31,
+            32,
             34,
-            38
+            9,
+            15,
+            16
           ],
           "core_backtest": {
             "pool_size": 12,
-            "avg_hits": 1.48,
-            "win_rate_ge3": 12.0,
-            "win_rate_ge4": 0.0,
+            "avg_hits": 1.72,
+            "win_rate_ge3": 18.0,
+            "win_rate_ge4": 4.0,
             "win_rate_ge5": 0.0
           },
           "wheeling_4_tickets": [
@@ -14878,12 +14889,12 @@
               "id": "ve_1",
               "label": "Vé 1",
               "numbers": [
-                16,
+                3,
+                7,
+                13,
                 17,
-                31,
                 36,
-                37,
-                45
+                37
               ],
               "special": null
             },
@@ -14891,12 +14902,12 @@
               "id": "ve_2",
               "label": "Vé 2",
               "numbers": [
-                3,
-                7,
-                13,
-                15,
+                9,
                 17,
-                36
+                31,
+                32,
+                34,
+                37
               ],
               "special": null
             },
@@ -14905,11 +14916,11 @@
               "label": "Vé 3",
               "numbers": [
                 3,
-                7,
+                9,
                 13,
-                15,
-                16,
-                37
+                31,
+                32,
+                34
               ],
               "special": null
             },
@@ -14917,32 +14928,32 @@
               "id": "ve_4",
               "label": "Vé 4",
               "numbers": [
-                3,
                 7,
-                13,
-                15,
+                9,
                 31,
-                45
+                32,
+                34,
+                36
               ],
               "special": null
             }
           ],
           "wheel4_backtest": {
-            "overall_prize_win_rate": 4.0,
+            "overall_prize_win_rate": 5.0,
             "core_ge4_count": 0,
             "core_ge4_win_rate": 0.0
           },
           "golden": {
             "numbers": [
-              2,
-              7,
+              9,
+              11,
+              16,
               17,
-              34,
-              37,
+              36,
               45
             ],
             "ac_index": 10,
-            "sum": 142,
+            "sum": 134,
             "odd_even": "2C - 4L",
             "sei_score": 10.0,
             "special": null,
@@ -14953,7 +14964,7 @@
                 "passed": true,
                 "score_pass": 5,
                 "sum": {
-                  "val": 142,
+                  "val": 134,
                   "min": 95,
                   "max": 180,
                   "passed": true
@@ -14964,7 +14975,7 @@
                   "passed": true
                 },
                 "consecutive": {
-                  "max_len": 1,
+                  "max_len": 2,
                   "passed": true
                 },
                 "parity": {
@@ -14972,7 +14983,7 @@
                   "passed": true
                 },
                 "repeat": {
-                  "count": 0,
+                  "count": 1,
                   "max_allowed": 2,
                   "passed": true
                 }
@@ -14984,8 +14995,8 @@
               2,
               15,
               22,
-              26,
-              29,
+              33,
+              36,
               37
             ],
             "special": null,
@@ -14996,50 +15007,7 @@
                 "passed": true,
                 "score_pass": 5,
                 "sum": {
-                  "val": 131,
-                  "min": 95,
-                  "max": 180,
-                  "passed": true
-                },
-                "ac": {
-                  "val": 8,
-                  "threshold": 7,
-                  "passed": true
-                },
-                "consecutive": {
-                  "max_len": 1,
-                  "passed": true
-                },
-                "parity": {
-                  "ratio": "3C - 3L",
-                  "passed": true
-                },
-                "repeat": {
-                  "count": 2,
-                  "max_allowed": 2,
-                  "passed": true
-                }
-              }
-            }
-          },
-          "breakout": {
-            "numbers": [
-              7,
-              11,
-              16,
-              18,
-              19,
-              38
-            ],
-            "special": null,
-            "negative_space_check": {
-              "passed": true,
-              "score": "5/5",
-              "details": {
-                "passed": true,
-                "score_pass": 5,
-                "sum": {
-                  "val": 109,
+                  "val": 145,
                   "min": 95,
                   "max": 180,
                   "passed": true
@@ -15058,6 +15026,49 @@
                   "passed": true
                 },
                 "repeat": {
+                  "count": 1,
+                  "max_allowed": 2,
+                  "passed": true
+                }
+              }
+            }
+          },
+          "breakout": {
+            "numbers": [
+              3,
+              17,
+              19,
+              38,
+              41,
+              43
+            ],
+            "special": null,
+            "negative_space_check": {
+              "passed": true,
+              "score": "5/5",
+              "details": {
+                "passed": true,
+                "score_pass": 5,
+                "sum": {
+                  "val": 161,
+                  "min": 95,
+                  "max": 180,
+                  "passed": true
+                },
+                "ac": {
+                  "val": 8,
+                  "threshold": 7,
+                  "passed": true
+                },
+                "consecutive": {
+                  "max_len": 1,
+                  "passed": true
+                },
+                "parity": {
+                  "ratio": "1C - 5L",
+                  "passed": true
+                },
+                "repeat": {
                   "count": 0,
                   "max_allowed": 2,
                   "passed": true
@@ -15068,12 +15079,12 @@
           "bao7": {
             "numbers": [
               17,
-              36,
               37,
-              16,
-              31,
-              45,
-              3
+              3,
+              13,
+              36,
+              7,
+              31
             ],
             "special": null,
             "negative_space_check": {
@@ -15096,60 +15107,60 @@
             ],
             "predicted": [
               31,
+              7,
+              3,
               38,
               22,
-              3,
-              7,
-              36
+              9
             ],
             "matched": [
+              9,
               22
             ],
-            "matchCount": 1,
+            "matchCount": 2,
             "corePool": [
               31,
+              7,
+              3,
               38,
               22,
-              3,
-              7,
+              9,
               36,
               13,
-              2,
+              1,
+              19,
               41,
-              43,
-              39,
-              44
+              6
             ],
             "coreMatched": [
+              9,
               22
             ],
-            "coreMatchCount": 1,
+            "coreMatchCount": 2,
             "triad": [
-              31,
+              5,
               43,
               16
             ],
             "triadMatched": [],
             "triadMatchCount": 0,
             "key5": [
-              31,
+              5,
               43,
               16,
-              38,
-              22
+              31,
+              7
             ],
-            "key5Matched": [
-              22
-            ],
-            "key5MatchCount": 1,
+            "key5Matched": [],
+            "key5MatchCount": 0,
             "wheel4": {
               "ticketHits": [
-                1,
+                2,
                 0,
-                1,
-                0
+                0,
+                2
               ],
-              "maxHit": 1,
+              "maxHit": 2,
               "wonPrize": false
             }
           },
@@ -15166,29 +15177,30 @@
             ],
             "predicted": [
               31,
-              43,
+              19,
               7,
               45,
-              19,
-              37
+              43,
+              16
             ],
             "matched": [
+              16,
               45
             ],
-            "matchCount": 1,
+            "matchCount": 2,
             "corePool": [
               31,
-              43,
+              19,
               7,
               45,
-              19,
-              37,
-              36,
+              43,
               16,
-              22,
-              17,
-              2,
-              41
+              37,
+              15,
+              6,
+              41,
+              38,
+              36
             ],
             "coreMatched": [
               16,
@@ -15196,26 +15208,26 @@
             ],
             "coreMatchCount": 2,
             "triad": [
+              15,
               31,
-              41,
               6
             ],
             "triadMatched": [],
             "triadMatchCount": 0,
             "key5": [
+              15,
               31,
-              41,
               6,
-              43,
+              19,
               7
             ],
             "key5Matched": [],
             "key5MatchCount": 0,
             "wheel4": {
               "ticketHits": [
-                1,
-                1,
                 2,
+                0,
+                1,
                 1
               ],
               "maxHit": 2,
@@ -15237,37 +15249,35 @@
               16,
               31,
               6,
-              9,
-              7,
-              36
+              38,
+              25,
+              32
             ],
             "matched": [
-              6,
-              9
+              6
             ],
-            "matchCount": 2,
+            "matchCount": 1,
             "corePool": [
               16,
               31,
               6,
+              38,
+              25,
+              32,
+              22,
+              36,
+              20,
               9,
               7,
-              36,
-              22,
-              43,
-              33,
-              37,
-              32,
-              44
+              37
             ],
             "coreMatched": [
               6,
-              9,
-              44
+              9
             ],
-            "coreMatchCount": 3,
+            "coreMatchCount": 2,
             "triad": [
-              31,
+              33,
               29,
               3
             ],
@@ -15276,23 +15286,22 @@
             ],
             "triadMatchCount": 1,
             "key5": [
-              31,
+              33,
               29,
               3,
               16,
-              6
+              31
             ],
             "key5Matched": [
-              6,
               29
             ],
-            "key5MatchCount": 2,
+            "key5MatchCount": 1,
             "wheel4": {
               "ticketHits": [
+                1,
+                1,
                 2,
-                0,
-                2,
-                0
+                1
               ],
               "maxHit": 2,
               "wonPrize": false
@@ -15311,32 +15320,34 @@
             ],
             "predicted": [
               31,
-              7,
               16,
-              44,
               35,
-              9
+              19,
+              6,
+              40
             ],
             "matched": [],
             "matchCount": 0,
             "corePool": [
               31,
-              7,
               16,
-              44,
               35,
-              9,
               19,
-              43,
-              2,
-              33,
+              6,
+              40,
+              20,
+              13,
               38,
-              6
+              3,
+              7,
+              44
             ],
-            "coreMatched": [],
-            "coreMatchCount": 0,
+            "coreMatched": [
+              3
+            ],
+            "coreMatchCount": 1,
             "triad": [
-              16,
+              13,
               35,
               3
             ],
@@ -15345,11 +15356,11 @@
             ],
             "triadMatchCount": 1,
             "key5": [
-              16,
+              13,
               35,
               3,
               31,
-              7
+              16
             ],
             "key5Matched": [
               3
@@ -15358,11 +15369,11 @@
             "wheel4": {
               "ticketHits": [
                 0,
-                0,
-                0,
-                0
+                1,
+                1,
+                1
               ],
-              "maxHit": 0,
+              "maxHit": 1,
               "wonPrize": false
             }
           },
@@ -15379,50 +15390,50 @@
             ],
             "predicted": [
               36,
-              31,
-              43,
-              44,
-              16,
-              30
-            ],
-            "matched": [
-              36
-            ],
-            "matchCount": 1,
-            "corePool": [
-              36,
-              31,
-              43,
-              44,
-              16,
-              30,
               35,
               20,
-              45,
-              7,
-              19,
-              13
+              16,
+              13,
+              7
             ],
-            "coreMatched": [
+            "matched": [
               13,
               36
             ],
-            "coreMatchCount": 2,
-            "triad": [
+            "matchCount": 2,
+            "corePool": [
               36,
-              25,
-              16
+              35,
+              20,
+              16,
+              13,
+              7,
+              45,
+              41,
+              31,
+              15,
+              6,
+              30
             ],
-            "triadMatched": [
+            "coreMatched": [
+              13,
+              15,
               36
             ],
-            "triadMatchCount": 1,
+            "coreMatchCount": 3,
+            "triad": [
+              45,
+              30,
+              16
+            ],
+            "triadMatched": [],
+            "triadMatchCount": 0,
             "key5": [
-              36,
-              25,
+              45,
+              30,
               16,
-              31,
-              43
+              36,
+              35
             ],
             "key5Matched": [
               36
@@ -15430,12 +15441,12 @@
             "key5MatchCount": 1,
             "wheel4": {
               "ticketHits": [
+                2,
+                2,
                 1,
-                1,
-                0,
-                0
+                2
               ],
-              "maxHit": 1,
+              "maxHit": 2,
               "wonPrize": false
             }
           },
@@ -15453,35 +15464,34 @@
             "predicted": [
               36,
               30,
+              35,
               13,
-              31,
-              44,
-              34
+              21,
+              6
             ],
             "matched": [],
             "matchCount": 0,
             "corePool": [
               36,
               30,
-              13,
-              31,
-              44,
-              34,
-              45,
-              2,
-              11,
               35,
-              43,
-              16
+              13,
+              21,
+              6,
+              11,
+              34,
+              31,
+              15,
+              20,
+              7
             ],
             "coreMatched": [
-              11,
-              16
+              11
             ],
-            "coreMatchCount": 2,
+            "coreMatchCount": 1,
             "triad": [
-              36,
-              8,
+              21,
+              30,
               16
             ],
             "triadMatched": [
@@ -15489,11 +15499,11 @@
             ],
             "triadMatchCount": 1,
             "key5": [
-              36,
-              8,
-              16,
+              21,
               30,
-              13
+              16,
+              36,
+              35
             ],
             "key5Matched": [
               16
@@ -15523,63 +15533,65 @@
             ],
             "predicted": [
               36,
+              39,
               16,
-              44,
+              35,
               28,
-              20,
-              37
+              3
             ],
             "matched": [
-              16
+              16,
+              39
             ],
-            "matchCount": 1,
+            "matchCount": 2,
             "corePool": [
               36,
+              39,
               16,
-              44,
+              35,
               28,
+              3,
+              6,
+              33,
               20,
-              37,
-              30,
-              31,
-              8,
               9,
-              22,
-              6
+              45,
+              30
             ],
             "coreMatched": [
               16,
-              22
+              39
             ],
             "coreMatchCount": 2,
             "triad": [
-              16,
+              39,
               12,
               31
             ],
             "triadMatched": [
-              16
+              39
             ],
             "triadMatchCount": 1,
             "key5": [
-              16,
+              39,
               12,
               31,
               36,
-              44
-            ],
-            "key5Matched": [
               16
             ],
-            "key5MatchCount": 1,
+            "key5Matched": [
+              16,
+              39
+            ],
+            "key5MatchCount": 2,
             "wheel4": {
               "ticketHits": [
+                2,
                 1,
                 1,
-                0,
                 0
               ],
-              "maxHit": 1,
+              "maxHit": 2,
               "wonPrize": false
             }
           },
@@ -15597,50 +15609,49 @@
             "predicted": [
               31,
               16,
-              20,
-              44,
+              12,
               36,
-              37
+              6,
+              43
             ],
             "matched": [
-              31
+              31,
+              43
             ],
-            "matchCount": 1,
+            "matchCount": 2,
             "corePool": [
               31,
               16,
-              20,
-              44,
-              36,
-              37,
-              43,
               12,
-              7,
+              36,
               6,
-              29,
-              28
+              43,
+              20,
+              26,
+              19,
+              44,
+              37,
+              24
             ],
             "coreMatched": [
-              7,
+              26,
               31,
               43
             ],
             "coreMatchCount": 3,
             "triad": [
-              31,
+              19,
               37,
               6
             ],
-            "triadMatched": [
-              31
-            ],
-            "triadMatchCount": 1,
+            "triadMatched": [],
+            "triadMatchCount": 0,
             "key5": [
-              31,
+              19,
               37,
               6,
-              16,
-              20
+              31,
+              16
             ],
             "key5Matched": [
               31
@@ -15648,13 +15659,13 @@
             "key5MatchCount": 1,
             "wheel4": {
               "ticketHits": [
-                1,
-                3,
                 2,
+                2,
+                1,
                 2
               ],
-              "maxHit": 3,
-              "wonPrize": true
+              "maxHit": 2,
+              "wonPrize": false
             }
           },
           {
@@ -15669,61 +15680,63 @@
               43
             ],
             "predicted": [
-              16,
-              31,
               45,
-              37,
-              8,
-              33
+              16,
+              33,
+              27,
+              3,
+              31
             ],
             "matched": [
               33
             ],
             "matchCount": 1,
             "corePool": [
-              16,
-              31,
               45,
-              37,
-              8,
+              16,
               33,
-              3,
-              20,
-              30,
               27,
-              17,
-              38
+              3,
+              31,
+              25,
+              35,
+              38,
+              8,
+              24,
+              30
             ],
             "coreMatched": [
               33
             ],
             "coreMatchCount": 1,
             "triad": [
-              31,
+              33,
               38,
               6
             ],
             "triadMatched": [
-              6
+              6,
+              33
             ],
-            "triadMatchCount": 1,
+            "triadMatchCount": 2,
             "key5": [
-              31,
+              33,
               38,
               6,
-              16,
-              45
+              45,
+              16
             ],
             "key5Matched": [
-              6
+              6,
+              33
             ],
-            "key5MatchCount": 1,
+            "key5MatchCount": 2,
             "wheel4": {
               "ticketHits": [
                 1,
                 0,
-                0,
-                1
+                1,
+                0
               ],
               "maxHit": 1,
               "wonPrize": false
@@ -15742,29 +15755,30 @@
             ],
             "predicted": [
               37,
-              16,
-              28,
               45,
-              36,
-              11
-            ],
-            "matched": [
+              16,
+              6,
+              28,
               36
             ],
-            "matchCount": 1,
+            "matched": [
+              6,
+              36
+            ],
+            "matchCount": 2,
             "corePool": [
               37,
-              16,
-              28,
               45,
+              16,
+              6,
+              28,
               36,
+              8,
               11,
               43,
-              8,
-              31,
-              6,
-              30,
-              2
+              32,
+              33,
+              24
             ],
             "coreMatched": [
               6,
@@ -15772,7 +15786,7 @@
             ],
             "coreMatchCount": 2,
             "triad": [
-              28,
+              37,
               41,
               31
             ],
@@ -15781,10 +15795,10 @@
             ],
             "triadMatchCount": 1,
             "key5": [
-              28,
+              37,
               41,
               31,
-              37,
+              45,
               16
             ],
             "key5Matched": [
@@ -15793,10 +15807,10 @@
             "key5MatchCount": 1,
             "wheel4": {
               "ticketHits": [
+                2,
+                0,
                 1,
-                1,
-                1,
-                2
+                1
               ],
               "maxHit": 2,
               "wonPrize": false
@@ -15815,61 +15829,53 @@
             ],
             "predicted": [
               16,
-              36,
-              28,
-              44,
-              31,
+              41,
+              6,
+              17,
+              30,
               38
             ],
-            "matched": [
-              31,
-              44
-            ],
-            "matchCount": 2,
+            "matched": [],
+            "matchCount": 0,
             "corePool": [
               16,
-              36,
-              28,
-              44,
-              31,
-              38,
               41,
-              13,
-              30,
-              45,
+              6,
               17,
-              37
+              30,
+              38,
+              44,
+              36,
+              45,
+              31,
+              28,
+              26
             ],
             "coreMatched": [
-              13,
               31,
               44
             ],
-            "coreMatchCount": 3,
+            "coreMatchCount": 2,
             "triad": [
-              31,
+              15,
               32,
               17
             ],
-            "triadMatched": [
-              31
-            ],
-            "triadMatchCount": 1,
+            "triadMatched": [],
+            "triadMatchCount": 0,
             "key5": [
-              31,
+              15,
               32,
               17,
               16,
-              36
+              41
             ],
-            "key5Matched": [
-              31
-            ],
-            "key5MatchCount": 1,
+            "key5Matched": [],
+            "key5MatchCount": 0,
             "wheel4": {
               "ticketHits": [
+                0,
                 2,
-                1,
                 2,
                 2
               ],
@@ -15889,44 +15895,44 @@
               40
             ],
             "predicted": [
-              16,
-              30,
               37,
-              28,
+              16,
+              43,
+              45,
               11,
-              43
+              13
             ],
             "matched": [],
             "matchCount": 0,
             "corePool": [
-              16,
-              30,
               37,
-              28,
-              11,
+              16,
               43,
-              13,
-              31,
-              36,
               45,
-              38,
-              12
+              11,
+              13,
+              30,
+              39,
+              28,
+              6,
+              32,
+              31
             ],
             "coreMatched": [],
             "coreMatchCount": 0,
             "triad": [
-              28,
+              11,
               44,
               31
             ],
             "triadMatched": [],
             "triadMatchCount": 0,
             "key5": [
-              28,
+              11,
               44,
               31,
-              16,
-              30
+              37,
+              16
             ],
             "key5Matched": [],
             "key5MatchCount": 0,
@@ -15953,65 +15959,63 @@
               35
             ],
             "predicted": [
-              31,
-              38,
+              41,
+              39,
               9,
               23,
-              16,
+              45,
               3
             ],
             "matched": [
-              3,
-              31
+              3
             ],
-            "matchCount": 2,
+            "matchCount": 1,
             "corePool": [
-              31,
-              38,
+              41,
+              39,
               9,
               23,
-              16,
-              3,
-              39,
-              30,
-              41,
-              7,
               45,
-              17
+              3,
+              13,
+              16,
+              31,
+              35,
+              18,
+              27
             ],
             "coreMatched": [
               3,
-              17,
-              31
+              27,
+              31,
+              35
             ],
-            "coreMatchCount": 3,
+            "coreMatchCount": 4,
             "triad": [
-              23,
+              39,
               18,
               43
             ],
             "triadMatched": [],
             "triadMatchCount": 0,
             "key5": [
-              23,
+              39,
               18,
               43,
-              31,
-              38
+              41,
+              9
             ],
-            "key5Matched": [
-              31
-            ],
-            "key5MatchCount": 1,
+            "key5Matched": [],
+            "key5MatchCount": 0,
             "wheel4": {
               "ticketHits": [
-                2,
                 1,
-                0,
-                1
+                2,
+                2,
+                3
               ],
-              "maxHit": 2,
-              "wonPrize": false
+              "maxHit": 3,
+              "wonPrize": true
             }
           },
           {
@@ -16027,10 +16031,10 @@
             ],
             "predicted": [
               36,
-              9,
-              43,
-              24,
               29,
+              9,
+              13,
+              43,
               31
             ],
             "matched": [
@@ -16040,17 +16044,17 @@
             "matchCount": 2,
             "corePool": [
               36,
-              9,
-              43,
-              24,
               29,
-              31,
+              9,
               13,
-              44,
+              43,
+              31,
               30,
-              42,
               35,
-              20
+              41,
+              5,
+              32,
+              45
             ],
             "coreMatched": [
               30,
@@ -16059,32 +16063,29 @@
             ],
             "coreMatchCount": 3,
             "triad": [
-              36,
+              24,
               29,
               6
             ],
-            "triadMatched": [
-              36
-            ],
-            "triadMatchCount": 1,
+            "triadMatched": [],
+            "triadMatchCount": 0,
             "key5": [
-              36,
+              24,
               29,
               6,
-              9,
-              43
+              36,
+              9
             ],
             "key5Matched": [
-              36,
-              43
+              36
             ],
-            "key5MatchCount": 2,
+            "key5MatchCount": 1,
             "wheel4": {
               "ticketHits": [
                 2,
                 2,
-                2,
-                1
+                1,
+                2
               ],
               "maxHit": 2,
               "wonPrize": false
@@ -16104,10 +16105,10 @@
             "predicted": [
               31,
               9,
-              44,
+              16,
               30,
-              17,
-              16
+              32,
+              13
             ],
             "matched": [
               16
@@ -16116,16 +16117,16 @@
             "corePool": [
               31,
               9,
-              44,
-              30,
-              17,
               16,
-              18,
+              30,
+              32,
               13,
               11,
-              32,
+              17,
               43,
-              7
+              36,
+              44,
+              33
             ],
             "coreMatched": [
               11,
@@ -16133,27 +16134,29 @@
             ],
             "coreMatchCount": 2,
             "triad": [
-              31,
+              15,
               9,
               37
             ],
             "triadMatched": [],
             "triadMatchCount": 0,
             "key5": [
-              31,
+              15,
               9,
               37,
-              44,
-              30
+              31,
+              16
             ],
-            "key5Matched": [],
-            "key5MatchCount": 0,
+            "key5Matched": [
+              16
+            ],
+            "key5MatchCount": 1,
             "wheel4": {
               "ticketHits": [
                 1,
                 1,
-                1,
-                2
+                2,
+                1
               ],
               "maxHit": 2,
               "wonPrize": false
@@ -21622,72 +21625,72 @@
             "name": "Consensus Engine (Tổng Hợp)",
             "icon": "trophy",
             "color": "amber",
-            "avg_hits": 0.75,
-            "win_rate_ge3": 0.0,
-            "recent_10_hits": 8,
+            "avg_hits": 0.81,
+            "win_rate_ge3": 1.0,
+            "recent_10_hits": 10,
             "form": "⚡ Phong độ tốt",
             "weight_pct": 100.0,
-            "desc": "Hội đồng hợp lực tích hợp 5 mô hình độc lập với trọng số thích ứng điều chuẩn L2."
+            "desc": "Hội đồng hợp lực 5 mô hình định lượng cao cấp tích hợp cơ chế xếp chồng Dynamic Alpha Stacking."
+          },
+          {
+            "id": "fourier",
+            "name": "Hann-Windowed Spectral Resonance",
+            "icon": "activity",
+            "color": "cyan",
+            "avg_hits": 0.77,
+            "win_rate_ge3": 4.0,
+            "recent_10_hits": 8,
+            "form": "⚡ Ổn định",
+            "weight_pct": 26.1,
+            "desc": "Cộng hưởng bước sóng chu kỳ DFT có cửa sổ Hann triệt tiêu rò rỉ phổ trên 64 kỳ."
           },
           {
             "id": "bac_nho",
-            "name": "Pairwise Synergy & Bạc Nhớ",
+            "name": "Empirical Bayes Pairwise Lift",
             "icon": "network",
             "color": "indigo",
-            "avg_hits": 0.67,
+            "avg_hits": 0.68,
             "win_rate_ge3": 3.0,
-            "recent_10_hits": 6,
-            "form": "Chờ điểm rơi",
-            "weight_pct": 27.1,
-            "desc": "Chỉ số độ nâng Lift và lực hút cặp đôi đồng quy từ kỳ trước."
+            "recent_10_hits": 7,
+            "form": "⚡ Ổn định",
+            "weight_pct": 20.2,
+            "desc": "Độ nâng lực hút cặp đôi kỳ trước kéo bóng kỳ sau với hiệu chỉnh Bayes chống quá khớp mẫu nhỏ."
           },
           {
             "id": "decay",
-            "name": "Exponential Time Decay (Nhiệt)",
+            "name": "Exponential Momentum & Decay (Nhiệt)",
             "icon": "flame",
             "color": "rose",
             "avg_hits": 0.64,
             "win_rate_ge3": 1.0,
             "recent_10_hits": 7,
             "form": "⚡ Ổn định",
-            "weight_pct": 18.4,
-            "desc": "Tần suất suy giảm mũ theo thời gian alpha=0.055, chu kỳ bán rã 12.6 kỳ."
-          },
-          {
-            "id": "fourier",
-            "name": "Fourier Spectral Resonance (Sóng)",
-            "icon": "activity",
-            "color": "cyan",
-            "avg_hits": 0.61,
-            "win_rate_ge3": 1.0,
-            "recent_10_hits": 5,
-            "form": "Chờ điểm rơi",
-            "weight_pct": 17.5,
-            "desc": "Cộng hưởng bước sóng phổ dao động rời rạc (DFT) trên 64 kỳ."
+            "weight_pct": 16.3,
+            "desc": "Tần suất suy giảm mũ kết hợp quán tính nhiệt alpha=0.055, chu kỳ bán rã 12.6 kỳ."
           },
           {
             "id": "hazard",
-            "name": "Bayesian Hazard Rate (Nhịp Gan)",
+            "name": "Bayesian Rhythm Z-Score (Nhịp Điểm Rơi)",
             "icon": "timer",
             "color": "emerald",
-            "avg_hits": 0.81,
+            "avg_hits": 0.72,
             "win_rate_ge3": 0.0,
-            "recent_10_hits": 10,
+            "recent_10_hits": 11,
             "form": "🔥 Đang vào nhịp",
-            "weight_pct": 21.1,
-            "desc": "Hàm mật độ nguy cơ rơi vào vùng vàng (0.80 - 1.30 chu kỳ trung bình)."
+            "weight_pct": 22.1,
+            "desc": "Mật độ xác suất điểm rơi Gauss chuẩn hóa theo độ lệch chuẩn chu kỳ nhịp riêng của từng quả bóng."
           },
           {
             "id": "markov",
-            "name": "Markov Transition Chain",
+            "name": "Markov PPMI Information Gain",
             "icon": "git-merge",
             "color": "fuchsia",
-            "avg_hits": 0.68,
+            "avg_hits": 0.61,
             "win_rate_ge3": 0.0,
-            "recent_10_hits": 8,
-            "form": "⚡ Ổn định",
-            "weight_pct": 15.9,
-            "desc": "Xác suất chuyển trạng thái có điều kiện từ kết quả kỳ trước."
+            "recent_10_hits": 5,
+            "form": "Chờ điểm rơi",
+            "weight_pct": 15.4,
+            "desc": "Thông tin tương hỗ dương chuẩn hóa Laplace đo lường lực hút chuyển trạng thái thực sự từ kỳ trước."
           },
           {
             "id": "baseline_random",
@@ -21705,152 +21708,107 @@
         "top_consensus_balls": [
           {
             "ball": 7,
-            "score": 8.1,
+            "score": 7.3,
             "agreement_count": 3,
             "agreement_pct": 60.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 2.1,
-              "decay": 1.1,
               "markov": 1.4,
-              "fourier": 0.9,
-              "bac_nho": 2.7
+              "hazard": 2.1,
+              "decay": 0.8,
+              "bac_nho": 2.0,
+              "fourier": 0.9
             }
           },
           {
             "ball": 27,
-            "score": 6.5,
-            "agreement_count": 3,
-            "agreement_pct": 60.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 1.1,
-              "decay": 1.0,
-              "markov": 1.3,
-              "fourier": 1.8,
-              "bac_nho": 1.3
-            }
-          },
-          {
-            "ball": 13,
-            "score": 6.4,
-            "agreement_count": 3,
-            "agreement_pct": 60.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 0.4,
-              "decay": 1.8,
-              "markov": 1.6,
-              "fourier": 0.8,
-              "bac_nho": 1.9
-            }
-          },
-          {
-            "ball": 22,
-            "score": 6.4,
-            "agreement_count": 3,
-            "agreement_pct": 60.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 1.1,
-              "decay": 1.2,
-              "markov": 1.5,
-              "fourier": 1.7,
-              "bac_nho": 0.8
-            }
-          },
-          {
-            "ball": 2,
-            "score": 6.1,
-            "agreement_count": 3,
-            "agreement_pct": 60.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 1.8,
-              "decay": 1.1,
-              "markov": 1.2,
-              "fourier": 0.4,
-              "bac_nho": 1.5
-            }
-          },
-          {
-            "ball": 15,
-            "score": 6.0,
+            "score": 7.1,
             "agreement_count": 4,
             "agreement_pct": 80.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 1.2,
-              "decay": 1.3,
-              "markov": 1.2,
-              "fourier": 1.3,
-              "bac_nho": 1.0
+              "markov": 1.1,
+              "hazard": 2.0,
+              "decay": 0.7,
+              "bac_nho": 0.7,
+              "fourier": 2.5
             }
           },
           {
-            "ball": 18,
-            "score": 5.9,
-            "agreement_count": 3,
-            "agreement_pct": 60.0,
+            "ball": 3,
+            "score": 6.8,
+            "agreement_count": 4,
+            "agreement_pct": 80.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 0.7,
-              "decay": 1.6,
-              "markov": 0.7,
-              "fourier": 1.3,
-              "bac_nho": 1.6
+              "markov": 1.3,
+              "hazard": 1.5,
+              "decay": 0.9,
+              "bac_nho": 0.5,
+              "fourier": 2.6
             }
           },
           {
-            "ball": 9,
+            "ball": 2,
             "score": 5.7,
             "agreement_count": 4,
             "agreement_pct": 80.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 1.2,
-              "decay": 1.3,
-              "markov": 1.2,
-              "fourier": 1.5,
-              "bac_nho": 0.6
+              "markov": 1.1,
+              "hazard": 1.6,
+              "decay": 0.8,
+              "bac_nho": 0.9,
+              "fourier": 1.4
+            }
+          },
+          {
+            "ball": 22,
+            "score": 5.7,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 1.0,
+              "hazard": 1.1,
+              "decay": 0.9,
+              "bac_nho": 0.4,
+              "fourier": 2.3
             }
           },
           {
             "ball": 12,
-            "score": 5.6,
-            "agreement_count": 2,
-            "agreement_pct": 40.0,
-            "is_safe": false,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 0.7,
-              "decay": 1.4,
-              "markov": 1.0,
-              "fourier": 1.5,
-              "bac_nho": 1.0
-            }
-          },
-          {
-            "ball": 32,
             "score": 5.5,
             "agreement_count": 2,
             "agreement_pct": 40.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 2.0,
-              "decay": 0.5,
-              "markov": 0.8,
-              "fourier": 0.6,
-              "bac_nho": 1.7
+              "markov": 0.7,
+              "hazard": 1.1,
+              "decay": 1.1,
+              "bac_nho": 0.6,
+              "fourier": 2.0
+            }
+          },
+          {
+            "ball": 18,
+            "score": 5.5,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 0.6,
+              "hazard": 0.8,
+              "decay": 1.3,
+              "bac_nho": 1.1,
+              "fourier": 1.6
             }
           },
           {
@@ -21861,89 +21819,146 @@
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 1.0,
-              "decay": 0.6,
-              "markov": 1.5,
-              "fourier": 1.0,
-              "bac_nho": 1.4
+              "markov": 0.9,
+              "hazard": 1.2,
+              "decay": 0.4,
+              "bac_nho": 1.0,
+              "fourier": 1.9
             }
           },
           {
-            "ball": 29,
-            "score": 5.4,
+            "ball": 13,
+            "score": 5.3,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 1.0,
+              "hazard": 0.9,
+              "decay": 1.6,
+              "bac_nho": 1.4,
+              "fourier": 0.4
+            }
+          },
+          {
+            "ball": 32,
+            "score": 5.3,
+            "agreement_count": 3,
+            "agreement_pct": 60.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 1.2,
+              "hazard": 2.0,
+              "decay": 0.3,
+              "bac_nho": 1.2,
+              "fourier": 0.6
+            }
+          },
+          {
+            "ball": 31,
+            "score": 5.1,
             "agreement_count": 2,
             "agreement_pct": 40.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 0.6,
-              "decay": 0.9,
-              "markov": 0.6,
-              "fourier": 1.2,
-              "bac_nho": 2.0
+              "markov": 0.5,
+              "hazard": 1.3,
+              "decay": 0.3,
+              "bac_nho": 0.8,
+              "fourier": 2.1
             }
           },
           {
             "ball": 11,
-            "score": 5.2,
-            "agreement_count": 3,
-            "agreement_pct": 60.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "hazard": 0.4,
-              "decay": 1.6,
-              "markov": 1.2,
-              "fourier": 0.7,
-              "bac_nho": 1.3
-            }
-          },
-          {
-            "ball": 20,
-            "score": 5.2,
+            "score": 4.8,
             "agreement_count": 2,
             "agreement_pct": 40.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 0.3,
-              "decay": 1.8,
-              "markov": 1.4,
-              "fourier": 0.9,
-              "bac_nho": 0.7
+              "markov": 0.6,
+              "hazard": 0.7,
+              "decay": 1.4,
+              "bac_nho": 0.9,
+              "fourier": 1.2
             }
           },
           {
-            "ball": 4,
-            "score": 5.1,
-            "agreement_count": 3,
-            "agreement_pct": 60.0,
-            "is_safe": true,
+            "ball": 20,
+            "score": 4.8,
+            "agreement_count": 1,
+            "agreement_pct": 20.0,
+            "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "hazard": 1.2,
-              "decay": 0.5,
-              "markov": 1.3,
-              "fourier": 0.5,
-              "bac_nho": 1.4
+              "markov": 0.8,
+              "hazard": 0.9,
+              "decay": 1.6,
+              "bac_nho": 0.5,
+              "fourier": 1.0
+            }
+          },
+          {
+            "ball": 9,
+            "score": 4.7,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 0.6,
+              "hazard": 1.0,
+              "decay": 1.0,
+              "bac_nho": 0.3,
+              "fourier": 1.8
+            }
+          },
+          {
+            "ball": 19,
+            "score": 4.6,
+            "agreement_count": 2,
+            "agreement_pct": 40.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 0.8,
+              "hazard": 1.7,
+              "decay": 0.4,
+              "bac_nho": 0.4,
+              "fourier": 1.3
             }
           }
         ],
         "model_explanations": {
+          "markov": {
+            "name": "Markov PPMI Information Gain",
+            "top_picks": [
+              16,
+              7,
+              24,
+              3,
+              4
+            ],
+            "math_basis": "Thông tin tương hỗ dương PPMI có làm mịn Laplace từ tập kết quả kỳ trước",
+            "rationale": "Dựa trên kết quả kỳ trước (11, 13, 20, 23, 24), ma trận PPMI ghi nhận các số 16, 07, 24, 03 có độ gia tăng thông tin liên kết nổ cao nhất."
+          },
           "hazard": {
-            "name": "Bayesian Hazard Rate (Nhịp Gan)",
+            "name": "Bayesian Rhythm Z-Score (Nhịp Điểm Rơi)",
             "top_picks": [
               6,
               7,
+              27,
               32,
-              17,
-              5
+              17
             ],
-            "math_basis": "Hàm nguy cơ Bayesian trên tỷ số chu kỳ gan r_b = g_b / avg_gap trong vùng [0.80, 1.30]",
-            "rationale": "Các bóng 06, 07, 32, 17 đang nằm chuẩn xác trong 'Vùng Vàng Điểm Rơi', xác suất nổ kỳ này tối ưu nhất."
+            "math_basis": "Hàm mật độ điểm rơi Gauss trên độ lệch chuẩn chu kỳ nhịp riêng z_b = (g_b - 1.05 * avg_g) / std_g",
+            "rationale": "Các bóng 06, 07, 27, 32 có nhịp gan hội tụ chuẩn xác tại đỉnh chuông mật độ Gauss, xác suất bùng nổ kỳ này đạt cực đại."
           },
           "decay": {
-            "name": "Exponential Time Decay (Nhiệt)",
+            "name": "Exponential Momentum & Decay (Nhiệt)",
             "top_picks": [
               20,
               13,
@@ -21951,44 +21966,32 @@
               18,
               23
             ],
-            "math_basis": "Tần suất suy giảm mũ thời gian alpha = 0.055 trên 120 kỳ",
+            "math_basis": "Tần suất suy giảm mũ kết hợp xung lực nhiệt alpha = 0.055 trên 120 kỳ",
             "rationale": "Các bóng 20, 13, 11, 18 có xung lực xuất hiện dày đặc gần đây, quán tính nhiệt tiếp tục duy trì đà nổ."
           },
-          "markov": {
-            "name": "Markov Transition Chain",
-            "top_picks": [
-              13,
-              22,
-              3,
-              35,
-              7
-            ],
-            "math_basis": "Ma trận chuyển trạng thái Markov bậc 1 từ các bóng kỳ trước",
-            "rationale": "Dựa trên kết quả kỳ trước (11, 13, 20, 23, 24), ma trận xác suất chuyển trạng thái ghi nhận các số 13, 22, 03, 35 có liên kết nổ kế tiếp cao nhất."
-          },
-          "fourier": {
-            "name": "Fourier Spectral Resonance (Sóng)",
-            "top_picks": [
-              27,
-              22,
-              12,
-              9,
-              25
-            ],
-            "math_basis": "Biến đổi Fourier rời rạc (DFT) trích xuất tần số dao động chủ đạo trên 64 kỳ",
-            "rationale": "Bước sóng chu kỳ của các bóng 27, 22, 12, 09 đang tiến sát pha cực đại trên phổ dao động cộng hưởng."
-          },
           "bac_nho": {
-            "name": "Pairwise Synergy & Bạc Nhớ",
+            "name": "Empirical Bayes Pairwise Lift",
             "top_picks": [
               7,
               29,
               13,
               32,
-              18
+              1
             ],
-            "math_basis": "Độ nâng Lift > 1.2 giữa cặp bóng kỳ trước và bóng đơn kỳ sau trên 120 kỳ",
-            "rationale": "Lực hút cặp đôi Bạc Nhớ chỉ ra các bóng 07, 29, 13, 32 có độ nâng Lift cao hơn 30-70% so với tần suất ngẫu nhiên khi đi kèm bóng kỳ trước."
+            "math_basis": "Độ nâng Lift có hiệu chỉnh Bayes chống quá khớp (Empirical Bayes Shrinkage) trên cặp số kỳ trước",
+            "rationale": "Lực hút Bạc Nhớ Bayes chỉ ra các bóng 07, 29, 13, 32 có độ nâng xác suất thực sự vượt trội khi đi kèm cặp số kỳ trước."
+          },
+          "fourier": {
+            "name": "Hann-Windowed Spectral Resonance",
+            "top_picks": [
+              3,
+              27,
+              22,
+              31,
+              12
+            ],
+            "math_basis": "Biến đổi Fourier rời rạc (DFT) áp dụng cửa sổ Hann triệt tiêu rò rỉ phổ trên 64 kỳ",
+            "rationale": "Bước sóng chu kỳ của các bóng 03, 27, 22, 31 đang tiến sát pha cực đại trên phổ dao động cộng hưởng đã lọc nhiễu."
           }
         },
         "training_report": {
@@ -22008,28 +22011,28 @@
             "min_ac_threshold": 4
           },
           "trained_model_weights": {
-            "hazard": 21.1,
-            "decay": 18.4,
-            "markov": 15.9,
-            "fourier": 17.5,
-            "bac_nho": 27.1
+            "markov": 15.4,
+            "hazard": 22.1,
+            "decay": 16.3,
+            "bac_nho": 20.2,
+            "fourier": 26.1
           },
           "negative_space_compliance": "100% Đạt Chuẩn (5/5 Bộ Lọc)",
           "accuracy_gain_vs_random": {
-            "avg_hits_improvement_pct": 5.6,
-            "hit_rate_ge3": 0.0,
+            "avg_hits_improvement_pct": 14.1,
+            "hit_rate_ge3": 1.0,
             "baseline_random_avg": 0.71
           }
         },
         "tickets": {
           "key_balls": [
-            13,
+            16,
             6,
             11
           ],
           "key_roles": [
             {
-              "ball": 13,
+              "ball": 16,
               "role": "Xác Suất Markov",
               "color": "fuchsia"
             },
@@ -22045,39 +22048,39 @@
             }
           ],
           "key_5_balls": [
-            13,
+            16,
             6,
             11,
             7,
             27
           ],
           "triad_backtest": {
-            "avg_hits": 0.44,
-            "win_rate_ge1": 39.0,
-            "win_rate_ge2": 5.0
+            "avg_hits": 0.42,
+            "win_rate_ge1": 38.0,
+            "win_rate_ge2": 4.0
           },
           "key5_backtest": {
-            "avg_hits": 0.75,
-            "win_rate_ge1": 59.0,
-            "win_rate_ge2": 16.0
+            "avg_hits": 0.76,
+            "win_rate_ge1": 56.0,
+            "win_rate_ge2": 19.0
           },
           "core_pool": [
             7,
             27,
-            13,
-            22,
+            3,
             2,
-            15,
-            18,
-            9,
+            22,
             12,
+            18,
+            35,
+            13,
             32
           ],
           "core_backtest": {
             "pool_size": 10,
-            "avg_hits": 1.43,
-            "win_rate_ge3": 8.0,
-            "win_rate_ge4": 1.0,
+            "avg_hits": 1.47,
+            "win_rate_ge3": 15.0,
+            "win_rate_ge4": 2.0,
             "win_rate_ge5": 0.0
           },
           "wheeling_4_tickets": [
@@ -22086,8 +22089,8 @@
               "label": "Vé 1",
               "numbers": [
                 2,
+                3,
                 7,
-                13,
                 22,
                 27
               ],
@@ -22098,10 +22101,10 @@
               "label": "Vé 2",
               "numbers": [
                 7,
-                9,
                 12,
-                15,
-                18
+                13,
+                18,
+                35
               ],
               "special": 7
             },
@@ -22109,8 +22112,8 @@
               "id": "ve_3",
               "label": "Vé 3",
               "numbers": [
-                13,
-                15,
+                3,
+                12,
                 18,
                 27,
                 32
@@ -22122,29 +22125,29 @@
               "label": "Vé 4",
               "numbers": [
                 2,
-                9,
-                12,
+                13,
                 22,
-                32
+                32,
+                35
               ],
               "special": 7
             }
           ],
           "wheel4_backtest": {
-            "overall_prize_win_rate": 3.0,
-            "core_ge4_count": 1,
+            "overall_prize_win_rate": 5.0,
+            "core_ge4_count": 2,
             "core_ge4_win_rate": 100.0
           },
           "golden": {
             "numbers": [
-              7,
-              12,
-              13,
-              22,
-              29
+              3,
+              11,
+              18,
+              27,
+              32
             ],
             "ac_index": 6,
-            "sum": 83,
+            "sum": 91,
             "odd_even": "2C - 3L",
             "sei_score": 10.0,
             "special": 7,
@@ -22155,7 +22158,49 @@
                 "passed": true,
                 "score_pass": 5,
                 "sum": {
-                  "val": 83,
+                  "val": 91,
+                  "min": 60,
+                  "max": 120,
+                  "passed": true
+                },
+                "ac": {
+                  "val": 6,
+                  "threshold": 4,
+                  "passed": true
+                },
+                "consecutive": {
+                  "max_len": 1,
+                  "passed": true
+                },
+                "parity": {
+                  "ratio": "2C - 3L",
+                  "passed": true
+                },
+                "repeat": {
+                  "count": 1,
+                  "max_allowed": 2,
+                  "passed": true
+                }
+              }
+            }
+          },
+          "momentum": {
+            "numbers": [
+              7,
+              9,
+              23,
+              24,
+              32
+            ],
+            "special": 7,
+            "negative_space_check": {
+              "passed": true,
+              "score": "5/5",
+              "details": {
+                "passed": true,
+                "score_pass": 5,
+                "sum": {
+                  "val": 95,
                   "min": 60,
                   "max": 120,
                   "passed": true
@@ -22174,49 +22219,7 @@
                   "passed": true
                 },
                 "repeat": {
-                  "count": 1,
-                  "max_allowed": 2,
-                  "passed": true
-                }
-              }
-            }
-          },
-          "momentum": {
-            "numbers": [
-              1,
-              18,
-              22,
-              29,
-              35
-            ],
-            "special": 7,
-            "negative_space_check": {
-              "passed": true,
-              "score": "5/5",
-              "details": {
-                "passed": true,
-                "score_pass": 5,
-                "sum": {
-                  "val": 105,
-                  "min": 60,
-                  "max": 120,
-                  "passed": true
-                },
-                "ac": {
-                  "val": 5,
-                  "threshold": 4,
-                  "passed": true
-                },
-                "consecutive": {
-                  "max_len": 1,
-                  "passed": true
-                },
-                "parity": {
-                  "ratio": "2C - 3L",
-                  "passed": true
-                },
-                "repeat": {
-                  "count": 0,
+                  "count": 2,
                   "max_allowed": 2,
                   "passed": true
                 }
@@ -22225,10 +22228,10 @@
           },
           "breakout": {
             "numbers": [
-              5,
-              6,
-              9,
-              13,
+              2,
+              3,
+              16,
+              24,
               32
             ],
             "special": 7,
@@ -22239,7 +22242,7 @@
                 "passed": true,
                 "score_pass": 5,
                 "sum": {
-                  "val": 65,
+                  "val": 77,
                   "min": 60,
                   "max": 120,
                   "passed": true
@@ -22254,7 +22257,7 @@
                   "passed": true
                 },
                 "parity": {
-                  "ratio": "2C - 3L",
+                  "ratio": "4C - 1L",
                   "passed": true
                 },
                 "repeat": {
@@ -22269,10 +22272,10 @@
             "numbers": [
               7,
               27,
-              13,
-              22,
+              3,
               2,
-              15
+              22,
+              12
             ],
             "special": 7,
             "negative_space_check": {
@@ -22293,27 +22296,27 @@
               24
             ],
             "predicted": [
-              4,
+              11,
               12,
               2,
-              11,
-              19
+              19,
+              3
             ],
             "matched": [
               11
             ],
             "matchCount": 1,
             "corePool": [
-              4,
+              11,
               12,
               2,
-              11,
               19,
-              28,
-              15,
+              3,
               25,
+              4,
+              27,
               13,
-              9
+              22
             ],
             "coreMatched": [
               11,
@@ -22331,17 +22334,19 @@
               4,
               5,
               18,
-              12,
-              2
+              11,
+              12
             ],
-            "key5Matched": [],
-            "key5MatchCount": 0,
+            "key5Matched": [
+              11
+            ],
+            "key5MatchCount": 1,
             "wheel4": {
               "ticketHits": [
                 1,
-                1,
+                2,
                 0,
-                2
+                1
               ],
               "maxHit": 2,
               "wonPrize": false
@@ -22358,25 +22363,26 @@
               29
             ],
             "predicted": [
-              13,
               18,
-              4,
               11,
-              27
+              3,
+              12,
+              13
             ],
             "matched": [
+              12,
               18
             ],
-            "matchCount": 1,
+            "matchCount": 2,
             "corePool": [
-              13,
               18,
-              4,
               11,
-              27,
+              3,
               12,
+              13,
               19,
               7,
+              4,
               2,
               22
             ],
@@ -22396,8 +22402,8 @@
               11,
               5,
               15,
-              13,
-              18
+              18,
+              3
             ],
             "key5Matched": [
               18
@@ -22405,10 +22411,10 @@
             "key5MatchCount": 1,
             "wheel4": {
               "ticketHits": [
-                1,
-                1,
                 2,
-                0
+                1,
+                0,
+                1
               ],
               "maxHit": 2,
               "wonPrize": false
@@ -22425,35 +22431,37 @@
               26
             ],
             "predicted": [
-              9,
-              2,
               7,
-              4,
-              13
+              2,
+              3,
+              9,
+              15
             ],
             "matched": [
-              9
-            ],
-            "matchCount": 1,
-            "corePool": [
               9,
-              2,
-              7,
-              4,
-              13,
-              17,
-              28,
-              27,
-              34,
               15
+            ],
+            "matchCount": 2,
+            "corePool": [
+              7,
+              2,
+              3,
+              9,
+              15,
+              26,
+              4,
+              1,
+              13,
+              19
             ],
             "coreMatched": [
               9,
-              15
+              15,
+              26
             ],
-            "coreMatchCount": 2,
+            "coreMatchCount": 3,
             "triad": [
-              2,
+              29,
               26,
               18
             ],
@@ -22462,25 +22470,24 @@
             ],
             "triadMatchCount": 1,
             "key5": [
-              2,
+              29,
               26,
               18,
-              9,
-              7
+              7,
+              2
             ],
             "key5Matched": [
-              9,
               26
             ],
-            "key5MatchCount": 2,
+            "key5MatchCount": 1,
             "wheel4": {
               "ticketHits": [
+                2,
                 1,
                 1,
-                1,
-                1
+                2
               ],
-              "maxHit": 1,
+              "maxHit": 2,
               "wonPrize": false
             }
           },
@@ -22495,28 +22502,27 @@
               35
             ],
             "predicted": [
-              3,
-              15,
+              26,
+              9,
+              7,
               1,
-              13,
               11
             ],
             "matched": [
-              3,
               11
             ],
-            "matchCount": 2,
+            "matchCount": 1,
             "corePool": [
-              3,
-              15,
-              1,
-              13,
-              11,
+              26,
               9,
               7,
-              34,
-              26,
-              8
+              1,
+              11,
+              15,
+              13,
+              30,
+              3,
+              2
             ],
             "coreMatched": [
               3,
@@ -22524,29 +22530,27 @@
             ],
             "coreMatchCount": 2,
             "triad": [
-              13,
+              16,
               1,
-              20
+              13
             ],
             "triadMatched": [],
             "triadMatchCount": 0,
             "key5": [
-              13,
+              16,
               1,
-              20,
-              3,
-              15
+              13,
+              26,
+              9
             ],
-            "key5Matched": [
-              3
-            ],
-            "key5MatchCount": 1,
+            "key5Matched": [],
+            "key5MatchCount": 0,
             "wheel4": {
               "ticketHits": [
-                2,
+                1,
                 1,
                 0,
-                1
+                2
               ],
               "maxHit": 2,
               "wonPrize": false
@@ -22565,23 +22569,23 @@
             "predicted": [
               11,
               3,
+              30,
               1,
-              15,
-              34
+              18
             ],
             "matched": [],
             "matchCount": 0,
             "corePool": [
               11,
               3,
-              1,
-              15,
-              34,
-              13,
               30,
+              1,
+              18,
               9,
               19,
-              18
+              13,
+              32,
+              21
             ],
             "coreMatched": [
               13
@@ -22611,8 +22615,8 @@
               "ticketHits": [
                 0,
                 1,
-                1,
-                0
+                0,
+                1
               ],
               "maxHit": 1,
               "wonPrize": false
@@ -22630,10 +22634,10 @@
             ],
             "predicted": [
               13,
-              26,
-              9,
               3,
-              22
+              22,
+              20,
+              32
             ],
             "matched": [
               13,
@@ -22642,15 +22646,15 @@
             "matchCount": 2,
             "corePool": [
               13,
-              26,
-              9,
               3,
               22,
-              15,
-              28,
-              34,
               20,
-              18
+              32,
+              15,
+              26,
+              1,
+              6,
+              9
             ],
             "coreMatched": [
               13,
@@ -22658,18 +22662,18 @@
             ],
             "coreMatchCount": 2,
             "triad": [
-              6,
+              16,
               28,
               27
             ],
             "triadMatched": [],
             "triadMatchCount": 0,
             "key5": [
-              6,
+              16,
               28,
               27,
               13,
-              26
+              3
             ],
             "key5Matched": [
               13
@@ -22679,8 +22683,8 @@
               "ticketHits": [
                 2,
                 1,
-                0,
-                1
+                1,
+                0
               ],
               "maxHit": 2,
               "wonPrize": false
@@ -22697,32 +22701,34 @@
               27
             ],
             "predicted": [
-              28,
-              13,
-              22,
               3,
-              26
-            ],
-            "matched": [],
-            "matchCount": 0,
-            "corePool": [
-              28,
-              13,
-              22,
-              3,
-              26,
-              15,
-              34,
               27,
-              18,
-              4
+              13,
+              22,
+              28
+            ],
+            "matched": [
+              27
+            ],
+            "matchCount": 1,
+            "corePool": [
+              3,
+              27,
+              13,
+              22,
+              28,
+              34,
+              15,
+              21,
+              1,
+              26
             ],
             "coreMatched": [
               27
             ],
             "coreMatchCount": 1,
             "triad": [
-              22,
+              3,
               17,
               2
             ],
@@ -22731,22 +22737,23 @@
             ],
             "triadMatchCount": 1,
             "key5": [
-              22,
+              3,
               17,
               2,
-              28,
+              27,
               13
             ],
             "key5Matched": [
-              17
+              17,
+              27
             ],
-            "key5MatchCount": 1,
+            "key5MatchCount": 2,
             "wheel4": {
               "ticketHits": [
-                0,
                 1,
                 0,
-                1
+                1,
+                0
               ],
               "maxHit": 1,
               "wonPrize": false
@@ -22767,7 +22774,7 @@
               20,
               21,
               28,
-              18
+              34
             ],
             "matched": [],
             "matchCount": 0,
@@ -22776,19 +22783,19 @@
               20,
               21,
               28,
-              18,
-              2,
-              12,
+              34,
+              3,
               11,
+              18,
               9,
-              22
+              2
             ],
             "coreMatched": [
               2
             ],
             "coreMatchCount": 1,
             "triad": [
-              9,
+              13,
               2,
               11
             ],
@@ -22797,11 +22804,11 @@
             ],
             "triadMatchCount": 1,
             "key5": [
-              9,
+              13,
               2,
               11,
-              13,
-              20
+              20,
+              21
             ],
             "key5Matched": [
               2
@@ -22810,9 +22817,9 @@
             "wheel4": {
               "ticketHits": [
                 0,
+                0,
                 1,
-                1,
-                0
+                1
               ],
               "maxHit": 1,
               "wonPrize": false
@@ -22831,41 +22838,41 @@
             "predicted": [
               12,
               21,
-              13,
-              2,
-              28
+              28,
+              34,
+              2
             ],
             "matched": [],
             "matchCount": 0,
             "corePool": [
               12,
               21,
-              13,
-              2,
               28,
-              9,
               34,
+              2,
+              3,
               25,
-              22,
-              19
+              9,
+              13,
+              5
             ],
             "coreMatched": [
               9
             ],
             "coreMatchCount": 1,
             "triad": [
-              19,
+              12,
               21,
               18
             ],
             "triadMatched": [],
             "triadMatchCount": 0,
             "key5": [
-              19,
+              12,
               21,
               18,
-              12,
-              13
+              28,
+              34
             ],
             "key5Matched": [],
             "key5MatchCount": 0,
@@ -22873,8 +22880,8 @@
               "ticketHits": [
                 0,
                 1,
-                1,
-                0
+                0,
+                1
               ],
               "maxHit": 1,
               "wonPrize": false
@@ -22891,27 +22898,27 @@
               29
             ],
             "predicted": [
-              21,
               28,
-              12,
               11,
-              13
+              3,
+              5,
+              21
             ],
             "matched": [
               11
             ],
             "matchCount": 1,
             "corePool": [
-              21,
               28,
-              12,
               11,
-              13,
-              9,
-              17,
+              3,
+              5,
+              21,
+              27,
+              26,
+              12,
               25,
-              20,
-              26
+              24
             ],
             "coreMatched": [
               11,
@@ -22919,7 +22926,7 @@
             ],
             "coreMatchCount": 2,
             "triad": [
-              9,
+              5,
               29,
               3
             ],
@@ -22928,22 +22935,23 @@
             ],
             "triadMatchCount": 1,
             "key5": [
-              9,
+              5,
               29,
               3,
-              21,
-              28
+              28,
+              11
             ],
             "key5Matched": [
+              11,
               29
             ],
-            "key5MatchCount": 1,
+            "key5MatchCount": 2,
             "wheel4": {
               "ticketHits": [
                 1,
-                0,
                 1,
-                2
+                2,
+                0
               ],
               "maxHit": 2,
               "wonPrize": false
@@ -22960,27 +22968,27 @@
               22
             ],
             "predicted": [
-              7,
               28,
-              12,
+              7,
               15,
-              13
+              27,
+              24
             ],
             "matched": [
               15
             ],
             "matchCount": 1,
             "corePool": [
-              7,
               28,
-              12,
+              7,
               15,
-              13,
-              6,
+              27,
+              24,
               21,
-              35,
+              30,
               34,
-              2
+              18,
+              6
             ],
             "coreMatched": [
               6,
@@ -22988,29 +22996,29 @@
             ],
             "coreMatchCount": 2,
             "triad": [
-              28,
+              18,
               24,
-              18
+              20
             ],
             "triadMatched": [],
             "triadMatchCount": 0,
             "key5": [
-              28,
-              24,
               18,
-              7,
-              12
+              24,
+              20,
+              28,
+              7
             ],
             "key5Matched": [],
             "key5MatchCount": 0,
             "wheel4": {
               "ticketHits": [
                 1,
-                1,
-                1,
+                0,
+                2,
                 1
               ],
-              "maxHit": 1,
+              "maxHit": 2,
               "wonPrize": false
             }
           },
@@ -23025,26 +23033,27 @@
               34
             ],
             "predicted": [
+              6,
               2,
+              27,
               34,
-              8,
-              35,
-              6
+              21
             ],
             "matched": [
+              27,
               34
             ],
-            "matchCount": 1,
+            "matchCount": 2,
             "corePool": [
-              2,
-              34,
-              8,
-              35,
               6,
-              21,
+              2,
               27,
-              26,
+              34,
+              21,
               3,
+              8,
+              24,
+              23,
               20
             ],
             "coreMatched": [
@@ -23066,23 +23075,22 @@
               27,
               24,
               28,
-              2,
-              34
+              6,
+              2
             ],
             "key5Matched": [
-              27,
-              34
+              27
             ],
-            "key5MatchCount": 2,
+            "key5MatchCount": 1,
             "wheel4": {
               "ticketHits": [
-                1,
-                1,
-                3,
-                1
+                2,
+                0,
+                2,
+                2
               ],
-              "maxHit": 3,
-              "wonPrize": true
+              "maxHit": 2,
+              "wonPrize": false
             }
           },
           {
@@ -23097,54 +23105,55 @@
             ],
             "predicted": [
               34,
-              12,
-              20,
-              35,
-              7
-            ],
-            "matched": [],
-            "matchCount": 0,
-            "corePool": [
-              34,
-              12,
-              20,
-              35,
               7,
-              6,
-              15,
+              20,
               28,
-              2,
-              1
+              2
             ],
-            "coreMatched": [
-              1,
+            "matched": [
               28
             ],
-            "coreMatchCount": 2,
+            "matchCount": 1,
+            "corePool": [
+              34,
+              7,
+              20,
+              28,
+              2,
+              6,
+              12,
+              3,
+              10,
+              21
+            ],
+            "coreMatched": [
+              28
+            ],
+            "coreMatchCount": 1,
             "triad": [
-              22,
+              7,
               24,
               13
             ],
             "triadMatched": [],
             "triadMatchCount": 0,
             "key5": [
-              22,
+              7,
               24,
               13,
               34,
-              12
+              20
             ],
             "key5Matched": [],
             "key5MatchCount": 0,
             "wheel4": {
               "ticketHits": [
+                1,
                 0,
-                1,
-                1,
-                2
+                0,
+                1
               ],
-              "maxHit": 2,
+              "maxHit": 1,
               "wonPrize": false
             }
           },
@@ -23159,59 +23168,63 @@
               27
             ],
             "predicted": [
-              9,
-              33,
-              35,
               34,
-              3
+              10,
+              3,
+              9,
+              2
             ],
             "matched": [],
             "matchCount": 0,
             "corePool": [
-              9,
-              33,
-              35,
               34,
-              3,
               10,
-              22,
+              3,
+              9,
               2,
+              4,
+              21,
+              11,
               13,
-              21
+              35
             ],
             "coreMatched": [
+              4,
+              11,
               13
             ],
-            "coreMatchCount": 1,
+            "coreMatchCount": 3,
             "triad": [
-              22,
+              4,
               9,
               13
             ],
             "triadMatched": [
+              4,
               13
             ],
-            "triadMatchCount": 1,
+            "triadMatchCount": 2,
             "key5": [
-              22,
+              4,
               9,
               13,
-              33,
-              35
+              34,
+              10
             ],
             "key5Matched": [
+              4,
               13
             ],
-            "key5MatchCount": 1,
+            "key5MatchCount": 2,
             "wheel4": {
               "ticketHits": [
                 0,
+                3,
                 1,
-                0,
-                1
+                2
               ],
-              "maxHit": 1,
-              "wonPrize": false
+              "maxHit": 3,
+              "wonPrize": true
             }
           },
           {
@@ -23225,58 +23238,56 @@
               30
             ],
             "predicted": [
-              33,
-              19,
               34,
-              3,
-              29
-            ],
-            "matched": [],
-            "matchCount": 0,
-            "corePool": [
               33,
-              19,
-              34,
-              3,
-              29,
               17,
-              11,
+              3,
+              13
+            ],
+            "matched": [
               13,
+              17
+            ],
+            "matchCount": 2,
+            "corePool": [
+              34,
+              33,
+              17,
+              3,
+              13,
+              10,
               28,
-              15
+              9,
+              11,
+              16
             ],
             "coreMatched": [
               13,
-              15,
               17
             ],
-            "coreMatchCount": 3,
+            "coreMatchCount": 2,
             "triad": [
-              15,
+              5,
               16,
               12
             ],
-            "triadMatched": [
-              15
-            ],
-            "triadMatchCount": 1,
+            "triadMatched": [],
+            "triadMatchCount": 0,
             "key5": [
-              15,
+              5,
               16,
               12,
-              33,
-              19
+              34,
+              33
             ],
-            "key5Matched": [
-              15
-            ],
-            "key5MatchCount": 1,
+            "key5Matched": [],
+            "key5MatchCount": 0,
             "wheel4": {
               "ticketHits": [
+                2,
                 0,
-                2,
-                2,
-                2
+                1,
+                1
               ],
               "maxHit": 2,
               "wonPrize": false

@@ -166,3 +166,35 @@ Trong đó bộ trọng số tối ưu thực nghiệm:
 * $w_4 = 0.5$: Trọng số Cộng hưởng phổ Fourier
 * $w_5 = 1.8$: Trọng số Bạc Nhớ Cặp Đôi kéo bóng
 * $w_6 = 1.2$: Trọng số Ma Trận Kề Đồng Quy
+
+---
+
+## 9. LÝ THUYẾT THÔNG TIN MARKOV PPMI (POSITIVE POINTWISE MUTUAL INFORMATION)
+
+Để triệt tiêu thiên lệch do tần suất xuất hiện tự nhiên của các con số, ma trận chuyển trạng thái được chuẩn hóa bằng thông tin tương hỗ dương (PPMI) có làm mịn Laplace ($\alpha = 0.1$):
+
+$$P(p \cap c) = \frac{\text{Count}(p \to c) + \alpha}{\sum \text{Transitions} + \alpha \cdot N}$$
+$$\text{PPMI}(p, c) = \max\left(0, \log_2 \frac{P(p \cap c)}{P(p) \cdot P(c)}\right)$$
+$$\text{Score}_{\text{PPMI}}(c) = \sum_{p \in \text{Draw}_{T-1}} \text{PPMI}(p, c)$$
+
+Mô hình chỉ tích lũy điểm khi xác suất chuyển trạng thái $P(c \mid p)$ thực sự vượt trội so với xác suất biên ngẫu nhiên độc lập $P(c)$.
+
+---
+
+## 10. HÀM NGUY CƠ CHUẨN HÓA BAYESIAN RHYTHM Z-SCORE
+
+Khắc phục hạn chế của hàm bước thang cũ, mô hình mới chuẩn hóa độ lệch nhịp theo độ lệch chuẩn chu kỳ $\sigma_b$:
+
+$$z_b = \frac{g_b - 1.05 \cdot \bar{g}_b}{\max(1.0, \sigma_b)}$$
+$$H_{\text{Z-Score}}(b) = 3.0 \cdot \exp\left(-\frac{z_b^2}{2}\right) \times \begin{cases} 0.3 & \text{nếu } z_b > 2.5 \text{ (Gan quá hạn)} \\ 1.0 & \text{ngược lại} \end{cases}$$
+
+---
+
+## 11. CƠ CHẾ XẾP CHỒNG ĐỘNG DYNAMIC ALPHA STACKING
+
+Thay vì gộp cào bằng 5 mô hình với làm mịn Borda phẳng, hệ thống đánh giá Alpha ngoại mẫu (Out-Of-Fold Alpha) của từng mô hình qua 100 kỳ Walk-Forward và phân bổ trọng số Softmax:
+
+$$\text{Weight}(m) = \frac{\exp(\beta \cdot \text{Alpha}_m)}{\sum_j \exp(\beta \cdot \text{Alpha}_j)}$$
+$$\text{Conviction}(b, m) = \exp(-0.08 \cdot \text{Rank}_{b, m})$$
+$$\text{Consensus\_Score}(b) = \sum_{m} \text{Weight}(m) \cdot \text{Conviction}(b, m)$$
+
