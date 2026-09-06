@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Vietlott Data & Analytics System Architecture",
+    "output": "vietlott-architecture.html",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "full-view",
+        "label": "Toàn cảnh luồng dữ liệu",
+        "focus": ["vietlott_portal", "crawler_cli", "raw_data", "render_pipeline", "web_portal", "end_user"],
+        "note": "Toàn cảnh từ khâu cào dữ liệu đến lưu trữ JSONL, tính toán Walk-Forward và hiển thị trên Web."
+      },
+      {
+        "id": "etl-pipeline",
+        "label": "Pipeline Thu Thập & Xử Lý",
+        "focus": ["vietlott_portal", "gh_actions", "crawler_cli", "raw_data", "render_pipeline"],
+        "note": "Quy trình Serverless GitHub Actions điều phối crawler, backfill dữ liệu thiếu và chạy render thống kê."
+      },
+      {
+        "id": "client-pwa",
+        "label": "Kiến trúc Frontend & PWA",
+        "focus": ["gh_pages", "sw_pwa", "web_portal", "end_user", "sms_gateway"],
+        "note": "Ứng dụng Single Page Web PWA, nạp dữ liệu tĩnh và tương tác đặt vé SMS 9969."
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "vietlott_portal",
+      "type": "external",
+      "label": "Vietlott Portal",
+      "sublabel": "vietlott.vn (HTML tables)",
+      "pos": [40, 300],
+      "size": [130, 60]
+    },
+    {
+      "id": "gh_actions",
+      "type": "cloud",
+      "label": "GitHub Actions",
+      "sublabel": "Cron Runner (crawl.yaml)",
+      "pos": [260, 120],
+      "size": [140, 60],
+      "tag": "Serverless"
+    },
+    {
+      "id": "crawler_cli",
+      "type": "backend",
+      "label": "Crawler & CLI Engine",
+      "sublabel": "BeautifulSoup + Requests",
+      "pos": [260, 300],
+      "size": [140, 60]
+    },
+    {
+      "id": "raw_data",
+      "type": "database",
+      "label": "Data Store (JSONL)",
+      "sublabel": "Append-only Flat Files",
+      "pos": [490, 300],
+      "size": [140, 60],
+      "tag": "Git Tracked"
+    },
+    {
+      "id": "render_pipeline",
+      "type": "backend",
+      "label": "Analytics Pipeline",
+      "sublabel": "Walk-Forward & Quant Calc",
+      "pos": [720, 300],
+      "size": [140, 60]
+    },
+    {
+      "id": "summary_json",
+      "type": "database",
+      "label": "Summary JSON",
+      "sublabel": "vietlott_summary.json",
+      "pos": [720, 120],
+      "size": [140, 60]
+    },
+    {
+      "id": "gh_pages",
+      "type": "cloud",
+      "label": "GitHub Pages",
+      "sublabel": "Static Web Host",
+      "pos": [960, 120],
+      "size": [130, 60]
+    },
+    {
+      "id": "sw_pwa",
+      "type": "frontend",
+      "label": "Service Worker (PWA)",
+      "sublabel": "Cache Storage v1.1",
+      "pos": [960, 300],
+      "size": [130, 60]
+    },
+    {
+      "id": "web_portal",
+      "type": "frontend",
+      "label": "Modular Web UI",
+      "sublabel": "HTML5 + Tailwind + Chart.js",
+      "pos": [960, 480],
+      "size": [130, 60]
+    },
+    {
+      "id": "end_user",
+      "type": "external",
+      "label": "Người Dùng",
+      "sublabel": "Desktop / Mobile Web",
+      "pos": [1180, 480],
+      "size": [130, 60]
+    },
+    {
+      "id": "sms_gateway",
+      "type": "external",
+      "label": "Vietlott SMS 9969",
+      "sublabel": "Cổng Đặt Vé SMS",
+      "pos": [1180, 300],
+      "size": [130, 60],
+      "tag": "sms:9969"
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Serverless Pipeline & Storage Boundary",
+      "wraps": ["gh_actions", "crawler_cli", "raw_data", "render_pipeline", "summary_json"]
+    },
+    {
+      "kind": "region",
+      "label": "Client PWA & Web Delivery Boundary",
+      "wraps": ["gh_pages", "sw_pwa", "web_portal"]
+    }
+  ],
+  "connections": [
+    {
+      "id": "crawl-trigger",
+      "from": "gh_actions",
+      "to": "crawler_cli",
+      "label": "kích hoạt",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelAt": [330, 240]
+    },
+    {
+      "id": "crawl-http",
+      "from": "crawler_cli",
+      "to": "vietlott_portal",
+      "label": "HTTP GET",
+      "fromSide": "left",
+      "toSide": "right"
+    },
+    {
+      "id": "write-raw",
+      "from": "crawler_cli",
+      "to": "raw_data",
+      "label": "append",
+      "variant": "emphasis"
+    },
+    {
+      "id": "read-raw",
+      "from": "raw_data",
+      "to": "render_pipeline",
+      "label": "read",
+      "variant": "emphasis"
+    },
+    {
+      "id": "export-summary",
+      "from": "render_pipeline",
+      "to": "summary_json",
+      "label": "compute",
+      "fromSide": "top",
+      "toSide": "bottom"
+    },
+    {
+      "id": "deploy-static",
+      "from": "summary_json",
+      "to": "gh_pages",
+      "label": "git deploy"
+    },
+    {
+      "id": "serve-assets",
+      "from": "gh_pages",
+      "to": "sw_pwa",
+      "label": "static serve",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelAt": [1025, 240]
+    },
+    {
+      "id": "pwa-render",
+      "from": "sw_pwa",
+      "to": "web_portal",
+      "label": "hydrate",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelAt": [1018, 420]
+    },
+    {
+      "id": "user-interact",
+      "from": "web_portal",
+      "to": "end_user",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "send-ticket",
+      "from": "end_user",
+      "to": "sms_gateway",
+      "label": "send SMS",
+      "variant": "dashed",
+      "fromSide": "top",
+      "toSide": "bottom"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Thu thập & Lưu trữ",
+      "items": [
+        "GitHub Actions chạy cron định kỳ cào kết quả từ vietlott.vn",
+        "Lưu trữ Flat Files (.jsonl) append-only trong repository"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Pipeline Walk-Forward",
+      "items": [
+        "Tính toán phân phối xác suất & backtest không look-ahead bias",
+        "Xuất vietlott_summary.json làm nguồn dữ liệu cho web"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Web PWA & Đặt Vé",
+      "items": [
+        "Web tĩnh module hóa, Service Worker hỗ trợ ngoại tuyến",
+        "Sinh cú pháp tin nhắn chuẩn gửi 9969 mua vé trực tiếp"
+      ]
+    }
+  ]
+}

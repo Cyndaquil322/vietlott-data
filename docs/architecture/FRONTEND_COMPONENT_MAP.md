@@ -85,3 +85,38 @@ const PAGE_SIZE = 25;                // Số dòng mỗi trang lịch sử
 * `createShareSyncLink()`: Mã hóa Base64 toàn bộ vé vào URL param `?sync=...` và copy link để gửi qua Zalo/iMessage.
 * `checkUrlSyncParams()`: Tự động phát hiện khi mở link `?sync=...` trên thiết bị khác và nạp vé vào Sổ Tay.
 * `exportTicketsJson()` & `importTicketsJson(event)`: Sao lưu và phục hồi sổ tay qua file JSON.
+
+---
+
+## 4. CẤU TRÚC PHÂN RÃ MODULE TĨNH (STATIC ASSETS ARCHITECTURE)
+
+Giao diện đã được phân rã hoàn toàn từ file nguyên khối sang kiến trúc module tĩnh thuần túy, tối ưu cho GitHub Pages HTTP/2 và PWA Cache Storage v1.1:
+
+```text
+docs/
+├── index.html                   # Khung HTML tinh gọn (~2.340 dòng, DOM & Template)
+├── sw.js                        # Service Worker (Cache Storage v1.1, ignoreSearch JSON)
+└── assets/
+    ├── css/
+    │   └── styles.css           # Hiệu ứng 3D ball, màu sắc bóng, thanh cuộn tùy biến
+    └── js/
+        ├── core.js              # State toàn cục, PRNG Seeded, PWA, Navigation & Router
+        ├── common_analytics.js  # Thống kê cơ bản: Dò vé, Gap, Cặp số, Tổng Gaussian, Lịch sử
+        ├── advanced_quant.js    # Định lượng sâu: Vị trí, AC/Delta, Markov, +EV, Wheeling, Bạc Nhớ
+        ├── consensus_ensemble.js# Trí tuệ đám đông (Consensus AI), Ensemble 100 kỳ, Countdown
+        └── notebook_bao7.js     # Sổ tay vé cá nhân (LocalStorage/Sync), Chiến lược Bao 7 & SMS
+```
+
+### Bảng Phân Nhiệm Chi Tiết 5 Module JavaScript:
+
+| File Module | Số hàm | Trách nhiệm & Phạm vi nghiệp vụ | Phụ thuộc chính |
+| :--- | :---: | :--- | :--- |
+| **`core.js`** | **19** | Quản lý biến state (`appData`, `currentProductKey`, `currentView`), toán học PRNG (`createMulberry32`, `stringToSeedHash`), vòng lặp nạp dữ liệu `loadData()` đa fallback, điều hướng Sidebar & Game Dropdown, đăng ký PWA Service Worker. | DOM Ready, Lucide Icons |
+| **`common_analytics.js`** | **21** | Hiển thị kết quả kỳ mới nhất (`renderHero`), dò vé (`checkTicket`), phân tích chu kỳ nhịp (`renderGapAnalysis`), ma trận đồng quy cặp số, biểu đồ chuông dải tổng Gaussian, mẫu hình liền kề/đầu số, giả lập nuôi số (`runSimulation`), bảng lịch sử toàn bộ kỳ quay. | `appData`, Chart.js |
+| **`advanced_quant.js`** | **17** | Phân tích điểm rơi vị trí bóng & biên độ Span, chỉ số độ phức tạp Arithmetic Complexity (AC) & Delta gaps, ma trận chuyển trạng thái Markov, đo lường giá trị kỳ vọng đuôi số (+EV), dàn số rút gọn Wheeling và thống kê Bạc Nhớ. | `appData`, Chart.js |
+| **`consensus_ensemble.js`** | **29** | Trí tuệ đám đông Consensus Hub (xếp hạng Top 15 bóng theo 5 mô hình độc lập), bộ sinh số vàng Ensemble gieo mầm cố định theo mã kỳ quay (`Draw ID Seed`), bảng đối soát 100 kỳ Walk-Forward, đồng hồ đếm ngược trực tiếp (`updateCountdown`), soi cầu bóng đặc biệt Power 6/55 và Power 5/35. | `createMulberry32`, `stringToSeedHash` |
+| **`notebook_bao7.js`** | **26** | Quản lý sổ tay vé cá nhân (Lưu `localStorage`, hợp nhất vé Git, đồng bộ link 1-chạm Base64 `?sync=`, sao lưu/phục hồi file JSON), thuật toán tối ưu dàn Bao 7 (Bao 6 với 5/35), đối soát lãi/lỗ và bộ tạo cú pháp tin nhắn SMS 9969 chuẩn Vietlott. | `createMulberry32`, `stringToSeedHash` |
+
+### Nguyên Tắc Giao Tiếp Phạm Vi Toàn Cục (Global Scope & Event Contract):
+* Các module script được nạp tuần tự theo đúng thứ tự phụ thuộc: `core.js` -> `common_analytics.js` -> `advanced_quant.js` -> `consensus_ensemble.js` -> `notebook_bao7.js`.
+* Toàn bộ hàm gọi từ sự kiện inline HTML (`onclick`, `onchange`) đều được gắn kết tự nhiên vào `window` scope của trình duyệt, đảm bảo 0 phụ thuộc vào bundler hoặc framework trung gian.

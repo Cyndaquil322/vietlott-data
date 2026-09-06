@@ -77,19 +77,30 @@ vietlott-data-master/
 │   └── saved_tickets.json          # Sổ tay vé được đồng bộ và lưu trữ trực tiếp trên Git
 │
 ├── docs/                           # Thư mục xuất bản GitHub Pages (Web Root)
+│   ├── assets/                     # Tài nguyên tĩnh đã được module hóa
+│   │   ├── css/
+│   │   │   └── styles.css          # Định dạng 3D lotto ball, animation, scrollbars tùy biến
+│   │   └── js/
+│   │       ├── core.js             # State toàn cục, PWA, Audio, Dropdown, Menu & Navigation
+│   │       ├── common_analytics.js # Dò vé, Hero, Số gan, Cặp số, Phân tích tổng, Mẫu hình, Lịch sử
+│   │       ├── advanced_quant.js   # Vị trí, AC Complexity, Delta, Markov, +EV, Wheeling, Bạc Nhớ
+│   │       ├── consensus_ensemble.js# Trí tuệ đám đông (Consensus), Seeded PRNG, Ensemble, Đếm ngược
+│   │       └── notebook_bao7.js    # Sổ tay vé cá nhân (LocalStorage, Sync), Chiến lược Bao 7 & SMS 9969
 │   ├── data/
-│   │   ├── vietlott_summary.json   # File JSON tổng hợp phân tích (360KB) nạp vào Web UI
+│   │   ├── vietlott_summary.json   # File JSON tổng hợp phân tích (~360KB) nạp vào Web UI
 │   │   └── saved_tickets.json      # File vé đồng bộ từ Git nạp vào Sổ Tay Web UI
 │   ├── architecture/               # Hệ thống tài liệu kiến trúc & tham chiếu chi tiết
-│   │   ├── SYSTEM_ARCHITECTURE.md  # File này
-│   │   ├── DATA_PIPELINE_REFERENCE.md
-│   │   ├── FRONTEND_COMPONENT_MAP.md
-│   │   └── MATHEMATICAL_MODELS.md
+│   │   ├── SYSTEM_ARCHITECTURE.md  # File này (Kiến trúc tổng thể hệ thống)
+│   │   ├── DATA_PIPELINE_REFERENCE.md # Đặc tả chi tiết Data Pipeline & ETL
+│   │   ├── FRONTEND_COMPONENT_MAP.md  # Bản đồ component & module giao diện
+│   │   ├── MATHEMATICAL_MODELS.md     # Mô hình toán học, xác suất & Walk-Forward
+│   │   ├── vietlott-architecture.html # Sơ đồ kiến trúc tương tác Archify
+│   │   └── vietlott-architecture.json # File đặc tả kiến trúc Archify
 │   ├── apple-touch-icon.png        # Icon Retina chuẩn 180x180 cho iPhone/iPad Standalone
 │   ├── icon-192.png & icon-512.png # Icon PWA chuẩn cho Android / Desktop
 │   ├── manifest.json               # Cấu hình PWA Web App Manifest
-│   ├── sw.js                       # Service Worker xử lý Cache-first và Offline mode
-│   └── index.html                  # Mã nguồn giao diện chính (SPA >5.100 dòng)
+│   ├── sw.js                       # Service Worker Cache Storage v1.1 xử lý Offline mode
+│   └── index.html                  # Khung giao diện HTML tinh gọn (~2.340 dòng)
 │
 ├── src/                            # Mã nguồn lõi Python
 │   ├── vietlott/
@@ -99,6 +110,7 @@ vietlott-data-master/
 │   │   └── model/                  # Các module thuật toán & chiến lược dự đoán
 │   └── render_readme.py            # Cập nhật README.md tự động
 │
+├── assets/                         # Bản sao đồng bộ của docs/assets phục vụ root server
 ├── index.html                      # Bản sao của docs/index.html phục vụ root server
 ├── manifest.json & sw.js           # Bản sao PWA phục vụ root server
 └── requirements.txt                # Danh sách thư viện phụ thuộc Python

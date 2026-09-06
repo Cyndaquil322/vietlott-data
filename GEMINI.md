@@ -60,3 +60,13 @@ Mỗi khi tiếp nhận bất kỳ yêu cầu nào từ người dùng, Agent B�
   * **Power 6/55:** Quay lúc **18:00 – 18:30** các ngày **Thứ Ba, Thứ Năm, Thứ Bảy**.
   * **Mega 6/45:** Quay lúc **18:00 – 18:30** các ngày **Thứ Tư, Thứ Sáu, Chủ Nhật**.
 * Mọi tính toán Walk-Forward, thời gian đếm ngược (countdown), lập lịch cào dữ liệu và dự đoán kỳ tiếp theo phải luôn căn cứ chuẩn xác theo lịch quay này.
+
+---
+
+### 7. QUY CHUẨN ĐỒNG BỘ TÀI LIỆU & MÃ NGUỒN (DOCS-FIRST & ZERO-DRIFT SPECIFICATION)
+* **Đọc hiểu trước khi hành động (Read Code & Docs First):**
+  * Trước khi can thiệp, sửa chữa hoặc nâng cấp bất kỳ module hay thành phần nào, Agent BẮT BUỘC phải đọc kỹ mã nguồn hiện tại và tài liệu liên quan trong thư mục `docs/architecture/` (`SYSTEM_ARCHITECTURE.md`, `FRONTEND_COMPONENT_MAP.md`, `DATA_PIPELINE_REFERENCE.md`, `MATHEMATICAL_MODELS.md`).
+* **Cập nhật tài liệu trước khi code (Docs-First Rule):**
+  * Khi có bất kỳ thay đổi nào về kiến trúc, luồng công việc (workflow), đường ống dữ liệu (pipeline) hoặc phân rã module, Agent BẮT BUỘC phải lập và cập nhật tài liệu kỹ thuật trước (hoặc song song), phản ánh chính xác 100% cấu trúc thực tế.
+* **Chống trôi lệch tài liệu (Zero Drift Policy):**
+  * Tuyệt đối tránh tình trạng "tài liệu một kiểu, code một kiểu". Mọi sơ đồ, bảng đối chiếu hàm, đường dẫn file, tham số và quy trình vận hành trong tài liệu phải luôn đồng bộ tuyệt đối với mã nguồn thực tế đang chạy.
