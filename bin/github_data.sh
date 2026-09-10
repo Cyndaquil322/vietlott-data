@@ -17,28 +17,12 @@ export PYTHONPATH="src"
 export LOGURU_LEVEL="INFO"
 
 echo "=== 1. SYNCING & CRAWLING RECENT LOTTERY RESULTS ==="
-python src/vietlott/sync_live_data.py || python -m vietlott.sync_live_data || true
+# Live sync automatically backfills missing recent draws for Power 6/55, Mega 6/45, Power 5/35, Max 3D, Max 3D Pro
+python -c "from vietlott.sync_live_data import main; main(trigger_render=False)" || python src/vietlott/sync_live_data.py || true
 
+# Crawl recent draws for Keno and Bingo18
 python src/vietlott/cli/crawl.py keno || true
-python src/vietlott/cli/missing.py keno || true
-
-python src/vietlott/cli/crawl.py power_655 || true
-python src/vietlott/cli/missing.py power_655 || true
-
-python src/vietlott/cli/crawl.py power_645 || true
-python src/vietlott/cli/missing.py power_645 || true
-
-python src/vietlott/cli/crawl.py power_535 || true
-python src/vietlott/cli/missing.py power_535 || true
-
-python src/vietlott/cli/crawl.py 3d || true
-python src/vietlott/cli/missing.py 3d || true
-
-python src/vietlott/cli/crawl.py 3d_pro || true
-python src/vietlott/cli/missing.py 3d_pro || true
-
 python src/vietlott/cli/crawl.py bingo18 || true
-python src/vietlott/cli/missing.py bingo18 || true
 
 echo "=== 2. GENERATING README STATS & WEB DATA ==="
 python src/render_readme.py || true

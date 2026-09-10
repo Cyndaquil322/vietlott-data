@@ -50,10 +50,6 @@ class ProductBingo18(ProductPower655):
         Returns:
             List[Dict]: List of processed data records
         """
-        # Debug: Print the response to understand the structure
-        logger.debug(f"Response JSON keys: {res_json.keys() if res_json else 'None'}")
-        logger.debug(f"Response JSON: {res_json}")
-
         # Check if response has the expected structure
         html_content = None
         if res_json and "value" in res_json:

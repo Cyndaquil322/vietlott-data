@@ -29,19 +29,26 @@ def detect_missing_data(ctx, product, limit):
 
     product_cfg: ProductConfig = product_config_map[product]
     df = pd.read_json(product_cfg.raw_path, lines=True)
-    print(df["id"].dtype)
-    if df["id"].dtype == "object":
-        df["id"] = df["id"].str.replace("#", "").astype(int)
+    if df.empty or "id" not in df.columns:
+        logger.info(f"Empty dataset or missing 'id' column for {product}")
+        return
+
+    df["id"] = df["id"].astype(str).str.replace("#", "").astype(int)
+    df = df.sort_values("id").drop_duplicates(subset=["id"]).reset_index(drop=True)
     df["id_next"] = df["id"].shift(-1)
     df["diff"] = df["id_next"] - df["id"]
 
-    df_missing = df[df["diff"] > 1]
+    df_missing = df[df["diff"] > 1].copy()
+    if df_missing.empty:
+        logger.info(f"No missing draws detected for {product}. Dataset is 100% continuous.")
+        return
+
     last_id = df["id"].max()
     df_missing["index"] = df_missing["id"].apply(lambda x: (last_id - x) / product_cfg.page_size)
     df_missing["index_next"] = df_missing["id_next"].apply(lambda x: (last_id - x) / product_cfg.page_size)
-    df_missing_process = df_missing.iloc[::-1].iloc[1:].head(limit)
+    df_missing_process = df_missing.head(limit)
 
-    logger.info("\n" + df_missing_process[["date", "id", "id_next", "diff", "index", "index_next"]].to_markdown())
+    logger.info(f"Found {len(df_missing_process)} missing interval(s) for {product}:\n" + df_missing_process[["date", "id", "id_next", "diff", "index", "index_next"]].to_markdown())
 
     run_date = pendulum.now(tz="Asia/Ho_Chi_Minh").to_date_string()
     product_obj: BaseProduct = map_class_name[product]()
