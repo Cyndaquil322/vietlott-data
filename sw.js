@@ -1,5 +1,5 @@
-// Vietlott Hub Service Worker v1.1
-const CACHE_NAME = 'vietlott-hub-v1.1';
+// Vietlott Hub Service Worker v2.0 - Network-First for Fresh Data
+const CACHE_NAME = 'vietlott-hub-v2.0';
 const STATIC_ASSETS = [
   './',
   './index.html',
@@ -27,31 +27,53 @@ self.addEventListener('activate', (e) => {
     caches.keys().then((keys) => {
       return Promise.all(
         keys.map((k) => {
-          if (k !== CACHE_NAME) return caches.delete(k);
+          if (k !== CACHE_NAME) {
+            console.log('[ServiceWorker] Purging stale cache:', k);
+            return caches.delete(k);
+          }
         })
       );
     }).then(() => self.clients.claim())
   );
 });
 
-// Network-first for JSON data, Cache-first for static assets
+// Network-First Strategy for HTML Navigation & JSON Data
+// Ensures user always gets the freshest lottery results whenever online,
+// while gracefully falling back to cache when offline.
 self.addEventListener('fetch', (e) => {
-  const url = e.request.url;
-  if (url.includes('.json')) {
+  const req = e.request;
+  const url = req.url;
+  const isNavigation = req.mode === 'navigate' || req.destination === 'document' || url.endsWith('/') || url.endsWith('index.html');
+  const isJsonData = url.includes('.json');
+
+  if (isNavigation || isJsonData) {
+    // Network-First with Cache Fallback
     e.respondWith(
-      fetch(e.request)
+      fetch(req)
         .then((res) => {
           if (res && res.ok) {
             const clone = res.clone();
-            caches.open(CACHE_NAME).then((c) => c.put(e.request, clone));
+            caches.open(CACHE_NAME).then((c) => c.put(req, clone));
           }
           return res;
         })
-        .catch(() => caches.match(e.request, { ignoreSearch: true }))
+        .catch(() => caches.match(req, { ignoreSearch: true }))
     );
   } else {
+    // Stale-While-Revalidate for static assets (CSS, JS, icons)
     e.respondWith(
-      caches.match(e.request).then((cached) => cached || fetch(e.request))
+      caches.match(req).then((cached) => {
+        const fetchPromise = fetch(req)
+          .then((networkRes) => {
+            if (networkRes && networkRes.ok) {
+              const clone = networkRes.clone();
+              caches.open(CACHE_NAME).then((c) => c.put(req, clone));
+            }
+            return networkRes;
+          })
+          .catch(() => cached);
+        return cached || fetchPromise;
+      })
     );
   }
 });

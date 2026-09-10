@@ -180,7 +180,7 @@
               <span>⭐ Tổng Hợp Dự Đoán</span>
               <span class="px-1.5 py-0.2 rounded text-[9px] font-bold bg-amber-500 text-slate-950 font-mono">HOT</span>
             </div>
-            <div class="text-[10px] text-slate-400 truncate">Hội đồng 5 mô hình + 100 kỳ backtest</div>
+            <div class="text-[10px] text-slate-400 truncate">Hội đồng 8 mô hình + 100 kỳ backtest</div>
           </div>
         </button>
 
@@ -1154,7 +1154,7 @@
               <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 animate-pulse">CỐ ĐỊNH THEO KỲ QUAY</span>
             </h3>
             <p class="text-xs text-slate-400 mt-0.5">
-              Được gieo mầm cố định theo mã kỳ quay (Draw ID Seed), tối ưu hóa từ 5 mô hình toán học & 5 bộ lọc vật lý Không Gian Âm. F5 hoặc đổi thiết bị vẫn đồng nhất 100%.
+              Được gieo mầm cố định theo mã kỳ quay (Draw ID Seed), tối ưu hóa từ 8 mô hình toán học & 5 bộ lọc vật lý Không Gian Âm. F5 hoặc đổi thiết bị vẫn đồng nhất 100%.
             </p>
           </div>
           <div class="flex items-center gap-2 flex-shrink-0 flex-wrap">
@@ -1167,6 +1167,11 @@
               <span>Dự đoán Kỳ tới: <strong id="consensusNextDrawBadge" class="text-amber-300 font-bold text-sm">#00000</strong></span>
             </span>
           </div>
+        </div>
+
+        <!-- KHUYẾN NGHỊ QUẢN TRỊ VỐN KỲ NÀY (KELLY BANKROLL ADVISORY) -->
+        <div id="consensusBankrollAdvisory" class="hidden">
+          <!-- Rendered by JS -->
         </div>
 
         <!-- TẦNG 1 & TẦNG 2: BẠCH THỦ VÀNG & DÀN HẠT NHÂN TINH TUYỂN -->
@@ -1186,7 +1191,7 @@
                 <span>DÀN HẠT NHÂN TINH TUYỂN & TRỤC SỐ BẠCH THỦ</span>
               </h4>
               <p class="text-xs text-slate-300 mt-1">
-                Khai thác định lý bao phủ (Covering Codes): Tuyển chọn các con số có xác suất nổ cao nhất từ 5 mô hình độc lập, giúp tỷ lệ trúng ≥ 3 số tăng vọt gấp 10-15 lần so với đánh 1 vé đơn lẻ.
+                Khai thác định lý bao phủ (Covering Codes): Tuyển chọn các con số có xác suất nổ cao nhất từ 8 mô hình độc lập, giúp tỷ lệ trúng ≥ 3 số tăng vọt gấp 10-15 lần so với đánh 1 vé đơn lẻ.
               </p>
             </div>
             <div class="flex items-center gap-2">
@@ -1259,6 +1264,97 @@
             </div>
           </div>
 
+          <!-- KHỐI BỘ 7 SỐ TỐI ƯU TOÁN HỌC (BAO 7 PARETO TỪ DÀN HẠT NHÂN) -->
+          <div class="rounded-2xl bg-gradient-to-br from-amber-950/40 via-slate-950 to-slate-900 border border-amber-500/40 p-5 space-y-4 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 px-3.5 py-1.5 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-black text-[11px] uppercase tracking-wider rounded-bl-2xl shadow flex items-center gap-1.5">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              <span>Bao 7 Pareto Tối Ưu</span>
+            </div>
+
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800/80 pb-3 pr-40">
+              <div>
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="text-sm font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
+                    <i data-lucide="award" class="w-4 h-4 text-amber-400"></i>
+                    Bộ 7 Số Tối Ưu Toán Học (Dàn Hạt Nhân Rút Gọn)
+                  </span>
+                  <span id="consensusSeptetCostBadge" class="px-2.5 py-0.5 rounded text-[11px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 font-mono">
+                    Vốn 70.000đ (Bao 7)
+                  </span>
+                  <span id="consensusSeptetDrawBadge" class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-slate-800 text-slate-300 border border-slate-700">
+                    Dự đoán #00000
+                  </span>
+                </div>
+                <p class="text-xs text-slate-400 mt-1">
+                  Thuật toán Pareto đa mục tiêu: Tự động trích xuất bộ 7 số (hoặc 6 số cho 5/35) từ Dàn hạt nhân đạt điểm cực đại về <strong>Lực hút Bạc Nhớ (Lift)</strong>, <strong>Cân bằng trạng thái Nóng/Ấm/Lạnh</strong> và <strong>Độ phức tạp số học AC ≥ 10</strong>.
+                </p>
+              </div>
+            </div>
+
+            <!-- Balls Display Container -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-4 rounded-xl border border-slate-800/80">
+              <div class="space-y-1.5">
+                <div class="text-[11px] text-slate-400 uppercase tracking-wider font-mono flex items-center gap-2">
+                  <span>Dãy Số Đề Xuất Chính Thức:</span>
+                  <span class="text-emerald-400 font-bold text-[10px]">• Đạt 5/5 Bộ Lọc Không Gian Âm</span>
+                </div>
+                <div id="consensusSeptetBallsContainer" class="flex flex-wrap items-center gap-2.5 py-1">
+                  <!-- Rendered by JS -->
+                </div>
+              </div>
+
+              <!-- Quick Action Buttons -->
+              <div class="flex items-center gap-2 flex-wrap md:flex-nowrap flex-shrink-0">
+                <button onclick="saveOptimalSeptet()" class="px-3.5 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs flex items-center gap-1.5 transition active:scale-95 shadow">
+                  <i data-lucide="bookmark-plus" class="w-4 h-4"></i>
+                  <span>Lưu Sổ Tay Vé</span>
+                </button>
+                <button onclick="copyOptimalSeptet()" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-300 hover:text-white font-bold text-xs flex items-center gap-1.5 transition border border-slate-700 active:scale-95">
+                  <i data-lucide="copy" class="w-4 h-4"></i>
+                  <span>Copy Dãy Số</span>
+                </button>
+                <button onclick="copyOptimalSeptetSms()" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-emerald-400 hover:text-emerald-300 font-bold text-xs flex items-center gap-1.5 transition border border-slate-700 active:scale-95">
+                  <i data-lucide="message-square" class="w-4 h-4"></i>
+                  <span>SMS 9969</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Quantitative Metrics & 100-Draw Walk-Forward KPI Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 text-xs font-mono">
+              <div class="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800">
+                <span class="text-[10px] text-slate-500 block uppercase">Độ Phức Tạp AC</span>
+                <span id="consensusSeptetAc" class="text-sm font-bold text-emerald-400 mt-0.5 block">--</span>
+                <span class="text-[9px] text-slate-500">Chuẩn AC ≥ 10</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800">
+                <span class="text-[10px] text-slate-500 block uppercase">Tổng Dãy Số</span>
+                <span id="consensusSeptetSum" class="text-sm font-bold text-amber-300 mt-0.5 block">--</span>
+                <span class="text-[9px] text-slate-500">Dải Gaussian</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800">
+                <span class="text-[10px] text-slate-500 block uppercase">Cơ Cấu Chẵn/Lẻ</span>
+                <span id="consensusSeptetOe" class="text-sm font-bold text-white mt-0.5 block">--</span>
+                <span class="text-[9px] text-slate-500">Hài hòa Chẵn/Lẻ</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800">
+                <span class="text-[10px] text-slate-500 block uppercase">Phân Phối N/Ấ/L</span>
+                <span id="consensusSeptetState" class="text-sm font-bold text-purple-300 mt-0.5 block">--</span>
+                <span class="text-[9px] text-slate-500">Nóng - Ấm - Lạnh</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-950/80 border border-amber-500/30">
+                <span class="text-[10px] text-amber-400 block uppercase">100 Kỳ Trúng ≥3</span>
+                <span id="consensusSeptetWinRateGe3" class="text-sm font-bold text-amber-300 mt-0.5 block">--%</span>
+                <span id="consensusSeptetGe3Count" class="text-[9px] text-slate-400">-- kỳ nổ giải Ba+</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800">
+                <span class="text-[10px] text-slate-500 block uppercase">Thu Thưởng 100 Kỳ</span>
+                <span id="consensusSeptetTotalPayout" class="text-sm font-bold text-emerald-400 mt-0.5 block">-- đ</span>
+                <span id="consensusSeptetRoi" class="text-[9px] text-slate-400">ROI: --%</span>
+              </div>
+            </div>
+          </div>
+
           <!-- KHỐI BAO THU GỌN 4 VÉ (COVERING WHEELS - VỐN 40.000đ) -->
           <div class="rounded-xl bg-slate-950/90 border border-emerald-500/30 p-4 space-y-3">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800/80 pb-3">
@@ -1296,6 +1392,16 @@
               <!-- Rendered by JS -->
             </div>
           </div>
+
+          <!-- KHỐI DÀN BỌC LÓT BẠCH THỦ CHỐT (KEY-BANKER WHEELING - VỐN 60.000đ) -->
+          <div id="consensusBankerWheeling" class="rounded-xl bg-slate-950/90 border border-amber-500/40 p-4 space-y-4 shadow-lg">
+            <!-- Rendered by JS -->
+          </div>
+
+          <!-- KHỐI BỘ LỌC ĐÀO THẢI BÓNG CHẾT (DEAD NUMBERS PRUNING) -->
+          <div id="consensusEliminationAnalytics" class="rounded-xl bg-slate-950/90 border border-rose-500/30 p-4 space-y-4 shadow-lg">
+            <!-- Rendered by JS -->
+          </div>
         </div>
 
         <!-- TẦNG 3: 3 BỘ VÉ ĐƠN GHÉP TỐI ƯU -->
@@ -1319,7 +1425,12 @@
                   <span class="text-xs font-bold text-amber-400 uppercase tracking-wide">DÀN VÀNG ĐỒNG THUẬN</span>
                   <span id="consensusCardGoldenDraw" class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40">Dự đoán #00000</span>
                 </div>
-                <p class="text-[11px] text-slate-400 mt-0.5">Cân bằng hoàn hảo giữa điểm Consensus, dải Gaussian và AC ≥ 7.</p>
+                <div class="mt-1 flex items-center gap-1.5 flex-wrap">
+                  <span id="consensusGoldenOptBadge" class="hidden px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 flex items-center gap-1">
+                    <i data-lucide="award" class="w-3 h-3 text-emerald-400"></i> Markowitz Constrained Portfolio
+                  </span>
+                </div>
+                <p class="text-[11px] text-slate-400 mt-1">Cân bằng hoàn hảo giữa điểm Consensus, dải Gaussian và AC ≥ 7.</p>
               </div>
 
               <div id="consensusGoldenBalls" class="flex flex-wrap items-center gap-2 py-2">
@@ -1331,6 +1442,23 @@
                 <div><span class="text-slate-500">Tổng dãy:</span> <strong id="consensusGoldenSum" class="text-amber-300">--</strong></div>
                 <div><span class="text-slate-500">Tỷ lệ C/L:</span> <strong id="consensusGoldenOe" class="text-white">--</strong></div>
                 <div><span class="text-slate-500">Điểm SEI:</span> <strong id="consensusGoldenSei" class="text-emerald-400">--/10</strong></div>
+              </div>
+
+              <!-- Tối ưu hóa Markowitz & Phân cụm Louvain -->
+              <div id="consensusGoldenMarkowitzSection" class="p-2.5 rounded-xl bg-slate-900/80 border border-emerald-500/30 space-y-1.5 text-[11px] font-mono">
+                <div class="flex items-center justify-between">
+                  <span class="text-emerald-400 font-bold flex items-center gap-1">
+                    <i data-lucide="network" class="w-3.5 h-3.5 text-cyan-400"></i> Phân Bổ Cụm Louvain:
+                  </span>
+                  <strong id="consensusGoldenLouvainClusters" class="text-cyan-300 font-bold">-- cụm</strong>
+                </div>
+                <div id="consensusGoldenLouvainDist" class="text-[10px] text-slate-400 flex flex-wrap gap-1">
+                  <!-- Rendered by JS -->
+                </div>
+                <div class="pt-1.5 border-t border-slate-800/80 grid grid-cols-2 gap-1 text-[10px]">
+                  <div><span class="text-slate-500">Kỳ vọng μ:</span> <strong id="consensusGoldenExpReturn" class="text-emerald-400">--</strong></div>
+                  <div><span class="text-slate-500">Phạt rủi ro Σ:</span> <strong id="consensusGoldenCovPenalty" class="text-rose-400">--</strong></div>
+                </div>
               </div>
 
               <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono">
@@ -1442,10 +1570,10 @@
             <h4 class="text-base font-bold text-white flex items-center gap-2 flex-wrap">
               <i data-lucide="cpu" class="w-5 h-5 text-amber-400"></i>
               <span>HỘI ĐỒNG DỰ ĐOÁN ĐỒNG THUẬN (CONSENSUS HUB)</span>
-              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40">5 MÔ HÌNH QUANT + 100 KỲ BACKTEST</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40">8 MÔ HÌNH QUANT & ML + 100 KỲ BACKTEST</span>
             </h4>
             <p class="text-xs text-slate-400 mt-0.5">
-              Hợp lực 5 mô hình toán học độc lập (Bayesian Hazard, Exponential Decay, Markov Chain, Phổ Fourier và Bạc Nhớ Lift). Toàn bộ được kiểm chứng qua 100 kỳ Walk-Forward Backtest thực tế không thiên lệch.
+              Hợp lực 8 mô hình toán học & học máy độc lập (Markov PPMI, Bayesian Hazard, Exponential Decay, Bạc Nhớ Lift, Sóng con & Phổ Fourier, Graph PageRank, Bộ Lọc Kalman Bayes và HistGradientBoosting ML Ranker). Toàn bộ được kiểm chứng qua 100 kỳ Walk-Forward Backtest thực tế không thiên lệch.
             </p>
           </div>
         </div>
@@ -1457,7 +1585,7 @@
               <i data-lucide="layers" class="w-3.5 h-3.5 text-blue-400"></i>
               <span>Mô Hình Độc Lập</span>
             </div>
-            <div class="text-sm font-bold text-blue-400">5 Thuật Toán</div>
+            <div class="text-sm font-bold text-blue-400">8 Thuật Toán</div>
             <div class="text-[10px] text-slate-500 mt-0.5">+ 1 Consensus Engine</div>
           </div>
           <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
@@ -1631,11 +1759,11 @@
               <span>TOP 15 QUẢ BÓNG CÓ TRỌNG SỐ CAO NHẤT KỲ NÀY</span>
             </h4>
             <p class="text-xs text-slate-400 mt-0.5">
-              Điểm Consensus tổng hợp từ 5 mô hình (Thang điểm 10). Tỷ lệ đồng thuận đo lường số mô hình cùng đề cử con số này.
+              Điểm Consensus tổng hợp từ 8 mô hình (Thang điểm 10). Tỷ lệ đồng thuận đo lường số mô hình cùng đề cử con số này.
             </p>
           </div>
           <div class="flex items-center gap-3 text-xs font-mono text-slate-400">
-            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> Đồng thuận an toàn (≥3/5)</span>
+            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> Đồng thuận an toàn (≥4/8)</span>
             <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-amber-400"></span> Cảnh báo bẫy gan lì</span>
           </div>
         </div>
@@ -1676,6 +1804,11 @@
         </div>
       </div>
 
+      <!-- 5.5 Bản Đồ Lực Hút Liên Kỳ (Markov & Z-Score Pull A -> B) -->
+      <div id="consensusTransitionAnalytics" class="rounded-2xl bg-slate-900 border border-slate-800 p-6 shadow-xl space-y-5">
+        <!-- Rendered by JS -->
+      </div>
+
       <!-- 6. Bảng Đối Soát 15 Kỳ Walk-Forward Gần Nhất (Audit History) -->
       <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 shadow-xl space-y-4">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
@@ -1690,8 +1823,8 @@
           </div>
         </div>
 
-        <!-- 3 KPI Cards for Walk-Forward Triad, Key-5 & Wheeling-4 -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-mono">
+        <!-- 4 KPI Cards for Walk-Forward Triad, Key-5, Wheeling-4 & Optimal Septet -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono">
           <div class="bg-slate-950 p-3 rounded-xl border border-amber-500/30 flex items-center justify-between">
             <div>
               <span class="text-slate-400 text-[11px] block">Top 3 Kiềng 3 Chân (100 Kỳ)</span>
@@ -1706,9 +1839,16 @@
             </div>
             <span id="kpiKey5Ge2Badge" class="px-2 py-1 rounded bg-indigo-500/10 text-indigo-300 text-[10px] font-bold border border-indigo-500/20">--% ≥2 bóng</span>
           </div>
+          <div class="bg-slate-950 p-3 rounded-xl border border-amber-500/40 flex items-center justify-between">
+            <div>
+              <span class="text-slate-400 text-[11px] block">Bao 7 Tối Ưu (100 Kỳ)</span>
+              <span id="kpiSeptetWinRate" class="text-amber-300 font-black text-base font-mono">--% trúng ≥3 số</span>
+            </div>
+            <span id="kpiSeptetGe3Badge" class="px-2 py-1 rounded bg-amber-500/10 text-amber-300 text-[10px] font-bold border border-amber-500/20">-- kỳ nổ</span>
+          </div>
           <div class="bg-slate-950 p-3 rounded-xl border border-emerald-500/30 flex items-center justify-between">
             <div>
-              <span class="text-slate-400 text-[11px] block">Bao Thu Gọn 4 Vé (Bảo Hiểm)</span>
+              <span class="text-slate-400 text-[11px] block">Bao Thu Gọn 4 Vé</span>
               <span id="kpiWheel4WinRate" class="text-emerald-400 font-black text-base font-mono">100% trúng khi nổ 4</span>
             </div>
             <span class="px-2 py-1 rounded bg-emerald-500/10 text-emerald-300 text-[10px] font-bold border border-emerald-500/20">Vốn 40k</span>
@@ -1725,6 +1865,7 @@
                 <th class="px-3 py-3">Top 3 Kiềng 3 Chân</th>
                 <th class="px-3 py-3 text-center">Ngũ Thủ (Hits)</th>
                 <th class="px-3 py-3 text-center">Dàn Hạt Nhân (Hits)</th>
+                <th class="px-3 py-3 text-center">Bao 7 Tối Ưu (Trúng / Thưởng)</th>
                 <th class="px-3 py-3 text-center">Bao 4 Vé (Giải)</th>
                 <th class="px-3 py-3 text-right rounded-r-lg">Vé Đơn Consensus</th>
               </tr>

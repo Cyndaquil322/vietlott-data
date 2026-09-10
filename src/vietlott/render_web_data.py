@@ -14,11 +14,59 @@ import itertools
 import json
 import math
 import hashlib
+import sys
 from collections import Counter, defaultdict
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List
 import numpy as np
+
+# Ensure src directory is in sys.path when executed directly
+_src_dir = str(Path(__file__).resolve().parent.parent)
+if _src_dir not in sys.path:
+    sys.path.insert(0, _src_dir)
+
+try:
+    from vietlott.model.covering_engine import (
+        generate_filtered_wheel_tickets,
+        get_optimal_covering_patterns,
+        evaluate_covering_guarantee,
+        extract_optimal_septet,
+    )
+except ImportError:
+    from src.vietlott.model.covering_engine import (
+        generate_filtered_wheel_tickets,
+        get_optimal_covering_patterns,
+        evaluate_covering_guarantee,
+        extract_optimal_septet,
+    )
+
+try:
+    from vietlott.model.wavelet_engine import calculate_wavelet_spectral_scores
+except ImportError:
+    try:
+        from src.vietlott.model.wavelet_engine import calculate_wavelet_spectral_scores
+    except ImportError:
+        calculate_wavelet_spectral_scores = None
+
+try:
+    from vietlott.model.analytic_engines import (
+        calculate_bayesian_hazard_scores,
+    )
+    from vietlott.model.ensemble_engine import (
+        calculate_multi_model_consensus_and_backtest,
+        generate_wheeling_strategy,
+        validate_negative_space_constraints,
+    )
+except ImportError:
+    from src.vietlott.model.analytic_engines import (
+        calculate_bayesian_hazard_scores,
+    )
+    from src.vietlott.model.ensemble_engine import (
+        calculate_multi_model_consensus_and_backtest,
+        generate_wheeling_strategy,
+        validate_negative_space_constraints,
+    )
 
 # Paths
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
@@ -493,201 +541,66 @@ def calculate_ev_metrics(max_val: int, num_balls: int) -> Dict[str, Any]:
 
 
 
-def calculate_bayesian_hazard_scores(records: List[Dict], max_val: int, num_balls: int, is_two_matrix: bool = False) -> Dict[int, float]:
-    """
-    Tính điểm xác suất định lượng toàn diện (Full 6-Factor Analytical Engine):
-    Chạy đồng thời cả 6 mô hình toán học và kinh nghiệm thực chiến:
-    1. Bayesian Hazard Rate (Vùng vàng 0.75 - 1.35) [w=2.0]
-    2. Tần suất suy giảm mũ theo thời gian [w=1.5]
-    3. Radar Quán tính Cầu Rơi [w=2.5]
-    4. Phổ Chu kỳ Nhịp Fourier [w=0.5]
-    5. Bạc Nhớ Cặp Đôi Kéo Bóng Đơn [w=1.8]
-    6. Ma Trận Kề Đồng Quy Cặp Đôi [w=1.2]
-    """
-    if not records:
-        return {b: 1.0 for b in range(1, max_val + 1)}
+def calculate_draw_statistics(records: List[Dict], max_val: int, num_balls: int, has_special: bool = False) -> Dict[str, Any]:
+    """Calculate frequency, hot, and cold numbers for draw records."""
+    total_draws = len(records)
+    ball_counter = Counter()
+    special_counter = Counter()
 
-    K = min(100, len(records))
-    recent_records = records[-K:]
-    last_draw_balls = set(records[-1].get("result", [])[:num_balls]) if records else set()
-    last_draw_pairs = list(itertools.combinations(sorted(last_draw_balls), 2))
-
-    # 1. Gaps and Exponential Decay
-    decay_freq = {b: 0.0 for b in range(1, max_val + 1)}
-    gaps_history = {b: [] for b in range(1, max_val + 1)}
-    last_seen = {b: -1 for b in range(1, max_val + 1)}
-
-    for t, r in enumerate(reversed(recent_records)):
+    for r in records:
         res = r.get("result", [])
-        main_b = res[:5] if is_two_matrix else res[:6]
-        for b in main_b:
-            if 1 <= b <= max_val:
-                decay_freq[b] += math.exp(-0.035 * t)
-                if last_seen[b] == -1:
-                    last_seen[b] = t
-                else:
-                    gaps_history[b].append(last_seen[b] - t)
-                    last_seen[b] = t
-
-    # 2. Phổ Fourier Chu Kỳ Nhịp (64 kỳ)
-    fft_len = min(64, len(records))
-    fft_records = records[-fft_len:]
-    spectral_score = {b: 0.0 for b in range(1, max_val + 1)}
-    for b in range(1, max_val + 1):
-        sig = [1.0 if b in r.get("result", [])[:num_balls] else 0.0 for r in fft_records]
-        if sum(sig) > 0:
-            import numpy as np
-            sig_arr = np.array(sig)
-            fft_vals = np.abs(np.fft.rfft(sig_arr - sig_arr.mean()))
-            if len(fft_vals) > 1:
-                dom_freq = np.argmax(fft_vals[1:]) + 1
-                period = fft_len / dom_freq
-                gap_to_period = abs((last_seen[b] if last_seen[b] != -1 else K) - period)
-                spectral_score[b] = math.exp(-0.2 * gap_to_period)
-
-    # 3. Bạc Nhớ Cặp Đôi Kéo Bóng (200 kỳ)
-    p200 = records[-200:] if len(records) >= 200 else records
-    pair_trans = Counter()
-    pair_counts = Counter()
-    for i in range(len(p200) - 1):
-        pr = p200[i].get("result", [])[:num_balls]
-        cr = p200[i+1].get("result", [])[:num_balls]
-        for p in itertools.combinations(sorted(pr), 2):
-            pair_counts[p] += 1
-            for cb in cr:
-                pair_trans[(p, cb)] += 1
-
-    bac_nho_score = {b: 0.0 for b in range(1, max_val + 1)}
-    for p in last_draw_pairs:
-        p_cnt = pair_counts[p]
-        if p_cnt >= 2:
-            for b in range(1, max_val + 1):
-                cnt = pair_trans.get((p, b), 0)
-                if cnt > 0:
-                    prob = cnt / p_cnt
-                    base_prob = num_balls / max_val
-                    lift = prob / base_prob
-                    if lift > 1.2:
-                        bac_nho_score[b] += (lift - 1.0)
-
-    # 4. Ma Trận Kề Đồng Quy (200 kỳ)
-    matrix_cnt = Counter()
-    for r in p200:
-        b_list = r.get("result", [])[:num_balls]
-        for i in range(len(b_list)):
-            for j in range(i+1, len(b_list)):
-                matrix_cnt[(b_list[i], b_list[j])] += 1
-                matrix_cnt[(b_list[j], b_list[i])] += 1
-
-    matrix_synergy = {b: 0.0 for b in range(1, max_val + 1)}
-    for b in range(1, max_val + 1):
-        matrix_synergy[b] = sum(matrix_cnt.get((b, lb), 0) for lb in last_draw_balls)
-
-    # 5. Bayesian Hazard Rate & Tổng Hợp Điểm
-    hazard_scores = {}
-    for b in range(1, max_val + 1):
-        cur_gap = last_seen[b] if last_seen[b] != -1 else K
-        avg_gap = (sum(gaps_history[b]) / len(gaps_history[b])) if gaps_history[b] else (max_val / num_balls)
-        ratio = cur_gap / max(1.0, avg_gap)
-
-        if 0.75 <= ratio <= 1.35:
-            hazard = 2.8 - abs(ratio - 1.05) * 1.5
-        elif ratio < 0.4:
-            hazard = 0.5 + ratio
-        elif ratio > 2.2:
-            hazard = 0.8
+        if has_special and len(res) > num_balls:
+            main_balls = res[:num_balls]
+            special_ball = res[num_balls]
+            ball_counter.update(main_balls)
+            special_counter.update([special_ball])
         else:
-            hazard = 1.4
+            ball_counter.update(res[:num_balls])
 
-        cau_roi = 2.5 if b in last_draw_balls else 0.0
-
-        # Tổng hợp toàn diện cả 6 nhân tố
-        total = (
-            (hazard * 2.0) +
-            (decay_freq[b] * 1.5) +
-            cau_roi +
-            (spectral_score[b] * 0.5) +
-            (bac_nho_score[b] * 1.8) +
-            (matrix_synergy[b] * 0.1)
-        )
-        hazard_scores[b] = round(total, 3)
-
-    return hazard_scores
-
-def generate_wheeling_strategy(records: List[Dict], product_key: str, max_val: int, num_balls: int, is_two_matrix: bool = False) -> Dict[str, Any]:
-    """
-    Sinh Chiến lược Dàn Ghép Bọc Lót (Wheeling System):
-    - Chọn Tập Hạt Nhân (Core Pool 12 - 14 số)
-    - Phủ thành 6 vé tối ưu C(v, k, t)
-    """
-    scores = calculate_bayesian_hazard_scores(records, max_val, num_balls, is_two_matrix)
-    sorted_candidates = sorted(scores.keys(), key=lambda x: scores[x], reverse=True)
-    
-    core_size = 12 if is_two_matrix else 14
-    core_pool = sorted(sorted_candidates[:core_size])
-    
-    if is_two_matrix: # 5/35 (5 balls from 12)
-        wheel_patterns = [
-            [0, 1, 3, 5, 8],
-            [1, 2, 4, 6, 9],
-            [2, 3, 5, 7, 10],
-            [0, 4, 6, 8, 11],
-            [1, 5, 7, 9, 11],
-            [0, 2, 6, 7, 10]
-        ]
-    else: # 6/55 & 6/45 (6 balls from 14)
-        wheel_patterns = [
-            [0, 1, 3, 5, 8, 11],
-            [1, 2, 4, 6, 9, 12],
-            [2, 3, 5, 7, 10, 13],
-            [0, 4, 6, 8, 11, 13],
-            [1, 5, 7, 9, 10, 12],
-            [0, 2, 4, 7, 9, 11]
-        ]
-        
-    tickets = []
-    for idx, pat in enumerate(wheel_patterns):
-        t_nums = sorted([core_pool[p] for p in pat])
-        t_sum = sum(t_nums)
-        import itertools
-        diffs = {abs(x - y) for x, y in itertools.combinations(t_nums, 2)}
-        ac = len(diffs) - (len(t_nums) - 1)
-        tails = len(set(x % 10 for x in t_nums))
-        odds = sum(1 for x in t_nums if x % 2 != 0)
-        
-        tickets.append({
-            "id": f"wheel_{idx + 1}",
-            "ticketIndex": idx + 1,
-            "numbers": t_nums,
-            "sum": t_sum,
-            "ac": ac,
-            "odds": odds,
-            "evens": len(t_nums) - odds,
-            "distinctTails": tails
+    freq_list = []
+    for num in range(1, max_val + 1):
+        cnt = ball_counter.get(num, 0)
+        freq_list.append({
+            "number": num,
+            "count": cnt,
+            "pct": round((cnt / total_draws * 100) if total_draws else 0, 2)
         })
-        
-    special_recommendation = []
-    if is_two_matrix:
-        spec_freq = Counter()
-        for r in records[-50:]:
-            res = r.get("result", [])
-            if len(res) >= 6:
-                spec_freq[res[5]] += 1
-        sorted_specs = sorted(range(1, 13), key=lambda x: spec_freq[x], reverse=True)
-        special_recommendation = sorted_specs[:2]
-    elif product_key == "power_655":
-        spec_pool = [x for x in sorted_candidates if x not in core_pool]
-        special_recommendation = spec_pool[:2] if spec_pool else [11, 53]
+
+    sorted_by_freq = sorted(freq_list, key=lambda x: x["count"], reverse=True)
+    hot_numbers = sorted_by_freq[:10]
+    cold_numbers = sorted_by_freq[-10:][::-1]
 
     return {
-        "core_pool": core_pool,
-        "core_pool_size": len(core_pool),
-        "tickets": tickets,
-        "special_recommendation": special_recommendation,
-        "guarantee_statement": "Cam kết bảo hiểm phủ tổ hợp C(v, k, 3): Chỉ cần 4 số trong tập hạt nhân nổ, chắc chắn có ít nhất 1 vé trúng giải Ba hoặc giải Nhì!",
-        "total_cost": len(tickets) * 10000,
-        "total_tickets": len(tickets)
+        "frequency": freq_list,
+        "hot_numbers": hot_numbers,
+        "cold_numbers": cold_numbers,
+        "ball_counter": ball_counter,
+        "special_counter": special_counter,
     }
+
+
+def calculate_odd_even(records: List[Dict], num_balls: int, sample_size: int = 50) -> Dict[str, float]:
+    """Calculate odd and even percentage distribution across recent draws."""
+    sample = records[:sample_size]
+    odd_count = 0
+    even_count = 0
+    for r in sample:
+        res = r.get("result", [])[:num_balls]
+        for b in res:
+            if b % 2 == 0:
+                even_count += 1
+            else:
+                odd_count += 1
+
+    total_oe = (odd_count + even_count) or 1
+    return {
+        "odd_pct": round(odd_count / total_oe * 100, 1),
+        "even_pct": round(even_count / total_oe * 100, 1),
+    }
+
+
+# Alias for backward compatibility
+calculate_markov_stats = calculate_markov_matrix
 
 
 def calculate_walk_forward_backtest(records: List[Dict], product_key: str, max_val: int, num_balls: int, is_two_matrix: bool = False, num_draws: int = 200, display_draws: int = 20) -> Dict[str, Any]:
@@ -912,37 +825,21 @@ def calculate_walk_forward_bao7_backtest(records: List[Dict], product_key: str, 
             for b in prev_b:
                 if 1 <= b <= max_val: scores[b] += 1.2
                 
+        core_pool_size = 10 if is_two_matrix else 12
         sorted_candidates = sorted(scores.keys(), key=lambda x: scores[x], reverse=True)
-        top_pool = sorted_candidates[:22]
-        
-        seed_hash = int(hashlib.md5(f"bao7_{product_key}_{draw_id}".encode()).hexdigest(), 16)
-        import itertools
-        all_combos = list(itertools.combinations(top_pool, target_balls))
-        sample_combos = [all_combos[(seed_hash + step * 79) % len(all_combos)] for step in range(min(45, len(all_combos)))]
-        
-        target_sum = 195 if max_val == 55 else (160 if max_val == 45 else 105)
-        best_combo = None
-        best_eval = -999999
-        
-        for combo in sample_combos:
-            c_sum = sum(combo)
-            diffs = {abs(x - y) for x, y in itertools.combinations(combo, 2)}
-            ac = len(diffs) - (target_balls - 1)
-            eval_score = sum(scores[x] for x in combo) + ac * 5 - abs(c_sum - target_sum) * 0.5
-            if eval_score > best_eval:
-                best_eval = eval_score
-                best_combo = sorted(combo)
-                
-        spec_ball = None
-        if is_two_matrix:
-            spec_freq = Counter()
-            for r in past_records[-50:]:
-                res = r.get("result", [])
-                if len(res) >= 6: spec_freq[res[5]] += 1
-            spec_ball = max(range(1, 13), key=lambda x: spec_freq[x]) if spec_freq else 1
-        elif product_key == "power_655":
-            spec_pool = [x for x in sorted_candidates if x not in best_combo]
-            spec_ball = spec_pool[0] if spec_pool else 1
+        top_core = sorted_candidates[:core_pool_size]
+
+        seed_draw_num = int(draw_id) if draw_id.isdigit() else i
+        opt_res = extract_optimal_septet(
+            core_pool=top_core,
+            past_records=past_records,
+            max_val=max_val,
+            num_balls=num_balls,
+            is_two_matrix=is_two_matrix,
+            seed=seed_draw_num,
+        )
+        best_combo = opt_res["numbers"]
+        spec_ball = opt_res.get("special")
             
         actual_main = actual_res[:5] if is_two_matrix else actual_res[:6]
         matched = [x for x in best_combo if x in actual_main]
@@ -1010,34 +907,20 @@ def calculate_walk_forward_bao7_backtest(records: List[Dict], product_key: str, 
         prev_b = records[-1].get("result", [])[:num_balls]
         for b in prev_b:
             if 1 <= b <= max_val: scores[b] += 1.2
+    core_pool_size = 10 if is_two_matrix else 12
     sorted_candidates = sorted(scores.keys(), key=lambda x: scores[x], reverse=True)
-    top_pool = sorted_candidates[:22]
+    top_core = sorted_candidates[:core_pool_size]
     seed_hash = int(hashlib.md5(f"bao7_{product_key}_{next_id_str}".encode()).hexdigest(), 16)
-    import itertools
-    all_combos = list(itertools.combinations(top_pool, target_balls))
-    sample_combos = [all_combos[(seed_hash + step * 79) % len(all_combos)] for step in range(min(45, len(all_combos)))]
-    target_sum = 195 if max_val == 55 else (160 if max_val == 45 else 105)
-    best_next = None
-    best_eval = -999999
-    for combo in sample_combos:
-        c_sum = sum(combo)
-        diffs = {abs(x - y) for x, y in itertools.combinations(combo, 2)}
-        ac = len(diffs) - (target_balls - 1)
-        eval_score = sum(scores[x] for x in combo) + ac * 5 - abs(c_sum - target_sum) * 0.5
-        if eval_score > best_eval:
-            best_eval = eval_score
-            best_next = sorted(combo)
-            
-    next_spec = None
-    if is_two_matrix:
-        spec_freq = Counter()
-        for r in records[-50:]:
-            res = r.get("result", [])
-            if len(res) >= 6: spec_freq[res[5]] += 1
-        next_spec = max(range(1, 13), key=lambda x: spec_freq[x]) if spec_freq else 1
-    elif product_key == "power_655":
-        spec_pool = [x for x in sorted_candidates if x not in best_next]
-        next_spec = spec_pool[0] if spec_pool else 1
+    next_opt = extract_optimal_septet(
+        core_pool=top_core,
+        past_records=records,
+        max_val=max_val,
+        num_balls=num_balls,
+        is_two_matrix=is_two_matrix,
+        seed=seed_hash,
+    )
+    best_next = next_opt["numbers"]
+    next_spec = next_opt.get("special")
         
     pending_record = {
         "drawId": next_id_str,
@@ -1061,776 +944,6 @@ def calculate_walk_forward_bao7_backtest(records: List[Dict], product_key: str, 
     return {
         "records": all_records,
         "kpis": kpis
-    }
-
-
-def validate_negative_space_constraints(combo: List[int], max_val: int, num_balls: int, last_draw: List[int] = None) -> Dict[str, Any]:
-    """
-    Kiểm định 5 tiêu chí Không Gian Âm (Negative Space Constraints):
-    1. gaussian_sum: Tổng S trong dải [mu - 2*sigma, mu + 2*sigma]
-    2. ac_complexity: AC >= 7 (với 6 bóng) hoặc AC >= 4 (với 5 bóng)
-    3. no_three_consecutive: Không chứa >= 3 số liên tiếp
-    4. parity_balance: Cấm tỷ lệ cực đoan (0:6, 6:0, 0:5, 5:0)
-    5. repeat_limit: Số bóng lặp từ kỳ trước <= 2 bóng
-    """
-    sorted_c = sorted(combo)
-    c_sum = sum(sorted_c)
-    min_s, max_s = (115, 220) if max_val == 55 else ((95, 180) if max_val == 45 else (60, 120))
-    sum_ok = min_s <= c_sum <= max_s
-    
-    diffs = {abs(x - y) for x, y in itertools.combinations(sorted_c, 2)}
-    ac = len(diffs) - (num_balls - 1)
-    min_ac = 4 if num_balls == 5 else 7
-    ac_ok = ac >= min_ac
-    
-    max_seq = 1
-    cur_seq = 1
-    for idx in range(1, len(sorted_c)):
-        if sorted_c[idx] == sorted_c[idx - 1] + 1:
-            cur_seq += 1
-            if cur_seq > max_seq:
-                max_seq = cur_seq
-        else:
-            cur_seq = 1
-    seq_ok = max_seq < 3
-    
-    odd_c = sum(1 for x in sorted_c if x % 2 != 0)
-    even_c = num_balls - odd_c
-    parity_ok = (odd_c > 0 and even_c > 0)
-    
-    rep_cnt = len(set(sorted_c).intersection(set(last_draw))) if last_draw else 0
-    rep_ok = rep_cnt <= 2
-    
-    passed = sum_ok and ac_ok and seq_ok and parity_ok and rep_ok
-    score_pass = sum([sum_ok, ac_ok, seq_ok, parity_ok, rep_ok])
-    
-    return {
-        "passed": passed,
-        "score_pass": score_pass,
-        "sum": {"val": c_sum, "min": min_s, "max": max_s, "passed": sum_ok},
-        "ac": {"val": ac, "threshold": min_ac, "passed": ac_ok},
-        "consecutive": {"max_len": max_seq, "passed": seq_ok},
-        "parity": {"ratio": f"{even_c}C - {odd_c}L", "passed": parity_ok},
-        "repeat": {"count": rep_cnt, "max_allowed": 2, "passed": rep_ok}
-    }
-
-
-def calculate_multi_model_consensus_and_backtest(
-    records: List[Dict], 
-    product_key: str, 
-    max_val: int, 
-    num_balls: int, 
-    is_two_matrix: bool = False, 
-    num_draws: int = 100, 
-    display_draws: int = 15
-) -> Dict[str, Any]:
-    """
-    KIỂM ĐỊNH TOÀN DIỆN ĐA MÔ HÌNH (100 KỲ WALK-FORWARD BACKTEST CHO TỪNG MÔ HÌNH ĐỘC LẬP)
-    VÀ TỔNG HỢP ĐỒNG THUẬN CONSENSUS HUB CHO KỲ KẾ TIẾP VỚI HUẤN LUYỆN ĐỊNH LƯỢNG & LỌC KHÔNG GIAN ÂM:
-    
-    5 Mô hình độc lập:
-    1. Hazard: Bayesian Hazard Rate (Vùng Vàng Nhịp Gan 0.70 - 1.40 chu kỳ)
-    2. Decay: Exponential Time Decay (Quán tính nhiệt xuất hiện dồn dập, alpha tối ưu)
-    3. Markov: Markov Transition Chain (Xác suất chuyển trạng thái từ kỳ trước)
-    4. Fourier: Fourier Spectral Resonance (Phổ chu kỳ bước sóng rời rạc DFT)
-    5. Bac_Nho: Pairwise Synergy & Bạc Nhớ (Lực hút cặp đôi Lift)
-    
-    + Mô hình Hợp lực:
-    6. Consensus: Đa nhân tố thích ứng động với điều chuẩn L2 Shrinkage
-    """
-    if len(records) < 30:
-        return {}
-
-    num_test = min(num_draws, len(records) - 10)
-    start_idx = len(records) - num_test
-
-    # Siêu tham số tối ưu hóa theo đặc tính xác suất từng loại hình (Hyperparameter Tuning)
-    if max_val == 55:
-        opt_alpha = 0.028
-        hazard_win = (0.70, 1.40)
-        target_sum = 168
-        min_s, max_s = (115, 220)
-        min_ac = 7
-    elif max_val == 45:
-        opt_alpha = 0.035
-        hazard_win = (0.75, 1.35)
-        target_sum = 138
-        min_s, max_s = (95, 180)
-        min_ac = 7
-    else: # 35
-        opt_alpha = 0.055
-        hazard_win = (0.80, 1.30)
-        target_sum = 90
-        min_s, max_s = (60, 120)
-        min_ac = 4
-
-    models_info = {
-        "markov": {"name": "Markov PPMI Information Gain", "icon": "git-merge", "color": "fuchsia", "desc": "Thông tin tương hỗ dương chuẩn hóa Laplace đo lường lực hút chuyển trạng thái thực sự từ kỳ trước."},
-        "hazard": {"name": "Bayesian Rhythm Z-Score (Nhịp Điểm Rơi)", "icon": "timer", "color": "emerald", "desc": "Mật độ xác suất điểm rơi Gauss chuẩn hóa theo độ lệch chuẩn chu kỳ nhịp riêng của từng quả bóng."},
-        "decay": {"name": "Exponential Momentum & Decay (Nhiệt)", "icon": "flame", "color": "rose", "desc": f"Tần suất suy giảm mũ kết hợp quán tính nhiệt alpha={opt_alpha}, chu kỳ bán rã {round(math.log(2)/opt_alpha, 1)} kỳ."},
-        "bac_nho": {"name": "Empirical Bayes Pairwise Lift", "icon": "network", "color": "indigo", "desc": "Độ nâng lực hút cặp đôi kỳ trước kéo bóng kỳ sau với hiệu chỉnh Bayes chống quá khớp mẫu nhỏ."},
-        "fourier": {"name": "Hann-Windowed Spectral Resonance", "icon": "activity", "color": "cyan", "desc": "Cộng hưởng bước sóng chu kỳ DFT có cửa sổ Hann triệt tiêu rò rỉ phổ trên 64 kỳ."}
-    }
-
-    def evaluate_models(sub_records):
-        K = min(120, len(sub_records))
-        recent = sub_records[-K:]
-        last_res = sub_records[-1].get("result", [])[:num_balls] if sub_records else []
-        last_draw_balls = set(last_res)
-        last_draw_pairs = list(itertools.combinations(sorted(last_draw_balls), 2))
-
-        # 1. Decay & Accurate Gaps
-        decay_freq = {b: 0.0 for b in range(1, max_val + 1)}
-        gaps_history = {b: [] for b in range(1, max_val + 1)}
-        cur_gap = {b: K for b in range(1, max_val + 1)}
-        prev_seen = {}
-
-        for t, r in enumerate(reversed(recent)):
-            res = r.get("result", [])
-            main_b = res[:5] if is_two_matrix else res[:6]
-            for b in main_b:
-                if 1 <= b <= max_val:
-                    decay_freq[b] += math.exp(-opt_alpha * t)
-                    if b not in prev_seen:
-                        cur_gap[b] = t
-                        prev_seen[b] = t
-                    else:
-                        gaps_history[b].append(t - prev_seen[b])
-                        prev_seen[b] = t
-
-        # 2. Hazard: Bayesian Rhythm Z-Score Gaussian Density
-        hazard_scores = {}
-        for b in range(1, max_val + 1):
-            c_gap = cur_gap[b]
-            all_g = gaps_history[b]
-            avg_g = (sum(all_g) / len(all_g)) if all_g else (max_val / num_balls)
-            std_g = float(np.std(all_g)) if len(all_g) >= 2 else (avg_g * 0.75)
-            z = (c_gap - 1.05 * avg_g) / max(1.0, std_g)
-            density = math.exp(-0.5 * (z ** 2))
-            if z > 2.5:
-                density *= 0.35
-            hazard_scores[b] = round(density * 3.0, 3)
-
-        # 3. Fourier with Hann Window to suppress spectral leakage
-        fft_len = min(64, len(sub_records))
-        fft_records = sub_records[-fft_len:]
-        spectral_score = {b: 0.0 for b in range(1, max_val + 1)}
-        if fft_len >= 16:
-            hann_win = np.hanning(fft_len)
-            for b in range(1, max_val + 1):
-                sig = [1.0 if b in r.get("result", [])[:num_balls] else 0.0 for r in fft_records]
-                if sum(sig) > 0:
-                    sig_arr = np.array(sig)
-                    w_sig = (sig_arr - sig_arr.mean()) * hann_win
-                    fft_vals = np.abs(np.fft.rfft(w_sig))
-                    if len(fft_vals) > 1:
-                        dom_freq = np.argmax(fft_vals[1:]) + 1
-                        period = fft_len / dom_freq
-                        gap_to_period = abs(cur_gap[b] - period)
-                        spectral_score[b] = round(math.exp(-0.25 * gap_to_period), 3)
-
-        # 4. Markov PPMI with Laplace Smoothing
-        sub_len = min(150, len(sub_records))
-        sub_recs = sub_records[-sub_len:]
-        matrix = defaultdict(Counter)
-        p_marginal = Counter()
-        c_marginal = Counter()
-        for t in range(1, len(sub_recs)):
-            p_nums = set(sub_recs[t - 1].get("result", [])[:num_balls])
-            c_nums = set(sub_recs[t].get("result", [])[:num_balls])
-            for p in p_nums:
-                p_marginal[p] += 1
-                for c in c_nums:
-                    matrix[p][c] += 1
-            for c in c_nums:
-                c_marginal[c] += 1
-        total_trans = sum(p_marginal.values()) or 1.0
-
-        markov_score = {b: 0.0 for b in range(1, max_val + 1)}
-        for n in last_res:
-            p_cnt = p_marginal[n]
-            if p_cnt >= 2:
-                for b in range(1, max_val + 1):
-                    cnt = matrix[n][b]
-                    p_joint = (cnt + 0.1) / (total_trans + 0.1 * max_val)
-                    p_p = p_marginal[n] / total_trans
-                    p_c = c_marginal[b] / total_trans
-                    pmi = math.log2(p_joint / (p_p * p_c)) if (p_p * p_c > 0) else 0.0
-                    if pmi > 0:
-                        markov_score[b] += pmi
-
-        # 5. Bac nho with Empirical Bayes Shrinkage
-        p120 = sub_records[-120:] if len(sub_records) >= 120 else sub_records
-        pair_trans = Counter()
-        pair_counts = Counter()
-        for i in range(len(p120) - 1):
-            pr = p120[i].get("result", [])[:num_balls]
-            cr = p120[i + 1].get("result", [])[:num_balls]
-            for p in itertools.combinations(sorted(pr), 2):
-                pair_counts[p] += 1
-                for cb in cr:
-                    pair_trans[(p, cb)] += 1
-
-        bac_nho_score = {b: 0.0 for b in range(1, max_val + 1)}
-        base_prob = num_balls / max_val
-        alpha_prior = 3.0
-        for p in last_draw_pairs:
-            p_cnt = pair_counts[p]
-            if p_cnt >= 2:
-                for b in range(1, max_val + 1):
-                    cnt = pair_trans.get((p, b), 0)
-                    if cnt > 0:
-                        smooth_prob = (cnt + alpha_prior * base_prob) / (p_cnt + alpha_prior)
-                        smooth_lift = smooth_prob / base_prob
-                        if smooth_lift > 1.15:
-                            bac_nho_score[b] += (smooth_lift - 1.0)
-
-        return {
-            "markov": markov_score,
-            "hazard": hazard_scores,
-            "decay": decay_freq,
-            "bac_nho": bac_nho_score,
-            "fourier": spectral_score,
-            "cur_gap": cur_gap
-        }
-
-    # HUẤN LUYỆN TRỌNG SỐ THỰC NGHIỆM BAN ĐẦU (In-Sample Training on 100 historical draws)
-    train_start = max(0, start_idx - 100)
-    train_hits = Counter()
-    train_ge3 = Counter()
-    
-    for i in range(train_start, start_idx):
-        past = records[:i]
-        target = records[i]
-        act = set(target.get("result", [])[:num_balls])
-        m_eval = evaluate_models(past)
-        for m in models_info.keys():
-            top_m = sorted(range(1, max_val + 1), key=lambda b: m_eval[m].get(b, 0), reverse=True)[:num_balls]
-            h = len(act.intersection(top_m))
-            train_hits[m] += h
-            if h >= 3: train_ge3[m] += 1
-
-    # Walk-forward backtest across 100 draws with L2-Regularized Adaptive Weights
-    backtest_stats = {
-        m: {"hits": 0, "ge3": 0, "ge4": 0, "recent_10": 0, "dist": Counter()}
-        for m in list(models_info.keys()) + ["consensus"]
-    }
-    core_pool_size = 12 if max_val in (55, 45) else 10
-    core_backtest = {"pool_size": core_pool_size, "hits": 0, "ge3": 0, "ge4": 0, "ge5": 0}
-    triad_backtest = {"hits": 0, "ge1": 0, "ge2": 0}
-    key5_backtest = {"hits": 0, "ge1": 0, "ge2": 0}
-    wheel4_backtest = {"prize_won_count": 0, "core_ge4_count": 0, "core_ge4_won_count": 0}
-    history_logs = []
-    
-    rolling_hits = Counter(train_hits)
-    rolling_ge3 = Counter(train_ge3)
-    lambda_reg = 0.20  # Shrinkage Regularization (20% prior, 80% data-driven)
-    rand_rate = num_balls / max_val
-
-    for step, i in enumerate(range(start_idx, len(records))):
-        past = records[:i]
-        target_draw = records[i]
-        draw_id = str(target_draw.get("id", "")).replace("#", "").strip()
-        date_str = target_draw.get("date", "")
-        actual_balls = set(target_draw.get("result", [])[:num_balls])
-        
-        m_eval = evaluate_models(past)
-        
-        # Calculate dynamic model weights from strictly historical performance (No Look-Ahead)
-        # Using Out-Of-Fold Alpha scaling to reward proven predictive outperformance
-        train_window_len = 100.0 + step
-        perf = {}
-        for m in models_info.keys():
-            avg_h = rolling_hits[m] / train_window_len
-            ge3_bonus = (rolling_ge3[m] / train_window_len) * 3.0
-            alpha = max(0.02, (avg_h - rand_rate * 0.9) * 1.5 + ge3_bonus)
-            perf[m] = alpha ** 2.0
-        tot_perf = sum(perf.values()) or 1.0
-        cur_w = {m: (1.0 - lambda_reg) * (perf[m] / tot_perf) + lambda_reg * 0.20 for m in models_info.keys()}
-        
-        # Calculate hybrid normalized scores combining magnitude with soft-exponential rank conviction
-        norm_scores = {}
-        for m in models_info.keys():
-            sc_dict = m_eval[m]
-            max_v = max(sc_dict.values()) if sc_dict and max(sc_dict.values()) > 0 else 1.0
-            ranked = sorted(range(1, max_val + 1), key=lambda b: sc_dict.get(b, 0), reverse=True)
-            exp_conv = {b: math.exp(-0.075 * idx) for idx, b in enumerate(ranked)}
-            norm_scores[m] = {b: 0.5 * (sc_dict.get(b, 0.0) / max_v) + 0.5 * exp_conv[b] for b in range(1, max_val + 1)}
-            
-        # Consensus score with regularized adaptive weights
-        consensus_sc = {b: sum(cur_w[m] * norm_scores[m][b] for m in models_info.keys()) for b in range(1, max_val + 1)}
-
-        # Evaluate individual models
-        for m in models_info.keys():
-            top_m = sorted(range(1, max_val + 1), key=lambda x: m_eval[m].get(x, 0), reverse=True)[:num_balls]
-            h = len(actual_balls.intersection(top_m))
-            backtest_stats[m]["hits"] += h
-            backtest_stats[m]["dist"][h] += 1
-            if h >= 3: backtest_stats[m]["ge3"] += 1
-            if h >= 4: backtest_stats[m]["ge4"] += 1
-            if step >= num_test - 10: backtest_stats[m]["recent_10"] += h
-            
-            # Update rolling stats strictly after evaluation
-            rolling_hits[m] += h
-            if h >= 3: rolling_ge3[m] += 1
-
-        # Evaluate Consensus
-        top_con = sorted(range(1, max_val + 1), key=lambda x: consensus_sc.get(x, 0), reverse=True)[:num_balls]
-        hc = len(actual_balls.intersection(top_con))
-        backtest_stats["consensus"]["hits"] += hc
-        backtest_stats["consensus"]["dist"][hc] += 1
-        if hc >= 3: backtest_stats["consensus"]["ge3"] += 1
-        if hc >= 4: backtest_stats["consensus"]["ge4"] += 1
-        if step >= num_test - 10: backtest_stats["consensus"]["recent_10"] += hc
-
-        # Evaluate Core Pool
-        top_core = sorted(range(1, max_val + 1), key=lambda x: consensus_sc.get(x, 0), reverse=True)[:core_pool_size]
-        hc_core = len(actual_balls.intersection(top_core))
-        core_backtest["hits"] += hc_core
-        if hc_core >= 3: core_backtest["ge3"] += 1
-        if hc_core >= 4: core_backtest["ge4"] += 1
-        if hc_core >= 5: core_backtest["ge5"] += 1
-
-        # Evaluate Stratified Triad (Kiềng 3 Chân: 1 Markov + 1 Hazard + 1 Cầu Rơi)
-        b_mkv = sorted(range(1, max_val + 1), key=lambda b: m_eval["markov"].get(b, 0), reverse=True)[0]
-        top_hzd = sorted(range(1, max_val + 1), key=lambda b: m_eval["hazard"].get(b, 0), reverse=True)
-        b_hzd = next((b for b in top_hzd if b != b_mkv), 1)
-        prev_r = past[-1].get("result", [])[:num_balls] if past else []
-        if prev_r:
-            sw = past[-15:]
-            cau_roi_s = sorted(prev_r, key=lambda b: sum(1 for r in sw if b in r.get("result", [])[:num_balls]), reverse=True)
-            b_cr = next((b for b in cau_roi_s if b not in (b_mkv, b_hzd)), (cau_roi_s[0] if cau_roi_s else 2))
-        else:
-            b_cr = next((b for b in top_core if b not in (b_mkv, b_hzd)), 3)
-        h_triad_balls = [b_mkv, b_hzd, b_cr]
-        h_triad = len(actual_balls.intersection(h_triad_balls))
-        triad_backtest["hits"] += h_triad
-        if h_triad >= 1: triad_backtest["ge1"] += 1
-        if h_triad >= 2: triad_backtest["ge2"] += 1
-
-        # Evaluate Top 5 Ngũ Thủ
-        rem_con = [b for b in top_core if b not in h_triad_balls]
-        h_key5_balls = h_triad_balls + rem_con[:2]
-        h_key5 = len(actual_balls.intersection(h_key5_balls))
-        key5_backtest["hits"] += h_key5
-        if h_key5 >= 1: key5_backtest["ge1"] += 1
-        if h_key5 >= 2: key5_backtest["ge2"] += 1
-
-        # Evaluate 4-Ticket Abbreviated Covering Wheels
-        core_10 = top_core[:10]
-        if num_balls == 6:
-            wheel_idx = [
-                [0, 1, 2, 3, 4, 5],
-                [0, 1, 6, 7, 8, 9],
-                [2, 3, 6, 7, 8, 9],
-                [4, 5, 6, 7, 8, 9],
-            ]
-        else:
-            wheel_idx = [
-                [0, 1, 2, 3, 4],
-                [0, 5, 6, 7, 8],
-                [1, 2, 5, 6, 9],
-                [3, 4, 7, 8, 9],
-            ]
-        ticket_hits = []
-        for idx_l in wheel_idx:
-            t_nums = [core_10[x] for x in idx_l if x < len(core_10)]
-            ticket_hits.append(len(actual_balls.intersection(t_nums)))
-        max_wheel_hit = max(ticket_hits) if ticket_hits else 0
-        wheel_won_prize = any(h >= 3 for h in ticket_hits)
-        if wheel_won_prize:
-            wheel4_backtest["prize_won_count"] += 1
-        
-        core_10_hits = len(actual_balls.intersection(core_10))
-        if core_10_hits >= 4:
-            wheel4_backtest["core_ge4_count"] += 1
-            if wheel_won_prize:
-                wheel4_backtest["core_ge4_won_count"] += 1
-
-        # Save history for display
-        if step >= num_test - display_draws:
-            matched_list = sorted(list(actual_balls.intersection(top_con)))
-            matched_core = sorted(list(actual_balls.intersection(top_core)))
-            matched_triad = sorted(list(actual_balls.intersection(h_triad_balls)))
-            matched_key5 = sorted(list(actual_balls.intersection(h_key5_balls)))
-            history_logs.append({
-                "drawId": draw_id,
-                "date": date_str,
-                "actual": sorted(list(actual_balls)),
-                "predicted": top_con,
-                "matched": matched_list,
-                "matchCount": len(matched_list),
-                "corePool": top_core,
-                "coreMatched": matched_core,
-                "coreMatchCount": len(matched_core),
-                "triad": h_triad_balls,
-                "triadMatched": matched_triad,
-                "triadMatchCount": len(matched_triad),
-                "key5": h_key5_balls,
-                "key5Matched": matched_key5,
-                "key5MatchCount": len(matched_key5),
-                "wheel4": {
-                    "ticketHits": ticket_hits,
-                    "maxHit": max_wheel_hit,
-                    "wonPrize": wheel_won_prize
-                }
-            })
-
-    # Performance-based dynamic weight calculation for Next Draw
-    total_perf = sum(perf[m] for m in models_info.keys()) or 1.0
-    dynamic_weights = {}
-    for m in models_info.keys():
-        dynamic_weights[m] = round((1.0 - lambda_reg) * (perf[m] / total_perf) + lambda_reg * 0.20, 3)
-
-    # Leaderboard assembly
-    random_avg = round(num_balls * num_balls / max_val, 2)
-    leaderboard = [
-        {
-            "id": "consensus",
-            "name": "Consensus Engine (Tổng Hợp)",
-            "icon": "trophy",
-            "color": "amber",
-            "avg_hits": round(backtest_stats["consensus"]["hits"] / num_test, 2),
-            "win_rate_ge3": round(backtest_stats["consensus"]["ge3"] / num_test * 100, 1),
-            "recent_10_hits": backtest_stats["consensus"]["recent_10"],
-            "form": "🔥 Đỉnh cao" if backtest_stats["consensus"]["recent_10"] >= 12 else "⚡ Phong độ tốt",
-            "weight_pct": 100.0,
-            "desc": "Hội đồng hợp lực 5 mô hình định lượng cao cấp tích hợp cơ chế xếp chồng Dynamic Alpha Stacking."
-        }
-    ]
-
-    for m, info in models_info.items():
-        st = backtest_stats[m]
-        leaderboard.append({
-            "id": m,
-            "name": info["name"],
-            "icon": info["icon"],
-            "color": info["color"],
-            "avg_hits": round(st["hits"] / num_test, 2),
-            "win_rate_ge3": round(st["ge3"] / num_test * 100, 1),
-            "recent_10_hits": st["recent_10"],
-            "form": "🔥 Đang vào nhịp" if st["recent_10"] >= 10 else ("⚡ Ổn định" if st["recent_10"] >= 7 else "Chờ điểm rơi"),
-            "weight_pct": round(dynamic_weights[m] * 100, 1),
-            "desc": info["desc"]
-        })
-
-    leaderboard.append({
-        "id": "baseline_random",
-        "name": "Ngẫu Nhiên Thuần Túy (Cơ sở)",
-        "icon": "help-circle",
-        "color": "slate",
-        "avg_hits": random_avg,
-        "win_rate_ge3": round(2.3 if max_val >= 45 else 3.5, 1),
-        "recent_10_hits": int(random_avg * 10),
-        "form": "Mốc tham chiếu",
-        "weight_pct": 0,
-        "desc": f"Kỳ vọng toán học ngẫu nhiên độc lập E[X] = {num_balls} * {num_balls} / {max_val} = {random_avg} bóng."
-    })
-
-    # Sort leaderboard models by win_rate and avg_hits
-    sub_ld = sorted(leaderboard[1:-1], key=lambda x: (x["win_rate_ge3"], x["avg_hits"]), reverse=True)
-    leaderboard = [leaderboard[0]] + sub_ld + [leaderboard[-1]]
-
-    # NEXT DRAW PREDICTIONS
-    next_eval = evaluate_models(records)
-    next_norm_scores = {}
-    top_candidates_per_model = {}
-    
-    for m in models_info.keys():
-        sc_dict = next_eval[m]
-        max_v = max(sc_dict.values()) if sc_dict and max(sc_dict.values()) > 0 else 1.0
-        ranked = sorted(range(1, max_val + 1), key=lambda b: sc_dict.get(b, 0), reverse=True)
-        exp_conv = {b: math.exp(-0.075 * idx) for idx, b in enumerate(ranked)}
-        next_norm_scores[m] = {b: 0.5 * (sc_dict.get(b, 0.0) / max_v) + 0.5 * exp_conv[b] for b in range(1, max_val + 1)}
-        top_candidates_per_model[m] = sorted(range(1, max_val + 1), key=lambda x: sc_dict.get(x, 0), reverse=True)[:12]
-
-    # Calculate final consensus score & agreement for all balls
-    ball_consensus = []
-    for b in range(1, max_val + 1):
-        c_score = sum(dynamic_weights[m] * next_norm_scores[m][b] * 10.0 for m in models_info.keys())
-        ag_cnt = sum(1 for m in models_info.keys() if b in top_candidates_per_model[m])
-        ag_pct = round(ag_cnt / len(models_info) * 100, 1)
-        bd = {m: round(dynamic_weights[m] * next_norm_scores[m][b] * 10.0, 1) for m in models_info.keys()}
-        is_trap = (next_norm_scores["hazard"][b] >= 0.7 and next_norm_scores["decay"][b] < 0.2 and next_norm_scores["markov"][b] < 0.2)
-        is_safe = (ag_cnt >= 3)
-
-        ball_consensus.append({
-            "ball": b,
-            "score": round(c_score, 1),
-            "agreement_count": ag_cnt,
-            "agreement_pct": ag_pct,
-            "is_safe": is_safe,
-            "trap_warning": is_trap,
-            "breakdown": bd
-        })
-
-    ball_consensus.sort(key=lambda x: x["score"], reverse=True)
-    top_consensus_balls = ball_consensus[:15]
-
-    # Model rationales for next draw
-    latest_res = records[-1].get("result", [])[:num_balls] if records else []
-    model_explanations = {
-        "markov": {
-            "name": models_info["markov"]["name"],
-            "top_picks": top_candidates_per_model["markov"][:5],
-            "math_basis": "Thông tin tương hỗ dương PPMI có làm mịn Laplace từ tập kết quả kỳ trước",
-            "rationale": f"Dựa trên kết quả kỳ trước ({', '.join(str(x).zfill(2) for x in latest_res)}), ma trận PPMI ghi nhận các số {', '.join(str(x).zfill(2) for x in top_candidates_per_model['markov'][:4])} có độ gia tăng thông tin liên kết nổ cao nhất."
-        },
-        "hazard": {
-            "name": models_info["hazard"]["name"],
-            "top_picks": top_candidates_per_model["hazard"][:5],
-            "math_basis": "Hàm mật độ điểm rơi Gauss trên độ lệch chuẩn chu kỳ nhịp riêng z_b = (g_b - 1.05 * avg_g) / std_g",
-            "rationale": f"Các bóng {', '.join(str(x).zfill(2) for x in top_candidates_per_model['hazard'][:4])} có nhịp gan hội tụ chuẩn xác tại đỉnh chuông mật độ Gauss, xác suất bùng nổ kỳ này đạt cực đại."
-        },
-        "decay": {
-            "name": models_info["decay"]["name"],
-            "top_picks": top_candidates_per_model["decay"][:5],
-            "math_basis": f"Tần suất suy giảm mũ kết hợp xung lực nhiệt alpha = {opt_alpha} trên 120 kỳ",
-            "rationale": f"Các bóng {', '.join(str(x).zfill(2) for x in top_candidates_per_model['decay'][:4])} có xung lực xuất hiện dày đặc gần đây, quán tính nhiệt tiếp tục duy trì đà nổ."
-        },
-        "bac_nho": {
-            "name": models_info["bac_nho"]["name"],
-            "top_picks": top_candidates_per_model["bac_nho"][:5],
-            "math_basis": "Độ nâng Lift có hiệu chỉnh Bayes chống quá khớp (Empirical Bayes Shrinkage) trên cặp số kỳ trước",
-            "rationale": f"Lực hút Bạc Nhớ Bayes chỉ ra các bóng {', '.join(str(x).zfill(2) for x in top_candidates_per_model['bac_nho'][:4])} có độ nâng xác suất thực sự vượt trội khi đi kèm cặp số kỳ trước."
-        },
-        "fourier": {
-            "name": models_info["fourier"]["name"],
-            "top_picks": top_candidates_per_model["fourier"][:5],
-            "math_basis": "Biến đổi Fourier rời rạc (DFT) áp dụng cửa sổ Hann triệt tiêu rò rỉ phổ trên 64 kỳ",
-            "rationale": f"Bước sóng chu kỳ của các bóng {', '.join(str(x).zfill(2) for x in top_candidates_per_model['fourier'][:4])} đang tiến sát pha cực đại trên phổ dao động cộng hưởng đã lọc nhiễu."
-        }
-    }
-
-    # Deterministic Seeded Suggested Tickets with Negative Space Filtering
-    latest_id_int = int(records[-1].get("id", "0").replace("#", "")) if records else 0
-    next_id_str = str(latest_id_int + 1).zfill(5)
-    seed_hash = int(hashlib.md5(f"consensus_{product_key}_{next_id_str}".encode()).hexdigest(), 16)
-
-    # 1. Golden Consensus Combo (Vé A - Cân Bằng)
-    top_pool = [x["ball"] for x in top_consensus_balls[:20]]
-    all_combos = list(itertools.combinations(top_pool, num_balls))
-    
-    # Filter candidates strictly by Negative Space Constraints
-    valid_golden_candidates = [
-        c for c in all_combos 
-        if validate_negative_space_constraints(c, max_val, num_balls, latest_res)["passed"]
-    ]
-    if not valid_golden_candidates:
-        valid_golden_candidates = all_combos  # fallback safeguard
-
-    # Deterministic sample evaluation
-    sample_combos = [valid_golden_candidates[(seed_hash + step * 101) % len(valid_golden_candidates)] for step in range(min(60, len(valid_golden_candidates)))]
-    
-    best_golden = None
-    best_eval = -999999
-    best_ac = min_ac
-    best_sum = target_sum
-    best_oe = "3C - 3L" if num_balls == 6 else "2C - 3L"
-    best_val_report = None
-
-    for combo in sample_combos:
-        c_val = validate_negative_space_constraints(combo, max_val, num_balls, latest_res)
-        c_sum = c_val["sum"]["val"]
-        ac = c_val["ac"]["val"]
-        odd_c = sum(1 for x in combo if x % 2 != 0)
-        even_c = num_balls - odd_c
-        oe_balance = 1.0 if abs(odd_c - even_c) <= 2 else 0.5
-        
-        c_score = sum(next((x["score"] for x in top_consensus_balls if x["ball"] == b), 5.0) for b in combo)
-        eval_score = c_score + ac * 6.0 - abs(c_sum - target_sum) * 0.4 + oe_balance * 10.0 + (50.0 if c_val["passed"] else 0.0)
-        if eval_score > best_eval:
-            best_eval = eval_score
-            best_golden = sorted(combo)
-            best_ac = ac
-            best_sum = c_sum
-            best_oe = f"{even_c}C - {odd_c}L"
-            best_val_report = c_val
-
-    # SEI score (0 to 10)
-    sei_score = round(min(10.0, 7.8 + (1.2 if best_ac >= min_ac else 0.5) + (0.6 if abs(best_sum - target_sum) <= 25 else 0.2) + 0.4), 1)
-
-    # 2. Momentum Combo (Vé B - Xung Lực)
-    momentum_pool = sorted(range(1, max_val + 1), key=lambda b: next_norm_scores["decay"][b] * 0.6 + next_norm_scores["bac_nho"][b] * 0.4, reverse=True)[:18]
-    mom_combos = list(itertools.combinations(momentum_pool, num_balls))
-    valid_mom = [c for c in mom_combos if validate_negative_space_constraints(c, max_val, num_balls, latest_res)["passed"]]
-    if not valid_mom:
-        valid_mom = mom_combos
-    best_momentum = sorted(valid_mom[(seed_hash + 313) % len(valid_mom)])
-    mom_val_report = validate_negative_space_constraints(best_momentum, max_val, num_balls, latest_res)
-
-    # 3. Breakout Combo (Vé C - Điểm Rơi Bứt Phá)
-    breakout_pool = sorted(range(1, max_val + 1), key=lambda b: next_norm_scores["hazard"][b] * 0.6 + next_norm_scores["markov"][b] * 0.4, reverse=True)[:18]
-    bo_combos = list(itertools.combinations(breakout_pool, num_balls))
-    valid_bo = [c for c in bo_combos if validate_negative_space_constraints(c, max_val, num_balls, latest_res)["passed"]]
-    if not valid_bo:
-        valid_bo = bo_combos
-    best_breakout = sorted(valid_bo[(seed_hash + 777) % len(valid_bo)])
-    bo_val_report = validate_negative_space_constraints(best_breakout, max_val, num_balls, latest_res)
-
-    # Stratified Triad for Top 3 Key Balls (Kiềng 3 Chân: Markov + Hazard + Cầu Rơi):
-    # 1. Top Markov ball
-    top_markov_balls = sorted(range(1, max_val + 1), key=lambda b: next_eval["markov"].get(b, 0), reverse=True)
-    b_markov = top_markov_balls[0]
-    
-    # 2. Top Hazard ball in golden zone
-    top_hazard_balls = sorted(range(1, max_val + 1), key=lambda b: next_eval["hazard"].get(b, 0), reverse=True)
-    b_hazard = next((b for b in top_hazard_balls if b != b_markov), 1)
-    
-    # 3. Top Cau Roi (Hottest repeat ball from previous draw)
-    if latest_res:
-        short_window = records[-15:]
-        cau_roi_sorted = sorted(latest_res, key=lambda b: sum(1 for r in short_window if b in r.get("result", [])[:num_balls]), reverse=True)
-        b_cau_roi = next((b for b in cau_roi_sorted if b not in (b_markov, b_hazard)), (cau_roi_sorted[0] if cau_roi_sorted else 2))
-    else:
-        b_cau_roi = next((b for b in top_consensus_balls if b["ball"] not in (b_markov, b_hazard)), {"ball": 3})["ball"]
-        
-    top_key_triad = [b_markov, b_hazard, b_cau_roi]
-    key_roles = [
-        {"ball": b_markov, "role": "Xác Suất Markov", "color": "fuchsia"},
-        {"ball": b_hazard, "role": "Điểm Rơi Hazard", "color": "emerald"},
-        {"ball": b_cau_roi, "role": "Nhịp Cầu Rơi", "color": "amber"}
-    ]
-    
-    # Top 5 Ngũ Thủ Trục (Key 5 balls):
-    remaining_con = [x["ball"] for x in top_consensus_balls if x["ball"] not in top_key_triad]
-    top_key_5 = top_key_triad + remaining_con[:2]
-
-    # Special Ball
-    spec_ball = None
-    if is_two_matrix:
-        spec_freq = Counter()
-        for r in records[-50:]:
-            res = r.get("result", [])
-            if len(res) >= 6: spec_freq[res[5]] += 1
-        spec_ball = max(range(1, 13), key=lambda x: spec_freq[x]) if spec_freq else 1
-    elif product_key == "power_655":
-        candidates = [x["ball"] for x in top_consensus_balls if x["ball"] not in best_golden]
-        spec_ball = candidates[0] if candidates else 1
-
-    # 4 Abbreviated Wheeling Tickets (Bao Thu Gọn 4 Vé từ Dàn Hạt Nhân 10 số):
-    core_10 = [x["ball"] for x in top_consensus_balls[:10]]
-    if num_balls == 6:
-        wheel_indices = [
-            [0, 1, 2, 3, 4, 5],
-            [0, 1, 6, 7, 8, 9],
-            [2, 3, 6, 7, 8, 9],
-            [4, 5, 6, 7, 8, 9],
-        ]
-    else:
-        wheel_indices = [
-            [0, 1, 2, 3, 4],
-            [0, 5, 6, 7, 8],
-            [1, 2, 5, 6, 9],
-            [3, 4, 7, 8, 9],
-        ]
-    wheeling_4_tickets = []
-    for w_idx, idx_list in enumerate(wheel_indices):
-        t_nums = sorted([core_10[i] for i in idx_list if i < len(core_10)])
-        wheeling_4_tickets.append({
-            "id": f"ve_{w_idx + 1}",
-            "label": f"Vé {w_idx + 1}",
-            "numbers": t_nums,
-            "special": spec_ball
-        })
-
-    # 4. Core Bao 7 Pool (7 balls, or 6 for 5/35)
-    bao_size = 6 if is_two_matrix else 7
-    core_bao_pool = [x["ball"] for x in top_consensus_balls[:bao_size]]
-
-    return {
-        "next_draw_id": f"#{next_id_str}",
-        "evaluated_draws_count": num_test,
-        "leaderboard": leaderboard,
-        "top_consensus_balls": top_consensus_balls,
-        "model_explanations": model_explanations,
-        "training_report": {
-            "trained_hyperparameters": {
-                "decay_alpha": opt_alpha,
-                "half_life_draws": round(math.log(2) / opt_alpha, 1),
-                "hazard_window": list(hazard_win),
-                "fourier_window": 64,
-                "gaussian_sum_range": [min_s, max_s],
-                "gaussian_mean": target_sum,
-                "min_ac_threshold": min_ac
-            },
-            "trained_model_weights": {m: round(dynamic_weights[m] * 100, 1) for m in models_info.keys()},
-            "negative_space_compliance": "100% Đạt Chuẩn (5/5 Bộ Lọc)",
-            "accuracy_gain_vs_random": {
-                "avg_hits_improvement_pct": round(((backtest_stats["consensus"]["hits"] / num_test) / random_avg - 1.0) * 100, 1),
-                "hit_rate_ge3": round(backtest_stats["consensus"]["ge3"] / num_test * 100, 1),
-                "baseline_random_avg": random_avg
-            }
-        },
-        "tickets": {
-            "key_balls": top_key_triad,
-            "key_roles": key_roles,
-            "key_5_balls": top_key_5,
-            "triad_backtest": {
-                "avg_hits": round(triad_backtest["hits"] / num_test, 2),
-                "win_rate_ge1": round(triad_backtest["ge1"] / num_test * 100, 1),
-                "win_rate_ge2": round(triad_backtest["ge2"] / num_test * 100, 1)
-            },
-            "key5_backtest": {
-                "avg_hits": round(key5_backtest["hits"] / num_test, 2),
-                "win_rate_ge1": round(key5_backtest["ge1"] / num_test * 100, 1),
-                "win_rate_ge2": round(key5_backtest["ge2"] / num_test * 100, 1)
-            },
-            "core_pool": [x["ball"] for x in top_consensus_balls[:core_pool_size]],
-            "core_backtest": {
-                "pool_size": core_pool_size,
-                "avg_hits": round(core_backtest["hits"] / num_test, 2),
-                "win_rate_ge3": round(core_backtest["ge3"] / num_test * 100, 1),
-                "win_rate_ge4": round(core_backtest["ge4"] / num_test * 100, 1),
-                "win_rate_ge5": round(core_backtest["ge5"] / num_test * 100, 1)
-            },
-            "wheeling_4_tickets": wheeling_4_tickets,
-            "wheel4_backtest": {
-                "overall_prize_win_rate": round(wheel4_backtest["prize_won_count"] / num_test * 100, 1),
-                "core_ge4_count": wheel4_backtest["core_ge4_count"],
-                "core_ge4_win_rate": round(wheel4_backtest["core_ge4_won_count"] / max(1, wheel4_backtest["core_ge4_count"]) * 100, 1)
-            },
-            "golden": {
-                "numbers": best_golden,
-                "ac_index": best_ac,
-                "sum": best_sum,
-                "odd_even": best_oe,
-                "sei_score": sei_score,
-                "special": spec_ball,
-                "negative_space_check": {
-                    "passed": best_val_report["passed"] if best_val_report else True,
-                    "score": "5/5",
-                    "details": best_val_report
-                }
-            },
-            "momentum": {
-                "numbers": best_momentum,
-                "special": spec_ball,
-                "negative_space_check": {
-                    "passed": mom_val_report["passed"] if mom_val_report else True,
-                    "score": "5/5",
-                    "details": mom_val_report
-                }
-            },
-            "breakout": {
-                "numbers": best_breakout,
-                "special": spec_ball,
-                "negative_space_check": {
-                    "passed": bo_val_report["passed"] if bo_val_report else True,
-                    "score": "5/5",
-                    "details": bo_val_report
-                }
-            },
-            "bao7": {
-                "numbers": core_bao_pool,
-                "special": spec_ball,
-                "negative_space_check": {
-                    "passed": True,
-                    "score": "Đạt Chuẩn Bao"
-                }
-            }
-        },
-        "history_walk_forward": list(reversed(history_logs))
     }
 
 
@@ -2031,45 +1144,14 @@ def process_power(records: List[Dict], max_val: int, num_balls: int, has_special
     total_draws = len(records)
     latest_draws = records[-100:][::-1]
 
-    # Frequency
-    ball_counter = Counter()
-    special_counter = Counter()
-
-    for r in records:
-        res = r.get("result", [])
-        if has_special and len(res) > num_balls:
-            main_balls = res[:num_balls]
-            special_ball = res[num_balls]
-            ball_counter.update(main_balls)
-            special_counter.update([special_ball])
-        else:
-            ball_counter.update(res[:num_balls])
-
-    freq_list = []
-    for num in range(1, max_val + 1):
-        cnt = ball_counter.get(num, 0)
-        freq_list.append({
-            "number": num,
-            "count": cnt,
-            "pct": round((cnt / total_draws * 100) if total_draws else 0, 2)
-        })
-
-    sorted_by_freq = sorted(freq_list, key=lambda x: x["count"], reverse=True)
-    hot_numbers = sorted_by_freq[:10]
-    cold_numbers = sorted_by_freq[-10:][::-1]
+    # Frequency & Hot/Cold numbers
+    draw_stats = calculate_draw_statistics(records, max_val, num_balls, has_special=has_special)
+    freq_list = draw_stats["frequency"]
+    hot_numbers = draw_stats["hot_numbers"]
+    cold_numbers = draw_stats["cold_numbers"]
 
     # Odd/Even ratio in latest 50 draws
-    odd_count = 0
-    even_count = 0
-    for r in latest_draws[:50]:
-        res = r.get("result", [])[:num_balls]
-        for b in res:
-            if b % 2 == 0:
-                even_count += 1
-            else:
-                odd_count += 1
-
-    total_oe = (odd_count + even_count) or 1
+    odd_even = calculate_odd_even(latest_draws, num_balls, sample_size=50)
 
     # Deep Analytics:
     gap_analysis = calculate_gap_analysis(records, max_val, num_balls)
@@ -2108,10 +1190,7 @@ def process_power(records: List[Dict], max_val: int, num_balls: int, has_special
         "markov_stats": markov_stats,
         "digit_dynamics": digit_dynamics,
         "ev_metrics": ev_metrics,
-        "odd_even": {
-            "odd_pct": round(odd_count / total_oe * 100, 1),
-            "even_pct": round(even_count / total_oe * 100, 1),
-        },
+        "odd_even": odd_even,
         "backtest_data": calculate_walk_forward_backtest(records, "power_535" if max_val==35 else ("power_645" if max_val==45 else "power_655"), max_val, num_balls, is_two_matrix=(max_val==35), num_draws=200, display_draws=20),
         "bao7_backtest_data": calculate_walk_forward_bao7_backtest(records, "power_535" if max_val==35 else ("power_645" if max_val==45 else "power_655"), max_val, num_balls, is_two_matrix=(max_val==35), num_draws=200, display_draws=20),
         "wheeling_strategy": generate_wheeling_strategy(records, "power_535" if max_val==35 else ("power_645" if max_val==45 else "power_655"), max_val, num_balls, is_two_matrix=(max_val==35)),
@@ -2231,10 +1310,8 @@ def process_max3d(records: List[Dict]) -> Dict[str, Any]:
     }
 
 
-def main():
-    DOCS_DATA_DIR.mkdir(parents=True, exist_ok=True)
-    print(f"Reading lottery data from {DATA_DIR}...")
-
+def generate_web_summary(data_dir: Path = DATA_DIR) -> Dict[str, Any]:
+    """Generate the full web summary data dictionary for all Vietlott products."""
     summary_data = {
         "meta": {
             "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
@@ -2246,7 +1323,7 @@ def main():
 
     # 1. Power 6/55
     print("Processing Power 6/55 with deep analytics...")
-    records_655 = read_jsonl(DATA_DIR / "power655.jsonl")
+    records_655 = read_jsonl(data_dir / "power655.jsonl")
     summary_data["products"]["power_655"] = {
         "name": "Power 6/55",
         "description": "Chọn 6 số từ 1 đến 55. Trúng Jackpot 1 từ 30 Tỷ, Jackpot 2 từ 3 Tỷ.",
@@ -2259,7 +1336,7 @@ def main():
 
     # 2. Mega 6/45
     print("Processing Mega 6/45 with deep analytics...")
-    records_645 = read_jsonl(DATA_DIR / "power645.jsonl")
+    records_645 = read_jsonl(data_dir / "power645.jsonl")
     summary_data["products"]["power_645"] = {
         "name": "Mega 6/45",
         "description": "Chọn 6 số từ 1 đến 45. Trúng Jackpot từ 12 Tỷ.",
@@ -2272,7 +1349,7 @@ def main():
 
     # 3. Power 5/35
     print("Processing Power 5/35 with deep analytics...")
-    records_535 = read_jsonl(DATA_DIR / "power535.jsonl")
+    records_535 = read_jsonl(data_dir / "power535.jsonl")
     summary_data["products"]["power_535"] = {
         "name": "Power 5/35",
         "description": "Chọn 5 số từ 1 đến 35.",
@@ -2285,7 +1362,7 @@ def main():
 
     # 4. Keno
     print("Processing Keno...")
-    records_keno = read_jsonl(DATA_DIR / "keno.jsonl")
+    records_keno = read_jsonl(data_dir / "keno.jsonl")
     summary_data["products"]["keno"] = {
         "name": "Keno",
         "description": "Quay 10 phút/kỳ. Rút 20 số từ tập 1 đến 80.",
@@ -2295,7 +1372,7 @@ def main():
 
     # 5. Bingo 18
     print("Processing Bingo 18...")
-    records_bingo = read_jsonl(DATA_DIR / "bingo18.jsonl")
+    records_bingo = read_jsonl(data_dir / "bingo18.jsonl")
     summary_data["products"]["bingo18"] = {
         "name": "Bingo 18",
         "description": "Quay 5 phút/kỳ. Quay 3 số từ 1 đến 6.",
@@ -2305,7 +1382,7 @@ def main():
 
     # 6. Max 3D
     print("Processing Max 3D...")
-    records_3d = read_jsonl(DATA_DIR / "3d.jsonl")
+    records_3d = read_jsonl(data_dir / "3d.jsonl")
     summary_data["products"]["3d"] = {
         "name": "Max 3D",
         "description": "Xổ số 3 chữ số theo cơ cấu giải thưởng.",
@@ -2315,13 +1392,22 @@ def main():
 
     # 7. Max 3D Pro
     print("Processing Max 3D Pro...")
-    records_3d_pro = read_jsonl(DATA_DIR / "3d_pro.jsonl")
+    records_3d_pro = read_jsonl(data_dir / "3d_pro.jsonl")
     summary_data["products"]["3d_pro"] = {
         "name": "Max 3D Pro",
         "description": "Xổ số 3 chữ số Pro mở thưởng Thứ 3, 5, 7.",
         "type": "3d",
         **process_max3d(records_3d_pro)
     }
+
+    return summary_data
+
+
+def main():
+    DOCS_DATA_DIR.mkdir(parents=True, exist_ok=True)
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    print(f"Reading lottery data from {DATA_DIR}...")
+    summary_data = generate_web_summary(DATA_DIR)
 
     for out_dir in [DOCS_DATA_DIR, DATA_DIR]:
         out_dir.mkdir(parents=True, exist_ok=True)
@@ -2332,6 +1418,37 @@ def main():
         tmp_path.replace(output_path)
         file_size_kb = output_path.stat().st_size / 1024
         print(f"Successfully generated {output_path} ({file_size_kb:.1f} KB)")
+
+
+__all__ = [
+    "read_jsonl",
+    "calculate_gap_analysis",
+    "calculate_cooccurrence",
+    "calculate_sum_and_patterns",
+    "calculate_positional_stats",
+    "calculate_ac_stats",
+    "calculate_delta_stats",
+    "calculate_markov_matrix",
+    "calculate_markov_stats",
+    "calculate_digit_dynamics",
+    "calculate_ev_metrics",
+    "calculate_draw_statistics",
+    "calculate_odd_even",
+    "calculate_bayesian_hazard_scores",
+    "generate_wheeling_strategy",
+    "calculate_walk_forward_backtest",
+    "calculate_walk_forward_bao7_backtest",
+    "calculate_multi_model_consensus_and_backtest",
+    "validate_negative_space_constraints",
+    "calculate_bac_nho_and_cau_roi",
+    "calculate_cooccurrence_matrix_analytics",
+    "process_power",
+    "process_keno",
+    "process_bingo18",
+    "process_max3d",
+    "generate_web_summary",
+    "main",
+]
 
 
 if __name__ == "__main__":

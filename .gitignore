@@ -1,9 +1,15 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python,Jetbrains,VisualStudioCode,dotenv,dbt
 .idea/
 __pycache__/
+.uv_cache/
+.pytest_cache/
+pytest-cache-files-*/
 *.pyc
 .codegraph/
 scratch/
+.superpowers/
+output/
+pytest.bat
 *.bak
 
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,Jetbrains,VisualStudioCode,dotenv,dbt

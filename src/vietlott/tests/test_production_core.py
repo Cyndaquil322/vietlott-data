@@ -197,6 +197,25 @@ class TestWebSummarySchema(unittest.TestCase):
             hub = pdata["consensus_hub"]
             self.assertIn("tickets", hub, f"Thiếu tickets trong {key}")
             self.assertIn("history_walk_forward", hub, f"Thiếu history_walk_forward trong {key}")
+            
+            # Verify Optimal Septet (Bộ 7 Số Tối Ưu / Bao 7)
+            tickets = hub["tickets"]
+            self.assertIn("optimal_septet", tickets, f"Thiếu optimal_septet trong {key}")
+            opt_sep = tickets["optimal_septet"]
+            expected_len = 6 if key == "power_535" else 7
+            self.assertEqual(len(opt_sep["numbers"]), expected_len, f"Độ dài số optimal_septet sai trong {key}")
+            self.assertIn("ac_index", opt_sep)
+            self.assertIn("sum", opt_sep)
+
+            # Verify 100-Draw Walk-Forward Backtest for Optimal Septet
+            self.assertIn("septet_backtest", tickets, f"Thiếu septet_backtest trong {key}")
+            sep_bt = tickets["septet_backtest"]
+            self.assertIn("avg_hits", sep_bt)
+            self.assertIn("win_rate_ge3", sep_bt)
+            self.assertIn("hit_3_plus", sep_bt)
+            self.assertIn("total_draws", sep_bt)
+            self.assertEqual(sep_bt["total_draws"], hub.get("evaluated_draws_count", 100))
+
 
 
 if __name__ == "__main__":

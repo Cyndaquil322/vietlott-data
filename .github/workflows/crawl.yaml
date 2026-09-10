@@ -1,30 +1,40 @@
 name: Vietlott Daily Crawler & Web Deploy
 
-on:
+'on':
   workflow_dispatch: # Allows manual trigger from GitHub UI
   schedule:
-    # 1. Evening Draw Window (Power 6/55, Mega 6/45 drawn ~18:00 - 18:30 VN time)
-    #    Multiple sync attempts guarantee we never miss results if Vietlott website is delayed
-    - cron: '35 11 * * *'  # 18:35 VN (Early check)
-    - cron: '50 11 * * *'  # 18:50 VN (Prime check)
-    - cron: '15 12 * * *'  # 19:15 VN (Safety backup check)
-    - cron: '0 13 * * *'   # 20:00 VN (Final evening verification)
+    # =========================================================================
+    # LỊCH CHẠY TỰ ĐỘNG THEO GIỜ VIỆT NAM (UTC+7)
+    # =========================================================================
+    # 1. KỲ TRƯA POWER 5/35 (Quay lúc 13:00 VN = 06:00 UTC)
+    - cron: '20 6 * * *'   # 13:20 VN (Quét sớm ngay khi vừa có kết quả)
+    - cron: '35 6 * * *'   # 13:35 VN (Quét chính thức đầy đủ)
+    - cron: '5 7 * * *'    # 14:05 VN (Quét dự phòng nếu máy chủ Vietlott bị trễ)
 
-    # 2. Night Draw Window (Power 5/35 evening draw ~21:00 VN time)
-    - cron: '35 14 * * *'  # 21:35 VN (Prime check)
-    - cron: '15 15 * * *'  # 22:15 VN (Backup check)
+    # 2. KỲ CHIỀU POWER 6/55 & MEGA 6/45 & MAX 3D (Quay lúc 18:00 - 18:30 VN = 11:00 UTC)
+    - cron: '35 11 * * *'  # 18:35 VN (Quét sớm)
+    - cron: '50 11 * * *'  # 18:50 VN (Quét chính thức)
+    - cron: '15 12 * * *'  # 19:15 VN (Quét an toàn)
+    - cron: '0 13 * * *'   # 20:00 VN (Chốt kết quả buổi tối)
 
-    # 3. Midday Draw Window (Power 5/35 midday draw ~13:00 VN time)
-    - cron: '35 6 * * *'   # 13:35 VN (Prime check)
-    - cron: '15 7 * * *'   # 14:15 VN (Backup check)
+    # 3. KỲ TỐI POWER 5/35 (Quay lúc 21:00 VN = 14:00 UTC)
+    - cron: '20 14 * * *'  # 21:20 VN (Quét sớm)
+    - cron: '35 14 * * *'  # 21:35 VN (Quét chính thức)
+    - cron: '5 15 * * *'   # 22:05 VN (Quét dự phòng)
 
-    # 4. Morning & Pre-draw Freshness checks
-    - cron: '30 22 * * *'  # 05:30 VN (Early morning fresh check)
-    - cron: '30 4 * * *'   # 11:30 VN (Pre-midday check)
+    # 4. CHÀO NGÀY MỚI & TRƯỚC GIỜ QUAY TRƯA
+    - cron: '0 23 * * *'   # 06:00 VN (Đồng bộ tươi mới đầu ngày)
+    - cron: '30 4 * * *'   # 11:30 VN (Kiểm tra trước kỳ quay trưa)
 
-# Grant permission to commit and push updates back to the repo
+# Grant permissions to write repo contents and deploy to GitHub Pages
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "vietlott-crawler-deploy"
+  cancel-in-progress: false
 
 jobs:
   crawl_and_update:
@@ -53,3 +63,27 @@ jobs:
         run: |
           chmod +x ./bin/github_data.sh
           bash ./bin/github_data.sh
+
+  deploy_pages:
+    needs: crawl_and_update
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'docs/'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

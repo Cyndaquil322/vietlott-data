@@ -17,7 +17,7 @@ export PYTHONPATH="src"
 export LOGURU_LEVEL="INFO"
 
 echo "=== 1. SYNCING & CRAWLING RECENT LOTTERY RESULTS ==="
-python src/vietlott/sync_live_data.py || true
+python src/vietlott/sync_live_data.py || python -m vietlott.sync_live_data || true
 
 python src/vietlott/cli/crawl.py keno || true
 python src/vietlott/cli/missing.py keno || true
@@ -42,13 +42,14 @@ python src/vietlott/cli/missing.py bingo18 || true
 
 echo "=== 2. GENERATING README STATS & WEB DATA ==="
 python src/render_readme.py || true
-python src/vietlott/render_web_data.py
+python src/vietlott/render_web_data.py || python -m vietlott.render_web_data
 
 # Sync index.html, assets, sw.js and json to root
 cp -f docs/index.html index.html || true
 mkdir -p assets
 cp -rf docs/assets/. assets/ || true
 cp -f docs/sw.js sw.js || true
+cp -f docs/manifest.json manifest.json || true
 cp -f docs/data/vietlott_summary.json data/vietlott_summary.json || true
 cp -f docs/data/saved_tickets.json data/saved_tickets.json || true
 
@@ -62,7 +63,7 @@ if [ -d ".git" ]; then
   fi
 
   git status
-  git add "$DATA_FOLDER" "$DOCS_FOLDER" readme.md index.html assets sw.js
+  git add -A "$DATA_FOLDER" "$DOCS_FOLDER" readme.md index.html assets sw.js manifest.json
 
   # Only commit if there are staged changes
   if ! git diff --staged --quiet; then
