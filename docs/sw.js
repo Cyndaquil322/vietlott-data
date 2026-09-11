@@ -1,5 +1,5 @@
-// Vietlott Hub Service Worker v2.0 - Network-First for Fresh Data
-const CACHE_NAME = 'vietlott-hub-v2.0';
+// Vietlott Hub Service Worker v2.1 - Network-First for Fresh Data
+const CACHE_NAME = 'vietlott-hub-v2.1';
 const STATIC_ASSETS = [
   './',
   './index.html',

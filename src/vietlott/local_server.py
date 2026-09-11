@@ -147,10 +147,16 @@ class LocalVietlottHandler(SimpleHTTPRequestHandler):
 
     def _execute_live_crawl(self, product_key: str) -> dict:
         """Thực thi cào dữ liệu và tính toán lại dự đoán cho sản phẩm chỉ định."""
+        import importlib
         from vietlott.render_web_data import read_jsonl
 
         if product_key in ["bingo18", "bingo"]:
+            import vietlott.sync_bingo18
+            importlib.reload(vietlott.sync_bingo18)
             from vietlott.sync_bingo18 import sync_bingo18
+
+            import vietlott.render_web_data
+            importlib.reload(vietlott.render_web_data)
             from vietlott.render_web_data import process_bingo18
 
             # 1. Cào dữ liệu mới nhất (siêu tốc, dừng sớm sau 1 request nếu đã mới nhất)
