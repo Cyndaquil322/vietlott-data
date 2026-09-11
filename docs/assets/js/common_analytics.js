@@ -1569,39 +1569,65 @@
               </div>
             </div>
 
-            <!-- Ma trận chấm tròn Roadmap (100 kỳ gần nhất) -->
+            <!-- Ma trận Big Road Cột Rơi (Chuẩn Vietlott SMS) -->
             <div>
               <div class="text-[11px] text-slate-400 mb-2 flex items-center justify-between">
-                <span>Ma trận nhịp (Trái sang phải, cũ đến mới):</span>
+                <span class="font-bold flex items-center gap-1.5 text-slate-300">
+                  <i data-lucide="git-commit" class="w-3.5 h-3.5 text-amber-400"></i>
+                  Ma Trận Big Road (Đổi Cột Khi Đảo Thế Cầu):
+                </span>
                 <div class="flex items-center gap-3 text-[10px] font-mono flex-wrap">
-                  <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-rose-500 inline-block"></span> Lớn (12-18) [37.5%]</span>
-                  <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span> Hòa (10-11) [25.0%]</span>
-                  <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-sky-500 inline-block"></span> Nhỏ (3-9) [37.5%]</span>
-                  <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-amber-400 border border-amber-200 inline-block animate-pulse"></span> Bão</span>
+                  <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block"></span> L (Lớn)</span>
+                  <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span> H (Hòa)</span>
+                  <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-sky-500 inline-block"></span> N (Nhỏ)</span>
+                  <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-amber-400 border border-red-500 inline-block ring-1 ring-red-400"></span> B (Bão)</span>
                 </div>
               </div>
-              <div class="p-3 bg-slate-950/90 rounded-xl border border-slate-800 max-h-48 overflow-y-auto">
-                <div class="flex flex-wrap gap-1.5 items-center">
-                  ${roadmap.map((r, idx) => {
-                    const isBao = r.isTriple;
-                    let colorCls = 'bg-sky-500 text-white';
-                    let char = 'N';
-                    if (isBao) {
-                      colorCls = 'bg-amber-400 text-slate-950 border border-amber-200 shadow-md shadow-amber-500/30';
-                      char = 'B';
-                    } else if (r.type === 'Lớn') {
-                      colorCls = 'bg-rose-500 text-white';
-                      char = 'L';
-                    } else if (r.type === 'Hòa') {
-                      colorCls = 'bg-emerald-500 text-white';
-                      char = 'H';
-                    }
-                    return `
-                      <div class="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold font-mono flex-shrink-0 cursor-pointer ${colorCls}" title="Kỳ #${r.drawId} (${r.date}): [${r.result.join(', ')}] = ${r.total} (${r.type})${isBao ? ' - BÃO' : ''}">
-                        ${char}
-                      </div>
-                    `;
-                  }).join('')}
+              <div class="p-3 bg-slate-950/95 rounded-xl border border-slate-800 overflow-x-auto" id="bigRoadScrollContainer">
+                <div class="flex items-start gap-1.5 min-w-max pb-1">
+                  ${(function() {
+                    const cols = [];
+                    let cur = null;
+                    roadmap.forEach(r => {
+                      let t = r.type;
+                      if (t !== 'Lớn' && t !== 'Hòa' && t !== 'Nhỏ') {
+                        const tot = r.total !== undefined ? r.total : (r.result || []).reduce((a, b) => a + b, 0);
+                        t = tot >= 12 ? 'Lớn' : (tot <= 9 ? 'Nhỏ' : 'Hòa');
+                      }
+                      if (!cur || cur.type !== t) {
+                        cur = { type: t, items: [] };
+                        cols.push(cur);
+                      }
+                      cur.items.push(r);
+                    });
+
+                    return cols.map(c => {
+                      let colorCls = 'bg-sky-500 text-white border-sky-400';
+                      let char = 'N';
+                      if (c.type === 'Lớn') {
+                        colorCls = 'bg-amber-400 text-slate-950 border-amber-300 font-black shadow-sm shadow-amber-950/40';
+                        char = 'L';
+                      } else if (c.type === 'Hòa') {
+                        colorCls = 'bg-emerald-500 text-white border-emerald-400 font-black shadow-sm shadow-emerald-950/40';
+                        char = 'H';
+                      }
+
+                      return `
+                        <div class="flex flex-col gap-1.5 items-center flex-shrink-0">
+                          ${c.items.map(r => {
+                            const isBao = r.isTriple;
+                            const fChar = isBao ? 'B' : char;
+                            const fCls = isBao ? 'bg-amber-400 text-slate-950 border-2 border-red-500 ring-2 ring-red-400 animate-pulse font-black' : colorCls;
+                            return `
+                              <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center text-[10px] sm:text-xs font-mono font-black border ${fCls} cursor-pointer shadow transition-transform hover:scale-115" title="Kỳ #${r.drawId} (${r.date}): [${(r.result || []).join(', ')}] = ${r.total} (${r.type || c.type})${isBao ? ' - BÃO' : ''}">
+                                ${fChar}
+                              </div>
+                            `;
+                          }).join('')}
+                        </div>
+                      `;
+                    }).join('');
+                  })()}
                 </div>
               </div>
             </div>
@@ -1763,62 +1789,127 @@
             </div>
           </div>
 
-          <!-- FORM NHẬP VÉ ĐẶT KỲ NÀY -->
+          <!-- FORM NHẬP VÉ ĐẶT KỲ NÀY (CHUẨN 5 HÌNH THỨC CƯỢC APP VIETLOTT SMS) -->
           <div class="bg-slate-950/70 p-4 rounded-xl border border-slate-800/80 space-y-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <!-- 1. Chọn Cửa Lớn / Hòa / Nhỏ -->
-              <div class="space-y-2">
-                <label class="text-xs font-mono text-slate-400 uppercase font-bold flex items-center gap-1.5">
-                  <i data-lucide="activity" class="w-3.5 h-3.5 text-rose-400"></i>
-                  1. Cửa Thế Cầu
-                </label>
-                <div class="grid grid-cols-3 gap-1.5">
-                  <button type="button" onclick="toggleBingoBet('ls', 'Lớn')" id="betBtn_ls_Lớn" class="bet-opt-btn px-2 py-2 rounded-lg text-xs font-bold font-mono border border-slate-700 bg-slate-900 text-slate-300 hover:border-rose-500 transition active:scale-95 cursor-pointer text-center">
-                    Lớn
-                  </button>
-                  <button type="button" onclick="toggleBingoBet('ls', 'Hòa')" id="betBtn_ls_Hòa" class="bet-opt-btn px-2 py-2 rounded-lg text-xs font-bold font-mono border border-slate-700 bg-slate-900 text-slate-300 hover:border-emerald-500 transition active:scale-95 cursor-pointer text-center">
-                    Hòa
-                  </button>
-                  <button type="button" onclick="toggleBingoBet('ls', 'Nhỏ')" id="betBtn_ls_Nhỏ" class="bet-opt-btn px-2 py-2 rounded-lg text-xs font-bold font-mono border border-slate-700 bg-slate-900 text-slate-300 hover:border-sky-500 transition active:scale-95 cursor-pointer text-center">
-                    Nhỏ
-                  </button>
-                </div>
-              </div>
+            <!-- TAB CHỌN HÌNH THỨC CƯỢC -->
+            <div class="flex items-center gap-1.5 overflow-x-auto pb-1 border-b border-slate-800 text-xs font-mono">
+              <button type="button" onclick="setBingoBetTab('ls')" id="tabBtn_ls" class="px-3 py-1.5 rounded-lg font-bold border transition cursor-pointer whitespace-nowrap bg-rose-600 text-white border-rose-400">
+                1. Lớn / Hòa / Nhỏ (x2 - x3)
+              </button>
+              <button type="button" onclick="setBingoBetTab('single')" id="tabBtn_single" class="px-3 py-1.5 rounded-lg font-bold border transition cursor-pointer whitespace-nowrap bg-slate-900 text-slate-400 border-slate-700">
+                2. Một Số (x1.2 - x3.6)
+              </button>
+              <button type="button" onclick="setBingoBetTab('diff_pair')" id="tabBtn_diff_pair" class="px-3 py-1.5 rounded-lg font-bold border transition cursor-pointer whitespace-nowrap bg-slate-900 text-slate-400 border-slate-700">
+                3. Cặp 2 Số Khác Nhau (x4.8)
+              </button>
+              <button type="button" onclick="setBingoBetTab('same_pair')" id="tabBtn_same_pair" class="px-3 py-1.5 rounded-lg font-bold border transition cursor-pointer whitespace-nowrap bg-slate-900 text-slate-400 border-slate-700">
+                4. Cặp Đôi Giống Nhau (x7.5)
+              </button>
+              <button type="button" onclick="setBingoBetTab('sum')" id="tabBtn_sum" class="px-3 py-1.5 rounded-lg font-bold border transition cursor-pointer whitespace-nowrap bg-slate-900 text-slate-400 border-slate-700">
+                5. Cộng Tổng (x4.5 - x120)
+              </button>
+            </div>
 
-              <!-- 2. Chọn Mặt Xúc Xắc 1..6 -->
-              <div class="space-y-2">
-                <label class="text-xs font-mono text-slate-400 uppercase font-bold flex items-center gap-1.5">
-                  <i data-lucide="dice-5" class="w-3.5 h-3.5 text-amber-400"></i>
-                  2. Mặt Xúc Xắc (chọn 1 hoặc nhiều)
-                </label>
-                <div class="grid grid-cols-6 gap-1">
-                  ${[1, 2, 3, 4, 5, 6].map(f => `
-                    <button type="button" onclick="toggleBingoBet('face', ${f})" id="betBtn_face_${f}" class="bet-opt-btn py-1.5 rounded-lg text-xs font-black font-mono border border-slate-700 bg-slate-900 text-slate-300 hover:border-amber-500 transition active:scale-95 cursor-pointer text-center">
-                      ${f}
+            <!-- NỘI DUNG TỪNG TAB -->
+            <div id="betTabContent_ls" class="space-y-2">
+              <span class="text-xs text-slate-400 font-mono block">Chọn thế cầu (Có thể chọn nhiều để đánh bao / lót Hòa):</span>
+              <div class="grid grid-cols-3 gap-2">
+                <button type="button" onclick="toggleBingoBetLS('Lớn')" id="betBtn_ls_Lớn" class="bet-opt-btn p-3 rounded-xl text-xs font-bold font-mono border border-slate-700 bg-slate-900 text-slate-300 hover:border-rose-500 transition active:scale-95 cursor-pointer text-center">
+                  <span class="text-sm font-black block">LỚN</span>
+                  <span class="text-[10px] text-slate-400">Tổng 12-18 (x2)</span>
+                </button>
+                <button type="button" onclick="toggleBingoBetLS('Hòa')" id="betBtn_ls_Hòa" class="bet-opt-btn p-3 rounded-xl text-xs font-bold font-mono border border-slate-700 bg-slate-900 text-slate-300 hover:border-emerald-500 transition active:scale-95 cursor-pointer text-center">
+                  <span class="text-sm font-black block text-emerald-400">HÒA</span>
+                  <span class="text-[10px] text-slate-400">Tổng 10, 11 (x3)</span>
+                </button>
+                <button type="button" onclick="toggleBingoBetLS('Nhỏ')" id="betBtn_ls_Nhỏ" class="bet-opt-btn p-3 rounded-xl text-xs font-bold font-mono border border-slate-700 bg-slate-900 text-slate-300 hover:border-sky-500 transition active:scale-95 cursor-pointer text-center">
+                  <span class="text-sm font-black block">NHỎ</span>
+                  <span class="text-[10px] text-slate-400">Tổng 3-9 (x2)</span>
+                </button>
+              </div>
+            </div>
+
+            <div id="betTabContent_single" class="space-y-2 hidden">
+              <span class="text-xs text-slate-400 font-mono block">Chọn 1 hoặc nhiều mặt xúc xắc (Trùng 1 con x1.2, 2 con x2.4, 3 con x3.6):</span>
+              <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
+                ${[1, 2, 3, 4, 5, 6].map(f => `
+                  <button type="button" onclick="toggleBingoBetSingle(${f})" id="betBtn_single_${f}" class="bet-opt-btn p-2 rounded-xl text-xs font-bold font-mono border border-slate-700 bg-slate-900 text-slate-300 hover:border-amber-500 transition active:scale-95 cursor-pointer flex flex-col items-center gap-1">
+                    ${renderDiceSVG(f, 32)}
+                    <span>Mặt ${f}</span>
+                    <span class="text-[10px] text-amber-400">x1.2 - x3.6</span>
+                  </button>
+                `).join('')}
+              </div>
+            </div>
+
+            <div id="betTabContent_diff_pair" class="space-y-2 hidden">
+              <span class="text-xs text-slate-400 font-mono block">Chọn cặp 2 số khác nhau (Nếu 3 xúc xắc nổ cả 2 số đó $\implies$ ăn <strong class="text-amber-400 font-bold">x4.8</strong>):</span>
+              <div class="grid grid-cols-3 sm:grid-cols-5 gap-2 max-h-48 overflow-y-auto pr-1">
+                ${[
+                  '1-2', '1-3', '1-4', '1-5', '1-6',
+                  '2-3', '2-4', '2-5', '2-6',
+                  '3-4', '3-5', '3-6',
+                  '4-5', '4-6',
+                  '5-6'
+                ].map(pair => `
+                  <button type="button" onclick="toggleBingoBetDiffPair('${pair}')" id="betBtn_diff_${pair}" class="bet-opt-btn p-2 rounded-xl text-xs font-bold font-mono border border-slate-700 bg-slate-900 text-slate-300 hover:border-amber-500 transition active:scale-95 cursor-pointer text-center">
+                    <span class="font-black text-amber-300 block">Cặp ${pair}</span>
+                    <span class="text-[10px] text-slate-400">Ăn x4.8</span>
+                  </button>
+                `).join('')}
+              </div>
+            </div>
+
+            <div id="betTabContent_same_pair" class="space-y-2 hidden">
+              <span class="text-xs text-slate-400 font-mono block">Chọn cặp đôi giống nhau (Nếu nổ $\ge 2$ con cùng mặt $\implies$ ăn <strong class="text-amber-400 font-bold">x7.5</strong>):</span>
+              <div class="grid grid-cols-2 sm:grid-cols-6 gap-2">
+                ${['1-1', '2-2', '3-3', '4-4', '5-5', '6-6'].map(pair => `
+                  <button type="button" onclick="toggleBingoBetSamePair('${pair}')" id="betBtn_same_${pair}" class="bet-opt-btn p-2.5 rounded-xl text-xs font-bold font-mono border border-slate-700 bg-slate-900 text-slate-300 hover:border-amber-500 transition active:scale-95 cursor-pointer text-center">
+                    <span class="font-black text-emerald-300 block">Đôi ${pair}</span>
+                    <span class="text-[10px] text-slate-400">Ăn x7.5</span>
+                  </button>
+                `).join('')}
+              </div>
+            </div>
+
+            <div id="betTabContent_sum" class="space-y-2 hidden">
+              <span class="text-xs text-slate-400 font-mono block">Cược tổng điểm cụ thể của 3 con xúc xắc (Tỷ lệ ăn từ x4.5 đến x120):</span>
+              <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2 max-h-48 overflow-y-auto pr-1">
+                ${[
+                  { s: 10, m: 4.5 }, { s: 11, m: 4.5 },
+                  { s: 9, m: 5 }, { s: 12, m: 5 },
+                  { s: 8, m: 6 }, { s: 13, m: 6 },
+                  { s: 7, m: 8 }, { s: 14, m: 8 },
+                  { s: 6, m: 12 }, { s: 15, m: 12 },
+                  { s: 5, m: 20 }, { s: 16, m: 20 },
+                  { s: 4, m: 40 }, { s: 17, m: 40 },
+                  { s: 3, m: 120 }, { s: 18, m: 120 }
+                ].map(item => `
+                  <button type="button" onclick="toggleBingoBetSum(${item.s})" id="betBtn_sum_${item.s}" class="bet-opt-btn p-2 rounded-xl text-xs font-bold font-mono border border-slate-700 bg-slate-900 text-slate-300 hover:border-emerald-500 transition active:scale-95 cursor-pointer text-center">
+                    <span class="font-black block text-white">Tổng ${item.s}</span>
+                    <span class="text-[10px] text-amber-400">x${item.m}</span>
+                  </button>
+                `).join('')}
+              </div>
+            </div>
+
+            <!-- CHỌN MỨC TIỀN CƯỢC & NÚT XÁC NHẬN -->
+            <div class="border-t border-slate-800 pt-3 flex flex-col md:flex-row md:items-center justify-between gap-3">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-xs font-mono text-slate-400 font-bold uppercase">Mức cược / cửa:</span>
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  ${[10000, 20000, 50000, 100000, 200000, 500000, 1000000].map(amt => `
+                    <button type="button" onclick="setBingoBetAmount(${amt})" id="amountBtn_${amt}" class="px-2.5 py-1 rounded-lg text-xs font-bold font-mono border transition active:scale-95 cursor-pointer ${amt === 10000 ? 'bg-amber-500 text-slate-950 border-amber-400 font-black' : 'bg-slate-900 text-slate-400 border-slate-700 hover:border-slate-500'}">
+                      ${amt >= 1000000 ? (amt / 1000000 + 'Tr') : (amt / 1000 + 'k')}
                     </button>
                   `).join('')}
                 </div>
               </div>
 
-              <!-- 3. Mức Vốn Cược Mỗi Cửa & Nút Xác Nhận -->
-              <div class="space-y-2">
-                <label class="text-xs font-mono text-slate-400 uppercase font-bold flex items-center gap-1.5">
-                  <i data-lucide="coins" class="w-3.5 h-3.5 text-teal-400"></i>
-                  3. Tiền Cược / Cửa
-                </label>
-                <div class="flex items-center gap-2">
-                  <select id="userBetAmount" onchange="updateBingoBetButtonsUI()" class="bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs font-mono text-amber-400 font-bold focus:outline-none focus:border-amber-500 w-full cursor-pointer">
-                    <option value="10000">10.000 VNĐ</option>
-                    <option value="20000">20.000 VNĐ</option>
-                    <option value="50000">50.000 VNĐ</option>
-                    <option value="100000">100.000 VNĐ</option>
-                  </select>
-                  <button type="button" onclick="addUserBingoBet()" class="px-4 py-1.5 rounded-lg text-xs font-bold bg-gradient-to-r from-amber-500 to-rose-600 hover:from-amber-400 hover:to-rose-500 text-slate-950 font-mono shadow-md shadow-rose-950/40 transition active:scale-95 cursor-pointer whitespace-nowrap flex items-center gap-1">
-                    <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i>
-                    ĐẶT VÉ
-                  </button>
-                </div>
-              </div>
+              <button type="button" onclick="addUserBingoBet()" class="px-5 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-amber-500 via-rose-500 to-amber-500 hover:from-amber-400 hover:to-rose-400 text-slate-950 font-mono shadow-lg shadow-rose-950/40 transition active:scale-95 cursor-pointer whitespace-nowrap flex items-center justify-center gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+                <span>XÁC NHẬN ĐẶT VÉ KỲ ${targetDrawId}</span>
+              </button>
             </div>
 
             <div class="flex items-center justify-between text-xs font-mono text-slate-400 border-t border-slate-800/80 pt-2.5">
@@ -1867,57 +1958,168 @@
     }
 
     // ==========================================
-    // BINGO 18 BET TRACKER CONTROLLER FUNCTIONS
+    // BINGO 18 BET TRACKER CONTROLLER (VIETLOTT SMS FULL SPEC)
     // ==========================================
-    window.activeBingoBet = window.activeBingoBet || { ls: null, faces: new Set() };
+    const BINGO18_SUM_MULTIPLIERS = {
+      3: 120, 18: 120,
+      4: 40,  17: 40,
+      5: 20,  16: 20,
+      6: 12,  15: 12,
+      7: 8,   14: 8,
+      8: 6,   13: 6,
+      9: 5,   12: 5,
+      10: 4.5, 11: 4.5
+    };
 
-    window.toggleBingoBet = function(type, val) {
-      if (type === 'ls') {
-        if (window.activeBingoBet.ls === val) {
-          window.activeBingoBet.ls = null;
-        } else {
-          window.activeBingoBet.ls = val;
+    window.activeBingoBet = window.activeBingoBet || {
+      tab: 'ls',
+      ls: null,
+      singleFaces: new Set(),
+      diffPairs: new Set(),
+      samePairs: new Set(),
+      sums: new Set(),
+      amount: 10000
+    };
+
+    window.setBingoBetTab = function(tabName) {
+      window.activeBingoBet.tab = tabName;
+      ['ls', 'single', 'diff_pair', 'same_pair', 'sum'].forEach(t => {
+        const btn = document.getElementById(`tabBtn_${t}`);
+        const content = document.getElementById(`betTabContent_${t}`);
+        if (btn) {
+          if (t === tabName) {
+            btn.className = 'px-3 py-1.5 rounded-lg font-bold border transition cursor-pointer whitespace-nowrap bg-rose-600 text-white border-rose-400';
+          } else {
+            btn.className = 'px-3 py-1.5 rounded-lg font-bold border transition cursor-pointer whitespace-nowrap bg-slate-900 text-slate-400 border-slate-700';
+          }
         }
-      } else if (type === 'face') {
-        const numVal = parseInt(val);
-        if (window.activeBingoBet.faces.has(numVal)) {
-          window.activeBingoBet.faces.delete(numVal);
-        } else {
-          window.activeBingoBet.faces.add(numVal);
+        if (content) {
+          if (t === tabName) content.classList.remove('hidden');
+          else content.classList.add('hidden');
         }
-      }
+      });
+    };
+
+    window.setBingoBetAmount = function(amt) {
+      window.activeBingoBet.amount = amt;
+      [10000, 20000, 50000, 100000, 200000, 500000, 1000000].forEach(a => {
+        const btn = document.getElementById(`amountBtn_${a}`);
+        if (!btn) return;
+        if (a === amt) {
+          btn.className = 'px-2.5 py-1 rounded-lg text-xs font-mono border transition active:scale-95 cursor-pointer bg-amber-500 text-slate-950 border-amber-400 font-black';
+        } else {
+          btn.className = 'px-2.5 py-1 rounded-lg text-xs font-mono border transition active:scale-95 cursor-pointer bg-slate-900 text-slate-400 border-slate-700 hover:border-slate-500';
+        }
+      });
+      window.updateBingoBetButtonsUI();
+    };
+
+    window.toggleBingoBetLS = function(val) {
+      if (window.activeBingoBet.ls === val) window.activeBingoBet.ls = null;
+      else window.activeBingoBet.ls = val;
+      window.updateBingoBetButtonsUI();
+    };
+
+    window.toggleBingoBetSingle = function(f) {
+      const num = parseInt(f);
+      if (window.activeBingoBet.singleFaces.has(num)) window.activeBingoBet.singleFaces.delete(num);
+      else window.activeBingoBet.singleFaces.add(num);
+      window.updateBingoBetButtonsUI();
+    };
+
+    window.toggleBingoBetDiffPair = function(pair) {
+      if (window.activeBingoBet.diffPairs.has(pair)) window.activeBingoBet.diffPairs.delete(pair);
+      else window.activeBingoBet.diffPairs.add(pair);
+      window.updateBingoBetButtonsUI();
+    };
+
+    window.toggleBingoBetSamePair = function(pair) {
+      if (window.activeBingoBet.samePairs.has(pair)) window.activeBingoBet.samePairs.delete(pair);
+      else window.activeBingoBet.samePairs.add(pair);
+      window.updateBingoBetButtonsUI();
+    };
+
+    window.toggleBingoBetSum = function(sumVal) {
+      const num = parseInt(sumVal);
+      if (window.activeBingoBet.sums.has(num)) window.activeBingoBet.sums.delete(num);
+      else window.activeBingoBet.sums.add(num);
       window.updateBingoBetButtonsUI();
     };
 
     window.updateBingoBetButtonsUI = function() {
-      ['Lớn', 'Hòa', 'Nhỏ'].forEach(choice => {
-        const btn = document.getElementById(`betBtn_ls_${choice}`);
+      // 1. LS Buttons
+      ['Lớn', 'Hòa', 'Nhỏ'].forEach(c => {
+        const btn = document.getElementById(`betBtn_ls_${c}`);
         if (!btn) return;
-        if (window.activeBingoBet.ls === choice) {
-          let bg = choice === 'Lớn' ? 'bg-rose-600 border-rose-400 text-white' : (choice === 'Hòa' ? 'bg-emerald-600 border-emerald-400 text-white' : 'bg-sky-600 border-sky-400 text-white');
-          btn.className = `bet-opt-btn px-2 py-2 rounded-lg text-xs font-bold font-mono border ${bg} shadow-md transition active:scale-95 cursor-pointer text-center ring-2 ring-white/20`;
+        if (window.activeBingoBet.ls === c) {
+          const bg = c === 'Lớn' ? 'bg-rose-600 border-rose-400 text-white' : (c === 'Hòa' ? 'bg-emerald-600 border-emerald-400 text-white' : 'bg-sky-600 border-sky-400 text-white');
+          btn.className = `bet-opt-btn p-3 rounded-xl text-xs font-bold font-mono border ${bg} shadow-md transition active:scale-95 cursor-pointer text-center ring-2 ring-white/20`;
         } else {
-          btn.className = `bet-opt-btn px-2 py-2 rounded-lg text-xs font-bold font-mono border border-slate-700 bg-slate-900 text-slate-300 hover:border-slate-500 transition active:scale-95 cursor-pointer text-center`;
+          btn.className = 'bet-opt-btn p-3 rounded-xl text-xs font-bold font-mono border border-slate-700 bg-slate-900 text-slate-300 hover:border-slate-500 transition active:scale-95 cursor-pointer text-center';
         }
       });
 
+      // 2. Single Face Buttons
       [1, 2, 3, 4, 5, 6].forEach(f => {
-        const btn = document.getElementById(`betBtn_face_${f}`);
+        const btn = document.getElementById(`betBtn_single_${f}`);
         if (!btn) return;
-        if (window.activeBingoBet.faces.has(f)) {
-          btn.className = `bet-opt-btn py-1.5 rounded-lg text-xs font-black font-mono border border-amber-400 bg-amber-500 text-slate-950 shadow-md transition active:scale-95 cursor-pointer text-center ring-2 ring-white/30`;
+        if (window.activeBingoBet.singleFaces.has(f)) {
+          btn.className = 'bet-opt-btn p-2 rounded-xl text-xs font-bold font-mono border border-amber-400 bg-amber-500 text-slate-950 shadow-md transition active:scale-95 cursor-pointer flex flex-col items-center gap-1 ring-2 ring-white/30';
         } else {
-          btn.className = `bet-opt-btn py-1.5 rounded-lg text-xs font-black font-mono border border-slate-700 bg-slate-900 text-slate-300 hover:border-amber-500/50 transition active:scale-95 cursor-pointer text-center`;
+          btn.className = 'bet-opt-btn p-2 rounded-xl text-xs font-bold font-mono border border-slate-700 bg-slate-900 text-slate-300 hover:border-amber-500 transition active:scale-95 cursor-pointer flex flex-col items-center gap-1';
         }
       });
 
+      // 3. Diff Pairs Buttons
+      ['1-2', '1-3', '1-4', '1-5', '1-6', '2-3', '2-4', '2-5', '2-6', '3-4', '3-5', '3-6', '4-5', '4-6', '5-6'].forEach(p => {
+        const btn = document.getElementById(`betBtn_diff_${p}`);
+        if (!btn) return;
+        if (window.activeBingoBet.diffPairs.has(p)) {
+          btn.className = 'bet-opt-btn p-2 rounded-xl text-xs font-bold font-mono border border-amber-400 bg-amber-500 text-slate-950 shadow-md transition active:scale-95 cursor-pointer text-center ring-2 ring-white/30';
+        } else {
+          btn.className = 'bet-opt-btn p-2 rounded-xl text-xs font-bold font-mono border border-slate-700 bg-slate-900 text-slate-300 hover:border-amber-500 transition active:scale-95 cursor-pointer text-center';
+        }
+      });
+
+      // 4. Same Pairs Buttons
+      ['1-1', '2-2', '3-3', '4-4', '5-5', '6-6'].forEach(p => {
+        const btn = document.getElementById(`betBtn_same_${p}`);
+        if (!btn) return;
+        if (window.activeBingoBet.samePairs.has(p)) {
+          btn.className = 'bet-opt-btn p-2.5 rounded-xl text-xs font-bold font-mono border border-emerald-400 bg-emerald-500 text-slate-950 shadow-md transition active:scale-95 cursor-pointer text-center ring-2 ring-white/30';
+        } else {
+          btn.className = 'bet-opt-btn p-2.5 rounded-xl text-xs font-bold font-mono border border-slate-700 bg-slate-900 text-slate-300 hover:border-emerald-500 transition active:scale-95 cursor-pointer text-center';
+        }
+      });
+
+      // 5. Sum Buttons
+      [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18].forEach(s => {
+        const btn = document.getElementById(`betBtn_sum_${s}`);
+        if (!btn) return;
+        if (window.activeBingoBet.sums.has(s)) {
+          btn.className = 'bet-opt-btn p-2 rounded-xl text-xs font-bold font-mono border border-emerald-400 bg-emerald-500 text-slate-950 shadow-md transition active:scale-95 cursor-pointer text-center ring-2 ring-white/30';
+        } else {
+          btn.className = 'bet-opt-btn p-2 rounded-xl text-xs font-bold font-mono border border-slate-700 bg-slate-900 text-slate-300 hover:border-emerald-500 transition active:scale-95 cursor-pointer text-center';
+        }
+      });
+
+      // Update summary preview text
       const sumEl = document.getElementById('betSummaryPreview');
       if (sumEl) {
         const parts = [];
         if (window.activeBingoBet.ls) parts.push(`Thế ${window.activeBingoBet.ls}`);
-        if (window.activeBingoBet.faces.size > 0) parts.push(`Mặt [${Array.from(window.activeBingoBet.faces).sort().join(', ')}]`);
-        const totalItems = (window.activeBingoBet.ls ? 1 : 0) + window.activeBingoBet.faces.size;
-        const amt = parseInt((document.getElementById('userBetAmount') || {}).value) || 10000;
+        if (window.activeBingoBet.singleFaces.size > 0) parts.push(`Mặt [${Array.from(window.activeBingoBet.singleFaces).sort().join(', ')}]`);
+        if (window.activeBingoBet.diffPairs.size > 0) parts.push(`Cặp [${Array.from(window.activeBingoBet.diffPairs).sort().join(', ')}]`);
+        if (window.activeBingoBet.samePairs.size > 0) parts.push(`Đôi [${Array.from(window.activeBingoBet.samePairs).sort().join(', ')}]`);
+        if (window.activeBingoBet.sums.size > 0) parts.push(`Tổng [${Array.from(window.activeBingoBet.sums).sort().join(', ')}]`);
+
+        const totalItems = (window.activeBingoBet.ls ? 1 : 0) +
+                           window.activeBingoBet.singleFaces.size +
+                           window.activeBingoBet.diffPairs.size +
+                           window.activeBingoBet.samePairs.size +
+                           window.activeBingoBet.sums.size;
+
+        const amt = window.activeBingoBet.amount || 10000;
         const totalCost = totalItems * amt;
         if (parts.length === 0) {
           sumEl.textContent = 'Chưa chọn cửa nào';
@@ -1928,18 +2130,31 @@
     };
 
     window.addUserBingoBet = function() {
-      const ls = window.activeBingoBet.ls;
-      const faces = Array.from(window.activeBingoBet.faces).sort();
-      if (!ls && faces.length === 0) {
-        if (typeof showToast === 'function') showToast('Vui lòng chọn ít nhất 1 cửa (Thế Lớn/Hòa/Nhỏ hoặc Mặt xúc xắc)!', 'warning');
+      const items = [];
+      const amt = window.activeBingoBet.amount || 10000;
+
+      if (window.activeBingoBet.ls) {
+        items.push({ kind: 'ls', label: `Thế ${window.activeBingoBet.ls}`, val: window.activeBingoBet.ls });
+      }
+      window.activeBingoBet.singleFaces.forEach(f => {
+        items.push({ kind: 'single', label: `Mặt ${f}`, val: f });
+      });
+      window.activeBingoBet.diffPairs.forEach(p => {
+        items.push({ kind: 'diff_pair', label: `Cặp ${p}`, val: p });
+      });
+      window.activeBingoBet.samePairs.forEach(p => {
+        items.push({ kind: 'same_pair', label: `Đôi ${p}`, val: p });
+      });
+      window.activeBingoBet.sums.forEach(s => {
+        items.push({ kind: 'sum', label: `Tổng ${s}`, val: s });
+      });
+
+      if (items.length === 0) {
+        if (typeof showToast === 'function') showToast('Vui lòng chọn ít nhất 1 cửa để đặt vé!', 'warning');
         return;
       }
 
-      const amtSelect = document.getElementById('userBetAmount');
-      const amount = amtSelect ? parseInt(amtSelect.value) || 10000 : 10000;
-      const totalCount = (ls ? 1 : 0) + faces.length;
-      const totalCost = totalCount * amount;
-
+      const totalCost = items.length * amt;
       const pred = (appData && appData.products && appData.products.bingo18 && appData.products.bingo18.prediction_hub) || {};
       const targetId = pred.target_draw_id || '#KỳKếTiếp';
 
@@ -1948,9 +2163,8 @@
         id: Date.now(),
         targetDrawId: targetId,
         date: new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }),
-        ls: ls,
-        faces: faces,
-        amountPerBet: amount,
+        items: items,
+        amountPerBet: amt,
         totalCost: totalCost,
         status: 'pending',
         payout: 0,
@@ -1961,8 +2175,12 @@
       bets.unshift(newBet);
       localStorage.setItem('bingo18_user_bets', JSON.stringify(bets));
 
+      // Reset selection
       window.activeBingoBet.ls = null;
-      window.activeBingoBet.faces.clear();
+      window.activeBingoBet.singleFaces.clear();
+      window.activeBingoBet.diffPairs.clear();
+      window.activeBingoBet.samePairs.clear();
+      window.activeBingoBet.sums.clear();
       window.updateBingoBetButtonsUI();
 
       if (typeof showToast === 'function') {
@@ -1994,15 +2212,37 @@
             }
 
             let payout = 0;
+            const items = b.items || [];
+
+            // Hỗ trợ cả schema cũ (ls / faces) và schema mới (items)
             if (b.ls) {
-              if (b.ls === actualType) {
-                payout += (b.ls === 'Hòa' ? b.amountPerBet * 3 : b.amountPerBet * 2);
-              }
+              if (b.ls === actualType) payout += (b.ls === 'Hòa' ? b.amountPerBet * 3 : b.amountPerBet * 2);
             }
-            b.faces.forEach(f => {
-              const cnt = actualRes.filter(x => x === f).length;
-              if (cnt > 0) {
-                payout += cnt * (b.amountPerBet * 1.2);
+            if (b.faces) {
+              b.faces.forEach(f => {
+                const cnt = actualRes.filter(x => x === f).length;
+                if (cnt > 0) payout += cnt * (b.amountPerBet * 1.2);
+              });
+            }
+
+            // Schema mới đầy đủ 5 loại cược
+            items.forEach(it => {
+              if (it.kind === 'ls') {
+                if (it.val === actualType) payout += (it.val === 'Hòa' ? b.amountPerBet * 3 : b.amountPerBet * 2);
+              } else if (it.kind === 'single') {
+                const cnt = actualRes.filter(x => x === it.val).length;
+                if (cnt > 0) payout += cnt * (b.amountPerBet * 1.2);
+              } else if (it.kind === 'diff_pair') {
+                const [f1, f2] = it.val.split('-').map(Number);
+                if (actualRes.includes(f1) && actualRes.includes(f2)) payout += b.amountPerBet * 4.8;
+              } else if (it.kind === 'same_pair') {
+                const f = parseInt(it.val.split('-')[0]);
+                if (actualRes.filter(x => x === f).length >= 2) payout += b.amountPerBet * 7.5;
+              } else if (it.kind === 'sum') {
+                if (actualTotal === it.val) {
+                  const mult = BINGO18_SUM_MULTIPLIERS[it.val] || 4.5;
+                  payout += Math.round(b.amountPerBet * mult);
+                }
               }
             });
 
@@ -2050,7 +2290,7 @@
         tbody.innerHTML = `
           <tr>
             <td colspan="7" class="p-4 text-center text-slate-500 text-xs">
-              Chưa có vé nào được ghi nhận. Hãy chọn cửa bên trên và bấm "ĐẶT VÉ" để theo dõi!
+              Chưa có vé nào được ghi nhận. Hãy chọn cửa bên trên và bấm "XÁC NHẬN ĐẶT VÉ" để theo dõi!
             </td>
           </tr>
         `;
@@ -2059,9 +2299,19 @@
 
       tbody.innerHTML = bets.slice(0, 20).map(b => {
         const betDescParts = [];
-        if (b.ls) betDescParts.push(`<span class="px-1.5 py-0.5 rounded text-[10px] font-bold ${b.ls === 'Lớn' ? 'bg-rose-500/20 text-rose-300' : (b.ls === 'Hòa' ? 'bg-emerald-500/20 text-emerald-300' : 'bg-sky-500/20 text-sky-300')}">${b.ls}</span>`);
-        if (b.faces && b.faces.length > 0) {
-          betDescParts.push(`<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-amber-500/20 text-amber-300">Mặt ${b.faces.join(', ')}</span>`);
+        if (b.items && b.items.length > 0) {
+          b.items.forEach(it => {
+            let cls = 'bg-slate-800 text-slate-300';
+            if (it.kind === 'ls') cls = it.val === 'Lớn' ? 'bg-amber-500/20 text-amber-300' : (it.val === 'Hòa' ? 'bg-emerald-500/20 text-emerald-300' : 'bg-sky-500/20 text-sky-300');
+            else if (it.kind === 'single') cls = 'bg-amber-500/20 text-amber-300';
+            else if (it.kind === 'diff_pair') cls = 'bg-indigo-500/20 text-indigo-300';
+            else if (it.kind === 'same_pair') cls = 'bg-purple-500/20 text-purple-300';
+            else if (it.kind === 'sum') cls = 'bg-teal-500/20 text-teal-300';
+            betDescParts.push(`<span class="px-1.5 py-0.5 rounded text-[10px] font-bold ${cls}">${it.label}</span>`);
+          });
+        } else {
+          if (b.ls) betDescParts.push(`<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-amber-500/20 text-amber-300">${b.ls}</span>`);
+          if (b.faces && b.faces.length > 0) betDescParts.push(`<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-amber-500/20 text-amber-300">Mặt ${b.faces.join(', ')}</span>`);
         }
 
         let resCol = '<span class="text-slate-500">Chờ kết quả...</span>';
