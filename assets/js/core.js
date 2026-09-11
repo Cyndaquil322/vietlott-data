@@ -441,6 +441,80 @@
       lucide.createIcons();
     }
 
+    // ==========================================
+    // TOAST NOTIFICATIONS & LIVE CRAWL CONTROLLER
+    // ==========================================
+    function showToast(message, type = 'info') {
+      let toastContainer = document.getElementById('appToastContainer');
+      if (!toastContainer) {
+        toastContainer = document.createElement('div');
+        toastContainer.id = 'appToastContainer';
+        toastContainer.className = 'fixed bottom-5 right-5 z-50 flex flex-col gap-2.5 max-w-sm sm:max-w-md w-full px-4 pointer-events-none';
+        document.body.appendChild(toastContainer);
+      }
+
+      const toast = document.createElement('div');
+      let bgCls = 'bg-slate-900 border-slate-700 text-slate-100 shadow-slate-950/80';
+      if (type === 'success') bgCls = 'bg-emerald-950/95 border-emerald-500/80 text-emerald-100 shadow-emerald-950/80';
+      else if (type === 'warning') bgCls = 'bg-amber-950/95 border-amber-500/80 text-amber-100 shadow-amber-950/80';
+      else if (type === 'error') bgCls = 'bg-rose-950/95 border-rose-500/80 text-rose-100 shadow-rose-950/80';
+      else bgCls = 'bg-indigo-950/95 border-indigo-500/80 text-indigo-100 shadow-indigo-950/80';
+
+      toast.className = `pointer-events-auto p-4 rounded-2xl border shadow-2xl backdrop-blur-xl transition-all duration-300 transform translate-y-3 opacity-0 flex items-start gap-3 ${bgCls}`;
+      toast.innerHTML = `
+        <div class="flex-1 text-xs sm:text-sm font-medium leading-relaxed">${message}</div>
+        <button onclick="this.parentElement.remove()" class="text-slate-400 hover:text-white text-base font-bold px-1.5 py-0.5 rounded cursor-pointer transition">&times;</button>
+      `;
+      toastContainer.appendChild(toast);
+
+      requestAnimationFrame(() => {
+        toast.classList.remove('translate-y-3', 'opacity-0');
+      });
+
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-3');
+        setTimeout(() => toast.remove(), 300);
+      }, 5000);
+    }
+
+    async function triggerLiveCrawl(overrideProductKey) {
+      const targetProduct = overrideProductKey || currentProductKey || 'bingo18';
+      const btn = document.getElementById('liveCrawlBtn');
+      const icon = document.getElementById('liveCrawlIcon');
+      const text = document.getElementById('liveCrawlText');
+
+      const originalText = text ? text.innerHTML : 'CÀO SỐ & PHÂN TÍCH';
+      if (btn) btn.disabled = true;
+      if (icon) icon.classList.add('animate-spin');
+      if (text) text.textContent = 'ĐANG CÀO & PHÂN TÍCH...';
+
+      try {
+        const res = await fetch('/api/crawl?product=' + encodeURIComponent(targetProduct), {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ product: targetProduct })
+        });
+
+        if (res.ok) {
+          const result = await res.json();
+          showToast(`✅ ${result.message || 'Cào dữ liệu & tính toán phân tích thành công!'} (${result.elapsed_seconds || 0}s)`, 'success');
+          await loadData();
+          if (typeof confetti === 'function') {
+            confetti({ particleCount: 60, spread: 60, origin: { y: 0.3 } });
+          }
+        } else {
+          showToast(`ℹ️ Tính năng cào trực tiếp hoạt động trên Web Local (python src/vietlott/local_server.py). Trên GitHub Pages, dữ liệu được cập nhật tự động qua GitHub Actions!`, 'info');
+        }
+      } catch (err) {
+        showToast(`ℹ️ Máy chủ Local API chưa chạy. Hãy khởi động bằng lệnh: python src/vietlott/local_server.py`, 'warning');
+      } finally {
+        if (btn) btn.disabled = false;
+        if (icon) icon.classList.remove('animate-spin');
+        if (text) text.innerHTML = originalText;
+        if (window.lucide) lucide.createIcons();
+      }
+    }
+
 
 // Register Service Worker for PWA Support
 if ('serviceWorker' in navigator) {

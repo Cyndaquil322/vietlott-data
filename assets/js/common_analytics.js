@@ -1309,9 +1309,15 @@
               <h3 class="text-lg font-bold text-white mt-1">SOI CẦU XÚC XẮC BINGO 18 & RADAR SĂN BÃO</h3>
             </div>
           </div>
-          <div class="flex items-center gap-2 bg-slate-950/70 p-2.5 rounded-xl border border-slate-800">
-            <span class="text-xs text-slate-400">Dữ liệu cào tự động:</span>
-            <span class="text-xs font-bold font-mono text-amber-400">${(product.total_draws || 0).toLocaleString()} kỳ</span>
+          <div class="flex items-center gap-3 bg-slate-950/80 p-2 sm:p-2.5 rounded-xl border border-slate-800">
+            <button onclick="triggerLiveCrawl('bingo18')" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-rose-600 hover:bg-rose-500 text-white shadow-md shadow-rose-950/40 border border-rose-400/40 transition active:scale-95 cursor-pointer" title="Cào kỳ mới nhất của Bingo 18 và cập nhật dự đoán">
+              <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+              <span>Cào & Dự Đoán Lại</span>
+            </button>
+            <div class="border-l border-slate-800 pl-3 text-right">
+              <span class="text-[10px] text-slate-400 block font-mono">Dữ liệu hiện có:</span>
+              <span class="text-xs font-bold font-mono text-amber-400">${(product.total_draws || 0).toLocaleString()} kỳ</span>
+            </div>
           </div>
         </div>
 
