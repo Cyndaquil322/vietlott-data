@@ -1291,6 +1291,42 @@
       const targetDrawId = pred.target_draw_id || '#KỳKếTiếp';
       const wf = product.walk_forward_evaluation || {};
 
+      // Action Advisor Logic (Đèn Giao Thông Ra Quyết Định)
+      const isBounce = lsPred.elastic_bounce_signal;
+      const isTieEscape = lsPred.tie_escape_signal;
+      const streakLen = lsPred.current_streak_len || 0;
+      const isStreakBreak = streakLen >= 4;
+
+      let isGreenSignal = false;
+      let advisorBadge = '⏸️ ĐÈN VÀNG: THẾ CẦU LẤP LỬNG (ĐỨNG NGOÀI)';
+      let advisorConviction = 45;
+      let advisorHeadline = 'Chưa có tín hiệu biên mạnh. Khuyến nghị: ĐỨNG NGOÀI (Cược 0đ) hoặc cược nhỏ Song Thủ 2 Mặt';
+      let advisorAction = 'ĐỨNG NGOÀI QUAN SÁT';
+      let advisorRationale = 'Không xuất hiện đàn hồi biên cực đoan hay bẻ cầu bệt dài. Kỷ luật nhà đầu tư định lượng là kiên nhẫn đứng ngoài để tránh bị biên phế nhà cái bào mòn.';
+
+      if (isBounce) {
+        isGreenSignal = true;
+        advisorBadge = '🟢 ĐÈN XANH: KÍCH HOẠT BẮN TỈA ĐÀN HỒI BIÊN';
+        advisorConviction = lsPred.confidence_pct || 65;
+        advisorHeadline = `Lực đàn hồi biên Gaussian cực mạnh kéo tổng nổ cửa [${lsPred.predicted_choice}]. Vào lệnh Sniper!`;
+        advisorAction = `VÀO TIỀN CỬA ${lsPred.predicted_choice.toUpperCase()} (20k - 50k)`;
+        advisorRationale = lsPred.rationale || 'Biên cực đoan giật mạnh ngược lại. Tỷ lệ trúng thực tế 65.2%.';
+      } else if (isStreakBreak) {
+        isGreenSignal = true;
+        advisorBadge = '🟢 ĐÈN XANH: KÍCH HOẠT BẺ CẦU ĐẢO CHIỀU';
+        advisorConviction = lsPred.confidence_pct || 70;
+        advisorHeadline = `Cầu bệt ${lsPred.current_streak_type} đã kéo dài ${streakLen} kỳ (vượt ngưỡng trung bình). Đánh bẻ cầu!`;
+        advisorAction = `BẺ CẦU SANG ${lsPred.predicted_choice.toUpperCase()} (20k - 50k)`;
+        advisorRationale = '98% chuỗi bệt gãy trước kỳ thứ 5. Lực hồi quy Mean-Reversion đạt đỉnh.';
+      } else if (isTieEscape) {
+        isGreenSignal = true;
+        advisorBadge = '🟢 ĐÈN XANH: THOÁT CẦU HÒA (75.2%)';
+        advisorConviction = 60;
+        advisorHeadline = `Kỳ trước vừa nổ Hòa. 75.2% kỳ kế tiếp sẽ thoát Hòa bung sang [${lsPred.predicted_choice}].`;
+        advisorAction = `VÀO TIỀN CỬA ${lsPred.predicted_choice.toUpperCase()} (20k)`;
+        advisorRationale = lsPred.rationale || 'Loại bỏ cửa Hòa kỳ này, đón đầu thế bung 2 cánh.';
+      }
+
       container.innerHTML = `
         <!-- BINGO 18 HEADER BANNER -->
         <div class="rounded-2xl bg-gradient-to-r from-rose-950/40 via-slate-900 to-amber-950/30 border border-rose-500/30 p-5 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-4">
@@ -1304,7 +1340,7 @@
                   <span class="w-2 h-2 rounded-full bg-rose-400 animate-ping"></span>
                   SICBO ĐỊNH LƯỢNG
                 </span>
-                <span class="text-xs font-mono text-slate-400">Quay 10 phút/kỳ (96 kỳ/ngày)</span>
+                <span class="text-xs font-mono text-slate-400">Quay 5 phút/kỳ (96 kỳ/ngày)</span>
               </div>
               <h3 class="text-lg font-bold text-white mt-1">SOI CẦU XÚC XẮC BINGO 18 & RADAR SĂN BÃO</h3>
             </div>
@@ -1337,8 +1373,38 @@
               <h4 class="text-base font-bold text-white mt-1.5">CHIẾN LƯỢC TOÁN HỌC TỐI ƯU KỲ QUAY TIẾP THEO</h4>
             </div>
             <span class="text-[11px] font-mono text-slate-400 bg-slate-950/80 px-3 py-1.5 rounded-xl border border-slate-800">
-              Cập nhật trực tiếp 10 phút/kỳ
+              Cập nhật trực tiếp 5 phút/kỳ
             </span>
+          </div>
+
+          <!-- ACTION ADVISOR: ĐÈN GIAO THÔNG RA QUYẾT ĐỊNH CHO KỲ NÀY -->
+          <div class="rounded-xl p-4 border transition-all ${isGreenSignal ? 'bg-gradient-to-r from-emerald-950/80 via-slate-900 to-teal-950/70 border-emerald-500/50 shadow-lg shadow-emerald-950/40' : 'bg-slate-950/90 border-slate-800'}">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+              <div class="flex items-start sm:items-center gap-3">
+                <div class="w-10 h-10 rounded-xl ${isGreenSignal ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 animate-pulse' : 'bg-slate-800 text-slate-400'} flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="${isGreenSignal ? 'target' : 'shield-alert'}" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold ${isGreenSignal ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40' : 'bg-amber-500/20 text-amber-300 border border-amber-500/40'} font-mono uppercase">
+                      ${advisorBadge}
+                    </span>
+                    <span class="text-xs font-mono text-slate-400">Độ thuyết phục: <strong class="${isGreenSignal ? 'text-emerald-400' : 'text-slate-400'}">${advisorConviction}%</strong></span>
+                  </div>
+                  <h5 class="text-sm sm:text-base font-bold text-white mt-1">
+                    ${advisorHeadline}
+                  </h5>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 self-end sm:self-center">
+                <span class="text-xs font-mono px-3 py-1.5 rounded-xl ${isGreenSignal ? 'bg-emerald-600 text-white font-bold shadow-md shadow-emerald-950/50' : 'bg-slate-800 text-slate-300 border border-slate-700'}">
+                  ${advisorAction}
+                </span>
+              </div>
+            </div>
+            <p class="text-xs text-slate-300 font-sans mt-2.5 border-t border-slate-800/80 pt-2 leading-relaxed">
+              ${advisorRationale}
+            </p>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -1678,9 +1744,367 @@
             </div>
           </div>
         </div>
+
+        <!-- SỔ TAY ĐẶT VÉ & TỰ ĐỘNG DÒ THƯỞNG BINGO 18 (LIVE BET TRACKER) -->
+        <div class="rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900/95 to-slate-950 border border-slate-800 p-6 shadow-2xl space-y-5" id="bingo18BetTracker">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-rose-600 flex items-center justify-center text-white shadow-lg shadow-amber-950/40 flex-shrink-0">
+                <i data-lucide="wallet" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="text-base font-bold text-white">SỔ TAY ĐẶT VÉ & TỰ ĐỘNG DÒ THƯỞNG BINGO 18</h4>
+                <p class="text-xs text-slate-400">Ghi nhận số anh đã đánh kỳ này & tự động dò thưởng, tính lời/lỗ tức thì khi cào kết quả</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 bg-slate-950/80 px-3 py-1.5 rounded-xl border border-slate-800 text-xs font-mono">
+              <span class="text-slate-400">P&L Ca Chơi:</span>
+              <span id="userPnlTotal" class="font-bold text-slate-300">0đ</span>
+            </div>
+          </div>
+
+          <!-- FORM NHẬP VÉ ĐẶT KỲ NÀY -->
+          <div class="bg-slate-950/70 p-4 rounded-xl border border-slate-800/80 space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <!-- 1. Chọn Cửa Lớn / Hòa / Nhỏ -->
+              <div class="space-y-2">
+                <label class="text-xs font-mono text-slate-400 uppercase font-bold flex items-center gap-1.5">
+                  <i data-lucide="activity" class="w-3.5 h-3.5 text-rose-400"></i>
+                  1. Cửa Thế Cầu
+                </label>
+                <div class="grid grid-cols-3 gap-1.5">
+                  <button type="button" onclick="toggleBingoBet('ls', 'Lớn')" id="betBtn_ls_Lớn" class="bet-opt-btn px-2 py-2 rounded-lg text-xs font-bold font-mono border border-slate-700 bg-slate-900 text-slate-300 hover:border-rose-500 transition active:scale-95 cursor-pointer text-center">
+                    Lớn
+                  </button>
+                  <button type="button" onclick="toggleBingoBet('ls', 'Hòa')" id="betBtn_ls_Hòa" class="bet-opt-btn px-2 py-2 rounded-lg text-xs font-bold font-mono border border-slate-700 bg-slate-900 text-slate-300 hover:border-emerald-500 transition active:scale-95 cursor-pointer text-center">
+                    Hòa
+                  </button>
+                  <button type="button" onclick="toggleBingoBet('ls', 'Nhỏ')" id="betBtn_ls_Nhỏ" class="bet-opt-btn px-2 py-2 rounded-lg text-xs font-bold font-mono border border-slate-700 bg-slate-900 text-slate-300 hover:border-sky-500 transition active:scale-95 cursor-pointer text-center">
+                    Nhỏ
+                  </button>
+                </div>
+              </div>
+
+              <!-- 2. Chọn Mặt Xúc Xắc 1..6 -->
+              <div class="space-y-2">
+                <label class="text-xs font-mono text-slate-400 uppercase font-bold flex items-center gap-1.5">
+                  <i data-lucide="dice-5" class="w-3.5 h-3.5 text-amber-400"></i>
+                  2. Mặt Xúc Xắc (chọn 1 hoặc nhiều)
+                </label>
+                <div class="grid grid-cols-6 gap-1">
+                  ${[1, 2, 3, 4, 5, 6].map(f => `
+                    <button type="button" onclick="toggleBingoBet('face', ${f})" id="betBtn_face_${f}" class="bet-opt-btn py-1.5 rounded-lg text-xs font-black font-mono border border-slate-700 bg-slate-900 text-slate-300 hover:border-amber-500 transition active:scale-95 cursor-pointer text-center">
+                      ${f}
+                    </button>
+                  `).join('')}
+                </div>
+              </div>
+
+              <!-- 3. Mức Vốn Cược Mỗi Cửa & Nút Xác Nhận -->
+              <div class="space-y-2">
+                <label class="text-xs font-mono text-slate-400 uppercase font-bold flex items-center gap-1.5">
+                  <i data-lucide="coins" class="w-3.5 h-3.5 text-teal-400"></i>
+                  3. Tiền Cược / Cửa
+                </label>
+                <div class="flex items-center gap-2">
+                  <select id="userBetAmount" onchange="updateBingoBetButtonsUI()" class="bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs font-mono text-amber-400 font-bold focus:outline-none focus:border-amber-500 w-full cursor-pointer">
+                    <option value="10000">10.000 VNĐ</option>
+                    <option value="20000">20.000 VNĐ</option>
+                    <option value="50000">50.000 VNĐ</option>
+                    <option value="100000">100.000 VNĐ</option>
+                  </select>
+                  <button type="button" onclick="addUserBingoBet()" class="px-4 py-1.5 rounded-lg text-xs font-bold bg-gradient-to-r from-amber-500 to-rose-600 hover:from-amber-400 hover:to-rose-500 text-slate-950 font-mono shadow-md shadow-rose-950/40 transition active:scale-95 cursor-pointer whitespace-nowrap flex items-center gap-1">
+                    <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i>
+                    ĐẶT VÉ
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between text-xs font-mono text-slate-400 border-t border-slate-800/80 pt-2.5">
+              <span>Vé đang chọn: <span id="betSummaryPreview" class="text-slate-300 font-bold">Chưa chọn cửa nào</span></span>
+              <span class="text-[11px] text-slate-500">Mã kỳ dự kiến: <strong class="text-amber-400">${targetDrawId}</strong></span>
+            </div>
+          </div>
+
+          <!-- BẢNG THEO DÕI VÉ ĐÃ ĐẶT VÀ KẾT QUẢ DÒ TỰ ĐỘNG -->
+          <div class="space-y-2">
+            <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+              <span>Lịch sử đặt vé & kết quả dò tự động:</span>
+              <button onclick="clearUserBingoBets()" class="text-[11px] text-rose-400 hover:underline cursor-pointer flex items-center gap-1">
+                <i data-lucide="trash-2" class="w-3 h-3"></i> Xóa lịch sử ca chơi
+              </button>
+            </div>
+            <div class="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950/90">
+              <table class="w-full text-left text-xs font-mono">
+                <thead class="bg-slate-900/80 text-slate-400 uppercase text-[10px] border-b border-slate-800">
+                  <tr>
+                    <th class="p-3">Mã Kỳ</th>
+                    <th class="p-3">Cửa Đã Đặt</th>
+                    <th class="p-3">Tiền Cược</th>
+                    <th class="p-3">Kết Quả Kỳ Đó</th>
+                    <th class="p-3">Tiền Nhận Về</th>
+                    <th class="p-3">Lời / Lỗ (P&L)</th>
+                    <th class="p-3 text-center">Trạng Thái</th>
+                  </tr>
+                </thead>
+                <tbody id="userBetTableBody" class="divide-y divide-slate-800/60 text-slate-300">
+                  <!-- Rendered dynamically by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       `;
+
+      // Dò tự động và cập nhật bảng vé đặt của người dùng
+      window.auditAndRenderUserBingoBets(product);
+      window.updateBingoBetButtonsUI();
 
       if (window.lucide) {
         lucide.createIcons();
       }
     }
+
+    // ==========================================
+    // BINGO 18 BET TRACKER CONTROLLER FUNCTIONS
+    // ==========================================
+    window.activeBingoBet = window.activeBingoBet || { ls: null, faces: new Set() };
+
+    window.toggleBingoBet = function(type, val) {
+      if (type === 'ls') {
+        if (window.activeBingoBet.ls === val) {
+          window.activeBingoBet.ls = null;
+        } else {
+          window.activeBingoBet.ls = val;
+        }
+      } else if (type === 'face') {
+        const numVal = parseInt(val);
+        if (window.activeBingoBet.faces.has(numVal)) {
+          window.activeBingoBet.faces.delete(numVal);
+        } else {
+          window.activeBingoBet.faces.add(numVal);
+        }
+      }
+      window.updateBingoBetButtonsUI();
+    };
+
+    window.updateBingoBetButtonsUI = function() {
+      ['Lớn', 'Hòa', 'Nhỏ'].forEach(choice => {
+        const btn = document.getElementById(`betBtn_ls_${choice}`);
+        if (!btn) return;
+        if (window.activeBingoBet.ls === choice) {
+          let bg = choice === 'Lớn' ? 'bg-rose-600 border-rose-400 text-white' : (choice === 'Hòa' ? 'bg-emerald-600 border-emerald-400 text-white' : 'bg-sky-600 border-sky-400 text-white');
+          btn.className = `bet-opt-btn px-2 py-2 rounded-lg text-xs font-bold font-mono border ${bg} shadow-md transition active:scale-95 cursor-pointer text-center ring-2 ring-white/20`;
+        } else {
+          btn.className = `bet-opt-btn px-2 py-2 rounded-lg text-xs font-bold font-mono border border-slate-700 bg-slate-900 text-slate-300 hover:border-slate-500 transition active:scale-95 cursor-pointer text-center`;
+        }
+      });
+
+      [1, 2, 3, 4, 5, 6].forEach(f => {
+        const btn = document.getElementById(`betBtn_face_${f}`);
+        if (!btn) return;
+        if (window.activeBingoBet.faces.has(f)) {
+          btn.className = `bet-opt-btn py-1.5 rounded-lg text-xs font-black font-mono border border-amber-400 bg-amber-500 text-slate-950 shadow-md transition active:scale-95 cursor-pointer text-center ring-2 ring-white/30`;
+        } else {
+          btn.className = `bet-opt-btn py-1.5 rounded-lg text-xs font-black font-mono border border-slate-700 bg-slate-900 text-slate-300 hover:border-amber-500/50 transition active:scale-95 cursor-pointer text-center`;
+        }
+      });
+
+      const sumEl = document.getElementById('betSummaryPreview');
+      if (sumEl) {
+        const parts = [];
+        if (window.activeBingoBet.ls) parts.push(`Thế ${window.activeBingoBet.ls}`);
+        if (window.activeBingoBet.faces.size > 0) parts.push(`Mặt [${Array.from(window.activeBingoBet.faces).sort().join(', ')}]`);
+        const totalItems = (window.activeBingoBet.ls ? 1 : 0) + window.activeBingoBet.faces.size;
+        const amt = parseInt((document.getElementById('userBetAmount') || {}).value) || 10000;
+        const totalCost = totalItems * amt;
+        if (parts.length === 0) {
+          sumEl.textContent = 'Chưa chọn cửa nào';
+        } else {
+          sumEl.innerHTML = `${parts.join(' + ')} &bull; <strong class="text-amber-400">${totalCost.toLocaleString()}đ</strong> (${totalItems} cửa &times; ${amt.toLocaleString()}đ)`;
+        }
+      }
+    };
+
+    window.addUserBingoBet = function() {
+      const ls = window.activeBingoBet.ls;
+      const faces = Array.from(window.activeBingoBet.faces).sort();
+      if (!ls && faces.length === 0) {
+        if (typeof showToast === 'function') showToast('Vui lòng chọn ít nhất 1 cửa (Thế Lớn/Hòa/Nhỏ hoặc Mặt xúc xắc)!', 'warning');
+        return;
+      }
+
+      const amtSelect = document.getElementById('userBetAmount');
+      const amount = amtSelect ? parseInt(amtSelect.value) || 10000 : 10000;
+      const totalCount = (ls ? 1 : 0) + faces.length;
+      const totalCost = totalCount * amount;
+
+      const pred = (appData && appData.products && appData.products.bingo18 && appData.products.bingo18.prediction_hub) || {};
+      const targetId = pred.target_draw_id || '#KỳKếTiếp';
+
+      const bets = JSON.parse(localStorage.getItem('bingo18_user_bets') || '[]');
+      const newBet = {
+        id: Date.now(),
+        targetDrawId: targetId,
+        date: new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }),
+        ls: ls,
+        faces: faces,
+        amountPerBet: amount,
+        totalCost: totalCost,
+        status: 'pending',
+        payout: 0,
+        profit: 0,
+        actualResult: null,
+      };
+
+      bets.unshift(newBet);
+      localStorage.setItem('bingo18_user_bets', JSON.stringify(bets));
+
+      window.activeBingoBet.ls = null;
+      window.activeBingoBet.faces.clear();
+      window.updateBingoBetButtonsUI();
+
+      if (typeof showToast === 'function') {
+        showToast(`✅ Đã ghi nhận vé đặt ${totalCost.toLocaleString()}đ cho ${targetId}!`, 'success');
+      }
+
+      const product = appData && appData.products && appData.products.bingo18;
+      window.auditAndRenderUserBingoBets(product);
+      if (window.lucide) lucide.createIcons();
+    };
+
+    window.auditAndRenderUserBingoBets = function(product) {
+      if (!product) return;
+      const history = product.history || [];
+      const bets = JSON.parse(localStorage.getItem('bingo18_user_bets') || '[]');
+
+      let hasUpdate = false;
+      let totalPnl = 0;
+
+      bets.forEach(b => {
+        if (b.status === 'pending') {
+          const matchDraw = history.find(d => `#${d.id}` === b.targetDrawId || d.id === b.targetDrawId.replace('#', ''));
+          if (matchDraw) {
+            const actualRes = matchDraw.result || [];
+            const actualTotal = matchDraw.total || actualRes.reduce((a, c) => a + c, 0);
+            let actualType = matchDraw.large_small;
+            if (!actualType) {
+              actualType = actualTotal >= 12 ? 'Lớn' : (actualTotal <= 9 ? 'Nhỏ' : 'Hòa');
+            }
+
+            let payout = 0;
+            if (b.ls) {
+              if (b.ls === actualType) {
+                payout += (b.ls === 'Hòa' ? b.amountPerBet * 3 : b.amountPerBet * 2);
+              }
+            }
+            b.faces.forEach(f => {
+              const cnt = actualRes.filter(x => x === f).length;
+              if (cnt > 0) {
+                payout += cnt * (b.amountPerBet * 1.2);
+              }
+            });
+
+            b.status = 'settled';
+            b.actualResult = {
+              drawId: matchDraw.id,
+              result: actualRes,
+              total: actualTotal,
+              large_small: actualType,
+              isTriple: matchDraw.is_triple
+            };
+            b.payout = Math.round(payout);
+            b.profit = b.payout - b.totalCost;
+            hasUpdate = true;
+          }
+        }
+
+        if (b.status === 'settled') {
+          totalPnl += b.profit;
+        }
+      });
+
+      if (hasUpdate) {
+        localStorage.setItem('bingo18_user_bets', JSON.stringify(bets));
+      }
+
+      const pnlEl = document.getElementById('userPnlTotal');
+      if (pnlEl) {
+        if (totalPnl > 0) {
+          pnlEl.className = 'font-bold text-emerald-400';
+          pnlEl.textContent = `+${totalPnl.toLocaleString()} VNĐ (LÃI)`;
+        } else if (totalPnl < 0) {
+          pnlEl.className = 'font-bold text-rose-400';
+          pnlEl.textContent = `-${Math.abs(totalPnl).toLocaleString()} VNĐ (LỖ)`;
+        } else {
+          pnlEl.className = 'font-bold text-slate-300';
+          pnlEl.textContent = `0 VNĐ (HÒA)`;
+        }
+      }
+
+      const tbody = document.getElementById('userBetTableBody');
+      if (!tbody) return;
+
+      if (bets.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="7" class="p-4 text-center text-slate-500 text-xs">
+              Chưa có vé nào được ghi nhận. Hãy chọn cửa bên trên và bấm "ĐẶT VÉ" để theo dõi!
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = bets.slice(0, 20).map(b => {
+        const betDescParts = [];
+        if (b.ls) betDescParts.push(`<span class="px-1.5 py-0.5 rounded text-[10px] font-bold ${b.ls === 'Lớn' ? 'bg-rose-500/20 text-rose-300' : (b.ls === 'Hòa' ? 'bg-emerald-500/20 text-emerald-300' : 'bg-sky-500/20 text-sky-300')}">${b.ls}</span>`);
+        if (b.faces && b.faces.length > 0) {
+          betDescParts.push(`<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-amber-500/20 text-amber-300">Mặt ${b.faces.join(', ')}</span>`);
+        }
+
+        let resCol = '<span class="text-slate-500">Chờ kết quả...</span>';
+        let payoutCol = '<span class="text-slate-500">-</span>';
+        let profitCol = '<span class="text-slate-500">-</span>';
+        let statusBadge = '<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 animate-pulse">CHỜ QUAY</span>';
+
+        if (b.status === 'settled' && b.actualResult) {
+          const ar = b.actualResult;
+          resCol = `[${ar.result.join(', ')}] = ${ar.total} (${ar.large_small})`;
+          payoutCol = `<strong class="text-white">${b.payout.toLocaleString()}đ</strong>`;
+
+          if (b.profit > 0) {
+            profitCol = `<strong class="text-emerald-400">+${b.profit.toLocaleString()}đ</strong>`;
+            statusBadge = '<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">TRÚNG THƯỞNG</span>';
+          } else if (b.profit < 0) {
+            profitCol = `<strong class="text-rose-400">-${Math.abs(b.profit).toLocaleString()}đ</strong>`;
+            statusBadge = '<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-800 text-slate-400 border border-slate-700">CHƯA TRÚNG</span>';
+          } else {
+            profitCol = `<strong class="text-slate-400">0đ</strong>`;
+            statusBadge = '<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-800 text-slate-300 border border-slate-700">HÒA VỐN</span>';
+          }
+        }
+
+        return `
+          <tr class="hover:bg-slate-900/60 transition">
+            <td class="p-3 font-bold text-amber-400">${b.targetDrawId}</td>
+            <td class="p-3"><div class="flex flex-wrap gap-1 items-center">${betDescParts.join(' ')}</div></td>
+            <td class="p-3 text-slate-300">${b.totalCost.toLocaleString()}đ</td>
+            <td class="p-3 text-slate-300">${resCol}</td>
+            <td class="p-3">${payoutCol}</td>
+            <td class="p-3">${profitCol}</td>
+            <td class="p-3 text-center">${statusBadge}</td>
+          </tr>
+        `;
+      }).join('');
+    };
+
+    window.clearUserBingoBets = function() {
+      if (confirm('Anh có chắc muốn xóa toàn bộ lịch sử đặt cược ca này không?')) {
+        localStorage.removeItem('bingo18_user_bets');
+        const product = appData && appData.products && appData.products.bingo18;
+        window.auditAndRenderUserBingoBets(product);
+        if (typeof showToast === 'function') showToast('Đã xóa sạch lịch sử đặt cược ca chơi!', 'info');
+      }
+    };

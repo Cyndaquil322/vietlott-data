@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-09-11 10:18:45",
+    "generated_at": "2026-09-11 10:46:23",
     "generator": "vietlott-data automated pipeline",
     "version": "2.0.0"
   },
@@ -30175,24 +30175,164 @@
       "name": "Bingo 18",
       "description": "Quay 5 phút/kỳ. Quay 3 số từ 1 đến 6.",
       "type": "bingo18",
-      "total_draws": 36053,
+      "total_draws": 36063,
       "first_draw": "2024-12-03",
       "latest_draw": "2026-09-11",
       "latest": {
         "date": "2026-09-11",
-        "id": "0185917",
+        "id": "0185927",
         "result": [
-          4,
-          2,
-          5
+          3,
+          3,
+          1
         ],
-        "total": 11,
-        "large_small": "Hòa",
+        "total": 7,
+        "large_small": "Nhỏ",
         "is_triple": false,
-        "page": 1,
-        "process_time": "2026-09-11T10:18:44.224724"
+        "page": 0,
+        "process_time": "2026-09-11T10:43:51.711999"
       },
       "history": [
+        {
+          "date": "2026-09-11",
+          "id": "0185927",
+          "result": [
+            3,
+            3,
+            1
+          ],
+          "total": 7,
+          "large_small": "Nhỏ",
+          "is_triple": false,
+          "page": 0,
+          "process_time": "2026-09-11T10:43:51.711999"
+        },
+        {
+          "date": "2026-09-11",
+          "id": "0185926",
+          "result": [
+            5,
+            5,
+            1
+          ],
+          "total": 11,
+          "large_small": "Hòa",
+          "is_triple": false,
+          "page": 0,
+          "process_time": "2026-09-11T10:43:51.711999"
+        },
+        {
+          "date": "2026-09-11",
+          "id": "0185925",
+          "result": [
+            3,
+            5,
+            3
+          ],
+          "total": 11,
+          "large_small": "Hòa",
+          "is_triple": false,
+          "page": 0,
+          "process_time": "2026-09-11T10:43:51.711999"
+        },
+        {
+          "date": "2026-09-11",
+          "id": "0185924",
+          "result": [
+            1,
+            2,
+            1
+          ],
+          "total": 4,
+          "large_small": "Nhỏ",
+          "is_triple": false,
+          "page": 0,
+          "process_time": "2026-09-11T10:43:51.711999"
+        },
+        {
+          "date": "2026-09-11",
+          "id": "0185923",
+          "result": [
+            1,
+            6,
+            3
+          ],
+          "total": 10,
+          "large_small": "Hòa",
+          "is_triple": false,
+          "page": 0,
+          "process_time": "2026-09-11T10:43:51.711999"
+        },
+        {
+          "date": "2026-09-11",
+          "id": "0185922",
+          "result": [
+            1,
+            5,
+            6
+          ],
+          "total": 12,
+          "large_small": "Lớn",
+          "is_triple": false,
+          "page": 0,
+          "process_time": "2026-09-11T10:43:51.711999"
+        },
+        {
+          "date": "2026-09-11",
+          "id": "0185921",
+          "result": [
+            3,
+            5,
+            5
+          ],
+          "total": 13,
+          "large_small": "Lớn",
+          "is_triple": false,
+          "page": 1,
+          "process_time": "2026-09-11T10:43:52.271371"
+        },
+        {
+          "date": "2026-09-11",
+          "id": "0185920",
+          "result": [
+            4,
+            5,
+            2
+          ],
+          "total": 11,
+          "large_small": "Hòa",
+          "is_triple": false,
+          "page": 1,
+          "process_time": "2026-09-11T10:36:49.398415"
+        },
+        {
+          "date": "2026-09-11",
+          "id": "0185919",
+          "result": [
+            3,
+            2,
+            5
+          ],
+          "total": 10,
+          "large_small": "Hòa",
+          "is_triple": false,
+          "page": 1,
+          "process_time": "2026-09-11T10:36:49.398415"
+        },
+        {
+          "date": "2026-09-11",
+          "id": "0185918",
+          "result": [
+            4,
+            2,
+            4
+          ],
+          "total": 10,
+          "large_small": "Hòa",
+          "is_triple": false,
+          "page": 1,
+          "process_time": "2026-09-11T10:24:02.127799"
+        },
         {
           "date": "2026-09-11",
           "id": "0185917",
@@ -31452,270 +31592,10 @@
           "page": 14,
           "process_time": "2025-07-18 12:02:47.873560+07:00",
           "is_triple": false
-        },
-        {
-          "date": "2025-07-17",
-          "id": "0119085",
-          "result": [
-            5,
-            4,
-            4
-          ],
-          "total": 13,
-          "large_small": "Lớn",
-          "page": 14,
-          "process_time": "2025-07-18 12:02:47.873560+07:00",
-          "is_triple": false
-        },
-        {
-          "date": "2025-07-17",
-          "id": "0119084",
-          "result": [
-            3,
-            5,
-            4
-          ],
-          "total": 12,
-          "large_small": "Lớn",
-          "page": 15,
-          "process_time": "2025-07-18 12:02:48.039874+07:00",
-          "is_triple": false
-        },
-        {
-          "date": "2025-07-17",
-          "id": "0119083",
-          "result": [
-            2,
-            6,
-            3
-          ],
-          "total": 11,
-          "large_small": "Hòa",
-          "page": 15,
-          "process_time": "2025-07-18 12:02:48.039874+07:00",
-          "is_triple": false
-        },
-        {
-          "date": "2025-07-17",
-          "id": "0119082",
-          "result": [
-            2,
-            1,
-            3
-          ],
-          "total": 6,
-          "large_small": "Nhỏ",
-          "page": 15,
-          "process_time": "2025-07-18 12:02:48.039874+07:00",
-          "is_triple": false
-        },
-        {
-          "date": "2025-07-17",
-          "id": "0119081",
-          "result": [
-            3,
-            5,
-            3
-          ],
-          "total": 11,
-          "large_small": "Hòa",
-          "page": 15,
-          "process_time": "2025-07-18 12:02:48.039874+07:00",
-          "is_triple": false
-        },
-        {
-          "date": "2025-07-17",
-          "id": "0119080",
-          "result": [
-            2,
-            4,
-            1
-          ],
-          "total": 7,
-          "large_small": "Nhỏ",
-          "page": 15,
-          "process_time": "2025-07-18 12:02:48.039874+07:00",
-          "is_triple": false
-        },
-        {
-          "date": "2025-07-17",
-          "id": "0119079",
-          "result": [
-            5,
-            6,
-            2
-          ],
-          "total": 13,
-          "large_small": "Lớn",
-          "page": 15,
-          "process_time": "2025-07-18 12:02:48.039874+07:00",
-          "is_triple": false
-        },
-        {
-          "date": "2025-07-17",
-          "id": "0119078",
-          "result": [
-            2,
-            4,
-            5
-          ],
-          "total": 11,
-          "large_small": "Hòa",
-          "page": 16,
-          "process_time": "2025-07-18 12:02:47.998769+07:00",
-          "is_triple": false
-        },
-        {
-          "date": "2025-07-17",
-          "id": "0119077",
-          "result": [
-            5,
-            6,
-            3
-          ],
-          "total": 14,
-          "large_small": "Lớn",
-          "page": 16,
-          "process_time": "2025-07-18 12:02:47.998769+07:00",
-          "is_triple": false
-        },
-        {
-          "date": "2025-07-17",
-          "id": "0119076",
-          "result": [
-            1,
-            2,
-            1
-          ],
-          "total": 4,
-          "large_small": "Nhỏ",
-          "page": 16,
-          "process_time": "2025-07-18 12:02:47.998769+07:00",
-          "is_triple": false
         }
       ],
       "streak_analytics": {
         "roadmap": [
-          {
-            "drawId": "0119076",
-            "date": "2025-07-17",
-            "result": [
-              1,
-              2,
-              1
-            ],
-            "total": 4,
-            "type": "Nhỏ",
-            "isTriple": false
-          },
-          {
-            "drawId": "0119077",
-            "date": "2025-07-17",
-            "result": [
-              5,
-              6,
-              3
-            ],
-            "total": 14,
-            "type": "Lớn",
-            "isTriple": false
-          },
-          {
-            "drawId": "0119078",
-            "date": "2025-07-17",
-            "result": [
-              2,
-              4,
-              5
-            ],
-            "total": 11,
-            "type": "Hòa",
-            "isTriple": false
-          },
-          {
-            "drawId": "0119079",
-            "date": "2025-07-17",
-            "result": [
-              5,
-              6,
-              2
-            ],
-            "total": 13,
-            "type": "Lớn",
-            "isTriple": false
-          },
-          {
-            "drawId": "0119080",
-            "date": "2025-07-17",
-            "result": [
-              2,
-              4,
-              1
-            ],
-            "total": 7,
-            "type": "Nhỏ",
-            "isTriple": false
-          },
-          {
-            "drawId": "0119081",
-            "date": "2025-07-17",
-            "result": [
-              3,
-              5,
-              3
-            ],
-            "total": 11,
-            "type": "Hòa",
-            "isTriple": false
-          },
-          {
-            "drawId": "0119082",
-            "date": "2025-07-17",
-            "result": [
-              2,
-              1,
-              3
-            ],
-            "total": 6,
-            "type": "Nhỏ",
-            "isTriple": false
-          },
-          {
-            "drawId": "0119083",
-            "date": "2025-07-17",
-            "result": [
-              2,
-              6,
-              3
-            ],
-            "total": 11,
-            "type": "Hòa",
-            "isTriple": false
-          },
-          {
-            "drawId": "0119084",
-            "date": "2025-07-17",
-            "result": [
-              3,
-              5,
-              4
-            ],
-            "total": 12,
-            "type": "Lớn",
-            "isTriple": false
-          },
-          {
-            "drawId": "0119085",
-            "date": "2025-07-17",
-            "result": [
-              5,
-              4,
-              4
-            ],
-            "total": 13,
-            "type": "Lớn",
-            "isTriple": false
-          },
           {
             "drawId": "0119086",
             "date": "2025-07-17",
@@ -32795,32 +32675,152 @@
             "total": 11,
             "type": "Hòa",
             "isTriple": false
+          },
+          {
+            "drawId": "0185918",
+            "date": "2026-09-11",
+            "result": [
+              4,
+              2,
+              4
+            ],
+            "total": 10,
+            "type": "Hòa",
+            "isTriple": false
+          },
+          {
+            "drawId": "0185919",
+            "date": "2026-09-11",
+            "result": [
+              3,
+              2,
+              5
+            ],
+            "total": 10,
+            "type": "Hòa",
+            "isTriple": false
+          },
+          {
+            "drawId": "0185920",
+            "date": "2026-09-11",
+            "result": [
+              4,
+              5,
+              2
+            ],
+            "total": 11,
+            "type": "Hòa",
+            "isTriple": false
+          },
+          {
+            "drawId": "0185921",
+            "date": "2026-09-11",
+            "result": [
+              3,
+              5,
+              5
+            ],
+            "total": 13,
+            "type": "Lớn",
+            "isTriple": false
+          },
+          {
+            "drawId": "0185922",
+            "date": "2026-09-11",
+            "result": [
+              1,
+              5,
+              6
+            ],
+            "total": 12,
+            "type": "Lớn",
+            "isTriple": false
+          },
+          {
+            "drawId": "0185923",
+            "date": "2026-09-11",
+            "result": [
+              1,
+              6,
+              3
+            ],
+            "total": 10,
+            "type": "Hòa",
+            "isTriple": false
+          },
+          {
+            "drawId": "0185924",
+            "date": "2026-09-11",
+            "result": [
+              1,
+              2,
+              1
+            ],
+            "total": 4,
+            "type": "Nhỏ",
+            "isTriple": false
+          },
+          {
+            "drawId": "0185925",
+            "date": "2026-09-11",
+            "result": [
+              3,
+              5,
+              3
+            ],
+            "total": 11,
+            "type": "Hòa",
+            "isTriple": false
+          },
+          {
+            "drawId": "0185926",
+            "date": "2026-09-11",
+            "result": [
+              5,
+              5,
+              1
+            ],
+            "total": 11,
+            "type": "Hòa",
+            "isTriple": false
+          },
+          {
+            "drawId": "0185927",
+            "date": "2026-09-11",
+            "result": [
+              3,
+              3,
+              1
+            ],
+            "total": 7,
+            "type": "Nhỏ",
+            "isTriple": false
           }
         ],
-        "current_streak_type": "Hòa",
-        "current_streak_len": 2,
-        "break_probability_pct": 95.0,
+        "current_streak_type": "Nhỏ",
+        "current_streak_len": 1,
+        "break_probability_pct": 64.0,
         "max_streak_observed": 5,
         "streak_distribution": {
-          "1_ky": 40,
+          "1_ky": 35,
           "2_ky": 22,
           "3_ky": 2,
-          "5_ky": 2
+          "5_ky": 3
         },
         "transition_matrix": {
           "Lớn": {
-            "Lớn": 45.2,
-            "Nhỏ": 38.1,
-            "Hòa": 16.7
+            "Lớn": 47.5,
+            "Nhỏ": 35.0,
+            "Hòa": 17.5
           },
           "Nhỏ": {
-            "Lớn": 44.4,
-            "Nhỏ": 27.8,
-            "Hòa": 27.8
+            "Lớn": 44.1,
+            "Nhỏ": 29.4,
+            "Hòa": 26.5
           }
         },
-        "total_large": 42,
-        "total_small": 36,
+        "total_large": 40,
+        "total_small": 35,
         "total_draws_analyzed": 100
       },
       "sum_distribution": {
@@ -32834,10 +32834,10 @@
           },
           {
             "sum": 4,
-            "count": 13,
-            "empirical_pct": 1.3,
+            "count": 14,
+            "empirical_pct": 1.4,
             "theoretical_pct": 1.39,
-            "deviation": -0.09
+            "deviation": 0.01
           },
           {
             "sum": 5,
@@ -32848,24 +32848,24 @@
           },
           {
             "sum": 6,
-            "count": 37,
-            "empirical_pct": 3.7,
+            "count": 35,
+            "empirical_pct": 3.5,
             "theoretical_pct": 4.63,
-            "deviation": -0.93
+            "deviation": -1.13
           },
           {
             "sum": 7,
-            "count": 77,
-            "empirical_pct": 7.7,
+            "count": 78,
+            "empirical_pct": 7.8,
             "theoretical_pct": 6.94,
-            "deviation": 0.76
+            "deviation": 0.86
           },
           {
             "sum": 8,
-            "count": 104,
-            "empirical_pct": 10.4,
+            "count": 103,
+            "empirical_pct": 10.3,
             "theoretical_pct": 9.72,
-            "deviation": 0.68
+            "deviation": 0.58
           },
           {
             "sum": 9,
@@ -32876,24 +32876,24 @@
           },
           {
             "sum": 10,
-            "count": 137,
-            "empirical_pct": 13.7,
+            "count": 139,
+            "empirical_pct": 13.9,
             "theoretical_pct": 12.5,
-            "deviation": 1.2
+            "deviation": 1.4
           },
           {
             "sum": 11,
-            "count": 114,
-            "empirical_pct": 11.4,
+            "count": 117,
+            "empirical_pct": 11.7,
             "theoretical_pct": 12.5,
-            "deviation": -1.1
+            "deviation": -0.8
           },
           {
             "sum": 12,
-            "count": 120,
-            "empirical_pct": 12.0,
+            "count": 119,
+            "empirical_pct": 11.9,
             "theoretical_pct": 11.57,
-            "deviation": 0.43
+            "deviation": 0.33
           },
           {
             "sum": 13,
@@ -32904,17 +32904,17 @@
           },
           {
             "sum": 14,
-            "count": 72,
-            "empirical_pct": 7.2,
+            "count": 71,
+            "empirical_pct": 7.1,
             "theoretical_pct": 6.94,
-            "deviation": 0.26
+            "deviation": 0.16
           },
           {
             "sum": 15,
-            "count": 38,
-            "empirical_pct": 3.8,
+            "count": 37,
+            "empirical_pct": 3.7,
             "theoretical_pct": 4.63,
-            "deviation": -0.83
+            "deviation": -0.93
           },
           {
             "sum": 16,
@@ -32925,10 +32925,10 @@
           },
           {
             "sum": 17,
-            "count": 19,
-            "empirical_pct": 1.9,
+            "count": 18,
+            "empirical_pct": 1.8,
             "theoretical_pct": 1.39,
-            "deviation": 0.51
+            "deviation": 0.41
           },
           {
             "sum": 18,
@@ -32938,8 +32938,8 @@
             "deviation": 0.34
           }
         ],
-        "mean_sum": 10.59,
-        "std_sum": 2.96,
+        "mean_sum": 10.57,
+        "std_sum": 2.95,
         "theoretical_mean": 10.5,
         "theoretical_std": 2.96,
         "total_draws_analyzed": 1000,
@@ -32950,16 +32950,16 @@
         ]
       },
       "storm_radar": {
-        "current_storm_gap": 39,
+        "current_storm_gap": 49,
         "average_storm_gap": 34.6,
         "theoretical_storm_gap": 36.0,
         "hazard_level": {
-          "level": "normal",
-          "name": "Bình Thường (Chu kỳ an toàn)",
-          "color": "slate",
+          "level": "accumulating",
+          "name": "Đang Tích Lũy (Vượt chu kỳ trung bình)",
+          "color": "amber",
           "alert": false,
-          "badge": "bg-slate-800 text-slate-300 border-slate-700",
-          "rationale": "Số kỳ vắng bóng bão hiện tại là 39 kỳ (dưới chu kỳ trung bình 34.6 kỳ)."
+          "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40",
+          "rationale": "Đã 49 kỳ chưa nổ bão (chu kỳ trung bình 34.6 kỳ). Bắt đầu theo dõi điểm rơi."
         },
         "last_storm": {
           "drawId": "0185878",
@@ -33039,56 +33039,56 @@
         "dice_frequencies": [
           {
             "face": 1,
-            "count": 224,
-            "empirical_pct": 14.93,
+            "count": 221,
+            "empirical_pct": 14.73,
             "theoretical_pct": 16.67,
-            "deviation": -1.74,
-            "current_gap": 3,
+            "deviation": -1.94,
+            "current_gap": 0,
             "status": "Lạnh"
           },
           {
             "face": 2,
-            "count": 274,
-            "empirical_pct": 18.27,
+            "count": 272,
+            "empirical_pct": 18.13,
             "theoretical_pct": 16.67,
-            "deviation": 1.6,
-            "current_gap": 0,
-            "status": "Nóng"
-          },
-          {
-            "face": 3,
-            "count": 253,
-            "empirical_pct": 16.87,
-            "theoretical_pct": 16.67,
-            "deviation": 0.2,
+            "deviation": 1.46,
             "current_gap": 3,
             "status": "Bình thường"
           },
           {
-            "face": 4,
-            "count": 268,
-            "empirical_pct": 17.87,
+            "face": 3,
+            "count": 258,
+            "empirical_pct": 17.2,
             "theoretical_pct": 16.67,
-            "deviation": 1.2,
+            "deviation": 0.53,
             "current_gap": 0,
+            "status": "Bình thường"
+          },
+          {
+            "face": 4,
+            "count": 265,
+            "empirical_pct": 17.67,
+            "theoretical_pct": 16.67,
+            "deviation": 1.0,
+            "current_gap": 7,
             "status": "Bình thường"
           },
           {
             "face": 5,
-            "count": 243,
-            "empirical_pct": 16.2,
+            "count": 249,
+            "empirical_pct": 16.6,
             "theoretical_pct": 16.67,
-            "deviation": -0.47,
-            "current_gap": 0,
+            "deviation": -0.07,
+            "current_gap": 1,
             "status": "Bình thường"
           },
           {
             "face": 6,
-            "count": 238,
-            "empirical_pct": 15.87,
+            "count": 235,
+            "empirical_pct": 15.67,
             "theoretical_pct": 16.67,
-            "deviation": -0.8,
-            "current_gap": 2,
+            "deviation": -1.0,
+            "current_gap": 4,
             "status": "Bình thường"
           }
         ],
@@ -33098,196 +33098,196 @@
               2,
               5
             ],
-            "count": 76
+            "count": 78
           },
           {
             "pair": [
               2,
               4
             ],
-            "count": 74
-          },
-          {
-            "pair": [
-              1,
-              2
-            ],
-            "count": 74
+            "count": 75
           },
           {
             "pair": [
               2,
               3
             ],
-            "count": 74
+            "count": 75
           },
           {
             "pair": [
               3,
-              4
+              5
             ],
-            "count": 72
+            "count": 73
+          },
+          {
+            "pair": [
+              1,
+              2
+            ],
+            "count": 73
           }
         ],
         "total_draws_analyzed": 500
       },
       "size_distribution": {
-        "Nhỏ": 360,
-        "Lớn": 389,
-        "Hòa": 251
+        "Nhỏ": 359,
+        "Lớn": 385,
+        "Hòa": 256
       },
       "gap_analysis": [
         {
           "number": 1,
-          "current_gap": 3,
+          "current_gap": 0,
           "max_gap": 11,
           "avg_gap": 2.4,
           "appearances": 411,
-          "heat_ratio": 1.25
+          "heat_ratio": 0.0
         },
         {
           "number": 2,
-          "current_gap": 0,
+          "current_gap": 3,
           "max_gap": 10,
           "avg_gap": 2.3,
-          "appearances": 434,
-          "heat_ratio": 0.0
+          "appearances": 433,
+          "heat_ratio": 1.3
         },
         {
           "number": 3,
-          "current_gap": 3,
+          "current_gap": 0,
           "max_gap": 10,
           "avg_gap": 2.5,
           "appearances": 394,
-          "heat_ratio": 1.2
+          "heat_ratio": 0.0
         },
         {
           "number": 4,
-          "current_gap": 0,
+          "current_gap": 7,
           "max_gap": 11,
           "avg_gap": 2.3,
-          "appearances": 428,
-          "heat_ratio": 0.0
+          "appearances": 429,
+          "heat_ratio": 3.04
         },
         {
           "number": 5,
-          "current_gap": 0,
+          "current_gap": 1,
           "max_gap": 11,
           "avg_gap": 2.4,
-          "appearances": 413,
-          "heat_ratio": 0.0
+          "appearances": 414,
+          "heat_ratio": 0.42
         },
         {
           "number": 6,
-          "current_gap": 2,
+          "current_gap": 4,
           "max_gap": 10,
-          "avg_gap": 2.3,
-          "appearances": 429,
-          "heat_ratio": 0.87
+          "avg_gap": 2.4,
+          "appearances": 424,
+          "heat_ratio": 1.67
         }
       ],
       "dice_frequency": [
         {
           "number": 1,
-          "count": 224
+          "count": 221
         },
         {
           "number": 2,
-          "count": 274
+          "count": 272
         },
         {
           "number": 3,
-          "count": 253
+          "count": 258
         },
         {
           "number": 4,
-          "count": 268
+          "count": 265
         },
         {
           "number": 5,
-          "count": 243
+          "count": 249
         },
         {
           "number": 6,
-          "count": 238
+          "count": 235
         }
       ],
       "prediction_hub": {
-        "target_draw_id": "#0185918",
+        "target_draw_id": "#0185928",
         "large_small_prediction": {
           "predicted_choice": "Nhỏ",
-          "confidence_pct": 60.0,
-          "strategy_name": "Thoát Cầu Hòa (Tie Escape Rule)",
-          "current_streak_type": "Hòa",
+          "confidence_pct": 58.0,
+          "strategy_name": "Bám Cầu Bệt (Momentum)",
+          "current_streak_type": "Nhỏ",
           "current_streak_len": 1,
           "elastic_bounce_signal": false,
-          "tie_escape_signal": true,
+          "tie_escape_signal": false,
           "alternation_signal": false,
-          "hedge_recommendation": "Đánh Nhỏ (Tỷ lệ thoát Hòa 75.2%)",
-          "rationale": "Kỳ trước vừa nổ Hòa (tổng 11). Thống kê thực nghiệm 36.030 kỳ chứng minh 75.2% kỳ kế tiếp sẽ thoát khỏi cửa Hòa để bung sang hai cánh. Khuyến nghị loại bỏ Hòa và đón đầu thế Nhỏ."
+          "hedge_recommendation": "Đánh Nhỏ (Bám cầu bệt 1 kỳ)",
+          "rationale": "Nhịp cầu Nhỏ đang trong pha quán tính thuận lợi (1 kỳ liên tiếp). Khuyến nghị bám cầu theo xu hướng tiếp diễn."
         },
         "single_face_prediction": {
-          "best_face": 3,
-          "expected_hit_prob_pct": 43.3,
-          "current_gap": 3,
-          "historical_deviation": 0.66,
-          "rationale": "Mặt xúc xắc 3 đang có nhịp gan 3 kỳ (chu kỳ trung bình 2.4 kỳ). Xác suất xuất hiện ít nhất 1 lần trong 3 con xúc xắc kỳ này ước lượng đạt 43.3%."
+          "best_face": 4,
+          "expected_hit_prob_pct": 48.0,
+          "current_gap": 7,
+          "historical_deviation": 2.33,
+          "rationale": "Mặt xúc xắc 4 đang có nhịp gan 7 kỳ (chu kỳ trung bình 2.4 kỳ). Xác suất xuất hiện ít nhất 1 lần trong 3 con xúc xắc kỳ này ước lượng đạt 48.0%."
         },
         "two_faces_prediction": {
           "best_pair": [
-            1,
-            3
+            4,
+            6
           ],
           "expected_hit_prob_pct": 68.6,
           "individual_faces": [
             {
-              "face": 3,
-              "gap": 3,
-              "deviation": 0.66
+              "face": 4,
+              "gap": 7,
+              "deviation": 2.33
             },
             {
-              "face": 1,
-              "gap": 3,
-              "deviation": -4.0
+              "face": 6,
+              "gap": 4,
+              "deviation": -0.67
             }
           ],
           "strategy_name": "Song Thủ 2 Mặt Xúc Xắc (+EV Vượt Trội)",
-          "rationale": "Cặp Song Thủ (1, 3) đang có nhịp rơi và độ lệch hồi quy tối ưu nhất. Xác suất xuất hiện ít nhất một mặt trong 3 con xúc xắc thực nghiệm đạt 68.6% (gấp 1.8 lần so với đánh cửa Lớn/Nhỏ thông thường)."
+          "rationale": "Cặp Song Thủ (4, 6) đang có nhịp rơi và độ lệch hồi quy tối ưu nhất. Xác suất xuất hiện ít nhất một mặt trong 3 con xúc xắc thực nghiệm đạt 68.6% (gấp 1.8 lần so với đánh cửa Lớn/Nhỏ thông thường)."
         },
         "target_sum_prediction": {
           "target_range": [
             8,
             13
           ],
-          "best_single_sum": 10,
+          "best_single_sum": 11,
           "range_probability_pct": 68.0,
-          "rationale": "Tổng kỳ trước (11) nằm trọn trong vùng vàng Gaussian [8, 13]. Kỳ này tiếp tục dao động quanh trục 10 và 11."
+          "rationale": "Kỳ trước tổng nổ thấp (7). Lực đàn hồi Gaussian kéo tổng giật về tâm đối xứng 11."
         },
         "storm_trigger": {
           "is_hunting_active": false,
-          "status": "Bình Thường (Chu kỳ an toàn)",
-          "current_storm_gap": 39,
+          "status": "Đang Tích Lũy Năng Lượng",
+          "current_storm_gap": 49,
           "average_gap": 34.6,
-          "action_recommendation": "Tạm dừng săn bão, tập trung đánh Song Thủ và Lớn/Nhỏ",
+          "action_recommendation": "Bắt đầu theo dõi điểm rơi (Chưa kích hoạt nuôi)",
           "payout_multiplier": "1 ăn 32 / 1 ăn 120",
           "recommended_triples": [
             "666",
             "222",
             "111"
           ],
-          "rationale": "Bão vừa nổ gần đây (39 kỳ trước). Chu kỳ hiện tại hoàn toàn bình thường."
+          "rationale": "Đã 49 kỳ vắng bóng bão (chu kỳ trung bình 34.6 kỳ). Chuẩn bị sẵn vốn khi gap vượt 70 kỳ."
         }
       },
       "walk_forward_evaluation": {
         "evaluated_draws": 100,
-        "large_small_hits": 34,
-        "large_small_accuracy_pct": 34.0,
-        "single_face_hits": 54,
-        "single_face_hit_rate_pct": 54.0,
-        "two_faces_hits": 79,
-        "two_faces_hit_rate_pct": 79.0,
-        "target_range_hits": 66,
-        "target_range_hit_rate_pct": 66.0
+        "large_small_hits": 32,
+        "large_small_accuracy_pct": 32.0,
+        "single_face_hits": 52,
+        "single_face_hit_rate_pct": 52.0,
+        "two_faces_hits": 75,
+        "two_faces_hit_rate_pct": 75.0,
+        "target_range_hits": 68,
+        "target_range_hit_rate_pct": 68.0
       }
     },
     "3d": {

@@ -198,14 +198,74 @@ def parse_bingo18_html(html: str) -> List[Dict[str, Any]]:
     return records
 
 
+def parse_bingo18_direct_page(html: str) -> List[Dict[str, Any]]:
+    """
+    Phân tích bảng kết quả HTML trực tiếp từ trang web chính của Vietlott
+    (luôn chứa các kỳ mới nhất theo thời gian thực).
+    """
+    if not html or not html.strip():
+        return []
+
+    soup = BeautifulSoup(html, "html.parser")
+    records: List[Dict[str, Any]] = []
+
+    for tr in soup.select("table tr"):
+        tds = tr.find_all("td")
+        if len(tds) < 4:
+            continue
+
+        col0 = tds[0].get_text(strip=True)
+        m_date = re.search(r"(\d{2}/\d{2}/\d{4})", col0)
+        m_id = re.search(r"#(\d+)", col0)
+        if not (m_date and m_id):
+            continue
+
+        d_str = datetime.strptime(m_date.group(1), "%d/%m/%Y").strftime("%Y-%m-%d")
+        draw_id = m_id.group(1).zfill(7)
+
+        spans = tds[1].find_all("span")
+        if spans:
+            nums = [int(s.get_text(strip=True)) for s in spans if s.get_text(strip=True).isdigit()]
+        else:
+            nums = [int(x) for x in re.findall(r"\b[1-6]\b", tds[1].get_text(strip=True))]
+
+        if not nums:
+            txt = tds[1].get_text(strip=True)
+            if len(txt) == 3 and all(c in "123456" for c in txt):
+                nums = [int(c) for c in txt]
+
+        if len(nums) != 3 or not all(1 <= x <= 6 for x in nums):
+            continue
+
+        tot_txt = tds[2].get_text(strip=True)
+        tot = int(tot_txt) if tot_txt.isdigit() else sum(nums)
+
+        ls_type = tds[3].get_text(strip=True)
+        if ls_type not in ["Lớn", "Nhỏ", "Hòa"]:
+            ls_type = "Lớn" if tot >= 12 else ("Nhỏ" if tot <= 9 else "Hòa")
+
+        is_triple = (nums[0] == nums[1] == nums[2])
+
+        records.append({
+            "date": d_str,
+            "id": draw_id,
+            "result": nums,
+            "total": tot,
+            "large_small": ls_type,
+            "is_triple": is_triple,
+        })
+
+    return records
+
+
 def sync_bingo18(file_path: Optional[Path] = None, max_pages: int = 5) -> int:
     """
     Đồng bộ dữ liệu Bingo 18 từ Vietlott:
-      - Đọc latest_local_id
-      - Gửi POST request từng trang (PageIndex = 1..max_pages)
-      - Dừng sớm khi gặp clean_id <= latest_local_id
-      - Ghi file nguyên tử ra data/bingo18.jsonl
-      - Trả về số kỳ mới cào được
+      - BƯỚC 1: Cào trực tiếp trang live web để lấy ngay các kỳ mới nhất thời gian thực.
+      - BƯỚC 2: Gửi POST AjaxPro từng trang để backfill phần bù lịch sử.
+      - Dừng sớm khi gặp clean_id <= latest_local_id.
+      - Ghi file nguyên tử ra data/bingo18.jsonl.
+      - Trả về số kỳ mới cào được.
     """
     if file_path is None:
         file_path = DATA_DIR / "bingo18.jsonl"
@@ -217,8 +277,36 @@ def sync_bingo18(file_path: Optional[Path] = None, max_pages: int = 5) -> int:
 
     session = get_robust_session()
     new_draws = 0
-    stop = False
 
+    # BƯỚC 1: Cào trực tiếp trang live web (thời gian thực, không bị trễ cache)
+    live_url = "https://www.vietlott.vn/vi/trung-thuong/ket-qua-trung-thuong/winning-number-bingo18?nocatche=1"
+    try:
+        live_headers = dict(HEADERS)
+        live_headers["Cache-Control"] = "no-cache"
+        live_headers["Pragma"] = "no-cache"
+        live_res = session.get(live_url, headers=live_headers, timeout=12)
+        if live_res.ok:
+            live_records = parse_bingo18_direct_page(live_res.text)
+            live_added = 0
+            for r in live_records:
+                clean_id = str(int(r["id"]))
+                if clean_id not in existing:
+                    r_with_meta = dict(r)
+                    r_with_meta["page"] = 0
+                    r_with_meta["process_time"] = datetime.now().isoformat()
+                    existing[clean_id] = r_with_meta
+                    new_draws += 1
+                    live_added += 1
+            if live_records:
+                print(f"Live Page: parsed {len(live_records)} real-time draws, +{live_added} new (latest: #{live_records[0]['id']})")
+    except Exception as e:
+        print(f"Warning: could not fetch live page: {e}")
+
+    # Cập nhật lại latest_local_id sau khi ăn dữ liệu live
+    latest_local_id = max((int(k) for k in existing.keys() if k.isdigit()), default=latest_local_id)
+
+    # BƯỚC 2: Backfill từ AjaxPro nếu cần
+    stop = False
     for page in range(1, max_pages + 1):
         body = {
             "ORenderInfo": {

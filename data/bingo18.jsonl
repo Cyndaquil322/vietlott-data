@@ -36051,3 +36051,13 @@
 {"date": "2026-09-11", "id": "0185915", "result": [4, 6, 2], "total": 12, "large_small": "Lớn", "is_triple": false, "page": 1, "process_time": "2026-09-11T10:18:00.379859"}
 {"date": "2026-09-11", "id": "0185916", "result": [5, 4, 2], "total": 11, "large_small": "Hòa", "is_triple": false, "page": 1, "process_time": "2026-09-11T10:18:00.379859"}
 {"date": "2026-09-11", "id": "0185917", "result": [4, 2, 5], "total": 11, "large_small": "Hòa", "is_triple": false, "page": 1, "process_time": "2026-09-11T10:18:44.224724"}
+{"date": "2026-09-11", "id": "0185918", "result": [4, 2, 4], "total": 10, "large_small": "Hòa", "is_triple": false, "page": 1, "process_time": "2026-09-11T10:24:02.127799"}
+{"date": "2026-09-11", "id": "0185919", "result": [3, 2, 5], "total": 10, "large_small": "Hòa", "is_triple": false, "page": 1, "process_time": "2026-09-11T10:36:49.398415"}
+{"date": "2026-09-11", "id": "0185920", "result": [4, 5, 2], "total": 11, "large_small": "Hòa", "is_triple": false, "page": 1, "process_time": "2026-09-11T10:36:49.398415"}
+{"date": "2026-09-11", "id": "0185921", "result": [3, 5, 5], "total": 13, "large_small": "Lớn", "is_triple": false, "page": 1, "process_time": "2026-09-11T10:43:52.271371"}
+{"date": "2026-09-11", "id": "0185922", "result": [1, 5, 6], "total": 12, "large_small": "Lớn", "is_triple": false, "page": 0, "process_time": "2026-09-11T10:43:51.711999"}
+{"date": "2026-09-11", "id": "0185923", "result": [1, 6, 3], "total": 10, "large_small": "Hòa", "is_triple": false, "page": 0, "process_time": "2026-09-11T10:43:51.711999"}
+{"date": "2026-09-11", "id": "0185924", "result": [1, 2, 1], "total": 4, "large_small": "Nhỏ", "is_triple": false, "page": 0, "process_time": "2026-09-11T10:43:51.711999"}
+{"date": "2026-09-11", "id": "0185925", "result": [3, 5, 3], "total": 11, "large_small": "Hòa", "is_triple": false, "page": 0, "process_time": "2026-09-11T10:43:51.711999"}
+{"date": "2026-09-11", "id": "0185926", "result": [5, 5, 1], "total": 11, "large_small": "Hòa", "is_triple": false, "page": 0, "process_time": "2026-09-11T10:43:51.711999"}
+{"date": "2026-09-11", "id": "0185927", "result": [3, 3, 1], "total": 7, "large_small": "Nhỏ", "is_triple": false, "page": 0, "process_time": "2026-09-11T10:43:51.711999"}
