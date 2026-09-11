@@ -258,12 +258,11 @@ def parse_bingo18_direct_page(html: str) -> List[Dict[str, Any]]:
     return records
 
 
-def sync_bingo18(file_path: Optional[Path] = None, max_pages: int = 5) -> int:
+def sync_bingo18(file_path: Optional[Path] = None, max_pages: int = 25) -> int:
     """
     Đồng bộ dữ liệu Bingo 18 từ Vietlott:
       - BƯỚC 1: Cào trực tiếp trang live web để lấy ngay các kỳ mới nhất thời gian thực.
-      - BƯỚC 2: Gửi POST AjaxPro từng trang để backfill phần bù lịch sử.
-      - Dừng sớm khi gặp clean_id <= latest_local_id.
+      - BƯỚC 2: Gửi POST AjaxPro từng trang để backfill toàn bộ khoảng trống lịch sử (gap) về tận initial_latest_id.
       - Ghi file nguyên tử ra data/bingo18.jsonl.
       - Trả về số kỳ mới cào được.
     """
@@ -272,8 +271,8 @@ def sync_bingo18(file_path: Optional[Path] = None, max_pages: int = 5) -> int:
 
     print(f"\n=== Syncing Bingo 18 ===")
     existing = load_existing_bingo18(file_path)
-    latest_local_id = max((int(k) for k in existing.keys() if k.isdigit()), default=0)
-    print(f"Latest local draw: #{latest_local_id:07d} (Total: {len(existing)})")
+    initial_latest_id = max((int(k) for k in existing.keys() if k.isdigit()), default=0)
+    print(f"Latest local draw before sync: #{initial_latest_id:07d} (Total: {len(existing)})")
 
     session = get_robust_session()
     new_draws = 0
@@ -302,11 +301,10 @@ def sync_bingo18(file_path: Optional[Path] = None, max_pages: int = 5) -> int:
     except Exception as e:
         print(f"Warning: could not fetch live page: {e}")
 
-    # Cập nhật lại latest_local_id sau khi ăn dữ liệu live
-    latest_local_id = max((int(k) for k in existing.keys() if k.isdigit()), default=latest_local_id)
-
-    # BƯỚC 2: Backfill từ AjaxPro nếu cần
+    # BƯỚC 2: Backfill từ AjaxPro để bù đắp bất kỳ khoảng trống (gap) nào
     stop = False
+    consecutive_existing = 0
+
     for page in range(1, max_pages + 1):
         body = {
             "ORenderInfo": {
@@ -319,7 +317,7 @@ def sync_bingo18(file_path: Optional[Path] = None, max_pages: int = 5) -> int:
             "number": "",
             "DrawDate": "",
             "PageIndex": page,
-            "TotalRow": 43569,
+            "TotalRow": 0,
         }
 
         try:
@@ -344,11 +342,13 @@ def sync_bingo18(file_path: Optional[Path] = None, max_pages: int = 5) -> int:
             page_new = 0
             for r in records:
                 clean_id = str(int(r["id"]))
-                if clean_id in existing and int(clean_id) <= latest_local_id:
-                    stop = True
-                    break
-
-                if clean_id not in existing:
+                if clean_id in existing:
+                    consecutive_existing += 1
+                    if consecutive_existing >= 12:  # Đã gặp 2 trang đầy đủ kỳ cũ liên tiếp
+                        stop = True
+                        break
+                else:
+                    consecutive_existing = 0
                     r_with_meta = dict(r)
                     r_with_meta["page"] = page
                     r_with_meta["process_time"] = datetime.now().isoformat()
@@ -358,7 +358,7 @@ def sync_bingo18(file_path: Optional[Path] = None, max_pages: int = 5) -> int:
 
             print(f"Page {page}: parsed {len(records)} draws, +{page_new} new (latest on page: #{records[0]['id']})")
             if stop:
-                print(f"Reached existing data overlap (<= #{latest_local_id:07d}) at page {page}.")
+                print(f"Reached solid existing historical data (overlap >= 12 consecutive draws) at page {page}.")
                 break
         except Exception as e:
             print(f"Error on page {page}: {e}")
