@@ -259,6 +259,19 @@ Hệ thống phân tích định lượng được cấu trúc hóa thành các 
   * Tối ưu hóa hoán vị nhãn bảo đảm $100\%$ vé con đạt Arithmetic Complexity $AC \ge 7$ ($AC \ge 4$ cho 5/35).
   * Đòn bẩy xác suất từ $15.4\times$ đến $18.5\times$ với cam kết bảo hiểm toán học: $100\%$ có vé trúng thưởng khi bóng chốt nổ kèm $\ge 2$ bóng vệ tinh.
 
+### L. Dedicated Bingo 18 Live Sync (`src/vietlott/sync_bingo18.py`)
+* **Vai trò:** Crawler chuyên biệt siêu tốc cho Bingo 18 (10 phút/kỳ, 96 kỳ/ngày):
+  * Tự động so khớp `latest_local_id`, dừng sớm chỉ sau 1 request nếu đã đủ dữ liệu.
+  * Bóc tách chính xác 3 số xúc xắc, tổng điểm, thế Lớn/Nhỏ/Hòa và cờ Bão (Triple).
+  * Ghi file nguyên tử (`.tmp` -> `.jsonl`) đảm bảo an toàn tuyệt đối.
+
+### M. Bingo 18 Sicbo Quantitative Engine (`src/vietlott/model/bingo18_engine.py`)
+* **Vai trò:** Phân tích định lượng chuyên sâu cho xúc xắc Bingo 18:
+  * Phân tích chuỗi bệt Lớn/Nhỏ (Roadmap) và tính xác suất bẻ cầu (Mean-Reversion).
+  * Đối soát chuông tổng Gaussian 3..18 so sánh với phân phối lý thuyết 3d6 (216 tổ hợp).
+  * Radar săn bão (Triple Hazard Detection) cảnh báo điểm rơi các bộ bão cụ thể 111..666 (tỷ lệ 1 ăn 120).
+  * Tần suất 6 mặt xúc xắc và ma trận cặp đôi hay nổ chung.
+
 ---
 
 ## 6. SƠ ĐỒ ĐIỀU PHỐI ĐƯỜNG ỐNG DỮ LIỆU & CONSENSUS HUB (ORCHESTRATION PIPELINE)

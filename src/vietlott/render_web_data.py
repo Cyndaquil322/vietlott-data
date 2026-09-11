@@ -1253,44 +1253,28 @@ def process_keno(records: List[Dict]) -> Dict[str, Any]:
 
 
 def process_bingo18(records: List[Dict]) -> Dict[str, Any]:
-    """Process Bingo 18."""
+    """Process Bingo 18 with dedicated Sicbo quantitative analytics."""
     if not records:
         return {}
 
-    total_draws = len(records)
-    latest_draws = records[-100:][::-1]
+    try:
+        from vietlott.model.bingo18_engine import generate_bingo18_comprehensive_analytics
+        data = generate_bingo18_comprehensive_analytics(records)
+    except Exception:
+        data = {}
 
+    if not data:
+        return {}
+
+    # Backward compatibility aliases
     sample_records = records[-1000:]
-    counter = Counter()
-    total_sum_counter = Counter()
-    size_counter = Counter()
-
-    for r in sample_records:
-        res = r.get("result", [])
-        counter.update(res)
-        tot = r.get("total", sum(res) if res else 0)
-        total_sum_counter.update([tot])
-        sz = r.get("large_small")
-        if sz:
-            size_counter.update([sz])
-
-    dice_freq = [{"number": i, "count": counter.get(i, 0)} for i in range(1, 7)]
-    sum_dist = [{"total": s, "count": total_sum_counter.get(s, 0)} for s in sorted(total_sum_counter.keys())]
-
-    # Gap analysis for numbers 1 to 6
     gap_analysis = calculate_gap_analysis(sample_records, 6, 3)
-
-    return {
-        "total_draws": total_draws,
-        "first_draw": records[0].get("date"),
-        "latest_draw": records[-1].get("date"),
-        "latest": latest_draws[0],
-        "history": latest_draws,
-        "dice_frequency": dice_freq,
-        "gap_analysis": gap_analysis,
-        "sum_distribution": sum_dist,
-        "size_distribution": dict(size_counter),
-    }
+    data["gap_analysis"] = gap_analysis
+    data["dice_frequency"] = [
+        {"number": x["face"], "count": x["count"]}
+        for x in data.get("dice_frequencies", {}).get("dice_frequencies", [])
+    ]
+    return data
 
 
 def process_max3d(records: List[Dict]) -> Dict[str, Any]:

@@ -2,6 +2,24 @@
 // 2. COMMON ANALYTICS: Hero, Gap, Sum, Patterns, Sim, History
 // ==========================================
 
+    function renderDiceSVG(face, size = 54) {
+      const pipsMap = {
+        1: [[50, 50, 'red', 11]],
+        2: [[30, 30, 'black', 7], [70, 70, 'black', 7]],
+        3: [[28, 28, 'black', 6.5], [50, 50, 'black', 6.5], [72, 72, 'black', 6.5]],
+        4: [[30, 30, 'red', 7], [70, 30, 'red', 7], [30, 70, 'red', 7], [70, 70, 'red', 7]],
+        5: [[28, 28, 'black', 6.5], [72, 28, 'black', 6.5], [50, 50, 'red', 7.5], [28, 72, 'black', 6.5], [72, 72, 'black', 6.5]],
+        6: [[30, 25, 'black', 6], [30, 50, 'black', 6], [30, 75, 'black', 6], [70, 25, 'black', 6], [70, 50, 'black', 6], [70, 75, 'black', 6]]
+      };
+      const pips = pipsMap[face] || [[50, 50, 'black', 8]];
+      return `
+        <svg width="${size}" height="${size}" viewBox="0 0 100 100" class="rounded-xl shadow-md border-2 border-slate-300 bg-gradient-to-b from-white to-slate-100 flex-shrink-0">
+          <rect x="3" y="3" width="94" height="94" rx="18" fill="white" stroke="#cbd5e1" stroke-width="2"/>
+          ${pips.map(([cx, cy, color, r]) => `<circle cx="${cx}" cy="${cy}" r="${r}" fill="${color === 'red' ? '#ef4444' : '#0f172a'}"/>`).join('')}
+        </svg>
+      `;
+    }
+
     function renderHero(product) {
       document.getElementById('heroGameBadge').textContent = product.name;
       document.getElementById('heroGameDesc').textContent = product.description;
@@ -73,17 +91,31 @@
         `;
       } else if (product.type === 'bingo18') {
         const res = latest.result || [];
+        const isTriple = (res.length === 3 && res[0] === res[1] && res[1] === res[2]);
         container.innerHTML = `
-          <div class="flex items-center space-x-4">
-            ${res.map(num => `
-              <div class="lotto-ball ball-purple w-14 h-14 sm:w-16 sm:h-16 text-2xl font-mono">
-                ${num}
+          <div class="flex flex-wrap items-center gap-4 sm:gap-6">
+            <div class="flex items-center gap-3">
+              ${res.map(num => renderDiceSVG(num, 54)).join('')}
+            </div>
+            <div class="flex items-center gap-4 pl-4 sm:pl-6 border-l border-slate-800">
+              <div>
+                <span class="text-[11px] text-slate-400 block font-sans">Tổng điểm:</span>
+                <span class="text-3xl font-black font-mono text-amber-400">${latest.total || res.reduce((a, b) => a + b, 0)}</span>
               </div>
-            `).join('')}
-            <div class="flex flex-col justify-center pl-4 border-l border-slate-800">
-              <span class="text-xs text-slate-400">Tổng điểm:</span>
-              <span class="text-2xl font-bold font-mono text-amber-400">${latest.total || res.reduce((a, b) => a + b, 0)}</span>
-              <span class="text-xs text-rose-400 mt-0.5">${latest.large_small || ''}</span>
+              <div class="flex flex-col gap-1">
+                <span class="text-xs font-bold px-2.5 py-1 rounded-lg font-mono inline-flex items-center gap-1 ${
+                  latest.large_small === 'Lớn' 
+                    ? 'bg-rose-500/20 text-rose-300 border border-rose-500/40' 
+                    : (latest.large_small === 'Nhỏ' ? 'bg-sky-500/20 text-sky-300 border border-sky-500/40' : 'bg-amber-500/20 text-amber-300 border border-amber-500/40')
+                }">
+                  ${latest.large_small || ''}
+                </span>
+                ${isTriple ? `
+                  <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-yellow-500/20 text-yellow-300 border border-yellow-500/50 animate-pulse">
+                    ⚡ BÃO NỔ
+                  </span>
+                ` : ''}
+              </div>
             </div>
           </div>
         `;
@@ -1206,5 +1238,274 @@
         switchView('overview');
         window.scrollTo({ top: 0, behavior: 'smooth' });
         checkTicket();
+      }
+    }
+
+    // =========================================================================
+    // BINGO 18 SICBO QUANTITATIVE ANALYTICS DASHBOARD
+    // =========================================================================
+    function renderBingo18Dashboard(product) {
+      const container = document.getElementById('bingo18Dashboard');
+      if (!container) return;
+
+      if (!product || product.type !== 'bingo18') {
+        container.classList.add('hidden');
+        return;
+      }
+
+      container.classList.remove('hidden');
+
+      const sa = product.streak_analytics || {};
+      const sd = product.sum_distribution || {};
+      const sr = product.storm_radar || {};
+      const df = product.dice_frequencies || {};
+
+      const roadmap = sa.roadmap || [];
+      const currentStreakType = sa.current_streak_type || 'Chưa có';
+      const currentStreakLen = sa.current_streak_len || 0;
+      const breakProb = sa.break_probability_pct || 50.0;
+      const totalLarge = sa.total_large || 0;
+      const totalSmall = sa.total_small || 0;
+      const totalAnalyzed = sa.total_draws_analyzed || roadmap.length || 1;
+      const largePct = Math.round((totalLarge / totalAnalyzed) * 100);
+      const smallPct = Math.round((totalSmall / totalAnalyzed) * 100);
+
+      const hazard = sr.hazard_level || { name: 'Bình Thường', color: 'slate', alert: false, badge: 'bg-slate-800 text-slate-300' };
+      const currentStormGap = sr.current_storm_gap || 0;
+      const avgStormGap = sr.average_storm_gap || 36.0;
+      const tripleCounts = sr.triple_counts || {};
+
+      const sumList = sd.distribution || [];
+      const topHotSums = sd.top_hot_sums || [];
+      const meanSum = sd.mean_sum || 10.5;
+
+      const diceList = df.dice_frequencies || [];
+      const topPairs = df.top_pairs || [];
+
+      container.innerHTML = `
+        <!-- BINGO 18 HEADER BANNER -->
+        <div class="rounded-2xl bg-gradient-to-r from-rose-950/40 via-slate-900 to-amber-950/30 border border-rose-500/30 p-5 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-3.5">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-rose-600 to-amber-500 flex items-center justify-center text-white shadow-lg shadow-rose-900/40 flex-shrink-0">
+              <i data-lucide="dice-5" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/40 flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-rose-400 animate-ping"></span>
+                  SICBO ĐỊNH LƯỢNG
+                </span>
+                <span class="text-xs font-mono text-slate-400">Quay 10 phút/kỳ (96 kỳ/ngày)</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mt-1">SOI CẦU XÚC XẮC BINGO 18 & RADAR SĂN BÃO</h3>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 bg-slate-950/70 p-2.5 rounded-xl border border-slate-800">
+            <span class="text-xs text-slate-400">Dữ liệu cào tự động:</span>
+            <span class="text-xs font-bold font-mono text-amber-400">${(product.total_draws || 0).toLocaleString()} kỳ</span>
+          </div>
+        </div>
+
+        <!-- 2 CỘT CHÍNH: CẦU LỚN/NHỎ & RADAR SĂN BÃO -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          
+          <!-- THẺ 1: BẢN ĐỒ BẮT CẦU LỚN / NHỎ (SICBO ROADMAP) -->
+          <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 shadow-xl space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div class="flex items-center gap-2">
+                <i data-lucide="activity" class="w-5 h-5 text-rose-400"></i>
+                <h4 class="font-bold text-white text-sm">BẢN ĐỒ BẮT CẦU LỚN / NHỎ (100 KỲ GẦN NHẤT)</h4>
+              </div>
+              <span class="text-xs font-mono text-slate-400">Xác suất 50/50 (1 ăn 2)</span>
+            </div>
+
+            <!-- Trạng thái nhịp bệt hiện tại -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <div class="bg-slate-950/80 p-3 rounded-xl border border-slate-800">
+                <span class="text-[10px] text-slate-400 block uppercase font-mono">Nhịp bệt hiện tại</span>
+                <span class="text-lg font-black font-mono ${currentStreakType === 'Lớn' ? 'text-rose-400' : 'text-sky-400'}">
+                  ${currentStreakType} &times; ${currentStreakLen} kỳ
+                </span>
+              </div>
+              <div class="bg-slate-950/80 p-3 rounded-xl border border-slate-800">
+                <span class="text-[10px] text-slate-400 block uppercase font-mono">Xác suất bẻ cầu</span>
+                <span class="text-lg font-black font-mono text-amber-400">${breakProb}%</span>
+              </div>
+              <div class="bg-slate-950/80 p-3 rounded-xl border border-slate-800 col-span-2 sm:col-span-1">
+                <span class="text-[10px] text-slate-400 block uppercase font-mono">Tỷ lệ 100 kỳ</span>
+                <span class="text-xs font-mono text-slate-300">
+                  <span class="text-rose-400 font-bold">Lớn ${largePct}%</span> / <span class="text-sky-400 font-bold">Nhỏ ${smallPct}%</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Ma trận chấm tròn Roadmap (100 kỳ gần nhất) -->
+            <div>
+              <div class="text-[11px] text-slate-400 mb-2 flex items-center justify-between">
+                <span>Ma trận nhịp (Trái sang phải, cũ đến mới):</span>
+                <div class="flex items-center gap-3 text-[10px] font-mono">
+                  <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-rose-500 inline-block"></span> Lớn (11-18)</span>
+                  <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-sky-500 inline-block"></span> Nhỏ (3-10)</span>
+                  <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-amber-400 border border-amber-200 inline-block animate-pulse"></span> Bão</span>
+                </div>
+              </div>
+              <div class="p-3 bg-slate-950/90 rounded-xl border border-slate-800 max-h-48 overflow-y-auto">
+                <div class="flex flex-wrap gap-1.5 items-center">
+                  ${roadmap.map((r, idx) => {
+                    const isBao = r.isTriple;
+                    const colorCls = isBao ? 'bg-amber-400 text-slate-950 border border-amber-200 shadow-md shadow-amber-500/30' : (r.type === 'Lớn' ? 'bg-rose-500 text-white' : 'bg-sky-500 text-white');
+                    const char = isBao ? 'B' : (r.type === 'Lớn' ? 'L' : 'N');
+                    return `
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold font-mono flex-shrink-0 cursor-pointer ${colorCls}" title="Kỳ #${r.drawId} (${r.date}): [${r.result.join(', ')}] = ${r.total} (${r.type})${isBao ? ' - BÃO' : ''}">
+                        ${char}
+                      </div>
+                    `;
+                  }).join('')}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- THẺ 2: RADAR CẢNH BÁO SĂN BÃO (TRIPLE / STORM RADAR) -->
+          <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 shadow-xl space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div class="flex items-center gap-2">
+                <i data-lucide="zap" class="w-5 h-5 text-amber-400"></i>
+                <h4 class="font-bold text-white text-sm">RADAR CẢNH BÁO SĂN BÃO (1 ĂN 32 & 1 ĂN 120)</h4>
+              </div>
+              <span class="text-xs font-mono text-amber-300 font-bold">Chu kỳ ~36 kỳ</span>
+            </div>
+
+            <!-- Đồng hồ đo nhịp bão -->
+            <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <span class="text-xs text-slate-400 block font-sans">Số kỳ chưa nổ bão:</span>
+                <div class="flex items-baseline gap-2 mt-1">
+                  <span class="text-3xl font-black font-mono text-amber-400">${currentStormGap}</span>
+                  <span class="text-xs font-mono text-slate-400">/ trung bình ${avgStormGap} kỳ</span>
+                </div>
+              </div>
+              <div class="flex flex-col sm:items-end gap-1.5">
+                <span class="px-3 py-1 rounded-lg text-xs font-bold font-mono inline-flex items-center gap-1.5 ${hazard.badge || 'bg-slate-800 text-slate-300'}">
+                  ${hazard.alert ? '<span class="w-2 h-2 rounded-full bg-rose-400 animate-ping"></span>' : ''}
+                  ${hazard.name}
+                </span>
+                <span class="text-[11px] text-slate-400 text-left sm:text-right max-w-xs">${hazard.rationale || ''}</span>
+              </div>
+            </div>
+
+            <!-- Bảng đếm lịch sử 6 loại bão cụ thể (111..666) -->
+            <div>
+              <span class="text-[11px] text-slate-400 block uppercase font-mono mb-2">Lịch sử nổ 6 loại bão cụ thể (Toàn bộ dữ liệu):</span>
+              <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
+                ${[1, 2, 3, 4, 5, 6].map(face => {
+                  const key = `${face}${face}${face}`;
+                  const cnt = tripleCounts[key] || 0;
+                  return `
+                    <div class="p-2.5 rounded-xl bg-slate-950/90 border border-slate-800 text-center hover:border-amber-500/40 transition">
+                      <div class="flex justify-center mb-1.5">
+                        ${renderDiceSVG(face, 32)}
+                      </div>
+                      <span class="text-xs font-black font-mono text-white block">${key}</span>
+                      <span class="text-[10px] font-mono text-amber-400">${cnt} lần</span>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- THẺ 3 & THẺ 4: CHUÔNG TỔNG GAUSSIAN & TẦN SUẤT 6 MẶT -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          
+          <!-- THẺ 3: PHÂN PHỐI CHUÔNG TỔNG 3..18 -->
+          <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 shadow-xl space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div class="flex items-center gap-2">
+                <i data-lucide="bell" class="w-5 h-5 text-indigo-400"></i>
+                <h4 class="font-bold text-white text-sm">PHÂN PHỐI CHUÔNG TỔNG GAUSSIAN 3..18 (3D6)</h4>
+              </div>
+              <span class="text-xs font-mono text-emerald-400 font-bold">Tâm đối xứng: 10 & 11</span>
+            </div>
+
+            <div class="flex items-center justify-between text-xs text-slate-400 bg-slate-950/60 p-3 rounded-xl border border-slate-800">
+              <div>Tổng trung bình: <span class="font-bold font-mono text-white">${meanSum}</span> (Lý thuyết: 10.5)</div>
+              <div>Top 3 tổng nổ nhiều nhất: <span class="font-bold font-mono text-amber-400">${topHotSums.join(', ')}</span></div>
+            </div>
+
+            <!-- Bảng phân bố thanh tiến trình -->
+            <div class="space-y-2 max-h-56 overflow-y-auto pr-1">
+              ${sumList.map(s => {
+                const isHot = topHotSums.includes(s.sum);
+                const isCenter = (s.sum === 10 || s.sum === 11);
+                return `
+                  <div class="flex items-center gap-3 text-xs font-mono p-1.5 rounded-lg hover:bg-slate-800/40">
+                    <span class="w-8 font-bold text-center ${isCenter ? 'text-amber-400' : 'text-slate-300'}">Tổng ${s.sum}</span>
+                    <div class="flex-1 bg-slate-950 h-3 rounded-full overflow-hidden flex items-center">
+                      <div class="h-full rounded-full ${isHot ? 'bg-gradient-to-r from-amber-500 to-rose-500' : 'bg-indigo-600'}" style="width: ${Math.min(100, s.empirical_pct * 7)}%"></div>
+                    </div>
+                    <span class="w-12 text-right text-slate-300">${s.empirical_pct}%</span>
+                    <span class="w-14 text-right text-[10px] text-slate-500">(LT: ${s.theoretical_pct}%)</span>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+
+          <!-- THẺ 4: TẦN SUẤT 6 MẶT XÚC XẮC & CẶP ĐÔI HAY NỔ CHUNG -->
+          <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 shadow-xl space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div class="flex items-center gap-2">
+                <i data-lucide="layers" class="w-5 h-5 text-emerald-400"></i>
+                <h4 class="font-bold text-white text-sm">TẦN SUẤT 6 MẶT XÚC XẮC & CẶP ĐÔI NỔ CHUNG</h4>
+              </div>
+              <span class="text-xs font-mono text-slate-400">Mẫu 500 kỳ gần nhất</span>
+            </div>
+
+            <!-- 6 thẻ mặt xúc xắc -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+              ${diceList.map(d => {
+                const isHot = (d.status === 'Nóng');
+                const isCold = (d.status === 'Lạnh');
+                const statusCls = isHot ? 'text-rose-400 border-rose-500/40 bg-rose-500/10' : (isCold ? 'text-sky-400 border-sky-500/40 bg-sky-500/10' : 'text-slate-400 border-slate-800 bg-slate-950');
+                return `
+                  <div class="p-2.5 rounded-xl border flex items-center gap-3 ${statusCls}">
+                    ${renderDiceSVG(d.face, 40)}
+                    <div class="flex flex-col">
+                      <div class="flex items-center gap-1.5">
+                        <span class="text-xs font-bold text-white font-mono">Mặt ${d.face}</span>
+                        <span class="text-[9px] px-1 rounded font-bold ${statusCls}">${d.status}</span>
+                      </div>
+                      <span class="text-xs font-mono text-amber-400 font-bold mt-0.5">${d.empirical_pct}%</span>
+                      <span class="text-[10px] text-slate-400 font-mono">Vắng ${d.current_gap} kỳ</span>
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+
+            <!-- Top cặp đôi hay nổ chung -->
+            <div class="pt-2 border-t border-slate-800">
+              <span class="text-[11px] text-slate-400 block uppercase font-mono mb-2">Top cặp xúc xắc hay đi cùng nhau:</span>
+              <div class="flex flex-wrap gap-2">
+                ${topPairs.map(p => `
+                  <div class="px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-800 flex items-center gap-2">
+                    <div class="flex items-center gap-1">
+                      ${renderDiceSVG(p.pair[0], 20)}
+                      <span class="text-xs font-bold text-slate-500">+</span>
+                      ${renderDiceSVG(p.pair[1], 20)}
+                    </div>
+                    <span class="text-xs font-bold font-mono text-emerald-400">${p.count} lần</span>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      if (window.lucide) {
+        lucide.createIcons();
       }
     }

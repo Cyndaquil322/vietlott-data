@@ -662,6 +662,49 @@ với $\text{min\_ac} = 7$ cho 6/55 & 6/45, và $\text{min\_ac} = 4$ cho 5/35.
 2. **Hiệu quả đòn bẩy kinh tế:**
    * Thay vì phải chơi Bao 11 đầy đủ gồm $\binom{11}{6} = 462$ vé (vốn $4.620.000$đ), Dàn Bọc Lót chỉ sử dụng đúng **6 vé** (vốn **60.000đ**), tiết kiệm hơn **98.7%** chi phí mà vẫn giữ được đòn bẩy ăn thưởng từ $15.4\times$ đến $18.5\times$ so với đánh vé đơn thuần túy.
 
+---
+
+## 19. MÔ HÌNH TOÁN HỌC ĐỊNH LƯỢNG BINGO 18 SICBO & RADAR SĂN BÃO
+
+Bingo 18 là sản phẩm quay số nhanh 10 phút/kỳ dựa trên 3 con xúc xắc 6 mặt (không gian biến cố $6^3 = 216$ tổ hợp đồng khả năng).
+
+### A. Phân Phối Chuông Tổng Gaussian 3..18 (Exact 3d6 Combinations)
+
+Tổng giá trị của 3 xúc xắc $S = X_1 + X_2 + X_3 \in [3, 18]$ tuân theo hàm sinh xác suất:
+$$G(z) = \left( \frac{z + z^2 + z^3 + z^4 + z^5 + z^6}{6} \right)^3$$
+
+Phân phối lý thuyết tổ hợp:
+* Kỳ vọng lý thuyết: $\mu = 3 \times 3.5 = 10.5$.
+* Độ lệch chuẩn lý thuyết: $\sigma = \sqrt{3 \times \frac{35}{12}} \approx 2.958$.
+* Đỉnh cực đại đối xứng tại **Tổng 10 và Tổng 11** với đúng 27 tổ hợp mỗi tổng (chiếm **12.5%** mỗi tổng, tổng cộng 25% các kỳ quay).
+* Vùng biên hiếm (Tổng 3 và 18): chỉ có 1 tổ hợp duy nhất $(1,1,1)$ và $(6,6,6)$ với xác suất $1/216 \approx 0.46\%$.
+* Độ lệch thực nghiệm: $\Delta(S) = P_{\text{empirical}}(S) - P_{\text{theoretical}}(S)$.
+
+### B. Phân Tích Chuỗi Bệt Lớn / Nhỏ (Markov Streaks & Break Probability)
+
+Thế cầu được chuẩn hóa:
+* **Lớn:** Tổng $S \in [11, 18]$ (108 tổ hợp, $P = 50.0\%$).
+* **Nhỏ:** Tổng $S \in [3, 10]$ (108 tổ hợp, $P = 50.0\%$).
+
+Mỗi kỳ quay liên tiếp được mô hình hóa thành một chuỗi nhị phân $Y_t \in \{\text{Lớn}, \text{Nhỏ}\}$. Độ dài chuỗi bệt hiện tại $\ell$:
+$$P(\text{gãy cầu} \mid \text{độ dài chuỗi } \ell) = 1.0 - \frac{N(\text{chuỗi } > \ell)}{N(\text{chuỗi } \ge \ell)}$$
+
+Thuật toán kết hợp hồi quy giá trị trung bình (Mean-reversion) để phát hiện thời điểm xác suất bẻ cầu đạt ngưỡng cảnh báo $> 65\%$.
+
+### C. Radar Cảnh Báo Săn Bão (Triple / Storm Hazard Detection)
+
+Sự kiện Bão (Triple) xảy ra khi cả 3 xúc xắc có cùng một mặt số ($X_1 = X_2 = X_3 \in \{111, 222, 333, 444, 555, 666\}$).
+* Số lượng tổ hợp bão: đúng 6 tổ hợp trong 216 tổ hợp.
+* Xác suất lý thuyết nổ bão bất kỳ:
+  $$P(\text{Bão}) = \frac{6}{216} = \frac{1}{36} \approx 2.778\%$$
+* Chu kỳ nổ bão trung bình lý thuyết: $\tau_{\text{bão}} = 36$ kỳ quay (khoảng 6 giờ).
+
+Hệ thống theo dõi số kỳ vắng bóng bão hiện tại (Current Storm Gap $g_{\text{bão}}$) và phân loại cấp độ nguy cơ (Hazard Level):
+* **Cấp 1 (Bình Thường):** $g_{\text{bão}} < 45$ kỳ (trong phạm vi chu kỳ an toàn).
+* **Cấp 2 (Đang Tích Lũy):** $45 \le g_{\text{bão}} < 70$ kỳ (vượt chu kỳ trung bình, bắt đầu theo dõi).
+* **Cấp 3 (Điểm Rơi Cực Đại):** $g_{\text{bão}} \ge 70$ kỳ (gần gấp đôi chu kỳ trung bình, xác suất bùng nổ đạt đỉnh cực đại với tỷ lệ trả thưởng 1 ăn 32 hoặc 1 ăn 120).
+
+
 
 
 

@@ -15,11 +15,12 @@
     let currentBao7Ticket = null;
     let currentSavedFilter = 'all';
 
-    // 3 Loại Hình Xổ Số Cốt Lõi (Dropdown chọn loại hình gọn gàng)
+    // Danh Sách Sản Phẩm (Dropdown chọn loại hình gọn gàng)
     const PRODUCT_LIST = [
       { key: 'power_655', label: 'Power 6/55', icon: 'zap', schedule: 'Thứ 3, 5, 7 (18h)', desc: 'Jackpot 1 & 2 (100+ Tỷ)' },
       { key: 'power_645', label: 'Mega 6/45', icon: 'award', schedule: 'Thứ 4, 6, CN (18h)', desc: 'Jackpot khởi điểm 12 Tỷ' },
-      { key: 'power_535', label: 'Power 5/35', icon: 'star', schedule: 'Hàng ngày (13h & 21h)', desc: 'Tỷ lệ trúng cao, 2 kỳ/ngày' }
+      { key: 'power_535', label: 'Power 5/35', icon: 'star', schedule: 'Hàng ngày (13h & 21h)', desc: 'Tỷ lệ trúng cao, 2 kỳ/ngày' },
+      { key: 'bingo18', label: 'Bingo 18', icon: 'dice-5', schedule: '10 phút/kỳ (06h-21h55)', desc: 'Xúc xắc Sicbo, Lớn/Nhỏ, Bão x120' }
     ];
 
     const VIEW_METADATA = {
@@ -133,6 +134,12 @@
       currentEnsembleTickets = [];
       currentProductKey = key;
       currentPage = 1;
+
+      // Auto switch view if lotto-only view selected for non-lotto products
+      if (key === 'bingo18' && ['consensus', 'bao7', 'ensemble', 'smart-generator', 'simulator', 'ac-delta', 'positional', 'digits-ev'].includes(currentView)) {
+        switchView('overview');
+      }
+
       renderGameTabs();
       renderCurrentProduct();
     }
@@ -397,6 +404,9 @@
 
       // 1. Overview & Hero
       renderHero(product);
+      if (typeof renderBingo18Dashboard === 'function') {
+        renderBingo18Dashboard(product);
+      }
       populateDrawSelect(product.history || []);
       renderHotCold(product);
 

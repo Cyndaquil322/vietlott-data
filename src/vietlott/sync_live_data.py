@@ -385,6 +385,16 @@ def main(trigger_render: bool = True) -> Dict[str, int]:
         max_pages=35,
     ) or 0
 
+    # 6. Bingo 18
+    try:
+        from vietlott.sync_bingo18 import sync_bingo18
+    except ImportError:
+        from sync_bingo18 import sync_bingo18
+    results["bingo18"] = sync_bingo18(
+        file_path=DATA_DIR / "bingo18.jsonl",
+        max_pages=5,
+    ) or 0
+
     total_new = sum(results.values())
     if trigger_render:
         print("\n=== Live Sync Complete! Regenerating Web Data ===")
