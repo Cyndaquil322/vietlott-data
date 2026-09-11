@@ -33211,7 +33211,48 @@
           "number": 6,
           "count": 236
         }
-      ]
+      ],
+      "prediction_hub": {
+        "target_draw_id": "#0185895",
+        "large_small_prediction": {
+          "predicted_choice": "Nhỏ",
+          "confidence_pct": 58.0,
+          "strategy_name": "Bám Cầu Bệt (Momentum)",
+          "current_streak_type": "Nhỏ",
+          "current_streak_len": 1,
+          "rationale": "Nhịp cầu Nhỏ đang trong pha quán tính thuận lợi (1 kỳ liên tiếp). Khuyến nghị bám cầu theo xu hướng tiếp diễn."
+        },
+        "single_face_prediction": {
+          "best_face": 6,
+          "expected_hit_prob_pct": 44.5,
+          "current_gap": 4,
+          "historical_deviation": -0.67,
+          "rationale": "Mặt xúc xắc 6 đang có nhịp gan 4 kỳ (chu kỳ trung bình 2.4 kỳ). Xác suất xuất hiện ít nhất 1 lần trong 3 con xúc xắc kỳ này ước lượng đạt 44.5%."
+        },
+        "target_sum_prediction": {
+          "target_range": [
+            8,
+            13
+          ],
+          "best_single_sum": 11,
+          "range_probability_pct": 68.0,
+          "rationale": "Tổng kỳ trước (9) nằm trọn trong vùng vàng Gaussian [8, 13]. Kỳ này tiếp tục dao động quanh trục 10 và 11."
+        },
+        "storm_trigger": {
+          "is_hunting_active": false,
+          "status": "Bình Thường (Chu kỳ an toàn)",
+          "current_storm_gap": 16,
+          "average_gap": 34.6,
+          "action_recommendation": "Tạm dừng săn bão, tập trung đánh Lớn/Nhỏ và Bạch Thủ",
+          "payout_multiplier": "1 ăn 32 / 1 ăn 120",
+          "recommended_triples": [
+            "666",
+            "222",
+            "111"
+          ],
+          "rationale": "Bão vừa nổ gần đây (16 kỳ trước). Chu kỳ hiện tại hoàn toàn bình thường."
+        }
+      }
     },
     "3d": {
       "name": "Max 3D",

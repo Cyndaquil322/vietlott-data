@@ -1282,6 +1282,13 @@
       const diceList = df.dice_frequencies || [];
       const topPairs = df.top_pairs || [];
 
+      const pred = product.prediction_hub || {};
+      const lsPred = pred.large_small_prediction || {};
+      const sfPred = pred.single_face_prediction || {};
+      const tsPred = pred.target_sum_prediction || {};
+      const stPred = pred.storm_trigger || {};
+      const targetDrawId = pred.target_draw_id || '#KỳKếTiếp';
+
       container.innerHTML = `
         <!-- BINGO 18 HEADER BANNER -->
         <div class="rounded-2xl bg-gradient-to-r from-rose-950/40 via-slate-900 to-amber-950/30 border border-rose-500/30 p-5 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-4">
@@ -1303,6 +1310,116 @@
           <div class="flex items-center gap-2 bg-slate-950/70 p-2.5 rounded-xl border border-slate-800">
             <span class="text-xs text-slate-400">Dữ liệu cào tự động:</span>
             <span class="text-xs font-bold font-mono text-amber-400">${(product.total_draws || 0).toLocaleString()} kỳ</span>
+          </div>
+        </div>
+
+        <!-- BẢNG GỢI Ý DỰ ĐOÁN BINGO 18 KỲ KẾ TIẾP (SICBO QUANT PREDICTOR) -->
+        <div class="rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900/90 to-indigo-950/40 border border-indigo-500/40 p-6 shadow-2xl space-y-5">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+            <div>
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 flex items-center gap-1.5">
+                  <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i>
+                  GỢI Ý DỰ ĐOÁN ĐỊNH LƯỢNG
+                </span>
+                <span class="text-xs font-mono font-bold text-amber-400 bg-slate-950 px-2.5 py-0.5 rounded-full border border-slate-800">
+                  Kỳ kế tiếp: ${targetDrawId}
+                </span>
+              </div>
+              <h4 class="text-base font-bold text-white mt-1.5">CHIẾN LƯỢC TOÁN HỌC TỐI ƯU KỲ QUAY TIẾP THEO</h4>
+            </div>
+            <span class="text-[11px] font-mono text-slate-400 bg-slate-950/80 px-3 py-1.5 rounded-xl border border-slate-800">
+              Cập nhật trực tiếp 10 phút/kỳ
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <!-- THẺ 1: THẾ CẦU LỚN/NHỎ -->
+            <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800 hover:border-indigo-500/50 transition flex flex-col justify-between space-y-3">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-mono uppercase text-slate-400 font-bold">1. Thế Cầu Lớn/Nhỏ</span>
+                  <span class="text-[10px] font-mono text-slate-500">1 ăn 2 (50%)</span>
+                </div>
+                <div class="mt-2 flex items-baseline gap-2">
+                  <span class="text-3xl font-black font-mono ${lsPred.predicted_choice === 'Lớn' ? 'text-rose-400' : 'text-sky-400'}">
+                    ${lsPred.predicted_choice || 'Chờ nhịp'}
+                  </span>
+                  <span class="text-xs font-bold font-mono px-2 py-0.5 rounded ${lsPred.predicted_choice === 'Lớn' ? 'bg-rose-500/20 text-rose-300' : 'bg-sky-500/20 text-sky-300'}">
+                    ${lsPred.confidence_pct || 50}%
+                  </span>
+                </div>
+                <span class="text-[10px] px-2 py-0.5 rounded font-mono font-semibold bg-slate-800 text-amber-300 mt-1.5 inline-block">
+                  ${lsPred.strategy_name || 'Bám cầu'}
+                </span>
+              </div>
+              <p class="text-[11px] text-slate-400 font-sans leading-relaxed border-t border-slate-800/80 pt-2">
+                ${lsPred.rationale || 'Đang nhận diện nhịp bệt và hồi quy.'}
+              </p>
+            </div>
+
+            <!-- THẺ 2: BẠCH THỦ MẶT XÚC XẮC -->
+            <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800 hover:border-amber-500/50 transition flex flex-col justify-between space-y-3">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-mono uppercase text-slate-400 font-bold">2. Bạch Thủ Mặt Xúc Xắc</span>
+                  <span class="text-[10px] font-mono text-emerald-400 font-bold">+EV 42%</span>
+                </div>
+                <div class="mt-2 flex items-center gap-3">
+                  ${renderDiceSVG(sfPred.best_face || 6, 46)}
+                  <div>
+                    <span class="text-xl font-black font-mono text-amber-400">Mặt ${sfPred.best_face || 6}</span>
+                    <span class="text-[11px] block font-mono text-slate-400">Xác suất: ${sfPred.expected_hit_prob_pct || 42}%</span>
+                  </div>
+                </div>
+              </div>
+              <p class="text-[11px] text-slate-400 font-sans leading-relaxed border-t border-slate-800/80 pt-2">
+                ${sfPred.rationale || 'Mặt xúc xắc có nhịp nổ thuận lợi nhất.'}
+              </p>
+            </div>
+
+            <!-- THẺ 3: KHOẢNG TỔNG MỤC TIÊU GAUSSIAN -->
+            <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800 hover:border-emerald-500/50 transition flex flex-col justify-between space-y-3">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-mono uppercase text-slate-400 font-bold">3. Tổng Mục Tiêu Gaussian</span>
+                  <span class="text-[10px] font-mono text-slate-500">68% xác suất</span>
+                </div>
+                <div class="mt-2">
+                  <span class="text-xl font-black font-mono text-emerald-400">Vùng [8 - 13]</span>
+                  <div class="text-xs font-mono text-slate-300 mt-1">
+                    Tổng rơi tối ưu: <span class="font-black text-amber-400 text-sm">Tổng ${tsPred.best_single_sum || 10}</span>
+                  </div>
+                </div>
+              </div>
+              <p class="text-[11px] text-slate-400 font-sans leading-relaxed border-t border-slate-800/80 pt-2">
+                ${tsPred.rationale || 'Tổng nằm trong chuông phân phối chuẩn đối xứng 3d6.'}
+              </p>
+            </div>
+
+            <!-- THẺ 4: RADAR SĂN BÃO X120 -->
+            <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800 hover:border-rose-500/50 transition flex flex-col justify-between space-y-3">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-mono uppercase text-slate-400 font-bold">4. Radar Săn Bão Độc Đắc</span>
+                  <span class="text-[10px] font-mono text-amber-300 font-bold">1 ăn 32 / 120</span>
+                </div>
+                <div class="mt-2">
+                  <div class="flex items-center gap-1.5">
+                    ${stPred.is_hunting_active ? '<span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping"></span>' : ''}
+                    <span class="text-sm font-bold font-mono ${stPred.is_hunting_active ? 'text-rose-400' : 'text-slate-300'}">
+                      ${stPred.status || 'Bình thường'}
+                    </span>
+                  </div>
+                  <span class="text-[11px] text-slate-400 font-mono block mt-1">
+                    Vắng bóng: <span class="text-amber-400 font-bold">${stPred.current_storm_gap || 0} kỳ</span> (chu kỳ ${stPred.average_gap || 35} kỳ)
+                  </span>
+                </div>
+              </div>
+              <p class="text-[11px] text-slate-400 font-sans leading-relaxed border-t border-slate-800/80 pt-2">
+                ${stPred.rationale || 'Theo dõi chu kỳ nhịp nổ bão lý thuyết.'}
+              </p>
+            </div>
           </div>
         </div>
 

@@ -1274,6 +1274,13 @@ def process_bingo18(records: List[Dict]) -> Dict[str, Any]:
         {"number": x["face"], "count": x["count"]}
         for x in data.get("dice_frequencies", {}).get("dice_frequencies", [])
     ]
+
+    try:
+        from vietlott.model.bingo18_predictor import generate_bingo18_prediction_hub
+        data["prediction_hub"] = generate_bingo18_prediction_hub(records)
+    except Exception:
+        data["prediction_hub"] = {}
+
     return data
 
 

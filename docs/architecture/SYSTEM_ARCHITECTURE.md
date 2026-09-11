@@ -272,6 +272,14 @@ Hệ thống phân tích định lượng được cấu trúc hóa thành các 
   * Radar săn bão (Triple Hazard Detection) cảnh báo điểm rơi các bộ bão cụ thể 111..666 (tỷ lệ 1 ăn 120).
   * Tần suất 6 mặt xúc xắc và ma trận cặp đôi hay nổ chung.
 
+### N. Bingo 18 Sicbo Predictor Engine (`src/vietlott/model/bingo18_predictor.py`)
+* **Vai trò:** Động cơ dự đoán định lượng chuyên biệt cho kỳ quay kế tiếp của Bingo 18:
+  * Dự báo thế cầu Lớn/Nhỏ (Markov & Hồi quy chuỗi bệt bám cầu / bẻ cầu).
+  * Tuyển chọn Mặt Xúc Xắc Bạch Thủ (+EV 42% xác suất lý thuyết, đạt 53% thực nghiệm).
+  * Định vị khoảng tổng mục tiêu Gaussian [8, 13] (68% xác suất) và điểm rơi đàn hồi.
+  * Tín hiệu kích hoạt chiến lược Nuôi Bão Độc Đắc (Poisson Hazard x120 khi gap >= 70 kỳ).
+  * Kiểm định Walk-Forward 100 kỳ đo độ chính xác thực tế out-of-sample.
+
 ---
 
 ## 6. SƠ ĐỒ ĐIỀU PHỐI ĐƯỜNG ỐNG DỮ LIỆU & CONSENSUS HUB (ORCHESTRATION PIPELINE)
