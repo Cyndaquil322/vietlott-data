@@ -36092,3 +36092,6 @@
 {"date": "2026-09-11", "id": "0185956", "result": [6, 5, 4], "total": 15, "large_small": "Lớn", "is_triple": false, "page": 0, "process_time": "2026-09-11T13:42:01.275701"}
 {"date": "2026-09-11", "id": "0185957", "result": [1, 2, 4], "total": 7, "large_small": "Nhỏ", "is_triple": false, "page": 0, "process_time": "2026-09-11T13:42:01.275701"}
 {"date": "2026-09-11", "id": "0185958", "result": [1, 6, 1], "total": 8, "large_small": "Nhỏ", "is_triple": false, "page": 0, "process_time": "2026-09-11T13:48:50.593518"}
+{"date": "2026-09-11", "id": "0185959", "result": [1, 6, 5], "total": 12, "large_small": "Lớn", "is_triple": false, "page": 0, "process_time": "2026-09-11T14:00:17.683149"}
+{"date": "2026-09-11", "id": "0185960", "result": [6, 5, 3], "total": 14, "large_small": "Lớn", "is_triple": false, "page": 0, "process_time": "2026-09-11T14:00:17.683149"}
+{"date": "2026-09-11", "id": "0185961", "result": [6, 2, 2], "total": 10, "large_small": "Hòa", "is_triple": false, "page": 0, "process_time": "2026-09-11T14:10:46.668552"}
