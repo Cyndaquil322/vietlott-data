@@ -1276,10 +1276,15 @@ def process_bingo18(records: List[Dict]) -> Dict[str, Any]:
     ]
 
     try:
-        from vietlott.model.bingo18_predictor import generate_bingo18_prediction_hub
+        from vietlott.model.bingo18_predictor import (
+            generate_bingo18_prediction_hub,
+            evaluate_bingo18_walk_forward_accuracy,
+        )
         data["prediction_hub"] = generate_bingo18_prediction_hub(records)
+        data["walk_forward_evaluation"] = evaluate_bingo18_walk_forward_accuracy(records, num_draws=100)
     except Exception:
         data["prediction_hub"] = {}
+        data["walk_forward_evaluation"] = {}
 
     return data
 

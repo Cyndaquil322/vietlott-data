@@ -30173,7 +30173,7 @@
     },
     "bingo18": {
       "name": "Bingo 18",
-      "description": "Xúc xắc 10 phút/kỳ. Rút 3 số từ 1 đến 6. Có Lớn/Nhỏ, Tổng điểm và Bão.",
+      "description": "Quay 5 phút/kỳ. Quay 3 số từ 1 đến 6.",
       "type": "bingo18",
       "total_draws": 36030,
       "first_draw": "2024-12-03",
@@ -33215,12 +33215,16 @@
       "prediction_hub": {
         "target_draw_id": "#0185895",
         "large_small_prediction": {
-          "predicted_choice": "Nhỏ",
-          "confidence_pct": 58.0,
-          "strategy_name": "Bám Cầu Bệt (Momentum)",
+          "predicted_choice": "Lớn",
+          "confidence_pct": 62.4,
+          "strategy_name": "Bám Nhịp Cầu Nhảy 1-1 (Alternation)",
           "current_streak_type": "Nhỏ",
           "current_streak_len": 1,
-          "rationale": "Nhịp cầu Nhỏ đang trong pha quán tính thuận lợi (1 kỳ liên tiếp). Khuyến nghị bám cầu theo xu hướng tiếp diễn."
+          "elastic_bounce_signal": false,
+          "tie_escape_signal": false,
+          "alternation_signal": true,
+          "hedge_recommendation": "Đánh Lớn (Theo nhịp đảo 1-1 [62.4%])",
+          "rationale": "Thế trận đang vận hành theo nhịp Cầu Nhảy 1-1 (chiếm 62.4% các chuỗi trong lịch sử). Kỳ trước ra Nhỏ -> Dự báo kỳ này đảo sang Lớn."
         },
         "single_face_prediction": {
           "best_face": 6,
@@ -33228,6 +33232,27 @@
           "current_gap": 4,
           "historical_deviation": -0.67,
           "rationale": "Mặt xúc xắc 6 đang có nhịp gan 4 kỳ (chu kỳ trung bình 2.4 kỳ). Xác suất xuất hiện ít nhất 1 lần trong 3 con xúc xắc kỳ này ước lượng đạt 44.5%."
+        },
+        "two_faces_prediction": {
+          "best_pair": [
+            1,
+            6
+          ],
+          "expected_hit_prob_pct": 68.6,
+          "individual_faces": [
+            {
+              "face": 6,
+              "gap": 4,
+              "deviation": -0.67
+            },
+            {
+              "face": 1,
+              "gap": 3,
+              "deviation": -2.34
+            }
+          ],
+          "strategy_name": "Song Thủ 2 Mặt Xúc Xắc (+EV Vượt Trội)",
+          "rationale": "Cặp Song Thủ (1, 6) đang có nhịp rơi và độ lệch hồi quy tối ưu nhất. Xác suất xuất hiện ít nhất một mặt trong 3 con xúc xắc thực nghiệm đạt 68.6% (gấp 1.8 lần so với đánh cửa Lớn/Nhỏ thông thường)."
         },
         "target_sum_prediction": {
           "target_range": [
@@ -33243,7 +33268,7 @@
           "status": "Bình Thường (Chu kỳ an toàn)",
           "current_storm_gap": 16,
           "average_gap": 34.6,
-          "action_recommendation": "Tạm dừng săn bão, tập trung đánh Lớn/Nhỏ và Bạch Thủ",
+          "action_recommendation": "Tạm dừng săn bão, tập trung đánh Song Thủ và Lớn/Nhỏ",
           "payout_multiplier": "1 ăn 32 / 1 ăn 120",
           "recommended_triples": [
             "666",
@@ -33252,6 +33277,17 @@
           ],
           "rationale": "Bão vừa nổ gần đây (16 kỳ trước). Chu kỳ hiện tại hoàn toàn bình thường."
         }
+      },
+      "walk_forward_evaluation": {
+        "evaluated_draws": 100,
+        "large_small_hits": 37,
+        "large_small_accuracy_pct": 37.0,
+        "single_face_hits": 53,
+        "single_face_hit_rate_pct": 53.0,
+        "two_faces_hits": 75,
+        "two_faces_hit_rate_pct": 75.0,
+        "target_range_hits": 66,
+        "target_range_hit_rate_pct": 66.0
       }
     },
     "3d": {

@@ -274,11 +274,12 @@ Hệ thống phân tích định lượng được cấu trúc hóa thành các 
 
 ### N. Bingo 18 Sicbo Predictor Engine (`src/vietlott/model/bingo18_predictor.py`)
 * **Vai trò:** Động cơ dự đoán định lượng chuyên biệt cho kỳ quay kế tiếp của Bingo 18:
-  * Dự báo thế cầu Lớn/Nhỏ (Markov & Hồi quy chuỗi bệt bám cầu / bẻ cầu).
+  * Dự báo thế cầu 3 trạng thái Lớn – Hòa – Nhỏ kết hợp Lực Đàn Hồi Biên Gaussian ($\le 6$ và $\ge 15$), Quy tắc Thoát Cầu Hòa (Tie Escape 75.2%), Nhận diện Cầu Nhảy 1-1 (62.4%), và Đánh Bao Cặp Kép (Lót Hòa $65.2\%$).
   * Tuyển chọn Mặt Xúc Xắc Bạch Thủ (+EV 42% xác suất lý thuyết, đạt 53% thực nghiệm).
+  * Tuyển chọn Cặp Xúc Xắc Song Thủ 2 Mặt (+EV vượt trội: xác suất trúng lý thuyết $70.37\%$, thực tế qua 36.030 kỳ đạt $68.6\%$).
   * Định vị khoảng tổng mục tiêu Gaussian [8, 13] (68% xác suất) và điểm rơi đàn hồi.
-  * Tín hiệu kích hoạt chiến lược Nuôi Bão Độc Đắc (Poisson Hazard x120 khi gap >= 70 kỳ).
-  * Kiểm định Walk-Forward 100 kỳ đo độ chính xác thực tế out-of-sample.
+  * Tín hiệu kích hoạt chiến lược Nuôi Bão Độc Đắc (Poisson Hazard x120 khi gap $\ge 70$ kỳ).
+  * Kiểm định Walk-Forward 100 kỳ đo độ chính xác thực tế out-of-sample cho cả 4 hình thức cược.
 
 ---
 

@@ -46,9 +46,9 @@ def _extract_large_small_type(total: int, explicit_type: str = None) -> str:
     """Chuẩn hóa phân loại thế cầu Lớn / Nhỏ / Hòa."""
     if explicit_type in ["Lớn", "Nhỏ", "Hòa"]:
         return explicit_type
-    if total >= 11:
+    if total >= 12:
         return "Lớn"
-    if total <= 10:
+    if total <= 9:
         return "Nhỏ"
     return "Hòa"
 
