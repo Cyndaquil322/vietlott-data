@@ -455,6 +455,33 @@
 
     <!-- VIEW 2: GAP / SKIP ANALYSIS (THỐNG KÊ SỐ GAN) -->
     <div id="view-gap-content" class="view-content hidden space-y-6">
+      <!-- SUB-NAVIGATION TABS CHO LAB PHÂN TÍCH ĐỊNH LƯỢNG -->
+      <div class="flex items-center gap-1.5 p-1.5 rounded-2xl bg-slate-900 border border-slate-800 overflow-x-auto text-xs font-mono">
+        <button onclick="switchView('gap')" class="px-3.5 py-2 rounded-xl bg-amber-500 text-slate-950 font-bold transition flex items-center gap-1.5 whitespace-nowrap shadow">
+          <i data-lucide="timer" class="w-3.5 h-3.5"></i>
+          <span>1. Chu Kỳ & Số Gan</span>
+        </button>
+        <button onclick="switchView('pairs')" class="px-3.5 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 font-bold transition flex items-center gap-1.5 whitespace-nowrap">
+          <i data-lucide="link" class="w-3.5 h-3.5 text-blue-400"></i>
+          <span>2. Cặp Đôi & Bộ Ba</span>
+        </button>
+        <button onclick="switchView('sum')" class="px-3.5 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 font-bold transition flex items-center gap-1.5 whitespace-nowrap">
+          <i data-lucide="bell" class="w-3.5 h-3.5 text-amber-400"></i>
+          <span>3. Dải Tổng Gaussian</span>
+        </button>
+        <button onclick="switchView('patterns')" class="px-3.5 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 font-bold transition flex items-center gap-1.5 whitespace-nowrap">
+          <i data-lucide="grid" class="w-3.5 h-3.5 text-pink-400"></i>
+          <span>4. Liền Kề & Cầu Lặp</span>
+        </button>
+        <button onclick="switchView('markov')" class="px-3.5 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 font-bold transition flex items-center gap-1.5 whitespace-nowrap">
+          <i data-lucide="git-merge" class="w-3.5 h-3.5 text-fuchsia-400"></i>
+          <span>5. Ma Trận Markov</span>
+        </button>
+        <button onclick="switchView('ac-delta')" class="px-3.5 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 font-bold transition flex items-center gap-1.5 whitespace-nowrap">
+          <i data-lucide="activity" class="w-3.5 h-3.5 text-emerald-400"></i>
+          <span>6. Độ Phức Tạp AC & EV</span>
+        </button>
+      </div>
       <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 shadow-xl">
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-slate-800 pb-4">
           <div>
