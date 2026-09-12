@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-09-12 23:53:27",
+    "generated_at": "2026-09-13 00:36:52",
     "generator": "vietlott-data automated pipeline",
     "version": "2.0.0"
   },
@@ -6676,9 +6676,9 @@
             "name": "Consensus Engine (Tổng Hợp)",
             "icon": "trophy",
             "color": "amber",
-            "avg_hits": 0.66,
-            "win_rate_ge3": 2.9,
-            "recent_10_hits": 9,
+            "avg_hits": 0.71,
+            "win_rate_ge3": 0.0,
+            "recent_10_hits": 8,
             "form": "⚡ Phong độ tốt",
             "weight_pct": 100.0,
             "desc": "Hội đồng hợp lực 8 mô hình định lượng cao cấp tích hợp cơ chế xếp chồng Dynamic Alpha Stacking."
@@ -6692,7 +6692,7 @@
             "win_rate_ge3": 2.9,
             "recent_10_hits": 7,
             "form": "⚡ Ổn định",
-            "weight_pct": 11.2,
+            "weight_pct": 11.9,
             "desc": "Độ nâng lực hút cặp đôi kỳ trước kéo bóng kỳ sau với hiệu chỉnh Bayes chống quá khớp mẫu nhỏ."
           },
           {
@@ -6704,7 +6704,7 @@
             "win_rate_ge3": 2.9,
             "recent_10_hits": 4,
             "form": "Chờ điểm rơi",
-            "weight_pct": 11.7,
+            "weight_pct": 6.7,
             "desc": "Mô hình cây quyết định Gradient Boosting học phi tuyến tính trên không gian đặc trưng 14 chiều."
           },
           {
@@ -6716,7 +6716,7 @@
             "win_rate_ge3": 2.9,
             "recent_10_hits": 6,
             "form": "Chờ điểm rơi",
-            "weight_pct": 11.7,
+            "weight_pct": 9.1,
             "desc": "Phân rã đa sóng nhỏ Daubechies DWT kết hợp cộng hưởng phổ lọc nhiễu Hann."
           },
           {
@@ -6728,7 +6728,7 @@
             "win_rate_ge3": 0.0,
             "recent_10_hits": 7,
             "form": "⚡ Ổn định",
-            "weight_pct": 16.1,
+            "weight_pct": 32.5,
             "desc": "Thông tin tương hỗ dương chuẩn hóa Laplace đo lường lực hút chuyển trạng thái thực sự từ kỳ trước."
           },
           {
@@ -6740,7 +6740,7 @@
             "win_rate_ge3": 0.0,
             "recent_10_hits": 4,
             "form": "Chờ điểm rơi",
-            "weight_pct": 12.7,
+            "weight_pct": 5.6,
             "desc": "Mật độ xác suất điểm rơi Gauss chuẩn hóa theo độ lệch chuẩn chu kỳ nhịp riêng của từng quả bóng."
           },
           {
@@ -6752,7 +6752,7 @@
             "win_rate_ge3": 0.0,
             "recent_10_hits": 7,
             "form": "⚡ Ổn định",
-            "weight_pct": 12.4,
+            "weight_pct": 14.0,
             "desc": "Trung tâm mạng đồ thị liên kết đồng xuất hiện với bước nhảy ngẫu nhiên PageRank."
           },
           {
@@ -6764,7 +6764,7 @@
             "win_rate_ge3": 0.0,
             "recent_10_hits": 6,
             "form": "Chờ điểm rơi",
-            "weight_pct": 13.2,
+            "weight_pct": 15.6,
             "desc": "Tần suất suy giảm mũ kết hợp quán tính nhiệt alpha=0.028, chu kỳ bán rã 24.8 kỳ."
           },
           {
@@ -6776,7 +6776,7 @@
             "win_rate_ge3": 0.0,
             "recent_10_hits": 3,
             "form": "Chờ điểm rơi",
-            "weight_pct": 11.0,
+            "weight_pct": 4.6,
             "desc": "Bộ lọc Kalman động học Bayes thích ứng cập nhật vận tốc xác suất tiềm ẩn."
           },
           {
@@ -6795,56 +6795,92 @@
         "top_consensus_balls": [
           {
             "ball": 11,
-            "score": 6.3,
+            "score": 7.2,
             "agreement_count": 5,
             "agreement_pct": 62.5,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "markov": 1.6,
-              "hazard": 0.6,
-              "decay": 1.0,
-              "bac_nho": 0.8,
-              "fourier": 1.1,
+              "markov": 3.3,
+              "hazard": 0.2,
+              "decay": 1.2,
+              "bac_nho": 0.9,
+              "fourier": 0.8,
               "graph_pagerank": 0.4,
-              "state_space": 0.7,
+              "state_space": 0.3,
               "ml_ranker": 0.1
             }
           },
           {
+            "ball": 53,
+            "score": 6.3,
+            "agreement_count": 3,
+            "agreement_pct": 37.5,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 2.8,
+              "hazard": 0.2,
+              "decay": 0.6,
+              "bac_nho": 0.7,
+              "fourier": 0.3,
+              "graph_pagerank": 1.2,
+              "state_space": 0.2,
+              "ml_ranker": 0.2
+            }
+          },
+          {
+            "ball": 55,
+            "score": 6.1,
+            "agreement_count": 3,
+            "agreement_pct": 37.5,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 2.7,
+              "hazard": 0.4,
+              "decay": 0.7,
+              "bac_nho": 1.2,
+              "fourier": 0.3,
+              "graph_pagerank": 0.4,
+              "state_space": 0.1,
+              "ml_ranker": 0.4
+            }
+          },
+          {
             "ball": 1,
-            "score": 5.8,
+            "score": 5.9,
             "agreement_count": 4,
             "agreement_pct": 50.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "markov": 1.1,
-              "hazard": 0.8,
-              "decay": 0.7,
+              "markov": 2.2,
+              "hazard": 0.4,
+              "decay": 0.9,
               "bac_nho": 0.6,
-              "fourier": 0.7,
+              "fourier": 0.5,
               "graph_pagerank": 0.6,
-              "state_space": 0.2,
-              "ml_ranker": 1.2
+              "state_space": 0.1,
+              "ml_ranker": 0.7
             }
           },
           {
-            "ball": 5,
-            "score": 5.6,
-            "agreement_count": 5,
-            "agreement_pct": 62.5,
-            "is_safe": true,
+            "ball": 14,
+            "score": 5.7,
+            "agreement_count": 2,
+            "agreement_pct": 25.0,
+            "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "markov": 0.7,
-              "hazard": 0.3,
-              "decay": 1.3,
-              "bac_nho": 0.0,
-              "fourier": 1.0,
-              "graph_pagerank": 0.8,
-              "state_space": 0.6,
-              "ml_ranker": 0.8
+              "markov": 3.1,
+              "hazard": 0.2,
+              "decay": 0.7,
+              "bac_nho": 0.8,
+              "fourier": 0.4,
+              "graph_pagerank": 0.3,
+              "state_space": 0.1,
+              "ml_ranker": 0.1
             }
           },
           {
@@ -6855,212 +6891,176 @@
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "markov": 0.7,
-              "hazard": 0.6,
-              "decay": 1.3,
-              "bac_nho": 0.2,
-              "fourier": 1.0,
-              "graph_pagerank": 1.1,
-              "state_space": 0.6,
-              "ml_ranker": 0.2
-            }
-          },
-          {
-            "ball": 55,
-            "score": 5.5,
-            "agreement_count": 3,
-            "agreement_pct": 37.5,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
               "markov": 1.3,
-              "hazard": 0.9,
-              "decay": 0.6,
-              "bac_nho": 1.1,
-              "fourier": 0.4,
-              "graph_pagerank": 0.3,
-              "state_space": 0.1,
-              "ml_ranker": 0.7
-            }
-          },
-          {
-            "ball": 53,
-            "score": 5.4,
-            "agreement_count": 3,
-            "agreement_pct": 37.5,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "markov": 1.4,
-              "hazard": 0.5,
-              "decay": 0.5,
-              "bac_nho": 0.7,
-              "fourier": 0.4,
-              "graph_pagerank": 1.0,
-              "state_space": 0.4,
-              "ml_ranker": 0.4
-            }
-          },
-          {
-            "ball": 47,
-            "score": 5.1,
-            "agreement_count": 4,
-            "agreement_pct": 50.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "markov": 0.5,
               "hazard": 0.3,
-              "decay": 0.8,
-              "bac_nho": 0.1,
-              "fourier": 1.2,
-              "graph_pagerank": 0.6,
-              "state_space": 1.1,
-              "ml_ranker": 0.5
+              "decay": 1.5,
+              "bac_nho": 0.2,
+              "fourier": 0.8,
+              "graph_pagerank": 1.3,
+              "state_space": 0.2,
+              "ml_ranker": 0.1
             }
           },
           {
             "ball": 9,
+            "score": 5.6,
+            "agreement_count": 2,
+            "agreement_pct": 25.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 2.2,
+              "hazard": 0.3,
+              "decay": 1.3,
+              "bac_nho": 0.4,
+              "fourier": 0.5,
+              "graph_pagerank": 0.5,
+              "state_space": 0.2,
+              "ml_ranker": 0.1
+            }
+          },
+          {
+            "ball": 5,
+            "score": 5.5,
+            "agreement_count": 5,
+            "agreement_pct": 62.5,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 1.4,
+              "hazard": 0.1,
+              "decay": 1.6,
+              "bac_nho": 0.0,
+              "fourier": 0.7,
+              "graph_pagerank": 0.9,
+              "state_space": 0.3,
+              "ml_ranker": 0.5
+            }
+          },
+          {
+            "ball": 44,
             "score": 5.0,
             "agreement_count": 2,
             "agreement_pct": 25.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "markov": 1.1,
-              "hazard": 0.7,
-              "decay": 1.1,
-              "bac_nho": 0.4,
-              "fourier": 0.6,
-              "graph_pagerank": 0.5,
-              "state_space": 0.4,
-              "ml_ranker": 0.2
+              "markov": 2.5,
+              "hazard": 0.3,
+              "decay": 0.7,
+              "bac_nho": 0.5,
+              "fourier": 0.5,
+              "graph_pagerank": 0.4,
+              "state_space": 0.1,
+              "ml_ranker": 0.0
             }
           },
           {
             "ball": 54,
-            "score": 4.7,
+            "score": 5.0,
             "agreement_count": 3,
             "agreement_pct": 37.5,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "markov": 1.2,
-              "hazard": 0.5,
-              "decay": 0.4,
+              "markov": 2.3,
+              "hazard": 0.2,
+              "decay": 0.5,
               "bac_nho": 0.3,
-              "fourier": 0.8,
+              "fourier": 0.6,
               "graph_pagerank": 0.4,
-              "state_space": 1.0,
+              "state_space": 0.4,
               "ml_ranker": 0.0
             }
           },
           {
-            "ball": 14,
-            "score": 4.6,
-            "agreement_count": 2,
-            "agreement_pct": 25.0,
-            "is_safe": false,
+            "ball": 36,
+            "score": 4.9,
+            "agreement_count": 3,
+            "agreement_pct": 37.5,
+            "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "markov": 1.5,
+              "markov": 3.0,
               "hazard": 0.4,
+              "decay": 0.3,
+              "bac_nho": 0.6,
+              "fourier": 0.1,
+              "graph_pagerank": 0.2,
+              "state_space": 0.0,
+              "ml_ranker": 0.2
+            }
+          },
+          {
+            "ball": 40,
+            "score": 4.9,
+            "agreement_count": 3,
+            "agreement_pct": 37.5,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 2.0,
+              "hazard": 0.5,
               "decay": 0.6,
-              "bac_nho": 0.7,
-              "fourier": 0.5,
-              "graph_pagerank": 0.3,
+              "bac_nho": 0.8,
+              "fourier": 0.1,
+              "graph_pagerank": 0.4,
+              "state_space": 0.0,
+              "ml_ranker": 0.4
+            }
+          },
+          {
+            "ball": 43,
+            "score": 4.9,
+            "agreement_count": 3,
+            "agreement_pct": 37.5,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 2.6,
+              "hazard": 0.1,
+              "decay": 0.5,
+              "bac_nho": 0.6,
+              "fourier": 0.3,
+              "graph_pagerank": 0.4,
               "state_space": 0.3,
               "ml_ranker": 0.1
             }
           },
           {
-            "ball": 40,
-            "score": 4.6,
-            "agreement_count": 3,
-            "agreement_pct": 37.5,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "markov": 1.0,
-              "hazard": 1.1,
-              "decay": 0.5,
-              "bac_nho": 0.7,
-              "fourier": 0.1,
-              "graph_pagerank": 0.4,
-              "state_space": 0.1,
-              "ml_ranker": 0.7
-            }
-          },
-          {
-            "ball": 7,
-            "score": 4.5,
-            "agreement_count": 3,
-            "agreement_pct": 37.5,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "markov": 0.6,
-              "hazard": 0.3,
-              "decay": 1.0,
-              "bac_nho": 0.2,
-              "fourier": 0.4,
-              "graph_pagerank": 1.0,
-              "state_space": 0.8,
-              "ml_ranker": 0.3
-            }
-          },
-          {
-            "ball": 16,
-            "score": 4.5,
-            "agreement_count": 4,
-            "agreement_pct": 50.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "markov": 0.5,
-              "hazard": 0.7,
-              "decay": 0.9,
-              "bac_nho": 0.4,
-              "fourier": 0.8,
-              "graph_pagerank": 0.8,
-              "state_space": 0.2,
-              "ml_ranker": 0.1
-            }
-          },
-          {
-            "ball": 24,
-            "score": 4.3,
-            "agreement_count": 3,
-            "agreement_pct": 37.5,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "markov": 0.5,
-              "hazard": 0.4,
-              "decay": 0.7,
-              "bac_nho": 0.0,
-              "fourier": 0.9,
-              "graph_pagerank": 0.3,
-              "state_space": 0.9,
-              "ml_ranker": 0.6
-            }
-          },
-          {
-            "ball": 39,
-            "score": 4.3,
+            "ball": 28,
+            "score": 4.7,
             "agreement_count": 2,
             "agreement_pct": 25.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "markov": 0.8,
-              "hazard": 0.7,
-              "decay": 0.8,
-              "bac_nho": 0.3,
-              "fourier": 0.6,
-              "graph_pagerank": 0.7,
+              "markov": 1.9,
+              "hazard": 0.1,
+              "decay": 0.6,
+              "bac_nho": 1.0,
+              "fourier": 0.4,
+              "graph_pagerank": 0.3,
+              "state_space": 0.2,
+              "ml_ranker": 0.0
+            }
+          },
+          {
+            "ball": 39,
+            "score": 4.7,
+            "agreement_count": 2,
+            "agreement_pct": 25.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 1.6,
+              "hazard": 0.3,
+              "decay": 1.0,
+              "bac_nho": 0.4,
+              "fourier": 0.5,
+              "graph_pagerank": 0.8,
               "state_space": 0.0,
-              "ml_ranker": 0.2
+              "ml_ranker": 0.1
             }
           }
         ],
@@ -7355,15 +7355,15 @@
           ]
         },
         "bankroll_advisory": {
-          "ccs_score": 47.4,
+          "ccs_score": 51.2,
           "tier_level": 1,
           "tier_name": "Tín Hiệu Phân Tán (High Noise / Low Conviction)",
           "tier_badge": "bg-slate-800 text-slate-300 border-slate-700",
           "recommended_action": "Thăm dò nhẹ 1 vé đơn hoặc tạm dừng",
           "recommended_budget": 10000,
           "breakdown": {
-            "agreement_score": 42.7,
-            "entropy_score": 15.2,
+            "agreement_score": 40.6,
+            "entropy_score": 28.4,
             "pull_score": 100.0
           },
           "rationale": "Các mô hình phân hóa mạnh, tín hiệu thị trường có độ nhiễu cao. Khuyến nghị thăm dò 1 vé đơn 10k hoặc bảo toàn vốn."
@@ -7535,19 +7535,19 @@
             "min_ac_threshold": 7
           },
           "trained_model_weights": {
-            "markov": 16.1,
-            "hazard": 12.7,
-            "decay": 13.2,
-            "bac_nho": 11.2,
-            "fourier": 11.7,
-            "graph_pagerank": 12.4,
-            "state_space": 11.0,
-            "ml_ranker": 11.7
+            "markov": 32.5,
+            "hazard": 5.6,
+            "decay": 15.6,
+            "bac_nho": 11.9,
+            "fourier": 9.1,
+            "graph_pagerank": 14.0,
+            "state_space": 4.6,
+            "ml_ranker": 6.7
           },
           "negative_space_compliance": "100% Đạt Chuẩn (5/5 Bộ Lọc)",
           "accuracy_gain_vs_random": {
-            "avg_hits_improvement_pct": 1.1,
-            "hit_rate_ge3": 2.9,
+            "avg_hits_improvement_pct": 9.9,
+            "hit_rate_ge3": 0.0,
             "baseline_random_avg": 0.65
           }
         },
@@ -7578,8 +7578,8 @@
             11,
             27,
             7,
-            1,
-            5
+            53,
+            55
           ],
           "triad_backtest": {
             "avg_hits": 0.37,
@@ -7588,27 +7588,27 @@
           },
           "key5_backtest": {
             "avg_hits": 0.6,
-            "win_rate_ge1": 45.7,
-            "win_rate_ge2": 14.3
+            "win_rate_ge1": 42.9,
+            "win_rate_ge2": 17.1
           },
           "core_pool": [
             11,
-            1,
-            5,
-            8,
-            55,
             53,
-            47,
-            9,
-            54,
+            55,
+            1,
             14,
-            40,
-            7
+            8,
+            9,
+            5,
+            44,
+            54,
+            36,
+            40
           ],
           "core_backtest": {
             "pool_size": 12,
-            "avg_hits": 1.2,
-            "win_rate_ge3": 8.6,
+            "avg_hits": 1.14,
+            "win_rate_ge3": 5.7,
             "win_rate_ge4": 0.0,
             "win_rate_ge5": 0.0
           },
@@ -7618,78 +7618,78 @@
               "label": "Vé 1",
               "numbers": [
                 1,
-                5,
                 8,
                 11,
+                14,
                 53,
                 55
               ],
-              "special": 8
+              "special": 14
             },
             {
               "id": "wheel_2",
               "label": "Vé 2",
               "numbers": [
-                1,
                 5,
                 9,
                 11,
-                47,
-                54
+                44,
+                53,
+                55
               ],
-              "special": 8
+              "special": 14
             },
             {
               "id": "wheel_3",
               "label": "Vé 3",
               "numbers": [
-                8,
+                1,
+                9,
                 11,
                 14,
-                40,
-                47,
-                55
+                36,
+                54
               ],
-              "special": 8
+              "special": 14
             },
             {
               "id": "wheel_4",
               "label": "Vé 4",
               "numbers": [
                 1,
-                7,
+                5,
                 8,
-                9,
-                14,
-                53
+                40,
+                53,
+                54
               ],
-              "special": 8
+              "special": 14
             },
             {
               "id": "wheel_5",
               "label": "Vé 5",
               "numbers": [
-                5,
-                7,
+                8,
+                14,
+                36,
                 40,
-                53,
-                54,
+                44,
                 55
               ],
-              "special": 8
+              "special": 14
             },
             {
               "id": "wheel_6",
               "label": "Vé 6",
               "numbers": [
-                7,
+                5,
                 9,
-                14,
+                36,
                 40,
-                47,
+                44,
                 54
               ],
-              "special": 8
+              "special": 14
             }
           ],
           "wheeling_4_tickets": [
@@ -7698,52 +7698,52 @@
               "label": "Vé 1",
               "numbers": [
                 1,
-                5,
                 8,
                 11,
+                14,
                 53,
                 55
               ],
-              "special": 8
+              "special": 14
             },
             {
               "id": "ve_2",
               "label": "Vé 2",
               "numbers": [
-                1,
+                5,
                 9,
                 11,
-                14,
-                47,
+                44,
+                53,
                 54
               ],
-              "special": 8
+              "special": 14
             },
             {
               "id": "ve_3",
               "label": "Vé 3",
               "numbers": [
+                1,
                 5,
-                8,
                 9,
-                14,
-                47,
-                54
+                44,
+                54,
+                55
               ],
-              "special": 8
+              "special": 14
             },
             {
               "id": "ve_4",
               "label": "Vé 4",
               "numbers": [
+                5,
+                8,
                 9,
                 14,
-                47,
-                53,
-                54,
-                55
+                44,
+                54
               ],
-              "special": 8
+              "special": 14
             }
           ],
           "wheel_backtest": {
@@ -7775,17 +7775,17 @@
           "golden": {
             "numbers": [
               1,
-              5,
               9,
               11,
-              47,
-              53
+              53,
+              54,
+              55
             ],
             "ac_index": 7,
-            "sum": 126,
-            "odd_even": "0C - 6L",
-            "sei_score": 9.6,
-            "special": 8,
+            "sum": 183,
+            "odd_even": "1C - 5L",
+            "sei_score": 10.0,
+            "special": 14,
             "negative_space_check": {
               "passed": false,
               "score": "5/5",
@@ -7793,7 +7793,7 @@
                 "passed": false,
                 "score_pass": 4,
                 "sum": {
-                  "val": 126,
+                  "val": 183,
                   "min": 115,
                   "max": 220,
                   "passed": true
@@ -7804,12 +7804,12 @@
                   "passed": true
                 },
                 "consecutive": {
-                  "max_len": 1,
-                  "passed": true
+                  "max_len": 3,
+                  "passed": false
                 },
                 "parity": {
-                  "ratio": "0C - 6L",
-                  "passed": false
+                  "ratio": "1C - 5L",
+                  "passed": true
                 },
                 "repeat": {
                   "count": 1,
@@ -7819,9 +7819,9 @@
               }
             },
             "optimization_type": "Markowitz Constrained Portfolio",
-            "expected_return": 33.2,
-            "covariance_risk_penalty": -1.0562,
-            "objective_utility": 34.2562,
+            "expected_return": 36.1,
+            "covariance_risk_penalty": -1.2275,
+            "objective_utility": 37.3275,
             "louvain_spread": {
               "distinct_clusters_count": 3,
               "cluster_distribution": {
@@ -7840,7 +7840,7 @@
               53,
               55
             ],
-            "special": 8,
+            "special": 14,
             "negative_space_check": {
               "passed": true,
               "score": "5/5",
@@ -7883,7 +7883,7 @@
               48,
               50
             ],
-            "special": 8,
+            "special": 14,
             "negative_space_check": {
               "passed": true,
               "score": "5/5",
@@ -7920,23 +7920,23 @@
           "optimal_septet": {
             "numbers": [
               1,
-              8,
               11,
               14,
               40,
+              44,
               54,
               55
             ],
-            "special": 8,
-            "ac_index": 14,
-            "sum": 183,
+            "special": 14,
+            "ac_index": 13,
+            "sum": 219,
             "odd_even": "4C - 3L",
-            "alpha_score": 191.43,
-            "lift_score": 48.34,
+            "alpha_score": 195.61,
+            "lift_score": 53.22,
             "span": 54,
             "state_composition": {
-              "hot": 4,
-              "warm": 3,
+              "hot": 3,
+              "warm": 4,
               "cold": 0
             },
             "passed_negative_space": true,
@@ -7944,30 +7944,30 @@
           },
           "septet_backtest": {
             "total_draws": 35,
-            "avg_hits": 0.66,
-            "hit_3_plus": 1,
-            "win_rate_ge3": 2.9,
+            "avg_hits": 0.63,
+            "hit_3_plus": 0,
+            "win_rate_ge3": 0.0,
             "hit_4_plus": 0,
             "win_rate_ge4": 0.0,
             "hit_5_plus": 0,
             "win_rate_ge5": 0.0,
             "hit_6_plus": 0,
             "total_cost": 2450000,
-            "total_payout": 200000,
-            "net_profit": -2250000,
-            "roi_pct": -91.8
+            "total_payout": 0,
+            "net_profit": -2450000,
+            "roi_pct": -100.0
           },
           "bao7": {
             "numbers": [
               1,
-              8,
               11,
               14,
               40,
+              44,
               54,
               55
             ],
-            "special": 8,
+            "special": 14,
             "negative_space_check": {
               "passed": true,
               "score": "Đạt Chuẩn Bao"
@@ -7977,12 +7977,12 @@
             "banker": 11,
             "satellite_pool": [
               5,
-              7,
               8,
               9,
               14,
+              36,
               40,
-              47,
+              44,
               53,
               54,
               55
@@ -7993,22 +7993,22 @@
                 "id": "banker_ticket_1",
                 "ticketIndex": 1,
                 "numbers": [
-                  5,
                   8,
                   9,
                   11,
                   14,
-                  53
+                  53,
+                  55
                 ],
                 "banker": 11,
                 "satellites": [
-                  5,
                   8,
                   9,
                   14,
-                  53
+                  53,
+                  55
                 ],
-                "sum": 100,
+                "sum": 150,
                 "ac": 7,
                 "ac_index": 7,
                 "odds": 4,
@@ -8020,53 +8020,53 @@
                 "id": "banker_ticket_2",
                 "ticketIndex": 2,
                 "numbers": [
-                  8,
-                  9,
+                  5,
                   11,
-                  40,
-                  47,
-                  54
+                  44,
+                  53,
+                  54,
+                  55
                 ],
                 "banker": 11,
                 "satellites": [
-                  8,
-                  9,
-                  40,
-                  47,
-                  54
+                  5,
+                  44,
+                  53,
+                  54,
+                  55
                 ],
-                "sum": 169,
+                "sum": 222,
                 "ac": 9,
                 "ac_index": 9,
-                "odds": 3,
-                "evens": 3,
-                "distinctTails": 6,
+                "odds": 4,
+                "evens": 2,
+                "distinctTails": 4,
                 "passed_ac_filter": true
               },
               {
                 "id": "banker_ticket_3",
                 "ticketIndex": 3,
                 "numbers": [
-                  7,
+                  5,
+                  8,
                   11,
                   14,
-                  40,
-                  53,
-                  55
+                  36,
+                  40
                 ],
                 "banker": 11,
                 "satellites": [
-                  7,
+                  5,
+                  8,
                   14,
-                  40,
-                  53,
-                  55
+                  36,
+                  40
                 ],
-                "sum": 180,
-                "ac": 10,
-                "ac_index": 10,
-                "odds": 4,
-                "evens": 2,
+                "sum": 114,
+                "ac": 7,
+                "ac_index": 7,
+                "odds": 2,
+                "evens": 4,
                 "distinctTails": 6,
                 "passed_ac_filter": true
               },
@@ -8074,81 +8074,81 @@
                 "id": "banker_ticket_4",
                 "ticketIndex": 4,
                 "numbers": [
-                  5,
-                  7,
+                  9,
                   11,
-                  47,
-                  54,
-                  55
+                  36,
+                  40,
+                  44,
+                  54
                 ],
                 "banker": 11,
                 "satellites": [
-                  5,
-                  7,
-                  47,
-                  54,
-                  55
+                  9,
+                  36,
+                  40,
+                  44,
+                  54
                 ],
-                "sum": 179,
-                "ac": 10,
-                "ac_index": 10,
-                "odds": 5,
-                "evens": 1,
-                "distinctTails": 4,
+                "sum": 194,
+                "ac": 9,
+                "ac_index": 9,
+                "odds": 2,
+                "evens": 4,
+                "distinctTails": 5,
                 "passed_ac_filter": true
               },
               {
                 "id": "banker_ticket_5",
                 "ticketIndex": 5,
                 "numbers": [
-                  9,
+                  5,
                   11,
-                  40,
-                  53,
-                  54,
-                  55
+                  14,
+                  36,
+                  44,
+                  53
                 ],
                 "banker": 11,
                 "satellites": [
-                  9,
-                  40,
-                  53,
-                  54,
-                  55
+                  5,
+                  14,
+                  36,
+                  44,
+                  53
                 ],
-                "sum": 222,
-                "ac": 7,
-                "ac_index": 7,
-                "odds": 4,
-                "evens": 2,
-                "distinctTails": 6,
+                "sum": 163,
+                "ac": 8,
+                "ac_index": 8,
+                "odds": 3,
+                "evens": 3,
+                "distinctTails": 5,
                 "passed_ac_filter": true
               },
               {
                 "id": "banker_ticket_6",
                 "ticketIndex": 6,
                 "numbers": [
-                  5,
-                  7,
                   8,
+                  9,
                   11,
-                  14,
-                  47
+                  40,
+                  54,
+                  55
                 ],
                 "banker": 11,
                 "satellites": [
-                  5,
-                  7,
                   8,
-                  14,
-                  47
+                  9,
+                  40,
+                  54,
+                  55
                 ],
-                "sum": 92,
-                "ac": 7,
-                "ac_index": 7,
-                "odds": 4,
-                "evens": 2,
-                "distinctTails": 5,
+                "sum": 177,
+                "ac": 8,
+                "ac_index": 8,
+                "odds": 3,
+                "evens": 3,
+                "distinctTails": 6,
                 "passed_ac_filter": true
               }
             ],
@@ -8171,30 +8171,28 @@
               54
             ],
             "predicted": [
-              5,
               1,
-              11,
-              8,
-              32,
-              7
-            ],
-            "matched": [
-              7
-            ],
-            "matchCount": 1,
-            "corePool": [
               5,
-              1,
-              11,
-              8,
               32,
-              7,
-              30,
+              8,
               40,
-              9,
-              27,
+              4
+            ],
+            "matched": [],
+            "matchCount": 0,
+            "corePool": [
+              1,
+              5,
+              32,
+              8,
+              40,
+              4,
+              7,
               39,
-              45
+              27,
+              11,
+              30,
+              17
             ],
             "coreMatched": [
               7
@@ -8212,25 +8210,23 @@
               35,
               5,
               1,
-              11
+              32
             ],
             "key5Matched": [],
             "key5MatchCount": 0,
             "optimalSeptet": {
               "numbers": [
-                5,
-                7,
+                4,
+                8,
                 27,
                 30,
+                32,
                 39,
-                40,
-                45
+                40
               ],
               "special": 1,
-              "matched": [
-                7
-              ],
-              "matchCount": 1,
+              "matched": [],
+              "matchCount": 0,
               "cost": 70000,
               "payout": 0,
               "netProfit": -70000,
@@ -8238,12 +8234,12 @@
             },
             "wheel4": {
               "ticketHits": [
-                1,
-                0,
                 0,
                 1,
                 1,
-                0
+                0,
+                0,
+                1
               ],
               "maxHit": 1,
               "wonPrize": false
@@ -8261,34 +8257,35 @@
               53
             ],
             "predicted": [
+              40,
               8,
               1,
               5,
-              40,
-              20,
-              11
+              18,
+              53
             ],
             "matched": [
-              5
+              5,
+              53
             ],
-            "matchCount": 1,
+            "matchCount": 2,
             "corePool": [
+              40,
               8,
               1,
               5,
-              40,
-              20,
-              11,
               18,
+              53,
               13,
+              20,
+              41,
               47,
-              9,
-              2,
-              25
+              11,
+              23
             ],
             "coreMatched": [
-              2,
-              5
+              5,
+              53
             ],
             "coreMatchCount": 2,
             "triad": [
@@ -8311,19 +8308,20 @@
             "key5MatchCount": 1,
             "optimalSeptet": {
               "numbers": [
-                2,
-                8,
-                11,
-                20,
-                25,
+                1,
+                5,
+                13,
+                23,
                 40,
-                47
+                47,
+                53
               ],
-              "special": 1,
+              "special": 8,
               "matched": [
-                2
+                5,
+                53
               ],
-              "matchCount": 1,
+              "matchCount": 2,
               "cost": 70000,
               "payout": 0,
               "netProfit": -70000,
@@ -8331,12 +8329,12 @@
             },
             "wheel4": {
               "ticketHits": [
-                1,
-                1,
-                1,
-                0,
                 2,
-                1
+                0,
+                1,
+                2,
+                1,
+                0
               ],
               "maxHit": 2,
               "wonPrize": false
@@ -8354,12 +8352,12 @@
               54
             ],
             "predicted": [
-              9,
-              8,
-              1,
-              55,
               25,
-              24
+              40,
+              55,
+              8,
+              9,
+              1
             ],
             "matched": [
               8,
@@ -8367,18 +8365,18 @@
             ],
             "matchCount": 2,
             "corePool": [
-              9,
-              8,
-              1,
-              55,
               25,
-              24,
-              2,
-              5,
-              45,
-              39,
               40,
-              20
+              55,
+              8,
+              9,
+              1,
+              45,
+              6,
+              24,
+              20,
+              2,
+              5
             ],
             "coreMatched": [
               8,
@@ -8396,28 +8394,29 @@
               6,
               20,
               9,
-              8,
-              1
+              25,
+              40
             ],
             "key5Matched": [
-              8
+              25
             ],
             "key5MatchCount": 1,
             "optimalSeptet": {
               "numbers": [
                 1,
-                5,
+                6,
                 8,
-                39,
+                24,
+                25,
                 40,
-                45,
                 55
               ],
               "special": 2,
               "matched": [
-                8
+                8,
+                25
               ],
-              "matchCount": 1,
+              "matchCount": 2,
               "cost": 70000,
               "payout": 0,
               "netProfit": -70000,
@@ -8427,9 +8426,9 @@
               "ticketHits": [
                 2,
                 1,
+                2,
                 1,
-                1,
-                1,
+                0,
                 0
               ],
               "maxHit": 2,
@@ -8448,35 +8447,31 @@
               47
             ],
             "predicted": [
-              8,
-              5,
               7,
-              1,
-              15,
-              9
-            ],
-            "matched": [
-              9
-            ],
-            "matchCount": 1,
-            "corePool": [
-              8,
               5,
-              7,
-              1,
               15,
-              9,
-              45,
-              40,
-              18,
-              39,
+              1,
               23,
-              55
+              45
             ],
-            "coreMatched": [
-              9
+            "matched": [],
+            "matchCount": 0,
+            "corePool": [
+              7,
+              5,
+              15,
+              1,
+              23,
+              45,
+              8,
+              4,
+              40,
+              30,
+              18,
+              26
             ],
-            "coreMatchCount": 1,
+            "coreMatched": [],
+            "coreMatchCount": 0,
             "triad": [
               23,
               54,
@@ -8490,7 +8485,7 @@
               23,
               54,
               9,
-              8,
+              7,
               5
             ],
             "key5Matched": [
@@ -8499,15 +8494,15 @@
             "key5MatchCount": 1,
             "optimalSeptet": {
               "numbers": [
-                1,
+                4,
                 5,
-                8,
-                39,
+                7,
+                23,
+                30,
                 40,
-                45,
-                55
+                45
               ],
-              "special": 7,
+              "special": 1,
               "matched": [],
               "matchCount": 0,
               "cost": 70000,
@@ -8517,14 +8512,14 @@
             },
             "wheel4": {
               "ticketHits": [
-                1,
                 0,
                 0,
-                1,
-                1,
+                0,
+                0,
+                0,
                 0
               ],
-              "maxHit": 1,
+              "maxHit": 0,
               "wonPrize": false
             }
           },
@@ -8541,11 +8536,11 @@
             ],
             "predicted": [
               5,
-              39,
-              8,
-              29,
               15,
-              18
+              18,
+              39,
+              29,
+              8
             ],
             "matched": [
               8
@@ -8553,21 +8548,21 @@
             "matchCount": 1,
             "corePool": [
               5,
-              39,
-              8,
-              29,
               15,
               18,
-              21,
+              39,
+              29,
+              8,
               41,
               33,
-              1,
-              16,
-              30
+              42,
+              21,
+              22,
+              1
             ],
             "coreMatched": [
               8,
-              16
+              42
             ],
             "coreMatchCount": 2,
             "triad": [
@@ -8584,7 +8579,7 @@
               54,
               44,
               5,
-              39
+              15
             ],
             "key5Matched": [
               47
@@ -8593,16 +8588,16 @@
             "optimalSeptet": {
               "numbers": [
                 5,
-                16,
-                29,
-                30,
+                15,
+                18,
+                22,
                 33,
-                39,
-                41
+                41,
+                42
               ],
               "special": 1,
               "matched": [
-                16
+                42
               ],
               "matchCount": 1,
               "cost": 70000,
@@ -8614,8 +8609,8 @@
               "ticketHits": [
                 1,
                 1,
-                1,
                 0,
+                1,
                 2,
                 1
               ],
@@ -8635,28 +8630,28 @@
               55
             ],
             "predicted": [
+              21,
+              20,
               5,
               29,
               26,
-              21,
-              20,
-              7
+              25
             ],
             "matched": [],
             "matchCount": 0,
             "corePool": [
+              21,
+              20,
               5,
               29,
               26,
-              21,
-              20,
-              7,
-              22,
-              50,
-              8,
               25,
-              23,
-              18
+              22,
+              7,
+              31,
+              50,
+              53,
+              11
             ],
             "coreMatched": [],
             "coreMatchCount": 0,
@@ -8671,22 +8666,22 @@
               20,
               16,
               5,
-              29,
-              26
+              21,
+              29
             ],
             "key5Matched": [],
             "key5MatchCount": 0,
             "optimalSeptet": {
               "numbers": [
-                5,
-                8,
-                18,
+                7,
                 20,
+                21,
                 25,
-                29,
-                50
+                31,
+                50,
+                53
               ],
-              "special": 7,
+              "special": 5,
               "matched": [],
               "matchCount": 0,
               "cost": 70000,
@@ -8724,7 +8719,7 @@
               9,
               5,
               21,
-              16
+              28
             ],
             "matched": [
               5
@@ -8736,13 +8731,13 @@
               9,
               5,
               21,
-              16,
-              29,
-              25,
               28,
-              22,
-              7,
-              54
+              31,
+              26,
+              25,
+              54,
+              29,
+              22
             ],
             "coreMatched": [
               5,
@@ -8767,20 +8762,17 @@
             "key5MatchCount": 0,
             "optimalSeptet": {
               "numbers": [
-                5,
-                7,
-                18,
+                9,
+                21,
                 22,
+                26,
                 28,
-                29,
+                31,
                 54
               ],
-              "special": 8,
-              "matched": [
-                5,
-                29
-              ],
-              "matchCount": 2,
+              "special": 5,
+              "matched": [],
+              "matchCount": 0,
               "cost": 70000,
               "payout": 0,
               "netProfit": -70000,
@@ -8789,10 +8781,10 @@
             "wheel4": {
               "ticketHits": [
                 1,
-                1,
+                0,
                 2,
                 1,
-                0,
+                1,
                 1
               ],
               "maxHit": 2,
@@ -8813,29 +8805,31 @@
             "predicted": [
               5,
               39,
-              7,
+              29,
               20,
-              16,
-              29
+              7,
+              25
             ],
             "matched": [],
             "matchCount": 0,
             "corePool": [
               5,
               39,
-              7,
-              20,
-              16,
               29,
+              20,
+              7,
               25,
-              38,
-              6,
               18,
+              16,
+              1,
               8,
-              55
+              38,
+              4
             ],
-            "coreMatched": [],
-            "coreMatchCount": 0,
+            "coreMatched": [
+              1
+            ],
+            "coreMatchCount": 1,
             "triad": [
               6,
               12,
@@ -8848,23 +8842,25 @@
               12,
               5,
               39,
-              7
+              29
             ],
             "key5Matched": [],
             "key5MatchCount": 0,
             "optimalSeptet": {
               "numbers": [
-                6,
+                1,
+                5,
                 8,
-                18,
-                25,
+                16,
+                29,
                 38,
-                39,
-                55
+                39
               ],
-              "special": 5,
-              "matched": [],
-              "matchCount": 0,
+              "special": 4,
+              "matched": [
+                1
+              ],
+              "matchCount": 1,
               "cost": 70000,
               "payout": 0,
               "netProfit": -70000,
@@ -8873,13 +8869,13 @@
             "wheel4": {
               "ticketHits": [
                 0,
+                1,
                 0,
                 0,
-                0,
-                0,
-                0
+                1,
+                1
               ],
-              "maxHit": 0,
+              "maxHit": 1,
               "wonPrize": false
             }
           },
@@ -8899,8 +8895,8 @@
               8,
               38,
               9,
-              18,
-              20
+              20,
+              18
             ],
             "matched": [
               5,
@@ -8912,14 +8908,14 @@
               8,
               38,
               9,
-              18,
               20,
+              18,
               25,
               29,
               33,
               16,
-              21,
-              39
+              22,
+              6
             ],
             "coreMatched": [
               5,
@@ -8949,18 +8945,19 @@
             "optimalSeptet": {
               "numbers": [
                 5,
+                6,
                 8,
-                16,
+                18,
                 29,
                 33,
-                38,
-                39
+                38
               ],
               "special": 9,
               "matched": [
-                5
+                5,
+                18
               ],
-              "matchCount": 1,
+              "matchCount": 2,
               "cost": 70000,
               "payout": 0,
               "netProfit": -70000,
@@ -8970,8 +8967,8 @@
               "ticketHits": [
                 2,
                 1,
-                2,
-                0,
+                1,
+                1,
                 1,
                 0
               ],
@@ -8993,26 +8990,26 @@
             "predicted": [
               39,
               33,
-              16,
               7,
+              16,
               37,
-              5
+              8
             ],
             "matched": [],
             "matchCount": 0,
             "corePool": [
               39,
               33,
-              16,
               7,
+              16,
               37,
-              5,
-              29,
               8,
-              2,
+              5,
               40,
-              50,
-              27
+              29,
+              2,
+              27,
+              50
             ],
             "coreMatched": [],
             "coreMatchCount": 0,
@@ -9028,7 +9025,7 @@
               28,
               38,
               39,
-              16
+              7
             ],
             "key5Matched": [],
             "key5MatchCount": 0,
@@ -9080,32 +9077,32 @@
               32,
               5,
               16,
-              55
+              8
             ],
             "matched": [
+              8,
               39
             ],
-            "matchCount": 1,
+            "matchCount": 2,
             "corePool": [
               33,
               39,
               32,
               5,
               16,
-              55,
               8,
-              25,
+              55,
               28,
+              25,
               7,
               20,
-              29
+              37
             ],
             "coreMatched": [
               8,
-              29,
               39
             ],
-            "coreMatchCount": 3,
+            "coreMatchCount": 2,
             "triad": [
               21,
               1,
@@ -9131,32 +9128,31 @@
               "numbers": [
                 5,
                 8,
+                20,
                 28,
-                29,
-                33,
+                37,
                 39,
                 55
               ],
               "special": 7,
               "matched": [
                 8,
-                29,
                 39
               ],
-              "matchCount": 3,
+              "matchCount": 2,
               "cost": 70000,
-              "payout": 200000,
-              "netProfit": 130000,
-              "prizeDetail": "4 Giải Ba (50k)"
+              "payout": 0,
+              "netProfit": -70000,
+              "prizeDetail": "Không trúng"
             },
             "wheel4": {
               "ticketHits": [
-                1,
                 2,
                 1,
+                0,
                 2,
                 1,
-                2
+                0
               ],
               "maxHit": 2,
               "wonPrize": false
@@ -9175,27 +9171,29 @@
             ],
             "predicted": [
               5,
-              16,
               22,
+              16,
               33,
               27,
-              55
+              41
             ],
-            "matched": [],
-            "matchCount": 0,
+            "matched": [
+              41
+            ],
+            "matchCount": 1,
             "corePool": [
               5,
-              16,
               22,
+              16,
               33,
               27,
-              55,
               41,
+              55,
               50,
-              29,
               45,
-              40,
-              20
+              29,
+              9,
+              54
             ],
             "coreMatched": [
               41
@@ -9213,14 +9211,14 @@
               1,
               27,
               5,
-              16
+              22
             ],
             "key5Matched": [],
             "key5MatchCount": 0,
             "optimalSeptet": {
               "numbers": [
                 5,
-                20,
+                9,
                 27,
                 29,
                 33,
@@ -9237,12 +9235,12 @@
             },
             "wheel4": {
               "ticketHits": [
-                0,
-                1,
                 1,
                 0,
                 0,
-                1
+                1,
+                1,
+                0
               ],
               "maxHit": 1,
               "wonPrize": false
@@ -9263,9 +9261,9 @@
               39,
               22,
               5,
-              16,
               8,
-              20
+              20,
+              16
             ],
             "matched": [
               16,
@@ -9276,15 +9274,15 @@
               39,
               22,
               5,
-              16,
               8,
               20,
-              23,
-              40,
-              7,
-              50,
+              16,
               41,
-              29
+              23,
+              7,
+              40,
+              45,
+              50
             ],
             "coreMatched": [
               16,
@@ -9315,18 +9313,19 @@
             "optimalSeptet": {
               "numbers": [
                 5,
-                7,
-                22,
-                29,
-                40,
+                8,
+                20,
+                39,
                 41,
+                45,
                 50
               ],
-              "special": 8,
+              "special": 7,
               "matched": [
+                20,
                 50
               ],
-              "matchCount": 1,
+              "matchCount": 2,
               "cost": 70000,
               "payout": 0,
               "netProfit": -70000,
@@ -9336,9 +9335,9 @@
               "ticketHits": [
                 2,
                 0,
+                1,
                 2,
                 3,
-                1,
                 1
               ],
               "maxHit": 3,
@@ -9357,8 +9356,8 @@
               46
             ],
             "predicted": [
-              39,
               22,
+              39,
               16,
               14,
               53,
@@ -9367,18 +9366,18 @@
             "matched": [],
             "matchCount": 0,
             "corePool": [
-              39,
               22,
+              39,
               16,
               14,
               53,
               55,
-              7,
               8,
+              7,
               30,
               40,
               33,
-              23
+              44
             ],
             "coreMatched": [],
             "coreMatchCount": 0,
@@ -9400,15 +9399,15 @@
             "key5MatchCount": 0,
             "optimalSeptet": {
               "numbers": [
-                8,
+                7,
                 14,
                 16,
-                23,
+                22,
                 39,
-                40,
-                53
+                44,
+                55
               ],
-              "special": 7,
+              "special": 8,
               "matched": [],
               "matchCount": 0,
               "cost": 70000,
@@ -9460,8 +9459,8 @@
               41,
               32,
               23,
-              5,
               14,
+              5,
               10
             ],
             "coreMatched": [],
@@ -24703,7 +24702,7 @@
             "name": "Consensus Engine (Tổng Hợp)",
             "icon": "trophy",
             "color": "amber",
-            "avg_hits": 0.86,
+            "avg_hits": 0.77,
             "win_rate_ge3": 0.0,
             "recent_10_hits": 9,
             "form": "⚡ Phong độ tốt",
@@ -24719,7 +24718,7 @@
             "win_rate_ge3": 5.7,
             "recent_10_hits": 7,
             "form": "⚡ Ổn định",
-            "weight_pct": 11.1,
+            "weight_pct": 3.3,
             "desc": "Bộ lọc Kalman động học Bayes thích ứng cập nhật vận tốc xác suất tiềm ẩn."
           },
           {
@@ -24731,7 +24730,7 @@
             "win_rate_ge3": 2.9,
             "recent_10_hits": 13,
             "form": "🔥 Đang vào nhịp",
-            "weight_pct": 14.8,
+            "weight_pct": 27.0,
             "desc": "Thông tin tương hỗ dương chuẩn hóa Laplace đo lường lực hút chuyển trạng thái thực sự từ kỳ trước."
           },
           {
@@ -24743,7 +24742,7 @@
             "win_rate_ge3": 2.9,
             "recent_10_hits": 13,
             "form": "🔥 Đang vào nhịp",
-            "weight_pct": 12.3,
+            "weight_pct": 36.2,
             "desc": "Trung tâm mạng đồ thị liên kết đồng xuất hiện với bước nhảy ngẫu nhiên PageRank."
           },
           {
@@ -24755,7 +24754,7 @@
             "win_rate_ge3": 2.9,
             "recent_10_hits": 7,
             "form": "⚡ Ổn định",
-            "weight_pct": 16.1,
+            "weight_pct": 8.4,
             "desc": "Mật độ xác suất điểm rơi Gauss chuẩn hóa theo độ lệch chuẩn chu kỳ nhịp riêng của từng quả bóng."
           },
           {
@@ -24767,7 +24766,7 @@
             "win_rate_ge3": 2.9,
             "recent_10_hits": 8,
             "form": "⚡ Ổn định",
-            "weight_pct": 10.8,
+            "weight_pct": 5.2,
             "desc": "Độ nâng lực hút cặp đôi kỳ trước kéo bóng kỳ sau với hiệu chỉnh Bayes chống quá khớp mẫu nhỏ."
           },
           {
@@ -24779,7 +24778,7 @@
             "win_rate_ge3": 2.9,
             "recent_10_hits": 10,
             "form": "🔥 Đang vào nhịp",
-            "weight_pct": 10.8,
+            "weight_pct": 5.2,
             "desc": "Mô hình cây quyết định Gradient Boosting học phi tuyến tính trên không gian đặc trưng 14 chiều."
           },
           {
@@ -24791,7 +24790,7 @@
             "win_rate_ge3": 0.0,
             "recent_10_hits": 9,
             "form": "⚡ Ổn định",
-            "weight_pct": 10.8,
+            "weight_pct": 7.0,
             "desc": "Tần suất suy giảm mũ kết hợp quán tính nhiệt alpha=0.035, chu kỳ bán rã 19.8 kỳ."
           },
           {
@@ -24803,7 +24802,7 @@
             "win_rate_ge3": 0.0,
             "recent_10_hits": 9,
             "form": "⚡ Ổn định",
-            "weight_pct": 13.3,
+            "weight_pct": 7.7,
             "desc": "Phân rã đa sóng nhỏ Daubechies DWT kết hợp cộng hưởng phổ lọc nhiễu Hann."
           },
           {
@@ -24822,164 +24821,146 @@
         "top_consensus_balls": [
           {
             "ball": 22,
-            "score": 6.3,
+            "score": 7.0,
             "agreement_count": 6,
             "agreement_pct": 75.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "markov": 1.0,
-              "hazard": 0.6,
-              "decay": 0.8,
-              "bac_nho": 0.9,
-              "fourier": 1.3,
-              "graph_pagerank": 1.0,
-              "state_space": 0.4,
-              "ml_ranker": 0.3
-            }
-          },
-          {
-            "ball": 17,
-            "score": 6.2,
-            "agreement_count": 6,
-            "agreement_pct": 75.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "markov": 1.5,
-              "hazard": 0.5,
-              "decay": 0.7,
-              "bac_nho": 1.1,
-              "fourier": 0.4,
-              "graph_pagerank": 0.7,
-              "state_space": 0.5,
-              "ml_ranker": 0.9
-            }
-          },
-          {
-            "ball": 27,
-            "score": 5.7,
-            "agreement_count": 4,
-            "agreement_pct": 50.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "markov": 0.6,
-              "hazard": 0.6,
-              "decay": 0.8,
-              "bac_nho": 0.8,
-              "fourier": 1.2,
-              "graph_pagerank": 0.2,
-              "state_space": 1.0,
-              "ml_ranker": 0.4
+              "markov": 1.8,
+              "hazard": 0.3,
+              "decay": 0.5,
+              "bac_nho": 0.4,
+              "fourier": 0.8,
+              "graph_pagerank": 2.9,
+              "state_space": 0.1,
+              "ml_ranker": 0.1
             }
           },
           {
             "ball": 16,
-            "score": 5.6,
+            "score": 6.9,
             "agreement_count": 2,
             "agreement_pct": 25.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "markov": 0.7,
-              "hazard": 1.0,
-              "decay": 1.1,
-              "bac_nho": 0.2,
-              "fourier": 0.7,
-              "graph_pagerank": 1.2,
-              "state_space": 0.3,
+              "markov": 1.2,
+              "hazard": 0.5,
+              "decay": 0.7,
+              "bac_nho": 0.1,
+              "fourier": 0.4,
+              "graph_pagerank": 3.6,
+              "state_space": 0.1,
+              "ml_ranker": 0.2
+            }
+          },
+          {
+            "ball": 17,
+            "score": 6.7,
+            "agreement_count": 6,
+            "agreement_pct": 75.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 2.7,
+              "hazard": 0.3,
+              "decay": 0.5,
+              "bac_nho": 0.5,
+              "fourier": 0.2,
+              "graph_pagerank": 1.9,
+              "state_space": 0.1,
               "ml_ranker": 0.4
             }
           },
           {
-            "ball": 12,
-            "score": 5.4,
-            "agreement_count": 5,
-            "agreement_pct": 62.5,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "markov": 1.3,
-              "hazard": 0.5,
-              "decay": 0.5,
-              "bac_nho": 0.1,
-              "fourier": 0.8,
-              "graph_pagerank": 0.5,
-              "state_space": 0.6,
-              "ml_ranker": 1.1
-            }
-          },
-          {
-            "ball": 15,
-            "score": 5.4,
-            "agreement_count": 5,
-            "agreement_pct": 62.5,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "markov": 0.9,
-              "hazard": 1.2,
-              "decay": 0.6,
-              "bac_nho": 0.6,
-              "fourier": 0.6,
-              "graph_pagerank": 0.3,
-              "state_space": 0.3,
-              "ml_ranker": 0.8
-            }
-          },
-          {
-            "ball": 6,
-            "score": 5.0,
-            "agreement_count": 3,
-            "agreement_pct": 37.5,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "markov": 0.7,
-              "hazard": 1.0,
-              "decay": 0.9,
-              "bac_nho": 0.3,
-              "fourier": 0.9,
-              "graph_pagerank": 0.8,
-              "state_space": 0.2,
-              "ml_ranker": 0.3
-            }
-          },
-          {
-            "ball": 9,
-            "score": 5.0,
-            "agreement_count": 5,
-            "agreement_pct": 62.5,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "markov": 0.6,
-              "hazard": 0.5,
-              "decay": 0.7,
-              "bac_nho": 0.5,
-              "fourier": 1.2,
-              "graph_pagerank": 0.6,
-              "state_space": 0.5,
-              "ml_ranker": 0.3
-            }
-          },
-          {
-            "ball": 36,
-            "score": 5.0,
+            "ball": 31,
+            "score": 6.1,
             "agreement_count": 4,
             "agreement_pct": 50.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "markov": 0.5,
-              "hazard": 0.4,
-              "decay": 1.0,
+              "markov": 2.1,
+              "hazard": 0.3,
+              "decay": 0.4,
               "bac_nho": 0.1,
-              "fourier": 1.1,
-              "graph_pagerank": 1.1,
-              "state_space": 0.6,
+              "fourier": 0.1,
+              "graph_pagerank": 2.7,
+              "state_space": 0.0,
+              "ml_ranker": 0.5
+            }
+          },
+          {
+            "ball": 36,
+            "score": 5.9,
+            "agreement_count": 4,
+            "agreement_pct": 50.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 0.9,
+              "hazard": 0.2,
+              "decay": 0.7,
+              "bac_nho": 0.1,
+              "fourier": 0.6,
+              "graph_pagerank": 3.1,
+              "state_space": 0.2,
+              "ml_ranker": 0.1
+            }
+          },
+          {
+            "ball": 12,
+            "score": 5.7,
+            "agreement_count": 5,
+            "agreement_pct": 62.5,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 2.4,
+              "hazard": 0.2,
+              "decay": 0.3,
+              "bac_nho": 0.1,
+              "fourier": 0.5,
+              "graph_pagerank": 1.6,
+              "state_space": 0.2,
+              "ml_ranker": 0.5
+            }
+          },
+          {
+            "ball": 6,
+            "score": 5.6,
+            "agreement_count": 3,
+            "agreement_pct": 37.5,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 1.2,
+              "hazard": 0.5,
+              "decay": 0.6,
+              "bac_nho": 0.1,
+              "fourier": 0.5,
+              "graph_pagerank": 2.4,
+              "state_space": 0.1,
               "ml_ranker": 0.2
+            }
+          },
+          {
+            "ball": 44,
+            "score": 5.3,
+            "agreement_count": 2,
+            "agreement_pct": 25.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 1.0,
+              "hazard": 0.6,
+              "decay": 0.4,
+              "bac_nho": 0.1,
+              "fourier": 0.3,
+              "graph_pagerank": 2.5,
+              "state_space": 0.1,
+              "ml_ranker": 0.4
             }
           },
           {
@@ -24990,104 +24971,122 @@
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "markov": 1.3,
-              "hazard": 0.7,
-              "decay": 0.7,
-              "bac_nho": 0.4,
-              "fourier": 0.3,
-              "graph_pagerank": 0.3,
-              "state_space": 0.5,
-              "ml_ranker": 0.8
+              "markov": 2.3,
+              "hazard": 0.4,
+              "decay": 0.5,
+              "bac_nho": 0.2,
+              "fourier": 0.2,
+              "graph_pagerank": 0.9,
+              "state_space": 0.2,
+              "ml_ranker": 0.4
             }
           },
           {
-            "ball": 21,
+            "ball": 20,
             "score": 4.9,
             "agreement_count": 3,
             "agreement_pct": 37.5,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "markov": 1.2,
-              "hazard": 0.3,
-              "decay": 0.6,
-              "bac_nho": 0.5,
-              "fourier": 0.7,
-              "graph_pagerank": 0.2,
-              "state_space": 1.1,
-              "ml_ranker": 0.2
-            }
-          },
-          {
-            "ball": 11,
-            "score": 4.8,
-            "agreement_count": 4,
-            "agreement_pct": 50.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "markov": 1.1,
-              "hazard": 1.3,
+              "markov": 1.4,
+              "hazard": 0.2,
               "decay": 0.4,
-              "bac_nho": 0.7,
-              "fourier": 0.3,
-              "graph_pagerank": 0.2,
-              "state_space": 0.1,
-              "ml_ranker": 0.7
-            }
-          },
-          {
-            "ball": 31,
-            "score": 4.7,
-            "agreement_count": 4,
-            "agreement_pct": 50.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "markov": 1.1,
-              "hazard": 0.5,
-              "decay": 0.7,
               "bac_nho": 0.2,
               "fourier": 0.2,
-              "graph_pagerank": 0.9,
-              "state_space": 0.1,
-              "ml_ranker": 0.9
+              "graph_pagerank": 2.0,
+              "state_space": 0.3,
+              "ml_ranker": 0.1
             }
           },
           {
-            "ball": 44,
-            "score": 4.7,
+            "ball": 9,
+            "score": 4.8,
+            "agreement_count": 5,
+            "agreement_pct": 62.5,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 1.1,
+              "hazard": 0.3,
+              "decay": 0.5,
+              "bac_nho": 0.3,
+              "fourier": 0.7,
+              "graph_pagerank": 1.7,
+              "state_space": 0.1,
+              "ml_ranker": 0.1
+            }
+          },
+          {
+            "ball": 45,
+            "score": 4.8,
             "agreement_count": 2,
             "agreement_pct": 25.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "markov": 0.5,
-              "hazard": 1.1,
-              "decay": 0.5,
-              "bac_nho": 0.1,
-              "fourier": 0.6,
-              "graph_pagerank": 0.9,
-              "state_space": 0.2,
-              "ml_ranker": 0.8
+              "markov": 0.8,
+              "hazard": 0.5,
+              "decay": 0.6,
+              "bac_nho": 0.0,
+              "fourier": 0.4,
+              "graph_pagerank": 2.2,
+              "state_space": 0.1,
+              "ml_ranker": 0.1
             }
           },
           {
-            "ball": 20,
+            "ball": 15,
+            "score": 4.7,
+            "agreement_count": 5,
+            "agreement_pct": 62.5,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 1.6,
+              "hazard": 0.6,
+              "decay": 0.4,
+              "bac_nho": 0.3,
+              "fourier": 0.3,
+              "graph_pagerank": 0.8,
+              "state_space": 0.1,
+              "ml_ranker": 0.4
+            }
+          },
+          {
+            "ball": 21,
             "score": 4.5,
             "agreement_count": 3,
             "agreement_pct": 37.5,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "markov": 0.8,
-              "hazard": 0.4,
-              "decay": 0.6,
-              "bac_nho": 0.5,
+              "markov": 2.2,
+              "hazard": 0.2,
+              "decay": 0.4,
+              "bac_nho": 0.2,
               "fourier": 0.4,
-              "graph_pagerank": 0.7,
-              "state_space": 0.9,
-              "ml_ranker": 0.2
+              "graph_pagerank": 0.6,
+              "state_space": 0.3,
+              "ml_ranker": 0.1
+            }
+          },
+          {
+            "ball": 11,
+            "score": 4.4,
+            "agreement_count": 4,
+            "agreement_pct": 50.0,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 2.0,
+              "hazard": 0.7,
+              "decay": 0.2,
+              "bac_nho": 0.3,
+              "fourier": 0.2,
+              "graph_pagerank": 0.6,
+              "state_space": 0.0,
+              "ml_ranker": 0.4
             }
           }
         ],
@@ -25382,15 +25381,15 @@
           ]
         },
         "bankroll_advisory": {
-          "ccs_score": 51.1,
+          "ccs_score": 54.5,
           "tier_level": 1,
           "tier_name": "Tín Hiệu Phân Tán (High Noise / Low Conviction)",
           "tier_badge": "bg-slate-800 text-slate-300 border-slate-700",
           "recommended_action": "Thăm dò nhẹ 1 vé đơn hoặc tạm dừng",
           "recommended_budget": 10000,
           "breakdown": {
-            "agreement_score": 53.1,
-            "entropy_score": 13.8,
+            "agreement_score": 47.9,
+            "entropy_score": 29.6,
             "pull_score": 100.0
           },
           "rationale": "Các mô hình phân hóa mạnh, tín hiệu thị trường có độ nhiễu cao. Khuyến nghị thăm dò 1 vé đơn 10k hoặc bảo toàn vốn."
@@ -25537,18 +25536,18 @@
             "min_ac_threshold": 7
           },
           "trained_model_weights": {
-            "markov": 14.8,
-            "hazard": 16.1,
-            "decay": 10.8,
-            "bac_nho": 10.8,
-            "fourier": 13.3,
-            "graph_pagerank": 12.3,
-            "state_space": 11.1,
-            "ml_ranker": 10.8
+            "markov": 27.0,
+            "hazard": 8.4,
+            "decay": 7.0,
+            "bac_nho": 5.2,
+            "fourier": 7.7,
+            "graph_pagerank": 36.2,
+            "state_space": 3.3,
+            "ml_ranker": 5.2
           },
           "negative_space_compliance": "100% Đạt Chuẩn (5/5 Bộ Lọc)",
           "accuracy_gain_vs_random": {
-            "avg_hits_improvement_pct": 7.1,
+            "avg_hits_improvement_pct": -3.6,
             "hit_rate_ge3": 0.0,
             "baseline_random_avg": 0.8
           }
@@ -25589,28 +25588,28 @@
             "win_rate_ge2": 8.6
           },
           "key5_backtest": {
-            "avg_hits": 0.71,
-            "win_rate_ge1": 54.3,
+            "avg_hits": 0.77,
+            "win_rate_ge1": 60.0,
             "win_rate_ge2": 17.1
           },
           "core_pool": [
             22,
-            17,
-            27,
             16,
-            12,
-            15,
-            6,
-            9,
+            17,
+            31,
             36,
+            12,
+            6,
+            44,
             43,
-            21,
-            11
+            20,
+            9,
+            45
           ],
           "core_backtest": {
             "pool_size": 12,
-            "avg_hits": 1.51,
-            "win_rate_ge3": 11.4,
+            "avg_hits": 1.4,
+            "win_rate_ge3": 5.7,
             "win_rate_ge4": 0.0,
             "win_rate_ge5": 0.0
           },
@@ -25620,11 +25619,11 @@
               "label": "Vé 1",
               "numbers": [
                 12,
-                15,
                 16,
                 17,
                 22,
-                27
+                31,
+                36
               ],
               "special": null
             },
@@ -25633,11 +25632,11 @@
               "label": "Vé 2",
               "numbers": [
                 6,
-                9,
+                16,
                 17,
                 22,
-                27,
-                36
+                43,
+                44
               ],
               "special": null
             },
@@ -25646,11 +25645,11 @@
               "label": "Vé 3",
               "numbers": [
                 6,
-                12,
-                16,
-                21,
+                9,
+                20,
                 22,
-                43
+                31,
+                36
               ],
               "special": null
             },
@@ -25658,12 +25657,12 @@
               "id": "wheel_4",
               "label": "Vé 4",
               "numbers": [
-                9,
-                11,
-                15,
+                12,
                 16,
-                17,
-                43
+                20,
+                31,
+                44,
+                45
               ],
               "special": null
             },
@@ -25671,12 +25670,12 @@
               "id": "wheel_5",
               "label": "Vé 5",
               "numbers": [
-                11,
+                9,
                 12,
-                15,
-                21,
-                27,
-                36
+                17,
+                36,
+                43,
+                45
               ],
               "special": null
             },
@@ -25686,10 +25685,10 @@
               "numbers": [
                 6,
                 9,
-                11,
-                21,
-                36,
-                43
+                20,
+                43,
+                44,
+                45
               ],
               "special": null
             }
@@ -25700,11 +25699,11 @@
               "label": "Vé 1",
               "numbers": [
                 12,
-                15,
                 16,
                 17,
                 22,
-                27
+                31,
+                36
               ],
               "special": null
             },
@@ -25713,11 +25712,11 @@
               "label": "Vé 2",
               "numbers": [
                 6,
-                9,
-                17,
+                16,
+                20,
                 22,
-                36,
-                43
+                43,
+                44
               ],
               "special": null
             },
@@ -25726,11 +25725,11 @@
               "label": "Vé 3",
               "numbers": [
                 6,
-                9,
-                16,
-                27,
-                36,
-                43
+                17,
+                20,
+                31,
+                43,
+                44
               ],
               "special": null
             },
@@ -25739,17 +25738,17 @@
               "label": "Vé 4",
               "numbers": [
                 6,
-                9,
                 12,
-                15,
+                20,
                 36,
-                43
+                43,
+                44
               ],
               "special": null
             }
           ],
           "wheel_backtest": {
-            "overall_prize_win_rate": 8.6,
+            "overall_prize_win_rate": 0.0,
             "core_ge4_count": 0,
             "core_ge4_win_rate": 0.0,
             "guarantee_coverage": {
@@ -25762,7 +25761,7 @@
             }
           },
           "wheel4_backtest": {
-            "overall_prize_win_rate": 8.6,
+            "overall_prize_win_rate": 0.0,
             "core_ge4_count": 0,
             "core_ge4_win_rate": 0.0,
             "guarantee_coverage": {
@@ -25778,14 +25777,14 @@
             "numbers": [
               6,
               12,
-              15,
+              16,
               17,
               22,
-              27
+              31
             ],
             "ac_index": 7,
-            "sum": 99,
-            "odd_even": "3C - 3L",
+            "sum": 104,
+            "odd_even": "4C - 2L",
             "sei_score": 9.6,
             "special": null,
             "negative_space_check": {
@@ -25795,7 +25794,7 @@
                 "passed": true,
                 "score_pass": 5,
                 "sum": {
-                  "val": 99,
+                  "val": 104,
                   "min": 95,
                   "max": 180,
                   "passed": true
@@ -25806,31 +25805,31 @@
                   "passed": true
                 },
                 "consecutive": {
-                  "max_len": 1,
+                  "max_len": 2,
                   "passed": true
                 },
                 "parity": {
-                  "ratio": "3C - 3L",
+                  "ratio": "4C - 2L",
                   "passed": true
                 },
                 "repeat": {
-                  "count": 1,
+                  "count": 0,
                   "max_allowed": 2,
                   "passed": true
                 }
               }
             },
             "optimization_type": "Markowitz Constrained Portfolio",
-            "expected_return": 34.0,
-            "covariance_risk_penalty": -0.4901,
-            "objective_utility": 34.4901,
+            "expected_return": 38.0,
+            "covariance_risk_penalty": 0.2677,
+            "objective_utility": 37.7323,
             "louvain_spread": {
               "distinct_clusters_count": 5,
               "cluster_distribution": {
                 "C0": 1,
                 "C1": 1,
-                "C2": 2,
-                "C3": 1,
+                "C2": 1,
+                "C3": 2,
                 "C4": 1
               }
             }
@@ -25923,21 +25922,21 @@
           },
           "optimal_septet": {
             "numbers": [
+              6,
               9,
-              11,
               12,
-              17,
-              21,
+              22,
+              31,
               36,
               43
             ],
             "special": null,
-            "ac_index": 15,
-            "sum": 149,
-            "odd_even": "2C - 5L",
-            "alpha_score": 161.43,
-            "lift_score": 35.38,
-            "span": 34,
+            "ac_index": 14,
+            "sum": 159,
+            "odd_even": "4C - 3L",
+            "alpha_score": 162.72,
+            "lift_score": 36.49,
+            "span": 37,
             "state_composition": {
               "hot": 6,
               "warm": 1,
@@ -25963,11 +25962,11 @@
           },
           "bao7": {
             "numbers": [
+              6,
               9,
-              11,
               12,
-              17,
-              21,
+              22,
+              31,
               36,
               43
             ],
@@ -25978,18 +25977,18 @@
             }
           },
           "banker_wheeling": {
-            "banker": 17,
+            "banker": 16,
             "satellite_pool": [
               6,
               9,
               12,
-              15,
-              16,
-              21,
+              17,
+              20,
               22,
-              27,
+              31,
               36,
-              43
+              43,
+              44
             ],
             "satellite_pool_size": 10,
             "tickets": [
@@ -25998,23 +25997,23 @@
                 "ticketIndex": 1,
                 "numbers": [
                   9,
-                  12,
-                  17,
+                  16,
                   22,
+                  31,
                   36,
                   43
                 ],
-                "banker": 17,
+                "banker": 16,
                 "satellites": [
                   9,
-                  12,
                   22,
+                  31,
                   36,
                   43
                 ],
-                "sum": 139,
-                "ac": 9,
-                "ac_index": 9,
+                "sum": 157,
+                "ac": 8,
+                "ac_index": 8,
                 "odds": 3,
                 "evens": 3,
                 "distinctTails": 5,
@@ -26024,26 +26023,26 @@
                 "id": "banker_ticket_2",
                 "ticketIndex": 2,
                 "numbers": [
-                  6,
-                  12,
-                  15,
+                  16,
                   17,
-                  21,
-                  22
+                  20,
+                  31,
+                  36,
+                  44
                 ],
-                "banker": 17,
+                "banker": 16,
                 "satellites": [
-                  6,
-                  12,
-                  15,
-                  21,
-                  22
+                  17,
+                  20,
+                  31,
+                  36,
+                  44
                 ],
-                "sum": 93,
-                "ac": 7,
-                "ac_index": 7,
-                "odds": 3,
-                "evens": 3,
+                "sum": 164,
+                "ac": 10,
+                "ac_index": 10,
+                "odds": 2,
+                "evens": 4,
                 "distinctTails": 5,
                 "passed_ac_filter": true
               },
@@ -26051,27 +26050,27 @@
                 "id": "banker_ticket_3",
                 "ticketIndex": 3,
                 "numbers": [
-                  15,
+                  6,
+                  9,
+                  12,
                   16,
-                  17,
-                  27,
-                  36,
+                  20,
                   43
                 ],
-                "banker": 17,
+                "banker": 16,
                 "satellites": [
-                  15,
-                  16,
-                  27,
-                  36,
+                  6,
+                  9,
+                  12,
+                  20,
                   43
                 ],
-                "sum": 154,
-                "ac": 9,
-                "ac_index": 9,
-                "odds": 4,
-                "evens": 2,
-                "distinctTails": 4,
+                "sum": 106,
+                "ac": 8,
+                "ac_index": 8,
+                "odds": 2,
+                "evens": 4,
+                "distinctTails": 5,
                 "passed_ac_filter": true
               },
               {
@@ -26079,25 +26078,25 @@
                 "ticketIndex": 4,
                 "numbers": [
                   6,
-                  9,
+                  12,
                   16,
                   17,
-                  21,
-                  27
+                  22,
+                  44
                 ],
-                "banker": 17,
+                "banker": 16,
                 "satellites": [
                   6,
-                  9,
-                  16,
-                  21,
-                  27
+                  12,
+                  17,
+                  22,
+                  44
                 ],
-                "sum": 96,
-                "ac": 8,
-                "ac_index": 8,
-                "odds": 4,
-                "evens": 2,
+                "sum": 117,
+                "ac": 7,
+                "ac_index": 7,
+                "odds": 1,
+                "evens": 5,
                 "distinctTails": 4,
                 "passed_ac_filter": true
               },
@@ -26105,26 +26104,26 @@
                 "id": "banker_ticket_5",
                 "ticketIndex": 5,
                 "numbers": [
+                  9,
                   12,
-                  15,
                   16,
                   17,
-                  21,
+                  20,
                   36
                 ],
-                "banker": 17,
+                "banker": 16,
                 "satellites": [
+                  9,
                   12,
-                  15,
-                  16,
-                  21,
+                  17,
+                  20,
                   36
                 ],
-                "sum": 117,
+                "sum": 110,
                 "ac": 7,
                 "ac_index": 7,
-                "odds": 3,
-                "evens": 3,
+                "odds": 2,
+                "evens": 4,
                 "distinctTails": 5,
                 "passed_ac_filter": true
               },
@@ -26133,32 +26132,32 @@
                 "ticketIndex": 6,
                 "numbers": [
                   6,
-                  9,
-                  17,
+                  16,
                   22,
-                  27,
-                  43
+                  31,
+                  43,
+                  44
                 ],
-                "banker": 17,
+                "banker": 16,
                 "satellites": [
                   6,
-                  9,
                   22,
-                  27,
-                  43
+                  31,
+                  43,
+                  44
                 ],
-                "sum": 124,
-                "ac": 7,
-                "ac_index": 7,
-                "odds": 4,
-                "evens": 2,
+                "sum": 162,
+                "ac": 10,
+                "ac_index": 10,
+                "odds": 2,
+                "evens": 4,
                 "distinctTails": 5,
                 "passed_ac_filter": true
               }
             ],
             "total_tickets": 6,
             "total_cost": 60000,
-            "win_guarantee_statement": "Cam kết bảo hiểm toán học: Cố định bóng chốt Bạch Thủ 17 trên 100% các vé. Khi bóng chốt nổ, chỉ cần trúng thêm 2 bóng trong dàn 10 vệ tinh là bảo đảm chắc chắn có ít nhất 1 vé trúng thưởng (tiết kiệm hơn 98% chi phí so với bao dàn)!",
+            "win_guarantee_statement": "Cam kết bảo hiểm toán học: Cố định bóng chốt Bạch Thủ 16 trên 100% các vé. Khi bóng chốt nổ, chỉ cần trúng thêm 2 bóng trong dàn 10 vệ tinh là bảo đảm chắc chắn có ít nhất 1 vé trúng thưởng (tiết kiệm hơn 98% chi phí so với bao dàn)!",
             "leverage_multiplier": "18.5x"
           }
         },
@@ -26176,32 +26175,30 @@
             ],
             "predicted": [
               6,
-              43,
               16,
+              31,
               36,
-              17,
-              22
+              22,
+              17
             ],
             "matched": [],
             "matchCount": 0,
             "corePool": [
               6,
-              43,
               16,
+              31,
               36,
-              17,
               22,
-              45,
-              27,
-              12,
+              17,
               38,
-              9,
-              31
+              45,
+              7,
+              44,
+              43,
+              35
             ],
-            "coreMatched": [
-              27
-            ],
-            "coreMatchCount": 1,
+            "coreMatched": [],
+            "coreMatchCount": 0,
             "triad": [
               25,
               4,
@@ -26214,18 +26211,18 @@
               4,
               17,
               6,
-              43
+              16
             ],
             "key5Matched": [],
             "key5MatchCount": 0,
             "optimalSeptet": {
               "numbers": [
                 6,
-                9,
-                12,
-                22,
+                7,
+                16,
                 31,
-                36,
+                35,
+                38,
                 43
               ],
               "special": null,
@@ -26239,13 +26236,13 @@
             "wheel4": {
               "ticketHits": [
                 0,
-                1,
                 0,
-                1,
                 0,
-                1
+                0,
+                0,
+                0
               ],
-              "maxHit": 1,
+              "maxHit": 0,
               "wonPrize": false
             }
           },
@@ -26264,9 +26261,9 @@
               16,
               17,
               36,
-              15,
               22,
-              3
+              31,
+              45
             ],
             "matched": [
               17,
@@ -26277,15 +26274,15 @@
               16,
               17,
               36,
-              15,
               22,
-              3,
-              45,
-              9,
-              37,
-              44,
               31,
-              11
+              45,
+              15,
+              44,
+              6,
+              9,
+              3,
+              37
             ],
             "coreMatched": [
               17,
@@ -26316,10 +26313,10 @@
             "optimalSeptet": {
               "numbers": [
                 3,
-                11,
+                6,
                 15,
                 17,
-                22,
+                37,
                 44,
                 45
               ],
@@ -26359,11 +26356,11 @@
             ],
             "predicted": [
               16,
-              45,
-              3,
               31,
               22,
-              39
+              45,
+              6,
+              36
             ],
             "matched": [
               22
@@ -26371,17 +26368,17 @@
             "matchCount": 1,
             "corePool": [
               16,
-              45,
-              3,
               31,
               22,
-              39,
-              15,
-              9,
+              45,
               6,
               36,
               44,
-              38
+              9,
+              3,
+              38,
+              39,
+              17
             ],
             "coreMatched": [
               9,
@@ -26399,26 +26396,29 @@
               5,
               43,
               16,
-              45,
-              3
+              31,
+              22
             ],
-            "key5Matched": [],
-            "key5MatchCount": 0,
+            "key5Matched": [
+              22
+            ],
+            "key5MatchCount": 1,
             "optimalSeptet": {
               "numbers": [
-                6,
+                3,
                 9,
-                15,
-                16,
-                31,
-                39,
-                44
+                17,
+                22,
+                36,
+                38,
+                39
               ],
               "special": null,
               "matched": [
-                9
+                9,
+                22
               ],
-              "matchCount": 1,
+              "matchCount": 2,
               "cost": 70000,
               "payout": 0,
               "netProfit": -70000,
@@ -26427,13 +26427,13 @@
             "wheel4": {
               "ticketHits": [
                 1,
-                1,
-                1,
+                2,
+                0,
                 1,
                 1,
                 1
               ],
-              "maxHit": 1,
+              "maxHit": 2,
               "wonPrize": false
             }
           },
@@ -26450,11 +26450,11 @@
             ],
             "predicted": [
               31,
+              16,
               45,
-              15,
-              3,
               6,
-              16
+              36,
+              22
             ],
             "matched": [
               16,
@@ -26463,17 +26463,17 @@
             "matchCount": 2,
             "corePool": [
               31,
-              45,
-              15,
-              3,
-              6,
               16,
-              7,
+              45,
+              6,
               36,
-              43,
-              19,
+              22,
+              15,
               17,
-              22
+              7,
+              44,
+              38,
+              3
             ],
             "coreMatched": [
               16,
@@ -26491,21 +26491,22 @@
               15,
               31,
               6,
-              45,
-              3
-            ],
-            "key5Matched": [
+              16,
               45
             ],
-            "key5MatchCount": 1,
+            "key5Matched": [
+              16,
+              45
+            ],
+            "key5MatchCount": 2,
             "optimalSeptet": {
               "numbers": [
                 3,
-                6,
                 7,
-                19,
-                36,
-                43,
+                15,
+                17,
+                38,
+                44,
                 45
               ],
               "special": null,
@@ -26521,9 +26522,9 @@
             "wheel4": {
               "ticketHits": [
                 2,
-                1,
-                0,
                 2,
+                0,
+                1,
                 1,
                 0
               ],
@@ -26543,28 +26544,28 @@
               44
             ],
             "predicted": [
-              31,
               16,
+              31,
               36,
               45,
-              33,
-              38
+              22,
+              33
             ],
             "matched": [],
             "matchCount": 0,
             "corePool": [
-              31,
               16,
+              31,
               36,
               45,
-              33,
-              38,
-              6,
               22,
+              33,
+              6,
+              38,
               15,
-              3,
-              39,
-              43
+              37,
+              17,
+              39
             ],
             "coreMatched": [
               6
@@ -26583,8 +26584,8 @@
               33,
               29,
               3,
-              31,
-              16
+              16,
+              31
             ],
             "key5Matched": [
               29
@@ -26592,13 +26593,13 @@
             "key5MatchCount": 1,
             "optimalSeptet": {
               "numbers": [
-                3,
                 6,
                 15,
+                16,
                 22,
                 33,
-                39,
-                43
+                36,
+                38
               ],
               "special": null,
               "matched": [
@@ -26635,27 +26636,27 @@
               45
             ],
             "predicted": [
-              31,
               16,
+              31,
               36,
               13,
-              35,
-              22
+              22,
+              17
             ],
             "matched": [],
             "matchCount": 0,
             "corePool": [
-              31,
               16,
+              31,
               36,
               13,
-              35,
               22,
-              40,
               17,
-              19,
               33,
-              44,
+              40,
+              35,
+              2,
+              19,
               7
             ],
             "coreMatched": [],
@@ -26673,8 +26674,8 @@
               13,
               35,
               3,
-              31,
-              16
+              16,
+              31
             ],
             "key5Matched": [
               3
@@ -26682,7 +26683,7 @@
             "key5MatchCount": 1,
             "optimalSeptet": {
               "numbers": [
-                7,
+                2,
                 13,
                 16,
                 17,
@@ -26724,9 +26725,9 @@
             ],
             "predicted": [
               36,
-              45,
-              31,
               16,
+              31,
+              45,
               41,
               43
             ],
@@ -26736,21 +26737,21 @@
             "matchCount": 1,
             "corePool": [
               36,
-              45,
-              31,
               16,
+              31,
+              45,
               41,
               43,
+              7,
+              11,
               35,
               44,
-              7,
               6,
-              11,
-              15
+              39
             ],
             "coreMatched": [
-              15,
-              36
+              36,
+              39
             ],
             "coreMatchCount": 2,
             "triad": [
@@ -26774,16 +26775,16 @@
             "optimalSeptet": {
               "numbers": [
                 6,
+                7,
                 11,
-                15,
                 16,
-                35,
-                41,
-                43
+                31,
+                39,
+                45
               ],
               "special": null,
               "matched": [
-                15
+                39
               ],
               "matchCount": 1,
               "cost": 70000,
@@ -26816,30 +26817,30 @@
               40
             ],
             "predicted": [
-              31,
               36,
-              35,
+              31,
               16,
+              35,
               30,
-              6
+              21
             ],
             "matched": [
               16
             ],
             "matchCount": 1,
             "corePool": [
-              31,
               36,
-              35,
+              31,
               16,
+              35,
               30,
+              21,
               6,
-              7,
-              17,
-              13,
-              43,
               45,
-              44
+              38,
+              13,
+              7,
+              34
             ],
             "coreMatched": [
               16
@@ -26858,8 +26859,8 @@
               21,
               30,
               16,
-              31,
-              36
+              36,
+              31
             ],
             "key5Matched": [
               16
@@ -26868,12 +26869,12 @@
             "optimalSeptet": {
               "numbers": [
                 6,
-                7,
                 13,
-                17,
+                21,
                 30,
-                35,
-                44
+                31,
+                34,
+                36
               ],
               "special": null,
               "matched": [],
@@ -26886,10 +26887,10 @@
             "wheel4": {
               "ticketHits": [
                 1,
-                0,
-                1,
                 1,
                 0,
+                0,
+                1,
                 0
               ],
               "maxHit": 1,
@@ -26908,10 +26909,10 @@
               39
             ],
             "predicted": [
-              36,
               31,
-              6,
+              36,
               45,
+              6,
               43,
               16
             ],
@@ -26920,18 +26921,18 @@
             ],
             "matchCount": 1,
             "corePool": [
-              36,
               31,
-              6,
+              36,
               45,
+              6,
               43,
               16,
-              44,
               7,
+              44,
               22,
               35,
-              9,
-              28
+              33,
+              9
             ],
             "coreMatched": [
               16,
@@ -26952,7 +26953,7 @@
               12,
               31,
               36,
-              6
+              45
             ],
             "key5Matched": [
               39
@@ -27005,11 +27006,11 @@
             ],
             "predicted": [
               31,
-              36,
               16,
+              36,
               6,
               15,
-              44
+              20
             ],
             "matched": [
               31
@@ -27017,17 +27018,17 @@
             "matchCount": 1,
             "corePool": [
               31,
-              36,
               16,
+              36,
               6,
               15,
-              44,
               20,
+              44,
+              12,
               35,
               19,
-              43,
-              12,
-              33
+              2,
+              43
             ],
             "coreMatched": [
               31,
@@ -27046,7 +27047,7 @@
               37,
               6,
               31,
-              36
+              16
             ],
             "key5Matched": [
               31
@@ -27054,20 +27055,19 @@
             "key5MatchCount": 1,
             "optimalSeptet": {
               "numbers": [
+                2,
                 6,
                 12,
-                15,
-                20,
-                31,
-                33,
-                43
+                19,
+                35,
+                43,
+                44
               ],
               "special": null,
               "matched": [
-                31,
                 43
               ],
-              "matchCount": 2,
+              "matchCount": 1,
               "cost": 70000,
               "payout": 0,
               "netProfit": -70000,
@@ -27077,12 +27077,12 @@
               "ticketHits": [
                 1,
                 1,
-                2,
                 1,
-                0,
+                1,
+                1,
                 1
               ],
-              "maxHit": 2,
+              "maxHit": 1,
               "wonPrize": false
             }
           },
@@ -27099,11 +27099,11 @@
             ],
             "predicted": [
               16,
-              31,
               45,
+              31,
               6,
-              36,
-              35
+              35,
+              36
             ],
             "matched": [
               6
@@ -27111,17 +27111,17 @@
             "matchCount": 1,
             "corePool": [
               16,
-              31,
               45,
+              31,
               6,
-              36,
               35,
-              33,
-              19,
+              36,
               2,
-              3,
+              33,
               43,
-              41
+              3,
+              19,
+              27
             ],
             "coreMatched": [
               6,
@@ -27144,7 +27144,7 @@
               38,
               6,
               16,
-              31
+              45
             ],
             "key5Matched": [
               6,
@@ -27155,10 +27155,10 @@
               "numbers": [
                 2,
                 3,
-                19,
+                16,
+                27,
                 33,
-                36,
-                41,
+                35,
                 45
               ],
               "special": null,
@@ -27174,14 +27174,14 @@
             "wheel4": {
               "ticketHits": [
                 1,
+                2,
                 1,
-                3,
-                1,
+                2,
                 1,
                 2
               ],
-              "maxHit": 3,
-              "wonPrize": true
+              "maxHit": 2,
+              "wonPrize": false
             }
           },
           {
@@ -27198,28 +27198,26 @@
             "predicted": [
               16,
               45,
-              31,
-              2,
               37,
-              36
+              2,
+              31,
+              11
             ],
-            "matched": [
-              36
-            ],
-            "matchCount": 1,
+            "matched": [],
+            "matchCount": 0,
             "corePool": [
               16,
               45,
-              31,
-              2,
               37,
-              36,
-              17,
+              2,
+              31,
               11,
+              36,
               6,
-              28,
+              17,
               43,
-              44
+              28,
+              32
             ],
             "coreMatched": [
               6,
@@ -27250,10 +27248,10 @@
               "numbers": [
                 2,
                 6,
-                11,
+                16,
                 17,
+                28,
                 37,
-                44,
                 45
               ],
               "special": null,
@@ -27268,12 +27266,12 @@
             },
             "wheel4": {
               "ticketHits": [
+                0,
+                2,
                 1,
                 1,
                 0,
-                1,
-                2,
-                1
+                2
               ],
               "maxHit": 2,
               "wonPrize": false
@@ -27294,9 +27292,9 @@
               16,
               36,
               2,
-              31,
               44,
-              17
+              31,
+              45
             ],
             "matched": [
               31,
@@ -27307,15 +27305,15 @@
               16,
               36,
               2,
-              31,
               44,
-              17,
-              6,
+              31,
               45,
-              27,
+              6,
+              17,
               41,
+              27,
               3,
-              20
+              38
             ],
             "coreMatched": [
               31,
@@ -27340,13 +27338,13 @@
             "key5MatchCount": 0,
             "optimalSeptet": {
               "numbers": [
+                2,
                 3,
-                16,
                 17,
-                20,
                 27,
-                36,
-                41
+                38,
+                41,
+                45
               ],
               "special": null,
               "matched": [],
@@ -27383,25 +27381,25 @@
             "predicted": [
               16,
               2,
-              31,
-              36,
+              44,
+              45,
               43,
-              44
+              37
             ],
             "matched": [],
             "matchCount": 0,
             "corePool": [
               16,
               2,
-              31,
-              36,
-              43,
               44,
               45,
-              6,
+              43,
               37,
-              30,
+              31,
+              36,
+              6,
               11,
+              30,
               27
             ],
             "coreMatched": [],
@@ -27465,28 +27463,30 @@
               35
             ],
             "predicted": [
-              16,
               45,
-              36,
-              2,
-              41,
-              6
-            ],
-            "matched": [],
-            "matchCount": 0,
-            "corePool": [
               16,
-              45,
-              36,
-              2,
               41,
-              6,
+              36,
               31,
+              2
+            ],
+            "matched": [
+              31
+            ],
+            "matchCount": 1,
+            "corePool": [
+              45,
+              16,
+              41,
+              36,
+              31,
+              2,
+              6,
               43,
-              30,
-              23,
               44,
-              3
+              3,
+              30,
+              23
             ],
             "coreMatched": [
               3,
@@ -27504,8 +27504,8 @@
               39,
               18,
               43,
-              16,
-              45
+              45,
+              16
             ],
             "key5Matched": [],
             "key5MatchCount": 0,
@@ -27531,12 +27531,12 @@
             },
             "wheel4": {
               "ticketHits": [
+                1,
                 0,
+                2,
                 1,
                 1,
-                1,
-                1,
-                2
+                1
               ],
               "maxHit": 2,
               "wonPrize": false
@@ -42223,9 +42223,9 @@
             "name": "Consensus Engine (Tổng Hợp)",
             "icon": "trophy",
             "color": "amber",
-            "avg_hits": 0.94,
+            "avg_hits": 0.86,
             "win_rate_ge3": 0.0,
-            "recent_10_hits": 8,
+            "recent_10_hits": 6,
             "form": "⚡ Phong độ tốt",
             "weight_pct": 100.0,
             "desc": "Hội đồng hợp lực 8 mô hình định lượng cao cấp tích hợp cơ chế xếp chồng Dynamic Alpha Stacking."
@@ -42239,7 +42239,7 @@
             "win_rate_ge3": 2.9,
             "recent_10_hits": 9,
             "form": "⚡ Ổn định",
-            "weight_pct": 13.5,
+            "weight_pct": 29.1,
             "desc": "Bộ lọc Kalman động học Bayes thích ứng cập nhật vận tốc xác suất tiềm ẩn."
           },
           {
@@ -42251,7 +42251,7 @@
             "win_rate_ge3": 2.9,
             "recent_10_hits": 8,
             "form": "⚡ Ổn định",
-            "weight_pct": 10.9,
+            "weight_pct": 10.0,
             "desc": "Tần suất suy giảm mũ kết hợp quán tính nhiệt alpha=0.055, chu kỳ bán rã 12.6 kỳ."
           },
           {
@@ -42263,7 +42263,7 @@
             "win_rate_ge3": 0.0,
             "recent_10_hits": 9,
             "form": "⚡ Ổn định",
-            "weight_pct": 11.3,
+            "weight_pct": 10.7,
             "desc": "Trung tâm mạng đồ thị liên kết đồng xuất hiện với bước nhảy ngẫu nhiên PageRank."
           },
           {
@@ -42275,7 +42275,7 @@
             "win_rate_ge3": 0.0,
             "recent_10_hits": 6,
             "form": "Chờ điểm rơi",
-            "weight_pct": 12.8,
+            "weight_pct": 9.4,
             "desc": "Mật độ xác suất điểm rơi Gauss chuẩn hóa theo độ lệch chuẩn chu kỳ nhịp riêng của từng quả bóng."
           },
           {
@@ -42287,7 +42287,7 @@
             "win_rate_ge3": 0.0,
             "recent_10_hits": 5,
             "form": "Chờ điểm rơi",
-            "weight_pct": 16.5,
+            "weight_pct": 7.7,
             "desc": "Phân rã đa sóng nhỏ Daubechies DWT kết hợp cộng hưởng phổ lọc nhiễu Hann."
           },
           {
@@ -42299,7 +42299,7 @@
             "win_rate_ge3": 0.0,
             "recent_10_hits": 5,
             "form": "Chờ điểm rơi",
-            "weight_pct": 12.0,
+            "weight_pct": 6.2,
             "desc": "Độ nâng lực hút cặp đôi kỳ trước kéo bóng kỳ sau với hiệu chỉnh Bayes chống quá khớp mẫu nhỏ."
           },
           {
@@ -42311,7 +42311,7 @@
             "win_rate_ge3": 0.0,
             "recent_10_hits": 8,
             "form": "⚡ Ổn định",
-            "weight_pct": 13.8,
+            "weight_pct": 21.2,
             "desc": "Mô hình cây quyết định Gradient Boosting học phi tuyến tính trên không gian đặc trưng 14 chiều."
           },
           {
@@ -42323,7 +42323,7 @@
             "win_rate_ge3": 0.0,
             "recent_10_hits": 8,
             "form": "⚡ Ổn định",
-            "weight_pct": 9.2,
+            "weight_pct": 5.7,
             "desc": "Thông tin tương hỗ dương chuẩn hóa Laplace đo lường lực hút chuyển trạng thái thực sự từ kỳ trước."
           },
           {
@@ -42342,272 +42342,272 @@
         "top_consensus_balls": [
           {
             "ball": 13,
-            "score": 7.5,
+            "score": 8.2,
             "agreement_count": 7,
             "agreement_pct": 87.5,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "markov": 0.7,
-              "hazard": 0.3,
-              "decay": 1.0,
-              "bac_nho": 0.7,
-              "fourier": 1.1,
+              "markov": 0.4,
+              "hazard": 0.2,
+              "decay": 0.9,
+              "bac_nho": 0.3,
+              "fourier": 0.5,
               "graph_pagerank": 1.1,
-              "state_space": 1.2,
-              "ml_ranker": 1.4
+              "state_space": 2.6,
+              "ml_ranker": 2.1
             }
           },
           {
             "ball": 22,
-            "score": 5.9,
+            "score": 6.0,
             "agreement_count": 5,
             "agreement_pct": 62.5,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "markov": 0.5,
+              "markov": 0.3,
               "hazard": 0.3,
-              "decay": 0.9,
-              "bac_nho": 0.4,
-              "fourier": 1.5,
+              "decay": 0.8,
+              "bac_nho": 0.2,
+              "fourier": 0.7,
               "graph_pagerank": 0.8,
-              "state_space": 1.3,
+              "state_space": 2.7,
               "ml_ranker": 0.2
             }
           },
           {
             "ball": 27,
-            "score": 5.3,
+            "score": 5.8,
             "agreement_count": 3,
             "agreement_pct": 37.5,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "markov": 0.4,
-              "hazard": 0.9,
-              "decay": 1.1,
-              "bac_nho": 0.3,
-              "fourier": 0.7,
-              "graph_pagerank": 0.3,
-              "state_space": 1.1,
-              "ml_ranker": 0.5
-            }
-          },
-          {
-            "ball": 15,
-            "score": 5.1,
-            "agreement_count": 4,
-            "agreement_pct": 50.0,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "markov": 0.4,
+              "markov": 0.3,
               "hazard": 0.7,
-              "decay": 0.7,
-              "bac_nho": 0.4,
-              "fourier": 1.2,
-              "graph_pagerank": 0.9,
-              "state_space": 0.5,
-              "ml_ranker": 0.2
-            }
-          },
-          {
-            "ball": 20,
-            "score": 5.0,
-            "agreement_count": 5,
-            "agreement_pct": 62.5,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "markov": 0.9,
-              "hazard": 0.5,
-              "decay": 0.8,
-              "bac_nho": 0.7,
-              "fourier": 0.6,
-              "graph_pagerank": 0.6,
-              "state_space": 0.6,
-              "ml_ranker": 0.2
-            }
-          },
-          {
-            "ball": 7,
-            "score": 4.8,
-            "agreement_count": 5,
-            "agreement_pct": 62.5,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "markov": 0.6,
-              "hazard": 1.1,
-              "decay": 0.6,
-              "bac_nho": 0.7,
-              "fourier": 0.5,
-              "graph_pagerank": 0.6,
-              "state_space": 0.3,
-              "ml_ranker": 0.4
+              "decay": 1.0,
+              "bac_nho": 0.2,
+              "fourier": 0.3,
+              "graph_pagerank": 0.3,
+              "state_space": 2.4,
+              "ml_ranker": 0.7
             }
           },
           {
             "ball": 5,
-            "score": 4.7,
+            "score": 5.3,
             "agreement_count": 4,
             "agreement_pct": 50.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "markov": 0.8,
-              "hazard": 0.4,
+              "markov": 0.5,
+              "hazard": 0.3,
               "decay": 0.3,
               "bac_nho": 0.1,
-              "fourier": 1.0,
+              "fourier": 0.5,
               "graph_pagerank": 0.1,
-              "state_space": 1.0,
-              "ml_ranker": 1.0
+              "state_space": 2.1,
+              "ml_ranker": 1.5
             }
           },
           {
-            "ball": 16,
-            "score": 4.7,
-            "agreement_count": 3,
-            "agreement_pct": 37.5,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "markov": 0.5,
-              "hazard": 0.7,
-              "decay": 0.8,
-              "bac_nho": 0.3,
-              "fourier": 1.2,
-              "graph_pagerank": 0.3,
-              "state_space": 0.6,
-              "ml_ranker": 0.3
-            }
-          },
-          {
-            "ball": 4,
-            "score": 4.4,
-            "agreement_count": 3,
-            "agreement_pct": 37.5,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "markov": 0.5,
-              "hazard": 0.7,
-              "decay": 0.6,
-              "bac_nho": 0.2,
-              "fourier": 1.4,
-              "graph_pagerank": 0.3,
-              "state_space": 0.6,
-              "ml_ranker": 0.3
-            }
-          },
-          {
-            "ball": 3,
-            "score": 4.3,
-            "agreement_count": 3,
-            "agreement_pct": 37.5,
-            "is_safe": true,
-            "trap_warning": false,
-            "breakdown": {
-              "markov": 0.5,
-              "hazard": 1.2,
-              "decay": 0.4,
-              "bac_nho": 0.6,
-              "fourier": 0.6,
-              "graph_pagerank": 0.3,
-              "state_space": 0.2,
-              "ml_ranker": 0.5
-            }
-          },
-          {
-            "ball": 8,
-            "score": 4.3,
+            "ball": 6,
+            "score": 5.0,
             "agreement_count": 2,
             "agreement_pct": 25.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "markov": 0.4,
-              "hazard": 0.6,
-              "decay": 0.3,
-              "bac_nho": 0.1,
-              "fourier": 1.7,
+              "markov": 0.2,
+              "hazard": 0.2,
+              "decay": 0.6,
+              "bac_nho": 0.0,
+              "fourier": 0.3,
               "graph_pagerank": 0.2,
-              "state_space": 0.4,
-              "ml_ranker": 0.7
+              "state_space": 2.9,
+              "ml_ranker": 0.6
             }
           },
           {
-            "ball": 9,
-            "score": 4.3,
+            "ball": 20,
+            "score": 4.6,
+            "agreement_count": 5,
+            "agreement_pct": 62.5,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 0.6,
+              "hazard": 0.3,
+              "decay": 0.7,
+              "bac_nho": 0.4,
+              "fourier": 0.3,
+              "graph_pagerank": 0.6,
+              "state_space": 1.4,
+              "ml_ranker": 0.3
+            }
+          },
+          {
+            "ball": 15,
+            "score": 4.4,
             "agreement_count": 4,
             "agreement_pct": 50.0,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "markov": 0.6,
-              "hazard": 1.1,
-              "decay": 0.5,
+              "markov": 0.3,
+              "hazard": 0.5,
+              "decay": 0.7,
               "bac_nho": 0.2,
-              "fourier": 0.5,
+              "fourier": 0.6,
               "graph_pagerank": 0.8,
-              "state_space": 0.2,
+              "state_space": 1.1,
+              "ml_ranker": 0.3
+            }
+          },
+          {
+            "ball": 16,
+            "score": 4.3,
+            "agreement_count": 3,
+            "agreement_pct": 37.5,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 0.3,
+              "hazard": 0.5,
+              "decay": 0.8,
+              "bac_nho": 0.1,
+              "fourier": 0.6,
+              "graph_pagerank": 0.3,
+              "state_space": 1.3,
               "ml_ranker": 0.4
             }
           },
           {
             "ball": 11,
-            "score": 4.1,
+            "score": 4.2,
             "agreement_count": 3,
             "agreement_pct": 37.5,
             "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "markov": 0.7,
-              "hazard": 0.3,
+              "markov": 0.5,
+              "hazard": 0.2,
               "decay": 0.6,
-              "bac_nho": 0.3,
-              "fourier": 0.7,
-              "graph_pagerank": 0.4,
-              "state_space": 0.9,
-              "ml_ranker": 0.2
+              "bac_nho": 0.2,
+              "fourier": 0.3,
+              "graph_pagerank": 0.3,
+              "state_space": 1.9,
+              "ml_ranker": 0.3
             }
           },
           {
-            "ball": 26,
+            "ball": 7,
             "score": 4.1,
-            "agreement_count": 2,
-            "agreement_pct": 25.0,
-            "is_safe": false,
+            "agreement_count": 5,
+            "agreement_pct": 62.5,
+            "is_safe": true,
             "trap_warning": false,
             "breakdown": {
-              "markov": 0.5,
+              "markov": 0.4,
               "hazard": 0.8,
-              "decay": 0.4,
-              "bac_nho": 0.2,
-              "fourier": 1.1,
-              "graph_pagerank": 0.2,
-              "state_space": 0.3,
+              "decay": 0.6,
+              "bac_nho": 0.4,
+              "fourier": 0.2,
+              "graph_pagerank": 0.6,
+              "state_space": 0.6,
               "ml_ranker": 0.6
             }
           },
           {
-            "ball": 30,
-            "score": 4.1,
+            "ball": 4,
+            "score": 4.0,
+            "agreement_count": 3,
+            "agreement_pct": 37.5,
+            "is_safe": true,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 0.3,
+              "hazard": 0.5,
+              "decay": 0.5,
+              "bac_nho": 0.1,
+              "fourier": 0.6,
+              "graph_pagerank": 0.3,
+              "state_space": 1.2,
+              "ml_ranker": 0.4
+            }
+          },
+          {
+            "ball": 17,
+            "score": 4.0,
             "agreement_count": 2,
             "agreement_pct": 25.0,
             "is_safe": false,
             "trap_warning": false,
             "breakdown": {
-              "markov": 0.6,
-              "hazard": 0.5,
-              "decay": 0.5,
+              "markov": 0.2,
+              "hazard": 0.7,
+              "decay": 0.3,
               "bac_nho": 0.1,
-              "fourier": 1.3,
+              "fourier": 0.2,
               "graph_pagerank": 0.2,
-              "state_space": 0.7,
-              "ml_ranker": 0.2
+              "state_space": 0.3,
+              "ml_ranker": 1.9
+            }
+          },
+          {
+            "ball": 8,
+            "score": 3.9,
+            "agreement_count": 2,
+            "agreement_pct": 25.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 0.3,
+              "hazard": 0.4,
+              "decay": 0.3,
+              "bac_nho": 0.0,
+              "fourier": 0.8,
+              "graph_pagerank": 0.2,
+              "state_space": 0.9,
+              "ml_ranker": 1.0
+            }
+          },
+          {
+            "ball": 10,
+            "score": 3.9,
+            "agreement_count": 2,
+            "agreement_pct": 25.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 0.3,
+              "hazard": 0.3,
+              "decay": 0.4,
+              "bac_nho": 0.1,
+              "fourier": 0.5,
+              "graph_pagerank": 0.2,
+              "state_space": 1.6,
+              "ml_ranker": 0.5
+            }
+          },
+          {
+            "ball": 30,
+            "score": 3.8,
+            "agreement_count": 2,
+            "agreement_pct": 25.0,
+            "is_safe": false,
+            "trap_warning": false,
+            "breakdown": {
+              "markov": 0.3,
+              "hazard": 0.4,
+              "decay": 0.4,
+              "bac_nho": 0.1,
+              "fourier": 0.6,
+              "graph_pagerank": 0.2,
+              "state_space": 1.5,
+              "ml_ranker": 0.3
             }
           }
         ],
@@ -42885,18 +42885,18 @@
           ]
         },
         "bankroll_advisory": {
-          "ccs_score": 71.9,
-          "tier_level": 2,
-          "tier_name": "Tín Hiệu Khả Quan (Moderate Convergence)",
-          "tier_badge": "bg-sky-500/20 text-sky-300 border-sky-500/40",
-          "recommended_action": "Đánh Vé Golden Markowitz + Kiềng 3 Chân Triad",
-          "recommended_budget": 20000,
+          "ccs_score": 79.2,
+          "tier_level": 3,
+          "tier_name": "Điểm Rơi Vàng (Super-Convergence)",
+          "tier_badge": "bg-emerald-500/20 text-emerald-300 border-emerald-500/40",
+          "recommended_action": "Kích hoạt Dàn Bọc Lót 6 Vé C(v, k, 3)",
+          "recommended_budget": 60000,
           "breakdown": {
-            "agreement_score": 50.0,
-            "entropy_score": 77.0,
+            "agreement_score": 47.9,
+            "entropy_score": 100.0,
             "pull_score": 100.0
           },
-          "rationale": "Đa số mô hình hội tụ tốt. Khuyến nghị phối hợp 1 vé Golden Markowitz và 1 vé Triad để bảo toàn vốn."
+          "rationale": "Đồng thuận hội tụ cực mạnh giữa các mô hình (>= 6/8) và xung lực kéo liên kỳ đạt đỉnh. Tỷ lệ ăn giải của Dàn bọc lót đạt mức tối ưu."
         },
         "elimination_analytics": {
           "eliminated_count": 9,
@@ -43010,18 +43010,18 @@
             "min_ac_threshold": 4
           },
           "trained_model_weights": {
-            "markov": 9.2,
-            "hazard": 12.8,
-            "decay": 10.9,
-            "bac_nho": 12.0,
-            "fourier": 16.5,
-            "graph_pagerank": 11.3,
-            "state_space": 13.5,
-            "ml_ranker": 13.8
+            "markov": 5.7,
+            "hazard": 9.4,
+            "decay": 10.0,
+            "bac_nho": 6.2,
+            "fourier": 7.7,
+            "graph_pagerank": 10.7,
+            "state_space": 29.1,
+            "ml_ranker": 21.2
           },
           "negative_space_compliance": "100% Đạt Chuẩn (5/5 Bộ Lọc)",
           "accuracy_gain_vs_random": {
-            "avg_hits_improvement_pct": 32.8,
+            "avg_hits_improvement_pct": 20.7,
             "hit_rate_ge3": 0.0,
             "baseline_random_avg": 0.71
           }
@@ -43062,26 +43062,26 @@
             "win_rate_ge2": 5.7
           },
           "key5_backtest": {
-            "avg_hits": 0.69,
-            "win_rate_ge1": 51.4,
-            "win_rate_ge2": 14.3
+            "avg_hits": 0.77,
+            "win_rate_ge1": 57.1,
+            "win_rate_ge2": 17.1
           },
           "core_pool": [
             13,
             22,
             27,
-            15,
-            20,
-            7,
             5,
+            6,
+            20,
+            15,
             16,
-            4,
-            3
+            11,
+            7
           ],
           "core_backtest": {
             "pool_size": 10,
-            "avg_hits": 1.51,
-            "win_rate_ge3": 8.6,
+            "avg_hits": 1.49,
+            "win_rate_ge3": 14.3,
             "win_rate_ge4": 0.0,
             "win_rate_ge5": 0.0
           },
@@ -43090,9 +43090,9 @@
               "id": "wheel_1",
               "label": "Vé 1",
               "numbers": [
+                5,
+                6,
                 13,
-                15,
-                20,
                 22,
                 27
               ],
@@ -43102,10 +43102,10 @@
               "id": "wheel_2",
               "label": "Vé 2",
               "numbers": [
-                5,
-                7,
                 13,
+                15,
                 16,
+                20,
                 22
               ],
               "special": 12
@@ -43114,10 +43114,10 @@
               "id": "wheel_3",
               "label": "Vé 3",
               "numbers": [
-                3,
-                4,
                 7,
+                11,
                 13,
+                20,
                 27
               ],
               "special": 12
@@ -43126,9 +43126,9 @@
               "id": "wheel_4",
               "label": "Vé 4",
               "numbers": [
-                3,
-                4,
                 5,
+                7,
+                11,
                 15,
                 22
               ],
@@ -43138,10 +43138,10 @@
               "id": "wheel_5",
               "label": "Vé 5",
               "numbers": [
-                4,
-                5,
+                6,
+                11,
+                15,
                 16,
-                20,
                 27
               ],
               "special": 12
@@ -43150,9 +43150,9 @@
               "id": "wheel_6",
               "label": "Vé 6",
               "numbers": [
-                3,
+                5,
+                6,
                 7,
-                15,
                 16,
                 20
               ],
@@ -43164,9 +43164,9 @@
               "id": "ve_1",
               "label": "Vé 1",
               "numbers": [
+                5,
+                6,
                 13,
-                15,
-                20,
                 22,
                 27
               ],
@@ -43176,11 +43176,11 @@
               "id": "ve_2",
               "label": "Vé 2",
               "numbers": [
-                4,
-                5,
-                7,
+                11,
                 13,
-                16
+                15,
+                16,
+                20
               ],
               "special": 12
             },
@@ -43188,9 +43188,9 @@
               "id": "ve_3",
               "label": "Vé 3",
               "numbers": [
-                3,
-                5,
                 7,
+                15,
+                20,
                 22,
                 27
               ],
@@ -43200,17 +43200,17 @@
               "id": "ve_4",
               "label": "Vé 4",
               "numbers": [
-                3,
-                4,
-                15,
-                16,
-                20
+                5,
+                6,
+                7,
+                11,
+                16
               ],
               "special": 12
             }
           ],
           "wheel_backtest": {
-            "overall_prize_win_rate": 0.0,
+            "overall_prize_win_rate": 5.7,
             "core_ge4_count": 0,
             "core_ge4_win_rate": 0.0,
             "guarantee_coverage": {
@@ -43223,7 +43223,7 @@
             }
           },
           "wheel4_backtest": {
-            "overall_prize_win_rate": 0.0,
+            "overall_prize_win_rate": 5.7,
             "core_ge4_count": 0,
             "core_ge4_win_rate": 0.0,
             "guarantee_coverage": {
@@ -43237,14 +43237,14 @@
           },
           "golden": {
             "numbers": [
-              3,
-              7,
+              6,
               13,
-              20,
-              22
+              16,
+              17,
+              27
             ],
-            "ac_index": 6,
-            "sum": 65,
+            "ac_index": 4,
+            "sum": 79,
             "odd_even": "2C - 3L",
             "sei_score": 10.0,
             "special": 12,
@@ -43255,18 +43255,18 @@
                 "passed": true,
                 "score_pass": 5,
                 "sum": {
-                  "val": 65,
+                  "val": 79,
                   "min": 60,
                   "max": 120,
                   "passed": true
                 },
                 "ac": {
-                  "val": 6,
+                  "val": 4,
                   "threshold": 4,
                   "passed": true
                 },
                 "consecutive": {
-                  "max_len": 1,
+                  "max_len": 2,
                   "passed": true
                 },
                 "parity": {
@@ -43281,14 +43281,14 @@
               }
             },
             "optimization_type": "Markowitz Constrained Portfolio",
-            "expected_return": 27.5,
-            "covariance_risk_penalty": -0.4054,
-            "objective_utility": 27.9054,
+            "expected_return": 27.3,
+            "covariance_risk_penalty": -0.8139,
+            "objective_utility": 28.1139,
             "louvain_spread": {
               "distinct_clusters_count": 3,
               "cluster_distribution": {
+                "C0": 1,
                 "C1": 2,
-                "C2": 1,
                 "C3": 2
               }
             }
@@ -43379,7 +43379,7 @@
           },
           "optimal_septet": {
             "numbers": [
-              4,
+              6,
               7,
               16,
               20,
@@ -43388,11 +43388,11 @@
             ],
             "special": 12,
             "ac_index": 10,
-            "sum": 96,
+            "sum": 98,
             "odd_even": "4C - 2L",
-            "alpha_score": 103.33,
-            "lift_score": 21.06,
-            "span": 23,
+            "alpha_score": 98.77,
+            "lift_score": 18.96,
+            "span": 21,
             "state_composition": {
               "hot": 5,
               "warm": 1,
@@ -43412,13 +43412,13 @@
             "win_rate_ge5": 0.0,
             "hit_6_plus": 0,
             "total_cost": 2100000,
-            "total_payout": 860000,
-            "net_profit": -1240000,
-            "roi_pct": -59.0
+            "total_payout": 1090000,
+            "net_profit": -1010000,
+            "roi_pct": -48.1
           },
           "bao7": {
             "numbers": [
-              4,
+              6,
               7,
               16,
               20,
@@ -43434,12 +43434,12 @@
           "banker_wheeling": {
             "banker": 13,
             "satellite_pool": [
-              3,
               4,
               5,
               7,
               8,
-              9,
+              10,
+              11,
               15,
               16,
               20,
@@ -43451,20 +43451,20 @@
                 "id": "banker_ticket_1",
                 "ticketIndex": 1,
                 "numbers": [
-                  4,
                   7,
-                  9,
+                  10,
                   13,
+                  15,
                   22
                 ],
                 "banker": 13,
                 "satellites": [
-                  4,
                   7,
-                  9,
+                  10,
+                  15,
                   22
                 ],
-                "sum": 55,
+                "sum": 67,
                 "ac": 5,
                 "ac_index": 5,
                 "odds": 3,
@@ -43476,49 +43476,49 @@
                 "id": "banker_ticket_2",
                 "ticketIndex": 2,
                 "numbers": [
-                  3,
-                  5,
-                  7,
+                  4,
+                  11,
                   13,
+                  15,
                   16
                 ],
                 "banker": 13,
                 "satellites": [
-                  3,
-                  5,
-                  7,
+                  4,
+                  11,
+                  15,
                   16
                 ],
-                "sum": 44,
+                "sum": 59,
                 "ac": 5,
                 "ac_index": 5,
-                "odds": 4,
-                "evens": 1,
-                "distinctTails": 4,
+                "odds": 3,
+                "evens": 2,
+                "distinctTails": 5,
                 "passed_ac_filter": true
               },
               {
                 "id": "banker_ticket_3",
                 "ticketIndex": 3,
                 "numbers": [
-                  4,
+                  5,
+                  7,
+                  11,
                   13,
-                  15,
-                  16,
                   20
                 ],
                 "banker": 13,
                 "satellites": [
-                  4,
-                  15,
-                  16,
+                  5,
+                  7,
+                  11,
                   20
                 ],
-                "sum": 68,
-                "ac": 6,
-                "ac_index": 6,
-                "odds": 2,
-                "evens": 3,
+                "sum": 56,
+                "ac": 4,
+                "ac_index": 4,
+                "odds": 4,
+                "evens": 1,
                 "distinctTails": 5,
                 "passed_ac_filter": true
               },
@@ -43526,74 +43526,74 @@
                 "id": "banker_ticket_4",
                 "ticketIndex": 4,
                 "numbers": [
-                  5,
                   8,
-                  9,
+                  10,
                   13,
+                  16,
                   20
                 ],
                 "banker": 13,
                 "satellites": [
-                  5,
                   8,
-                  9,
+                  10,
+                  16,
                   20
                 ],
-                "sum": 55,
+                "sum": 67,
                 "ac": 5,
                 "ac_index": 5,
-                "odds": 3,
-                "evens": 2,
-                "distinctTails": 5,
+                "odds": 1,
+                "evens": 4,
+                "distinctTails": 4,
                 "passed_ac_filter": true
               },
               {
                 "id": "banker_ticket_5",
                 "ticketIndex": 5,
                 "numbers": [
-                  3,
+                  4,
+                  5,
                   8,
                   13,
-                  15,
                   22
                 ],
                 "banker": 13,
                 "satellites": [
-                  3,
+                  4,
+                  5,
                   8,
-                  15,
                   22
                 ],
-                "sum": 61,
-                "ac": 4,
-                "ac_index": 4,
-                "odds": 3,
-                "evens": 2,
-                "distinctTails": 4,
+                "sum": 52,
+                "ac": 5,
+                "ac_index": 5,
+                "odds": 2,
+                "evens": 3,
+                "distinctTails": 5,
                 "passed_ac_filter": true
               },
               {
                 "id": "banker_ticket_6",
                 "ticketIndex": 6,
                 "numbers": [
-                  3,
-                  7,
-                  9,
+                  4,
+                  10,
                   13,
+                  15,
                   20
                 ],
                 "banker": 13,
                 "satellites": [
-                  3,
-                  7,
-                  9,
+                  4,
+                  10,
+                  15,
                   20
                 ],
-                "sum": 52,
-                "ac": 4,
-                "ac_index": 4,
-                "odds": 4,
-                "evens": 1,
+                "sum": 62,
+                "ac": 5,
+                "ac_index": 5,
+                "odds": 2,
+                "evens": 3,
                 "distinctTails": 4,
                 "passed_ac_filter": true
               }
@@ -43616,33 +43616,34 @@
               25
             ],
             "predicted": [
-              9,
+              27,
+              10,
               15,
               13,
-              7,
-              4
+              16
             ],
             "matched": [
               13
             ],
             "matchCount": 1,
             "corePool": [
-              9,
+              27,
+              10,
               15,
               13,
-              7,
-              4,
               16,
-              10,
-              27,
-              2,
-              22
+              7,
+              22,
+              9,
+              4,
+              6
             ],
             "coreMatched": [
+              6,
               13,
               22
             ],
-            "coreMatchCount": 2,
+            "coreMatchCount": 3,
             "triad": [
               25,
               7,
@@ -43656,8 +43657,8 @@
               25,
               7,
               20,
-              9,
-              15
+              27,
+              10
             ],
             "key5Matched": [
               25
@@ -43665,34 +43666,35 @@
             "key5MatchCount": 1,
             "optimalSeptet": {
               "numbers": [
-                2,
+                6,
+                7,
                 9,
-                10,
-                13,
                 15,
+                22,
                 27
               ],
               "special": 12,
               "matched": [
-                13
+                6,
+                22
               ],
-              "matchCount": 1,
+              "matchCount": 2,
               "cost": 60000,
-              "payout": 0,
-              "netProfit": -60000,
-              "prizeDetail": "Không trúng"
+              "payout": 120000,
+              "netProfit": 60000,
+              "prizeDetail": "6 Giải Năm (120k)"
             },
             "wheel4": {
               "ticketHits": [
                 1,
-                0,
-                2,
                 1,
                 1,
-                1
+                3,
+                1,
+                2
               ],
-              "maxHit": 2,
-              "wonPrize": false
+              "maxHit": 3,
+              "wonPrize": true
             }
           },
           {
@@ -43720,16 +43722,14 @@
               16,
               22,
               15,
+              4,
+              7,
               34,
               23,
-              7,
-              9,
-              20
+              8
             ],
-            "coreMatched": [
-              20
-            ],
-            "coreMatchCount": 1,
+            "coreMatched": [],
+            "coreMatchCount": 0,
             "triad": [
               22,
               17,
@@ -43748,18 +43748,16 @@
             "key5MatchCount": 0,
             "optimalSeptet": {
               "numbers": [
-                7,
-                9,
-                15,
+                4,
+                8,
+                13,
                 16,
-                20,
+                27,
                 34
               ],
               "special": 12,
-              "matched": [
-                20
-              ],
-              "matchCount": 1,
+              "matched": [],
+              "matchCount": 0,
               "cost": 60000,
               "payout": 0,
               "netProfit": -60000,
@@ -43769,12 +43767,12 @@
               "ticketHits": [
                 0,
                 0,
-                1,
-                1,
                 0,
-                1
+                0,
+                0,
+                0
               ],
-              "maxHit": 1,
+              "maxHit": 0,
               "wonPrize": false
             }
           },
@@ -43792,25 +43790,24 @@
               27,
               16,
               15,
-              13,
-              23
+              22,
+              19
             ],
             "matched": [
-              13,
               27
             ],
-            "matchCount": 2,
+            "matchCount": 1,
             "corePool": [
               27,
               16,
               15,
-              13,
-              23,
-              2,
-              19,
               22,
-              18,
-              9
+              19,
+              2,
+              23,
+              9,
+              13,
+              7
             ],
             "coreMatched": [
               13,
@@ -43838,30 +43835,31 @@
             "optimalSeptet": {
               "numbers": [
                 2,
+                13,
                 15,
-                16,
-                18,
+                22,
                 23,
                 27
               ],
               "special": 7,
               "matched": [
+                13,
                 27
               ],
-              "matchCount": 1,
+              "matchCount": 2,
               "cost": 60000,
-              "payout": 0,
-              "netProfit": -60000,
-              "prizeDetail": "Không trúng"
+              "payout": 120000,
+              "netProfit": 60000,
+              "prizeDetail": "6 Giải Năm (120k)"
             },
             "wheel4": {
               "ticketHits": [
+                1,
+                1,
                 2,
                 1,
                 1,
-                1,
-                0,
-                1
+                0
               ],
               "maxHit": 2,
               "wonPrize": false
@@ -43880,9 +43878,9 @@
             "predicted": [
               27,
               23,
+              19,
               7,
-              20,
-              19
+              18
             ],
             "matched": [
               27
@@ -43891,14 +43889,14 @@
             "corePool": [
               27,
               23,
-              7,
-              20,
               19,
+              7,
               18,
+              20,
               28,
               9,
-              12,
-              16
+              16,
+              12
             ],
             "coreMatched": [
               16,
@@ -43951,8 +43949,8 @@
                 1,
                 2,
                 1,
-                0,
-                1
+                1,
+                0
               ],
               "maxHit": 2,
               "wonPrize": false
@@ -43970,10 +43968,10 @@
             ],
             "predicted": [
               27,
-              18,
-              20,
               3,
-              7
+              23,
+              13,
+              20
             ],
             "matched": [
               27
@@ -43981,15 +43979,15 @@
             "matchCount": 1,
             "corePool": [
               27,
-              18,
-              20,
               3,
-              7,
-              13,
-              9,
               23,
-              15,
-              17
+              13,
+              20,
+              18,
+              7,
+              19,
+              9,
+              15
             ],
             "coreMatched": [
               27
@@ -44007,7 +44005,7 @@
               11,
               15,
               27,
-              18
+              3
             ],
             "key5Matched": [
               27
@@ -44015,8 +44013,8 @@
             "key5MatchCount": 1,
             "optimalSeptet": {
               "numbers": [
-                3,
-                17,
+                7,
+                13,
                 18,
                 20,
                 23,
@@ -44056,24 +44054,24 @@
               27
             ],
             "predicted": [
-              7,
-              18,
               13,
+              7,
               23,
-              16
+              18,
+              12
             ],
             "matched": [],
             "matchCount": 0,
             "corePool": [
-              7,
-              18,
               13,
+              7,
               23,
-              16,
+              18,
+              12,
               19,
               20,
+              16,
               27,
-              22,
               15
             ],
             "coreMatched": [
@@ -44092,8 +44090,8 @@
               6,
               12,
               19,
-              7,
-              18
+              13,
+              7
             ],
             "key5Matched": [],
             "key5MatchCount": 0,
@@ -44102,7 +44100,7 @@
                 7,
                 13,
                 15,
-                22,
+                16,
                 23,
                 27
               ],
@@ -44120,11 +44118,11 @@
             "wheel4": {
               "ticketHits": [
                 0,
+                0,
+                2,
+                2,
                 1,
-                1,
-                1,
-                1,
-                2
+                1
               ],
               "maxHit": 2,
               "wonPrize": false
@@ -44143,28 +44141,26 @@
             "predicted": [
               13,
               20,
+              23,
               18,
-              9,
-              23
+              7
             ],
             "matched": [],
             "matchCount": 0,
             "corePool": [
               13,
               20,
-              18,
-              9,
               23,
-              16,
+              18,
               7,
+              9,
+              16,
               15,
-              3,
-              19
+              17,
+              3
             ],
-            "coreMatched": [
-              19
-            ],
-            "coreMatchCount": 1,
+            "coreMatched": [],
+            "coreMatchCount": 0,
             "triad": [
               16,
               25,
@@ -44184,8 +44180,8 @@
             "optimalSeptet": {
               "numbers": [
                 3,
-                9,
-                16,
+                7,
+                17,
                 18,
                 20,
                 23
@@ -44202,12 +44198,12 @@
               "ticketHits": [
                 0,
                 0,
-                1,
-                1,
                 0,
-                1
+                0,
+                0,
+                0
               ],
-              "maxHit": 1,
+              "maxHit": 0,
               "wonPrize": false
             }
           },
@@ -44223,33 +44219,33 @@
             ],
             "predicted": [
               13,
-              12,
-              9,
+              16,
               23,
-              16
+              20,
+              22
             ],
             "matched": [
-              9,
               13
             ],
-            "matchCount": 2,
+            "matchCount": 1,
             "corePool": [
               13,
-              12,
-              9,
-              23,
               16,
-              15,
-              22,
+              23,
               20,
-              18,
-              26
+              22,
+              12,
+              26,
+              7,
+              9,
+              18
             ],
             "coreMatched": [
+              7,
               9,
               13
             ],
-            "coreMatchCount": 2,
+            "coreMatchCount": 3,
             "triad": [
               12,
               22,
@@ -44264,27 +44260,26 @@
               22,
               7,
               13,
-              9
+              16
             ],
             "key5Matched": [
               7,
-              9,
               13
             ],
-            "key5MatchCount": 3,
+            "key5MatchCount": 2,
             "optimalSeptet": {
               "numbers": [
+                7,
                 9,
-                13,
-                15,
-                22,
-                23,
+                12,
+                16,
+                20,
                 26
               ],
               "special": 7,
               "matched": [
-                9,
-                13
+                7,
+                9
               ],
               "matchCount": 2,
               "cost": 60000,
@@ -44294,12 +44289,12 @@
             },
             "wheel4": {
               "ticketHits": [
+                1,
+                2,
                 2,
                 1,
                 2,
-                0,
-                1,
-                0
+                1
               ],
               "maxHit": 2,
               "wonPrize": false
@@ -44316,10 +44311,10 @@
               23
             ],
             "predicted": [
+              3,
               13,
-              20,
-              15,
-              18,
+              12,
+              22,
               23
             ],
             "matched": [
@@ -44327,16 +44322,16 @@
             ],
             "matchCount": 1,
             "corePool": [
-              13,
-              20,
-              15,
-              18,
-              23,
-              12,
-              11,
-              9,
               3,
-              29
+              13,
+              12,
+              22,
+              23,
+              30,
+              20,
+              11,
+              26,
+              2
             ],
             "coreMatched": [
               23
@@ -44356,7 +44351,7 @@
               3,
               7,
               13,
-              20
+              12
             ],
             "key5Matched": [
               7
@@ -44364,12 +44359,12 @@
             "key5MatchCount": 1,
             "optimalSeptet": {
               "numbers": [
+                2,
                 3,
-                11,
-                18,
-                20,
+                12,
                 23,
-                29
+                26,
+                30
               ],
               "special": 7,
               "matched": [
@@ -44407,21 +44402,21 @@
             "predicted": [
               20,
               23,
-              13,
               11,
-              22
+              22,
+              13
             ],
             "matched": [],
             "matchCount": 0,
             "corePool": [
               20,
               23,
-              13,
               11,
               22,
+              13,
+              16,
               18,
               12,
-              16,
               15,
               24
             ],
@@ -44439,7 +44434,7 @@
               30,
               20,
               23,
-              13
+              11
             ],
             "key5Matched": [],
             "key5MatchCount": 0,
@@ -44486,8 +44481,8 @@
             "predicted": [
               12,
               22,
-              18,
               11,
+              18,
               20
             ],
             "matched": [
@@ -44498,12 +44493,12 @@
             "corePool": [
               12,
               22,
-              18,
               11,
+              18,
               20,
               13,
-              3,
               23,
+              3,
               27,
               9
             ],
@@ -44557,10 +44552,10 @@
               "ticketHits": [
                 2,
                 0,
-                1,
                 0,
-                2,
-                1
+                1,
+                1,
+                2
               ],
               "maxHit": 2,
               "wonPrize": false
@@ -44593,9 +44588,9 @@
               20,
               23,
               15,
-              12,
               18,
               22,
+              12,
               11,
               2
             ],
@@ -44660,8 +44655,8 @@
               24
             ],
             "predicted": [
-              12,
               23,
+              12,
               22,
               11,
               2
@@ -44672,16 +44667,16 @@
             ],
             "matchCount": 2,
             "corePool": [
-              12,
               23,
+              12,
               22,
               11,
               2,
               13,
               15,
-              4,
+              16,
               18,
-              16
+              4
             ],
             "coreMatched": [
               11,
@@ -44700,8 +44695,8 @@
               4,
               5,
               18,
-              12,
-              23
+              23,
+              12
             ],
             "key5Matched": [
               23
@@ -44730,8 +44725,8 @@
               "ticketHits": [
                 2,
                 2,
-                1,
                 2,
+                1,
                 0,
                 2
               ],
@@ -44750,8 +44745,8 @@
               29
             ],
             "predicted": [
-              13,
               9,
+              13,
               23,
               22,
               18
@@ -44761,16 +44756,16 @@
             ],
             "matchCount": 1,
             "corePool": [
-              13,
               9,
+              13,
               23,
               22,
               18,
-              11,
               15,
-              3,
+              11,
               20,
-              2
+              2,
+              3
             ],
             "coreMatched": [
               18,
@@ -44788,8 +44783,8 @@
               11,
               5,
               15,
-              13,
-              9
+              9,
+              13
             ],
             "key5Matched": [],
             "key5MatchCount": 0,
@@ -44815,11 +44810,11 @@
             "wheel4": {
               "ticketHits": [
                 1,
+                1,
                 0,
-                1,
-                1,
+                0,
                 2,
-                1
+                2
               ],
               "maxHit": 2,
               "wonPrize": false
@@ -44855,8 +44850,8 @@
               2,
               11,
               12,
-              9,
-              18
+              18,
+              9
             ],
             "coreMatched": [
               9,
@@ -44908,8 +44903,8 @@
                 0,
                 1,
                 2,
-                1,
-                1
+                0,
+                2
               ],
               "maxHit": 2,
               "wonPrize": false

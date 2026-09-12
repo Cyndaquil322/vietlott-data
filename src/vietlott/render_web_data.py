@@ -1438,6 +1438,7 @@ def main():
     print(f"Reading lottery data from {DATA_DIR}...")
     summary_data = generate_web_summary(DATA_DIR)
 
+    # 1. Xuất bản tệp tổng hợp vietlott_summary.json (tương thích ngược 100%)
     for out_dir in [DOCS_DATA_DIR, DATA_DIR]:
         out_dir.mkdir(parents=True, exist_ok=True)
         output_path = out_dir / "vietlott_summary.json"
@@ -1447,6 +1448,24 @@ def main():
         tmp_path.replace(output_path)
         file_size_kb = output_path.stat().st_size / 1024
         print(f"Successfully generated {output_path} ({file_size_kb:.1f} KB)")
+
+    # 2. Xuất bản tệp Sharded theo từng Game (Data Sharding cho Mobile & Tốc độ tải)
+    products = summary_data.get("products", {})
+    for out_dir in [DOCS_DATA_DIR, DATA_DIR]:
+        shards_dir = out_dir / "products"
+        shards_dir.mkdir(parents=True, exist_ok=True)
+        for prod_key, prod_val in products.items():
+            shard_payload = {
+                "updated_at": summary_data.get("updated_at"),
+                "product_key": prod_key,
+                "product": prod_val,
+            }
+            shard_file = shards_dir / f"{prod_key}.json"
+            tmp_shard = shard_file.with_suffix(".json.tmp")
+            with open(tmp_shard, "w", encoding="utf-8") as f:
+                json.dump(shard_payload, f, ensure_ascii=False, indent=2)
+            tmp_shard.replace(shard_file)
+        print(f"Successfully exported {len(products)} sharded game files to {shards_dir}")
 
 
 __all__ = [
