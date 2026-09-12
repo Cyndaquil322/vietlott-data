@@ -599,7 +599,186 @@
         }).join('');
       }
 
+      // 7. Real-time Prediction Ledger Rendering
+      renderPredictionLedger(product);
+
       lucide.createIcons();
+    }
+
+    let currentLedgerFilter = 'all';
+
+    function renderPredictionLedger(product) {
+      if (!product) return;
+      const ledger = product.prediction_ledger;
+      const section = document.getElementById('prediction-ledger-section');
+      if (!section) return;
+
+      if (!ledger || !ledger.total_tracked_draws) {
+        // Nếu sản phẩm không có ledger (keno, 3d)
+        section.classList.add('hidden');
+        return;
+      }
+      section.classList.remove('hidden');
+
+      // 1. KPI Cards
+      const winRateEl = document.getElementById('ledgerKpiWinRate');
+      if (winRateEl) winRateEl.textContent = `${ledger.overall_win_rate_pct || 0}%`;
+
+      const totalTrackedEl = document.getElementById('ledgerKpiTotalTracked');
+      if (totalTrackedEl) totalTrackedEl.textContent = `Đã đối soát ${ledger.total_tracked_draws || 0} kỳ`;
+
+      const pnl = ledger.cumulative_pnl || {};
+      const roiEl = document.getElementById('ledgerKpiRoi');
+      if (roiEl) {
+        const rVal = pnl.roi_pct || 0;
+        roiEl.textContent = `${rVal >= 0 ? '+' : ''}${rVal}%`;
+        roiEl.className = `${rVal >= 0 ? 'pnl-positive' : 'pnl-negative'} font-black text-xl font-mono mt-1 block`;
+      }
+
+      const gtHitsEl = document.getElementById('ledgerKpiGtHits');
+      if (gtHitsEl) gtHitsEl.textContent = `${ledger.golden_ticket_avg_hits || 0} bóng/kỳ`;
+
+      const sepHitsEl = document.getElementById('ledgerKpiSeptetHits');
+      if (sepHitsEl) sepHitsEl.textContent = `${ledger.septet_avg_hits || 0} bóng/kỳ`;
+
+      // 2. Pending Hero
+      const pending = ledger.current_pending_draw;
+      const pendingDrawIdEl = document.getElementById('ledgerPendingDrawId');
+      const pendingBallsContainer = document.getElementById('ledgerPendingBallsContainer');
+      if (pending && pendingDrawIdEl && pendingBallsContainer) {
+        pendingDrawIdEl.textContent = `Kỳ tiếp theo: #${pending.draw_id || pending.target_draw_id || '--'}`;
+        const pPreds = pending.predictions || {};
+        const pGt = pPreds.golden_ticket?.numbers || [];
+        const pSep = pPreds.septet_bao7?.numbers || [];
+        pendingBallsContainer.innerHTML = `
+          <div class="flex items-center gap-1 mr-3">
+            <span class="text-[10px] text-amber-400 font-bold uppercase mr-1">Vé Vàng:</span>
+            ${pGt.map(n => renderLottoBall(n, 'sm')).join('')}
+          </div>
+          <div class="flex items-center gap-1">
+            <span class="text-[10px] text-indigo-300 font-bold uppercase mr-1">Bao 7:</span>
+            ${pSep.map(n => `<span class="lotto-ball ball-gold w-7 h-7 text-[11px] font-mono shadow inline-flex items-center justify-center">${String(n).padStart(2, '0')}</span>`).join('')}
+          </div>
+        `;
+      }
+
+      // 3. Setup Filter Tab Events
+      const filterBtns = document.querySelectorAll('.ledger-filter-btn');
+      filterBtns.forEach(btn => {
+        btn.onclick = () => {
+          filterBtns.forEach(b => {
+            b.className = 'ledger-filter-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 font-bold transition';
+          });
+          btn.className = 'ledger-filter-btn px-3 py-1.5 rounded-lg bg-amber-500 text-slate-950 font-bold transition';
+          currentLedgerFilter = btn.dataset.filter || 'all';
+          populateLedgerTable(ledger.history || []);
+        };
+      });
+
+      // 4. Render Table Body
+      populateLedgerTable(ledger.history || []);
+    }
+
+    function populateLedgerTable(history) {
+      const tbody = document.getElementById('predictionLedgerBody');
+      if (!tbody) return;
+
+      let filtered = history || [];
+      if (currentLedgerFilter === 'winning') {
+        filtered = filtered.filter(r => r.summary_metrics?.has_winning_prize);
+      } else if (currentLedgerFilter === 'golden') {
+        filtered = filtered.filter(r => (r.predictions?.golden_ticket?.hits || 0) >= 2);
+      } else if (currentLedgerFilter === 'bao7') {
+        filtered = filtered.filter(r => (r.predictions?.septet_bao7?.hits || 0) >= 3);
+      } else if (currentLedgerFilter === 'banker') {
+        filtered = filtered.filter(r => (r.predictions?.banker_wheeling?.best_hits || 0) >= 3);
+      }
+
+      if (!filtered.length) {
+        tbody.innerHTML = `<tr><td colspan="6" class="px-3 py-8 text-center text-slate-500 italic">Không có kỳ nào phù hợp với bộ lọc.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(row => {
+        const drawId = row.draw_id || row.target_draw_id || '--';
+        const drawDate = row.draw_date || '';
+        const actual = row.actual_result || [];
+        const spec = row.special_ball;
+        const actualSet = new Set(actual);
+
+        // Cột kết quả thật
+        const actualHtml = actual.map(n => 
+          `<span class="inline-block px-1.5 py-0.5 rounded text-[11px] font-mono mr-1 bg-slate-800 text-slate-200 border border-slate-700 font-bold">${String(n).padStart(2, '0')}</span>`
+        ).join('') + (spec != null ? `<span class="inline-block px-1.5 py-0.5 rounded text-[11px] font-mono bg-amber-500/20 text-amber-300 border border-amber-500/40 font-bold">+${String(spec).padStart(2, '0')}</span>` : '');
+
+        // Vé Vàng Markowitz
+        const gt = row.predictions?.golden_ticket || {};
+        const gtNums = gt.numbers || [];
+        const gtHits = gt.hits || 0;
+        const gtPrize = gt.prize_vnd || 0;
+        const gtTier = gt.prize_tier || 'Không trúng';
+        const gtBallsHtml = gtNums.map(n => {
+          const hit = actualSet.has(n);
+          return `<span class="inline-block px-1 py-0.2 rounded text-[11px] font-mono mr-0.5 ${hit ? 'ball-hit-glow bg-amber-500 text-slate-950 font-bold' : 'bg-slate-900 text-slate-400'}">${String(n).padStart(2, '0')}</span>`;
+        }).join('');
+        const gtBadge = gtPrize > 0 
+          ? `<span class="ml-1 px-1.5 py-0.2 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">${gtTier} (+${(gtPrize/1000).toLocaleString('vi-VN')}k)</span>`
+          : `<span class="ml-1 text-[10px] text-slate-500">${gtHits} số</span>`;
+
+        // Bao 7
+        const b7 = row.predictions?.septet_bao7 || {};
+        const b7Nums = b7.numbers || [];
+        const b7Hits = b7.hits || 0;
+        const b7Prize = b7.prize_vnd || 0;
+        const b7BallsHtml = b7Nums.map(n => {
+          const hit = actualSet.has(n);
+          return `<span class="inline-block px-1 py-0.2 rounded text-[11px] font-mono mr-0.5 ${hit ? 'ball-hit-green bg-emerald-500 text-slate-950 font-bold' : 'bg-slate-900 text-slate-400'}">${String(n).padStart(2, '0')}</span>`;
+        }).join('');
+        const b7Badge = b7Prize > 0
+          ? `<span class="ml-1 px-1.5 py-0.2 rounded text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40">Trúng ${b7.winning_combinations_count} vé (+${(b7Prize/1000).toLocaleString('vi-VN')}k)</span>`
+          : `<span class="ml-1 text-[10px] text-slate-500">${b7Hits}/7 bóng</span>`;
+
+        // Banker
+        const bw = row.predictions?.banker_wheeling || {};
+        const bankerVal = bw.banker;
+        const bwPrize = bw.total_prize_vnd || 0;
+        const bwBestHits = bw.best_hits || 0;
+        const bankerHit = actualSet.has(bankerVal);
+        const bwHtml = bankerVal != null ? `
+          <div class="flex items-center gap-1">
+            <span class="px-1.5 py-0.5 rounded text-[11px] font-bold ${bankerHit ? 'bg-amber-500 text-slate-950 ball-hit-glow' : 'bg-slate-800 text-slate-300'}">Chốt ${String(bankerVal).padStart(2, '0')}</span>
+            <span class="text-[10px] text-slate-400">Cao nhất: ${bwBestHits} số</span>
+            ${bwPrize > 0 ? `<span class="px-1 py-0.2 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-300">+${(bwPrize/1000).toLocaleString('vi-VN')}k</span>` : ''}
+          </div>
+        ` : `<span class="text-slate-600">--</span>`;
+
+        // P&L
+        const sm = row.summary_metrics || {};
+        const netPnl = sm.net_profit_vnd || 0;
+        const hasWin = sm.has_winning_prize || false;
+        const pnlClass = netPnl > 0 ? 'pnl-positive font-bold' : 'pnl-negative';
+
+        return `
+          <tr class="hover:bg-slate-800/30 transition border-b border-slate-800/40">
+            <td class="px-3 py-3 font-bold text-white whitespace-nowrap">
+              #${drawId}
+              <span class="block text-[10px] text-slate-500 font-normal">${drawDate}</span>
+            </td>
+            <td class="px-3 py-3 whitespace-nowrap">${actualHtml}</td>
+            <td class="px-3 py-3">
+              <div class="flex items-center flex-wrap gap-0.5">${gtBallsHtml} ${gtBadge}</div>
+            </td>
+            <td class="px-3 py-3">
+              <div class="flex items-center flex-wrap gap-0.5">${b7BallsHtml} ${b7Badge}</div>
+            </td>
+            <td class="px-3 py-3">${bwHtml}</td>
+            <td class="px-3 py-3 text-right font-mono whitespace-nowrap">
+              <span class="${pnlClass}">${netPnl > 0 ? '+' : ''}${netPnl.toLocaleString('vi-VN')} đ</span>
+              ${hasWin ? `<span class="block text-[9px] text-emerald-400 font-bold uppercase tracking-wider">Trúng thưởng ✓</span>` : ''}
+            </td>
+          </tr>
+        `;
+      }).join('');
     }
 
     function saveConsensusTicket(type) {

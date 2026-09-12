@@ -48,3 +48,47 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #64748b;
 }
+
+/* Prediction Ledger & Ball Glow Styles */
+.ball-hit-glow {
+  box-shadow: 0 0 12px rgba(234, 179, 8, 0.8), inset 0 0 6px rgba(254, 240, 138, 0.9) !important;
+  border: 2px solid #fde047 !important;
+  animation: pulse-hit 2s infinite;
+}
+
+.ball-hit-green {
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.8), inset 0 0 6px rgba(110, 231, 183, 0.9) !important;
+  border: 2px solid #34d399 !important;
+  animation: pulse-hit 2s infinite;
+}
+
+@keyframes pulse-hit {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+.pnl-positive {
+  color: #34d399;
+  text-shadow: 0 0 10px rgba(52, 211, 153, 0.4);
+}
+
+.pnl-negative {
+  color: #f87171;
+}
+
+.badge-pending {
+  animation: pulse-badge 1.8s infinite;
+}
+
+@keyframes pulse-badge {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
