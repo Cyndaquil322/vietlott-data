@@ -972,6 +972,20 @@ def calculate_multi_model_consensus_and_backtest(
         seed=seed_val,
     )
 
+    # Portfolio-level Combinatorial Covering (Bộ 5 Vé Tối Ưu Bọc Lót 50k)
+    from vietlott.model.portfolio_covering_engine import generate_portfolio_50k
+    portfolio_50k_tickets = generate_portfolio_50k(
+        core_pool=top_core_balls,
+        candidate_scores=consensus_sc_dict,
+        max_val=max_val,
+        num_balls=num_balls,
+        num_tickets=5,
+        seed=seed_val,
+    )
+    if is_two_matrix or product_key == "power_655":
+        for t in portfolio_50k_tickets.get("tickets", []):
+            t["special"] = spec_ball
+
     return {
         "next_draw_id": f"#{next_id_str}",
         "evaluated_draws_count": num_test,
@@ -1087,6 +1101,7 @@ def calculate_multi_model_consensus_and_backtest(
                 },
             },
             "banker_wheeling": banker_wheel,
+            "portfolio_50k": portfolio_50k_tickets,
         },
         "history_walk_forward": list(reversed(history_logs)),
     }

@@ -6891,6 +6891,105 @@
           "total_cost": 60000,
           "win_guarantee_statement": "Cam kết bảo hiểm toán học: Cố định bóng chốt Bạch Thủ 13 trên 100% các vé. Khi bóng chốt nổ, chỉ cần trúng thêm 2 bóng trong dàn 10 vệ tinh là bảo đảm chắc chắn có ít nhất 1 vé trúng thưởng (tiết kiệm hơn 98% chi phí so với bao dàn)!",
           "leverage_multiplier": "15.4x"
+        },
+        "portfolio_50k": {
+          "total_tickets": 5,
+          "total_cost_vnd": 50000,
+          "core_pool_size": 10,
+          "pairs_coverage_pct": 88.9,
+          "triplets_coverage_count": 50,
+          "tickets": [
+            {
+              "id": "portfolio_ticket_1",
+              "ticketIndex": 1,
+              "numbers": [
+                5,
+                6,
+                13,
+                22,
+                27
+              ],
+              "sum": 73,
+              "ac": 6,
+              "odds": 3,
+              "evens": 2,
+              "decades_count": 3,
+              "tag": "Trục Hạt Nhân",
+              "special": 12
+            },
+            {
+              "id": "portfolio_ticket_2",
+              "ticketIndex": 2,
+              "numbers": [
+                13,
+                15,
+                16,
+                20,
+                22
+              ],
+              "sum": 86,
+              "ac": 4,
+              "odds": 2,
+              "evens": 3,
+              "decades_count": 2,
+              "tag": "Cặp Đôi Bạc Nhớ",
+              "special": 12
+            },
+            {
+              "id": "portfolio_ticket_3",
+              "ticketIndex": 3,
+              "numbers": [
+                7,
+                11,
+                13,
+                16,
+                27
+              ],
+              "sum": 74,
+              "ac": 6,
+              "odds": 4,
+              "evens": 1,
+              "decades_count": 3,
+              "tag": "Kháng Dao Động",
+              "special": 12
+            },
+            {
+              "id": "portfolio_ticket_4",
+              "ticketIndex": 4,
+              "numbers": [
+                5,
+                7,
+                15,
+                20,
+                27
+              ],
+              "sum": 74,
+              "ac": 6,
+              "odds": 4,
+              "evens": 1,
+              "decades_count": 3,
+              "tag": "Lực Hút Markov",
+              "special": 12
+            },
+            {
+              "id": "portfolio_ticket_5",
+              "ticketIndex": 5,
+              "numbers": [
+                6,
+                7,
+                11,
+                20,
+                22
+              ],
+              "sum": 66,
+              "ac": 6,
+              "odds": 2,
+              "evens": 3,
+              "decades_count": 3,
+              "tag": "Bảo Hiểm Bao Phủ",
+              "special": 12
+            }
+          ]
         }
       },
       "history_walk_forward": [
