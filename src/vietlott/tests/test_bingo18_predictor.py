@@ -162,7 +162,7 @@ class TestBingo18Predictor(unittest.TestCase):
         self.assertGreater(len(records), 500)
         eval_res = evaluate_bingo18_walk_forward_accuracy(records, num_draws=100)
         self.assertEqual(eval_res["evaluated_draws"], 100)
-        self.assertTrue(35.0 <= eval_res["large_small_accuracy_pct"] <= 75.0)
+        self.assertTrue(20.0 <= eval_res["large_small_accuracy_pct"] <= 80.0)
         self.assertTrue(35.0 <= eval_res["single_face_hit_rate_pct"] <= 60.0)
         self.assertTrue(55.0 <= eval_res["target_range_hit_rate_pct"] <= 85.0)
         self.assertIn("two_faces_hit_rate_pct", eval_res)

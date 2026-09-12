@@ -435,7 +435,13 @@ def get_ledger_web_summary(
     net_profit = total_won - total_spent
     roi_pct = round((net_profit / total_spent) * 100, 2) if total_spent > 0 else 0.0
 
-    history = list(reversed(verified_records))[:limit]
+    # Sắp xếp lịch sử theo ID kỳ quay giảm dần (Kỳ mới nhất luôn đứng đầu bảng)
+    verified_sorted = sorted(
+        verified_records,
+        key=lambda r: int(r.get("draw_id") or 0) if str(r.get("draw_id")).isdigit() else str(r.get("draw_id")),
+        reverse=True,
+    )
+    history = verified_sorted[:limit]
 
     return {
         "total_tracked_draws": total_tracked,
