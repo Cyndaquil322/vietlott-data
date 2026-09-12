@@ -51,5 +51,5 @@ line-length = 120
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["src/vietlott/tests"]
-addopts = "-p no:cacheprovider"
+addopts = "-p no:cacheprovider -o faulthandler_timeout=300"
 
