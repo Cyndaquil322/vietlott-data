@@ -364,16 +364,32 @@ def calculate_multi_model_consensus_and_backtest(
 
         m_eval = evaluate_models(past)
 
-        # Calculate dynamic model weights from strictly historical performance (No Look-Ahead)
+        # Calculate dynamic model weights using Softmax Thompson Sampling with recency boost
         train_window_len = 100.0 + step
         perf = {}
         for m in models_info.keys():
             avg_h = rolling_hits[m] / train_window_len
-            ge3_bonus = (rolling_ge3[m] / train_window_len) * 3.0
-            alpha = max(0.02, (avg_h - rand_rate * 0.9) * 1.5 + ge3_bonus)
-            perf[m] = alpha ** 2.0
-        tot_perf = sum(perf.values()) or 1.0
-        cur_w = {m: (1.0 - lambda_reg) * (perf[m] / tot_perf) + lambda_reg * prior_weight for m in models_info.keys()}
+            ge3_rate = rolling_ge3[m] / train_window_len
+            recent_bonus = (backtest_stats[m]["recent_10"] / 10.0) if step >= 10 else avg_h
+            
+            # Khởi tạo utility score: Kết hợp hit rate dài hạn, tỷ lệ trúng >=3 và phong độ 10 kỳ gần nhất
+            utility = (avg_h - rand_rate * 0.85) * 2.0 + ge3_rate * 4.0 + (recent_bonus - rand_rate) * 1.5
+            
+            # Phạt mạnh mô hình suy thoái phong độ (dưới mức ngẫu nhiên kỳ vọng)
+            if recent_bonus < rand_rate * 0.8:
+                utility -= 0.5
+            perf[m] = utility
+
+        # Softmax với Temperature T=0.4 để tạo sự phân hóa rõ ràng giữa mô hình mạnh và mô hình yếu
+        t_temp = 0.4
+        max_u = max(perf.values()) if perf else 0.0
+        exp_u = {m: math.exp(max(-5.0, min(5.0, (perf[m] - max_u) / t_temp))) for m in models_info.keys()}
+        sum_exp = sum(exp_u.values()) or 1.0
+        softmax_w = {m: exp_u[m] / sum_exp for m in models_info.keys()}
+
+        # Kết hợp co ngót Bayesian Shrinkage nhẹ (10% prior, 90% data-driven)
+        lambda_reg = 0.10
+        cur_w = {m: (1.0 - lambda_reg) * softmax_w[m] + lambda_reg * prior_weight for m in models_info.keys()}
 
         # Calculate hybrid normalized scores combining magnitude with soft-exponential rank conviction
         norm_scores = {}
@@ -598,13 +614,14 @@ def calculate_multi_model_consensus_and_backtest(
                 },
             })
 
-    # Performance-based dynamic weight calculation for Next Draw
-    total_perf = sum(perf.get(m, 1.0) for m in models_info.keys()) or 1.0
-    raw_weights = {}
-    for m in models_info.keys():
-        raw_weights[m] = (1.0 - lambda_reg) * (perf.get(m, 1.0) / total_perf) + lambda_reg * prior_weight
-    tot_rw = sum(raw_weights.values()) or 1.0
-    dynamic_weights = {m: raw_weights[m] / tot_rw for m in models_info.keys()}
+    # Performance-based dynamic weight calculation for Next Draw using Softmax Thompson Sampling
+    t_temp = 0.4
+    max_u = max(perf.values()) if perf else 0.0
+    exp_u = {m: math.exp(max(-5.0, min(5.0, (perf.get(m, 0.0) - max_u) / t_temp))) for m in models_info.keys()}
+    sum_exp = sum(exp_u.values()) or 1.0
+    softmax_w = {m: exp_u[m] / sum_exp for m in models_info.keys()}
+    lambda_reg = 0.10
+    dynamic_weights = {m: (1.0 - lambda_reg) * softmax_w[m] + lambda_reg * prior_weight for m in models_info.keys()}
 
     # Exact 100.0% sum adjustment for rounded weights
     weight_pcts = {m: round(dynamic_weights[m] * 100.0, 1) for m in models_info.keys()}
