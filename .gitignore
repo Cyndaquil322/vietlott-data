@@ -11,6 +11,7 @@ scratch/
 output/
 pytest.bat
 *.bak
+New folder/
 
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,Jetbrains,VisualStudioCode,dotenv,dbt
 
