@@ -279,6 +279,31 @@
         } catch (e) {}
       }
 
+      // Ưu tiên tải nhanh dữ liệu Sharded của game hiện tại nếu có
+      const shardUrls = [
+        `./data/products/${currentProductKey}.json?v=` + ts,
+        `./docs/data/products/${currentProductKey}.json?v=` + ts,
+        `data/products/${currentProductKey}.json?v=` + ts,
+        `docs/data/products/${currentProductKey}.json?v=` + ts
+      ];
+
+      for (const sUrl of shardUrls) {
+        try {
+          const sRes = await fetch(sUrl, { cache: 'no-store' });
+          if (sRes.ok) {
+            const shardData = await sRes.json();
+            if (shardData && shardData.product) {
+              if (!appData) appData = { products: {}, meta: { generated_at: shardData.updated_at } };
+              appData.products[currentProductKey] = shardData.product;
+              onDataReady();
+              // Tiếp tục tải background full summary nếu cần chuyển game mượt mà
+              loadFullSummaryInBackground();
+              return;
+            }
+          }
+        } catch (err) {}
+      }
+
       const urls = [
         './data/vietlott_summary.json?v=' + ts,
         './docs/data/vietlott_summary.json?v=' + ts,
@@ -299,6 +324,28 @@
 
       if (window.location.protocol === 'file:') {
         document.getElementById('fileNotice').classList.remove('hidden');
+      }
+    }
+
+    async function loadFullSummaryInBackground() {
+      const ts = Date.now();
+      const urls = [
+        './data/vietlott_summary.json?v=' + ts,
+        './docs/data/vietlott_summary.json?v=' + ts,
+        'docs/data/vietlott_summary.json?v=' + ts,
+        'data/vietlott_summary.json?v=' + ts
+      ];
+      for (const url of urls) {
+        try {
+          const res = await fetch(url, { cache: 'no-store' });
+          if (res.ok) {
+            const fullData = await res.json();
+            if (fullData && fullData.products) {
+              appData = fullData;
+              break;
+            }
+          }
+        } catch (err) {}
       }
     }
 
