@@ -1393,6 +1393,44 @@
             </div>
           </div>
 
+          <!-- KHỐI BỘ 5 VÉ TỐI ƯU BỌC LÓT (NGÂN SÁCH 50.000đ / KỲ) -->
+          <div id="consensusPortfolio50kSection" class="rounded-2xl bg-gradient-to-r from-emerald-950/40 via-slate-950 to-slate-900 border border-emerald-500/40 p-5 space-y-4 shadow-2xl relative overflow-hidden">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800/80 pb-3">
+              <div>
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="text-sm font-bold text-emerald-300 uppercase tracking-wider flex items-center gap-1.5">
+                    <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
+                    Bộ 5 Vé Tối Ưu Bọc Lót Danh Mục (Portfolio Covering)
+                  </span>
+                  <span class="px-2.5 py-0.5 rounded text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-mono">
+                    Ngân Sách 50.000đ / Kỳ (5 Vé Đơn)
+                  </span>
+                  <span id="portfolio50kPairsCoverageBadge" class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 font-mono">
+                    Bao phủ --% cặp số
+                  </span>
+                </div>
+                <p class="text-xs text-slate-400 mt-1">
+                  Thuật toán Greedy Max-Coverage: Trích xuất 5 vé đơn đan xen từ Dàn Hạt Nhân (10-12 số), áp dụng Bộ Lọc Không Gian Âm loại sạch vé rác. Bảo đảm gom trọn các số nổ vào chung vé để lĩnh giải thay vì trúng rải rác.
+                </p>
+              </div>
+              <div class="flex items-center gap-2 flex-shrink-0">
+                <button onclick="savePortfolio50kTickets()" class="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-1.5 transition active:scale-95 shadow">
+                  <i data-lucide="bookmark-plus" class="w-4 h-4"></i>
+                  <span>Lưu Cả 5 Vé</span>
+                </button>
+                <button onclick="copyPortfolio50kSms()" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-emerald-400 hover:text-emerald-300 font-bold text-xs flex items-center gap-1.5 transition border border-slate-700 active:scale-95">
+                  <i data-lucide="message-square" class="w-4 h-4"></i>
+                  <span>SMS 9969 (5 Vé)</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- 5 Tickets Grid -->
+            <div id="consensusPortfolio50kGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 pt-1">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+
           <!-- KHỐI BAO THU GỌN 4 VÉ (COVERING WHEELS - VỐN 40.000đ) -->
           <div class="rounded-xl bg-slate-950/90 border border-emerald-500/30 p-4 space-y-3">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800/80 pb-3">

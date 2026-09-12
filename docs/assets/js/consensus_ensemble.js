@@ -167,6 +167,9 @@
       // Render Optimal Septet (Bao 7 Pareto)
       renderConsensusOptimalSeptet(tickets, hub);
 
+      // Render 5-Ticket Portfolio Combinatorial Covering (Ngân sách 50k)
+      renderConsensusPortfolio50k(tickets);
+
       // Render 4-Ticket Abbreviated Covering Wheels
       renderConsensusWheeling4(tickets);
 
@@ -1429,6 +1432,133 @@
       const numsStr = septet.numbers.map(x => String(x).padStart(2, '0')).join(' ');
       const smsText = `${code} ${numsStr}`;
       copySingleTicketSms(smsText);
+    }
+
+    function renderConsensusPortfolio50k(tickets) {
+      const container = document.getElementById('consensusPortfolio50kGrid');
+      const badge = document.getElementById('portfolio50kPairsCoverageBadge');
+      if (!container) return;
+      const p50 = tickets.portfolio_50k || {};
+      const tList = p50.tickets || [];
+      if (badge && p50.pairs_coverage_pct != null) {
+        badge.textContent = `Bao phủ ${p50.pairs_coverage_pct}% cặp số (${p50.triplets_coverage_count || 0} bộ ba)`;
+      }
+
+      if (!tList.length) {
+        container.innerHTML = `<p class="text-xs text-slate-500 col-span-full py-2">Chưa có tổ hợp 5 vé bọc lót danh mục.</p>`;
+        return;
+      }
+
+      container.innerHTML = tList.map((t, idx) => `
+        <div class="p-3 rounded-xl bg-slate-900/95 border border-emerald-500/30 hover:border-emerald-400/60 transition flex flex-col justify-between space-y-2 shadow">
+          <div class="flex items-center justify-between text-xs">
+            <span class="font-bold text-emerald-300 font-mono flex items-center gap-1">
+              <i data-lucide="shield" class="w-3.5 h-3.5 text-emerald-400"></i> Vé #${idx + 1}
+            </span>
+            <span class="text-[9px] font-mono font-bold text-amber-300 bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/20">${t.tag || 'Tối Ưu'}</span>
+          </div>
+          <div class="flex flex-wrap items-center gap-1 py-1 justify-center">
+            ${t.numbers.map(n => renderLottoBall(n, 'sm')).join('')}
+            ${t.special ? `<span class="text-slate-500 text-xs font-bold">+</span>` + renderLottoBall(t.special, 'sm', true) : ''}
+          </div>
+          <div class="grid grid-cols-3 gap-1 text-[10px] font-mono text-center bg-slate-950/70 p-1.5 rounded-lg border border-slate-800">
+            <div><span class="text-slate-500 block">AC</span><strong class="text-white">${t.ac}</strong></div>
+            <div><span class="text-slate-500 block">Tổng</span><strong class="text-amber-300">${t.sum}</strong></div>
+            <div><span class="text-slate-500 block">C/L</span><strong class="text-slate-300">${t.evens}C-${t.odds}L</strong></div>
+          </div>
+          <div class="flex items-center gap-1 pt-1 border-t border-slate-800/80">
+            <button onclick="saveSinglePortfolio50kTicket(${idx})" class="flex-1 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-emerald-300 text-[10px] font-bold flex items-center justify-center gap-1 transition" title="Lưu vé này">
+              <i data-lucide="bookmark" class="w-3 h-3"></i> Lưu Sổ
+            </button>
+            <button onclick="copySinglePortfolio50kTicketSms(${idx})" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-emerald-400 text-[10px] font-bold flex items-center gap-1 transition" title="Copy SMS 9969">
+              <i data-lucide="copy" class="w-3 h-3"></i> SMS
+            </button>
+          </div>
+        </div>
+      `).join('');
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function savePortfolio50kTickets() {
+      const product = appData?.products?.[currentProductKey];
+      if (!product || !product.consensus_hub) return;
+      const hub = product.consensus_hub;
+      const tList = hub.tickets?.portfolio_50k?.tickets || [];
+      if (!tList.length) {
+        alert('Không tìm thấy dữ liệu bộ 5 vé bọc lót!');
+        return;
+      }
+      const nextDrawId = hub.next_draw_id?.replace('#', '') || 'Next';
+      tList.forEach((t, i) => {
+        saveTicketToNotebook({
+          game: currentProductKey,
+          gameName: product.name,
+          drawId: nextDrawId,
+          ticketType: 'Chuẩn',
+          label: `Bọc Lót 50k Vé #${i + 1} (${t.tag}) (#${nextDrawId})`,
+          numbers: t.numbers,
+          special: t.special || null,
+        });
+      });
+      alert(`Đã lưu toàn bộ 5 vé bọc lót danh mục vào Sổ Tay!`);
+    }
+
+    function copyPortfolio50kSms() {
+      const product = appData?.products?.[currentProductKey];
+      if (!product || !product.consensus_hub) return;
+      const hub = product.consensus_hub;
+      const tList = hub.tickets?.portfolio_50k?.tickets || [];
+      if (!tList.length) return;
+
+      const is535 = currentProductKey === 'power_535';
+      const is655 = currentProductKey === 'power_655';
+      const code = is535 ? '535' : (is655 ? '655' : '645');
+
+      const lines = tList.map(t => {
+        const numsStr = t.numbers.map(x => String(x).padStart(2, '0')).join(' ');
+        const specStr = t.special ? ` ${String(t.special).padStart(2, '0')}` : '';
+        return `${code} ${numsStr}${specStr}`;
+      });
+
+      const fullSms = lines.join('\n');
+      navigator.clipboard.writeText(fullSms).then(() => {
+        alert(`Đã sao chép cú pháp SMS 9969 cho cả 5 vé:\n\n${fullSms}`);
+      }).catch(() => {
+        copySingleTicketSms(fullSms);
+      });
+    }
+
+    function saveSinglePortfolio50kTicket(idx) {
+      const product = appData?.products?.[currentProductKey];
+      if (!product || !product.consensus_hub) return;
+      const hub = product.consensus_hub;
+      const t = hub.tickets?.portfolio_50k?.tickets?.[idx];
+      if (!t) return;
+      const nextDrawId = hub.next_draw_id?.replace('#', '') || 'Next';
+      saveTicketToNotebook({
+        game: currentProductKey,
+        gameName: product.name,
+        drawId: nextDrawId,
+        ticketType: 'Chuẩn',
+        label: `Bọc Lót Vé #${idx + 1} (${t.tag}) (#${nextDrawId})`,
+        numbers: t.numbers,
+        special: t.special || null,
+      });
+      alert(`Đã lưu Vé #${idx + 1} vào Sổ Tay!`);
+    }
+
+    function copySinglePortfolio50kTicketSms(idx) {
+      const product = appData?.products?.[currentProductKey];
+      if (!product || !product.consensus_hub) return;
+      const hub = product.consensus_hub;
+      const t = hub.tickets?.portfolio_50k?.tickets?.[idx];
+      if (!t) return;
+      const is535 = currentProductKey === 'power_535';
+      const is655 = currentProductKey === 'power_655';
+      const code = is535 ? '535' : (is655 ? '655' : '645');
+      const numsStr = t.numbers.map(x => String(x).padStart(2, '0')).join(' ');
+      const specStr = t.special ? ` ${String(t.special).padStart(2, '0')}` : '';
+      copySingleTicketSms(`${code} ${numsStr}${specStr}`);
     }
 
     function renderConsensusWheeling4(tickets) {
