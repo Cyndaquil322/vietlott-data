@@ -620,6 +620,19 @@
       }
       section.classList.remove('hidden');
 
+      const is535 = (product.max_number === 35 || currentProductKey === 'power_535');
+      const baoLabel = is535 ? 'Bao 6 Tối Ưu' : 'Bao 7 Tối Ưu';
+      const baoShort = is535 ? 'Bao 6' : 'Bao 7';
+
+      const thBao = document.getElementById('thLedgerBaoTitle');
+      if (thBao) thBao.textContent = baoLabel;
+      const fLabelBao = document.getElementById('filterLabelBao');
+      if (fLabelBao) fLabelBao.textContent = baoShort;
+      const kpiSepTitle = document.getElementById('ledgerKpiSeptetTitle');
+      if (kpiSepTitle) kpiSepTitle.textContent = `${baoShort} (Bóng TB)`;
+      const kpiSepSub = document.getElementById('ledgerKpiSeptetSub');
+      if (kpiSepSub) kpiSepSub.textContent = is535 ? 'Tổ hợp 6 bóng tối ưu' : 'Dàn 7 bóng tối ưu';
+
       // 1. KPI Cards
       const winRateEl = document.getElementById('ledgerKpiWinRate');
       if (winRateEl) winRateEl.textContent = `${ledger.overall_win_rate_pct || 0}%`;
@@ -635,6 +648,18 @@
         roiEl.className = `${rVal >= 0 ? 'pnl-positive' : 'pnl-negative'} font-black text-xl font-mono mt-1 block`;
       }
 
+      const netProfitEl = document.getElementById('ledgerKpiNetProfit');
+      if (netProfitEl) {
+        const netVal = pnl.net_profit || 0;
+        netProfitEl.textContent = `${netVal >= 0 ? '+' : ''}${netVal.toLocaleString('vi-VN')} đ`;
+        netProfitEl.className = `${netVal >= 0 ? 'pnl-positive' : 'pnl-negative'} font-black text-xl font-mono mt-1 block`;
+      }
+
+      const spentWonEl = document.getElementById('ledgerKpiSpentWon');
+      if (spentWonEl) {
+        spentWonEl.textContent = `Thu: ${(pnl.total_won || 0).toLocaleString('vi-VN')} đ / Vốn: ${(pnl.total_spent || 0).toLocaleString('vi-VN')} đ`;
+      }
+
       const gtHitsEl = document.getElementById('ledgerKpiGtHits');
       if (gtHitsEl) gtHitsEl.textContent = `${ledger.golden_ticket_avg_hits || 0} bóng/kỳ`;
 
@@ -644,58 +669,113 @@
       // 2. Pending Hero
       const pending = ledger.current_pending_draw;
       const pendingDrawIdEl = document.getElementById('ledgerPendingDrawId');
+      const pendingSchedEl = document.getElementById('ledgerPendingDrawSchedule');
       const pendingBallsContainer = document.getElementById('ledgerPendingBallsContainer');
       if (pending && pendingDrawIdEl && pendingBallsContainer) {
         pendingDrawIdEl.textContent = `Kỳ tiếp theo: #${pending.draw_id || pending.target_draw_id || '--'}`;
+        if (pendingSchedEl) {
+          if (is535) {
+            pendingSchedEl.textContent = 'Quay 13:00 & 21:00 hàng ngày';
+          } else if (product.max_number === 55) {
+            pendingSchedEl.textContent = 'Quay 18:00 Thứ 3, 5, 7';
+          } else {
+            pendingSchedEl.textContent = 'Quay 18:00 Thứ 4, 6, CN';
+          }
+        }
         const pPreds = pending.predictions || {};
         const pGt = pPreds.golden_ticket?.numbers || [];
         const pSep = pPreds.septet_bao7?.numbers || [];
+        const pBw = pPreds.banker_wheeling || {};
+        const pBanker = pBw.banker;
+        const pTicketsCount = pBw.tickets_count || (pBw.tickets?.length || 6);
+
         pendingBallsContainer.innerHTML = `
-          <div class="flex items-center gap-1 mr-3">
+          <div class="flex items-center gap-1 mr-2 bg-slate-950/80 px-2 py-1 rounded-lg border border-slate-800">
             <span class="text-[10px] text-amber-400 font-bold uppercase mr-1">Vé Vàng:</span>
             ${pGt.map(n => renderLottoBall(n, 'sm')).join('')}
           </div>
-          <div class="flex items-center gap-1">
-            <span class="text-[10px] text-indigo-300 font-bold uppercase mr-1">Bao 7:</span>
-            ${pSep.map(n => `<span class="lotto-ball ball-gold w-7 h-7 text-[11px] font-mono shadow inline-flex items-center justify-center">${String(n).padStart(2, '0')}</span>`).join('')}
+          <div class="flex items-center gap-1 mr-2 bg-slate-950/80 px-2 py-1 rounded-lg border border-slate-800">
+            <span class="text-[10px] text-indigo-300 font-bold uppercase mr-1">${baoShort}:</span>
+            ${pSep.map(n => `<span class="lotto-ball ball-gold w-6 h-6 text-[10px] font-mono shadow inline-flex items-center justify-center">${String(n).padStart(2, '0')}</span>`).join('')}
           </div>
+          ${pBanker != null ? `
+          <div class="flex items-center gap-1 bg-slate-950/80 px-2 py-1 rounded-lg border border-slate-800">
+            <span class="text-[10px] text-emerald-300 font-bold uppercase mr-1">Banker:</span>
+            <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">Chốt ${String(pBanker).padStart(2, '0')} (${pTicketsCount} vé)</span>
+          </div>` : ''}
         `;
       }
 
-      // 3. Setup Filter Tab Events
+      // 3. Setup Filter Badges & Tab Events
+      const history = ledger.history || [];
+      const countAll = history.length;
+      const countWinning = history.filter(r => r.summary_metrics?.has_winning_prize).length;
+      const countGolden = history.filter(r => (r.predictions?.golden_ticket?.hits || 0) >= 2 || (r.predictions?.golden_ticket?.prize_vnd || 0) > 0).length;
+      const countBao = history.filter(r => (r.predictions?.septet_bao7?.hits || 0) >= (is535 ? 2 : 3) || (r.predictions?.septet_bao7?.prize_vnd || 0) > 0).length;
+      const countBanker = history.filter(r => (r.predictions?.banker_wheeling?.best_hits || 0) >= (is535 ? 2 : 3) || (r.predictions?.banker_wheeling?.total_prize_vnd || 0) > 0).length;
+
+      const bAll = document.getElementById('filterBadgeAll');
+      if (bAll) bAll.textContent = countAll;
+      const bWin = document.getElementById('filterBadgeWinning');
+      if (bWin) bWin.textContent = countWinning;
+      const bGold = document.getElementById('filterBadgeGolden');
+      if (bGold) bGold.textContent = countGolden;
+      const bBao = document.getElementById('filterBadgeBao');
+      if (bBao) bBao.textContent = countBao;
+      const bBkr = document.getElementById('filterBadgeBanker');
+      if (bBkr) bBkr.textContent = countBanker;
+
       const filterBtns = document.querySelectorAll('.ledger-filter-btn');
       filterBtns.forEach(btn => {
+        const filterType = btn.dataset.filter || 'all';
+        if (filterType === currentLedgerFilter) {
+          btn.className = 'ledger-filter-btn px-3 py-1.5 rounded-lg bg-amber-500 text-slate-950 font-bold transition flex items-center gap-1';
+        } else {
+          btn.className = 'ledger-filter-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 font-bold transition flex items-center gap-1';
+        }
         btn.onclick = () => {
+          currentLedgerFilter = filterType;
           filterBtns.forEach(b => {
-            b.className = 'ledger-filter-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 font-bold transition';
+            b.className = 'ledger-filter-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 font-bold transition flex items-center gap-1';
           });
-          btn.className = 'ledger-filter-btn px-3 py-1.5 rounded-lg bg-amber-500 text-slate-950 font-bold transition';
-          currentLedgerFilter = btn.dataset.filter || 'all';
-          populateLedgerTable(ledger.history || []);
+          btn.className = 'ledger-filter-btn px-3 py-1.5 rounded-lg bg-amber-500 text-slate-950 font-bold transition flex items-center gap-1';
+          populateLedgerTable(history, product);
         };
       });
 
-      // 4. Render Table Body
-      populateLedgerTable(ledger.history || []);
+      // 4. Setup Copy and Export buttons
+      const btnCopy = document.getElementById('btnCopyLedgerReport');
+      if (btnCopy) {
+        btnCopy.onclick = () => copyLedgerReport(product, ledger);
+      }
+      const btnExport = document.getElementById('btnExportLedgerJson');
+      if (btnExport) {
+        btnExport.onclick = () => exportLedgerJson(product, ledger);
+      }
+
+      // 5. Render Table Body
+      populateLedgerTable(history, product);
     }
 
-    function populateLedgerTable(history) {
+    function populateLedgerTable(history, product) {
       const tbody = document.getElementById('predictionLedgerBody');
       if (!tbody) return;
+
+      const is535 = (product?.max_number === 35 || currentProductKey === 'power_535');
 
       let filtered = history || [];
       if (currentLedgerFilter === 'winning') {
         filtered = filtered.filter(r => r.summary_metrics?.has_winning_prize);
       } else if (currentLedgerFilter === 'golden') {
-        filtered = filtered.filter(r => (r.predictions?.golden_ticket?.hits || 0) >= 2);
+        filtered = filtered.filter(r => (r.predictions?.golden_ticket?.hits || 0) >= 2 || (r.predictions?.golden_ticket?.prize_vnd || 0) > 0);
       } else if (currentLedgerFilter === 'bao7') {
-        filtered = filtered.filter(r => (r.predictions?.septet_bao7?.hits || 0) >= 3);
+        filtered = filtered.filter(r => (r.predictions?.septet_bao7?.hits || 0) >= (is535 ? 2 : 3) || (r.predictions?.septet_bao7?.prize_vnd || 0) > 0);
       } else if (currentLedgerFilter === 'banker') {
-        filtered = filtered.filter(r => (r.predictions?.banker_wheeling?.best_hits || 0) >= 3);
+        filtered = filtered.filter(r => (r.predictions?.banker_wheeling?.best_hits || 0) >= (is535 ? 2 : 3) || (r.predictions?.banker_wheeling?.total_prize_vnd || 0) > 0);
       }
 
       if (!filtered.length) {
-        tbody.innerHTML = `<tr><td colspan="6" class="px-3 py-8 text-center text-slate-500 italic">Không có kỳ nào phù hợp với bộ lọc.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="7" class="px-3 py-8 text-center text-slate-500 italic">Không có kỳ nào phù hợp với bộ lọc.</td></tr>`;
         return;
       }
 
@@ -725,7 +805,7 @@
           ? `<span class="ml-1 px-1.5 py-0.2 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">${gtTier} (+${(gtPrize/1000).toLocaleString('vi-VN')}k)</span>`
           : `<span class="ml-1 text-[10px] text-slate-500">${gtHits} số</span>`;
 
-        // Bao 7
+        // Bao 7 / Bao 6
         const b7 = row.predictions?.septet_bao7 || {};
         const b7Nums = b7.numbers || [];
         const b7Hits = b7.hits || 0;
@@ -736,7 +816,7 @@
         }).join('');
         const b7Badge = b7Prize > 0
           ? `<span class="ml-1 px-1.5 py-0.2 rounded text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40">Trúng ${b7.winning_combinations_count} vé (+${(b7Prize/1000).toLocaleString('vi-VN')}k)</span>`
-          : `<span class="ml-1 text-[10px] text-slate-500">${b7Hits}/7 bóng</span>`;
+          : `<span class="ml-1 text-[10px] text-slate-500">${b7Hits}/${b7Nums.length} bóng</span>`;
 
         // Banker
         const bw = row.predictions?.banker_wheeling || {};
@@ -758,8 +838,38 @@
         const hasWin = sm.has_winning_prize || false;
         const pnlClass = netPnl > 0 ? 'pnl-positive font-bold' : 'pnl-negative';
 
+        // Chi tiết mở rộng (Accordion drawer)
+        const corePool = row.predictions?.core_pool || {};
+        const coreNums = corePool.numbers || [];
+        const coreBallsHtml = coreNums.map(n => {
+          const hit = actualSet.has(n);
+          return `<span class="inline-block px-1.5 py-0.5 rounded text-[11px] font-mono mr-1 ${hit ? 'ball-hit-glow bg-amber-500 text-slate-950 font-bold' : 'bg-slate-900 text-slate-400 border border-slate-800'}">${String(n).padStart(2, '0')}</span>`;
+        }).join('');
+
+        const bwTickets = bw.tickets || [];
+        const bwTicketsHtml = bwTickets.length ? bwTickets.map((t, idx) => {
+          const tNums = t.numbers || [];
+          const tMatched = tNums.filter(n => actualSet.has(n));
+          const tHits = tMatched.length;
+          return `
+            <div class="flex items-center gap-2 p-1.5 rounded bg-slate-900/90 border border-slate-800">
+              <span class="text-[10px] text-slate-500 font-bold w-12">Vé #${idx+1}:</span>
+              <div class="flex items-center gap-1 font-mono">
+                ${tNums.map(n => {
+                  const isHit = actualSet.has(n);
+                  return `<span class="px-1 rounded text-[10px] ${isHit ? 'bg-amber-500 text-slate-950 font-bold' : 'text-slate-300'}">${String(n).padStart(2, '0')}</span>`;
+                }).join('')}
+              </div>
+              <span class="text-[10px] ml-auto ${tHits >= 3 ? 'text-amber-400 font-bold' : 'text-slate-500'}">${tHits} số trúng</span>
+            </div>
+          `;
+        }).join('') : '<span class="text-slate-500 italic text-[11px]">Không có vé con</span>';
+
         return `
-          <tr class="hover:bg-slate-800/30 transition border-b border-slate-800/40">
+          <tr class="hover:bg-slate-800/30 transition border-b border-slate-800/40 cursor-pointer" onclick="toggleLedgerDetail('${drawId}')">
+            <td class="px-2 py-3 text-center text-slate-500">
+              <i id="icon-chevron-${drawId}" data-lucide="chevron-right" class="w-4 h-4 transition-transform inline-block"></i>
+            </td>
             <td class="px-3 py-3 font-bold text-white whitespace-nowrap">
               #${drawId}
               <span class="block text-[10px] text-slate-500 font-normal">${drawDate}</span>
@@ -777,8 +887,110 @@
               ${hasWin ? `<span class="block text-[9px] text-emerald-400 font-bold uppercase tracking-wider">Trúng thưởng ✓</span>` : ''}
             </td>
           </tr>
+          <tr id="ledger-detail-${drawId}" class="hidden bg-slate-950/90 border-b border-slate-800/80">
+            <td colspan="7" class="p-4 space-y-3">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
+                <div class="space-y-2">
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-400 font-bold uppercase text-[10px] flex items-center gap-1">
+                      <i data-lucide="layers" class="w-3.5 h-3.5 text-amber-400"></i>
+                      Dàn Hạt Nhân (Core Pool ${coreNums.length} bóng):
+                    </span>
+                    <span class="text-[10px] text-amber-300 font-bold">Khớp ${corePool.hits || 0}/${coreNums.length} bóng</span>
+                  </div>
+                  <div class="flex flex-wrap items-center gap-1 p-2 rounded-lg bg-slate-900/60 border border-slate-800">
+                    ${coreBallsHtml || '<span class="text-slate-600">--</span>'}
+                  </div>
+                  <div class="p-2 rounded-lg bg-slate-900/60 border border-slate-800 space-y-1 text-[11px]">
+                    <span class="text-slate-400 font-bold uppercase text-[10px] block">Cân đối chi phí kỳ #${drawId}:</span>
+                    <div class="flex justify-between text-slate-300"><span>Vốn cược:</span><span>${(sm.total_investment_vnd || 0).toLocaleString('vi-VN')} đ</span></div>
+                    <div class="flex justify-between text-slate-300"><span>Tiền trúng:</span><span>${(sm.total_return_vnd || 0).toLocaleString('vi-VN')} đ</span></div>
+                    <div class="flex justify-between font-bold ${netPnl >= 0 ? 'text-emerald-400' : 'text-rose-400'}"><span>P&L Thuần:</span><span>${netPnl >= 0 ? '+' : ''}${netPnl.toLocaleString('vi-VN')} đ</span></div>
+                  </div>
+                </div>
+                <div class="space-y-2">
+                  <span class="text-slate-400 font-bold uppercase text-[10px] flex items-center gap-1">
+                    <i data-lucide="grid" class="w-3.5 h-3.5 text-indigo-400"></i>
+                    Chi tiết Dàn Banker (${bwTickets.length} vé con):
+                  </span>
+                  <div class="space-y-1 max-h-40 overflow-y-auto pr-1">
+                    ${bwTicketsHtml}
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
         `;
       }).join('');
+
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function toggleLedgerDetail(drawId) {
+      const detailRow = document.getElementById(`ledger-detail-${drawId}`);
+      const icon = document.getElementById(`icon-chevron-${drawId}`);
+      if (!detailRow) return;
+      const isHidden = detailRow.classList.contains('hidden');
+      if (isHidden) {
+        detailRow.classList.remove('hidden');
+        if (icon) icon.style.transform = 'rotate(90deg)';
+      } else {
+        detailRow.classList.add('hidden');
+        if (icon) icon.style.transform = 'rotate(0deg)';
+      }
+    }
+    window.toggleLedgerDetail = toggleLedgerDetail;
+
+    function copyLedgerReport(product, ledger) {
+      if (!product || !ledger) return;
+      const pnl = ledger.cumulative_pnl || {};
+      const history = ledger.history || [];
+      const pending = ledger.current_pending_draw || {};
+      
+      let report = `📋 BÁO CÁO ĐỐI SOÁT DỰ ĐOÁN THỰC TẾ (REAL-TIME PREDICTION LEDGER)\n`;
+      report += `Sản phẩm: ${product.name}\n`;
+      report += `Thời gian xuất: ${new Date().toLocaleString('vi-VN')}\n`;
+      report += `----------------------------------------\n`;
+      report += `• Tổng số kỳ đối soát: ${ledger.total_tracked_draws || 0} kỳ\n`;
+      report += `• Tỷ lệ có giải thưởng: ${ledger.overall_win_rate_pct || 0}%\n`;
+      report += `• Vé Vàng Markowitz trúng TB: ${ledger.golden_ticket_avg_hits || 0} bóng/kỳ\n`;
+      report += `• Bao Tối Ưu trúng TB: ${ledger.septet_avg_hits || 0} bóng/kỳ\n`;
+      report += `• Tổng vốn đầu tư: ${(pnl.total_spent || 0).toLocaleString('vi-VN')} đ\n`;
+      report += `• Tổng tiền trúng thưởng: ${(pnl.total_won || 0).toLocaleString('vi-VN')} đ\n`;
+      report += `• P&L Thuần: ${(pnl.net_profit || 0).toLocaleString('vi-VN')} đ (ROI: ${pnl.roi_pct || 0}%)\n`;
+      report += `• Kỳ tiếp theo niêm phong: #${pending.draw_id || pending.target_draw_id || '--'}\n`;
+      report += `----------------------------------------\n`;
+      report += `LỊCH SỬ ĐỐI SOÁT 10 KỲ GẦN NHẤT:\n`;
+      
+      history.slice(0, 10).forEach(r => {
+        const did = r.draw_id || '--';
+        const ddate = r.draw_date || '';
+        const act = (r.actual_result || []).map(n => String(n).padStart(2, '0')).join(', ');
+        const pnlK = (r.summary_metrics?.net_profit_vnd || 0).toLocaleString('vi-VN');
+        const winStr = r.summary_metrics?.has_winning_prize ? ' [TRÚNG THƯỞNG ✓]' : '';
+        report += `#${did} (${ddate}): [${act}] -> P&L: ${pnlK} đ${winStr}\n`;
+      });
+      report += `----------------------------------------\n`;
+      report += `Nguồn dữ liệu: Vietlott Analytics 100% Walk-Forward (Không Mock Data)`;
+
+      navigator.clipboard.writeText(report).then(() => {
+        alert('Đã sao chép báo cáo đối soát vào clipboard!');
+      }).catch(err => {
+        console.error('Copy failed:', err);
+        alert('Không thể sao chép tự động, vui lòng thử lại.');
+      });
+    }
+
+    function exportLedgerJson(product, ledger) {
+      if (!ledger) return;
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(ledger, null, 2));
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute("href", dataStr);
+      const pKey = currentProductKey || 'vietlott';
+      downloadAnchor.setAttribute("download", `prediction_ledger_${pKey}_${new Date().toISOString().slice(0, 10)}.json`);
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
     }
 
     function saveConsensusTicket(type) {

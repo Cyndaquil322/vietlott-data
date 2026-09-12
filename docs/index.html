@@ -1896,7 +1896,15 @@
               Hệ thống ghi nhận và niêm phong dự đoán trước giờ quay, tự động đối soát chấm điểm tiền thưởng khi có kết quả thật từ lồng cầu Vietlott (Cam kết 100% Walk-Forward, Không Mock Data, Không Look-Ahead).
             </p>
           </div>
-          <div class="flex items-center gap-2">
+          <div class="flex items-center flex-wrap gap-2">
+            <button type="button" id="btnCopyLedgerReport" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-mono font-bold flex items-center gap-1.5 transition" title="Sao chép báo cáo kết quả đối soát ra clipboard">
+              <i data-lucide="copy" class="w-3.5 h-3.5 text-amber-400"></i>
+              <span>Sao chép báo cáo</span>
+            </button>
+            <button type="button" id="btnExportLedgerJson" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-mono font-bold flex items-center gap-1.5 transition" title="Tải về toàn bộ nhật ký đối soát dạng JSON">
+              <i data-lucide="download" class="w-3.5 h-3.5 text-indigo-400"></i>
+              <span>Tải JSON</span>
+            </button>
             <span class="px-2.5 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-mono font-bold flex items-center gap-1.5">
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
               <span id="ledgerSyncStatusBadge">Tự động đối soát</span>
@@ -1905,7 +1913,7 @@
         </div>
 
         <!-- KPI Cards: Thống kê hiệu suất tài chính thực tế -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 text-xs font-mono">
           <div class="bg-slate-950 p-4 rounded-xl border border-slate-800/80">
             <span class="text-slate-400 text-[11px] block">Tỷ Lệ Có Thưởng (Win Rate)</span>
             <span id="ledgerKpiWinRate" class="text-emerald-400 font-black text-xl font-mono mt-1 block">--%</span>
@@ -1917,14 +1925,19 @@
             <span class="text-slate-500 text-[10px] block mt-0.5">Theo vốn thực tế</span>
           </div>
           <div class="bg-slate-950 p-4 rounded-xl border border-slate-800/80">
+            <span class="text-slate-400 text-[11px] block">Tổng Lời / Lỗ Thuần</span>
+            <span id="ledgerKpiNetProfit" class="text-slate-200 font-black text-xl font-mono mt-1 block">-- đ</span>
+            <span id="ledgerKpiSpentWon" class="text-slate-500 text-[10px] block mt-0.5">Thu: -- / Vốn: --</span>
+          </div>
+          <div class="bg-slate-950 p-4 rounded-xl border border-slate-800/80">
             <span class="text-slate-400 text-[11px] block">Vé Vàng (Bóng Trúng TB)</span>
             <span id="ledgerKpiGtHits" class="text-indigo-400 font-black text-xl font-mono mt-1 block">-- bóng/kỳ</span>
             <span class="text-slate-500 text-[10px] block mt-0.5">Đơn lẻ Markowitz</span>
           </div>
-          <div class="bg-slate-950 p-4 rounded-xl border border-slate-800/80">
-            <span class="text-slate-400 text-[11px] block">Bao 7 (Bóng Trúng TB)</span>
+          <div class="bg-slate-950 p-4 rounded-xl border border-slate-800/80 col-span-2 sm:col-span-1">
+            <span id="ledgerKpiSeptetTitle" class="text-slate-400 text-[11px] block">Bao Tối Ưu (Bóng TB)</span>
             <span id="ledgerKpiSeptetHits" class="text-amber-300 font-black text-xl font-mono mt-1 block">-- bóng/kỳ</span>
-            <span class="text-slate-500 text-[10px] block mt-0.5">Dàn 7 bóng tối ưu</span>
+            <span id="ledgerKpiSeptetSub" class="text-slate-500 text-[10px] block mt-0.5">Dàn tổ hợp tối ưu</span>
           </div>
         </div>
 
@@ -1934,23 +1947,44 @@
             <div class="flex items-center gap-2">
               <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500 text-slate-950 badge-pending">🔒 ĐÃ NIÊM PHONG</span>
               <span id="ledgerPendingDrawId" class="text-white font-mono font-bold text-sm">Kỳ tiếp theo: #--</span>
+              <span id="ledgerPendingDrawSchedule" class="px-2 py-0.5 rounded text-[10px] font-mono bg-indigo-500/20 text-indigo-300 border border-indigo-500/30"></span>
             </div>
             <p class="text-xs text-slate-400">
               Bộ vé dự đoán đã được chốt và ký số trước giờ quay. Sẵn sàng so khớp tự động ngay khi kết quả xổ ra.
             </p>
           </div>
-          <div id="ledgerPendingBallsContainer" class="flex flex-wrap items-center gap-1.5 font-mono">
+          <div id="ledgerPendingBallsContainer" class="flex flex-wrap items-center gap-2 font-mono">
             <!-- Rendered by JS -->
           </div>
         </div>
 
         <!-- Filter Tabs -->
-        <div class="flex flex-wrap items-center gap-2 border-b border-slate-800 pb-2 text-xs font-mono">
-          <button type="button" class="ledger-filter-btn px-3 py-1.5 rounded-lg bg-amber-500 text-slate-950 font-bold transition" data-filter="all">Tất Cả Các Kỳ</button>
-          <button type="button" class="ledger-filter-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 font-bold transition" data-filter="winning">Chỉ Kỳ Trúng Thưởng (Win)</button>
-          <button type="button" class="ledger-filter-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 font-bold transition" data-filter="golden">Vé Vàng</button>
-          <button type="button" class="ledger-filter-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 font-bold transition" data-filter="bao7">Bao 7</button>
-          <button type="button" class="ledger-filter-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 font-bold transition" data-filter="banker">Dàn Banker</button>
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-2 text-xs font-mono">
+          <div class="flex flex-wrap items-center gap-1.5">
+            <button type="button" class="ledger-filter-btn px-3 py-1.5 rounded-lg bg-amber-500 text-slate-950 font-bold transition flex items-center gap-1" data-filter="all">
+              <span>Tất Cả Các Kỳ</span>
+              <span id="filterBadgeAll" class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-slate-950/40 text-slate-950"></span>
+            </button>
+            <button type="button" class="ledger-filter-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 font-bold transition flex items-center gap-1" data-filter="winning">
+              <span>Chỉ Kỳ Trúng (Win)</span>
+              <span id="filterBadgeWinning" class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40"></span>
+            </button>
+            <button type="button" class="ledger-filter-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 font-bold transition flex items-center gap-1" data-filter="golden">
+              <span>Vé Vàng</span>
+              <span id="filterBadgeGolden" class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-slate-700 text-slate-300"></span>
+            </button>
+            <button type="button" id="btnFilterBao" class="ledger-filter-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 font-bold transition flex items-center gap-1" data-filter="bao7">
+              <span id="filterLabelBao">Bao 7</span>
+              <span id="filterBadgeBao" class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-slate-700 text-slate-300"></span>
+            </button>
+            <button type="button" class="ledger-filter-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 font-bold transition flex items-center gap-1" data-filter="banker">
+              <span>Dàn Banker</span>
+              <span id="filterBadgeBanker" class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-slate-700 text-slate-300"></span>
+            </button>
+          </div>
+          <div class="text-[11px] text-slate-500 italic">
+            * Bấm vào từng hàng để mở rộng chi tiết Dàn Hạt Nhân & vé con
+          </div>
         </div>
 
         <!-- Detailed Verification Table -->
@@ -1958,10 +1992,11 @@
           <table class="w-full text-left text-xs font-mono">
             <thead class="bg-slate-950/80 text-slate-400 uppercase text-[10px] tracking-wider border-b border-slate-800">
               <tr>
-                <th class="px-3 py-3 rounded-l-lg">Kỳ / Ngày</th>
+                <th class="px-2 py-3 text-center w-8">#</th>
+                <th class="px-3 py-3">Kỳ / Ngày</th>
                 <th class="px-3 py-3">Kết Quả Xổ Ra</th>
                 <th class="px-3 py-3">Vé Vàng Markowitz</th>
-                <th class="px-3 py-3">Bao 7 Tối Ưu</th>
+                <th id="thLedgerBaoTitle" class="px-3 py-3">Bao 7 Tối Ưu</th>
                 <th class="px-3 py-3">Dàn Banker Chốt</th>
                 <th class="px-3 py-3 text-right rounded-r-lg">P&L Thuần (VNĐ)</th>
               </tr>

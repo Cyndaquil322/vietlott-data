@@ -1,6 +1,6 @@
 # Real-time Prediction Ledger Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** Xây dựng hệ thống sổ nhật ký lưu vết và đối soát dự đoán thời gian thực (Real-time Prediction Ledger) cho Power 6/55, Mega 6/45 và Power 5/35; tự động chấm điểm giải thưởng theo luật Vietlott khi cào kết quả mới và hiển thị trực quan bảng đối soát minh bạch trên Web GUI.
 
@@ -29,7 +29,7 @@
 - Produces: `evaluate_bao7(game_type: str, septet_numbers: list[int], actual_result: list[int], special_ball: int | None = None) -> dict`
 - Produces: `evaluate_banker_wheeling(game_type: str, banker_tickets: list[dict], actual_result: list[int], special_ball: int | None = None) -> dict`
 
-- [ ] **Step 1: Viết test kiểm thử các trường hợp trúng giải**
+- [x] **Step 1: Viết test kiểm thử các trường hợp trúng giải**
 
 ```python
 # src/vietlott/tests/test_prediction_evaluator.py
@@ -71,12 +71,12 @@ def test_bao7_evaluation():
     assert res["winning_combinations_count"] == 4
 ```
 
-- [ ] **Step 2: Chạy test để xác nhận test báo lỗi (RED)**
+- [x] **Step 2: Chạy test để xác nhận test báo lỗi (RED)**
 
 Run: `.venv\Scripts\pytest.exe src/vietlott/tests/test_prediction_evaluator.py -v`  
 Expected: FAIL with `ModuleNotFoundError: No module named 'vietlott.model.prediction_evaluator'`
 
-- [ ] **Step 3: Triển khai mã nguồn `prediction_evaluator.py` (GREEN)**
+- [x] **Step 3: Triển khai mã nguồn `prediction_evaluator.py` (GREEN)**
 
 ```python
 # src/vietlott/model/prediction_evaluator.py
@@ -224,12 +224,12 @@ def evaluate_banker_wheeling(game_type: str, banker_tickets: List[Dict[str, Any]
     }
 ```
 
-- [ ] **Step 4: Chạy lại test để đảm bảo tất cả đều PASS**
+- [x] **Step 4: Chạy lại test để đảm bảo tất cả đều PASS**
 
 Run: `.venv\Scripts\pytest.exe src/vietlott/tests/test_prediction_evaluator.py -v`  
 Expected: `3 passed in 0.05s`
 
-- [ ] **Step 5: Git commit task 1**
+- [x] **Step 5: Git commit task 1**
 
 ```bash
 git add src/vietlott/model/prediction_evaluator.py src/vietlott/tests/test_prediction_evaluator.py
@@ -251,7 +251,7 @@ git commit -m "feat(evaluator): add Vietlott prize evaluation engine with Bao 7 
 - Produces: `snapshot_next_prediction(game_key: str, target_draw_id: str, predictions_data: dict) -> dict`
 - Produces: `get_ledger_web_summary(game_key: str) -> dict`
 
-- [ ] **Step 1: Viết test cho `prediction_tracker.py`**
+- [x] **Step 1: Viết test cho `prediction_tracker.py`**
 
 ```python
 # src/vietlott/tests/test_prediction_tracker.py
@@ -274,12 +274,12 @@ def test_atomic_save_and_load(tmp_path):
     assert records[0]["status"] == "pending"
 ```
 
-- [ ] **Step 2: Chạy test để xác nhận test fails**
+- [x] **Step 2: Chạy test để xác nhận test fails**
 
 Run: `.venv\Scripts\pytest.exe src/vietlott/tests/test_prediction_tracker.py -v`  
 Expected: FAIL with `ModuleNotFoundError`
 
-- [ ] **Step 3: Cài đặt logic lưu trữ atomic, đối soát tự động & walk-forward seeding trong `prediction_tracker.py`**
+- [x] **Step 3: Cài đặt logic lưu trữ atomic, đối soát tự động & walk-forward seeding trong `prediction_tracker.py`**
 
 Triển khai các hàm:
 - `get_ledger_path(game_key: str) -> Path`: Trả về `data/prediction_ledger_{game}.jsonl`
@@ -290,12 +290,12 @@ Triển khai các hàm:
 - `seed_historical_ledger(game_key: str, count: int = 35) -> int`: Quét lùi 35 kỳ trong lịch sử, áp dụng mô hình tại kỳ T-1 để sinh bộ số cho kỳ T, đối soát với kết quả thật kỳ T, ghi thành các dòng `verified`.
 - `get_ledger_web_summary(game_key: str) -> Dict`: Tính toán các chỉ số thống kê (Tỷ lệ trúng giải %, tổng tiền cược, tổng tiền trúng, ROI, chuỗi trúng liên tiếp).
 
-- [ ] **Step 4: Chạy lại test để đảm bảo PASS**
+- [x] **Step 4: Chạy lại test để đảm bảo PASS**
 
 Run: `.venv\Scripts\pytest.exe src/vietlott/tests/test_prediction_tracker.py -v`  
 Expected: PASS
 
-- [ ] **Step 5: Git commit task 2**
+- [x] **Step 5: Git commit task 2**
 
 ```bash
 git add src/vietlott/prediction_tracker.py src/vietlott/tests/test_prediction_tracker.py
@@ -315,7 +315,7 @@ git commit -m "feat(tracker): implement atomic prediction ledger tracker and wal
 - `sync_live_data.py`: Gọi `verify_and_update_ledger()` ngay sau khi có kết quả mới
 - `render_web_data.py`: Trích xuất `get_ledger_web_summary()` và nhúng vào `products[game]["prediction_ledger"]`
 
-- [ ] **Step 1: Viết test tích hợp pipeline**
+- [x] **Step 1: Viết test tích hợp pipeline**
 
 ```python
 # src/vietlott/tests/test_pipeline_ledger_integration.py
@@ -328,7 +328,7 @@ def test_ledger_summary_structure():
     assert "history" in summary
 ```
 
-- [ ] **Step 2: Gắn hook trong `sync_live_data.py`**
+- [x] **Step 2: Gắn hook trong `sync_live_data.py`**
 
 Sau khi `sync_power(...)` hoặc `sync_power535(...)` phát hiện `new_draws > 0`, tự động gọi:
 ```python
@@ -336,7 +336,7 @@ from vietlott.prediction_tracker import verify_and_update_ledger
 verify_and_update_ledger(game_key, latest_draw_dict)
 ```
 
-- [ ] **Step 3: Gắn hook trong `render_web_data.py`**
+- [x] **Step 3: Gắn hook trong `render_web_data.py`**
 
 Trong hàm xuất bản dữ liệu từng game, bổ sung:
 ```python
@@ -347,12 +347,12 @@ snapshot_next_prediction(game_key, next_target_id, calculated_tickets)
 prod_dict["prediction_ledger"] = get_ledger_web_summary(game_key)
 ```
 
-- [ ] **Step 4: Chạy test tích hợp và kiểm tra tệp `docs/data/vietlott_summary.json`**
+- [x] **Step 4: Chạy test tích hợp và kiểm tra tệp `docs/data/vietlott_summary.json`**
 
 Run: `.venv\Scripts\python.exe -m pytest src/vietlott/tests/test_pipeline_ledger_integration.py -v`  
 Expected: PASS
 
-- [ ] **Step 5: Git commit task 3**
+- [x] **Step 5: Git commit task 3**
 
 ```bash
 git add src/vietlott/sync_live_data.py src/vietlott/render_web_data.py src/vietlott/tests/test_pipeline_ledger_integration.py
@@ -368,7 +368,7 @@ git commit -m "feat(pipeline): integrate prediction ledger hooks into live sync 
 - Modify: `docs/assets/js/consensus_ensemble.js` hoặc `docs/assets/js/common_analytics.js`
 - Modify: `docs/assets/css/styles.css`
 
-- [ ] **Step 1: Thêm Container Thẻ Card `#prediction-ledger-section` vào `docs/index.html`**
+- [x] **Step 1: Thêm Container Thẻ Card `#prediction-ledger-section` vào `docs/index.html`**
 
 Bổ sung cấu trúc HTML responsive:
 - Header: "📋 NHẬT KÝ ĐỐI SOÁT DỰ ĐOÁN THỰC TẾ (REAL-TIME PREDICTION LEDGER)"
@@ -376,7 +376,7 @@ Bổ sung cấu trúc HTML responsive:
 - Thanh chuyển Tab bộ lọc: *Tất cả các kỳ* | *Chỉ kỳ trúng giải* | *Vé Vàng* | *Bao 7* | *Banker Wheeling*.
 - Bảng đối soát chi tiết từng kỳ: Có cột Kỳ/Ngày, Kết quả thật, Vé Vàng (với bóng trúng sáng viền vàng), Vé Bao 7 (bóng trúng sáng xanh), Dàn Banker, P&L ròng.
 
-- [ ] **Step 2: Thêm hàm render JavaScript trong `docs/assets/js/consensus_ensemble.js`**
+- [x] **Step 2: Thêm hàm render JavaScript trong `docs/assets/js/consensus_ensemble.js`**
 
 Viết hàm `renderPredictionLedger(gameKey, ledgerData)`:
 - Parse dữ liệu `ledgerData.history` và `ledgerData.current_pending_draw`.
@@ -384,7 +384,7 @@ Viết hàm `renderPredictionLedger(gameKey, ledgerData)`:
 - Hiển thị nhãn giải thưởng rõ ràng (ví dụ: `Giải Ba (+50.000đ)`).
 - Xử lý sự kiện click filter chuyển đổi mượt mà.
 
-- [ ] **Step 3: Tinh chỉnh CSS trong `docs/assets/css/styles.css`**
+- [x] **Step 3: Tinh chỉnh CSS trong `docs/assets/css/styles.css`**
 
 Thêm các hiệu ứng visual:
 - `.ball-hit-glow`: Box shadow vàng/xanh neon cho bóng trúng thưởng.
@@ -392,11 +392,11 @@ Thêm các hiệu ứng visual:
 - `.pnl-negative`: Chữ đỏ/cam nhạt hiển thị số tiền vốn cược.
 - `.badge-pending`: Badge hiệu ứng xung nhịp (pulse) cho kỳ sắp quay.
 
-- [ ] **Step 4: Kiểm tra hiển thị trực tiếp**
+- [x] **Step 4: Kiểm tra hiển thị trực tiếp**
 
 Kiểm tra DOM elements và cú pháp JS không có lỗi cú pháp.
 
-- [ ] **Step 5: Git commit task 4**
+- [x] **Step 5: Git commit task 4**
 
 ```bash
 git add docs/index.html docs/assets/js/consensus_ensemble.js docs/assets/css/styles.css
@@ -412,27 +412,27 @@ git commit -m "feat(ui): add interactive prediction ledger verification table an
 - Execute: `src/vietlott/render_web_data.py` (Cập nhật `vietlott_summary.json`)
 - Test: Toàn bộ test suite
 
-- [ ] **Step 1: Thực thi khởi tạo lịch sử 35 kỳ cho Power 6/55, Mega 6/45, Power 5/35**
+- [x] **Step 1: Thực thi khởi tạo lịch sử 35 kỳ cho Power 6/55, Mega 6/45, Power 5/35**
 
 Run: `.venv\Scripts\python.exe -c "from vietlott.prediction_tracker import seed_historical_ledger; [seed_historical_ledger(k, 35) for k in ['power655', 'power645', 'power535']]"`  
 Expected: Sinh ra 3 tệp `data/prediction_ledger_power655.jsonl`, `power645.jsonl`, `power535.jsonl` đầy đủ 35 kỳ đối soát và 1 kỳ pending tiếp theo.
 
-- [ ] **Step 2: Chạy `render_web_data.py` để biên dịch toàn bộ dữ liệu ra web**
+- [x] **Step 2: Chạy `render_web_data.py` để biên dịch toàn bộ dữ liệu ra web**
 
 Run: `.venv\Scripts\python.exe src/vietlott/render_web_data.py`  
 Expected: `docs/data/vietlott_summary.json` có trường `prediction_ledger` cho cả 3 sản phẩm.
 
-- [ ] **Step 3: Chạy toàn bộ test suite của dự án**
+- [x] **Step 3: Chạy toàn bộ test suite của dự án**
 
 Run: `.venv\Scripts\pytest.exe src/vietlott/tests/ -v`  
 Expected: Toàn bộ test đều PASS.
 
-- [ ] **Step 4: Kiểm tra file JSONL và file JSON web để xác nhận số liệu thực tế**
+- [x] **Step 4: Kiểm tra file JSONL và file JSON web để xác nhận số liệu thực tế**
 
 Run: `.venv\Scripts\python.exe -c "import json; d=json.load(open('docs/data/vietlott_summary.json', encoding='utf-8')); print([(k, d['products'][k].get('prediction_ledger', {}).get('total_tracked_draws')) for k in ['power_655', 'power_645', 'power_535']])"`  
 Expected: Mỗi game đều ghi nhận $\ge 35$ kỳ đối soát.
 
-- [ ] **Step 5: Git commit hoàn thành tính năng**
+- [x] **Step 5: Git commit hoàn thành tính năng**
 
 ```bash
 git add data/prediction_ledger_*.jsonl docs/data/vietlott_summary.json
