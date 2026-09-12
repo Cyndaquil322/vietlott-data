@@ -1136,7 +1136,13 @@ def calculate_cooccurrence_matrix_analytics(records: List[Dict], max_val: int, n
     }
 
 
-def process_power(records: List[Dict], max_val: int, num_balls: int, has_special: bool = False) -> Dict[str, Any]:
+def process_power(
+    records: List[Dict],
+    max_val: int,
+    num_balls: int,
+    has_special: bool = False,
+    consensus_draws: int = 35,
+) -> Dict[str, Any]:
     """Process Power 655, 645, 535 with full analytics."""
     if not records:
         return {}
@@ -1169,6 +1175,9 @@ def process_power(records: List[Dict], max_val: int, num_balls: int, has_special
     digit_dynamics = calculate_digit_dynamics(records, max_val, num_balls)
     ev_metrics = calculate_ev_metrics(max_val, num_balls)
 
+    p_key = "power_535" if max_val == 35 else ("power_645" if max_val == 45 else "power_655")
+    is_two_m = (max_val == 35)
+
     return {
         "total_draws": total_draws,
         "first_draw": records[0].get("date"),
@@ -1191,12 +1200,12 @@ def process_power(records: List[Dict], max_val: int, num_balls: int, has_special
         "digit_dynamics": digit_dynamics,
         "ev_metrics": ev_metrics,
         "odd_even": odd_even,
-        "backtest_data": calculate_walk_forward_backtest(records, "power_535" if max_val==35 else ("power_645" if max_val==45 else "power_655"), max_val, num_balls, is_two_matrix=(max_val==35), num_draws=200, display_draws=20),
-        "bao7_backtest_data": calculate_walk_forward_bao7_backtest(records, "power_535" if max_val==35 else ("power_645" if max_val==45 else "power_655"), max_val, num_balls, is_two_matrix=(max_val==35), num_draws=200, display_draws=20),
-        "wheeling_strategy": generate_wheeling_strategy(records, "power_535" if max_val==35 else ("power_645" if max_val==45 else "power_655"), max_val, num_balls, is_two_matrix=(max_val==35)),
+        "backtest_data": calculate_walk_forward_backtest(records, p_key, max_val, num_balls, is_two_matrix=is_two_m, num_draws=200, display_draws=20),
+        "bao7_backtest_data": calculate_walk_forward_bao7_backtest(records, p_key, max_val, num_balls, is_two_matrix=is_two_m, num_draws=200, display_draws=20),
+        "wheeling_strategy": generate_wheeling_strategy(records, p_key, max_val, num_balls, is_two_matrix=is_two_m),
         "bac_nho_analytics": calculate_bac_nho_and_cau_roi(records, max_val, num_balls, window=200),
         "cooccurrence_analytics": calculate_cooccurrence_matrix_analytics(records, max_val, num_balls, window=200),
-        "consensus_hub": calculate_multi_model_consensus_and_backtest(records, "power_535" if max_val==35 else ("power_645" if max_val==45 else "power_655"), max_val, num_balls, is_two_matrix=(max_val==35), num_draws=100, display_draws=15)
+        "consensus_hub": calculate_multi_model_consensus_and_backtest(records, p_key, max_val, num_balls, is_two_matrix=is_two_m, num_draws=consensus_draws, display_draws=15),
     }
 
 
