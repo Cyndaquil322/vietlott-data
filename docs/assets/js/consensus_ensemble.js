@@ -672,6 +672,33 @@
       const sepHitsEl = document.getElementById('ledgerKpiSeptetHits');
       if (sepHitsEl) sepHitsEl.textContent = `${ledger.septet_avg_hits || 0} bóng/kỳ`;
 
+      // Đồng bộ thông số đối soát trực tiếp lên 3 Thẻ Card Ngân Sách
+      const cardGtAvg = document.getElementById('cardGoldenAvgHit');
+      if (cardGtAvg) cardGtAvg.textContent = `${ledger.golden_ticket_avg_hits || 0} bóng/kỳ`;
+      const cardGtHit = document.getElementById('cardGoldenHistoryHit');
+      if (cardGtHit) {
+        const gtWins = (ledger.history || []).filter(r => (r.predictions?.golden_ticket?.prize_vnd || 0) > 0).length;
+        cardGtHit.textContent = `${gtWins} kỳ trúng thưởng`;
+      }
+
+      const cardSepAvg = document.getElementById('cardBao7AvgHit');
+      if (cardSepAvg) cardSepAvg.textContent = `${ledger.septet_avg_hits || 0} bóng/kỳ`;
+      const cardSepHit = document.getElementById('cardBao7HistoryHit');
+      if (cardSepHit) {
+        const sepWins = (ledger.history || []).filter(r => (r.predictions?.septet_bao7?.prize_vnd || 0) > 0).length;
+        cardSepHit.textContent = `${sepWins} kỳ nổ giải chùm`;
+      }
+
+      const cardP50Cov = document.getElementById('cardPortfolioCoverageText');
+      const p50 = product.consensus_hub?.tickets?.portfolio_50k || {};
+      if (cardP50Cov && p50.pairs_coverage_pct != null) {
+        cardP50Cov.textContent = `${p50.pairs_coverage_pct}% cặp`;
+      }
+      const cardP50Win = document.getElementById('cardPortfolioWinRate');
+      if (cardP50Win) {
+        cardP50Win.textContent = `${ledger.overall_win_rate_pct || 0}%`;
+      }
+
       // 2. Pending Hero
       const pending = ledger.current_pending_draw;
       const pendingDrawIdEl = document.getElementById('ledgerPendingDrawId');
