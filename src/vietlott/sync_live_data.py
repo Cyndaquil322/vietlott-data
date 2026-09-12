@@ -140,6 +140,14 @@ def sync_power(name: str, url: str, key: str, file_path: Path, array_len: int = 
 
     save_data(file_path, existing)
     print(f"[OK] {name} synced: +{new_draws} new draws. Total now: {len(existing)} draws.")
+    if new_draws > 0 and existing:
+        try:
+            from vietlott.prediction_tracker import verify_and_update_ledger
+            # Lấy bản ghi mới nhất vừa cào
+            latest_id = max(existing.keys(), key=lambda x: int(x) if str(x).isdigit() else 0)
+            verify_and_update_ledger(name, existing[latest_id])
+        except Exception as err:
+            print(f"[WARN] Prediction ledger verify hook failed for {name}: {err}")
     return new_draws
 
 
@@ -334,6 +342,13 @@ def sync_power535(file_path: Path, max_pages: int = 40):
 
     save_data(file_path, existing)
     print(f"[OK] Power 5/35 synced: +{new_draws} new draws. Total now: {len(existing)} draws.")
+    if new_draws > 0 and existing:
+        try:
+            from vietlott.prediction_tracker import verify_and_update_ledger
+            latest_id = max(existing.keys(), key=lambda x: int(x) if str(x).isdigit() else 0)
+            verify_and_update_ledger("power535", existing[latest_id])
+        except Exception as err:
+            print(f"[WARN] Prediction ledger verify hook failed for Power 5/35: {err}")
     return new_draws
 
 

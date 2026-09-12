@@ -1396,6 +1396,30 @@ def generate_web_summary(data_dir: Path = DATA_DIR) -> Dict[str, Any]:
         **process_max3d(records_3d_pro)
     }
 
+    # 8. Prediction Ledger Integration (Power 6/55, Mega 6/45, Power 5/35)
+    try:
+        from vietlott.prediction_tracker import (
+            get_ledger_web_summary,
+            snapshot_next_prediction,
+        )
+        for game_k, prod_id in [("power655", "power_655"), ("power645", "power_645"), ("power535", "power_535")]:
+            prod = summary_data["products"].get(prod_id)
+            if not prod:
+                continue
+            ch = prod.get("consensus_hub", {})
+            next_id = ch.get("next_draw_id")
+            tickets_data = ch.get("tickets", {})
+            if next_id and tickets_data:
+                snapshot_next_prediction(
+                    game_key=game_k,
+                    target_draw_id=next_id,
+                    predictions_data=tickets_data,
+                    data_dir=data_dir,
+                )
+            prod["prediction_ledger"] = get_ledger_web_summary(game_k, data_dir=data_dir)
+    except Exception as e:
+        print(f"[WARN] Failed to attach prediction ledger summary: {e}")
+
     return summary_data
 
 
