@@ -42,6 +42,9 @@
         winRateEl.textContent = `${consensusModel.win_rate_ge3}%`;
       }
 
+      // 1.2 Chỉ Số Tin Cậy Hội Đồng Định Lượng (Consensus Conviction Meter) & Lời Khuyên Trực Quan
+      renderConsensusConvictionMeter(hub, product);
+
       // 1.5 Khuyến Nghị Quản Trị Vốn Kỳ Này (Kelly Bankroll Advisory)
       renderConsensusBankrollAdvisory(hub);
 
@@ -991,6 +994,69 @@
       document.body.appendChild(downloadAnchor);
       downloadAnchor.click();
       downloadAnchor.remove();
+    }
+
+    function renderConsensusConvictionMeter(hub, product) {
+      const scoreBadge = document.getElementById('convictionScoreBadge');
+      const signalBadge = document.getElementById('convictionSignalBadge');
+      const progressBar = document.getElementById('convictionProgressBar');
+      const insightNote = document.getElementById('convictionInsightNote');
+      if (!scoreBadge || !signalBadge || !progressBar || !insightNote) return;
+
+      const topBalls = hub.top_consensus_balls || [];
+      const leader = hub.leaderboard?.find(m => m.id === 'consensus') || {};
+      const adv = hub.bankroll_advisory || {};
+
+      // 1. Tính toán điểm Conviction (0 - 100) dựa trên phân bổ Entropy và độ tập trung của Top 6 bóng
+      let conviction = 50;
+      if (topBalls.length >= 6) {
+        const top6Scores = topBalls.slice(0, 6).map(b => b.score || b.weight || 0);
+        const avgTop = top6Scores.reduce((a, b) => a + b, 0) / 6;
+        const restScores = topBalls.slice(6, 15).map(b => b.score || b.weight || 0);
+        const avgRest = restScores.length ? (restScores.reduce((a, b) => a + b, 0) / restScores.length) : 0.5;
+        const ratio = avgRest > 0 ? (avgTop / avgRest) : 1.2;
+        conviction = Math.round(Math.min(95, Math.max(30, 45 + (ratio - 1.0) * 80)));
+      }
+
+      // Điều chỉnh theo Kelly Advisory tier
+      if (adv.tier === 3) conviction = Math.max(conviction, 85);
+      else if (adv.tier === 1) conviction = Math.min(conviction, 55);
+
+      progressBar.style.width = `${conviction}%`;
+      scoreBadge.textContent = `Độ Tin Cậy: ${conviction}/100`;
+
+      // 2. Phân cấp Tín Hiệu Hành Động
+      let signalText = 'TRUNG HÒA (QUAN SÁT)';
+      let signalCls = 'bg-slate-800 text-slate-300 border border-slate-700';
+      if (conviction >= 80) {
+        signalText = '🔥 ĐỒNG QUY CỰC MẠNH (HIGH CONVICTION)';
+        signalCls = 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 animate-pulse';
+        progressBar.className = 'bg-gradient-to-r from-emerald-400 to-emerald-500 h-2.5 rounded-full transition-all duration-700';
+      } else if (conviction >= 65) {
+        signalText = '⚡ TÍN HIỆU TÍCH CỰC (MODERATE)';
+        signalCls = 'bg-amber-500/20 text-amber-300 border border-amber-500/40';
+        progressBar.className = 'bg-gradient-to-r from-amber-400 to-amber-500 h-2.5 rounded-full transition-all duration-700';
+      } else {
+        signalText = '🛡️ PHÂN TÁN (BẢO TOÀN VỐN)';
+        signalCls = 'bg-rose-500/20 text-rose-300 border border-rose-500/40';
+        progressBar.className = 'bg-gradient-to-r from-rose-500 to-slate-600 h-2.5 rounded-full transition-all duration-700';
+      }
+      signalBadge.textContent = `Tín Hiệu: ${signalText}`;
+      signalBadge.className = `px-2.5 py-0.5 rounded-lg text-xs font-bold ${signalCls}`;
+
+      // 3. Plain Vietnamese Insights (Lời khuyên trực quan bằng tiếng Việt)
+      const top3Balls = topBalls.slice(0, 3).map(b => String(b.ball || b.number).padStart(2, '0')).join(', ');
+      const bestModel = hub.leaderboard?.find(m => m.id !== 'consensus' && m.id !== 'baseline_random');
+      const mName = bestModel ? bestModel.name : 'Markov PPMI';
+
+      insightNote.innerHTML = `
+        <strong>Góc nhìn chuyên gia:</strong> 
+        Hội đồng định lượng đang dồn xác suất cao nhất vào trục bóng <strong>[${top3Balls}]</strong>. 
+        Mô hình <strong>${mName}</strong> đang nắm giữ trọng số dẫn dắt. 
+        ${conviction >= 75 
+          ? 'Không gian xác suất kỳ này co hẹp rõ rệt, ưu tiên phương án vào tiền Dàn Bao 7 / Dàn 4 vé thu gọn.' 
+          : 'Trường phân tán tương đối rộng, khuyến nghị ưu tiên vé đơn Vé Vàng hoặc nuôi số bảo toàn vốn theo tiêu chí Kelly.'}
+      `;
     }
 
     function saveConsensusTicket(type) {

@@ -1178,6 +1178,35 @@
           </div>
         </div>
 
+        <!-- THANH ĐO ĐỘ TIN CẬY DỰ ĐOÁN & TÍN HIỆU HÀNH ĐỘNG (CONSENSUS CONVICTION METER) -->
+        <div id="consensusConvictionSection" class="p-4 rounded-2xl bg-gradient-to-r from-amber-950/30 via-slate-950 to-indigo-950/30 border border-amber-500/30 shadow-xl space-y-2.5">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping"></span>
+              <h5 class="text-xs font-bold uppercase tracking-wider text-amber-300 font-mono flex items-center gap-1.5">
+                <i data-lucide="gauge" class="w-4 h-4 text-amber-400"></i>
+                <span>Chỉ Số Tin Cậy Hội Đồng Định Lượng (Consensus Conviction Meter)</span>
+              </h5>
+            </div>
+            <div class="flex items-center gap-2 font-mono">
+              <span id="convictionScoreBadge" class="px-2.5 py-0.5 rounded-lg text-xs font-black bg-amber-500 text-slate-950">
+                Độ Tin Cậy: --/100
+              </span>
+              <span id="convictionSignalBadge" class="px-2.5 py-0.5 rounded-lg text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+                Tín Hiệu: Đang Đánh Giá
+              </span>
+            </div>
+          </div>
+          <!-- Conviction Progress Bar -->
+          <div class="w-full bg-slate-900 rounded-full h-2.5 overflow-hidden border border-slate-800">
+            <div id="convictionProgressBar" class="bg-gradient-to-r from-emerald-500 via-amber-400 to-indigo-500 h-2.5 rounded-full transition-all duration-700" style="width: 0%"></div>
+          </div>
+          <!-- Plain Vietnamese Insight Note -->
+          <p id="convictionInsightNote" class="text-xs text-slate-300 italic">
+            * Đang tổng hợp các lực hút Markov, nhịp rơi Poisson và độ nâng Bạc Nhớ để phân tích tín hiệu kỳ này...
+          </p>
+        </div>
+
         <!-- KHUYẾN NGHỊ QUẢN TRỊ VỐN KỲ NÀY (KELLY BANKROLL ADVISORY) -->
         <div id="consensusBankrollAdvisory" class="hidden">
           <!-- Rendered by JS -->
