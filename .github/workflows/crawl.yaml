@@ -2,6 +2,16 @@ name: Vietlott Daily Crawler & Web Deploy
 
 'on':
   workflow_dispatch: # Allows manual trigger from GitHub UI
+  push:
+    branches:
+      - main
+    paths:
+      - 'docs/**'
+      - 'src/**'
+      - 'bin/**'
+      - '.github/workflows/**'
+      - 'index.html'
+      - 'assets/**'
   schedule:
     # =========================================================================
     # LỊCH CHẠY TỰ ĐỘNG THEO GIỜ VIỆT NAM (UTC+7)
