@@ -8,24 +8,38 @@
     "balls": 5,
     "max_number": 35,
     "has_special": true,
-    "total_draws": 792,
+    "total_draws": 793,
     "first_draw": "2025-06-29",
-    "latest_draw": "2026-09-12",
+    "latest_draw": "2026-09-13",
     "latest": {
-      "date": "2026-09-12",
-      "id": "00882",
+      "date": "2026-09-13",
+      "id": "00883",
       "result": [
-        6,
-        11,
-        13,
-        22,
-        25,
-        8
+        1,
+        7,
+        29,
+        32,
+        34,
+        2
       ],
       "page": 0,
-      "process_time": "2026-09-12 21:45:42"
+      "process_time": "2026-09-13 13:40:56"
     },
     "history": [
+      {
+        "date": "2026-09-13",
+        "id": "00883",
+        "result": [
+          1,
+          7,
+          29,
+          32,
+          34,
+          2
+        ],
+        "page": 0,
+        "process_time": "2026-09-13 13:40:56"
+      },
       {
         "date": "2026-09-12",
         "id": "00882",
@@ -1411,665 +1425,651 @@
         ],
         "page": 10,
         "process_time": "2026-09-04 01:14:34.000000"
-      },
-      {
-        "date": "2026-07-25",
-        "id": "00783",
-        "result": [
-          2,
-          8,
-          12,
-          14,
-          19,
-          12
-        ],
-        "page": 10,
-        "process_time": "2026-09-04 01:14:34.000000"
       }
     ],
     "hot_numbers": [
       {
         "number": 34,
-        "count": 141,
-        "pct": 17.8
+        "count": 142,
+        "pct": 17.91
       },
       {
         "number": 28,
         "count": 131,
-        "pct": 16.54
+        "pct": 16.52
       },
       {
         "number": 10,
         "count": 130,
-        "pct": 16.41
+        "pct": 16.39
       },
       {
         "number": 33,
         "count": 128,
-        "pct": 16.16
+        "pct": 16.14
       },
       {
         "number": 20,
         "count": 127,
-        "pct": 16.04
+        "pct": 16.02
       },
       {
         "number": 22,
         "count": 126,
-        "pct": 15.91
+        "pct": 15.89
       },
       {
         "number": 23,
         "count": 125,
-        "pct": 15.78
+        "pct": 15.76
       },
       {
         "number": 11,
         "count": 124,
-        "pct": 15.66
+        "pct": 15.64
       },
       {
         "number": 15,
         "count": 123,
-        "pct": 15.53
+        "pct": 15.51
       },
       {
         "number": 14,
         "count": 121,
-        "pct": 15.28
+        "pct": 15.26
       }
     ],
     "cold_numbers": [
       {
         "number": 12,
         "count": 93,
-        "pct": 11.74
+        "pct": 11.73
       },
       {
         "number": 32,
-        "count": 94,
-        "pct": 11.87
+        "count": 95,
+        "pct": 11.98
       },
       {
         "number": 16,
         "count": 96,
-        "pct": 12.12
+        "pct": 12.11
       },
       {
         "number": 5,
         "count": 98,
-        "pct": 12.37
+        "pct": 12.36
       },
       {
         "number": 31,
         "count": 99,
-        "pct": 12.5
+        "pct": 12.48
       },
       {
         "number": 24,
         "count": 100,
-        "pct": 12.63
+        "pct": 12.61
       },
       {
         "number": 4,
         "count": 100,
-        "pct": 12.63
+        "pct": 12.61
       },
       {
         "number": 21,
         "count": 103,
-        "pct": 13.01
+        "pct": 12.99
       },
       {
         "number": 17,
         "count": 105,
-        "pct": 13.26
+        "pct": 13.24
       },
       {
         "number": 2,
         "count": 105,
-        "pct": 13.26
+        "pct": 13.24
       }
     ],
     "top_overdue": [
       {
         "number": 21,
-        "current_gap": 27,
+        "current_gap": 28,
         "max_gap": 40,
         "avg_gap": 7.7,
         "appearances": 103,
-        "heat_ratio": 3.51
-      },
-      {
-        "number": 1,
-        "current_gap": 24,
-        "max_gap": 31,
-        "avg_gap": 6.9,
-        "appearances": 115,
-        "heat_ratio": 3.48
+        "heat_ratio": 3.64
       },
       {
         "number": 31,
-        "current_gap": 17,
+        "current_gap": 18,
         "max_gap": 24,
         "avg_gap": 8.0,
         "appearances": 99,
-        "heat_ratio": 2.12
+        "heat_ratio": 2.25
       },
       {
         "number": 12,
-        "current_gap": 13,
+        "current_gap": 14,
         "max_gap": 46,
         "avg_gap": 8.5,
         "appearances": 93,
-        "heat_ratio": 1.53
-      },
-      {
-        "number": 29,
-        "current_gap": 13,
-        "max_gap": 31,
-        "avg_gap": 7.1,
-        "appearances": 111,
-        "heat_ratio": 1.83
+        "heat_ratio": 1.65
       },
       {
         "number": 24,
-        "current_gap": 12,
+        "current_gap": 13,
         "max_gap": 33,
         "avg_gap": 7.9,
         "appearances": 100,
-        "heat_ratio": 1.52
+        "heat_ratio": 1.65
       },
       {
         "number": 35,
-        "current_gap": 11,
+        "current_gap": 12,
         "max_gap": 29,
         "avg_gap": 7.0,
         "appearances": 113,
-        "heat_ratio": 1.57
+        "heat_ratio": 1.71
       },
       {
         "number": 18,
-        "current_gap": 10,
+        "current_gap": 11,
         "max_gap": 60,
         "avg_gap": 7.3,
         "appearances": 109,
-        "heat_ratio": 1.37
+        "heat_ratio": 1.51
       },
       {
         "number": 17,
-        "current_gap": 9,
+        "current_gap": 10,
         "max_gap": 33,
-        "avg_gap": 7.5,
+        "avg_gap": 7.6,
         "appearances": 105,
-        "heat_ratio": 1.2
+        "heat_ratio": 1.32
       },
       {
         "number": 28,
-        "current_gap": 9,
+        "current_gap": 10,
         "max_gap": 27,
-        "avg_gap": 6.0,
+        "avg_gap": 6.1,
         "appearances": 131,
-        "heat_ratio": 1.5
+        "heat_ratio": 1.64
+      },
+      {
+        "number": 14,
+        "current_gap": 9,
+        "max_gap": 31,
+        "avg_gap": 6.6,
+        "appearances": 121,
+        "heat_ratio": 1.36
+      },
+      {
+        "number": 23,
+        "current_gap": 9,
+        "max_gap": 25,
+        "avg_gap": 6.3,
+        "appearances": 125,
+        "heat_ratio": 1.43
       }
     ],
     "gap_analysis": [
       {
         "number": 1,
-        "current_gap": 24,
-        "max_gap": 31,
-        "avg_gap": 6.9,
-        "appearances": 115,
-        "heat_ratio": 3.48
-      },
-      {
-        "number": 2,
-        "current_gap": 5,
-        "max_gap": 37,
-        "avg_gap": 7.5,
-        "appearances": 105,
-        "heat_ratio": 0.67
-      },
-      {
-        "number": 3,
-        "current_gap": 5,
-        "max_gap": 29,
-        "avg_gap": 7.1,
-        "appearances": 111,
-        "heat_ratio": 0.7
-      },
-      {
-        "number": 4,
-        "current_gap": 2,
-        "max_gap": 36,
-        "avg_gap": 7.9,
-        "appearances": 100,
-        "heat_ratio": 0.25
-      },
-      {
-        "number": 5,
-        "current_gap": 1,
-        "max_gap": 28,
-        "avg_gap": 8.1,
-        "appearances": 98,
-        "heat_ratio": 0.12
-      },
-      {
-        "number": 6,
         "current_gap": 0,
-        "max_gap": 53,
-        "avg_gap": 7.4,
-        "appearances": 107,
+        "max_gap": 31,
+        "avg_gap": 6.8,
+        "appearances": 116,
         "heat_ratio": 0.0
       },
       {
-        "number": 7,
-        "current_gap": 7,
+        "number": 2,
+        "current_gap": 6,
+        "max_gap": 37,
+        "avg_gap": 7.6,
+        "appearances": 105,
+        "heat_ratio": 0.79
+      },
+      {
+        "number": 3,
+        "current_gap": 6,
+        "max_gap": 29,
+        "avg_gap": 7.1,
+        "appearances": 111,
+        "heat_ratio": 0.85
+      },
+      {
+        "number": 4,
+        "current_gap": 3,
         "max_gap": 36,
+        "avg_gap": 7.9,
+        "appearances": 100,
+        "heat_ratio": 0.38
+      },
+      {
+        "number": 5,
+        "current_gap": 2,
+        "max_gap": 28,
+        "avg_gap": 8.1,
+        "appearances": 98,
+        "heat_ratio": 0.25
+      },
+      {
+        "number": 6,
+        "current_gap": 1,
+        "max_gap": 53,
+        "avg_gap": 7.4,
+        "appearances": 107,
+        "heat_ratio": 0.14
+      },
+      {
+        "number": 7,
+        "current_gap": 0,
+        "max_gap": 36,
+        "avg_gap": 6.8,
+        "appearances": 117,
+        "heat_ratio": 0.0
+      },
+      {
+        "number": 8,
+        "current_gap": 4,
+        "max_gap": 31,
+        "avg_gap": 7.0,
+        "appearances": 113,
+        "heat_ratio": 0.57
+      },
+      {
+        "number": 9,
+        "current_gap": 8,
+        "max_gap": 38,
+        "avg_gap": 7.3,
+        "appearances": 109,
+        "heat_ratio": 1.1
+      },
+      {
+        "number": 10,
+        "current_gap": 2,
+        "max_gap": 23,
+        "avg_gap": 6.1,
+        "appearances": 130,
+        "heat_ratio": 0.33
+      },
+      {
+        "number": 11,
+        "current_gap": 1,
+        "max_gap": 39,
+        "avg_gap": 6.4,
+        "appearances": 124,
+        "heat_ratio": 0.16
+      },
+      {
+        "number": 12,
+        "current_gap": 14,
+        "max_gap": 46,
+        "avg_gap": 8.5,
+        "appearances": 93,
+        "heat_ratio": 1.65
+      },
+      {
+        "number": 13,
+        "current_gap": 1,
+        "max_gap": 30,
+        "avg_gap": 6.6,
+        "appearances": 120,
+        "heat_ratio": 0.15
+      },
+      {
+        "number": 14,
+        "current_gap": 9,
+        "max_gap": 31,
+        "avg_gap": 6.6,
+        "appearances": 121,
+        "heat_ratio": 1.36
+      },
+      {
+        "number": 15,
+        "current_gap": 4,
+        "max_gap": 32,
+        "avg_gap": 6.4,
+        "appearances": 123,
+        "heat_ratio": 0.62
+      },
+      {
+        "number": 16,
+        "current_gap": 4,
+        "max_gap": 51,
+        "avg_gap": 8.3,
+        "appearances": 96,
+        "heat_ratio": 0.48
+      },
+      {
+        "number": 17,
+        "current_gap": 10,
+        "max_gap": 33,
+        "avg_gap": 7.6,
+        "appearances": 105,
+        "heat_ratio": 1.32
+      },
+      {
+        "number": 18,
+        "current_gap": 11,
+        "max_gap": 60,
+        "avg_gap": 7.3,
+        "appearances": 109,
+        "heat_ratio": 1.51
+      },
+      {
+        "number": 19,
+        "current_gap": 7,
+        "max_gap": 31,
         "avg_gap": 6.8,
         "appearances": 116,
         "heat_ratio": 1.03
       },
       {
-        "number": 8,
-        "current_gap": 3,
-        "max_gap": 31,
-        "avg_gap": 7.0,
-        "appearances": 113,
-        "heat_ratio": 0.43
-      },
-      {
-        "number": 9,
-        "current_gap": 7,
-        "max_gap": 38,
-        "avg_gap": 7.3,
-        "appearances": 109,
-        "heat_ratio": 0.96
-      },
-      {
-        "number": 10,
-        "current_gap": 1,
-        "max_gap": 23,
-        "avg_gap": 6.1,
-        "appearances": 130,
-        "heat_ratio": 0.16
-      },
-      {
-        "number": 11,
-        "current_gap": 0,
-        "max_gap": 39,
-        "avg_gap": 6.4,
-        "appearances": 124,
-        "heat_ratio": 0.0
-      },
-      {
-        "number": 12,
-        "current_gap": 13,
-        "max_gap": 46,
-        "avg_gap": 8.5,
-        "appearances": 93,
-        "heat_ratio": 1.53
-      },
-      {
-        "number": 13,
-        "current_gap": 0,
-        "max_gap": 30,
-        "avg_gap": 6.6,
-        "appearances": 120,
-        "heat_ratio": 0.0
-      },
-      {
-        "number": 14,
-        "current_gap": 8,
-        "max_gap": 31,
-        "avg_gap": 6.5,
-        "appearances": 121,
-        "heat_ratio": 1.23
-      },
-      {
-        "number": 15,
-        "current_gap": 3,
-        "max_gap": 32,
-        "avg_gap": 6.4,
-        "appearances": 123,
-        "heat_ratio": 0.47
-      },
-      {
-        "number": 16,
-        "current_gap": 3,
-        "max_gap": 51,
-        "avg_gap": 8.2,
-        "appearances": 96,
-        "heat_ratio": 0.37
-      },
-      {
-        "number": 17,
-        "current_gap": 9,
-        "max_gap": 33,
-        "avg_gap": 7.5,
-        "appearances": 105,
-        "heat_ratio": 1.2
-      },
-      {
-        "number": 18,
-        "current_gap": 10,
-        "max_gap": 60,
-        "avg_gap": 7.3,
-        "appearances": 109,
-        "heat_ratio": 1.37
-      },
-      {
-        "number": 19,
-        "current_gap": 6,
-        "max_gap": 31,
-        "avg_gap": 6.8,
-        "appearances": 116,
-        "heat_ratio": 0.88
-      },
-      {
         "number": 20,
-        "current_gap": 1,
+        "current_gap": 2,
         "max_gap": 30,
         "avg_gap": 6.2,
         "appearances": 127,
-        "heat_ratio": 0.16
+        "heat_ratio": 0.32
       },
       {
         "number": 21,
-        "current_gap": 27,
+        "current_gap": 28,
         "max_gap": 40,
         "avg_gap": 7.7,
         "appearances": 103,
-        "heat_ratio": 3.51
+        "heat_ratio": 3.64
       },
       {
         "number": 22,
-        "current_gap": 0,
+        "current_gap": 1,
         "max_gap": 25,
         "avg_gap": 6.3,
         "appearances": 126,
-        "heat_ratio": 0.0
+        "heat_ratio": 0.16
       },
       {
         "number": 23,
-        "current_gap": 8,
+        "current_gap": 9,
         "max_gap": 25,
         "avg_gap": 6.3,
         "appearances": 125,
-        "heat_ratio": 1.27
+        "heat_ratio": 1.43
       },
       {
         "number": 24,
-        "current_gap": 12,
+        "current_gap": 13,
         "max_gap": 33,
         "avg_gap": 7.9,
         "appearances": 100,
-        "heat_ratio": 1.52
+        "heat_ratio": 1.65
       },
       {
         "number": 25,
-        "current_gap": 0,
+        "current_gap": 1,
         "max_gap": 35,
         "avg_gap": 7.4,
         "appearances": 107,
-        "heat_ratio": 0.0
-      },
-      {
-        "number": 26,
-        "current_gap": 4,
-        "max_gap": 35,
-        "avg_gap": 7.1,
-        "appearances": 112,
-        "heat_ratio": 0.56
-      },
-      {
-        "number": 27,
-        "current_gap": 2,
-        "max_gap": 44,
-        "avg_gap": 6.6,
-        "appearances": 120,
-        "heat_ratio": 0.3
-      },
-      {
-        "number": 28,
-        "current_gap": 9,
-        "max_gap": 27,
-        "avg_gap": 6.0,
-        "appearances": 131,
-        "heat_ratio": 1.5
-      },
-      {
-        "number": 29,
-        "current_gap": 13,
-        "max_gap": 31,
-        "avg_gap": 7.1,
-        "appearances": 111,
-        "heat_ratio": 1.83
-      },
-      {
-        "number": 30,
-        "current_gap": 1,
-        "max_gap": 33,
-        "avg_gap": 7.1,
-        "appearances": 112,
         "heat_ratio": 0.14
       },
       {
+        "number": 26,
+        "current_gap": 5,
+        "max_gap": 35,
+        "avg_gap": 7.1,
+        "appearances": 112,
+        "heat_ratio": 0.7
+      },
+      {
+        "number": 27,
+        "current_gap": 3,
+        "max_gap": 44,
+        "avg_gap": 6.6,
+        "appearances": 120,
+        "heat_ratio": 0.45
+      },
+      {
+        "number": 28,
+        "current_gap": 10,
+        "max_gap": 27,
+        "avg_gap": 6.1,
+        "appearances": 131,
+        "heat_ratio": 1.64
+      },
+      {
+        "number": 29,
+        "current_gap": 0,
+        "max_gap": 31,
+        "avg_gap": 7.1,
+        "appearances": 112,
+        "heat_ratio": 0.0
+      },
+      {
+        "number": 30,
+        "current_gap": 2,
+        "max_gap": 33,
+        "avg_gap": 7.1,
+        "appearances": 112,
+        "heat_ratio": 0.28
+      },
+      {
         "number": 31,
-        "current_gap": 17,
+        "current_gap": 18,
         "max_gap": 24,
         "avg_gap": 8.0,
         "appearances": 99,
-        "heat_ratio": 2.12
+        "heat_ratio": 2.25
       },
       {
         "number": 32,
-        "current_gap": 2,
+        "current_gap": 0,
         "max_gap": 38,
-        "avg_gap": 8.4,
-        "appearances": 94,
-        "heat_ratio": 0.24
+        "avg_gap": 8.3,
+        "appearances": 95,
+        "heat_ratio": 0.0
       },
       {
         "number": 33,
-        "current_gap": 7,
+        "current_gap": 8,
         "max_gap": 32,
         "avg_gap": 6.2,
         "appearances": 128,
-        "heat_ratio": 1.13
+        "heat_ratio": 1.29
       },
       {
         "number": 34,
-        "current_gap": 4,
+        "current_gap": 0,
         "max_gap": 31,
         "avg_gap": 5.6,
-        "appearances": 141,
-        "heat_ratio": 0.71
+        "appearances": 142,
+        "heat_ratio": 0.0
       },
       {
         "number": 35,
-        "current_gap": 11,
+        "current_gap": 12,
         "max_gap": 29,
         "avg_gap": 7.0,
         "appearances": 113,
-        "heat_ratio": 1.57
+        "heat_ratio": 1.71
       }
     ],
     "frequency": [
       {
         "number": 1,
-        "count": 115,
-        "pct": 14.52
+        "count": 116,
+        "pct": 14.63
       },
       {
         "number": 2,
         "count": 105,
-        "pct": 13.26
+        "pct": 13.24
       },
       {
         "number": 3,
         "count": 111,
-        "pct": 14.02
+        "pct": 14.0
       },
       {
         "number": 4,
         "count": 100,
-        "pct": 12.63
+        "pct": 12.61
       },
       {
         "number": 5,
         "count": 98,
-        "pct": 12.37
+        "pct": 12.36
       },
       {
         "number": 6,
         "count": 107,
-        "pct": 13.51
+        "pct": 13.49
       },
       {
         "number": 7,
-        "count": 116,
-        "pct": 14.65
+        "count": 117,
+        "pct": 14.75
       },
       {
         "number": 8,
         "count": 113,
-        "pct": 14.27
+        "pct": 14.25
       },
       {
         "number": 9,
         "count": 109,
-        "pct": 13.76
+        "pct": 13.75
       },
       {
         "number": 10,
         "count": 130,
-        "pct": 16.41
+        "pct": 16.39
       },
       {
         "number": 11,
         "count": 124,
-        "pct": 15.66
+        "pct": 15.64
       },
       {
         "number": 12,
         "count": 93,
-        "pct": 11.74
+        "pct": 11.73
       },
       {
         "number": 13,
         "count": 120,
-        "pct": 15.15
+        "pct": 15.13
       },
       {
         "number": 14,
         "count": 121,
-        "pct": 15.28
+        "pct": 15.26
       },
       {
         "number": 15,
         "count": 123,
-        "pct": 15.53
+        "pct": 15.51
       },
       {
         "number": 16,
         "count": 96,
-        "pct": 12.12
+        "pct": 12.11
       },
       {
         "number": 17,
         "count": 105,
-        "pct": 13.26
+        "pct": 13.24
       },
       {
         "number": 18,
         "count": 109,
-        "pct": 13.76
+        "pct": 13.75
       },
       {
         "number": 19,
         "count": 116,
-        "pct": 14.65
+        "pct": 14.63
       },
       {
         "number": 20,
         "count": 127,
-        "pct": 16.04
+        "pct": 16.02
       },
       {
         "number": 21,
         "count": 103,
-        "pct": 13.01
+        "pct": 12.99
       },
       {
         "number": 22,
         "count": 126,
-        "pct": 15.91
+        "pct": 15.89
       },
       {
         "number": 23,
         "count": 125,
-        "pct": 15.78
+        "pct": 15.76
       },
       {
         "number": 24,
         "count": 100,
-        "pct": 12.63
+        "pct": 12.61
       },
       {
         "number": 25,
         "count": 107,
-        "pct": 13.51
+        "pct": 13.49
       },
       {
         "number": 26,
         "count": 112,
-        "pct": 14.14
+        "pct": 14.12
       },
       {
         "number": 27,
         "count": 120,
-        "pct": 15.15
+        "pct": 15.13
       },
       {
         "number": 28,
         "count": 131,
-        "pct": 16.54
+        "pct": 16.52
       },
       {
         "number": 29,
-        "count": 111,
-        "pct": 14.02
+        "count": 112,
+        "pct": 14.12
       },
       {
         "number": 30,
         "count": 112,
-        "pct": 14.14
+        "pct": 14.12
       },
       {
         "number": 31,
         "count": 99,
-        "pct": 12.5
+        "pct": 12.48
       },
       {
         "number": 32,
-        "count": 94,
-        "pct": 11.87
+        "count": 95,
+        "pct": 11.98
       },
       {
         "number": 33,
         "count": 128,
-        "pct": 16.16
+        "pct": 16.14
       },
       {
         "number": 34,
-        "count": 141,
-        "pct": 17.8
+        "count": 142,
+        "pct": 17.91
       },
       {
         "number": 35,
         "count": 113,
-        "pct": 14.27
+        "pct": 14.25
       }
     ],
     "top_pairs": [
@@ -2103,7 +2103,7 @@
           34
         ],
         "count": 25,
-        "pct": 3.16
+        "pct": 3.15
       },
       {
         "pair": [
@@ -2111,7 +2111,7 @@
           27
         ],
         "count": 25,
-        "pct": 3.16
+        "pct": 3.15
       },
       {
         "pair": [
@@ -2119,7 +2119,7 @@
           34
         ],
         "count": 25,
-        "pct": 3.16
+        "pct": 3.15
       },
       {
         "pair": [
@@ -2127,12 +2127,20 @@
           34
         ],
         "count": 25,
-        "pct": 3.16
+        "pct": 3.15
       },
       {
         "pair": [
           3,
           10
+        ],
+        "count": 24,
+        "pct": 3.03
+      },
+      {
+        "pair": [
+          7,
+          34
         ],
         "count": 24,
         "pct": 3.03
@@ -2147,19 +2155,11 @@
       },
       {
         "pair": [
-          7,
-          34
-        ],
-        "count": 23,
-        "pct": 2.9
-      },
-      {
-        "pair": [
           13,
           23
         ],
         "count": 22,
-        "pct": 2.78
+        "pct": 2.77
       },
       {
         "pair": [
@@ -2167,7 +2167,7 @@
           29
         ],
         "count": 22,
-        "pct": 2.78
+        "pct": 2.77
       },
       {
         "pair": [
@@ -2175,7 +2175,7 @@
           31
         ],
         "count": 22,
-        "pct": 2.78
+        "pct": 2.77
       },
       {
         "pair": [
@@ -2183,7 +2183,7 @@
           27
         ],
         "count": 22,
-        "pct": 2.78
+        "pct": 2.77
       },
       {
         "pair": [
@@ -2302,17 +2302,17 @@
         {
           "range": "60 - 79",
           "count": 185,
-          "pct": 23.4
+          "pct": 23.3
         },
         {
           "range": "80 - 99",
           "count": 270,
-          "pct": 34.1
+          "pct": 34.0
         },
         {
           "range": "100 - 119",
-          "count": 205,
-          "pct": 25.9
+          "count": 206,
+          "pct": 26.0
         },
         {
           "range": ">= 120",
@@ -2322,13 +2322,13 @@
       ]
     },
     "patterns": {
-      "consecutive_pct": 48.4,
-      "repeat_from_prev_pct": 56.3,
+      "consecutive_pct": 48.3,
+      "repeat_from_prev_pct": 56.2,
       "avg_repeat_per_draw": 0.72,
       "decade_distribution": [
         {
           "decade": "00-09",
-          "count": 974,
+          "count": 976,
           "pct": 24.6
         },
         {
@@ -2338,13 +2338,13 @@
         },
         {
           "decade": "20-29",
-          "count": 1162,
+          "count": 1163,
           "pct": 29.3
         },
         {
           "decade": "30-39",
-          "count": 687,
-          "pct": 17.3
+          "count": 689,
+          "pct": 17.4
         }
       ]
     },
@@ -2388,7 +2388,7 @@
           "min": 6,
           "q1": 20,
           "median": 25,
-          "avg": 24.0,
+          "avg": 24.1,
           "q3": 29,
           "max": 34,
           "mode": 27,
@@ -2420,17 +2420,17 @@
           {
             "range": "15 - 22",
             "count": 242,
-            "pct": 30.6
+            "pct": 30.5
           },
           {
             "range": "23 - 28",
             "count": 285,
-            "pct": 36.0
+            "pct": 35.9
           },
           {
             "range": ">= 29",
-            "count": 203,
-            "pct": 25.6
+            "count": 204,
+            "pct": 25.7
           }
         ]
       }
@@ -2455,12 +2455,12 @@
         {
           "ac": 5,
           "count": 201,
-          "pct": 25.4
+          "pct": 25.3
         },
         {
           "ac": 6,
-          "count": 342,
-          "pct": 43.2
+          "count": 343,
+          "pct": 43.3
         }
       ],
       "high_ac_pct": 0.0,
@@ -2470,17 +2470,17 @@
       "top_deltas": [
         {
           "delta": 1,
-          "count": 579,
+          "count": 580,
           "pct": 14.6
         },
         {
           "delta": 2,
-          "count": 493,
-          "pct": 12.4
+          "count": 494,
+          "pct": 12.5
         },
         {
           "delta": 3,
-          "count": 439,
+          "count": 440,
           "pct": 11.1
         },
         {
@@ -2495,7 +2495,7 @@
         },
         {
           "delta": 6,
-          "count": 292,
+          "count": 293,
           "pct": 7.4
         },
         {
@@ -2514,72 +2514,72 @@
     },
     "markov_stats": {
       "latest_basis": [
-        6,
-        11,
-        13,
-        22,
-        25
+        1,
+        7,
+        29,
+        32,
+        34
       ],
       "top_candidates": [
         {
-          "number": 23,
-          "score": 104,
+          "number": 20,
+          "score": 107,
           "rel_strength": 100.0
         },
         {
           "number": 34,
-          "score": 102,
-          "rel_strength": 98.1
+          "score": 104,
+          "rel_strength": 97.2
         },
         {
-          "number": 11,
-          "score": 101,
-          "rel_strength": 97.1
-        },
-        {
-          "number": 20,
+          "number": 28,
           "score": 100,
-          "rel_strength": 96.2
-        },
-        {
-          "number": 7,
-          "score": 97,
-          "rel_strength": 93.3
-        },
-        {
-          "number": 2,
-          "score": 92,
-          "rel_strength": 88.5
+          "rel_strength": 93.5
         },
         {
           "number": 10,
-          "score": 91,
-          "rel_strength": 87.5
+          "score": 98,
+          "rel_strength": 91.6
+        },
+        {
+          "number": 33,
+          "score": 95,
+          "rel_strength": 88.8
+        },
+        {
+          "number": 13,
+          "score": 95,
+          "rel_strength": 88.8
+        },
+        {
+          "number": 23,
+          "score": 94,
+          "rel_strength": 87.9
         },
         {
           "number": 14,
-          "score": 90,
-          "rel_strength": 86.5
+          "score": 93,
+          "rel_strength": 86.9
         },
         {
-          "number": 22,
-          "score": 90,
-          "rel_strength": 86.5
+          "number": 15,
+          "score": 92,
+          "rel_strength": 86.0
         },
         {
-          "number": 29,
+          "number": 25,
           "score": 90,
-          "rel_strength": 86.5
+          "rel_strength": 84.1
         },
         {
-          "number": 27,
+          "number": 30,
           "score": 87,
-          "rel_strength": 83.7
+          "rel_strength": 81.3
         },
         {
-          "number": 1,
-          "score": 86,
-          "rel_strength": 82.7
+          "number": 31,
+          "score": 87,
+          "rel_strength": 81.3
         }
       ]
     },
@@ -2598,33 +2598,33 @@
         {
           "distinct_tails": 4,
           "count": 380,
-          "pct": 48.0
+          "pct": 47.9
         },
         {
           "distinct_tails": 5,
-          "count": 337,
+          "count": 338,
           "pct": 42.6
         }
       ],
       "cam_tails": [
         {
-          "tail": 9,
-          "streak": 6
-        },
-        {
           "tail": 8,
-          "streak": 3
-        },
-        {
-          "tail": 4,
-          "streak": 2
-        },
-        {
-          "tail": 7,
-          "streak": 2
+          "streak": 4
         },
         {
           "tail": 0,
+          "streak": 2
+        },
+        {
+          "tail": 3,
+          "streak": 1
+        },
+        {
+          "tail": 5,
+          "streak": 1
+        },
+        {
+          "tail": 6,
           "streak": 1
         },
         {
@@ -2636,21 +2636,21 @@
           "streak": 0
         },
         {
-          "tail": 3,
+          "tail": 4,
           "streak": 0
         },
         {
-          "tail": 5,
+          "tail": 7,
           "streak": 0
         },
         {
-          "tail": 6,
+          "tail": 9,
           "streak": 0
         }
       ],
       "cam_heads": [
         {
-          "head": "3x",
+          "head": "1x",
           "streak": 1
         },
         {
@@ -2658,31 +2658,31 @@
           "streak": 0
         },
         {
-          "head": "1x",
+          "head": "2x",
           "streak": 0
         },
         {
-          "head": "2x",
+          "head": "3x",
           "streak": 0
         }
       ]
     },
     "ev_metrics": {},
     "odd_even": {
-      "odd_pct": 50.0,
-      "even_pct": 50.0
+      "odd_pct": 50.8,
+      "even_pct": 49.2
     },
     "backtest_data": {
       "records": [
         {
-          "drawId": "00883",
+          "drawId": "00884",
           "date": "Kỳ Kế Tiếp",
           "predicted": [
+            3,
             4,
-            17,
-            18,
             23,
-            27
+            26,
+            33
           ],
           "special": 12,
           "actual": null,
@@ -2694,6 +2694,34 @@
           "netProfit": 0,
           "prizeDetail": "Đang chờ quay",
           "status": "pending"
+        },
+        {
+          "drawId": "00883",
+          "date": "2026-09-13",
+          "predicted": [
+            4,
+            17,
+            18,
+            23,
+            27
+          ],
+          "special": 12,
+          "actual": [
+            1,
+            7,
+            29,
+            32,
+            34,
+            2
+          ],
+          "matched": [],
+          "matchCount": 0,
+          "specMatched": false,
+          "cost": 10000,
+          "payout": 0,
+          "netProfit": -10000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
         },
         {
           "drawId": "00882",
@@ -3256,37 +3284,6 @@
           "netProfit": -10000,
           "prizeDetail": "Không trúng",
           "status": "completed"
-        },
-        {
-          "drawId": "00863",
-          "date": "2026-09-03",
-          "predicted": [
-            2,
-            8,
-            24,
-            27,
-            28
-          ],
-          "special": 9,
-          "actual": [
-            2,
-            15,
-            23,
-            24,
-            30,
-            12
-          ],
-          "matched": [
-            2,
-            24
-          ],
-          "matchCount": 2,
-          "specMatched": false,
-          "cost": 10000,
-          "payout": 0,
-          "netProfit": -10000,
-          "prizeDetail": "Không trúng",
-          "status": "completed"
         }
       ],
       "kpis": {
@@ -3304,12 +3301,12 @@
     "bao7_backtest_data": {
       "records": [
         {
-          "drawId": "00883",
+          "drawId": "00884",
           "date": "Kỳ Kế Tiếp",
           "predicted": [
+            1,
             2,
-            7,
-            9,
+            19,
             24,
             27,
             33
@@ -3324,6 +3321,37 @@
           "netProfit": 0,
           "prizeDetail": "Đang chờ quay",
           "status": "pending"
+        },
+        {
+          "drawId": "00883",
+          "date": "2026-09-13",
+          "predicted": [
+            2,
+            7,
+            9,
+            24,
+            27,
+            33
+          ],
+          "special": 12,
+          "actual": [
+            1,
+            7,
+            29,
+            32,
+            34,
+            2
+          ],
+          "matched": [
+            7
+          ],
+          "matchCount": 1,
+          "specMatched": false,
+          "cost": 60000,
+          "payout": 0,
+          "netProfit": -60000,
+          "prizeDetail": "Không trúng",
+          "status": "completed"
         },
         {
           "drawId": "00882",
@@ -3910,39 +3938,6 @@
           "netProfit": 30000,
           "prizeDetail": "3 Giải Năm (30k)",
           "status": "completed"
-        },
-        {
-          "drawId": "00863",
-          "date": "2026-09-03",
-          "predicted": [
-            2,
-            12,
-            17,
-            24,
-            28,
-            30
-          ],
-          "special": 9,
-          "actual": [
-            2,
-            15,
-            23,
-            24,
-            30,
-            12
-          ],
-          "matched": [
-            2,
-            24,
-            30
-          ],
-          "matchCount": 3,
-          "specMatched": false,
-          "cost": 60000,
-          "payout": 90000,
-          "netProfit": 30000,
-          "prizeDetail": "3 Giải Năm (30k)",
-          "status": "completed"
         }
       ],
       "kpis": {
@@ -3960,12 +3955,12 @@
       "core_pool": [
         2,
         3,
-        7,
-        9,
         14,
-        17,
+        15,
+        16,
         19,
         24,
+        26,
         27,
         33
       ],
@@ -3975,13 +3970,13 @@
           "id": "wheel_1",
           "ticketIndex": 1,
           "numbers": [
-            2,
-            3,
-            7,
-            9,
-            14
+            14,
+            15,
+            19,
+            26,
+            27
           ],
-          "sum": 35,
+          "sum": 101,
           "ac": 4,
           "ac_index": 4,
           "odds": 3,
@@ -3993,18 +3988,18 @@
           "id": "wheel_2",
           "ticketIndex": 2,
           "numbers": [
-            2,
-            3,
-            17,
-            19,
-            24
+            15,
+            16,
+            24,
+            26,
+            33
           ],
-          "sum": 65,
-          "ac": 6,
-          "ac_index": 6,
-          "odds": 3,
-          "evens": 2,
-          "distinctTails": 5,
+          "sum": 114,
+          "ac": 5,
+          "ac_index": 5,
+          "odds": 2,
+          "evens": 3,
+          "distinctTails": 4,
           "passed_ac_filter": true
         },
         {
@@ -4012,71 +4007,71 @@
           "ticketIndex": 3,
           "numbers": [
             2,
-            7,
-            17,
-            27,
-            33
+            3,
+            14,
+            24,
+            26
           ],
-          "sum": 86,
+          "sum": 69,
           "ac": 5,
           "ac_index": 5,
-          "odds": 4,
-          "evens": 1,
-          "distinctTails": 3,
+          "odds": 1,
+          "evens": 4,
+          "distinctTails": 4,
           "passed_ac_filter": true
         },
         {
           "id": "wheel_4",
           "ticketIndex": 4,
           "numbers": [
+            2,
             3,
-            9,
-            19,
+            15,
             27,
             33
           ],
-          "sum": 91,
-          "ac": 4,
-          "ac_index": 4,
-          "odds": 5,
-          "evens": 0,
-          "distinctTails": 3,
+          "sum": 80,
+          "ac": 5,
+          "ac_index": 5,
+          "odds": 4,
+          "evens": 1,
+          "distinctTails": 4,
           "passed_ac_filter": true
         },
         {
           "id": "wheel_5",
           "ticketIndex": 5,
           "numbers": [
-            7,
+            2,
             14,
+            16,
             19,
-            24,
-            27
+            33
           ],
-          "sum": 91,
-          "ac": 5,
-          "ac_index": 5,
-          "odds": 3,
-          "evens": 2,
-          "distinctTails": 3,
+          "sum": 84,
+          "ac": 4,
+          "ac_index": 4,
+          "odds": 2,
+          "evens": 3,
+          "distinctTails": 5,
           "passed_ac_filter": true
         },
         {
           "id": "wheel_6",
           "ticketIndex": 6,
           "numbers": [
-            9,
-            14,
-            17,
+            3,
+            16,
+            19,
             24,
-            33
+            27
           ],
-          "sum": 97,
-          "ac": 6,
-          "ac_index": 6,
+          "sum": 89,
+          "ac": 4,
+          "ac_index": 4,
           "odds": 3,
           "evens": 2,
-          "distinctTails": 4,
+          "distinctTails": 5,
           "passed_ac_filter": true
         }
       ],
@@ -4090,7 +4085,7 @@
       },
       "special_recommendation": [
         12,
-        7
+        2
       ],
       "guarantee_statement": "Cam kết bảo hiểm toán học tối ưu: Độ phủ 3-if-4 đạt 97.6% (độ phủ 3-if-3 đạt 50.0%). Khi trúng 4 số trong Core Pool 10 số, xác suất trúng tối thiểu giải Ba đạt 97.6% chỉ với 6 vé (tiết kiệm hơn 98% chi phí so với bao trọn dàn)!",
       "total_cost": 60000,
@@ -4102,131 +4097,123 @@
       "repeat_1_pct": 45.7,
       "repeat_2_pct": 12.1,
       "latest_balls": [
-        6,
-        11,
-        13,
-        22,
-        25
+        1,
+        7,
+        29,
+        32,
+        34
       ],
       "cau_roi_analysis": [
         {
-          "number": 13,
-          "past_repeats": 11,
-          "repeat_tendency_score": 17.5
-        },
-        {
-          "number": 22,
-          "past_repeats": 8,
-          "repeat_tendency_score": 13.0
-        },
-        {
-          "number": 6,
+          "number": 34,
           "past_repeats": 5,
           "repeat_tendency_score": 8.5
         },
         {
-          "number": 11,
+          "number": 29,
           "past_repeats": 4,
           "repeat_tendency_score": 7.0
         },
         {
-          "number": 25,
-          "past_repeats": 1,
-          "repeat_tendency_score": 2.0
+          "number": 7,
+          "past_repeats": 3,
+          "repeat_tendency_score": 5.5
+        },
+        {
+          "number": 1,
+          "past_repeats": 2,
+          "repeat_tendency_score": 3.5
+        },
+        {
+          "number": 32,
+          "past_repeats": 0,
+          "repeat_tendency_score": 0.5
         }
       ],
       "top_cau_roi": [
         {
-          "number": 13,
-          "past_repeats": 11,
-          "repeat_tendency_score": 17.5
+          "number": 34,
+          "past_repeats": 5,
+          "repeat_tendency_score": 8.5
         },
         {
-          "number": 22,
-          "past_repeats": 8,
-          "repeat_tendency_score": 13.0
+          "number": 29,
+          "past_repeats": 4,
+          "repeat_tendency_score": 7.0
         }
       ],
       "triggered_bac_nho": [
         {
-          "from_number": 22,
-          "to_number": 32,
-          "count": 10,
-          "appearances": 37,
-          "probability_pct": 27.0,
-          "lift": 2.35
+          "from_number": 32,
+          "to_number": 30,
+          "count": 6,
+          "appearances": 23,
+          "probability_pct": 26.1,
+          "lift": 2.48
         },
         {
-          "from_number": 25,
-          "to_number": 2,
-          "count": 5,
-          "appearances": 19,
-          "probability_pct": 26.3,
-          "lift": 2.11
+          "from_number": 1,
+          "to_number": 31,
+          "count": 6,
+          "appearances": 21,
+          "probability_pct": 28.6,
+          "lift": 2.48
         },
         {
-          "from_number": 22,
-          "to_number": 29,
-          "count": 11,
-          "appearances": 37,
-          "probability_pct": 29.7,
-          "lift": 2.05
-        },
-        {
-          "from_number": 11,
-          "to_number": 21,
-          "count": 8,
-          "appearances": 30,
-          "probability_pct": 26.7,
-          "lift": 2.05
-        },
-        {
-          "from_number": 11,
-          "to_number": 9,
-          "count": 9,
-          "appearances": 30,
-          "probability_pct": 30.0,
-          "lift": 1.88
-        },
-        {
-          "from_number": 25,
-          "to_number": 8,
-          "count": 5,
-          "appearances": 19,
-          "probability_pct": 26.3,
-          "lift": 1.88
-        },
-        {
-          "from_number": 11,
-          "to_number": 35,
-          "count": 8,
-          "appearances": 30,
-          "probability_pct": 26.7,
-          "lift": 1.84
-        },
-        {
-          "from_number": 6,
-          "to_number": 28,
-          "count": 9,
-          "appearances": 29,
-          "probability_pct": 31.0,
-          "lift": 1.83
-        },
-        {
-          "from_number": 13,
-          "to_number": 20,
-          "count": 9,
-          "appearances": 36,
-          "probability_pct": 25.0,
-          "lift": 1.72
-        },
-        {
-          "from_number": 13,
+          "from_number": 7,
           "to_number": 13,
-          "count": 11,
-          "appearances": 36,
-          "probability_pct": 30.6,
-          "lift": 1.65
+          "count": 9,
+          "appearances": 24,
+          "probability_pct": 37.5,
+          "lift": 2.03
+        },
+        {
+          "from_number": 32,
+          "to_number": 6,
+          "count": 7,
+          "appearances": 23,
+          "probability_pct": 30.4,
+          "lift": 2.03
+        },
+        {
+          "from_number": 29,
+          "to_number": 8,
+          "count": 8,
+          "appearances": 29,
+          "probability_pct": 27.6,
+          "lift": 1.97
+        },
+        {
+          "from_number": 1,
+          "to_number": 34,
+          "count": 7,
+          "appearances": 21,
+          "probability_pct": 33.3,
+          "lift": 1.96
+        },
+        {
+          "from_number": 32,
+          "to_number": 9,
+          "count": 7,
+          "appearances": 23,
+          "probability_pct": 30.4,
+          "lift": 1.9
+        },
+        {
+          "from_number": 7,
+          "to_number": 19,
+          "count": 7,
+          "appearances": 24,
+          "probability_pct": 29.2,
+          "lift": 1.88
+        },
+        {
+          "from_number": 32,
+          "to_number": 8,
+          "count": 6,
+          "appearances": 23,
+          "probability_pct": 26.1,
+          "lift": 1.86
         }
       ]
     },
@@ -4266,14 +4253,14 @@
           "ball2": 27,
           "count": 9,
           "probability_pct": 4.5,
-          "lift": 1.51
+          "lift": 1.56
         },
         {
           "ball1": 13,
           "ball2": 23,
           "count": 9,
           "probability_pct": 4.5,
-          "lift": 1.43
+          "lift": 1.47
         },
         {
           "ball1": 15,
@@ -4315,7 +4302,14 @@
           "ball2": 33,
           "count": 8,
           "probability_pct": 4.0,
-          "lift": 1.35
+          "lift": 1.39
+        },
+        {
+          "ball1": 7,
+          "ball2": 32,
+          "count": 7,
+          "probability_pct": 3.5,
+          "lift": 2.33
         },
         {
           "ball1": 6,
@@ -4330,21 +4324,14 @@
           "count": 7,
           "probability_pct": 3.5,
           "lift": 1.89
-        },
-        {
-          "ball1": 1,
-          "ball2": 33,
-          "count": 7,
-          "probability_pct": 3.5,
-          "lift": 1.72
         }
       ],
       "companions_map": {
         "1": [
           {
             "number": 33,
-            "count": 7,
-            "lift": 1.72
+            "count": 6,
+            "lift": 1.52
           },
           {
             "number": 11,
@@ -4352,24 +4339,24 @@
             "lift": 1.47
           },
           {
+            "number": 34,
+            "count": 5,
+            "lift": 1.34
+          },
+          {
             "number": 19,
             "count": 4,
             "lift": 1.17
           },
           {
-            "number": 34,
-            "count": 4,
-            "lift": 1.1
-          },
-          {
-            "number": 23,
-            "count": 4,
-            "lift": 1.07
-          },
-          {
             "number": 28,
             "count": 4,
             "lift": 1.07
+          },
+          {
+            "number": 22,
+            "count": 4,
+            "lift": 0.96
           }
         ],
         "2": [
@@ -4418,7 +4405,7 @@
           {
             "number": 26,
             "count": 6,
-            "lift": 1.48
+            "lift": 1.53
           },
           {
             "number": 17,
@@ -4460,7 +4447,7 @@
           {
             "number": 7,
             "count": 5,
-            "lift": 1.49
+            "lift": 1.43
           },
           {
             "number": 11,
@@ -4472,7 +4459,7 @@
           {
             "number": 26,
             "count": 6,
-            "lift": 1.67
+            "lift": 1.72
           },
           {
             "number": 10,
@@ -4482,7 +4469,7 @@
           {
             "number": 34,
             "count": 5,
-            "lift": 1.26
+            "lift": 1.23
           },
           {
             "number": 13,
@@ -4495,9 +4482,9 @@
             "lift": 1.23
           },
           {
-            "number": 29,
+            "number": 17,
             "count": 4,
-            "lift": 1.15
+            "lift": 1.11
           }
         ],
         "6": [
@@ -4514,7 +4501,7 @@
           {
             "number": 7,
             "count": 5,
-            "lift": 1.39
+            "lift": 1.33
           },
           {
             "number": 10,
@@ -4534,34 +4521,34 @@
         ],
         "7": [
           {
-            "number": 33,
+            "number": 32,
             "count": 7,
-            "lift": 1.58
+            "lift": 2.33
           },
           {
-            "number": 32,
-            "count": 6,
-            "lift": 2.17
+            "number": 33,
+            "count": 7,
+            "lift": 1.56
           },
           {
             "number": 9,
             "count": 6,
-            "lift": 1.56
+            "lift": 1.5
           },
           {
             "number": 4,
             "count": 5,
-            "lift": 1.49
+            "lift": 1.43
           },
           {
             "number": 6,
             "count": 5,
-            "lift": 1.39
+            "lift": 1.33
           },
           {
             "number": 17,
             "count": 5,
-            "lift": 1.39
+            "lift": 1.33
           }
         ],
         "8": [
@@ -4591,7 +4578,7 @@
             "lift": 1.23
           },
           {
-            "number": 34,
+            "number": 23,
             "count": 5,
             "lift": 1.08
           }
@@ -4600,12 +4587,12 @@
           {
             "number": 33,
             "count": 8,
-            "lift": 1.35
+            "lift": 1.39
           },
           {
             "number": 7,
             "count": 6,
-            "lift": 1.56
+            "lift": 1.5
           },
           {
             "number": 21,
@@ -4620,7 +4607,7 @@
           {
             "number": 34,
             "count": 6,
-            "lift": 1.14
+            "lift": 1.1
           },
           {
             "number": 22,
@@ -4637,7 +4624,7 @@
           {
             "number": 18,
             "count": 7,
-            "lift": 1.61
+            "lift": 1.66
           },
           {
             "number": 27,
@@ -4662,14 +4649,14 @@
         ],
         "11": [
           {
-            "number": 20,
+            "number": 18,
             "count": 7,
             "lift": 1.56
           },
           {
-            "number": 18,
+            "number": 20,
             "count": 7,
-            "lift": 1.51
+            "lift": 1.56
           },
           {
             "number": 13,
@@ -4679,7 +4666,7 @@
           {
             "number": 29,
             "count": 6,
-            "lift": 1.33
+            "lift": 1.29
           },
           {
             "number": 9,
@@ -4716,7 +4703,7 @@
           {
             "number": 18,
             "count": 5,
-            "lift": 1.28
+            "lift": 1.33
           },
           {
             "number": 28,
@@ -4728,7 +4715,7 @@
           {
             "number": 23,
             "count": 9,
-            "lift": 1.43
+            "lift": 1.47
           },
           {
             "number": 4,
@@ -4743,17 +4730,17 @@
           {
             "number": 34,
             "count": 7,
-            "lift": 1.15
+            "lift": 1.11
           },
           {
             "number": 33,
             "count": 7,
-            "lift": 1.02
+            "lift": 1.05
           },
           {
             "number": 32,
             "count": 6,
-            "lift": 1.41
+            "lift": 1.35
           }
         ],
         "14": [
@@ -4775,7 +4762,7 @@
           {
             "number": 23,
             "count": 5,
-            "lift": 1.28
+            "lift": 1.32
           },
           {
             "number": 28,
@@ -4812,7 +4799,7 @@
           {
             "number": 26,
             "count": 6,
-            "lift": 1.03
+            "lift": 1.06
           },
           {
             "number": 9,
@@ -4827,6 +4814,11 @@
             "lift": 1.44
           },
           {
+            "number": 18,
+            "count": 5,
+            "lift": 1.44
+          },
+          {
             "number": 20,
             "count": 5,
             "lift": 1.44
@@ -4835,11 +4827,6 @@
             "number": 35,
             "count": 5,
             "lift": 1.44
-          },
-          {
-            "number": 18,
-            "count": 5,
-            "lift": 1.39
           },
           {
             "number": 13,
@@ -4861,12 +4848,12 @@
           {
             "number": 26,
             "count": 7,
-            "lift": 1.56
+            "lift": 1.61
           },
           {
             "number": 34,
             "count": 7,
-            "lift": 1.41
+            "lift": 1.37
           },
           {
             "number": 21,
@@ -4881,7 +4868,7 @@
           {
             "number": 7,
             "count": 5,
-            "lift": 1.39
+            "lift": 1.33
           }
         ],
         "18": [
@@ -4893,34 +4880,34 @@
           {
             "number": 10,
             "count": 7,
-            "lift": 1.61
+            "lift": 1.66
           },
           {
             "number": 20,
             "count": 7,
-            "lift": 1.61
+            "lift": 1.66
           },
           {
             "number": 11,
             "count": 7,
-            "lift": 1.51
+            "lift": 1.56
           },
           {
             "number": 33,
-            "count": 7,
-            "lift": 1.26
+            "count": 6,
+            "lift": 1.15
           },
           {
             "number": 16,
             "count": 5,
-            "lift": 1.39
+            "lift": 1.44
           }
         ],
         "19": [
           {
             "number": 23,
             "count": 7,
-            "lift": 1.33
+            "lift": 1.37
           },
           {
             "number": 28,
@@ -4940,7 +4927,7 @@
           {
             "number": 33,
             "count": 6,
-            "lift": 1.05
+            "lift": 1.08
           },
           {
             "number": 30,
@@ -4952,7 +4939,7 @@
           {
             "number": 18,
             "count": 7,
-            "lift": 1.61
+            "lift": 1.66
           },
           {
             "number": 11,
@@ -4970,14 +4957,14 @@
             "lift": 1.44
           },
           {
-            "number": 29,
+            "number": 35,
             "count": 5,
             "lift": 1.19
           },
           {
-            "number": 35,
+            "number": 6,
             "count": 5,
-            "lift": 1.19
+            "lift": 1.15
           }
         ],
         "21": [
@@ -5039,7 +5026,7 @@
             "lift": 1.13
           },
           {
-            "number": 35,
+            "number": 26,
             "count": 6,
             "lift": 1.09
           }
@@ -5048,32 +5035,32 @@
           {
             "number": 27,
             "count": 9,
-            "lift": 1.51
+            "lift": 1.56
           },
           {
             "number": 13,
             "count": 9,
-            "lift": 1.43
+            "lift": 1.47
           },
           {
             "number": 19,
             "count": 7,
-            "lift": 1.33
+            "lift": 1.37
           },
           {
             "number": 28,
             "count": 7,
-            "lift": 1.21
-          },
-          {
-            "number": 33,
-            "count": 6,
-            "lift": 0.95
+            "lift": 1.25
           },
           {
             "number": 30,
             "count": 5,
-            "lift": 1.4
+            "lift": 1.44
+          },
+          {
+            "number": 14,
+            "count": 5,
+            "lift": 1.32
           }
         ],
         "24": [
@@ -5090,7 +5077,7 @@
           {
             "number": 34,
             "count": 5,
-            "lift": 1.59
+            "lift": 1.55
           },
           {
             "number": 30,
@@ -5105,7 +5092,7 @@
           {
             "number": 33,
             "count": 4,
-            "lift": 1.14
+            "lift": 1.17
           }
         ],
         "25": [
@@ -5144,39 +5131,39 @@
           {
             "number": 17,
             "count": 7,
-            "lift": 1.56
+            "lift": 1.61
           },
           {
             "number": 5,
             "count": 6,
-            "lift": 1.67
+            "lift": 1.72
           },
           {
             "number": 3,
             "count": 6,
-            "lift": 1.48
+            "lift": 1.53
           },
           {
             "number": 34,
             "count": 6,
-            "lift": 1.21
+            "lift": 1.22
           },
           {
             "number": 22,
             "count": 6,
-            "lift": 1.05
+            "lift": 1.09
           },
           {
             "number": 15,
             "count": 6,
-            "lift": 1.03
+            "lift": 1.06
           }
         ],
         "27": [
           {
             "number": 23,
             "count": 9,
-            "lift": 1.51
+            "lift": 1.56
           },
           {
             "number": 15,
@@ -5218,7 +5205,7 @@
           {
             "number": 23,
             "count": 7,
-            "lift": 1.21
+            "lift": 1.25
           },
           {
             "number": 25,
@@ -5245,17 +5232,17 @@
           {
             "number": 11,
             "count": 6,
-            "lift": 1.33
+            "lift": 1.29
           },
           {
             "number": 31,
             "count": 5,
-            "lift": 1.5
+            "lift": 1.45
           },
           {
             "number": 20,
             "count": 5,
-            "lift": 1.19
+            "lift": 1.15
           },
           {
             "number": 26,
@@ -5265,7 +5252,7 @@
           {
             "number": 19,
             "count": 5,
-            "lift": 1.11
+            "lift": 1.08
           }
         ],
         "30": [
@@ -5277,7 +5264,7 @@
           {
             "number": 23,
             "count": 5,
-            "lift": 1.4
+            "lift": 1.44
           },
           {
             "number": 15,
@@ -5314,7 +5301,7 @@
           {
             "number": 29,
             "count": 5,
-            "lift": 1.5
+            "lift": 1.45
           },
           {
             "number": 19,
@@ -5335,97 +5322,97 @@
         "32": [
           {
             "number": 7,
-            "count": 6,
-            "lift": 2.17
-          },
-          {
-            "number": 13,
-            "count": 6,
-            "lift": 1.41
+            "count": 7,
+            "lift": 2.33
           },
           {
             "number": 33,
             "count": 6,
-            "lift": 1.41
+            "lift": 1.39
+          },
+          {
+            "number": 13,
+            "count": 6,
+            "lift": 1.35
           },
           {
             "number": 27,
             "count": 5,
-            "lift": 1.24
+            "lift": 1.19
           },
           {
             "number": 22,
             "count": 5,
-            "lift": 1.14
+            "lift": 1.1
           },
           {
             "number": 4,
             "count": 4,
-            "lift": 1.24
+            "lift": 1.19
           }
         ],
         "33": [
           {
             "number": 9,
             "count": 8,
-            "lift": 1.35
-          },
-          {
-            "number": 1,
-            "count": 7,
-            "lift": 1.72
+            "lift": 1.39
           },
           {
             "number": 7,
             "count": 7,
-            "lift": 1.58
-          },
-          {
-            "number": 18,
-            "count": 7,
-            "lift": 1.26
+            "lift": 1.56
           },
           {
             "number": 13,
             "count": 7,
-            "lift": 1.02
+            "lift": 1.05
+          },
+          {
+            "number": 1,
+            "count": 6,
+            "lift": 1.52
           },
           {
             "number": 32,
             "count": 6,
-            "lift": 1.41
+            "lift": 1.39
+          },
+          {
+            "number": 18,
+            "count": 6,
+            "lift": 1.15
           }
         ],
         "34": [
           {
             "number": 17,
             "count": 7,
-            "lift": 1.41
+            "lift": 1.37
           },
           {
             "number": 13,
             "count": 7,
-            "lift": 1.15
+            "lift": 1.11
           },
           {
             "number": 26,
             "count": 6,
-            "lift": 1.21
+            "lift": 1.22
           },
           {
             "number": 9,
             "count": 6,
-            "lift": 1.14
+            "lift": 1.1
           },
           {
             "number": 24,
             "count": 5,
-            "lift": 1.59
+            "lift": 1.55
           },
           {
-            "number": 5,
+            "number": 1,
             "count": 5,
-            "lift": 1.26
+            "lift": 1.34
           }
         ],
         "35": [
@@ -5463,32 +5450,11 @@
       },
       "communities": [
         [
-          4,
-          6,
-          7,
-          9,
-          10,
-          11,
-          12,
-          13,
-          16,
-          17,
-          18,
-          20,
-          21,
-          22,
-          25,
-          28,
-          29,
-          32,
-          35
-        ],
-        [
           1,
           2,
           3,
-          5,
           8,
+          13,
           14,
           15,
           19,
@@ -5498,13 +5464,36 @@
           27,
           30,
           31,
-          33,
           34
+        ],
+        [
+          5,
+          6,
+          9,
+          10,
+          11,
+          12,
+          16,
+          18,
+          20,
+          21,
+          25,
+          28,
+          29,
+          35
+        ],
+        [
+          4,
+          7,
+          17,
+          22,
+          32,
+          33
         ]
       ]
     },
     "consensus_hub": {
-      "next_draw_id": "#00883",
+      "next_draw_id": "#00884",
       "evaluated_draws_count": 35,
       "leaderboard": [
         {
@@ -5512,7 +5501,7 @@
           "name": "Consensus Engine (Tổng Hợp)",
           "icon": "trophy",
           "color": "amber",
-          "avg_hits": 0.86,
+          "avg_hits": 0.83,
           "win_rate_ge3": 0.0,
           "recent_10_hits": 6,
           "form": "⚡ Phong độ tốt",
@@ -5520,15 +5509,27 @@
           "desc": "Hội đồng hợp lực 8 mô hình định lượng cao cấp tích hợp cơ chế xếp chồng Dynamic Alpha Stacking."
         },
         {
+          "id": "bac_nho",
+          "name": "Empirical Bayes Pairwise Lift",
+          "icon": "network",
+          "color": "indigo",
+          "avg_hits": 0.77,
+          "win_rate_ge3": 2.9,
+          "recent_10_hits": 8,
+          "form": "⚡ Ổn định",
+          "weight_pct": 6.0,
+          "desc": "Độ nâng lực hút cặp đôi kỳ trước kéo bóng kỳ sau với hiệu chỉnh Bayes chống quá khớp mẫu nhỏ."
+        },
+        {
           "id": "state_space",
           "name": "Bayesian Dynamic State-Space Filter",
           "icon": "cpu",
           "color": "amber",
-          "avg_hits": 0.77,
+          "avg_hits": 0.74,
           "win_rate_ge3": 2.9,
-          "recent_10_hits": 9,
+          "recent_10_hits": 8,
           "form": "⚡ Ổn định",
-          "weight_pct": 29.1,
+          "weight_pct": 18.7,
           "desc": "Bộ lọc Kalman động học Bayes thích ứng cập nhật vận tốc xác suất tiềm ẩn."
         },
         {
@@ -5536,11 +5537,11 @@
           "name": "Exponential Momentum & Decay (Nhiệt)",
           "icon": "flame",
           "color": "rose",
-          "avg_hits": 0.69,
+          "avg_hits": 0.66,
           "win_rate_ge3": 2.9,
           "recent_10_hits": 8,
           "form": "⚡ Ổn định",
-          "weight_pct": 10.0,
+          "weight_pct": 13.7,
           "desc": "Tần suất suy giảm mũ kết hợp quán tính nhiệt alpha=0.055, chu kỳ bán rã 12.6 kỳ."
         },
         {
@@ -5552,7 +5553,7 @@
           "win_rate_ge3": 0.0,
           "recent_10_hits": 9,
           "form": "⚡ Ổn định",
-          "weight_pct": 10.7,
+          "weight_pct": 21.4,
           "desc": "Trung tâm mạng đồ thị liên kết đồng xuất hiện với bước nhảy ngẫu nhiên PageRank."
         },
         {
@@ -5560,11 +5561,11 @@
           "name": "Bayesian Rhythm Z-Score (Nhịp Điểm Rơi)",
           "icon": "timer",
           "color": "emerald",
-          "avg_hits": 0.74,
+          "avg_hits": 0.77,
           "win_rate_ge3": 0.0,
-          "recent_10_hits": 6,
+          "recent_10_hits": 5,
           "form": "Chờ điểm rơi",
-          "weight_pct": 9.4,
+          "weight_pct": 4.6,
           "desc": "Mật độ xác suất điểm rơi Gauss chuẩn hóa theo độ lệch chuẩn chu kỳ nhịp riêng của từng quả bóng."
         },
         {
@@ -5572,24 +5573,12 @@
           "name": "Daubechies Wavelet & Hann Spectral",
           "icon": "activity",
           "color": "cyan",
-          "avg_hits": 0.74,
+          "avg_hits": 0.77,
           "win_rate_ge3": 0.0,
-          "recent_10_hits": 5,
+          "recent_10_hits": 6,
           "form": "Chờ điểm rơi",
-          "weight_pct": 7.7,
+          "weight_pct": 10.5,
           "desc": "Phân rã đa sóng nhỏ Daubechies DWT kết hợp cộng hưởng phổ lọc nhiễu Hann."
-        },
-        {
-          "id": "bac_nho",
-          "name": "Empirical Bayes Pairwise Lift",
-          "icon": "network",
-          "color": "indigo",
-          "avg_hits": 0.71,
-          "win_rate_ge3": 0.0,
-          "recent_10_hits": 5,
-          "form": "Chờ điểm rơi",
-          "weight_pct": 6.2,
-          "desc": "Độ nâng lực hút cặp đôi kỳ trước kéo bóng kỳ sau với hiệu chỉnh Bayes chống quá khớp mẫu nhỏ."
         },
         {
           "id": "ml_ranker",
@@ -5598,9 +5587,9 @@
           "color": "violet",
           "avg_hits": 0.71,
           "win_rate_ge3": 0.0,
-          "recent_10_hits": 8,
+          "recent_10_hits": 7,
           "form": "⚡ Ổn định",
-          "weight_pct": 21.2,
+          "weight_pct": 14.2,
           "desc": "Mô hình cây quyết định Gradient Boosting học phi tuyến tính trên không gian đặc trưng 14 chiều."
         },
         {
@@ -5608,11 +5597,11 @@
           "name": "Markov PPMI Information Gain",
           "icon": "git-merge",
           "color": "fuchsia",
-          "avg_hits": 0.6,
+          "avg_hits": 0.63,
           "win_rate_ge3": 0.0,
-          "recent_10_hits": 8,
-          "form": "⚡ Ổn định",
-          "weight_pct": 5.7,
+          "recent_10_hits": 10,
+          "form": "🔥 Đang vào nhịp",
+          "weight_pct": 10.9,
           "desc": "Thông tin tương hỗ dương chuẩn hóa Laplace đo lường lực hút chuyển trạng thái thực sự từ kỳ trước."
         },
         {
@@ -5631,272 +5620,272 @@
       "top_consensus_balls": [
         {
           "ball": 13,
-          "score": 8.2,
-          "agreement_count": 7,
-          "agreement_pct": 87.5,
-          "is_safe": true,
-          "trap_warning": false,
-          "breakdown": {
-            "markov": 0.4,
-            "hazard": 0.2,
-            "decay": 0.9,
-            "bac_nho": 0.3,
-            "fourier": 0.5,
-            "graph_pagerank": 1.1,
-            "state_space": 2.6,
-            "ml_ranker": 2.1
-          }
-        },
-        {
-          "ball": 22,
-          "score": 6.0,
-          "agreement_count": 5,
-          "agreement_pct": 62.5,
-          "is_safe": true,
-          "trap_warning": false,
-          "breakdown": {
-            "markov": 0.3,
-            "hazard": 0.3,
-            "decay": 0.8,
-            "bac_nho": 0.2,
-            "fourier": 0.7,
-            "graph_pagerank": 0.8,
-            "state_space": 2.7,
-            "ml_ranker": 0.2
-          }
-        },
-        {
-          "ball": 27,
-          "score": 5.8,
-          "agreement_count": 3,
-          "agreement_pct": 37.5,
-          "is_safe": true,
-          "trap_warning": false,
-          "breakdown": {
-            "markov": 0.3,
-            "hazard": 0.7,
-            "decay": 1.0,
-            "bac_nho": 0.2,
-            "fourier": 0.3,
-            "graph_pagerank": 0.3,
-            "state_space": 2.4,
-            "ml_ranker": 0.7
-          }
-        },
-        {
-          "ball": 5,
-          "score": 5.3,
-          "agreement_count": 4,
-          "agreement_pct": 50.0,
-          "is_safe": true,
-          "trap_warning": false,
-          "breakdown": {
-            "markov": 0.5,
-            "hazard": 0.3,
-            "decay": 0.3,
-            "bac_nho": 0.1,
-            "fourier": 0.5,
-            "graph_pagerank": 0.1,
-            "state_space": 2.1,
-            "ml_ranker": 1.5
-          }
-        },
-        {
-          "ball": 6,
-          "score": 5.0,
-          "agreement_count": 2,
-          "agreement_pct": 25.0,
-          "is_safe": false,
-          "trap_warning": false,
-          "breakdown": {
-            "markov": 0.2,
-            "hazard": 0.2,
-            "decay": 0.6,
-            "bac_nho": 0.0,
-            "fourier": 0.3,
-            "graph_pagerank": 0.2,
-            "state_space": 2.9,
-            "ml_ranker": 0.6
-          }
-        },
-        {
-          "ball": 20,
-          "score": 4.6,
+          "score": 7.5,
           "agreement_count": 5,
           "agreement_pct": 62.5,
           "is_safe": true,
           "trap_warning": false,
           "breakdown": {
             "markov": 0.6,
-            "hazard": 0.3,
-            "decay": 0.7,
+            "hazard": 0.2,
+            "decay": 1.2,
             "bac_nho": 0.4,
-            "fourier": 0.3,
-            "graph_pagerank": 0.6,
-            "state_space": 1.4,
-            "ml_ranker": 0.3
+            "fourier": 0.9,
+            "graph_pagerank": 2.2,
+            "state_space": 1.5,
+            "ml_ranker": 0.6
           }
         },
         {
           "ball": 15,
-          "score": 4.4,
-          "agreement_count": 4,
-          "agreement_pct": 50.0,
-          "is_safe": true,
-          "trap_warning": false,
-          "breakdown": {
-            "markov": 0.3,
-            "hazard": 0.5,
-            "decay": 0.7,
-            "bac_nho": 0.2,
-            "fourier": 0.6,
-            "graph_pagerank": 0.8,
-            "state_space": 1.1,
-            "ml_ranker": 0.3
-          }
-        },
-        {
-          "ball": 16,
-          "score": 4.3,
-          "agreement_count": 3,
-          "agreement_pct": 37.5,
-          "is_safe": true,
-          "trap_warning": false,
-          "breakdown": {
-            "markov": 0.3,
-            "hazard": 0.5,
-            "decay": 0.8,
-            "bac_nho": 0.1,
-            "fourier": 0.6,
-            "graph_pagerank": 0.3,
-            "state_space": 1.3,
-            "ml_ranker": 0.4
-          }
-        },
-        {
-          "ball": 11,
-          "score": 4.2,
-          "agreement_count": 3,
-          "agreement_pct": 37.5,
+          "score": 6.5,
+          "agreement_count": 6,
+          "agreement_pct": 75.0,
           "is_safe": true,
           "trap_warning": false,
           "breakdown": {
             "markov": 0.5,
-            "hazard": 0.2,
-            "decay": 0.6,
+            "hazard": 0.3,
+            "decay": 0.9,
             "bac_nho": 0.2,
-            "fourier": 0.3,
-            "graph_pagerank": 0.3,
-            "state_space": 1.9,
-            "ml_ranker": 0.3
+            "fourier": 1.0,
+            "graph_pagerank": 1.7,
+            "state_space": 0.5,
+            "ml_ranker": 1.3
           }
         },
         {
-          "ball": 7,
-          "score": 4.1,
+          "ball": 22,
+          "score": 6.2,
           "agreement_count": 5,
           "agreement_pct": 62.5,
           "is_safe": true,
           "trap_warning": false,
           "breakdown": {
             "markov": 0.4,
-            "hazard": 0.8,
-            "decay": 0.6,
-            "bac_nho": 0.4,
-            "fourier": 0.2,
-            "graph_pagerank": 0.6,
-            "state_space": 0.6,
-            "ml_ranker": 0.6
+            "hazard": 0.2,
+            "decay": 1.0,
+            "bac_nho": 0.3,
+            "fourier": 0.7,
+            "graph_pagerank": 1.6,
+            "state_space": 1.5,
+            "ml_ranker": 0.4
           }
         },
         {
-          "ball": 4,
-          "score": 4.0,
+          "ball": 34,
+          "score": 5.6,
+          "agreement_count": 5,
+          "agreement_pct": 62.5,
+          "is_safe": true,
+          "trap_warning": false,
+          "breakdown": {
+            "markov": 0.7,
+            "hazard": 0.1,
+            "decay": 0.8,
+            "bac_nho": 0.2,
+            "fourier": 0.8,
+            "graph_pagerank": 0.9,
+            "state_space": 1.7,
+            "ml_ranker": 0.3
+          }
+        },
+        {
+          "ball": 7,
+          "score": 5.2,
           "agreement_count": 3,
           "agreement_pct": 37.5,
           "is_safe": true,
           "trap_warning": false,
           "breakdown": {
-            "markov": 0.3,
-            "hazard": 0.5,
-            "decay": 0.5,
+            "markov": 0.5,
+            "hazard": 0.1,
+            "decay": 1.1,
             "bac_nho": 0.1,
-            "fourier": 0.6,
-            "graph_pagerank": 0.3,
-            "state_space": 1.2,
-            "ml_ranker": 0.4
-          }
-        },
-        {
-          "ball": 17,
-          "score": 4.0,
-          "agreement_count": 2,
-          "agreement_pct": 25.0,
-          "is_safe": false,
-          "trap_warning": false,
-          "breakdown": {
-            "markov": 0.2,
-            "hazard": 0.7,
-            "decay": 0.3,
-            "bac_nho": 0.1,
-            "fourier": 0.2,
-            "graph_pagerank": 0.2,
-            "state_space": 0.3,
-            "ml_ranker": 1.9
-          }
-        },
-        {
-          "ball": 8,
-          "score": 3.9,
-          "agreement_count": 2,
-          "agreement_pct": 25.0,
-          "is_safe": false,
-          "trap_warning": false,
-          "breakdown": {
-            "markov": 0.3,
-            "hazard": 0.4,
-            "decay": 0.3,
-            "bac_nho": 0.0,
-            "fourier": 0.8,
-            "graph_pagerank": 0.2,
-            "state_space": 0.9,
-            "ml_ranker": 1.0
+            "fourier": 0.4,
+            "graph_pagerank": 1.2,
+            "state_space": 1.4,
+            "ml_ranker": 0.2
           }
         },
         {
           "ball": 10,
-          "score": 3.9,
-          "agreement_count": 2,
-          "agreement_pct": 25.0,
-          "is_safe": false,
+          "score": 5.1,
+          "agreement_count": 3,
+          "agreement_pct": 37.5,
+          "is_safe": true,
           "trap_warning": false,
           "breakdown": {
-            "markov": 0.3,
-            "hazard": 0.3,
-            "decay": 0.4,
+            "markov": 0.9,
+            "hazard": 0.2,
+            "decay": 0.6,
             "bac_nho": 0.1,
-            "fourier": 0.5,
-            "graph_pagerank": 0.2,
-            "state_space": 1.6,
-            "ml_ranker": 0.5
+            "fourier": 1.0,
+            "graph_pagerank": 0.4,
+            "state_space": 0.8,
+            "ml_ranker": 1.2
+          }
+        },
+        {
+          "ball": 20,
+          "score": 5.1,
+          "agreement_count": 5,
+          "agreement_pct": 62.5,
+          "is_safe": true,
+          "trap_warning": false,
+          "breakdown": {
+            "markov": 0.7,
+            "hazard": 0.2,
+            "decay": 1.0,
+            "bac_nho": 0.4,
+            "fourier": 0.7,
+            "graph_pagerank": 1.1,
+            "state_space": 0.7,
+            "ml_ranker": 0.2
+          }
+        },
+        {
+          "ball": 32,
+          "score": 5.1,
+          "agreement_count": 3,
+          "agreement_pct": 37.5,
+          "is_safe": true,
+          "trap_warning": false,
+          "breakdown": {
+            "markov": 0.5,
+            "hazard": 0.1,
+            "decay": 0.7,
+            "bac_nho": 0.1,
+            "fourier": 0.6,
+            "graph_pagerank": 0.6,
+            "state_space": 1.9,
+            "ml_ranker": 0.7
+          }
+        },
+        {
+          "ball": 6,
+          "score": 4.9,
+          "agreement_count": 5,
+          "agreement_pct": 62.5,
+          "is_safe": true,
+          "trap_warning": false,
+          "breakdown": {
+            "markov": 0.8,
+            "hazard": 0.1,
+            "decay": 0.8,
+            "bac_nho": 0.3,
+            "fourier": 0.6,
+            "graph_pagerank": 0.3,
+            "state_space": 1.7,
+            "ml_ranker": 0.3
+          }
+        },
+        {
+          "ball": 9,
+          "score": 4.9,
+          "agreement_count": 4,
+          "agreement_pct": 50.0,
+          "is_safe": true,
+          "trap_warning": false,
+          "breakdown": {
+            "markov": 0.9,
+            "hazard": 0.3,
+            "decay": 0.6,
+            "bac_nho": 0.6,
+            "fourier": 0.1,
+            "graph_pagerank": 1.4,
+            "state_space": 0.2,
+            "ml_ranker": 0.7
           }
         },
         {
           "ball": 30,
-          "score": 3.8,
+          "score": 4.9,
+          "agreement_count": 3,
+          "agreement_pct": 37.5,
+          "is_safe": true,
+          "trap_warning": false,
+          "breakdown": {
+            "markov": 0.9,
+            "hazard": 0.2,
+            "decay": 0.5,
+            "bac_nho": 0.4,
+            "fourier": 0.8,
+            "graph_pagerank": 0.4,
+            "state_space": 0.8,
+            "ml_ranker": 0.8
+          }
+        },
+        {
+          "ball": 27,
+          "score": 4.8,
+          "agreement_count": 3,
+          "agreement_pct": 37.5,
+          "is_safe": true,
+          "trap_warning": false,
+          "breakdown": {
+            "markov": 0.4,
+            "hazard": 0.4,
+            "decay": 1.4,
+            "bac_nho": 0.1,
+            "fourier": 0.4,
+            "graph_pagerank": 0.6,
+            "state_space": 1.3,
+            "ml_ranker": 0.3
+          }
+        },
+        {
+          "ball": 11,
+          "score": 4.7,
+          "agreement_count": 3,
+          "agreement_pct": 37.5,
+          "is_safe": true,
+          "trap_warning": false,
+          "breakdown": {
+            "markov": 0.4,
+            "hazard": 0.1,
+            "decay": 0.7,
+            "bac_nho": 0.1,
+            "fourier": 0.3,
+            "graph_pagerank": 0.7,
+            "state_space": 0.9,
+            "ml_ranker": 1.3
+          }
+        },
+        {
+          "ball": 23,
+          "score": 4.6,
+          "agreement_count": 3,
+          "agreement_pct": 37.5,
+          "is_safe": true,
+          "trap_warning": false,
+          "breakdown": {
+            "markov": 0.8,
+            "hazard": 0.3,
+            "decay": 0.5,
+            "bac_nho": 0.5,
+            "fourier": 0.3,
+            "graph_pagerank": 1.3,
+            "state_space": 0.2,
+            "ml_ranker": 0.6
+          }
+        },
+        {
+          "ball": 8,
+          "score": 4.3,
           "agreement_count": 2,
           "agreement_pct": 25.0,
           "is_safe": false,
           "trap_warning": false,
           "breakdown": {
-            "markov": 0.3,
-            "hazard": 0.4,
+            "markov": 0.6,
+            "hazard": 0.3,
             "decay": 0.4,
-            "bac_nho": 0.1,
-            "fourier": 0.6,
-            "graph_pagerank": 0.2,
-            "state_space": 1.5,
-            "ml_ranker": 0.3
+            "bac_nho": 0.2,
+            "fourier": 0.9,
+            "graph_pagerank": 0.4,
+            "state_space": 0.5,
+            "ml_ranker": 1.1
           }
         }
       ],
@@ -5904,62 +5893,62 @@
         "markov": {
           "name": "Markov PPMI Information Gain",
           "top_picks": [
-            20,
-            35,
-            5,
-            29,
-            1
+            31,
+            19,
+            9,
+            30,
+            10
           ],
           "math_basis": "Thông tin tương hỗ dương PPMI có làm mịn Laplace từ tập kết quả kỳ trước",
-          "rationale": "Dựa trên kết quả kỳ trước (06, 11, 13, 22, 25), ma trận PPMI ghi nhận các số 20, 35, 05, 29 có độ gia tăng thông tin liên kết nổ cao nhất."
+          "rationale": "Dựa trên kết quả kỳ trước (01, 07, 29, 32, 34), ma trận PPMI ghi nhận các số 31, 19, 09, 30 có độ gia tăng thông tin liên kết nổ cao nhất."
         },
         "hazard": {
           "name": "Bayesian Rhythm Z-Score (Nhịp Điểm Rơi)",
           "top_picks": [
-            24,
-            33,
-            3,
             19,
-            7
+            3,
+            24,
+            2,
+            33
           ],
           "math_basis": "Hàm mật độ điểm rơi Gauss trên độ lệch chuẩn chu kỳ nhịp riêng z_b = (g_b - 1.05 * avg_g) / std_g",
-          "rationale": "Các bóng 24, 33, 03, 19 có nhịp gan hội tụ chuẩn xác tại đỉnh chuông mật độ Gauss, xác suất bùng nổ kỳ này đạt cực đại."
+          "rationale": "Các bóng 19, 03, 24, 02 có nhịp gan hội tụ chuẩn xác tại đỉnh chuông mật độ Gauss, xác suất bùng nổ kỳ này đạt cực đại."
         },
         "decay": {
           "name": "Exponential Momentum & Decay (Nhiệt)",
           "top_picks": [
             27,
             13,
+            7,
             22,
-            16,
-            20
+            16
           ],
           "math_basis": "Tần suất suy giảm mũ kết hợp xung lực nhiệt alpha = 0.055 trên 120 kỳ",
-          "rationale": "Các bóng 27, 13, 22, 16 có xung lực xuất hiện dày đặc gần đây, quán tính nhiệt tiếp tục duy trì đà nổ."
+          "rationale": "Các bóng 27, 13, 07, 22 có xung lực xuất hiện dày đặc gần đây, quán tính nhiệt tiếp tục duy trì đà nổ."
         },
         "bac_nho": {
           "name": "Empirical Bayes Pairwise Lift",
           "top_picks": [
-            35,
-            29,
-            1,
-            20,
-            7
+            9,
+            23,
+            30,
+            13,
+            20
           ],
           "math_basis": "Độ nâng Lift có hiệu chỉnh Bayes chống quá khớp (Empirical Bayes Shrinkage) trên cặp số kỳ trước",
-          "rationale": "Lực hút Bạc Nhớ Bayes chỉ ra các bóng 35, 29, 01, 20 có độ nâng xác suất thực sự vượt trội khi đi kèm cặp số kỳ trước."
+          "rationale": "Lực hút Bạc Nhớ Bayes chỉ ra các bóng 09, 23, 30, 13 có độ nâng xác suất thực sự vượt trội khi đi kèm cặp số kỳ trước."
         },
         "fourier": {
           "name": "Daubechies Wavelet & Hann Spectral",
           "top_picks": [
+            15,
+            10,
             8,
-            34,
-            22,
-            4,
-            30
+            13,
+            34
           ],
           "math_basis": "Phân rã đa tỷ lệ sóng con Daubechies DWT kết hợp biến đổi Fourier rời rạc (DFT) cửa sổ Hann",
-          "rationale": "Phân rã sóng con Daubechies DWT và phổ Fourier ghi nhận các bóng 08, 34, 22, 04 đang hội tụ năng lượng dao động cực đại."
+          "rationale": "Phân rã sóng con Daubechies DWT và phổ Fourier ghi nhận các bóng 15, 10, 08, 13 đang hội tụ năng lượng dao động cực đại."
         },
         "graph_pagerank": {
           "name": "Graph Co-occurrence PageRank (Hubs)",
@@ -5976,26 +5965,26 @@
         "state_space": {
           "name": "Bayesian Dynamic State-Space Filter",
           "top_picks": [
+            32,
+            34,
             6,
             22,
-            13,
-            27,
-            5
+            13
           ],
           "math_basis": "Bộ lọc không gian trạng thái Kalman 1D thích ứng động học (Bayesian State-Space Kalman Filter)",
-          "rationale": "Bộ lọc thích ứng Kalman ghi nhận vận tốc xuất hiện tiềm ẩn của các bóng 06, 22, 13, 27 đang tăng tốc vượt trội qua chuỗi quan sát."
+          "rationale": "Bộ lọc thích ứng Kalman ghi nhận vận tốc xuất hiện tiềm ẩn của các bóng 32, 34, 06, 22 đang tăng tốc vượt trội qua chuỗi quan sát."
         },
         "ml_ranker": {
           "name": "HistGradientBoosting Ranker (Học Máy)",
           "top_picks": [
-            13,
+            25,
+            11,
+            15,
             17,
-            5,
-            12,
-            18
+            10
           ],
           "math_basis": "Mô hình cây quyết định Gradient Boosting (HistGradientBoosting) tối ưu hóa hàm mất mát trên không gian đặc trưng 14 chiều",
-          "rationale": "Học máy phân tích tương tác phi tuyến 14 chiều ghi nhận các số 13, 17, 05, 12 có xác suất nổ kỳ này cao nhất."
+          "rationale": "Học máy phân tích tương tác phi tuyến 14 chiều ghi nhận các số 25, 11, 15, 17 có xác suất nổ kỳ này cao nhất."
         }
       },
       "models_info": {
@@ -6050,208 +6039,200 @@
       },
       "transition_analytics": {
         "latest_draw_numbers": [
-          6,
-          11,
-          13,
-          22,
-          25
+          1,
+          7,
+          29,
+          32,
+          34
         ],
         "top_pull_rules": [
           {
-            "from_ball": 22,
-            "to_ball": 32,
-            "lift": 2.33,
-            "z_score": 2.44,
-            "historical_hits": "7/28 (25.0%)",
+            "from_ball": 29,
+            "to_ball": 8,
+            "lift": 2.92,
+            "z_score": 2.94,
+            "historical_hits": "6/17 (35.3%)",
+            "strength": "Cực Mạnh"
+          },
+          {
+            "from_ball": 7,
+            "to_ball": 19,
+            "lift": 2.26,
+            "z_score": 2.39,
+            "historical_hits": "7/22 (31.8%)",
             "strength": "Mạnh"
           },
           {
-            "from_ball": 11,
-            "to_ball": 35,
-            "lift": 1.99,
-            "z_score": 2.16,
-            "historical_hits": "8/26 (30.8%)",
+            "from_ball": 32,
+            "to_ball": 30,
+            "lift": 2.59,
+            "z_score": 2.35,
+            "historical_hits": "5/16 (31.2%)",
             "strength": "Mạnh"
           },
           {
-            "from_ball": 6,
-            "to_ball": 28,
-            "lift": 1.91,
-            "z_score": 1.92,
-            "historical_hits": "7/21 (33.3%)",
+            "from_ball": 1,
+            "to_ball": 31,
+            "lift": 2.43,
+            "z_score": 2.19,
+            "historical_hits": "5/17 (29.4%)",
             "strength": "Mạnh"
           },
           {
-            "from_ball": 11,
-            "to_ball": 9,
-            "lift": 1.83,
-            "z_score": 1.91,
-            "historical_hits": "8/26 (30.8%)",
+            "from_ball": 29,
+            "to_ball": 11,
+            "lift": 2.02,
+            "z_score": 1.94,
+            "historical_hits": "6/17 (35.3%)",
             "strength": "Mạnh"
           },
           {
-            "from_ball": 25,
-            "to_ball": 5,
-            "lift": 2.33,
-            "z_score": 1.84,
+            "from_ball": 7,
+            "to_ball": 13,
+            "lift": 1.75,
+            "z_score": 1.8,
+            "historical_hits": "8/22 (36.4%)",
+            "strength": "Mạnh"
+          },
+          {
+            "from_ball": 34,
+            "to_ball": 7,
+            "lift": 1.81,
+            "z_score": 1.74,
+            "historical_hits": "7/25 (28.0%)",
+            "strength": "Mạnh"
+          },
+          {
+            "from_ball": 32,
+            "to_ball": 31,
+            "lift": 2.07,
+            "z_score": 1.59,
             "historical_hits": "4/16 (25.0%)",
-            "strength": "Mạnh"
-          },
-          {
-            "from_ball": 25,
-            "to_ball": 1,
-            "lift": 2.19,
-            "z_score": 1.71,
-            "historical_hits": "4/16 (25.0%)",
-            "strength": "Mạnh"
-          },
-          {
-            "from_ball": 22,
-            "to_ball": 29,
-            "lift": 1.88,
-            "z_score": 1.67,
-            "historical_hits": "6/28 (21.4%)",
-            "strength": "Mạnh"
-          },
-          {
-            "from_ball": 6,
-            "to_ball": 23,
-            "lift": 1.77,
-            "z_score": 1.55,
-            "historical_hits": "6/21 (28.6%)",
             "strength": "Mạnh"
           }
         ],
         "top_repulsion_rules": [
           {
-            "from_ball": 22,
-            "to_ball": 34,
+            "from_ball": 29,
+            "to_ball": 22,
             "lift": 0.0,
-            "z_score": -2.38,
-            "historical_hits": "0/28 (0.0%)",
-            "warning": "Kỵ nhau mạnh — Nên loại bỏ"
-          },
-          {
-            "from_ball": 11,
-            "to_ball": 23,
-            "lift": 0.24,
-            "z_score": -1.7,
-            "historical_hits": "1/26 (3.8%)",
+            "z_score": -1.98,
+            "historical_hits": "0/17 (0.0%)",
             "warning": "Xung khắc nhẹ"
           },
           {
-            "from_ball": 13,
-            "to_ball": 17,
-            "lift": 0.24,
-            "z_score": -1.69,
-            "historical_hits": "1/30 (3.3%)",
-            "warning": "Xung khắc nhẹ"
-          },
-          {
-            "from_ball": 22,
-            "to_ball": 6,
-            "lift": 0.24,
+            "from_ball": 1,
+            "to_ball": 2,
+            "lift": 0.0,
             "z_score": -1.67,
-            "historical_hits": "1/28 (3.6%)",
+            "historical_hits": "0/17 (0.0%)",
             "warning": "Xung khắc nhẹ"
           },
           {
-            "from_ball": 6,
+            "from_ball": 7,
             "to_ball": 27,
-            "lift": 0.26,
-            "z_score": -1.59,
-            "historical_hits": "1/21 (4.8%)",
+            "lift": 0.25,
+            "z_score": -1.65,
+            "historical_hits": "1/22 (4.5%)",
             "warning": "Xung khắc nhẹ"
           },
           {
-            "from_ball": 25,
-            "to_ball": 21,
+            "from_ball": 7,
+            "to_ball": 5,
             "lift": 0.0,
-            "z_score": -1.57,
-            "historical_hits": "0/16 (0.0%)",
+            "z_score": -1.63,
+            "historical_hits": "0/22 (0.0%)",
+            "warning": "Xung khắc nhẹ"
+          },
+          {
+            "from_ball": 1,
+            "to_ball": 12,
+            "lift": 0.0,
+            "z_score": -1.62,
+            "historical_hits": "0/17 (0.0%)",
             "warning": "Xung khắc nhẹ"
           }
         ]
       },
       "bankroll_advisory": {
-        "ccs_score": 79.2,
-        "tier_level": 3,
-        "tier_name": "Điểm Rơi Vàng (Super-Convergence)",
-        "tier_badge": "bg-emerald-500/20 text-emerald-300 border-emerald-500/40",
-        "recommended_action": "Kích hoạt Dàn Bọc Lót 6 Vé C(v, k, 3)",
-        "recommended_budget": 60000,
+        "ccs_score": 63.7,
+        "tier_level": 2,
+        "tier_name": "Tín Hiệu Khả Quan (Moderate Convergence)",
+        "tier_badge": "bg-sky-500/20 text-sky-300 border-sky-500/40",
+        "recommended_action": "Đánh Vé Golden Markowitz + Kiềng 3 Chân Triad",
+        "recommended_budget": 20000,
         "breakdown": {
-          "agreement_score": 47.9,
-          "entropy_score": 100.0,
+          "agreement_score": 52.1,
+          "entropy_score": 51.0,
           "pull_score": 100.0
         },
-        "rationale": "Đồng thuận hội tụ cực mạnh giữa các mô hình (>= 6/8) và xung lực kéo liên kỳ đạt đỉnh. Tỷ lệ ăn giải của Dàn bọc lót đạt mức tối ưu."
+        "rationale": "Đa số mô hình hội tụ tốt. Khuyến nghị phối hợp 1 vé Golden Markowitz và 1 vé Triad để bảo toàn vốn."
       },
       "elimination_analytics": {
         "eliminated_count": 9,
         "eliminated_balls": [
           {
             "ball": 21,
-            "risk_score": 0.964,
+            "risk_score": 0.716,
             "reason": "Gan lì lợm (Vắng mặt kéo dài)"
           },
           {
-            "ball": 31,
-            "risk_score": 0.51,
+            "ball": 12,
+            "risk_score": 0.591,
+            "reason": "Xung khắc (Kỵ bóng nổ kỳ trước)"
+          },
+          {
+            "ball": 29,
+            "risk_score": 0.381,
+            "reason": "Xung khắc (Kỵ bóng nổ kỳ trước)"
+          },
+          {
+            "ball": 35,
+            "risk_score": 0.37,
             "reason": "Đáy đồng thuận (Xác suất thấp)"
           },
           {
+            "ball": 25,
+            "risk_score": 0.313,
+            "reason": "Xung khắc (Kỵ bóng nổ kỳ trước)"
+          },
+          {
+            "ball": 24,
+            "risk_score": 0.262,
+            "reason": "Ngủ đông (Triệt tiêu phổ sóng)"
+          },
+          {
+            "ball": 31,
+            "risk_score": 0.262,
+            "reason": "Ngủ đông (Triệt tiêu phổ sóng)"
+          },
+          {
             "ball": 1,
-            "risk_score": 0.421,
-            "reason": "Ngủ đông (Triệt tiêu phổ sóng)"
-          },
-          {
-            "ball": 12,
-            "risk_score": 0.329,
-            "reason": "Ngủ đông (Triệt tiêu phổ sóng)"
-          },
-          {
-            "ball": 34,
             "risk_score": 0.25,
             "reason": "Xung khắc (Kỵ bóng nổ kỳ trước)"
           },
           {
-            "ball": 17,
-            "risk_score": 0.132,
-            "reason": "Xung khắc (Kỵ bóng nổ kỳ trước)"
-          },
-          {
-            "ball": 23,
-            "risk_score": 0.131,
-            "reason": "Xung khắc (Kỵ bóng nổ kỳ trước)"
-          },
-          {
-            "ball": 6,
-            "risk_score": 0.129,
-            "reason": "Xung khắc (Kỵ bóng nổ kỳ trước)"
-          },
-          {
-            "ball": 27,
-            "risk_score": 0.119,
+            "ball": 2,
+            "risk_score": 0.25,
             "reason": "Xung khắc (Kỵ bóng nổ kỳ trước)"
           }
         ],
         "eliminated_ball_numbers": [
           21,
+          12,
+          29,
+          35,
+          25,
+          24,
           31,
           1,
-          12,
-          34,
-          17,
-          23,
-          6,
-          27
+          2
         ],
         "pruned_universe": [
-          2,
           3,
           4,
           5,
+          6,
           7,
           8,
           9,
@@ -6261,19 +6242,19 @@
           14,
           15,
           16,
+          17,
           18,
           19,
           20,
           22,
-          24,
-          25,
+          23,
           26,
+          27,
           28,
-          29,
           30,
           32,
           33,
-          35
+          34
         ],
         "pruned_universe_size": 26,
         "elimination_rate_pct": 25.7
@@ -6299,51 +6280,51 @@
           "min_ac_threshold": 4
         },
         "trained_model_weights": {
-          "markov": 5.7,
-          "hazard": 9.4,
-          "decay": 10.0,
-          "bac_nho": 6.2,
-          "fourier": 7.7,
-          "graph_pagerank": 10.7,
-          "state_space": 29.1,
-          "ml_ranker": 21.2
+          "markov": 10.9,
+          "hazard": 4.6,
+          "decay": 13.7,
+          "bac_nho": 6.0,
+          "fourier": 10.5,
+          "graph_pagerank": 21.4,
+          "state_space": 18.7,
+          "ml_ranker": 14.2
         },
         "negative_space_compliance": "100% Đạt Chuẩn (5/5 Bộ Lọc)",
         "accuracy_gain_vs_random": {
-          "avg_hits_improvement_pct": 20.7,
+          "avg_hits_improvement_pct": 16.7,
           "hit_rate_ge3": 0.0,
           "baseline_random_avg": 0.71
         }
       },
       "tickets": {
         "key_balls": [
-          20,
-          24,
-          13
+          31,
+          19,
+          7
         ],
         "key_roles": [
           {
-            "ball": 20,
+            "ball": 31,
             "role": "Xác Suất Markov",
             "color": "fuchsia"
           },
           {
-            "ball": 24,
+            "ball": 19,
             "role": "Điểm Rơi Hazard",
             "color": "emerald"
           },
           {
-            "ball": 13,
+            "ball": 7,
             "role": "Nhịp Cầu Rơi",
             "color": "amber"
           }
         ],
         "key_5_balls": [
-          20,
-          24,
+          31,
+          19,
+          7,
           13,
-          22,
-          27
+          15
         ],
         "triad_backtest": {
           "avg_hits": 0.46,
@@ -6351,26 +6332,26 @@
           "win_rate_ge2": 5.7
         },
         "key5_backtest": {
-          "avg_hits": 0.77,
+          "avg_hits": 0.8,
           "win_rate_ge1": 57.1,
           "win_rate_ge2": 17.1
         },
         "core_pool": [
           13,
-          22,
-          27,
-          5,
-          6,
-          20,
           15,
-          16,
-          11,
-          7
+          22,
+          34,
+          7,
+          10,
+          20,
+          32,
+          6,
+          9
         ],
         "core_backtest": {
           "pool_size": 10,
-          "avg_hits": 1.49,
-          "win_rate_ge3": 14.3,
+          "avg_hits": 1.4,
+          "win_rate_ge3": 8.6,
           "win_rate_ge4": 0.0,
           "win_rate_ge5": 0.0
         },
@@ -6379,11 +6360,11 @@
             "id": "wheel_1",
             "label": "Vé 1",
             "numbers": [
-              5,
-              6,
+              7,
               13,
+              15,
               22,
-              27
+              34
             ],
             "special": 12
           },
@@ -6391,11 +6372,11 @@
             "id": "wheel_2",
             "label": "Vé 2",
             "numbers": [
+              10,
               13,
               15,
-              16,
               20,
-              22
+              32
             ],
             "special": 12
           },
@@ -6403,11 +6384,11 @@
             "id": "wheel_3",
             "label": "Vé 3",
             "numbers": [
-              7,
-              11,
+              6,
+              9,
+              10,
               13,
-              20,
-              27
+              22
             ],
             "special": 12
           },
@@ -6415,11 +6396,11 @@
             "id": "wheel_4",
             "label": "Vé 4",
             "numbers": [
-              5,
-              7,
-              11,
+              6,
+              9,
               15,
-              22
+              20,
+              34
             ],
             "special": 12
           },
@@ -6428,10 +6409,10 @@
             "label": "Vé 5",
             "numbers": [
               6,
-              11,
-              15,
-              16,
-              27
+              7,
+              20,
+              22,
+              32
             ],
             "special": 12
           },
@@ -6439,11 +6420,11 @@
             "id": "wheel_6",
             "label": "Vé 6",
             "numbers": [
-              5,
-              6,
               7,
-              16,
-              20
+              9,
+              10,
+              32,
+              34
             ],
             "special": 12
           }
@@ -6453,11 +6434,11 @@
             "id": "ve_1",
             "label": "Vé 1",
             "numbers": [
-              5,
-              6,
+              7,
               13,
+              15,
               22,
-              27
+              34
             ],
             "special": 12
           },
@@ -6465,11 +6446,11 @@
             "id": "ve_2",
             "label": "Vé 2",
             "numbers": [
-              11,
+              6,
+              10,
               13,
-              15,
-              16,
-              20
+              20,
+              32
             ],
             "special": 12
           },
@@ -6477,11 +6458,11 @@
             "id": "ve_3",
             "label": "Vé 3",
             "numbers": [
-              7,
+              9,
+              10,
               15,
               20,
-              22,
-              27
+              22
             ],
             "special": 12
           },
@@ -6489,17 +6470,17 @@
             "id": "ve_4",
             "label": "Vé 4",
             "numbers": [
-              5,
               6,
               7,
-              11,
-              16
+              9,
+              32,
+              34
             ],
             "special": 12
           }
         ],
         "wheel_backtest": {
-          "overall_prize_win_rate": 5.7,
+          "overall_prize_win_rate": 2.9,
           "core_ge4_count": 0,
           "core_ge4_win_rate": 0.0,
           "guarantee_coverage": {
@@ -6512,7 +6493,7 @@
           }
         },
         "wheel4_backtest": {
-          "overall_prize_win_rate": 5.7,
+          "overall_prize_win_rate": 2.9,
           "core_ge4_count": 0,
           "core_ge4_win_rate": 0.0,
           "guarantee_coverage": {
@@ -6526,14 +6507,14 @@
         },
         "golden": {
           "numbers": [
-            6,
+            7,
+            10,
             13,
-            16,
-            17,
-            27
+            15,
+            20
           ],
           "ac_index": 4,
-          "sum": 79,
+          "sum": 65,
           "odd_even": "2C - 3L",
           "sei_score": 10.0,
           "special": 12,
@@ -6544,61 +6525,7 @@
               "passed": true,
               "score_pass": 5,
               "sum": {
-                "val": 79,
-                "min": 60,
-                "max": 120,
-                "passed": true
-              },
-              "ac": {
-                "val": 4,
-                "threshold": 4,
-                "passed": true
-              },
-              "consecutive": {
-                "max_len": 2,
-                "passed": true
-              },
-              "parity": {
-                "ratio": "2C - 3L",
-                "passed": true
-              },
-              "repeat": {
-                "count": 2,
-                "max_allowed": 2,
-                "passed": true
-              }
-            }
-          },
-          "optimization_type": "Markowitz Constrained Portfolio",
-          "expected_return": 27.3,
-          "covariance_risk_penalty": -0.8139,
-          "objective_utility": 28.1139,
-          "louvain_spread": {
-            "distinct_clusters_count": 3,
-            "cluster_distribution": {
-              "C0": 1,
-              "C1": 2,
-              "C3": 2
-            }
-          }
-        },
-        "momentum": {
-          "numbers": [
-            16,
-            18,
-            22,
-            29,
-            35
-          ],
-          "special": 12,
-          "negative_space_check": {
-            "passed": true,
-            "score": "5/5",
-            "details": {
-              "passed": true,
-              "score_pass": 5,
-              "sum": {
-                "val": 120,
+                "val": 65,
                 "min": 60,
                 "max": 120,
                 "passed": true
@@ -6613,7 +6540,7 @@
                 "passed": true
               },
               "parity": {
-                "ratio": "3C - 2L",
+                "ratio": "2C - 3L",
                 "passed": true
               },
               "repeat": {
@@ -6622,15 +6549,28 @@
                 "passed": true
               }
             }
+          },
+          "optimization_type": "Markowitz Constrained Portfolio",
+          "expected_return": 29.4,
+          "covariance_risk_penalty": -0.1631,
+          "objective_utility": 29.5631,
+          "louvain_spread": {
+            "distinct_clusters_count": 4,
+            "cluster_distribution": {
+              "C1": 2,
+              "C2": 1,
+              "C3": 1,
+              "C4": 1
+            }
           }
         },
-        "breakout": {
+        "momentum": {
           "numbers": [
-            7,
-            9,
+            10,
+            13,
+            15,
             16,
-            20,
-            24
+            20
           ],
           "special": 12,
           "negative_space_check": {
@@ -6640,13 +6580,55 @@
               "passed": true,
               "score_pass": 5,
               "sum": {
-                "val": 76,
+                "val": 74,
                 "min": 60,
                 "max": 120,
                 "passed": true
               },
               "ac": {
-                "val": 5,
+                "val": 4,
+                "threshold": 4,
+                "passed": true
+              },
+              "consecutive": {
+                "max_len": 2,
+                "passed": true
+              },
+              "parity": {
+                "ratio": "3C - 2L",
+                "passed": true
+              },
+              "repeat": {
+                "count": 0,
+                "max_allowed": 2,
+                "passed": true
+              }
+            }
+          }
+        },
+        "breakout": {
+          "numbers": [
+            3,
+            9,
+            16,
+            24,
+            26
+          ],
+          "special": 12,
+          "negative_space_check": {
+            "passed": true,
+            "score": "5/5",
+            "details": {
+              "passed": true,
+              "score_pass": 5,
+              "sum": {
+                "val": 78,
+                "min": 60,
+                "max": 120,
+                "passed": true
+              },
+              "ac": {
+                "val": 6,
                 "threshold": 4,
                 "passed": true
               },
@@ -6669,19 +6651,19 @@
         "optimal_septet": {
           "numbers": [
             6,
-            7,
-            16,
+            9,
+            15,
             20,
             22,
-            27
+            32
           ],
           "special": 12,
           "ac_index": 10,
-          "sum": 98,
+          "sum": 104,
           "odd_even": "4C - 2L",
-          "alpha_score": 98.77,
-          "lift_score": 18.96,
-          "span": 21,
+          "alpha_score": 112.13,
+          "lift_score": 23.45,
+          "span": 26,
           "state_composition": {
             "hot": 5,
             "warm": 1,
@@ -6692,7 +6674,7 @@
         },
         "septet_backtest": {
           "total_draws": 35,
-          "avg_hits": 0.97,
+          "avg_hits": 0.89,
           "hit_3_plus": 0,
           "win_rate_ge3": 0.0,
           "hit_4_plus": 0,
@@ -6701,18 +6683,18 @@
           "win_rate_ge5": 0.0,
           "hit_6_plus": 0,
           "total_cost": 2100000,
-          "total_payout": 1090000,
-          "net_profit": -1010000,
-          "roi_pct": -48.1
+          "total_payout": 780000,
+          "net_profit": -1320000,
+          "roi_pct": -62.9
         },
         "bao7": {
           "numbers": [
             6,
-            7,
-            16,
+            9,
+            15,
             20,
             22,
-            27
+            32
           ],
           "special": 12,
           "negative_space_check": {
@@ -6723,16 +6705,16 @@
         "banker_wheeling": {
           "banker": 13,
           "satellite_pool": [
-            4,
-            5,
+            6,
             7,
-            8,
+            9,
             10,
-            11,
             15,
-            16,
             20,
-            22
+            22,
+            30,
+            32,
+            34
           ],
           "satellite_pool_size": 10,
           "tickets": [
@@ -6741,21 +6723,21 @@
               "ticketIndex": 1,
               "numbers": [
                 7,
-                10,
                 13,
                 15,
-                22
+                22,
+                34
               ],
               "banker": 13,
               "satellites": [
                 7,
-                10,
                 15,
-                22
+                22,
+                34
               ],
-              "sum": 67,
-              "ac": 5,
-              "ac_index": 5,
+              "sum": 91,
+              "ac": 6,
+              "ac_index": 6,
               "odds": 3,
               "evens": 2,
               "distinctTails": 5,
@@ -6765,49 +6747,49 @@
               "id": "banker_ticket_2",
               "ticketIndex": 2,
               "numbers": [
-                4,
-                11,
+                10,
                 13,
                 15,
-                16
+                20,
+                32
               ],
               "banker": 13,
               "satellites": [
-                4,
-                11,
+                10,
                 15,
-                16
+                20,
+                32
               ],
-              "sum": 59,
+              "sum": 90,
               "ac": 5,
               "ac_index": 5,
-              "odds": 3,
-              "evens": 2,
-              "distinctTails": 5,
+              "odds": 2,
+              "evens": 3,
+              "distinctTails": 4,
               "passed_ac_filter": true
             },
             {
               "id": "banker_ticket_3",
               "ticketIndex": 3,
               "numbers": [
-                5,
-                7,
-                11,
+                6,
+                9,
+                10,
                 13,
-                20
+                22
               ],
               "banker": 13,
               "satellites": [
-                5,
-                7,
-                11,
-                20
+                6,
+                9,
+                10,
+                22
               ],
-              "sum": 56,
+              "sum": 60,
               "ac": 4,
               "ac_index": 4,
-              "odds": 4,
-              "evens": 1,
+              "odds": 2,
+              "evens": 3,
               "distinctTails": 5,
               "passed_ac_filter": true
             },
@@ -6815,22 +6797,22 @@
               "id": "banker_ticket_4",
               "ticketIndex": 4,
               "numbers": [
-                8,
-                10,
+                6,
                 13,
-                16,
-                20
+                20,
+                30,
+                34
               ],
               "banker": 13,
               "satellites": [
-                8,
-                10,
-                16,
-                20
+                6,
+                20,
+                30,
+                34
               ],
-              "sum": 67,
-              "ac": 5,
-              "ac_index": 5,
+              "sum": 103,
+              "ac": 4,
+              "ac_index": 4,
               "odds": 1,
               "evens": 4,
               "distinctTails": 4,
@@ -6840,24 +6822,24 @@
               "id": "banker_ticket_5",
               "ticketIndex": 5,
               "numbers": [
-                4,
-                5,
-                8,
+                7,
+                9,
                 13,
-                22
+                30,
+                32
               ],
               "banker": 13,
               "satellites": [
-                4,
-                5,
-                8,
-                22
+                7,
+                9,
+                30,
+                32
               ],
-              "sum": 52,
-              "ac": 5,
-              "ac_index": 5,
-              "odds": 2,
-              "evens": 3,
+              "sum": 91,
+              "ac": 4,
+              "ac_index": 4,
+              "odds": 3,
+              "evens": 2,
               "distinctTails": 5,
               "passed_ac_filter": true
             },
@@ -6865,25 +6847,25 @@
               "id": "banker_ticket_6",
               "ticketIndex": 6,
               "numbers": [
-                4,
-                10,
+                6,
                 13,
                 15,
-                20
+                32,
+                34
               ],
               "banker": 13,
               "satellites": [
-                4,
-                10,
+                6,
                 15,
-                20
+                32,
+                34
               ],
-              "sum": 62,
-              "ac": 5,
-              "ac_index": 5,
+              "sum": 100,
+              "ac": 4,
+              "ac_index": 4,
               "odds": 2,
               "evens": 3,
-              "distinctTails": 4,
+              "distinctTails": 5,
               "passed_ac_filter": true
             }
           ],
@@ -6897,23 +6879,23 @@
           "total_cost_vnd": 50000,
           "core_pool_size": 10,
           "pairs_coverage_pct": 88.9,
-          "triplets_coverage_count": 50,
+          "triplets_coverage_count": 49,
           "tickets": [
             {
               "id": "portfolio_ticket_1",
               "ticketIndex": 1,
               "numbers": [
-                5,
-                6,
+                7,
                 13,
+                15,
                 22,
-                27
+                34
               ],
-              "sum": 73,
+              "sum": 91,
               "ac": 6,
               "odds": 3,
               "evens": 2,
-              "decades_count": 3,
+              "decades_count": 4,
               "tag": "Trục Hạt Nhân",
               "special": 12
             },
@@ -6921,17 +6903,17 @@
               "id": "portfolio_ticket_2",
               "ticketIndex": 2,
               "numbers": [
+                10,
                 13,
                 15,
-                16,
                 20,
-                22
+                32
               ],
-              "sum": 86,
-              "ac": 4,
+              "sum": 90,
+              "ac": 5,
               "odds": 2,
               "evens": 3,
-              "decades_count": 2,
+              "decades_count": 3,
               "tag": "Cặp Đôi Bạc Nhớ",
               "special": 12
             },
@@ -6939,16 +6921,16 @@
               "id": "portfolio_ticket_3",
               "ticketIndex": 3,
               "numbers": [
-                7,
-                11,
+                6,
+                9,
                 13,
-                16,
-                27
+                20,
+                22
               ],
-              "sum": 74,
-              "ac": 6,
-              "odds": 4,
-              "evens": 1,
+              "sum": 70,
+              "ac": 5,
+              "odds": 2,
+              "evens": 3,
               "decades_count": 3,
               "tag": "Kháng Dao Động",
               "special": 12
@@ -6957,16 +6939,16 @@
               "id": "portfolio_ticket_4",
               "ticketIndex": 4,
               "numbers": [
-                5,
                 7,
-                15,
-                20,
-                27
+                9,
+                10,
+                32,
+                34
               ],
-              "sum": 74,
-              "ac": 6,
-              "odds": 4,
-              "evens": 1,
+              "sum": 92,
+              "ac": 4,
+              "odds": 2,
+              "evens": 3,
               "decades_count": 3,
               "tag": "Lực Hút Markov",
               "special": 12
@@ -6976,16 +6958,16 @@
               "ticketIndex": 5,
               "numbers": [
                 6,
-                7,
-                11,
-                20,
-                22
+                10,
+                15,
+                22,
+                32
               ],
-              "sum": 66,
+              "sum": 85,
               "ac": 6,
-              "odds": 2,
-              "evens": 3,
-              "decades_count": 3,
+              "odds": 1,
+              "evens": 4,
+              "decades_count": 4,
               "tag": "Bảo Hiểm Bao Phủ",
               "special": 12
             }
@@ -6993,6 +6975,87 @@
         }
       },
       "history_walk_forward": [
+        {
+          "drawId": "00883",
+          "date": "2026-09-13",
+          "actual": [
+            1,
+            7,
+            29,
+            32,
+            34
+          ],
+          "predicted": [
+            13,
+            22,
+            27,
+            20,
+            15
+          ],
+          "matched": [],
+          "matchCount": 0,
+          "corePool": [
+            13,
+            22,
+            27,
+            20,
+            15,
+            5,
+            16,
+            7,
+            11,
+            9
+          ],
+          "coreMatched": [
+            7
+          ],
+          "coreMatchCount": 1,
+          "triad": [
+            20,
+            24,
+            13
+          ],
+          "triadMatched": [],
+          "triadMatchCount": 0,
+          "key5": [
+            20,
+            24,
+            13,
+            22,
+            27
+          ],
+          "key5Matched": [],
+          "key5MatchCount": 0,
+          "optimalSeptet": {
+            "numbers": [
+              5,
+              13,
+              15,
+              16,
+              22,
+              27
+            ],
+            "special": 12,
+            "matched": [],
+            "matchCount": 0,
+            "cost": 60000,
+            "payout": 0,
+            "netProfit": -60000,
+            "prizeDetail": "Không trúng"
+          },
+          "wheel4": {
+            "ticketHits": [
+              0,
+              1,
+              0,
+              0,
+              1,
+              1
+            ],
+            "maxHit": 1,
+            "wonPrize": false
+          }
+        },
         {
           "drawId": "00882",
           "date": "2026-09-12",
@@ -7005,9 +7068,9 @@
           ],
           "predicted": [
             27,
-            10,
             15,
             13,
+            10,
             16
           ],
           "matched": [
@@ -7016,22 +7079,21 @@
           "matchCount": 1,
           "corePool": [
             27,
-            10,
             15,
             13,
+            10,
             16,
-            7,
             22,
             9,
+            7,
             4,
-            6
+            20
           ],
           "coreMatched": [
-            6,
             13,
             22
           ],
-          "coreMatchCount": 3,
+          "coreMatchCount": 2,
           "triad": [
             25,
             7,
@@ -7046,7 +7108,7 @@
             7,
             20,
             27,
-            10
+            15
           ],
           "key5Matched": [
             25
@@ -7054,35 +7116,34 @@
           "key5MatchCount": 1,
           "optimalSeptet": {
             "numbers": [
-              6,
+              4,
               7,
-              9,
-              15,
+              16,
+              20,
               22,
               27
             ],
             "special": 12,
             "matched": [
-              6,
               22
             ],
-            "matchCount": 2,
+            "matchCount": 1,
             "cost": 60000,
-            "payout": 120000,
-            "netProfit": 60000,
-            "prizeDetail": "6 Giải Năm (120k)"
+            "payout": 0,
+            "netProfit": -60000,
+            "prizeDetail": "Không trúng"
           },
           "wheel4": {
             "ticketHits": [
               1,
               1,
+              2,
+              0,
               1,
-              3,
-              1,
-              2
+              1
             ],
-            "maxHit": 3,
-            "wonPrize": true
+            "maxHit": 2,
+            "wonPrize": false
           }
         },
         {
@@ -7099,8 +7160,8 @@
             27,
             13,
             16,
-            22,
-            15
+            15,
+            22
           ],
           "matched": [],
           "matchCount": 0,
@@ -7108,8 +7169,8 @@
             27,
             13,
             16,
-            22,
             15,
+            22,
             4,
             7,
             34,
@@ -7179,7 +7240,7 @@
             16,
             15,
             22,
-            19
+            2
           ],
           "matched": [
             27
@@ -7190,11 +7251,11 @@
             16,
             15,
             22,
-            19,
             2,
-            23,
+            19,
             9,
             13,
+            23,
             7
           ],
           "coreMatched": [
@@ -7243,11 +7304,11 @@
           "wheel4": {
             "ticketHits": [
               1,
-              1,
               2,
               1,
+              0,
               1,
-              0
+              1
             ],
             "maxHit": 2,
             "wonPrize": false
@@ -7265,10 +7326,10 @@
           ],
           "predicted": [
             27,
-            23,
-            19,
             7,
-            18
+            19,
+            23,
+            20
           ],
           "matched": [
             27
@@ -7276,14 +7337,14 @@
           "matchCount": 1,
           "corePool": [
             27,
-            23,
-            19,
             7,
-            18,
+            19,
+            23,
             20,
-            28,
-            9,
+            18,
             16,
+            9,
+            28,
             12
           ],
           "coreMatched": [
@@ -7305,7 +7366,7 @@
             18,
             16,
             27,
-            23
+            7
           ],
           "key5Matched": [
             16,
@@ -7334,8 +7395,8 @@
           "wheel4": {
             "ticketHits": [
               1,
-              1,
               2,
+              1,
               1,
               1,
               0
@@ -7356,10 +7417,10 @@
           ],
           "predicted": [
             27,
-            3,
-            23,
             13,
-            20
+            3,
+            20,
+            9
           ],
           "matched": [
             27
@@ -7367,15 +7428,15 @@
           "matchCount": 1,
           "corePool": [
             27,
-            3,
-            23,
             13,
+            3,
             20,
+            9,
+            23,
             18,
             7,
-            19,
-            9,
-            15
+            15,
+            19
           ],
           "coreMatched": [
             27
@@ -7393,7 +7454,7 @@
             11,
             15,
             27,
-            3
+            13
           ],
           "key5Matched": [
             27
@@ -7445,8 +7506,8 @@
             13,
             7,
             23,
-            18,
-            12
+            19,
+            16
           ],
           "matched": [],
           "matchCount": 0,
@@ -7454,19 +7515,18 @@
             13,
             7,
             23,
-            18,
-            12,
             19,
-            20,
             16,
+            20,
+            18,
+            9,
             27,
-            15
+            22
           ],
           "coreMatched": [
-            15,
             27
           ],
-          "coreMatchCount": 2,
+          "coreMatchCount": 1,
           "triad": [
             6,
             12,
@@ -7487,32 +7547,31 @@
             "numbers": [
               7,
               13,
-              15,
-              16,
+              20,
+              22,
               23,
               27
             ],
             "special": 7,
             "matched": [
-              15,
               27
             ],
-            "matchCount": 2,
+            "matchCount": 1,
             "cost": 60000,
-            "payout": 120000,
-            "netProfit": 60000,
-            "prizeDetail": "6 Giải Năm (120k)"
+            "payout": 0,
+            "netProfit": -60000,
+            "prizeDetail": "Không trúng"
           },
           "wheel4": {
             "ticketHits": [
               0,
               0,
-              2,
-              2,
               1,
-              1
+              1,
+              1,
+              0
             ],
-            "maxHit": 2,
+            "maxHit": 1,
             "wonPrize": false
           }
         },
@@ -7530,7 +7589,7 @@
             13,
             20,
             23,
-            18,
+            9,
             7
           ],
           "matched": [],
@@ -7539,13 +7598,13 @@
             13,
             20,
             23,
-            18,
-            7,
             9,
+            7,
+            18,
             16,
             15,
             17,
-            3
+            4
           ],
           "coreMatched": [],
           "coreMatchCount": 0,
@@ -7567,10 +7626,10 @@
           "key5MatchCount": 0,
           "optimalSeptet": {
             "numbers": [
-              3,
-              7,
-              17,
-              18,
+              4,
+              13,
+              15,
+              16,
               20,
               23
             ],
@@ -7607,33 +7666,33 @@
           ],
           "predicted": [
             13,
-            16,
+            12,
+            9,
             23,
-            20,
-            22
+            16
           ],
           "matched": [
+            9,
             13
           ],
-          "matchCount": 1,
+          "matchCount": 2,
           "corePool": [
             13,
-            16,
-            23,
-            20,
-            22,
             12,
-            26,
-            7,
             9,
-            18
+            23,
+            16,
+            15,
+            22,
+            18,
+            20,
+            26
           ],
           "coreMatched": [
-            7,
             9,
             13
           ],
-          "coreMatchCount": 3,
+          "coreMatchCount": 2,
           "triad": [
             12,
             22,
@@ -7648,26 +7707,27 @@
             22,
             7,
             13,
-            16
+            9
           ],
           "key5Matched": [
             7,
+            9,
             13
           ],
-          "key5MatchCount": 2,
+          "key5MatchCount": 3,
           "optimalSeptet": {
             "numbers": [
-              7,
               9,
-              12,
-              16,
-              20,
+              13,
+              15,
+              22,
+              23,
               26
             ],
             "special": 7,
             "matched": [
-              7,
-              9
+              9,
+              13
             ],
             "matchCount": 2,
             "cost": 60000,
@@ -7677,12 +7737,12 @@
           },
           "wheel4": {
             "ticketHits": [
-              1,
-              2,
               2,
               1,
               2,
-              1
+              0,
+              1,
+              0
             ],
             "maxHit": 2,
             "wonPrize": false
@@ -7699,27 +7759,25 @@
             23
           ],
           "predicted": [
-            3,
             13,
-            12,
-            22,
-            23
-          ],
-          "matched": [
-            23
-          ],
-          "matchCount": 1,
-          "corePool": [
-            3,
-            13,
-            12,
-            22,
-            23,
-            30,
             20,
+            18,
+            15,
+            12
+          ],
+          "matched": [],
+          "matchCount": 0,
+          "corePool": [
+            13,
+            20,
+            18,
+            15,
+            12,
+            23,
             11,
-            26,
-            2
+            9,
+            3,
+            29
           ],
           "coreMatched": [
             23
@@ -7739,7 +7797,7 @@
             3,
             7,
             13,
-            12
+            20
           ],
           "key5Matched": [
             7
@@ -7747,12 +7805,12 @@
           "key5MatchCount": 1,
           "optimalSeptet": {
             "numbers": [
-              2,
               3,
-              12,
+              11,
+              18,
+              20,
               23,
-              26,
-              30
+              29
             ],
             "special": 7,
             "matched": [
@@ -7766,11 +7824,11 @@
           },
           "wheel4": {
             "ticketHits": [
+              0,
+              1,
               1,
               0,
               0,
-              0,
-              1,
               1
             ],
             "maxHit": 1,
@@ -8207,115 +8265,25 @@
             "maxHit": 2,
             "wonPrize": false
           }
-        },
-        {
-          "drawId": "00868",
-          "date": "2026-09-05",
-          "actual": [
-            9,
-            15,
-            20,
-            22,
-            26
-          ],
-          "predicted": [
-            3,
-            7,
-            13,
-            15,
-            23
-          ],
-          "matched": [
-            15
-          ],
-          "matchCount": 1,
-          "corePool": [
-            3,
-            7,
-            13,
-            15,
-            23,
-            2,
-            11,
-            12,
-            18,
-            9
-          ],
-          "coreMatched": [
-            9,
-            15
-          ],
-          "coreMatchCount": 2,
-          "triad": [
-            29,
-            26,
-            18
-          ],
-          "triadMatched": [
-            26
-          ],
-          "triadMatchCount": 1,
-          "key5": [
-            29,
-            26,
-            18,
-            3,
-            7
-          ],
-          "key5Matched": [
-            26
-          ],
-          "key5MatchCount": 1,
-          "optimalSeptet": {
-            "numbers": [
-              2,
-              11,
-              12,
-              15,
-              18,
-              23
-            ],
-            "special": 7,
-            "matched": [
-              15
-            ],
-            "matchCount": 1,
-            "cost": 60000,
-            "payout": 0,
-            "netProfit": -60000,
-            "prizeDetail": "Không trúng"
-          },
-          "wheel4": {
-            "ticketHits": [
-              1,
-              0,
-              1,
-              2,
-              0,
-              2
-            ],
-            "maxHit": 2,
-            "wonPrize": false
-          }
         }
       ]
     },
     "prediction_ledger": {
-      "total_tracked_draws": 35,
-      "overall_win_rate_pct": 31.4,
+      "total_tracked_draws": 36,
+      "overall_win_rate_pct": 30.6,
       "golden_ticket_avg_hits": 0.69,
       "septet_avg_hits": 0.89,
       "cumulative_pnl": {
-        "total_spent": 4550000,
+        "total_spent": 4680000,
         "total_won": 680000,
-        "net_profit": -3870000,
-        "roi_pct": -85.05
+        "net_profit": -4000000,
+        "roi_pct": -85.47
       },
       "current_pending_draw": {
-        "draw_id": "00883",
+        "draw_id": "00884",
         "draw_date": "",
-        "target_draw_id": "00883",
-        "created_at": "2026-09-12T22:36:40.804803",
+        "target_draw_id": "00884",
+        "created_at": "2026-09-13T13:50:34.678079",
         "verified_at": null,
         "status": "pending",
         "actual_result": null,
@@ -8324,10 +8292,10 @@
           "golden_ticket": {
             "numbers": [
               7,
+              10,
               13,
-              20,
-              22,
-              27
+              15,
+              20
             ],
             "cost_vnd": 10000,
             "hits": 0,
@@ -8337,12 +8305,12 @@
           },
           "septet_bao7": {
             "numbers": [
-              4,
-              7,
-              16,
+              6,
+              9,
+              15,
               20,
               22,
-              27
+              32
             ],
             "cost_vnd": 60000,
             "hits": 0,
@@ -8359,97 +8327,97 @@
                 "numbers": [
                   7,
                   13,
-                  20,
+                  15,
                   22,
-                  27
+                  34
                 ],
                 "banker": 13,
                 "satellites": [
                   7,
-                  20,
+                  15,
                   22,
-                  27
+                  34
                 ],
-                "sum": 89,
-                "ac": 5,
-                "ac_index": 5,
+                "sum": 91,
+                "ac": 6,
+                "ac_index": 6,
                 "odds": 3,
                 "evens": 2,
-                "distinctTails": 4,
+                "distinctTails": 5,
                 "passed_ac_filter": true
               },
               {
                 "id": "banker_ticket_2",
                 "ticketIndex": 2,
                 "numbers": [
-                  4,
+                  10,
                   13,
                   15,
-                  16,
-                  22
+                  20,
+                  32
                 ],
                 "banker": 13,
                 "satellites": [
-                  4,
+                  10,
                   15,
-                  16,
-                  22
+                  20,
+                  32
                 ],
-                "sum": 70,
+                "sum": 90,
                 "ac": 5,
                 "ac_index": 5,
                 "odds": 2,
                 "evens": 3,
-                "distinctTails": 5,
+                "distinctTails": 4,
                 "passed_ac_filter": true
               },
               {
                 "id": "banker_ticket_3",
                 "ticketIndex": 3,
                 "numbers": [
-                  3,
+                  6,
                   9,
+                  10,
                   13,
-                  15,
-                  20
+                  22
                 ],
                 "banker": 13,
                 "satellites": [
-                  3,
+                  6,
                   9,
-                  15,
-                  20
+                  10,
+                  22
                 ],
                 "sum": 60,
-                "ac": 5,
-                "ac_index": 5,
-                "odds": 4,
-                "evens": 1,
-                "distinctTails": 4,
+                "ac": 4,
+                "ac_index": 4,
+                "odds": 2,
+                "evens": 3,
+                "distinctTails": 5,
                 "passed_ac_filter": true
               },
               {
                 "id": "banker_ticket_4",
                 "ticketIndex": 4,
                 "numbers": [
-                  3,
-                  4,
-                  7,
-                  11,
-                  13
+                  6,
+                  13,
+                  20,
+                  30,
+                  34
                 ],
                 "banker": 13,
                 "satellites": [
-                  3,
-                  4,
-                  7,
-                  11
+                  6,
+                  20,
+                  30,
+                  34
                 ],
-                "sum": 38,
-                "ac": 5,
-                "ac_index": 5,
-                "odds": 4,
-                "evens": 1,
+                "sum": 103,
+                "ac": 4,
+                "ac_index": 4,
+                "odds": 1,
+                "evens": 4,
                 "distinctTails": 4,
                 "passed_ac_filter": true
               },
@@ -8457,24 +8425,24 @@
                 "id": "banker_ticket_5",
                 "ticketIndex": 5,
                 "numbers": [
+                  7,
                   9,
-                  11,
                   13,
-                  16,
-                  27
+                  30,
+                  32
                 ],
                 "banker": 13,
                 "satellites": [
+                  7,
                   9,
-                  11,
-                  16,
-                  27
+                  30,
+                  32
                 ],
-                "sum": 76,
-                "ac": 5,
-                "ac_index": 5,
-                "odds": 4,
-                "evens": 1,
+                "sum": 91,
+                "ac": 4,
+                "ac_index": 4,
+                "odds": 3,
+                "evens": 2,
                 "distinctTails": 5,
                 "passed_ac_filter": true
               },
@@ -8482,25 +8450,25 @@
                 "id": "banker_ticket_6",
                 "ticketIndex": 6,
                 "numbers": [
-                  3,
-                  7,
+                  6,
                   13,
-                  16,
-                  22
+                  15,
+                  32,
+                  34
                 ],
                 "banker": 13,
                 "satellites": [
-                  3,
-                  7,
-                  16,
-                  22
+                  6,
+                  15,
+                  32,
+                  34
                 ],
-                "sum": 61,
+                "sum": 100,
                 "ac": 4,
                 "ac_index": 4,
-                "odds": 3,
-                "evens": 2,
-                "distinctTails": 4,
+                "odds": 2,
+                "evens": 3,
+                "distinctTails": 5,
                 "passed_ac_filter": true
               }
             ],
@@ -8514,14 +8482,14 @@
             "pool_size": 10,
             "numbers": [
               13,
-              22,
-              20,
-              7,
-              27,
               15,
-              4,
-              16,
-              3,
+              22,
+              34,
+              7,
+              10,
+              20,
+              32,
+              6,
               9
             ],
             "hits": 0,
@@ -8537,6 +8505,244 @@
         }
       },
       "history": [
+        {
+          "draw_id": "00883",
+          "draw_date": "2026-09-13",
+          "target_draw_id": "00883",
+          "created_at": "2026-09-12T22:36:40.804803",
+          "verified_at": "2026-09-13T13:40:56.600203",
+          "status": "verified",
+          "actual_result": [
+            1,
+            7,
+            29,
+            32,
+            34
+          ],
+          "special_ball": 2,
+          "predictions": {
+            "golden_ticket": {
+              "numbers": [
+                7,
+                13,
+                20,
+                22,
+                27
+              ],
+              "cost_vnd": 10000,
+              "hits": 1,
+              "matched_balls": [
+                7
+              ],
+              "prize_tier": "Không trúng",
+              "prize_vnd": 0
+            },
+            "septet_bao7": {
+              "numbers": [
+                4,
+                7,
+                16,
+                20,
+                22,
+                27
+              ],
+              "cost_vnd": 60000,
+              "hits": 1,
+              "matched_balls": [
+                7
+              ],
+              "prize_tier": "Không trúng",
+              "prize_vnd": 0,
+              "winning_combinations_count": 0
+            },
+            "banker_wheeling": {
+              "banker": 13,
+              "tickets": [
+                {
+                  "id": "banker_ticket_1",
+                  "ticketIndex": 1,
+                  "numbers": [
+                    7,
+                    13,
+                    20,
+                    22,
+                    27
+                  ],
+                  "banker": 13,
+                  "satellites": [
+                    7,
+                    20,
+                    22,
+                    27
+                  ],
+                  "sum": 89,
+                  "ac": 5,
+                  "ac_index": 5,
+                  "odds": 3,
+                  "evens": 2,
+                  "distinctTails": 4,
+                  "passed_ac_filter": true
+                },
+                {
+                  "id": "banker_ticket_2",
+                  "ticketIndex": 2,
+                  "numbers": [
+                    4,
+                    13,
+                    15,
+                    16,
+                    22
+                  ],
+                  "banker": 13,
+                  "satellites": [
+                    4,
+                    15,
+                    16,
+                    22
+                  ],
+                  "sum": 70,
+                  "ac": 5,
+                  "ac_index": 5,
+                  "odds": 2,
+                  "evens": 3,
+                  "distinctTails": 5,
+                  "passed_ac_filter": true
+                },
+                {
+                  "id": "banker_ticket_3",
+                  "ticketIndex": 3,
+                  "numbers": [
+                    3,
+                    9,
+                    13,
+                    15,
+                    20
+                  ],
+                  "banker": 13,
+                  "satellites": [
+                    3,
+                    9,
+                    15,
+                    20
+                  ],
+                  "sum": 60,
+                  "ac": 5,
+                  "ac_index": 5,
+                  "odds": 4,
+                  "evens": 1,
+                  "distinctTails": 4,
+                  "passed_ac_filter": true
+                },
+                {
+                  "id": "banker_ticket_4",
+                  "ticketIndex": 4,
+                  "numbers": [
+                    3,
+                    4,
+                    7,
+                    11,
+                    13
+                  ],
+                  "banker": 13,
+                  "satellites": [
+                    3,
+                    4,
+                    7,
+                    11
+                  ],
+                  "sum": 38,
+                  "ac": 5,
+                  "ac_index": 5,
+                  "odds": 4,
+                  "evens": 1,
+                  "distinctTails": 4,
+                  "passed_ac_filter": true
+                },
+                {
+                  "id": "banker_ticket_5",
+                  "ticketIndex": 5,
+                  "numbers": [
+                    9,
+                    11,
+                    13,
+                    16,
+                    27
+                  ],
+                  "banker": 13,
+                  "satellites": [
+                    9,
+                    11,
+                    16,
+                    27
+                  ],
+                  "sum": 76,
+                  "ac": 5,
+                  "ac_index": 5,
+                  "odds": 4,
+                  "evens": 1,
+                  "distinctTails": 5,
+                  "passed_ac_filter": true
+                },
+                {
+                  "id": "banker_ticket_6",
+                  "ticketIndex": 6,
+                  "numbers": [
+                    3,
+                    7,
+                    13,
+                    16,
+                    22
+                  ],
+                  "banker": 13,
+                  "satellites": [
+                    3,
+                    7,
+                    16,
+                    22
+                  ],
+                  "sum": 61,
+                  "ac": 4,
+                  "ac_index": 4,
+                  "odds": 3,
+                  "evens": 2,
+                  "distinctTails": 4,
+                  "passed_ac_filter": true
+                }
+              ],
+              "tickets_count": 6,
+              "cost_vnd": 60000,
+              "best_hits": 1,
+              "winning_tickets_count": 0,
+              "total_prize_vnd": 0
+            },
+            "core_pool": {
+              "pool_size": 10,
+              "numbers": [
+                13,
+                22,
+                20,
+                7,
+                27,
+                15,
+                4,
+                16,
+                3,
+                9
+              ],
+              "hits": 1,
+              "matched_balls": [
+                7
+              ]
+            }
+          },
+          "summary_metrics": {
+            "total_investment_vnd": 130000,
+            "total_return_vnd": 0,
+            "net_profit_vnd": -130000,
+            "roi_pct": -100.0,
+            "has_winning_prize": false
+          }
+        },
         {
           "draw_id": "00882",
           "draw_date": "2026-09-12",
