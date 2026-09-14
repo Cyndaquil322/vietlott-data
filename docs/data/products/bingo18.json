@@ -5,125 +5,447 @@
     "name": "Bingo 18",
     "description": "Quay 5 phút/kỳ. Quay 3 số từ 1 đến 6.",
     "type": "bingo18",
-    "total_draws": 36411,
+    "total_draws": 36631,
     "first_draw": "2024-12-03",
-    "latest_draw": "2026-09-13",
+    "latest_draw": "2026-09-14",
     "latest": {
-      "date": "2026-09-13",
-      "id": "0186275",
+      "date": "2026-09-14",
+      "id": "0186495",
       "result": [
-        1,
+        3,
         5,
-        2
+        6
       ],
-      "total": 8,
-      "large_small": "Nhỏ",
+      "total": 14,
+      "large_small": "Lớn",
       "is_triple": false,
       "page": 0,
-      "process_time": "2026-09-13T13:42:09.010625"
+      "process_time": "2026-09-14T19:50:03.339999"
     },
     "history": [
       {
-        "date": "2026-09-13",
-        "id": "0186275",
+        "date": "2026-09-14",
+        "id": "0186495",
         "result": [
-          1,
+          3,
           5,
-          2
+          6
         ],
-        "total": 8,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 0,
-        "process_time": "2026-09-13T13:42:09.010625"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186274",
-        "result": [
-          6,
-          6,
-          5
-        ],
-        "total": 17,
+        "total": 14,
         "large_small": "Lớn",
         "is_triple": false,
         "page": 0,
-        "process_time": "2026-09-13T13:41:02.959074"
+        "process_time": "2026-09-14T19:50:03.339999"
       },
       {
-        "date": "2026-09-13",
-        "id": "0186273",
+        "date": "2026-09-14",
+        "id": "0186494",
         "result": [
-          1,
-          1,
-          1
+          4,
+          2,
+          4
         ],
-        "total": 3,
-        "large_small": "Nhỏ",
-        "is_triple": true,
+        "total": 10,
+        "large_small": "Hòa",
+        "is_triple": false,
         "page": 0,
-        "process_time": "2026-09-13T13:41:02.959074"
+        "process_time": "2026-09-14T19:50:03.339999"
       },
       {
-        "date": "2026-09-13",
-        "id": "0186272",
+        "date": "2026-09-14",
+        "id": "0186493",
+        "result": [
+          5,
+          3,
+          2
+        ],
+        "total": 10,
+        "large_small": "Hòa",
+        "is_triple": false,
+        "page": 0,
+        "process_time": "2026-09-14T19:50:03.339999"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186492",
+        "result": [
+          6,
+          3,
+          5
+        ],
+        "total": 14,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 0,
+        "process_time": "2026-09-14T19:50:03.339999"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186491",
+        "result": [
+          3,
+          1,
+          2
+        ],
+        "total": 6,
+        "large_small": "Nhỏ",
+        "is_triple": false,
+        "page": 0,
+        "process_time": "2026-09-14T19:50:03.339999"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186490",
+        "result": [
+          2,
+          4,
+          3
+        ],
+        "total": 9,
+        "large_small": "Nhỏ",
+        "is_triple": false,
+        "page": 0,
+        "process_time": "2026-09-14T19:50:03.339999"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186489",
+        "result": [
+          6,
+          6,
+          3
+        ],
+        "total": 15,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 1,
+        "process_time": "2026-09-14T19:50:03.747514"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186488",
         "result": [
           1,
-          6,
+          5,
           5
+        ],
+        "total": 11,
+        "large_small": "Hòa",
+        "is_triple": false,
+        "page": 1,
+        "process_time": "2026-09-14T19:50:03.747514"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186487",
+        "result": [
+          6,
+          4,
+          4
+        ],
+        "total": 14,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 1,
+        "process_time": "2026-09-14T19:50:03.747514"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186486",
+        "result": [
+          6,
+          2,
+          2
+        ],
+        "total": 10,
+        "large_small": "Hòa",
+        "is_triple": false,
+        "page": 1,
+        "process_time": "2026-09-14T19:50:03.747514"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186485",
+        "result": [
+          3,
+          2,
+          6
+        ],
+        "total": 11,
+        "large_small": "Hòa",
+        "is_triple": false,
+        "page": 1,
+        "process_time": "2026-09-14T19:50:03.747514"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186484",
+        "result": [
+          5,
+          4,
+          2
+        ],
+        "total": 11,
+        "large_small": "Hòa",
+        "is_triple": false,
+        "page": 1,
+        "process_time": "2026-09-14T19:50:03.747514"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186483",
+        "result": [
+          5,
+          4,
+          3
         ],
         "total": 12,
         "large_small": "Lớn",
         "is_triple": false,
-        "page": 0,
-        "process_time": "2026-09-13T13:41:02.959074"
+        "page": 2,
+        "process_time": "2026-09-14T19:50:04.218351"
       },
       {
-        "date": "2026-09-13",
-        "id": "0186271",
+        "date": "2026-09-14",
+        "id": "0186482",
+        "result": [
+          6,
+          2,
+          1
+        ],
+        "total": 9,
+        "large_small": "Nhỏ",
+        "is_triple": false,
+        "page": 2,
+        "process_time": "2026-09-14T19:50:04.218351"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186481",
+        "result": [
+          5,
+          6,
+          4
+        ],
+        "total": 15,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 2,
+        "process_time": "2026-09-14T19:50:04.218351"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186480",
+        "result": [
+          3,
+          1,
+          2
+        ],
+        "total": 6,
+        "large_small": "Nhỏ",
+        "is_triple": false,
+        "page": 2,
+        "process_time": "2026-09-14T19:50:04.218351"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186479",
         "result": [
           2,
           1,
-          4
-        ],
-        "total": 7,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 0,
-        "process_time": "2026-09-13T13:41:02.959074"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186270",
-        "result": [
-          1,
-          1,
-          2
+          1
         ],
         "total": 4,
         "large_small": "Nhỏ",
         "is_triple": false,
-        "page": 0,
-        "process_time": "2026-09-13T13:41:02.959074"
+        "page": 2,
+        "process_time": "2026-09-14T19:50:04.218351"
       },
       {
-        "date": "2026-09-13",
-        "id": "0186269",
+        "date": "2026-09-14",
+        "id": "0186478",
+        "result": [
+          2,
+          3,
+          3
+        ],
+        "total": 8,
+        "large_small": "Nhỏ",
+        "is_triple": false,
+        "page": 2,
+        "process_time": "2026-09-14T19:50:04.218351"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186477",
+        "result": [
+          5,
+          3,
+          2
+        ],
+        "total": 10,
+        "large_small": "Hòa",
+        "is_triple": false,
+        "page": 3,
+        "process_time": "2026-09-14T19:50:04.696740"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186476",
+        "result": [
+          4,
+          5,
+          4
+        ],
+        "total": 13,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 3,
+        "process_time": "2026-09-14T19:50:04.696740"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186475",
+        "result": [
+          4,
+          3,
+          2
+        ],
+        "total": 9,
+        "large_small": "Nhỏ",
+        "is_triple": false,
+        "page": 3,
+        "process_time": "2026-09-14T19:50:04.696740"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186474",
+        "result": [
+          6,
+          3,
+          2
+        ],
+        "total": 11,
+        "large_small": "Hòa",
+        "is_triple": false,
+        "page": 3,
+        "process_time": "2026-09-14T19:50:04.696740"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186473",
         "result": [
           2,
           1,
+          1
+        ],
+        "total": 4,
+        "large_small": "Nhỏ",
+        "is_triple": false,
+        "page": 3,
+        "process_time": "2026-09-14T19:50:04.696740"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186472",
+        "result": [
+          3,
+          1,
+          4
+        ],
+        "total": 8,
+        "large_small": "Nhỏ",
+        "is_triple": false,
+        "page": 3,
+        "process_time": "2026-09-14T19:50:04.696740"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186471",
+        "result": [
+          1,
+          1,
+          5
+        ],
+        "total": 7,
+        "large_small": "Nhỏ",
+        "is_triple": false,
+        "page": 4,
+        "process_time": "2026-09-14T19:50:05.227621"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186470",
+        "result": [
+          1,
+          2,
           5
         ],
         "total": 8,
         "large_small": "Nhỏ",
         "is_triple": false,
-        "page": 0,
-        "process_time": "2026-09-13T13:41:02.959074"
+        "page": 4,
+        "process_time": "2026-09-14T19:50:05.227621"
       },
       {
-        "date": "2026-09-13",
-        "id": "0186268",
+        "date": "2026-09-14",
+        "id": "0186469",
+        "result": [
+          5,
+          4,
+          5
+        ],
+        "total": 14,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 4,
+        "process_time": "2026-09-14T19:50:05.227621"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186468",
+        "result": [
+          2,
+          3,
+          2
+        ],
+        "total": 7,
+        "large_small": "Nhỏ",
+        "is_triple": false,
+        "page": 4,
+        "process_time": "2026-09-14T19:50:05.227621"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186467",
+        "result": [
+          1,
+          3,
+          5
+        ],
+        "total": 9,
+        "large_small": "Nhỏ",
+        "is_triple": false,
+        "page": 4,
+        "process_time": "2026-09-14T19:50:05.227621"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186466",
+        "result": [
+          6,
+          6,
+          2
+        ],
+        "total": 14,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 4,
+        "process_time": "2026-09-14T19:50:05.227621"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186465",
         "result": [
           5,
           1,
@@ -132,124 +454,208 @@
         "total": 9,
         "large_small": "Nhỏ",
         "is_triple": false,
-        "page": 1,
-        "process_time": "2026-09-13T13:41:03.390912"
+        "page": 5,
+        "process_time": "2026-09-14T19:50:05.475927"
       },
       {
-        "date": "2026-09-13",
-        "id": "0186267",
+        "date": "2026-09-14",
+        "id": "0186464",
         "result": [
-          3,
-          4,
+          2,
+          6,
           2
         ],
-        "total": 9,
-        "large_small": "Nhỏ",
+        "total": 10,
+        "large_small": "Hòa",
         "is_triple": false,
-        "page": 1,
-        "process_time": "2026-09-13T13:41:03.390912"
+        "page": 5,
+        "process_time": "2026-09-14T19:50:05.475927"
       },
       {
-        "date": "2026-09-13",
-        "id": "0186266",
+        "date": "2026-09-14",
+        "id": "0186463",
+        "result": [
+          4,
+          6,
+          5
+        ],
+        "total": 15,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 5,
+        "process_time": "2026-09-14T19:50:05.475927"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186462",
+        "result": [
+          4,
+          3,
+          5
+        ],
+        "total": 12,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 5,
+        "process_time": "2026-09-14T19:50:05.475927"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186461",
         "result": [
           5,
-          5,
-          1
+          4,
+          6
+        ],
+        "total": 15,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 5,
+        "process_time": "2026-09-14T19:50:05.475927"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186460",
+        "result": [
+          4,
+          3,
+          4
         ],
         "total": 11,
         "large_small": "Hòa",
         "is_triple": false,
-        "page": 1,
-        "process_time": "2026-09-13T13:41:03.390912"
+        "page": 5,
+        "process_time": "2026-09-14T19:50:05.475927"
       },
       {
-        "date": "2026-09-13",
-        "id": "0186265",
+        "date": "2026-09-14",
+        "id": "0186459",
+        "result": [
+          1,
+          5,
+          5
+        ],
+        "total": 11,
+        "large_small": "Hòa",
+        "is_triple": false,
+        "page": 6,
+        "process_time": "2026-09-14T19:50:05.793535"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186458",
+        "result": [
+          6,
+          4,
+          6
+        ],
+        "total": 16,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 6,
+        "process_time": "2026-09-14T19:50:05.793535"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186457",
+        "result": [
+          3,
+          6,
+          4
+        ],
+        "total": 13,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 6,
+        "process_time": "2026-09-14T19:50:05.793535"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186456",
         "result": [
           1,
           2,
+          3
+        ],
+        "total": 6,
+        "large_small": "Nhỏ",
+        "is_triple": false,
+        "page": 6,
+        "process_time": "2026-09-14T19:50:05.793535"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186455",
+        "result": [
+          4,
+          6,
           4
+        ],
+        "total": 14,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 6,
+        "process_time": "2026-09-14T19:50:05.793535"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186454",
+        "result": [
+          3,
+          1,
+          3
         ],
         "total": 7,
         "large_small": "Nhỏ",
         "is_triple": false,
-        "page": 1,
-        "process_time": "2026-09-13T13:41:03.390912"
+        "page": 6,
+        "process_time": "2026-09-14T19:50:05.793535"
       },
       {
-        "date": "2026-09-13",
-        "id": "0186264",
+        "date": "2026-09-14",
+        "id": "0186453",
         "result": [
-          1,
-          1,
-          1
+          4,
+          6,
+          5
         ],
-        "total": 3,
+        "total": 15,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 7,
+        "process_time": "2026-09-14T19:50:06.063902"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186452",
+        "result": [
+          3,
+          3,
+          3
+        ],
+        "total": 9,
         "large_small": "Nhỏ",
         "is_triple": true,
-        "page": 1,
-        "process_time": "2026-09-13T13:41:03.390912"
+        "page": 7,
+        "process_time": "2026-09-14T19:50:06.063902"
       },
       {
-        "date": "2026-09-13",
-        "id": "0186263",
+        "date": "2026-09-14",
+        "id": "0186451",
         "result": [
-          2,
-          5,
-          4
+          6,
+          4,
+          1
         ],
         "total": 11,
         "large_small": "Hòa",
         "is_triple": false,
-        "page": 1,
-        "process_time": "2026-09-13T13:41:03.390912"
+        "page": 7,
+        "process_time": "2026-09-14T19:50:06.063902"
       },
       {
-        "date": "2026-09-13",
-        "id": "0186262",
-        "result": [
-          4,
-          2,
-          4
-        ],
-        "total": 10,
-        "large_small": "Hòa",
-        "is_triple": false,
-        "page": 2,
-        "process_time": "2026-09-13T13:41:03.826694"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186261",
-        "result": [
-          4,
-          1,
-          5
-        ],
-        "total": 10,
-        "large_small": "Hòa",
-        "is_triple": false,
-        "page": 2,
-        "process_time": "2026-09-13T13:41:03.826694"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186260",
-        "result": [
-          3,
-          3,
-          5
-        ],
-        "total": 11,
-        "large_small": "Hòa",
-        "is_triple": false,
-        "page": 2,
-        "process_time": "2026-09-13T13:41:03.826694"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186259",
+        "date": "2026-09-14",
+        "id": "0186450",
         "result": [
           5,
           3,
@@ -258,712 +664,12 @@
         "total": 10,
         "large_small": "Hòa",
         "is_triple": false,
-        "page": 2,
-        "process_time": "2026-09-13T13:41:03.826694"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186258",
-        "result": [
-          1,
-          2,
-          5
-        ],
-        "total": 8,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 2,
-        "process_time": "2026-09-13T13:41:03.826694"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186257",
-        "result": [
-          3,
-          4,
-          1
-        ],
-        "total": 8,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 2,
-        "process_time": "2026-09-13T13:41:03.828793"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186256",
-        "result": [
-          5,
-          1,
-          6
-        ],
-        "total": 12,
-        "large_small": "Lớn",
-        "is_triple": false,
-        "page": 3,
-        "process_time": "2026-09-13T13:41:04.157005"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186255",
-        "result": [
-          1,
-          2,
-          3
-        ],
-        "total": 6,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 3,
-        "process_time": "2026-09-13T13:41:04.157005"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186254",
-        "result": [
-          3,
-          6,
-          1
-        ],
-        "total": 10,
-        "large_small": "Hòa",
-        "is_triple": false,
-        "page": 3,
-        "process_time": "2026-09-13T13:41:04.157005"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186253",
-        "result": [
-          5,
-          6,
-          1
-        ],
-        "total": 12,
-        "large_small": "Lớn",
-        "is_triple": false,
-        "page": 3,
-        "process_time": "2026-09-13T13:41:04.157005"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186252",
-        "result": [
-          6,
-          6,
-          5
-        ],
-        "total": 17,
-        "large_small": "Lớn",
-        "is_triple": false,
-        "page": 3,
-        "process_time": "2026-09-13T13:41:04.157005"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186251",
-        "result": [
-          2,
-          5,
-          1
-        ],
-        "total": 8,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 3,
-        "process_time": "2026-09-13T13:41:04.157005"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186250",
-        "result": [
-          5,
-          1,
-          5
-        ],
-        "total": 11,
-        "large_small": "Hòa",
-        "is_triple": false,
-        "page": 4,
-        "process_time": "2026-09-13T13:41:04.472581"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186249",
-        "result": [
-          1,
-          4,
-          1
-        ],
-        "total": 6,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 4,
-        "process_time": "2026-09-13T13:41:04.472581"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186248",
-        "result": [
-          3,
-          2,
-          3
-        ],
-        "total": 8,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 4,
-        "process_time": "2026-09-13T13:41:04.472581"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186247",
-        "result": [
-          6,
-          6,
-          4
-        ],
-        "total": 16,
-        "large_small": "Lớn",
-        "is_triple": false,
-        "page": 4,
-        "process_time": "2026-09-13T13:41:04.472581"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186246",
-        "result": [
-          4,
-          5,
-          1
-        ],
-        "total": 10,
-        "large_small": "Hòa",
-        "is_triple": false,
-        "page": 4,
-        "process_time": "2026-09-13T13:41:04.472581"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186245",
-        "result": [
-          4,
-          6,
-          4
-        ],
-        "total": 14,
-        "large_small": "Lớn",
-        "is_triple": false,
-        "page": 4,
-        "process_time": "2026-09-13T13:41:04.472581"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186244",
-        "result": [
-          5,
-          6,
-          3
-        ],
-        "total": 14,
-        "large_small": "Lớn",
-        "is_triple": false,
-        "page": 5,
-        "process_time": "2026-09-13T13:41:04.820188"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186243",
-        "result": [
-          4,
-          2,
-          1
-        ],
-        "total": 7,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 5,
-        "process_time": "2026-09-13T13:41:04.820188"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186242",
-        "result": [
-          6,
-          1,
-          1
-        ],
-        "total": 8,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 5,
-        "process_time": "2026-09-13T13:41:04.820188"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186241",
-        "result": [
-          4,
-          4,
-          2
-        ],
-        "total": 10,
-        "large_small": "Hòa",
-        "is_triple": false,
-        "page": 5,
-        "process_time": "2026-09-13T13:41:04.820188"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186240",
-        "result": [
-          1,
-          4,
-          5
-        ],
-        "total": 10,
-        "large_small": "Hòa",
-        "is_triple": false,
-        "page": 5,
-        "process_time": "2026-09-13T13:41:04.820188"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186239",
-        "result": [
-          4,
-          4,
-          5
-        ],
-        "total": 13,
-        "large_small": "Lớn",
-        "is_triple": false,
-        "page": 5,
-        "process_time": "2026-09-13T13:41:04.820188"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186238",
-        "result": [
-          2,
-          1,
-          5
-        ],
-        "total": 8,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 6,
-        "process_time": "2026-09-13T13:43:25.913647"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186237",
-        "result": [
-          6,
-          2,
-          6
-        ],
-        "total": 14,
-        "large_small": "Lớn",
-        "is_triple": false,
-        "page": 6,
-        "process_time": "2026-09-13T13:43:25.913647"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186236",
-        "result": [
-          5,
-          6,
-          1
-        ],
-        "total": 12,
-        "large_small": "Lớn",
-        "is_triple": false,
-        "page": 6,
-        "process_time": "2026-09-13T13:43:25.913647"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186235",
-        "result": [
-          3,
-          2,
-          2
-        ],
-        "total": 7,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 6,
-        "process_time": "2026-09-13T13:43:25.913647"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186234",
-        "result": [
-          1,
-          6,
-          4
-        ],
-        "total": 11,
-        "large_small": "Hòa",
-        "is_triple": false,
-        "page": 6,
-        "process_time": "2026-09-13T13:43:25.913647"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186233",
-        "result": [
-          4,
-          5,
-          3
-        ],
-        "total": 12,
-        "large_small": "Lớn",
-        "is_triple": false,
         "page": 7,
-        "process_time": "2026-09-13T13:43:26.353719"
+        "process_time": "2026-09-14T19:50:06.063902"
       },
       {
-        "date": "2026-09-13",
-        "id": "0186232",
-        "result": [
-          4,
-          5,
-          5
-        ],
-        "total": 14,
-        "large_small": "Lớn",
-        "is_triple": false,
-        "page": 7,
-        "process_time": "2026-09-13T13:43:26.353719"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186231",
-        "result": [
-          3,
-          3,
-          6
-        ],
-        "total": 12,
-        "large_small": "Lớn",
-        "is_triple": false,
-        "page": 7,
-        "process_time": "2026-09-13T13:43:26.353719"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186230",
-        "result": [
-          2,
-          1,
-          6
-        ],
-        "total": 9,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 7,
-        "process_time": "2026-09-13T13:43:26.353719"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186229",
-        "result": [
-          1,
-          2,
-          5
-        ],
-        "total": 8,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 7,
-        "process_time": "2026-09-13T13:43:26.353719"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186228",
-        "result": [
-          2,
-          5,
-          5
-        ],
-        "total": 12,
-        "large_small": "Lớn",
-        "is_triple": false,
-        "page": 7,
-        "process_time": "2026-09-13T13:43:26.353719"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186227",
-        "result": [
-          2,
-          3,
-          5
-        ],
-        "total": 10,
-        "large_small": "Hòa",
-        "is_triple": false,
-        "page": 8,
-        "process_time": "2026-09-13T13:43:26.630681"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186226",
-        "result": [
-          5,
-          1,
-          2
-        ],
-        "total": 8,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 8,
-        "process_time": "2026-09-13T13:43:26.630681"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186225",
-        "result": [
-          6,
-          2,
-          4
-        ],
-        "total": 12,
-        "large_small": "Lớn",
-        "is_triple": false,
-        "page": 8,
-        "process_time": "2026-09-13T13:43:26.630681"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186224",
-        "result": [
-          2,
-          2,
-          1
-        ],
-        "total": 5,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 8,
-        "process_time": "2026-09-13T13:43:26.630681"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186223",
-        "result": [
-          6,
-          2,
-          1
-        ],
-        "total": 9,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 8,
-        "process_time": "2026-09-13T13:43:26.630681"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186222",
-        "result": [
-          3,
-          6,
-          5
-        ],
-        "total": 14,
-        "large_small": "Lớn",
-        "is_triple": false,
-        "page": 8,
-        "process_time": "2026-09-13T13:43:26.630681"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186221",
-        "result": [
-          5,
-          6,
-          5
-        ],
-        "total": 16,
-        "large_small": "Lớn",
-        "is_triple": false,
-        "page": 9,
-        "process_time": "2026-09-13T13:43:26.994373"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186220",
-        "result": [
-          4,
-          5,
-          5
-        ],
-        "total": 14,
-        "large_small": "Lớn",
-        "is_triple": false,
-        "page": 9,
-        "process_time": "2026-09-13T13:43:26.994373"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186219",
-        "result": [
-          1,
-          5,
-          5
-        ],
-        "total": 11,
-        "large_small": "Hòa",
-        "is_triple": false,
-        "page": 9,
-        "process_time": "2026-09-13T13:43:26.994373"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186218",
-        "result": [
-          2,
-          3,
-          6
-        ],
-        "total": 11,
-        "large_small": "Hòa",
-        "is_triple": false,
-        "page": 9,
-        "process_time": "2026-09-13T13:43:26.994373"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186217",
-        "result": [
-          6,
-          5,
-          6
-        ],
-        "total": 17,
-        "large_small": "Lớn",
-        "is_triple": false,
-        "page": 9,
-        "process_time": "2026-09-13T13:43:26.994373"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186216",
-        "result": [
-          2,
-          6,
-          1
-        ],
-        "total": 9,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 9,
-        "process_time": "2026-09-13T13:43:26.994373"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186215",
-        "result": [
-          1,
-          4,
-          1
-        ],
-        "total": 6,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 10,
-        "process_time": "2026-09-13T13:43:27.369574"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186214",
-        "result": [
-          2,
-          4,
-          4
-        ],
-        "total": 10,
-        "large_small": "Hòa",
-        "is_triple": false,
-        "page": 10,
-        "process_time": "2026-09-13T13:43:27.369574"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186213",
-        "result": [
-          6,
-          3,
-          3
-        ],
-        "total": 12,
-        "large_small": "Lớn",
-        "is_triple": false,
-        "page": 10,
-        "process_time": "2026-09-13T13:43:27.369574"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186212",
-        "result": [
-          4,
-          4,
-          5
-        ],
-        "total": 13,
-        "large_small": "Lớn",
-        "is_triple": false,
-        "page": 10,
-        "process_time": "2026-09-13T13:43:27.369574"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186211",
-        "result": [
-          2,
-          5,
-          6
-        ],
-        "total": 13,
-        "large_small": "Lớn",
-        "is_triple": false,
-        "page": 10,
-        "process_time": "2026-09-13T13:43:27.369574"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186210",
-        "result": [
-          1,
-          3,
-          2
-        ],
-        "total": 6,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 10,
-        "process_time": "2026-09-13T13:43:27.369574"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186209",
-        "result": [
-          2,
-          1,
-          2
-        ],
-        "total": 5,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 11,
-        "process_time": "2026-09-13T13:43:27.778904"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186208",
+        "date": "2026-09-14",
+        "id": "0186449",
         "result": [
           3,
           6,
@@ -972,82 +678,348 @@
         "total": 15,
         "large_small": "Lớn",
         "is_triple": false,
-        "page": 11,
-        "process_time": "2026-09-13T13:43:27.778904"
+        "page": 7,
+        "process_time": "2026-09-14T19:50:06.063902"
       },
       {
-        "date": "2026-09-13",
-        "id": "0186207",
+        "date": "2026-09-14",
+        "id": "0186448",
+        "result": [
+          5,
+          3,
+          2
+        ],
+        "total": 10,
+        "large_small": "Hòa",
+        "is_triple": false,
+        "page": 7,
+        "process_time": "2026-09-14T19:50:06.063902"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186447",
+        "result": [
+          3,
+          1,
+          2
+        ],
+        "total": 6,
+        "large_small": "Nhỏ",
+        "is_triple": false,
+        "page": 8,
+        "process_time": "2026-09-14T19:50:06.445784"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186446",
         "result": [
           2,
+          3,
+          3
+        ],
+        "total": 8,
+        "large_small": "Nhỏ",
+        "is_triple": false,
+        "page": 8,
+        "process_time": "2026-09-14T19:50:06.445784"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186445",
+        "result": [
+          6,
           4,
+          5
+        ],
+        "total": 15,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 8,
+        "process_time": "2026-09-14T19:50:06.445784"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186444",
+        "result": [
+          4,
+          3,
+          6
+        ],
+        "total": 13,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 8,
+        "process_time": "2026-09-14T19:50:06.445784"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186443",
+        "result": [
+          4,
+          2,
+          5
+        ],
+        "total": 11,
+        "large_small": "Hòa",
+        "is_triple": false,
+        "page": 8,
+        "process_time": "2026-09-14T19:50:06.445784"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186442",
+        "result": [
+          2,
+          6,
+          4
+        ],
+        "total": 12,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 8,
+        "process_time": "2026-09-14T19:50:06.445784"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186441",
+        "result": [
+          6,
+          3,
+          6
+        ],
+        "total": 15,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 9,
+        "process_time": "2026-09-14T19:50:06.803327"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186440",
+        "result": [
+          2,
+          6,
+          6
+        ],
+        "total": 14,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 9,
+        "process_time": "2026-09-14T19:50:06.803327"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186439",
+        "result": [
+          6,
+          4,
+          1
+        ],
+        "total": 11,
+        "large_small": "Hòa",
+        "is_triple": false,
+        "page": 9,
+        "process_time": "2026-09-14T19:50:06.803327"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186438",
+        "result": [
+          3,
+          2,
+          6
+        ],
+        "total": 11,
+        "large_small": "Hòa",
+        "is_triple": false,
+        "page": 9,
+        "process_time": "2026-09-14T19:50:06.803327"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186437",
+        "result": [
+          6,
+          2,
+          4
+        ],
+        "total": 12,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 9,
+        "process_time": "2026-09-14T19:50:06.803327"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186436",
+        "result": [
+          6,
+          5,
+          2
+        ],
+        "total": 13,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 9,
+        "process_time": "2026-09-14T19:50:06.803327"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186435",
+        "result": [
+          1,
+          2,
+          5
+        ],
+        "total": 8,
+        "large_small": "Nhỏ",
+        "is_triple": false,
+        "page": 10,
+        "process_time": "2026-09-14T19:50:08.338597"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186434",
+        "result": [
+          3,
+          2,
+          5
+        ],
+        "total": 10,
+        "large_small": "Hòa",
+        "is_triple": false,
+        "page": 10,
+        "process_time": "2026-09-14T19:50:08.338597"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186433",
+        "result": [
+          6,
+          1,
+          1
+        ],
+        "total": 8,
+        "large_small": "Nhỏ",
+        "is_triple": false,
+        "page": 10,
+        "process_time": "2026-09-14T19:50:08.338597"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186432",
+        "result": [
+          5,
+          1,
           6
         ],
         "total": 12,
         "large_small": "Lớn",
         "is_triple": false,
-        "page": 11,
-        "process_time": "2026-09-13T13:43:27.778904"
+        "page": 10,
+        "process_time": "2026-09-14T19:50:08.338597"
       },
       {
-        "date": "2026-09-13",
-        "id": "0186206",
+        "date": "2026-09-14",
+        "id": "0186431",
         "result": [
+          5,
           2,
+          5
+        ],
+        "total": 12,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 10,
+        "process_time": "2026-09-14T19:50:08.338597"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186430",
+        "result": [
+          6,
+          6,
+          1
+        ],
+        "total": 13,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 10,
+        "process_time": "2026-09-14T19:50:08.338597"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186429",
+        "result": [
+          3,
           2,
-          6
+          3
+        ],
+        "total": 8,
+        "large_small": "Nhỏ",
+        "is_triple": false,
+        "page": 11,
+        "process_time": "2026-09-14T19:50:10.027427"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186428",
+        "result": [
+          1,
+          1,
+          5
+        ],
+        "total": 7,
+        "large_small": "Nhỏ",
+        "is_triple": false,
+        "page": 11,
+        "process_time": "2026-09-14T19:50:10.027427"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186427",
+        "result": [
+          4,
+          2,
+          4
         ],
         "total": 10,
         "large_small": "Hòa",
         "is_triple": false,
         "page": 11,
-        "process_time": "2026-09-13T13:43:27.778904"
+        "process_time": "2026-09-14T19:50:10.027427"
       },
       {
-        "date": "2026-09-13",
-        "id": "0186205",
+        "date": "2026-09-14",
+        "id": "0186426",
         "result": [
-          2,
-          2,
-          5
+          4,
+          5,
+          1
+        ],
+        "total": 10,
+        "large_small": "Hòa",
+        "is_triple": false,
+        "page": 11,
+        "process_time": "2026-09-14T19:50:10.027427"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186425",
+        "result": [
+          4,
+          4,
+          1
         ],
         "total": 9,
         "large_small": "Nhỏ",
         "is_triple": false,
         "page": 11,
-        "process_time": "2026-09-13T13:43:27.778904"
+        "process_time": "2026-09-14T19:50:10.027427"
       },
       {
-        "date": "2026-09-13",
-        "id": "0186204",
-        "result": [
-          6,
-          2,
-          3
-        ],
-        "total": 11,
-        "large_small": "Hòa",
-        "is_triple": false,
-        "page": 11,
-        "process_time": "2026-09-13T13:43:27.778904"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186203",
-        "result": [
-          4,
-          6,
-          4
-        ],
-        "total": 14,
-        "large_small": "Lớn",
-        "is_triple": false,
-        "page": 12,
-        "process_time": "2026-09-13T13:43:28.166095"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186202",
+        "date": "2026-09-14",
+        "id": "0186424",
         "result": [
           2,
           5,
@@ -1056,166 +1028,26 @@
         "total": 12,
         "large_small": "Lớn",
         "is_triple": false,
-        "page": 12,
-        "process_time": "2026-09-13T13:43:28.166095"
+        "page": 11,
+        "process_time": "2026-09-14T19:50:10.027427"
       },
       {
-        "date": "2026-09-13",
-        "id": "0186201",
+        "date": "2026-09-14",
+        "id": "0186423",
         "result": [
           5,
-          3,
-          1
-        ],
-        "total": 9,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 12,
-        "process_time": "2026-09-13T13:43:28.166095"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186200",
-        "result": [
-          3,
-          1,
-          4
-        ],
-        "total": 8,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 12,
-        "process_time": "2026-09-13T13:43:28.166095"
-      },
-      {
-        "date": "2026-09-13",
-        "id": "0186199",
-        "result": [
-          1,
-          1,
-          4
-        ],
-        "total": 6,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 12,
-        "process_time": "2026-09-13T13:43:28.166095"
-      },
-      {
-        "date": "2026-09-12",
-        "id": "0186198",
-        "result": [
-          6,
-          1,
-          1
-        ],
-        "total": 8,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 12,
-        "process_time": "2026-09-13T13:43:28.166095"
-      },
-      {
-        "date": "2026-09-12",
-        "id": "0186197",
-        "result": [
           2,
-          4,
-          5
-        ],
-        "total": 11,
-        "large_small": "Hòa",
-        "is_triple": false,
-        "page": 13,
-        "process_time": "2026-09-13T13:43:28.489338"
-      },
-      {
-        "date": "2026-09-12",
-        "id": "0186196",
-        "result": [
-          5,
-          5,
           6
         ],
-        "total": 16,
-        "large_small": "Lớn",
-        "is_triple": false,
-        "page": 0,
-        "process_time": "2026-09-12T21:45:45.610212"
-      },
-      {
-        "date": "2026-09-12",
-        "id": "0186195",
-        "result": [
-          5,
-          3,
-          5
-        ],
         "total": 13,
         "large_small": "Lớn",
         "is_triple": false,
-        "page": 0,
-        "process_time": "2026-09-12T21:45:45.610212"
+        "page": 12,
+        "process_time": "2026-09-14T19:50:10.516644"
       },
       {
-        "date": "2026-09-12",
-        "id": "0186194",
-        "result": [
-          1,
-          5,
-          2
-        ],
-        "total": 8,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 0,
-        "process_time": "2026-09-12T21:45:45.610212"
-      },
-      {
-        "date": "2026-09-12",
-        "id": "0186193",
-        "result": [
-          1,
-          2,
-          2
-        ],
-        "total": 5,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 0,
-        "process_time": "2026-09-12T21:45:45.610212"
-      },
-      {
-        "date": "2026-09-12",
-        "id": "0186192",
-        "result": [
-          4,
-          6,
-          4
-        ],
-        "total": 14,
-        "large_small": "Lớn",
-        "is_triple": false,
-        "page": 0,
-        "process_time": "2026-09-12T21:45:45.610212"
-      },
-      {
-        "date": "2026-09-12",
-        "id": "0186191",
-        "result": [
-          5,
-          4,
-          5
-        ],
-        "total": 14,
-        "large_small": "Lớn",
-        "is_triple": false,
-        "page": 0,
-        "process_time": "2026-09-12T21:45:45.610212"
-      },
-      {
-        "date": "2026-09-12",
-        "id": "0186190",
+        "date": "2026-09-14",
+        "id": "0186422",
         "result": [
           5,
           1,
@@ -1224,250 +1056,442 @@
         "total": 11,
         "large_small": "Hòa",
         "is_triple": false,
-        "page": 1,
-        "process_time": "2026-09-12T21:45:45.942856"
+        "page": 12,
+        "process_time": "2026-09-14T19:50:10.516644"
       },
       {
-        "date": "2026-09-12",
-        "id": "0186189",
+        "date": "2026-09-14",
+        "id": "0186421",
         "result": [
-          3,
-          3,
-          4
+          2,
+          6,
+          2
         ],
         "total": 10,
         "large_small": "Hòa",
         "is_triple": false,
-        "page": 1,
-        "process_time": "2026-09-12T21:45:45.942856"
+        "page": 12,
+        "process_time": "2026-09-14T19:50:10.516644"
       },
       {
-        "date": "2026-09-12",
-        "id": "0186188",
+        "date": "2026-09-14",
+        "id": "0186420",
         "result": [
-          3,
-          3,
-          4
-        ],
-        "total": 10,
-        "large_small": "Hòa",
-        "is_triple": false,
-        "page": 1,
-        "process_time": "2026-09-12T21:45:45.942856"
-      },
-      {
-        "date": "2026-09-12",
-        "id": "0186187",
-        "result": [
+          4,
           5,
-          2,
-          4
-        ],
-        "total": 11,
-        "large_small": "Hòa",
-        "is_triple": false,
-        "page": 1,
-        "process_time": "2026-09-12T21:45:45.942856"
-      },
-      {
-        "date": "2026-09-12",
-        "id": "0186186",
-        "result": [
-          2,
-          6,
-          2
-        ],
-        "total": 10,
-        "large_small": "Hòa",
-        "is_triple": false,
-        "page": 1,
-        "process_time": "2026-09-12T21:45:45.942856"
-      },
-      {
-        "date": "2026-09-12",
-        "id": "0186185",
-        "result": [
-          2,
-          4,
-          3
-        ],
-        "total": 9,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 1,
-        "process_time": "2026-09-12T21:45:45.942856"
-      },
-      {
-        "date": "2026-09-12",
-        "id": "0186184",
-        "result": [
-          4,
-          6,
-          3
-        ],
-        "total": 13,
-        "large_small": "Lớn",
-        "is_triple": false,
-        "page": 2,
-        "process_time": "2026-09-12T21:45:46.258932"
-      },
-      {
-        "date": "2026-09-12",
-        "id": "0186183",
-        "result": [
-          6,
-          6,
-          1
-        ],
-        "total": 13,
-        "large_small": "Lớn",
-        "is_triple": false,
-        "page": 2,
-        "process_time": "2026-09-12T21:45:46.258932"
-      },
-      {
-        "date": "2026-09-12",
-        "id": "0186182",
-        "result": [
-          3,
-          4,
-          2
-        ],
-        "total": 9,
-        "large_small": "Nhỏ",
-        "is_triple": false,
-        "page": 2,
-        "process_time": "2026-09-12T21:45:46.258932"
-      },
-      {
-        "date": "2026-09-12",
-        "id": "0186181",
-        "result": [
-          2,
-          2,
-          2
-        ],
-        "total": 6,
-        "large_small": "Nhỏ",
-        "is_triple": true,
-        "page": 2,
-        "process_time": "2026-09-12T21:45:46.258932"
-      },
-      {
-        "date": "2026-09-12",
-        "id": "0186180",
-        "result": [
-          6,
-          3,
-          4
-        ],
-        "total": 13,
-        "large_small": "Lớn",
-        "is_triple": false,
-        "page": 2,
-        "process_time": "2026-09-12T21:45:46.258932"
-      },
-      {
-        "date": "2026-09-12",
-        "id": "0186179",
-        "result": [
-          3,
-          6,
           5
         ],
         "total": 14,
         "large_small": "Lớn",
         "is_triple": false,
-        "page": 2,
-        "process_time": "2026-09-12T21:45:46.258932"
+        "page": 12,
+        "process_time": "2026-09-14T19:50:10.516644"
       },
       {
-        "date": "2026-09-12",
-        "id": "0186178",
+        "date": "2026-09-14",
+        "id": "0186419",
+        "result": [
+          4,
+          6,
+          5
+        ],
+        "total": 15,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 12,
+        "process_time": "2026-09-14T19:50:10.516644"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186418",
+        "result": [
+          4,
+          3,
+          2
+        ],
+        "total": 9,
+        "large_small": "Nhỏ",
+        "is_triple": false,
+        "page": 12,
+        "process_time": "2026-09-14T19:50:10.516644"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186417",
         "result": [
           1,
-          2,
-          1
+          1,
+          2
         ],
         "total": 4,
         "large_small": "Nhỏ",
         "is_triple": false,
-        "page": 3,
-        "process_time": "2026-09-12T21:45:46.937490"
+        "page": 13,
+        "process_time": "2026-09-14T19:50:10.864555"
       },
       {
-        "date": "2026-09-12",
-        "id": "0186177",
+        "date": "2026-09-14",
+        "id": "0186416",
         "result": [
           1,
+          2,
+          3
+        ],
+        "total": 6,
+        "large_small": "Nhỏ",
+        "is_triple": false,
+        "page": 13,
+        "process_time": "2026-09-14T19:50:10.864555"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186415",
+        "result": [
+          6,
           4,
+          2
+        ],
+        "total": 12,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 13,
+        "process_time": "2026-09-14T19:50:10.864555"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186414",
+        "result": [
+          1,
+          6,
+          6
+        ],
+        "total": 13,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 13,
+        "process_time": "2026-09-14T19:50:10.864555"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186413",
+        "result": [
+          3,
+          4,
+          1
+        ],
+        "total": 8,
+        "large_small": "Nhỏ",
+        "is_triple": false,
+        "page": 13,
+        "process_time": "2026-09-14T19:50:10.864555"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186412",
+        "result": [
+          3,
+          4,
+          5
+        ],
+        "total": 12,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 13,
+        "process_time": "2026-09-14T19:50:10.864555"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186411",
+        "result": [
+          6,
+          6,
           4
+        ],
+        "total": 16,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 14,
+        "process_time": "2026-09-14T19:50:11.172785"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186410",
+        "result": [
+          1,
+          6,
+          3
+        ],
+        "total": 10,
+        "large_small": "Hòa",
+        "is_triple": false,
+        "page": 14,
+        "process_time": "2026-09-14T19:50:11.172785"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186409",
+        "result": [
+          4,
+          2,
+          4
+        ],
+        "total": 10,
+        "large_small": "Hòa",
+        "is_triple": false,
+        "page": 14,
+        "process_time": "2026-09-14T19:50:11.172785"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186408",
+        "result": [
+          1,
+          1,
+          5
+        ],
+        "total": 7,
+        "large_small": "Nhỏ",
+        "is_triple": false,
+        "page": 14,
+        "process_time": "2026-09-14T19:50:11.172785"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186407",
+        "result": [
+          2,
+          1,
+          6
         ],
         "total": 9,
         "large_small": "Nhỏ",
         "is_triple": false,
-        "page": 3,
-        "process_time": "2026-09-12T21:45:46.937490"
+        "page": 14,
+        "process_time": "2026-09-14T19:50:11.172785"
       },
       {
-        "date": "2026-09-12",
-        "id": "0186176",
+        "date": "2026-09-14",
+        "id": "0186406",
         "result": [
-          2,
           6,
+          2,
           5
         ],
         "total": 13,
         "large_small": "Lớn",
         "is_triple": false,
-        "page": 3,
-        "process_time": "2026-09-12T21:45:46.937490"
+        "page": 14,
+        "process_time": "2026-09-14T19:50:11.172785"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186405",
+        "result": [
+          4,
+          2,
+          1
+        ],
+        "total": 7,
+        "large_small": "Nhỏ",
+        "is_triple": false,
+        "page": 15,
+        "process_time": "2026-09-14T19:50:11.477796"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186404",
+        "result": [
+          2,
+          4,
+          2
+        ],
+        "total": 8,
+        "large_small": "Nhỏ",
+        "is_triple": false,
+        "page": 15,
+        "process_time": "2026-09-14T19:50:11.477796"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186403",
+        "result": [
+          5,
+          5,
+          2
+        ],
+        "total": 12,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 15,
+        "process_time": "2026-09-14T19:50:11.477796"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186402",
+        "result": [
+          6,
+          6,
+          6
+        ],
+        "total": 18,
+        "large_small": "Lớn",
+        "is_triple": true,
+        "page": 15,
+        "process_time": "2026-09-14T19:50:11.477796"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186401",
+        "result": [
+          4,
+          5,
+          5
+        ],
+        "total": 14,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 15,
+        "process_time": "2026-09-14T19:50:11.477796"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186400",
+        "result": [
+          5,
+          1,
+          3
+        ],
+        "total": 9,
+        "large_small": "Nhỏ",
+        "is_triple": false,
+        "page": 15,
+        "process_time": "2026-09-14T19:50:11.477796"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186399",
+        "result": [
+          1,
+          4,
+          5
+        ],
+        "total": 10,
+        "large_small": "Hòa",
+        "is_triple": false,
+        "page": 16,
+        "process_time": "2026-09-14T19:50:26.487770"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186398",
+        "result": [
+          6,
+          4,
+          4
+        ],
+        "total": 14,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 16,
+        "process_time": "2026-09-14T19:50:26.487770"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186397",
+        "result": [
+          6,
+          3,
+          4
+        ],
+        "total": 13,
+        "large_small": "Lớn",
+        "is_triple": false,
+        "page": 16,
+        "process_time": "2026-09-14T19:50:26.487770"
+      },
+      {
+        "date": "2026-09-14",
+        "id": "0186396",
+        "result": [
+          1,
+          6,
+          4
+        ],
+        "total": 11,
+        "large_small": "Hòa",
+        "is_triple": false,
+        "page": 16,
+        "process_time": "2026-09-14T19:50:26.487770"
       }
     ],
     "streak_analytics": {
       "roadmap": [
         {
-          "drawId": "0186176",
-          "date": "2026-09-12",
+          "drawId": "0186396",
+          "date": "2026-09-14",
           "result": [
-            2,
+            1,
             6,
-            5
+            4
+          ],
+          "total": 11,
+          "type": "Hòa",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186397",
+          "date": "2026-09-14",
+          "result": [
+            6,
+            3,
+            4
           ],
           "total": 13,
           "type": "Lớn",
           "isTriple": false
         },
         {
-          "drawId": "0186177",
-          "date": "2026-09-12",
+          "drawId": "0186398",
+          "date": "2026-09-14",
+          "result": [
+            6,
+            4,
+            4
+          ],
+          "total": 14,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186399",
+          "date": "2026-09-14",
           "result": [
             1,
             4,
-            4
+            5
+          ],
+          "total": 10,
+          "type": "Hòa",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186400",
+          "date": "2026-09-14",
+          "result": [
+            5,
+            1,
+            3
           ],
           "total": 9,
           "type": "Nhỏ",
           "isTriple": false
         },
         {
-          "drawId": "0186178",
-          "date": "2026-09-12",
+          "drawId": "0186401",
+          "date": "2026-09-14",
           "result": [
-            1,
-            2,
-            1
-          ],
-          "total": 4,
-          "type": "Nhỏ",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186179",
-          "date": "2026-09-12",
-          "result": [
-            3,
-            6,
+            4,
+            5,
             5
           ],
           "total": 14,
@@ -1475,179 +1499,35 @@
           "isTriple": false
         },
         {
-          "drawId": "0186180",
-          "date": "2026-09-12",
+          "drawId": "0186402",
+          "date": "2026-09-14",
           "result": [
             6,
-            3,
-            4
+            6,
+            6
           ],
-          "total": 13,
+          "total": 18,
           "type": "Lớn",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186181",
-          "date": "2026-09-12",
-          "result": [
-            2,
-            2,
-            2
-          ],
-          "total": 6,
-          "type": "Nhỏ",
           "isTriple": true
         },
         {
-          "drawId": "0186182",
-          "date": "2026-09-12",
+          "drawId": "0186403",
+          "date": "2026-09-14",
           "result": [
-            3,
-            4,
+            5,
+            5,
             2
           ],
-          "total": 9,
-          "type": "Nhỏ",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186183",
-          "date": "2026-09-12",
-          "result": [
-            6,
-            6,
-            1
-          ],
-          "total": 13,
+          "total": 12,
           "type": "Lớn",
           "isTriple": false
         },
         {
-          "drawId": "0186184",
-          "date": "2026-09-12",
-          "result": [
-            4,
-            6,
-            3
-          ],
-          "total": 13,
-          "type": "Lớn",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186185",
-          "date": "2026-09-12",
+          "drawId": "0186404",
+          "date": "2026-09-14",
           "result": [
             2,
             4,
-            3
-          ],
-          "total": 9,
-          "type": "Nhỏ",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186186",
-          "date": "2026-09-12",
-          "result": [
-            2,
-            6,
-            2
-          ],
-          "total": 10,
-          "type": "Hòa",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186187",
-          "date": "2026-09-12",
-          "result": [
-            5,
-            2,
-            4
-          ],
-          "total": 11,
-          "type": "Hòa",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186188",
-          "date": "2026-09-12",
-          "result": [
-            3,
-            3,
-            4
-          ],
-          "total": 10,
-          "type": "Hòa",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186189",
-          "date": "2026-09-12",
-          "result": [
-            3,
-            3,
-            4
-          ],
-          "total": 10,
-          "type": "Hòa",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186190",
-          "date": "2026-09-12",
-          "result": [
-            5,
-            1,
-            5
-          ],
-          "total": 11,
-          "type": "Hòa",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186191",
-          "date": "2026-09-12",
-          "result": [
-            5,
-            4,
-            5
-          ],
-          "total": 14,
-          "type": "Lớn",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186192",
-          "date": "2026-09-12",
-          "result": [
-            4,
-            6,
-            4
-          ],
-          "total": 14,
-          "type": "Lớn",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186193",
-          "date": "2026-09-12",
-          "result": [
-            1,
-            2,
-            2
-          ],
-          "total": 5,
-          "type": "Nhỏ",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186194",
-          "date": "2026-09-12",
-          "result": [
-            1,
-            5,
             2
           ],
           "total": 8,
@@ -1655,11 +1535,23 @@
           "isTriple": false
         },
         {
-          "drawId": "0186195",
-          "date": "2026-09-12",
+          "drawId": "0186405",
+          "date": "2026-09-14",
           "result": [
-            5,
-            3,
+            4,
+            2,
+            1
+          ],
+          "total": 7,
+          "type": "Nhỏ",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186406",
+          "date": "2026-09-14",
+          "result": [
+            6,
+            2,
             5
           ],
           "total": 13,
@@ -1667,35 +1559,83 @@
           "isTriple": false
         },
         {
-          "drawId": "0186196",
-          "date": "2026-09-12",
+          "drawId": "0186407",
+          "date": "2026-09-14",
           "result": [
-            5,
-            5,
+            2,
+            1,
             6
+          ],
+          "total": 9,
+          "type": "Nhỏ",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186408",
+          "date": "2026-09-14",
+          "result": [
+            1,
+            1,
+            5
+          ],
+          "total": 7,
+          "type": "Nhỏ",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186409",
+          "date": "2026-09-14",
+          "result": [
+            4,
+            2,
+            4
+          ],
+          "total": 10,
+          "type": "Hòa",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186410",
+          "date": "2026-09-14",
+          "result": [
+            1,
+            6,
+            3
+          ],
+          "total": 10,
+          "type": "Hòa",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186411",
+          "date": "2026-09-14",
+          "result": [
+            6,
+            6,
+            4
           ],
           "total": 16,
           "type": "Lớn",
           "isTriple": false
         },
         {
-          "drawId": "0186197",
-          "date": "2026-09-12",
+          "drawId": "0186412",
+          "date": "2026-09-14",
           "result": [
-            2,
+            3,
             4,
             5
           ],
-          "total": 11,
-          "type": "Hòa",
+          "total": 12,
+          "type": "Lớn",
           "isTriple": false
         },
         {
-          "drawId": "0186198",
-          "date": "2026-09-12",
+          "drawId": "0186413",
+          "date": "2026-09-14",
           "result": [
-            6,
-            1,
+            3,
+            4,
             1
           ],
           "total": 8,
@@ -1703,35 +1643,143 @@
           "isTriple": false
         },
         {
-          "drawId": "0186199",
-          "date": "2026-09-13",
+          "drawId": "0186414",
+          "date": "2026-09-14",
           "result": [
             1,
+            6,
+            6
+          ],
+          "total": 13,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186415",
+          "date": "2026-09-14",
+          "result": [
+            6,
+            4,
+            2
+          ],
+          "total": 12,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186416",
+          "date": "2026-09-14",
+          "result": [
             1,
-            4
+            2,
+            3
           ],
           "total": 6,
           "type": "Nhỏ",
           "isTriple": false
         },
         {
-          "drawId": "0186200",
-          "date": "2026-09-13",
+          "drawId": "0186417",
+          "date": "2026-09-14",
           "result": [
-            3,
             1,
-            4
+            1,
+            2
           ],
-          "total": 8,
+          "total": 4,
           "type": "Nhỏ",
           "isTriple": false
         },
         {
-          "drawId": "0186201",
-          "date": "2026-09-13",
+          "drawId": "0186418",
+          "date": "2026-09-14",
+          "result": [
+            4,
+            3,
+            2
+          ],
+          "total": 9,
+          "type": "Nhỏ",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186419",
+          "date": "2026-09-14",
+          "result": [
+            4,
+            6,
+            5
+          ],
+          "total": 15,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186420",
+          "date": "2026-09-14",
+          "result": [
+            4,
+            5,
+            5
+          ],
+          "total": 14,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186421",
+          "date": "2026-09-14",
+          "result": [
+            2,
+            6,
+            2
+          ],
+          "total": 10,
+          "type": "Hòa",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186422",
+          "date": "2026-09-14",
           "result": [
             5,
-            3,
+            1,
+            5
+          ],
+          "total": 11,
+          "type": "Hòa",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186423",
+          "date": "2026-09-14",
+          "result": [
+            5,
+            2,
+            6
+          ],
+          "total": 13,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186424",
+          "date": "2026-09-14",
+          "result": [
+            2,
+            5,
+            5
+          ],
+          "total": 12,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186425",
+          "date": "2026-09-14",
+          "result": [
+            4,
+            4,
             1
           ],
           "total": 9,
@@ -1739,71 +1787,83 @@
           "isTriple": false
         },
         {
-          "drawId": "0186202",
-          "date": "2026-09-13",
-          "result": [
-            2,
-            5,
-            5
-          ],
-          "total": 12,
-          "type": "Lớn",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186203",
-          "date": "2026-09-13",
+          "drawId": "0186426",
+          "date": "2026-09-14",
           "result": [
             4,
-            6,
-            4
-          ],
-          "total": 14,
-          "type": "Lớn",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186204",
-          "date": "2026-09-13",
-          "result": [
-            6,
-            2,
-            3
-          ],
-          "total": 11,
-          "type": "Hòa",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186205",
-          "date": "2026-09-13",
-          "result": [
-            2,
-            2,
-            5
-          ],
-          "total": 9,
-          "type": "Nhỏ",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186206",
-          "date": "2026-09-13",
-          "result": [
-            2,
-            2,
-            6
+            5,
+            1
           ],
           "total": 10,
           "type": "Hòa",
           "isTriple": false
         },
         {
-          "drawId": "0186207",
-          "date": "2026-09-13",
+          "drawId": "0186427",
+          "date": "2026-09-14",
           "result": [
-            2,
             4,
+            2,
+            4
+          ],
+          "total": 10,
+          "type": "Hòa",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186428",
+          "date": "2026-09-14",
+          "result": [
+            1,
+            1,
+            5
+          ],
+          "total": 7,
+          "type": "Nhỏ",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186429",
+          "date": "2026-09-14",
+          "result": [
+            3,
+            2,
+            3
+          ],
+          "total": 8,
+          "type": "Nhỏ",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186430",
+          "date": "2026-09-14",
+          "result": [
+            6,
+            6,
+            1
+          ],
+          "total": 13,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186431",
+          "date": "2026-09-14",
+          "result": [
+            5,
+            2,
+            5
+          ],
+          "total": 12,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186432",
+          "date": "2026-09-14",
+          "result": [
+            5,
+            1,
             6
           ],
           "total": 12,
@@ -1811,8 +1871,200 @@
           "isTriple": false
         },
         {
-          "drawId": "0186208",
-          "date": "2026-09-13",
+          "drawId": "0186433",
+          "date": "2026-09-14",
+          "result": [
+            6,
+            1,
+            1
+          ],
+          "total": 8,
+          "type": "Nhỏ",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186434",
+          "date": "2026-09-14",
+          "result": [
+            3,
+            2,
+            5
+          ],
+          "total": 10,
+          "type": "Hòa",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186435",
+          "date": "2026-09-14",
+          "result": [
+            1,
+            2,
+            5
+          ],
+          "total": 8,
+          "type": "Nhỏ",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186436",
+          "date": "2026-09-14",
+          "result": [
+            6,
+            5,
+            2
+          ],
+          "total": 13,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186437",
+          "date": "2026-09-14",
+          "result": [
+            6,
+            2,
+            4
+          ],
+          "total": 12,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186438",
+          "date": "2026-09-14",
+          "result": [
+            3,
+            2,
+            6
+          ],
+          "total": 11,
+          "type": "Hòa",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186439",
+          "date": "2026-09-14",
+          "result": [
+            6,
+            4,
+            1
+          ],
+          "total": 11,
+          "type": "Hòa",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186440",
+          "date": "2026-09-14",
+          "result": [
+            2,
+            6,
+            6
+          ],
+          "total": 14,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186441",
+          "date": "2026-09-14",
+          "result": [
+            6,
+            3,
+            6
+          ],
+          "total": 15,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186442",
+          "date": "2026-09-14",
+          "result": [
+            2,
+            6,
+            4
+          ],
+          "total": 12,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186443",
+          "date": "2026-09-14",
+          "result": [
+            4,
+            2,
+            5
+          ],
+          "total": 11,
+          "type": "Hòa",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186444",
+          "date": "2026-09-14",
+          "result": [
+            4,
+            3,
+            6
+          ],
+          "total": 13,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186445",
+          "date": "2026-09-14",
+          "result": [
+            6,
+            4,
+            5
+          ],
+          "total": 15,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186446",
+          "date": "2026-09-14",
+          "result": [
+            2,
+            3,
+            3
+          ],
+          "total": 8,
+          "type": "Nhỏ",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186447",
+          "date": "2026-09-14",
+          "result": [
+            3,
+            1,
+            2
+          ],
+          "total": 6,
+          "type": "Nhỏ",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186448",
+          "date": "2026-09-14",
+          "result": [
+            5,
+            3,
+            2
+          ],
+          "total": 10,
+          "type": "Hòa",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186449",
+          "date": "2026-09-14",
           "result": [
             3,
             6,
@@ -1823,716 +2075,188 @@
           "isTriple": false
         },
         {
-          "drawId": "0186209",
-          "date": "2026-09-13",
+          "drawId": "0186450",
+          "date": "2026-09-14",
           "result": [
-            2,
-            1,
-            2
-          ],
-          "total": 5,
-          "type": "Nhỏ",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186210",
-          "date": "2026-09-13",
-          "result": [
-            1,
-            3,
-            2
-          ],
-          "total": 6,
-          "type": "Nhỏ",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186211",
-          "date": "2026-09-13",
-          "result": [
-            2,
             5,
-            6
-          ],
-          "total": 13,
-          "type": "Lớn",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186212",
-          "date": "2026-09-13",
-          "result": [
-            4,
-            4,
-            5
-          ],
-          "total": 13,
-          "type": "Lớn",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186213",
-          "date": "2026-09-13",
-          "result": [
-            6,
             3,
-            3
-          ],
-          "total": 12,
-          "type": "Lớn",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186214",
-          "date": "2026-09-13",
-          "result": [
-            2,
-            4,
-            4
+            2
           ],
           "total": 10,
           "type": "Hòa",
           "isTriple": false
         },
         {
-          "drawId": "0186215",
-          "date": "2026-09-13",
+          "drawId": "0186451",
+          "date": "2026-09-14",
           "result": [
-            1,
+            6,
             4,
             1
           ],
-          "total": 6,
-          "type": "Nhỏ",
+          "total": 11,
+          "type": "Hòa",
           "isTriple": false
         },
         {
-          "drawId": "0186216",
-          "date": "2026-09-13",
+          "drawId": "0186452",
+          "date": "2026-09-14",
           "result": [
-            2,
-            6,
-            1
+            3,
+            3,
+            3
           ],
           "total": 9,
-          "type": "Nhỏ",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186217",
-          "date": "2026-09-13",
-          "result": [
-            6,
-            5,
-            6
-          ],
-          "total": 17,
-          "type": "Lớn",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186218",
-          "date": "2026-09-13",
-          "result": [
-            2,
-            3,
-            6
-          ],
-          "total": 11,
-          "type": "Hòa",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186219",
-          "date": "2026-09-13",
-          "result": [
-            1,
-            5,
-            5
-          ],
-          "total": 11,
-          "type": "Hòa",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186220",
-          "date": "2026-09-13",
-          "result": [
-            4,
-            5,
-            5
-          ],
-          "total": 14,
-          "type": "Lớn",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186221",
-          "date": "2026-09-13",
-          "result": [
-            5,
-            6,
-            5
-          ],
-          "total": 16,
-          "type": "Lớn",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186222",
-          "date": "2026-09-13",
-          "result": [
-            3,
-            6,
-            5
-          ],
-          "total": 14,
-          "type": "Lớn",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186223",
-          "date": "2026-09-13",
-          "result": [
-            6,
-            2,
-            1
-          ],
-          "total": 9,
-          "type": "Nhỏ",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186224",
-          "date": "2026-09-13",
-          "result": [
-            2,
-            2,
-            1
-          ],
-          "total": 5,
-          "type": "Nhỏ",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186225",
-          "date": "2026-09-13",
-          "result": [
-            6,
-            2,
-            4
-          ],
-          "total": 12,
-          "type": "Lớn",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186226",
-          "date": "2026-09-13",
-          "result": [
-            5,
-            1,
-            2
-          ],
-          "total": 8,
-          "type": "Nhỏ",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186227",
-          "date": "2026-09-13",
-          "result": [
-            2,
-            3,
-            5
-          ],
-          "total": 10,
-          "type": "Hòa",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186228",
-          "date": "2026-09-13",
-          "result": [
-            2,
-            5,
-            5
-          ],
-          "total": 12,
-          "type": "Lớn",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186229",
-          "date": "2026-09-13",
-          "result": [
-            1,
-            2,
-            5
-          ],
-          "total": 8,
-          "type": "Nhỏ",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186230",
-          "date": "2026-09-13",
-          "result": [
-            2,
-            1,
-            6
-          ],
-          "total": 9,
-          "type": "Nhỏ",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186231",
-          "date": "2026-09-13",
-          "result": [
-            3,
-            3,
-            6
-          ],
-          "total": 12,
-          "type": "Lớn",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186232",
-          "date": "2026-09-13",
-          "result": [
-            4,
-            5,
-            5
-          ],
-          "total": 14,
-          "type": "Lớn",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186233",
-          "date": "2026-09-13",
-          "result": [
-            4,
-            5,
-            3
-          ],
-          "total": 12,
-          "type": "Lớn",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186234",
-          "date": "2026-09-13",
-          "result": [
-            1,
-            6,
-            4
-          ],
-          "total": 11,
-          "type": "Hòa",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186235",
-          "date": "2026-09-13",
-          "result": [
-            3,
-            2,
-            2
-          ],
-          "total": 7,
-          "type": "Nhỏ",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186236",
-          "date": "2026-09-13",
-          "result": [
-            5,
-            6,
-            1
-          ],
-          "total": 12,
-          "type": "Lớn",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186237",
-          "date": "2026-09-13",
-          "result": [
-            6,
-            2,
-            6
-          ],
-          "total": 14,
-          "type": "Lớn",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186238",
-          "date": "2026-09-13",
-          "result": [
-            2,
-            1,
-            5
-          ],
-          "total": 8,
-          "type": "Nhỏ",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186239",
-          "date": "2026-09-13",
-          "result": [
-            4,
-            4,
-            5
-          ],
-          "total": 13,
-          "type": "Lớn",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186240",
-          "date": "2026-09-13",
-          "result": [
-            1,
-            4,
-            5
-          ],
-          "total": 10,
-          "type": "Hòa",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186241",
-          "date": "2026-09-13",
-          "result": [
-            4,
-            4,
-            2
-          ],
-          "total": 10,
-          "type": "Hòa",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186242",
-          "date": "2026-09-13",
-          "result": [
-            6,
-            1,
-            1
-          ],
-          "total": 8,
-          "type": "Nhỏ",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186243",
-          "date": "2026-09-13",
-          "result": [
-            4,
-            2,
-            1
-          ],
-          "total": 7,
-          "type": "Nhỏ",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186244",
-          "date": "2026-09-13",
-          "result": [
-            5,
-            6,
-            3
-          ],
-          "total": 14,
-          "type": "Lớn",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186245",
-          "date": "2026-09-13",
-          "result": [
-            4,
-            6,
-            4
-          ],
-          "total": 14,
-          "type": "Lớn",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186246",
-          "date": "2026-09-13",
-          "result": [
-            4,
-            5,
-            1
-          ],
-          "total": 10,
-          "type": "Hòa",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186247",
-          "date": "2026-09-13",
-          "result": [
-            6,
-            6,
-            4
-          ],
-          "total": 16,
-          "type": "Lớn",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186248",
-          "date": "2026-09-13",
-          "result": [
-            3,
-            2,
-            3
-          ],
-          "total": 8,
-          "type": "Nhỏ",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186249",
-          "date": "2026-09-13",
-          "result": [
-            1,
-            4,
-            1
-          ],
-          "total": 6,
-          "type": "Nhỏ",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186250",
-          "date": "2026-09-13",
-          "result": [
-            5,
-            1,
-            5
-          ],
-          "total": 11,
-          "type": "Hòa",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186251",
-          "date": "2026-09-13",
-          "result": [
-            2,
-            5,
-            1
-          ],
-          "total": 8,
-          "type": "Nhỏ",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186252",
-          "date": "2026-09-13",
-          "result": [
-            6,
-            6,
-            5
-          ],
-          "total": 17,
-          "type": "Lớn",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186253",
-          "date": "2026-09-13",
-          "result": [
-            5,
-            6,
-            1
-          ],
-          "total": 12,
-          "type": "Lớn",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186254",
-          "date": "2026-09-13",
-          "result": [
-            3,
-            6,
-            1
-          ],
-          "total": 10,
-          "type": "Hòa",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186255",
-          "date": "2026-09-13",
-          "result": [
-            1,
-            2,
-            3
-          ],
-          "total": 6,
-          "type": "Nhỏ",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186256",
-          "date": "2026-09-13",
-          "result": [
-            5,
-            1,
-            6
-          ],
-          "total": 12,
-          "type": "Lớn",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186257",
-          "date": "2026-09-13",
-          "result": [
-            3,
-            4,
-            1
-          ],
-          "total": 8,
-          "type": "Nhỏ",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186258",
-          "date": "2026-09-13",
-          "result": [
-            1,
-            2,
-            5
-          ],
-          "total": 8,
-          "type": "Nhỏ",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186259",
-          "date": "2026-09-13",
-          "result": [
-            5,
-            3,
-            2
-          ],
-          "total": 10,
-          "type": "Hòa",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186260",
-          "date": "2026-09-13",
-          "result": [
-            3,
-            3,
-            5
-          ],
-          "total": 11,
-          "type": "Hòa",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186261",
-          "date": "2026-09-13",
-          "result": [
-            4,
-            1,
-            5
-          ],
-          "total": 10,
-          "type": "Hòa",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186262",
-          "date": "2026-09-13",
-          "result": [
-            4,
-            2,
-            4
-          ],
-          "total": 10,
-          "type": "Hòa",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186263",
-          "date": "2026-09-13",
-          "result": [
-            2,
-            5,
-            4
-          ],
-          "total": 11,
-          "type": "Hòa",
-          "isTriple": false
-        },
-        {
-          "drawId": "0186264",
-          "date": "2026-09-13",
-          "result": [
-            1,
-            1,
-            1
-          ],
-          "total": 3,
           "type": "Nhỏ",
           "isTriple": true
         },
         {
-          "drawId": "0186265",
-          "date": "2026-09-13",
+          "drawId": "0186453",
+          "date": "2026-09-14",
           "result": [
+            4,
+            6,
+            5
+          ],
+          "total": 15,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186454",
+          "date": "2026-09-14",
+          "result": [
+            3,
             1,
-            2,
-            4
+            3
           ],
           "total": 7,
           "type": "Nhỏ",
           "isTriple": false
         },
         {
-          "drawId": "0186266",
-          "date": "2026-09-13",
+          "drawId": "0186455",
+          "date": "2026-09-14",
           "result": [
+            4,
+            6,
+            4
+          ],
+          "total": 14,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186456",
+          "date": "2026-09-14",
+          "result": [
+            1,
+            2,
+            3
+          ],
+          "total": 6,
+          "type": "Nhỏ",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186457",
+          "date": "2026-09-14",
+          "result": [
+            3,
+            6,
+            4
+          ],
+          "total": 13,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186458",
+          "date": "2026-09-14",
+          "result": [
+            6,
+            4,
+            6
+          ],
+          "total": 16,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186459",
+          "date": "2026-09-14",
+          "result": [
+            1,
             5,
-            5,
-            1
+            5
           ],
           "total": 11,
           "type": "Hòa",
           "isTriple": false
         },
         {
-          "drawId": "0186267",
-          "date": "2026-09-13",
+          "drawId": "0186460",
+          "date": "2026-09-14",
           "result": [
-            3,
             4,
-            2
+            3,
+            4
           ],
-          "total": 9,
-          "type": "Nhỏ",
+          "total": 11,
+          "type": "Hòa",
           "isTriple": false
         },
         {
-          "drawId": "0186268",
-          "date": "2026-09-13",
+          "drawId": "0186461",
+          "date": "2026-09-14",
+          "result": [
+            5,
+            4,
+            6
+          ],
+          "total": 15,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186462",
+          "date": "2026-09-14",
+          "result": [
+            4,
+            3,
+            5
+          ],
+          "total": 12,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186463",
+          "date": "2026-09-14",
+          "result": [
+            4,
+            6,
+            5
+          ],
+          "total": 15,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186464",
+          "date": "2026-09-14",
+          "result": [
+            2,
+            6,
+            2
+          ],
+          "total": 10,
+          "type": "Hòa",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186465",
+          "date": "2026-09-14",
           "result": [
             5,
             1,
@@ -2543,11 +2267,59 @@
           "isTriple": false
         },
         {
-          "drawId": "0186269",
-          "date": "2026-09-13",
+          "drawId": "0186466",
+          "date": "2026-09-14",
+          "result": [
+            6,
+            6,
+            2
+          ],
+          "total": 14,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186467",
+          "date": "2026-09-14",
+          "result": [
+            1,
+            3,
+            5
+          ],
+          "total": 9,
+          "type": "Nhỏ",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186468",
+          "date": "2026-09-14",
           "result": [
             2,
+            3,
+            2
+          ],
+          "total": 7,
+          "type": "Nhỏ",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186469",
+          "date": "2026-09-14",
+          "result": [
+            5,
+            4,
+            5
+          ],
+          "total": 14,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186470",
+          "date": "2026-09-14",
+          "result": [
             1,
+            2,
             5
           ],
           "total": 8,
@@ -2555,103 +2327,330 @@
           "isTriple": false
         },
         {
-          "drawId": "0186270",
-          "date": "2026-09-13",
+          "drawId": "0186471",
+          "date": "2026-09-14",
           "result": [
             1,
             1,
-            2
+            5
+          ],
+          "total": 7,
+          "type": "Nhỏ",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186472",
+          "date": "2026-09-14",
+          "result": [
+            3,
+            1,
+            4
+          ],
+          "total": 8,
+          "type": "Nhỏ",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186473",
+          "date": "2026-09-14",
+          "result": [
+            2,
+            1,
+            1
           ],
           "total": 4,
           "type": "Nhỏ",
           "isTriple": false
         },
         {
-          "drawId": "0186271",
-          "date": "2026-09-13",
+          "drawId": "0186474",
+          "date": "2026-09-14",
           "result": [
-            2,
-            1,
-            4
+            6,
+            3,
+            2
           ],
-          "total": 7,
+          "total": 11,
+          "type": "Hòa",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186475",
+          "date": "2026-09-14",
+          "result": [
+            4,
+            3,
+            2
+          ],
+          "total": 9,
           "type": "Nhỏ",
           "isTriple": false
         },
         {
-          "drawId": "0186272",
-          "date": "2026-09-13",
+          "drawId": "0186476",
+          "date": "2026-09-14",
           "result": [
+            4,
+            5,
+            4
+          ],
+          "total": 13,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186477",
+          "date": "2026-09-14",
+          "result": [
+            5,
+            3,
+            2
+          ],
+          "total": 10,
+          "type": "Hòa",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186478",
+          "date": "2026-09-14",
+          "result": [
+            2,
+            3,
+            3
+          ],
+          "total": 8,
+          "type": "Nhỏ",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186479",
+          "date": "2026-09-14",
+          "result": [
+            2,
             1,
+            1
+          ],
+          "total": 4,
+          "type": "Nhỏ",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186480",
+          "date": "2026-09-14",
+          "result": [
+            3,
+            1,
+            2
+          ],
+          "total": 6,
+          "type": "Nhỏ",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186481",
+          "date": "2026-09-14",
+          "result": [
+            5,
             6,
-            5
+            4
+          ],
+          "total": 15,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186482",
+          "date": "2026-09-14",
+          "result": [
+            6,
+            2,
+            1
+          ],
+          "total": 9,
+          "type": "Nhỏ",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186483",
+          "date": "2026-09-14",
+          "result": [
+            5,
+            4,
+            3
           ],
           "total": 12,
           "type": "Lớn",
           "isTriple": false
         },
         {
-          "drawId": "0186273",
-          "date": "2026-09-13",
+          "drawId": "0186484",
+          "date": "2026-09-14",
           "result": [
-            1,
-            1,
-            1
+            5,
+            4,
+            2
           ],
-          "total": 3,
-          "type": "Nhỏ",
-          "isTriple": true
+          "total": 11,
+          "type": "Hòa",
+          "isTriple": false
         },
         {
-          "drawId": "0186274",
-          "date": "2026-09-13",
+          "drawId": "0186485",
+          "date": "2026-09-14",
+          "result": [
+            3,
+            2,
+            6
+          ],
+          "total": 11,
+          "type": "Hòa",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186486",
+          "date": "2026-09-14",
           "result": [
             6,
-            6,
-            5
+            2,
+            2
           ],
-          "total": 17,
+          "total": 10,
+          "type": "Hòa",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186487",
+          "date": "2026-09-14",
+          "result": [
+            6,
+            4,
+            4
+          ],
+          "total": 14,
           "type": "Lớn",
           "isTriple": false
         },
         {
-          "drawId": "0186275",
-          "date": "2026-09-13",
+          "drawId": "0186488",
+          "date": "2026-09-14",
           "result": [
             1,
             5,
+            5
+          ],
+          "total": 11,
+          "type": "Hòa",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186489",
+          "date": "2026-09-14",
+          "result": [
+            6,
+            6,
+            3
+          ],
+          "total": 15,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186490",
+          "date": "2026-09-14",
+          "result": [
+            2,
+            4,
+            3
+          ],
+          "total": 9,
+          "type": "Nhỏ",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186491",
+          "date": "2026-09-14",
+          "result": [
+            3,
+            1,
             2
           ],
-          "total": 8,
+          "total": 6,
           "type": "Nhỏ",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186492",
+          "date": "2026-09-14",
+          "result": [
+            6,
+            3,
+            5
+          ],
+          "total": 14,
+          "type": "Lớn",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186493",
+          "date": "2026-09-14",
+          "result": [
+            5,
+            3,
+            2
+          ],
+          "total": 10,
+          "type": "Hòa",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186494",
+          "date": "2026-09-14",
+          "result": [
+            4,
+            2,
+            4
+          ],
+          "total": 10,
+          "type": "Hòa",
+          "isTriple": false
+        },
+        {
+          "drawId": "0186495",
+          "date": "2026-09-14",
+          "result": [
+            3,
+            5,
+            6
+          ],
+          "total": 14,
+          "type": "Lớn",
           "isTriple": false
         }
       ],
-      "current_streak_type": "Nhỏ",
+      "current_streak_type": "Lớn",
       "current_streak_len": 1,
-      "break_probability_pct": 50.0,
-      "max_streak_observed": 5,
+      "break_probability_pct": 52.0,
+      "max_streak_observed": 4,
       "streak_distribution": {
-        "1_ky": 28,
-        "2_ky": 22,
-        "3_ky": 3,
-        "4_ky": 1,
-        "5_ky": 3
+        "1_ky": 33,
+        "2_ky": 21,
+        "3_ky": 7,
+        "4_ky": 1
       },
       "transition_matrix": {
         "Lớn": {
-          "Lớn": 41.7,
-          "Nhỏ": 36.1,
-          "Hòa": 22.2
+          "Lớn": 40.0,
+          "Nhỏ": 32.5,
+          "Hòa": 27.5
         },
         "Nhỏ": {
-          "Lớn": 38.5,
-          "Nhỏ": 46.2,
-          "Hòa": 15.4
+          "Lớn": 45.5,
+          "Nhỏ": 39.4,
+          "Hòa": 15.2
         }
       },
-      "total_large": 36,
-      "total_small": 40,
+      "total_large": 41,
+      "total_small": 33,
       "total_draws_analyzed": 100
     },
     "sum_distribution": {
@@ -2665,124 +2664,124 @@
         },
         {
           "sum": 4,
-          "count": 15,
-          "empirical_pct": 1.5,
-          "theoretical_pct": 1.39,
-          "deviation": 0.11
-        },
-        {
-          "sum": 5,
-          "count": 24,
-          "empirical_pct": 2.4,
-          "theoretical_pct": 2.78,
-          "deviation": -0.38
-        },
-        {
-          "sum": 6,
-          "count": 44,
-          "empirical_pct": 4.4,
-          "theoretical_pct": 4.63,
-          "deviation": -0.23
-        },
-        {
-          "sum": 7,
-          "count": 82,
-          "empirical_pct": 8.2,
-          "theoretical_pct": 6.94,
-          "deviation": 1.26
-        },
-        {
-          "sum": 8,
-          "count": 101,
-          "empirical_pct": 10.1,
-          "theoretical_pct": 9.72,
-          "deviation": 0.38
-        },
-        {
-          "sum": 9,
-          "count": 100,
-          "empirical_pct": 10.0,
-          "theoretical_pct": 11.57,
-          "deviation": -1.57
-        },
-        {
-          "sum": 10,
-          "count": 133,
-          "empirical_pct": 13.3,
-          "theoretical_pct": 12.5,
-          "deviation": 0.8
-        },
-        {
-          "sum": 11,
-          "count": 120,
-          "empirical_pct": 12.0,
-          "theoretical_pct": 12.5,
-          "deviation": -0.5
-        },
-        {
-          "sum": 12,
-          "count": 111,
-          "empirical_pct": 11.1,
-          "theoretical_pct": 11.57,
-          "deviation": -0.47
-        },
-        {
-          "sum": 13,
-          "count": 99,
-          "empirical_pct": 9.9,
-          "theoretical_pct": 9.72,
-          "deviation": 0.18
-        },
-        {
-          "sum": 14,
-          "count": 75,
-          "empirical_pct": 7.5,
-          "theoretical_pct": 6.94,
-          "deviation": 0.56
-        },
-        {
-          "sum": 15,
-          "count": 36,
-          "empirical_pct": 3.6,
-          "theoretical_pct": 4.63,
-          "deviation": -1.03
-        },
-        {
-          "sum": 16,
-          "count": 29,
-          "empirical_pct": 2.9,
-          "theoretical_pct": 2.78,
-          "deviation": 0.12
-        },
-        {
-          "sum": 17,
           "count": 16,
           "empirical_pct": 1.6,
           "theoretical_pct": 1.39,
           "deviation": 0.21
         },
         {
+          "sum": 5,
+          "count": 18,
+          "empirical_pct": 1.8,
+          "theoretical_pct": 2.78,
+          "deviation": -0.98
+        },
+        {
+          "sum": 6,
+          "count": 43,
+          "empirical_pct": 4.3,
+          "theoretical_pct": 4.63,
+          "deviation": -0.33
+        },
+        {
+          "sum": 7,
+          "count": 79,
+          "empirical_pct": 7.9,
+          "theoretical_pct": 6.94,
+          "deviation": 0.96
+        },
+        {
+          "sum": 8,
+          "count": 87,
+          "empirical_pct": 8.7,
+          "theoretical_pct": 9.72,
+          "deviation": -1.02
+        },
+        {
+          "sum": 9,
+          "count": 112,
+          "empirical_pct": 11.2,
+          "theoretical_pct": 11.57,
+          "deviation": -0.37
+        },
+        {
+          "sum": 10,
+          "count": 137,
+          "empirical_pct": 13.7,
+          "theoretical_pct": 12.5,
+          "deviation": 1.2
+        },
+        {
+          "sum": 11,
+          "count": 128,
+          "empirical_pct": 12.8,
+          "theoretical_pct": 12.5,
+          "deviation": 0.3
+        },
+        {
+          "sum": 12,
+          "count": 107,
+          "empirical_pct": 10.7,
+          "theoretical_pct": 11.57,
+          "deviation": -0.87
+        },
+        {
+          "sum": 13,
+          "count": 98,
+          "empirical_pct": 9.8,
+          "theoretical_pct": 9.72,
+          "deviation": 0.08
+        },
+        {
+          "sum": 14,
+          "count": 80,
+          "empirical_pct": 8.0,
+          "theoretical_pct": 6.94,
+          "deviation": 1.06
+        },
+        {
+          "sum": 15,
+          "count": 45,
+          "empirical_pct": 4.5,
+          "theoretical_pct": 4.63,
+          "deviation": -0.13
+        },
+        {
+          "sum": 16,
+          "count": 27,
+          "empirical_pct": 2.7,
+          "theoretical_pct": 2.78,
+          "deviation": -0.08
+        },
+        {
+          "sum": 17,
+          "count": 11,
+          "empirical_pct": 1.1,
+          "theoretical_pct": 1.39,
+          "deviation": -0.29
+        },
+        {
           "sum": 18,
-          "count": 10,
-          "empirical_pct": 1.0,
+          "count": 7,
+          "empirical_pct": 0.7,
           "theoretical_pct": 0.46,
-          "deviation": 0.54
+          "deviation": 0.24
         }
       ],
-      "mean_sum": 10.52,
-      "std_sum": 3.01,
+      "mean_sum": 10.56,
+      "std_sum": 2.94,
       "theoretical_mean": 10.5,
       "theoretical_std": 2.96,
       "total_draws_analyzed": 1000,
       "top_hot_sums": [
         10,
         11,
-        12
+        9
       ]
     },
     "storm_radar": {
-      "current_storm_gap": 2,
-      "average_storm_gap": 34.4,
+      "current_storm_gap": 43,
+      "average_storm_gap": 34.5,
       "theoretical_storm_gap": 36.0,
       "hazard_level": {
         "level": "normal",
@@ -2790,21 +2789,61 @@
         "color": "slate",
         "alert": false,
         "badge": "bg-slate-800 text-slate-300 border-slate-700",
-        "rationale": "Số kỳ vắng bóng bão hiện tại là 2 kỳ (dưới chu kỳ trung bình 34.4 kỳ)."
+        "rationale": "Số kỳ vắng bóng bão hiện tại là 43 kỳ (dưới chu kỳ trung bình 34.5 kỳ)."
       },
       "last_storm": {
-        "drawId": "0186273",
-        "date": "2026-09-13",
+        "drawId": "0186452",
+        "date": "2026-09-14",
         "triple": [
-          1,
-          1,
-          1
+          3,
+          3,
+          3
         ],
-        "tripleValue": 1,
-        "gapSincePrevious": 8,
-        "index": 36408
+        "tripleValue": 3,
+        "gapSincePrevious": 49,
+        "index": 36587
       },
       "recent_storms": [
+        {
+          "drawId": "0186452",
+          "date": "2026-09-14",
+          "triple": [
+            3,
+            3,
+            3
+          ],
+          "gap": 49
+        },
+        {
+          "drawId": "0186402",
+          "date": "2026-09-14",
+          "triple": [
+            6,
+            6,
+            6
+          ],
+          "gap": 95
+        },
+        {
+          "drawId": "0186306",
+          "date": "2026-09-13",
+          "triple": [
+            2,
+            2,
+            2
+          ],
+          "gap": 3
+        },
+        {
+          "drawId": "0186302",
+          "date": "2026-09-13",
+          "triple": [
+            1,
+            1,
+            1
+          ],
+          "gap": 28
+        },
         {
           "drawId": "0186273",
           "date": "2026-09-13",
@@ -2814,291 +2853,251 @@
             1
           ],
           "gap": 8
-        },
-        {
-          "drawId": "0186264",
-          "date": "2026-09-13",
-          "triple": [
-            1,
-            1,
-            1
-          ],
-          "gap": 82
-        },
-        {
-          "drawId": "0186181",
-          "date": "2026-09-12",
-          "triple": [
-            2,
-            2,
-            2
-          ],
-          "gap": 55
-        },
-        {
-          "drawId": "0186125",
-          "date": "2026-09-12",
-          "triple": [
-            5,
-            5,
-            5
-          ],
-          "gap": 3
-        },
-        {
-          "drawId": "0186121",
-          "date": "2026-09-12",
-          "triple": [
-            3,
-            3,
-            3
-          ],
-          "gap": 29
         }
       ],
       "triple_counts": {
-        "111": 169,
-        "222": 168,
-        "333": 178,
+        "111": 170,
+        "222": 169,
+        "333": 179,
         "444": 172,
         "555": 185,
-        "666": 156
+        "666": 157
       },
-      "total_storms_found": 1028
+      "total_storms_found": 1032
     },
     "dice_frequencies": {
       "dice_frequencies": [
         {
           "face": 1,
-          "count": 244,
-          "empirical_pct": 16.27,
+          "count": 234,
+          "empirical_pct": 15.6,
           "theoretical_pct": 16.67,
-          "deviation": -0.4,
-          "current_gap": 0,
-          "status": "Bình thường"
-        },
-        {
-          "face": 2,
-          "count": 254,
-          "empirical_pct": 16.93,
-          "theoretical_pct": 16.67,
-          "deviation": 0.26,
-          "current_gap": 0,
-          "status": "Bình thường"
-        },
-        {
-          "face": 3,
-          "count": 244,
-          "empirical_pct": 16.27,
-          "theoretical_pct": 16.67,
-          "deviation": -0.4,
-          "current_gap": 7,
-          "status": "Bình thường"
-        },
-        {
-          "face": 4,
-          "count": 254,
-          "empirical_pct": 16.93,
-          "theoretical_pct": 16.67,
-          "deviation": 0.26,
+          "deviation": -1.07,
           "current_gap": 4,
           "status": "Bình thường"
         },
         {
-          "face": 5,
-          "count": 256,
-          "empirical_pct": 17.07,
+          "face": 2,
+          "count": 268,
+          "empirical_pct": 17.87,
           "theoretical_pct": 16.67,
-          "deviation": 0.4,
+          "deviation": 1.2,
+          "current_gap": 1,
+          "status": "Bình thường"
+        },
+        {
+          "face": 3,
+          "count": 237,
+          "empirical_pct": 15.8,
+          "theoretical_pct": 16.67,
+          "deviation": -0.87,
+          "current_gap": 0,
+          "status": "Bình thường"
+        },
+        {
+          "face": 4,
+          "count": 258,
+          "empirical_pct": 17.2,
+          "theoretical_pct": 16.67,
+          "deviation": 0.53,
+          "current_gap": 1,
+          "status": "Bình thường"
+        },
+        {
+          "face": 5,
+          "count": 252,
+          "empirical_pct": 16.8,
+          "theoretical_pct": 16.67,
+          "deviation": 0.13,
           "current_gap": 0,
           "status": "Bình thường"
         },
         {
           "face": 6,
-          "count": 248,
-          "empirical_pct": 16.53,
+          "count": 251,
+          "empirical_pct": 16.73,
           "theoretical_pct": 16.67,
-          "deviation": -0.14,
-          "current_gap": 1,
+          "deviation": 0.06,
+          "current_gap": 0,
           "status": "Bình thường"
         }
       ],
       "top_pairs": [
         {
           "pair": [
-            1,
-            2
-          ],
-          "count": 81
-        },
-        {
-          "pair": [
-            5,
-            6
-          ],
-          "count": 75
-        },
-        {
-          "pair": [
             2,
-            4
+            3
           ],
-          "count": 75
-        },
-        {
-          "pair": [
-            3,
-            4
-          ],
-          "count": 73
+          "count": 80
         },
         {
           "pair": [
             2,
             6
           ],
-          "count": 73
+          "count": 80
+        },
+        {
+          "pair": [
+            2,
+            5
+          ],
+          "count": 77
+        },
+        {
+          "pair": [
+            2,
+            4
+          ],
+          "count": 76
+        },
+        {
+          "pair": [
+            4,
+            6
+          ],
+          "count": 74
         }
       ],
       "total_draws_analyzed": 500
     },
     "size_distribution": {
-      "Lớn": 376,
-      "Hòa": 253,
-      "Nhỏ": 371
+      "Hòa": 265,
+      "Lớn": 375,
+      "Nhỏ": 360
     },
     "gap_analysis": [
       {
         "number": 1,
-        "current_gap": 0,
-        "max_gap": 11,
-        "avg_gap": 2.5,
-        "appearances": 399,
-        "heat_ratio": 0.0
+        "current_gap": 4,
+        "max_gap": 15,
+        "avg_gap": 2.6,
+        "appearances": 382,
+        "heat_ratio": 1.54
       },
       {
         "number": 2,
-        "current_gap": 0,
+        "current_gap": 1,
         "max_gap": 12,
-        "avg_gap": 2.3,
-        "appearances": 444,
-        "heat_ratio": 0.0
+        "avg_gap": 2.2,
+        "appearances": 456,
+        "heat_ratio": 0.45
       },
       {
         "number": 3,
-        "current_gap": 7,
+        "current_gap": 0,
         "max_gap": 14,
-        "avg_gap": 2.5,
-        "appearances": 406,
-        "heat_ratio": 2.8
+        "avg_gap": 2.4,
+        "appearances": 414,
+        "heat_ratio": 0.0
       },
       {
         "number": 4,
-        "current_gap": 4,
-        "max_gap": 11,
-        "avg_gap": 2.4,
-        "appearances": 412,
-        "heat_ratio": 1.67
+        "current_gap": 1,
+        "max_gap": 9,
+        "avg_gap": 2.3,
+        "appearances": 436,
+        "heat_ratio": 0.43
       },
       {
         "number": 5,
         "current_gap": 0,
         "max_gap": 13,
-        "avg_gap": 2.4,
-        "appearances": 410,
+        "avg_gap": 2.3,
+        "appearances": 426,
         "heat_ratio": 0.0
       },
       {
         "number": 6,
-        "current_gap": 1,
+        "current_gap": 0,
         "max_gap": 15,
-        "avg_gap": 2.4,
-        "appearances": 417,
-        "heat_ratio": 0.42
+        "avg_gap": 2.5,
+        "appearances": 406,
+        "heat_ratio": 0.0
       }
     ],
     "dice_frequency": [
       {
         "number": 1,
-        "count": 244
+        "count": 234
       },
       {
         "number": 2,
-        "count": 254
+        "count": 268
       },
       {
         "number": 3,
-        "count": 244
+        "count": 237
       },
       {
         "number": 4,
-        "count": 254
+        "count": 258
       },
       {
         "number": 5,
-        "count": 256
+        "count": 252
       },
       {
         "number": 6,
-        "count": 248
+        "count": 251
       }
     ],
     "prediction_hub": {
-      "target_draw_id": "#0186276",
+      "target_draw_id": "#0186496",
       "large_small_prediction": {
         "predicted_choice": "Lớn",
-        "confidence_pct": 62.4,
-        "strategy_name": "Bám Nhịp Cầu Nhảy 1-1 (Alternation)",
-        "current_streak_type": "Nhỏ",
+        "confidence_pct": 58.0,
+        "strategy_name": "Bám Cầu Bệt (Momentum)",
+        "current_streak_type": "Lớn",
         "current_streak_len": 1,
         "elastic_bounce_signal": false,
         "tie_escape_signal": false,
-        "alternation_signal": true,
-        "hedge_recommendation": "Đánh Lớn (Theo nhịp đảo 1-1 [62.4%])",
-        "rationale": "Thế trận đang vận hành theo nhịp Cầu Nhảy 1-1 (chiếm 62.4% các chuỗi trong lịch sử). Kỳ trước ra Nhỏ -> Dự báo kỳ này đảo sang Lớn."
+        "alternation_signal": false,
+        "hedge_recommendation": "Đánh Lớn (Bám cầu bệt 1 kỳ)",
+        "rationale": "Nhịp cầu Lớn đang trong pha quán tính thuận lợi (1 kỳ liên tiếp). Khuyến nghị bám cầu theo xu hướng tiếp diễn."
       },
       "single_face_prediction": {
-        "best_face": 3,
-        "expected_hit_prob_pct": 48.0,
-        "current_gap": 7,
-        "historical_deviation": -5.0,
-        "rationale": "Mặt xúc xắc 3 đang có nhịp gan 7 kỳ (chu kỳ trung bình 2.4 kỳ). Xác suất xuất hiện ít nhất 1 lần trong 3 con xúc xắc kỳ này ước lượng đạt 48.0%."
+        "best_face": 1,
+        "expected_hit_prob_pct": 44.5,
+        "current_gap": 4,
+        "historical_deviation": -2.34,
+        "rationale": "Mặt xúc xắc 1 đang có nhịp gan 4 kỳ (chu kỳ trung bình 2.4 kỳ). Xác suất xuất hiện ít nhất 1 lần trong 3 con xúc xắc kỳ này ước lượng đạt 44.5%."
       },
       "two_faces_prediction": {
         "best_pair": [
-          3,
+          1,
           4
         ],
         "expected_hit_prob_pct": 68.6,
         "individual_faces": [
           {
-            "face": 3,
-            "gap": 7,
-            "deviation": -5.0
+            "face": 1,
+            "gap": 4,
+            "deviation": -2.34
           },
           {
             "face": 4,
-            "gap": 4,
-            "deviation": -1.0
+            "gap": 1,
+            "deviation": 0.66
           }
         ],
         "strategy_name": "Song Thủ 2 Mặt Xúc Xắc (+EV Vượt Trội)",
-        "rationale": "Cặp Song Thủ (3, 4) đang có nhịp rơi và độ lệch hồi quy tối ưu nhất. Xác suất xuất hiện ít nhất một mặt trong 3 con xúc xắc thực nghiệm đạt 68.6% (gấp 1.8 lần so với đánh cửa Lớn/Nhỏ thông thường)."
+        "rationale": "Cặp Song Thủ (1, 4) đang có nhịp rơi và độ lệch hồi quy tối ưu nhất. Xác suất xuất hiện ít nhất một mặt trong 3 con xúc xắc thực nghiệm đạt 68.6% (gấp 1.8 lần so với đánh cửa Lớn/Nhỏ thông thường)."
       },
       "target_sum_prediction": {
         "target_range": [
           8,
           13
         ],
-        "best_single_sum": 11,
+        "best_single_sum": 10,
         "range_probability_pct": 68.0,
-        "rationale": "Kỳ trước tổng nổ thấp (8). Lực đàn hồi Gaussian kéo tổng giật về tâm đối xứng 11."
+        "rationale": "Kỳ trước tổng nổ cao (14). Lực hồi quy kéo tổng rơi vào vùng trung tâm 10."
       },
       "storm_trigger": {
         "is_hunting_active": false,
         "status": "Bình Thường (Chu kỳ an toàn)",
-        "current_storm_gap": 2,
-        "average_gap": 34.4,
+        "current_storm_gap": 43,
+        "average_gap": 34.5,
         "action_recommendation": "Tạm dừng săn bão, tập trung đánh Song Thủ và Lớn/Nhỏ",
         "payout_multiplier": "1 ăn 32 / 1 ăn 120",
         "recommended_triples": [
@@ -3106,19 +3105,19 @@
           "222",
           "111"
         ],
-        "rationale": "Bão vừa nổ gần đây (2 kỳ trước). Chu kỳ hiện tại hoàn toàn bình thường."
+        "rationale": "Bão vừa nổ gần đây (43 kỳ trước). Chu kỳ hiện tại hoàn toàn bình thường."
       }
     },
     "walk_forward_evaluation": {
       "evaluated_draws": 100,
-      "large_small_hits": 33,
-      "large_small_accuracy_pct": 33.0,
-      "single_face_hits": 42,
-      "single_face_hit_rate_pct": 42.0,
-      "two_faces_hits": 68,
-      "two_faces_hit_rate_pct": 68.0,
-      "target_range_hits": 66,
-      "target_range_hit_rate_pct": 66.0
+      "large_small_hits": 32,
+      "large_small_accuracy_pct": 32.0,
+      "single_face_hits": 35,
+      "single_face_hit_rate_pct": 35.0,
+      "two_faces_hits": 72,
+      "two_faces_hit_rate_pct": 72.0,
+      "target_range_hits": 64,
+      "target_range_hit_rate_pct": 64.0
     }
   }
 }
