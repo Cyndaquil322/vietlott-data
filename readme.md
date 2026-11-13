@@ -63,9 +63,7 @@
 - **Daily cost**: 200,000 VND
 - **Results with 5+ matches**:
 
-| date       | result                      | predicted               |
-|:-----------|:----------------------------|:------------------------|
-| 2023-10-07 | [4, 13, 36, 40, 43, 52, 34] | [13, 22, 52, 34, 40, 4] |
+No significant matches found in backtest period.
 
 
 
